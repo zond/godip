@@ -17,7 +17,9 @@ go test
 To run the tests against the real human played games:
 
 ```
-cd classical/droidippy
+cd classical/droidippy/games
+tar xvf games.tar.bz2
+cd ..
 go test
 ```
 
