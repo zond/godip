@@ -31,7 +31,7 @@ func Orders() (result []dip.Order) {
 type MultiError []error
 
 func (self MultiError) Error() string {
-	return fmt.Sprint(self)
+	return fmt.Sprint([]error(self))
 }
 
 func ParseAll(orders map[dip.Nation]map[dip.Province][]string) (result map[dip.Province]dip.Adjudicator, err error) {
