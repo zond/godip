@@ -50,7 +50,6 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	return
 }
 
 func start(w http.ResponseWriter, r *http.Request) {
@@ -72,7 +71,6 @@ func start(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	return
 }
 
 func listVariants(w http.ResponseWriter, r *http.Request) {
@@ -82,7 +80,6 @@ func listVariants(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	return
 }
 
 func init() {
