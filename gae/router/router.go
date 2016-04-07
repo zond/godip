@@ -12,6 +12,16 @@ import (
 	dip "github.com/zond/godip/common"
 )
 
+func corsHeaders(w http.ResponseWriter) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
+}
+
+func preflight(w http.ResponseWriter, r *http.Request) {
+	corsHeaders(w)
+}
+
 type phase struct {
 	Season        dip.Season
 	Year          int
@@ -66,6 +76,7 @@ func (self *phase) state(variant variants.Variant) (*state.State, error) {
 }
 
 func resolve(w http.ResponseWriter, r *http.Request) {
+	corsHeaders(w)
 	variantName := mux.Vars(r)["variant"]
 	variant, found := variants.Variants[variantName]
 	if !found {
@@ -96,6 +107,7 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 }
 
 func start(w http.ResponseWriter, r *http.Request) {
+	corsHeaders(w)
 	variantName := mux.Vars(r)["variant"]
 	variant, found := variants.Variants[variantName]
 	if !found {
@@ -125,6 +137,7 @@ func listVariants(w http.ResponseWriter, r *http.Request) {
 
 func init() {
 	r := mux.NewRouter()
+	r.Methods("OPTIONS").HandlerFunc(preflight)
 	variants := r.Path("/{variant}").Subrouter()
 	variants.Methods("POST").HandlerFunc(resolve)
 	variants.Methods("GET").HandlerFunc(start)
