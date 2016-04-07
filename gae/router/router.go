@@ -46,10 +46,7 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 	// Load the new godip phase from the state
 	nextPhase := gae.NewPhase(state)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	if err = json.NewEncoder(w).Encode(nextPhase); err != nil {
-		return
-	}
-	return
+	return json.NewEncoder(w).Encode(nextPhase)
 }
 
 func start(w http.ResponseWriter, r *http.Request) {
@@ -67,10 +64,7 @@ func start(w http.ResponseWriter, r *http.Request) {
 	}
 	phase := gae.NewPhase(state)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	if err = json.NewEncoder(w).Encode(phase); err != nil {
-		return
-	}
-	return
+	return json.NewEncoder(w).Encode(phase)
 }
 
 func listVariants(w http.ResponseWriter, r *http.Request) {
