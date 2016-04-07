@@ -6,11 +6,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/zond/godip/classical"
-	"github.com/zond/godip/classical/orders"
 	"github.com/zond/godip/state"
-
-	"appengine"
+	"github.com/zond/godip/variants"
 
 	dip "github.com/zond/godip/common"
 )
@@ -49,12 +46,12 @@ func newPhase(state *state.State) *phase {
 	return p
 }
 
-func (self *phase) state(c appengine.Context) (*state.State, error) {
-	parsedOrders, err := orders.ParseAll(self.Orders)
+func (self *phase) state(variant variants.Variant) (*state.State, error) {
+	parsedOrders, err := variant.ParseOrders(self.Orders)
 	if err != nil {
 		return nil, err
 	}
-	return classical.Blank(classical.Phase(
+	return variant.Blank(variant.Phase(
 		self.Year,
 		self.Season,
 		self.Type,
@@ -69,13 +66,18 @@ func (self *phase) state(c appengine.Context) (*state.State, error) {
 }
 
 func resolve(w http.ResponseWriter, r *http.Request) {
-	c := appengine.NewContext(r)
+	variantName := mux.Vars(r)["variant"]
+	variant, found := variants.Variants[variantName]
+	if !found {
+		http.Error(w, fmt.Sprintf("Variant %q not found", variantName), 404)
+		return
+	}
 	p := &phase{}
 	if err := json.NewDecoder(r.Body).Decode(p); err != nil {
 		http.Error(w, err.Error(), 400)
 		return
 	}
-	state, err := p.state(c)
+	state, err := p.state(variant)
 	if err != nil {
 		http.Error(w, err.Error(), 400)
 		return
@@ -94,7 +96,13 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 }
 
 func start(w http.ResponseWriter, r *http.Request) {
-	state, err := classical.Start()
+	variantName := mux.Vars(r)["variant"]
+	variant, found := variants.Variants[variantName]
+	if !found {
+		http.Error(w, fmt.Sprintf("Variant %q not found", variantName), 404)
+		return
+	}
+	state, err := variant.Start()
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -108,16 +116,18 @@ func start(w http.ResponseWriter, r *http.Request) {
 }
 
 func listVariants(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, `	
-/classical
-`)
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	if err := json.NewEncoder(w).Encode(variants.Variants); err != nil {
+		return
+	}
+	return
 }
 
 func init() {
 	r := mux.NewRouter()
-	classical := r.Path("/classical").Subrouter()
-	classical.Methods("POST").HandlerFunc(resolve)
-	classical.Methods("GET").HandlerFunc(start)
+	variants := r.Path("/{variant}").Subrouter()
+	variants.Methods("POST").HandlerFunc(resolve)
+	variants.Methods("GET").HandlerFunc(start)
 	r.Path("/").HandlerFunc(listVariants)
 	http.Handle("/", r)
 }
