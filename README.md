@@ -35,7 +35,9 @@ env SKIP=game_xxxx.txt go test
 http://godip-adjudication.appspot.com/ hosts a free public adjudicator based on godip.
 
 `GET http://godip-adjudication.appspot.com/` lists JSON for all supported variants.
+
 `GET http://godip-adjudication.appspot.com/{variant name}` lists JSON for a starting map for the named variant.
+
 `POST http://godip-adjudication.appspot.com/{variant name}` expects the body to be JSON matching a state previously provided by the corresponding `GET` URL but with populated orders.
 
 See https://github.com/zond/godip/tree/master/gae for exact implementation details.
