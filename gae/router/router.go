@@ -128,6 +128,7 @@ func start(w http.ResponseWriter, r *http.Request) {
 }
 
 func listVariants(w http.ResponseWriter, r *http.Request) {
+	corsHeaders(w)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	if err := json.NewEncoder(w).Encode(variants.Variants); err != nil {
 		return
