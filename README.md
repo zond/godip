@@ -38,7 +38,7 @@ http://godip-adjudication.appspot.com/ hosts a free public adjudicator based on 
 
 `GET http://godip-adjudication.appspot.com/{variant name}` lists JSON for a starting map for the named variant.
 
-`POST http://godip-adjudication.appspot.com/{variant name}` expects the body to be JSON matching a state previously provided by the corresponding `GET` URL but with populated orders.
+`POST http://godip-adjudication.appspot.com/{variant name}` expects the body to be JSON matching a state previously provided by the corresponding `GET` URL but with populated orders, and returns the next state JSON.
 
 See https://github.com/zond/godip/tree/master/gae for exact implementation details.
 
