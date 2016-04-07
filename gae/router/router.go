@@ -2,6 +2,7 @@ package router
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -25,6 +26,27 @@ type phase struct {
 	Dislodgers    map[dip.Province]dip.Province
 	Bounces       map[dip.Province]map[dip.Province]bool
 	Resolutions   map[dip.Province]string
+}
+
+func newPhase(state *state.State) *phase {
+	currentPhase := state.Phase()
+	p := &phase{
+		Orders:      map[dip.Nation]map[dip.Province][]string{},
+		Resolutions: map[dip.Province]string{},
+		Season:      currentPhase.Season(),
+		Year:        currentPhase.Year(),
+		Type:        currentPhase.Type(),
+	}
+	var resolutions map[dip.Province]error
+	p.Units, p.SupplyCenters, p.Dislodgeds, p.Dislodgers, p.Bounces, resolutions = state.Dump()
+	for prov, err := range resolutions {
+		if err == nil {
+			p.Resolutions[prov] = "OK"
+		} else {
+			p.Resolutions[prov] = err.Error()
+		}
+	}
+	return p
 }
 
 func (self *phase) state(c appengine.Context) (*state.State, error) {
@@ -63,25 +85,7 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// Load the new godip phase from the state
-	nextDipPhase := state.Phase()
-	// Create a diplicity phase for the new phase
-	nextPhase := &phase{
-		Orders:      map[dip.Nation]map[dip.Province][]string{},
-		Resolutions: map[dip.Province]string{},
-		Season:      nextDipPhase.Season(),
-		Year:        nextDipPhase.Year(),
-		Type:        nextDipPhase.Type(),
-	}
-	// Set the new phase positions
-	var resolutions map[dip.Province]error
-	nextPhase.Units, nextPhase.SupplyCenters, nextPhase.Dislodgeds, nextPhase.Dislodgers, nextPhase.Bounces, resolutions = state.Dump()
-	for prov, err := range resolutions {
-		if err == nil {
-			nextPhase.Resolutions[prov] = "OK"
-		} else {
-			nextPhase.Resolutions[prov] = err.Error()
-		}
-	}
+	nextPhase := newPhase(state)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	if err = json.NewEncoder(w).Encode(nextPhase); err != nil {
 		return
@@ -89,8 +93,31 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
+func start(w http.ResponseWriter, r *http.Request) {
+	state, err := classical.Start()
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	phase := newPhase(state)
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	if err = json.NewEncoder(w).Encode(phase); err != nil {
+		return
+	}
+	return
+}
+
+func listVariants(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, `	
+/classical
+`)
+}
+
 func init() {
 	r := mux.NewRouter()
-	r.Path("/").HandlerFunc(resolve)
+	classical := r.Path("/classical").Subrouter()
+	classical.Methods("POST").HandlerFunc(resolve)
+	classical.Methods("GET").HandlerFunc(start)
+	r.Path("/").HandlerFunc(listVariants)
 	http.Handle("/", r)
 }
