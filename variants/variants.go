@@ -14,20 +14,34 @@ const (
 	FleetRome = "Fleet Rome"
 )
 
+// Variant defines a dippy variant supported by godip.
 type Variant struct {
-	Name        string
-	Start       func() (*state.State, error)                                                             `json:"-"`
-	BlankStart  func() (*state.State, error)                                                             `json:"-"`
-	Blank       func(dip.Phase) *state.State                                                             `json:"-"`
-	Phase       func(int, dip.Season, dip.PhaseType) dip.Phase                                           `json:"-"`
+	// Name is the display name and key for this variant.
+	Name string
+	// Start returns a state with the correct graph, units, phase and supply centers for starting this variant.
+	Start func() (*state.State, error) `json:"-"`
+	// BlankStart returns a state with the correct graph, phase and supply centers for starting this variant.
+	BlankStart func() (*state.State, error) `json:"-"`
+	// Blank returns a state with the correct graph and the provided phase for this variant.
+	Blank func(dip.Phase) *state.State `json:"-"`
+	// Phase returns a phase with the provided year, season and phase type for this variant.
+	Phase func(int, dip.Season, dip.PhaseType) dip.Phase `json:"-"`
+	// ParserOrders parses a map of orders.
 	ParseOrders func(map[dip.Nation]map[dip.Province][]string) (map[dip.Province]dip.Adjudicator, error) `json:"-"`
-	ParseOrder  func([]string) (dip.Adjudicator, error)                                                  `json:"-"`
-	Graph       dip.Graph
-	Nations     []dip.Nation
-	PhaseTypes  []dip.PhaseType
-	Seasons     []dip.Season
-	UnitTypes   []dip.UnitType
-	OrderTypes  []dip.OrderType
+	// ParseOrder parses a single tokenized order.
+	ParseOrder func([]string) (dip.Adjudicator, error) `json:"-"`
+	// Graph is the graph for this variant.
+	Graph dip.Graph `json:"-"`
+	// Nations are the nations playing this variant.
+	Nations []dip.Nation
+	// PhaseTypes are the phase types the phases of this variant have.
+	PhaseTypes []dip.PhaseType
+	// Seasons are the seasons the phases of this variant have.
+	Seasons []dip.Season
+	// UnitTypes are the types the units of this variant have.
+	UnitTypes []dip.UnitType
+	// OrderTypes are the types the orders of this variant have.
+	OrderTypes []dip.OrderType
 }
 
 func init() {
