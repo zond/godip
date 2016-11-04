@@ -2,11 +2,12 @@ package variants
 
 import (
 	"github.com/zond/godip/classical"
-	cla "github.com/zond/godip/classical/common"
 	"github.com/zond/godip/classical/orders"
 	"github.com/zond/godip/classical/start"
-	dip "github.com/zond/godip/common"
 	"github.com/zond/godip/state"
+
+	cla "github.com/zond/godip/classical/common"
+	dip "github.com/zond/godip/common"
 )
 
 const (

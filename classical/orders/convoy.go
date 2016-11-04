@@ -100,41 +100,42 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 	return
 }
 
-func (self *convoy) Validate(v dip.Validator) error {
+func (self *convoy) Validate(v dip.Validator) (dip.Nation, error) {
 	if v.Phase().Type() != cla.Movement {
-		return cla.ErrInvalidPhase
+		return "", cla.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {
-		return cla.ErrInvalidSource
+		return "", cla.ErrInvalidSource
 	}
 	if !v.Graph().Has(self.targets[1]) {
-		return cla.ErrInvalidTarget
+		return "", cla.ErrInvalidTarget
 	}
 	if !v.Graph().Has(self.targets[2]) {
-		return cla.ErrInvalidTarget
+		return "", cla.ErrInvalidTarget
 	}
 	for _, src := range v.Graph().Coasts(self.targets[0]) {
 		if v.Graph().Flags(src)[cla.Land] {
-			return cla.ErrIllegalConvoyPath
+			return "", cla.ErrIllegalConvoyPath
 		}
 	}
 	var convoyer dip.Unit
 	var ok bool
-	if convoyer, self.targets[0], ok = v.Unit(self.targets[0]); !ok {
-		return cla.ErrMissingUnit
+	convoyer, self.targets[0], ok = v.Unit(self.targets[0])
+	if !ok {
+		return "", cla.ErrMissingUnit
 	} else if convoyer.Type != cla.Fleet {
-		return cla.ErrIllegalConvoyer
+		return "", cla.ErrIllegalConvoyer
 	}
 	var convoyee dip.Unit
 	if convoyee, self.targets[1], ok = v.Unit(self.targets[1]); !ok {
-		return cla.ErrMissingConvoyee
+		return "", cla.ErrMissingConvoyee
 	} else if convoyee.Type != cla.Army {
-		return cla.ErrIllegalConvoyee
+		return "", cla.ErrIllegalConvoyee
 	}
 	if cla.AnyConvoyPath(v, self.targets[1], self.targets[2], false, nil) == nil {
-		return cla.ErrIllegalConvoyMove
+		return "", cla.ErrIllegalConvoyMove
 	}
-	return nil
+	return convoyer.Nation, nil
 }
 
 func (self *convoy) Execute(state dip.State) {

@@ -68,30 +68,32 @@ func (self *disband) Adjudicate(r dip.Resolver) error {
 	return self.adjudicateRetreatPhase(r)
 }
 
-func (self *disband) validateRetreatPhase(v dip.Validator) error {
+func (self *disband) validateRetreatPhase(v dip.Validator) (dip.Nation, error) {
 	if !v.Graph().Has(self.targets[0]) {
-		return cla.ErrInvalidTarget
+		return "", cla.ErrInvalidTarget
 	}
 	var ok bool
-	if _, self.targets[0], ok = v.Dislodged(self.targets[0]); !ok {
-		return cla.ErrMissingUnit
+	var dislodged dip.Unit
+	dislodged, self.targets[0], ok = v.Dislodged(self.targets[0])
+	if !ok {
+		return "", cla.ErrMissingUnit
 	}
-	return nil
+	return dislodged.Nation, nil
 }
 
-func (self *disband) validateBuildPhase(v dip.Validator) error {
+func (self *disband) validateBuildPhase(v dip.Validator) (dip.Nation, error) {
 	if !v.Graph().Has(self.targets[0]) {
-		return cla.ErrInvalidTarget
+		return "", cla.ErrInvalidTarget
 	}
 	var unit dip.Unit
 	var ok bool
 	if unit, self.targets[0], ok = v.Unit(self.targets[0]); !ok {
-		return cla.ErrMissingUnit
+		return "", cla.ErrMissingUnit
 	}
 	if _, _, balance := cla.AdjustmentStatus(v, unit.Nation); balance > -1 {
-		return cla.ErrMissingDeficit
+		return "", cla.ErrMissingDeficit
 	}
-	return nil
+	return unit.Nation, nil
 }
 
 func (self *disband) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
@@ -121,13 +123,13 @@ func (self *disband) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 	return
 }
 
-func (self *disband) Validate(v dip.Validator) error {
+func (self *disband) Validate(v dip.Validator) (dip.Nation, error) {
 	if v.Phase().Type() == cla.Adjustment {
 		return self.validateBuildPhase(v)
 	} else if v.Phase().Type() == cla.Retreat {
 		return self.validateRetreatPhase(v)
 	}
-	return cla.ErrInvalidPhase
+	return "", cla.ErrInvalidPhase
 }
 
 func (self *disband) Execute(state dip.State) {

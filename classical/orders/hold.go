@@ -65,18 +65,20 @@ func (self *hold) Options(v dip.Validator, nation dip.Nation, src dip.Province) 
 	return
 }
 
-func (self *hold) Validate(v dip.Validator) error {
+func (self *hold) Validate(v dip.Validator) (dip.Nation, error) {
 	if v.Phase().Type() != cla.Movement {
-		return cla.ErrInvalidPhase
+		return "", cla.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {
-		return cla.ErrInvalidTarget
+		return "", cla.ErrInvalidTarget
 	}
 	var ok bool
-	if _, self.targets[0], ok = v.Unit(self.targets[0]); !ok {
-		return cla.ErrMissingUnit
+	var unit dip.Unit
+	unit, self.targets[0], ok = v.Unit(self.targets[0])
+	if !ok {
+		return "", cla.ErrMissingUnit
 	}
-	return nil
+	return unit.Nation, nil
 }
 
 func (self *hold) Execute(state dip.State) {

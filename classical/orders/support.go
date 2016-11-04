@@ -131,41 +131,41 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 	return
 }
 
-func (self *support) Validate(v dip.Validator) error {
+func (self *support) Validate(v dip.Validator) (dip.Nation, error) {
 	if v.Phase().Type() != cla.Movement {
-		return cla.ErrInvalidPhase
+		return "", cla.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {
-		return cla.ErrInvalidSource
+		return "", cla.ErrInvalidSource
 	}
 	if !v.Graph().Has(self.targets[1]) {
-		return cla.ErrInvalidTarget
+		return "", cla.ErrInvalidTarget
 	}
 	var ok bool
 	var unit, supported dip.Unit
 	if unit, self.targets[0], ok = v.Unit(self.targets[0]); !ok {
-		return cla.ErrMissingUnit
+		return "", cla.ErrMissingUnit
 	}
 	if supported, self.targets[1], ok = v.Unit(self.targets[1]); !ok {
-		return cla.ErrMissingSupportUnit
+		return "", cla.ErrMissingSupportUnit
 	}
 	if len(self.targets) == 2 {
 		if err := cla.AnySupportPossible(v, unit.Type, self.targets[0], self.targets[1]); err != nil {
-			return cla.ErrIllegalSupportPosition
+			return "", cla.ErrIllegalSupportPosition
 		}
 	} else {
 		if !v.Graph().Has(self.targets[2]) {
-			return cla.ErrInvalidTarget
+			return "", cla.ErrInvalidTarget
 		}
 		if err := cla.AnySupportPossible(v, unit.Type, self.targets[0], self.targets[2]); err != nil {
-			return cla.ErrIllegalSupportDestination
+			return "", cla.ErrIllegalSupportDestination
 		}
 
 		if _, err := cla.AnyMovePossible(v, supported.Type, self.targets[1], self.targets[2], true, true, false); err != nil {
-			return cla.ErrIllegalSupportMove
+			return "", cla.ErrIllegalSupportMove
 		}
 	}
-	return nil
+	return unit.Nation, nil
 }
 
 func (self *support) Execute(state dip.State) {

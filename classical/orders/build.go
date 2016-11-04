@@ -122,47 +122,48 @@ func (self *build) Options(v dip.Validator, nation dip.Nation, src dip.Province)
 	return
 }
 
-func (self *build) Validate(v dip.Validator) error {
+func (self *build) Validate(v dip.Validator) (dip.Nation, error) {
 	// right phase type
 	if v.Phase().Type() != cla.Adjustment {
-		return cla.ErrInvalidPhase
+		return "", cla.ErrInvalidPhase
 	}
 	// does someone own this
 	var me dip.Nation
 	var ok bool
 	if me, _, ok = v.SupplyCenter(self.targets[0]); !ok {
-		return cla.ErrMissingSupplyCenter
+		return "", cla.ErrMissingSupplyCenter
 	}
 	// is there a home sc here
-	if owner := v.Graph().SC(self.targets[0].Super()); owner == nil {
-		return fmt.Errorf("Should be SOME owner of %v", self.targets[0])
+	owner := v.Graph().SC(self.targets[0].Super())
+	if owner == nil {
+		return "", fmt.Errorf("Should be SOME owner of %v", self.targets[0])
 	} else if *owner != me {
-		return cla.ErrHostileSupplyCenter
+		return "", cla.ErrHostileSupplyCenter
 	}
 	// is there a unit here
 	if _, _, ok := v.Unit(self.targets[0]); ok {
-		return cla.ErrOccupiedSupplyCenter
+		return "", cla.ErrOccupiedSupplyCenter
 	}
 	// is there another build order here
 	for _, prov := range v.Graph().Coasts(self.targets[0]) {
 		if other, foundProv, ok := v.Order(prov); ok && foundProv == prov && other != self {
-			return cla.ErrDoubleBuild{
+			return "", cla.ErrDoubleBuild{
 				Provinces: []dip.Province{prov, foundProv},
 			}
 		}
 	}
 	// can i build
 	if _, _, balance := cla.AdjustmentStatus(v, me); balance < 1 {
-		return cla.ErrMissingSurplus
+		return "", cla.ErrMissingSurplus
 	}
 	// can i build THIS here
 	if self.typ == cla.Army && !v.Graph().Flags(self.targets[0])[cla.Land] {
-		return cla.ErrIllegalUnitType
+		return "", cla.ErrIllegalUnitType
 	}
 	if self.typ == cla.Fleet && !v.Graph().Flags(self.targets[0])[cla.Sea] {
-		return cla.ErrIllegalUnitType
+		return "", cla.ErrIllegalUnitType
 	}
-	return nil
+	return *owner, nil
 }
 
 func (self *build) Execute(state dip.State) {

@@ -4,21 +4,25 @@ import (
 	"os"
 	"reflect"
 	"testing"
+	"time"
 
-	cla "github.com/zond/godip/classical/common"
 	"github.com/zond/godip/classical/orders"
-	dip "github.com/zond/godip/common"
 	"github.com/zond/godip/datc"
 	"github.com/zond/godip/state"
+
+	cla "github.com/zond/godip/classical/common"
+	dip "github.com/zond/godip/common"
 )
 
 func init() {
 	dip.Debug = true
 }
 
-func assertOrderValidity(t *testing.T, validator dip.Validator, order dip.Order, err error) {
-	if e := order.Validate(validator); e != err {
+func assertOrderValidity(t *testing.T, validator dip.Validator, order dip.Order, nat dip.Nation, err error) {
+	if gotNat, e := order.Validate(validator); e != err {
 		t.Errorf("%v should validate to %v, but got %v", order, err, e)
+	} else if gotNat != nat {
+		t.Errorf("%v should validate with %q as issuer, but got %q", order, nat, gotNat)
 	}
 }
 
@@ -63,54 +67,102 @@ func startState(t *testing.T) *state.State {
 func TestSupportValidation(t *testing.T) {
 	judge := startState(t)
 	// Happy paths
-	assertOrderValidity(t, judge, orders.SupportMove("bre", "par", "gas"), nil)
-	assertOrderValidity(t, judge, orders.SupportHold("par", "bre"), nil)
-	assertOrderValidity(t, judge, orders.SupportMove("par", "bre", "gas"), nil)
+	assertOrderValidity(t, judge, orders.SupportMove("bre", "par", "gas"), cla.France, nil)
+	assertOrderValidity(t, judge, orders.SupportHold("par", "bre"), cla.France, nil)
+	assertOrderValidity(t, judge, orders.SupportMove("par", "bre", "gas"), cla.France, nil)
 	judge.SetUnit("spa/sc", dip.Unit{cla.Fleet, cla.France})
 	judge.SetUnit("por", dip.Unit{cla.Fleet, cla.France})
 	judge.SetUnit("gol", dip.Unit{cla.Fleet, cla.France})
-	assertOrderValidity(t, judge, orders.SupportMove("spa/sc", "por", "mid"), nil)
-	assertOrderValidity(t, judge, orders.SupportMove("gol", "mar", "spa"), nil)
+	assertOrderValidity(t, judge, orders.SupportMove("spa/sc", "por", "mid"), cla.France, nil)
+	assertOrderValidity(t, judge, orders.SupportMove("gol", "mar", "spa"), cla.France, nil)
 	// Missing unit
-	assertOrderValidity(t, judge, orders.SupportMove("ruh", "kie", "hol"), cla.ErrMissingUnit)
+	assertOrderValidity(t, judge, orders.SupportMove("ruh", "kie", "hol"), "", cla.ErrMissingUnit)
 	// Missing supportee
-	assertOrderValidity(t, judge, orders.SupportHold("ber", "sil"), cla.ErrMissingSupportUnit)
+	assertOrderValidity(t, judge, orders.SupportHold("ber", "sil"), "", cla.ErrMissingSupportUnit)
 	// Illegal support
-	assertOrderValidity(t, judge, orders.SupportHold("bre", "par"), cla.ErrIllegalSupportPosition)
-	assertOrderValidity(t, judge, orders.SupportMove("mar", "spa/nc", "por"), cla.ErrIllegalSupportDestination)
+	assertOrderValidity(t, judge, orders.SupportHold("bre", "par"), "", cla.ErrIllegalSupportPosition)
+	assertOrderValidity(t, judge, orders.SupportMove("mar", "spa/nc", "por"), "", cla.ErrIllegalSupportDestination)
 	judge.RemoveUnit("spa/sc")
 	judge.SetUnit("spa/nc", dip.Unit{cla.Fleet, cla.France})
-	assertOrderValidity(t, judge, orders.SupportMove("spa/nc", "mar", "gol"), cla.ErrIllegalSupportDestination)
+	assertOrderValidity(t, judge, orders.SupportMove("spa/nc", "mar", "gol"), "", cla.ErrIllegalSupportDestination)
 	// Illegal moves
-	assertOrderValidity(t, judge, orders.SupportMove("mar", "spa/nc", "bur"), cla.ErrIllegalSupportMove)
+	assertOrderValidity(t, judge, orders.SupportMove("mar", "spa/nc", "bur"), "", cla.ErrIllegalSupportMove)
+}
+
+func TestConvoyValidation(t *testing.T) {
+	judge := startState(t)
+	judge.SetUnit("nth", dip.Unit{cla.Fleet, cla.France})
+	judge.RemoveUnit("lon")
+	judge.SetUnit("lon", dip.Unit{cla.Army, cla.England})
+	assertOrderValidity(t, judge, orders.Convoy("nth", "lon", "nwy"), cla.France, nil)
+}
+
+func TestHoldValidation(t *testing.T) {
+	judge := startState(t)
+	assertOrderValidity(t, judge, orders.Hold("par"), cla.France, nil)
+}
+
+func TestBuildValidation(t *testing.T) {
+	judge := startState(t)
+	judge.RemoveUnit("par")
+	judge.SetUnit("spa", dip.Unit{cla.Army, cla.France})
+	judge.Next()
+	judge.Next()
+	judge.Next()
+	judge.Next()
+	assertOrderValidity(t, judge, orders.Build("par", cla.Army, time.Now()), cla.France, nil)
+}
+
+func TestDisbandValidation(t *testing.T) {
+	judge := startState(t)
+	judge.SetUnit("pic", dip.Unit{cla.Army, cla.Germany})
+	judge.SetUnit("bur", dip.Unit{cla.Army, cla.Germany})
+	judge.SetOrder("bur", orders.Move("bur", "par"))
+	judge.SetOrder("pic", orders.SupportMove("pic", "bur", "par"))
+	judge.Next()
+	// Disband after dislodge
+	assertOrderValidity(t, judge, orders.Disband("par", time.Now()), cla.France, nil)
+	judge.Next()
+	judge.SetUnit("bur", dip.Unit{cla.Army, cla.France})
+	judge.Next()
+	judge.Next()
+	// Disband after SC deficit
+	assertOrderValidity(t, judge, orders.Disband("bur", time.Now()), cla.France, nil)
 }
 
 func TestMoveValidation(t *testing.T) {
 	judge := startState(t)
 	// Happy path fleet
-	assertOrderValidity(t, judge, orders.Move("bre", "mid"), nil)
+	assertOrderValidity(t, judge, orders.Move("bre", "mid"), cla.France, nil)
 	// Happy path army
-	assertOrderValidity(t, judge, orders.Move("mun", "ruh"), nil)
+	assertOrderValidity(t, judge, orders.Move("mun", "ruh"), cla.Germany, nil)
 	// Too far
-	assertOrderValidity(t, judge, orders.Move("bre", "wes"), cla.ErrIllegalMove)
+	assertOrderValidity(t, judge, orders.Move("bre", "wes"), "", cla.ErrIllegalMove)
 	// Fleet on land
-	assertOrderValidity(t, judge, orders.Move("bre", "par"), cla.ErrIllegalDestination)
+	assertOrderValidity(t, judge, orders.Move("bre", "par"), "", cla.ErrIllegalDestination)
 	// Army at sea
-	assertOrderValidity(t, judge, orders.Move("smy", "eas"), cla.ErrIllegalDestination)
+	assertOrderValidity(t, judge, orders.Move("smy", "eas"), "", cla.ErrIllegalDestination)
 	// Unknown source
-	assertOrderValidity(t, judge, orders.Move("a", "mid"), cla.ErrInvalidSource)
+	assertOrderValidity(t, judge, orders.Move("a", "mid"), "", cla.ErrInvalidSource)
 	// Unknown destination
-	assertOrderValidity(t, judge, orders.Move("bre", "a"), cla.ErrInvalidDestination)
+	assertOrderValidity(t, judge, orders.Move("bre", "a"), "", cla.ErrInvalidDestination)
 	// Missing sea path
-	assertOrderValidity(t, judge, orders.Move("par", "mos"), cla.ErrMissingConvoyPath)
+	assertOrderValidity(t, judge, orders.Move("par", "mos"), "", cla.ErrMissingConvoyPath)
 	// No unit
-	assertOrderValidity(t, judge, orders.Move("spa", "por"), cla.ErrMissingUnit)
+	assertOrderValidity(t, judge, orders.Move("spa", "por"), "", cla.ErrMissingUnit)
 	// Working convoy
 	judge.SetUnit("eng", dip.Unit{cla.Fleet, cla.England})
 	judge.SetUnit("wal", dip.Unit{cla.Army, cla.England})
-	assertOrderValidity(t, judge, orders.Move("wal", "bre"), nil)
+	assertOrderValidity(t, judge, orders.Move("wal", "bre"), cla.England, nil)
 	// Missing convoy
-	assertOrderValidity(t, judge, orders.Move("wal", "gas"), cla.ErrMissingConvoyPath)
+	assertOrderValidity(t, judge, orders.Move("wal", "gas"), "", cla.ErrMissingConvoyPath)
+
+	judge.SetUnit("pic", dip.Unit{cla.Army, cla.Germany})
+	judge.SetUnit("bur", dip.Unit{cla.Army, cla.Germany})
+	judge.SetOrder("bur", orders.Move("bur", "par"))
+	judge.SetOrder("pic", orders.SupportMove("pic", "bur", "par"))
+	judge.Next()
+	assertOrderValidity(t, judge, orders.Move("par", "gas"), cla.France, nil)
 }
 
 func TestMoveAdjudication(t *testing.T) {

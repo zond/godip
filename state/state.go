@@ -148,7 +148,7 @@ func (self *State) Next() (err error) {
 	*/
 	self.resolutions = make(map[common.Province]error)
 	for prov, order := range self.orders {
-		if err := order.Validate(self); err != nil {
+		if _, err := order.Validate(self); err != nil {
 			self.resolutions[prov] = err
 			delete(self.orders, prov)
 			common.Logf("Deleted %v due to %v", prov, err)

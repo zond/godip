@@ -195,63 +195,63 @@ func (self *move) adjudicateMovementPhase(r dip.Resolver) error {
 	return nil
 }
 
-func (self *move) Validate(v dip.Validator) error {
+func (self *move) Validate(v dip.Validator) (dip.Nation, error) {
 	if v.Phase().Type() == cla.Movement {
 		return self.validateMovementPhase(v)
 	} else if v.Phase().Type() == cla.Retreat {
 		return self.validateRetreatPhase(v)
 	}
-	return cla.ErrInvalidPhase
+	return "", cla.ErrInvalidPhase
 }
 
-func (self *move) validateRetreatPhase(v dip.Validator) error {
+func (self *move) validateRetreatPhase(v dip.Validator) (dip.Nation, error) {
 	if !v.Graph().Has(self.targets[0]) {
-		return cla.ErrInvalidSource
+		return "", cla.ErrInvalidSource
 	}
 	if !v.Graph().Has(self.targets[1]) {
-		return cla.ErrInvalidDestination
+		return "", cla.ErrInvalidDestination
 	}
 	if self.targets[0] == self.targets[1] {
-		return cla.ErrIllegalMove
+		return "", cla.ErrIllegalMove
 	}
 	var unit dip.Unit
 	var ok bool
 	if unit, self.targets[0], ok = v.Dislodged(self.targets[0]); !ok {
-		return cla.ErrMissingUnit
+		return "", cla.ErrMissingUnit
 	}
 	var err error
 	if self.targets[1], err = cla.AnyMovePossible(v, unit.Type, self.targets[0], self.targets[1], unit.Type == cla.Army, false, false); err != nil {
-		return cla.ErrIllegalMove
+		return "", cla.ErrIllegalMove
 	}
 	if _, _, ok := v.Unit(self.targets[1]); ok {
-		return cla.ErrIllegalRetreat
+		return "", cla.ErrIllegalRetreat
 	}
 	if v.Bounce(self.targets[0], self.targets[1]) {
-		return cla.ErrIllegalRetreat
+		return "", cla.ErrIllegalRetreat
 	}
-	return nil
+	return unit.Nation, nil
 }
 
-func (self *move) validateMovementPhase(v dip.Validator) error {
+func (self *move) validateMovementPhase(v dip.Validator) (dip.Nation, error) {
 	if !v.Graph().Has(self.targets[0]) {
-		return cla.ErrInvalidSource
+		return "", cla.ErrInvalidSource
 	}
 	if !v.Graph().Has(self.targets[1]) {
-		return cla.ErrInvalidDestination
+		return "", cla.ErrInvalidDestination
 	}
 	if self.targets[0] == self.targets[1] {
-		return cla.ErrIllegalMove
+		return "", cla.ErrIllegalMove
 	}
 	var unit dip.Unit
 	var ok bool
 	if unit, self.targets[0], ok = v.Unit(self.targets[0]); !ok {
-		return cla.ErrMissingUnit
+		return "", cla.ErrMissingUnit
 	}
 	var err error
 	if self.targets[1], err = cla.AnyMovePossible(v, unit.Type, self.targets[0], self.targets[1], unit.Type == cla.Army, true, false); err != nil {
-		return err
+		return "", err
 	}
-	return nil
+	return unit.Nation, nil
 }
 
 func (self *move) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {

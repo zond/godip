@@ -1,14 +1,21 @@
 package state
 
 import (
-	"github.com/zond/godip/common"
-	"github.com/zond/godip/graph"
 	"testing"
 	"time"
+
+	"github.com/zond/godip/common"
+	"github.com/zond/godip/graph"
 )
 
 type testOrder int
 
+func (self testOrder) Options(v common.Validator, nation common.Nation, src common.Province) (result common.Options) {
+	return nil
+}
+func (self testOrder) DisplayType() common.OrderType {
+	return ""
+}
 func (self testOrder) Type() common.OrderType {
 	return ""
 }
@@ -24,8 +31,8 @@ func (self testOrder) Targets() []common.Province {
 func (self testOrder) Adjudicate(common.Resolver) error {
 	return nil
 }
-func (self testOrder) Validate(common.Validator) error {
-	return nil
+func (self testOrder) Validate(common.Validator) (common.Nation, error) {
+	return "", nil
 }
 func (self testOrder) Execute(common.State) {
 }
