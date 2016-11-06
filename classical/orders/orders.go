@@ -15,7 +15,7 @@ var generators []func() dip.Order
 func OrderTypes() (result []dip.OrderType) {
 	result = make([]dip.OrderType, len(generators))
 	for index, gen := range generators {
-		result[index] = gen().Type()
+		result[index] = gen().DisplayType()
 	}
 	return
 }
