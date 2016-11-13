@@ -43,6 +43,8 @@ type Variant struct {
 	UnitTypes []dip.UnitType
 	// OrderTypes are the types the orders of this variant have.
 	OrderTypes []dip.OrderType
+	// Number of SCs required to solo.
+	SoloSupplyCenters int
 }
 
 func init() {
@@ -62,15 +64,16 @@ var OrderedVariants = []Variant{
 			result = classical.Blank(classical.Phase(1900, cla.Fall, cla.Adjustment))
 			return
 		},
-		ParseOrders: orders.ParseAll,
-		ParseOrder:  orders.Parse,
-		Graph:       start.Graph(),
-		Phase:       classical.Phase,
-		OrderTypes:  orders.OrderTypes(),
-		Nations:     cla.Nations,
-		PhaseTypes:  cla.PhaseTypes,
-		Seasons:     cla.Seasons,
-		UnitTypes:   cla.UnitTypes,
+		ParseOrders:       orders.ParseAll,
+		ParseOrder:        orders.Parse,
+		Graph:             start.Graph(),
+		Phase:             classical.Phase,
+		OrderTypes:        orders.OrderTypes(),
+		Nations:           cla.Nations,
+		PhaseTypes:        cla.PhaseTypes,
+		Seasons:           cla.Seasons,
+		UnitTypes:         cla.UnitTypes,
+		SoloSupplyCenters: 18,
 	},
 	Variant{
 		Name:  FleetRome,
@@ -88,14 +91,15 @@ var OrderedVariants = []Variant{
 			}
 			return
 		},
-		Blank:       classical.Blank,
-		Phase:       classical.Phase,
-		ParseOrders: orders.ParseAll,
-		ParseOrder:  orders.Parse,
-		OrderTypes:  orders.OrderTypes(),
-		Nations:     cla.Nations,
-		PhaseTypes:  cla.PhaseTypes,
-		Seasons:     cla.Seasons,
-		UnitTypes:   cla.UnitTypes,
+		Blank:             classical.Blank,
+		Phase:             classical.Phase,
+		ParseOrders:       orders.ParseAll,
+		ParseOrder:        orders.Parse,
+		OrderTypes:        orders.OrderTypes(),
+		Nations:           cla.Nations,
+		PhaseTypes:        cla.PhaseTypes,
+		Seasons:           cla.Seasons,
+		UnitTypes:         cla.UnitTypes,
+		SoloSupplyCenters: 18,
 	},
 }
