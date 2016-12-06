@@ -45,6 +45,8 @@ type Variant struct {
 	OrderTypes []dip.OrderType
 	// Number of SCs required to solo.
 	SoloSupplyCenters int
+	// SVG representing the variant map graphics.
+	Map func() ([]byte, error)
 }
 
 func init() {
@@ -74,6 +76,9 @@ var OrderedVariants = []Variant{
 		Seasons:           cla.Seasons,
 		UnitTypes:         cla.UnitTypes,
 		SoloSupplyCenters: 18,
+		Map: func() ([]byte, error) {
+			return classical.Asset("map/map.svg")
+		},
 	},
 	Variant{
 		Name:  FleetRome,
@@ -101,5 +106,8 @@ var OrderedVariants = []Variant{
 		Seasons:           cla.Seasons,
 		UnitTypes:         cla.UnitTypes,
 		SoloSupplyCenters: 18,
+		Map: func() ([]byte, error) {
+			return classical.Asset("map/map.svg")
+		},
 	},
 }
