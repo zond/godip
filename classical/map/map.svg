@@ -29,7 +29,7 @@
       
 			@font-face {
 			font-family: Droid Serif;
-			src: url('/img/DroidSerif-Regular.ttf');
+			src: url('DroidSerif-Regular.ttf');
 			}
       
    </style> 
