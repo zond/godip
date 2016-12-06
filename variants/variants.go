@@ -46,7 +46,7 @@ type Variant struct {
 	// Number of SCs required to solo.
 	SoloSupplyCenters int
 	// SVG representing the variant map graphics.
-	Map func() ([]byte, error)
+	Map func() ([]byte, error) `json:"-"`
 }
 
 func init() {
