@@ -147,6 +147,7 @@ type Graph interface {
 	Edges(src Province) map[Province]map[Flag]bool
 	SCs(Nation) []Province
 	Provinces() []Province
+	SuperProvinces(sc bool) []Province
 }
 
 type Orders []Order
