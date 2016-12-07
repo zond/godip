@@ -46,7 +46,9 @@ type Variant struct {
 	// Number of SCs required to solo.
 	SoloSupplyCenters int
 	// SVG representing the variant map graphics.
-	Map func() ([]byte, error) `json:"-"`
+	SVGMap func() ([]byte, error) `json:"-"`
+	// SVG representing the variant units.
+	SVGUnits map[dip.UnitType]func() ([]byte, error) `json:"-"`
 }
 
 func init() {
@@ -76,8 +78,16 @@ var OrderedVariants = []Variant{
 		Seasons:           cla.Seasons,
 		UnitTypes:         cla.UnitTypes,
 		SoloSupplyCenters: 18,
-		Map: func() ([]byte, error) {
-			return classical.Asset("map/map.svg")
+		SVGMap: func() ([]byte, error) {
+			return classical.Asset("svg/map.svg")
+		},
+		SVGUnits: map[dip.UnitType]func() ([]byte, error){
+			cla.Army: func() ([]byte, error) {
+				return classical.Asset("svg/army.svg")
+			},
+			cla.Fleet: func() ([]byte, error) {
+				return classical.Asset("svg/fleet.svg")
+			},
 		},
 	},
 	Variant{
@@ -106,8 +116,16 @@ var OrderedVariants = []Variant{
 		Seasons:           cla.Seasons,
 		UnitTypes:         cla.UnitTypes,
 		SoloSupplyCenters: 18,
-		Map: func() ([]byte, error) {
-			return classical.Asset("map/map.svg")
+		SVGMap: func() ([]byte, error) {
+			return classical.Asset("svg/map.svg")
+		},
+		SVGUnits: map[dip.UnitType]func() ([]byte, error){
+			cla.Army: func() ([]byte, error) {
+				return classical.Asset("svg/army.svg")
+			},
+			cla.Fleet: func() ([]byte, error) {
+				return classical.Asset("svg/fleet.svg")
+			},
 		},
 	},
 }
