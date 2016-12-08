@@ -23,16 +23,6 @@
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs11608">
-    <style
-   type="text/css"
-   id="style4421"> 
-      
-			@font-face {
-			font-family: Droid Serif;
-			src: url('/img/DroidSerif-Regular.ttf');
-			}
-      
-   </style> 
 	 <pattern
    id="stripes"
    patternUnits="userSpaceOnUse"
