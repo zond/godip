@@ -74,16 +74,6 @@ func (self *Graph) SCs(n common.Nation) (result []common.Province) {
 	return
 }
 
-func (self *Graph) SuperProvinces(sc bool) []common.Province {
-	result := []common.Province{}
-	for _, node := range self.Nodes {
-		if (sc && node.SC != nil) || (!sc && node.SC == nil) {
-			result = append(result, node.Name)
-		}
-	}
-	return result
-}
-
 func (self *Graph) Edges(n common.Province) (result map[common.Province]map[common.Flag]bool) {
 	result = map[common.Province]map[common.Flag]bool{}
 	for p, edge := range self.edges(n) {

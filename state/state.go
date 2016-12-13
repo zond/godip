@@ -97,17 +97,19 @@ func (self *State) Graph() common.Graph {
 func (self *State) Options(orders []common.Order, nation common.Nation) (result common.Options) {
 	result = common.Options{}
 	for _, prov := range self.graph.Provinces() {
-		for _, order := range orders {
-			before := time.Now()
-			opts := order.Options(self, nation, prov)
-			self.Profile(string(order.DisplayType())+".Options", before)
-			if len(opts) > 0 {
-				provOpts, found := result[prov]
-				if !found {
-					provOpts = common.Options{}
-					result[prov] = provOpts
+		if prov.Super() == prov {
+			for _, order := range orders {
+				before := time.Now()
+				opts := order.Options(self, nation, prov)
+				self.Profile(string(order.DisplayType())+".Options", before)
+				if len(opts) > 0 {
+					provOpts, found := result[prov]
+					if !found {
+						provOpts = common.Options{}
+						result[prov] = provOpts
+					}
+					provOpts[order.DisplayType()] = opts
 				}
-				provOpts[order.DisplayType()] = opts
 			}
 		}
 	}

@@ -2,9 +2,10 @@ package common
 
 import (
 	"fmt"
-	. "github.com/zond/godip/common"
 	"sort"
 	"time"
+
+	. "github.com/zond/godip/common"
 )
 
 const (
@@ -235,7 +236,7 @@ func PossibleMoves(v Validator, src Province, allowConvoy, dislodged bool) (resu
 	} else {
 		unit, realSrc, found = v.Unit(src)
 	}
-	if found {
+	if found && src == realSrc {
 		if unit.Type == Army && !allowConvoy {
 			for dst, flags := range v.Graph().Edges(realSrc) {
 				if flags[Land] && v.Graph().Flags(dst)[Land] {
