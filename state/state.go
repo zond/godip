@@ -162,8 +162,10 @@ func (self *State) Next() (err error) {
 	*/
 	for prov, _ := range self.units {
 		if _, ok := self.orders[prov]; !ok {
-			if def := self.phase.DefaultOrder(prov); def != nil {
-				self.orders[prov] = def
+			if _, ok := self.orders[prov.Super()]; !ok {
+				if def := self.phase.DefaultOrder(prov); def != nil {
+					self.orders[prov] = def
+				}
 			}
 		}
 	}
