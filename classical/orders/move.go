@@ -255,6 +255,9 @@ func (self *move) validateMovementPhase(v dip.Validator) (dip.Nation, error) {
 }
 
 func (self *move) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
+	if src.Super() != src {
+		return
+	}
 	if v.Phase().Type() == cla.Retreat {
 		if !self.flags[cla.ViaConvoy] {
 			if v.Graph().Has(src) {
@@ -266,10 +269,10 @@ func (self *move) Options(v dip.Validator, nation dip.Nation, src dip.Province) 
 									if result == nil {
 										result = dip.Options{}
 									}
-									if result[dip.SrcProvince(actualSrc.Super())] == nil {
-										result[dip.SrcProvince(actualSrc.Super())] = dip.Options{}
+									if result[dip.SrcProvince(actualSrc)] == nil {
+										result[dip.SrcProvince(actualSrc)] = dip.Options{}
 									}
-									result[dip.SrcProvince(actualSrc.Super())][dst] = nil
+									result[dip.SrcProvince(actualSrc)][dst] = nil
 								}
 							}
 						}
@@ -287,19 +290,19 @@ func (self *move) Options(v dip.Validator, nation dip.Nation, src dip.Province) 
 								if result == nil {
 									result = dip.Options{}
 								}
-								if result[dip.SrcProvince(actualSrc.Super())] == nil {
-									result[dip.SrcProvince(actualSrc.Super())] = dip.Options{}
+								if result[dip.SrcProvince(actualSrc)] == nil {
+									result[dip.SrcProvince(actualSrc)] = dip.Options{}
 								}
-								result[dip.SrcProvince(actualSrc.Super())][dst] = nil
+								result[dip.SrcProvince(actualSrc)][dst] = nil
 							} else {
 								if cp := cla.AnyConvoyPath(v, src, dst, false, nil); len(cp) > 1 {
 									if result == nil {
 										result = dip.Options{}
 									}
-									if result[dip.SrcProvince(actualSrc.Super())] == nil {
-										result[dip.SrcProvince(actualSrc.Super())] = dip.Options{}
+									if result[dip.SrcProvince(actualSrc)] == nil {
+										result[dip.SrcProvince(actualSrc)] = dip.Options{}
 									}
-									result[dip.SrcProvince(actualSrc.Super())][dst] = nil
+									result[dip.SrcProvince(actualSrc)][dst] = nil
 								}
 							}
 						}

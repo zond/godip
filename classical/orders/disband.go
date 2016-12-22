@@ -97,6 +97,9 @@ func (self *disband) validateBuildPhase(v dip.Validator) (dip.Nation, error) {
 }
 
 func (self *disband) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
+	if src.Super() != src {
+		return
+	}
 	if v.Phase().Type() == cla.Adjustment {
 		if v.Graph().Has(src) {
 			if unit, actualSrc, ok := v.Unit(src); ok {

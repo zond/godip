@@ -21,6 +21,10 @@ type phase struct {
 	typ    dip.PhaseType
 }
 
+func (self *phase) String() string {
+	return fmt.Sprintf("%s %d, %s", self.season, self.year, self.typ)
+}
+
 func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
 	return s.Options(orders.Orders(), nation)
 }

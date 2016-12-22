@@ -86,6 +86,9 @@ func (self *support) Adjudicate(r dip.Resolver) error {
 }
 
 func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
+	if src.Super() != src {
+		return
+	}
 	if v.Phase().Type() == cla.Movement {
 		if v.Graph().Has(src) {
 			if supporter, actualSrc, ok := v.Unit(src); ok {
