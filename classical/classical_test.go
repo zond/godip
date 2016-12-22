@@ -1,6 +1,8 @@
 package classical
 
 import (
+	"encoding/json"
+	"fmt"
 	"os"
 	"reflect"
 	"testing"
@@ -313,4 +315,78 @@ func TestDATC(t *testing.T) {
 	assertDATC(t, "datc/droidippy_errors.txt")
 	assertDATC(t, "datc/dipai.txt")
 	assertDATC(t, "datc/real.txt")
+}
+
+func hasOptHelper(opts map[string]interface{}, order []string, originalOpts map[string]interface{}, originalOrder []string) error {
+	if len(order) == 0 {
+		return nil
+	}
+	if len(opts) == 1 && len(opts[originalOrder[0]].(map[string]interface{})) > 0 && opts[originalOrder[0]].(map[string]interface{})["Type"] == "SrcProvince" {
+		return hasOptHelper(opts[originalOrder[0]].(map[string]interface{})["Next"].(map[string]interface{}), order, originalOpts, originalOrder)
+	}
+	if _, found := opts[order[0]]; !found {
+		b, err := json.MarshalIndent(originalOpts, "  ", "  ")
+		if err != nil {
+			return err
+		}
+		b2, err := json.MarshalIndent(opts, "  ", "  ")
+		if err != nil {
+			return err
+		}
+		return fmt.Errorf("Got no option for %+v in %s, failed at %+v in %s, wanted it!", originalOrder, b, order, b2)
+	}
+	return hasOptHelper(opts[order[0]].(map[string]interface{})["Next"].(map[string]interface{}), order[1:], originalOpts, originalOrder)
+}
+
+func hasOpt(opts dip.Options, order []string) error {
+	b, err := json.MarshalIndent(opts, "  ", "  ")
+	if err != nil {
+		return err
+	}
+	converted := map[string]interface{}{}
+	if err := json.Unmarshal(b, &converted); err != nil {
+		return err
+	}
+	return hasOptHelper(converted, order, converted, order)
+}
+
+func assertOpt(t *testing.T, opts dip.Options, order []string) {
+	err := hasOpt(opts, order)
+	if err != nil {
+		t.Error(err)
+	}
+}
+
+func assertNoOpt(t *testing.T, opts dip.Options, order []string) {
+	err := hasOpt(opts, order)
+	if err == nil {
+		t.Errorf("Found option for %+v in %v, didn't want it", order, opts)
+	}
+}
+
+func TestSTPOptionsAtStart(t *testing.T) {
+	judge := startState(t)
+	opts := judge.Phase().Options(judge, cla.Russia)
+	assertNoOpt(t, opts, []string{"stp/nc"})
+	assertNoOpt(t, opts, []string{"stp/sc"})
+	assertOpt(t, opts, []string{"stp", "Move", "lvn"})
+	assertOpt(t, opts, []string{"stp", "Move", "bot"})
+	assertOpt(t, opts, []string{"stp", "Move", "fin"})
+	assertNoOpt(t, opts, []string{"stp", "Convoy"})
+}
+
+func TestBULOptions(t *testing.T) {
+	judge := startState(t)
+	opts := judge.Phase().Options(judge, cla.Turkey)
+	assertNoOpt(t, opts, []string{"con", "Move", "bul/sc"})
+	assertNoOpt(t, opts, []string{"con", "Move", "bul/ec"})
+	assertOpt(t, opts, []string{"con", "Move", "bul"})
+	judge.SetOrder("con", orders.Move("con", "bul"))
+	judge.Next()
+	judge.Next()
+	opts = judge.Phase().Options(judge, cla.Turkey)
+	assertNoOpt(t, opts, []string{"bul/sc"})
+	assertNoOpt(t, opts, []string{"bul/ec"})
+	assertOpt(t, opts, []string{"bul", "Move", "rum"})
+	assertOpt(t, opts, []string{"bul", "Move", "gre"})
 }

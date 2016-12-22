@@ -266,10 +266,10 @@ func (self *move) Options(v dip.Validator, nation dip.Nation, src dip.Province) 
 									if result == nil {
 										result = dip.Options{}
 									}
-									if result[dip.SrcProvince(actualSrc)] == nil {
-										result[dip.SrcProvince(actualSrc)] = dip.Options{}
+									if result[dip.SrcProvince(actualSrc.Super())] == nil {
+										result[dip.SrcProvince(actualSrc.Super())] = dip.Options{}
 									}
-									result[dip.SrcProvince(actualSrc)][dst] = nil
+									result[dip.SrcProvince(actualSrc.Super())][dst] = nil
 								}
 							}
 						}
@@ -287,19 +287,19 @@ func (self *move) Options(v dip.Validator, nation dip.Nation, src dip.Province) 
 								if result == nil {
 									result = dip.Options{}
 								}
-								if result[dip.SrcProvince(actualSrc)] == nil {
-									result[dip.SrcProvince(actualSrc)] = dip.Options{}
+								if result[dip.SrcProvince(actualSrc.Super())] == nil {
+									result[dip.SrcProvince(actualSrc.Super())] = dip.Options{}
 								}
-								result[dip.SrcProvince(actualSrc)][dst] = nil
+								result[dip.SrcProvince(actualSrc.Super())][dst] = nil
 							} else {
 								if cp := cla.AnyConvoyPath(v, src, dst, false, nil); len(cp) > 1 {
 									if result == nil {
 										result = dip.Options{}
 									}
-									if result[dip.SrcProvince(actualSrc)] == nil {
-										result[dip.SrcProvince(actualSrc)] = dip.Options{}
+									if result[dip.SrcProvince(actualSrc.Super())] == nil {
+										result[dip.SrcProvince(actualSrc.Super())] = dip.Options{}
 									}
-									result[dip.SrcProvince(actualSrc)][dst] = nil
+									result[dip.SrcProvince(actualSrc.Super())][dst] = nil
 								}
 							}
 						}

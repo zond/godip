@@ -236,7 +236,7 @@ func PossibleMoves(v Validator, src Province, allowConvoy, dislodged bool) (resu
 	} else {
 		unit, realSrc, found = v.Unit(src)
 	}
-	if found && src == realSrc {
+	if found {
 		if unit.Type == Army && !allowConvoy {
 			for dst, flags := range v.Graph().Edges(realSrc) {
 				if flags[Land] && v.Graph().Flags(dst)[Land] {
