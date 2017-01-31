@@ -374,7 +374,8 @@ func TestConvoyOpts(t *testing.T) {
 	opts := judge.Phase().Options(judge, cla.England)
 	assertOpt(t, opts, []string{"yor", "Move", "yor", "nwy"})
 	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "ber", "kie"})
-	assertOpt(t, opts, []string{"nth", "Convoy", "yor", "nwy"})
+	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "con", "smy"})
+	assertOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "nwy"})
 }
 
 func TestSTPOptionsAtStart(t *testing.T) {

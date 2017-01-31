@@ -147,6 +147,18 @@ func HasFleetNeighbour(v Validator, prov Province) bool {
 	return false
 }
 
+func ConvoyPathPossible(v Validator, via, src, dst Province, resolveConvoys bool) []Province {
+	defer v.Profile("ConvoyPathPossible", time.Now())
+	if part1 := v.Graph().Path(src, via, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false)); part1 != nil {
+		t2 := time.Now()
+		if part2 := v.Graph().Path(via, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true)); part2 != nil {
+			return append(part1, part2...)
+		}
+		v.Profile("ConvoyPathPossble { [ check second half ] }", t2)
+	}
+	return nil
+}
+
 func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *Nation) []Province {
 	defer v.Profile("convoyPath", time.Now())
 	if src == dst {
@@ -179,15 +191,9 @@ func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *
 	})
 	v.Profile("convoyPath { v.Find([matching fleets]) }", t)
 	for _, waypoint := range waypoints {
-		t = time.Now()
-		if part1 := v.Graph().Path(src, waypoint, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false)); part1 != nil {
-			t2 := time.Now()
-			if part2 := v.Graph().Path(waypoint, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true)); part2 != nil {
-				return append(part1, part2...)
-			}
-			v.Profile("convoyPath { [ check waypoint ] { [ check second half ] } }", t2)
+		if path := ConvoyPathPossible(v, waypoint, src, dst, resolveConvoys); path != nil {
+			return path
 		}
-		v.Profile("convoyPath { [ check waypoint ] }", t)
 	}
 	return nil
 }

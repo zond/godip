@@ -98,7 +98,7 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 				if !cla.HasFleetNeighbour(v, mvDst) {
 					continue
 				}
-				if _, err := cla.AnyMovePossible(v, cla.Army, mvSrc, mvDst, false, true, false); err != nil {
+				if path := cla.ConvoyPathPossible(v, actualSrc, mvSrc, mvDst, false); len(path) == 0 {
 					continue
 				}
 				if result == nil {
