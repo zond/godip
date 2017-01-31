@@ -13,30 +13,37 @@ import (
 	"time"
 
 	"github.com/zond/godip/classical"
-	cla "github.com/zond/godip/classical/common"
 	"github.com/zond/godip/classical/orders"
-	dip "github.com/zond/godip/common"
 	"github.com/zond/godip/state"
+
+	cla "github.com/zond/godip/classical/common"
+	dip "github.com/zond/godip/common"
 )
 
 func init() {
 	dip.Debug = true
 }
 
-var gameFileReg = regexp.MustCompile("^game_\\d+\\.txt$")
+var (
+	gameFileReg = regexp.MustCompile("^game_\\d+\\.txt$")
 
-var phaseReg = regexp.MustCompile("^PHASE (\\d+) (\\S+) (\\S+)$")
-var posReg = regexp.MustCompile("^(\\S+): (fleet|army|supply|fleet/dislodged|army/dislodged) (\\S+)$")
+	phaseReg = regexp.MustCompile("^PHASE (\\d+) (\\S+) (\\S+)$")
+	posReg   = regexp.MustCompile("^(\\S+): (fleet|army|supply|fleet/dislodged|army/dislodged) (\\S+)$")
 
-var moveReg = regexp.MustCompile("^(\\S+)\\s+move\\s+(\\S+)$")
-var moveViaConvoyReg = regexp.MustCompile("^(\\S+)\\s+move\\s+(\\S+)\\s+via\\s+convoy$")
-var supportMoveReg = regexp.MustCompile("^(\\S+)\\s+support\\s+(\\S+)\\s+move\\s+(\\S+)$")
-var supportHoldReg = regexp.MustCompile("^(\\S+)\\s+support\\s+(\\S+)$")
-var holdReg = regexp.MustCompile("^(\\S+)\\s+hold$")
-var convoyReg = regexp.MustCompile("^(\\S+)\\s+convoy\\s+(\\S+)\\s+move\\s+(\\S+)$")
-var buildReg = regexp.MustCompile("^build\\s+(Army|Fleet)\\s+(\\S+)$")
-var removeReg = regexp.MustCompile("^remove\\s+(\\S+)$")
-var disbandReg = regexp.MustCompile("^(\\S+)\\s+disband$")
+	moveReg          = regexp.MustCompile("^(\\S+)\\s+move\\s+(\\S+)$")
+	moveViaConvoyReg = regexp.MustCompile("^(\\S+)\\s+move\\s+(\\S+)\\s+via\\s+convoy$")
+	supportMoveReg   = regexp.MustCompile("^(\\S+)\\s+support\\s+(\\S+)\\s+move\\s+(\\S+)$")
+	supportHoldReg   = regexp.MustCompile("^(\\S+)\\s+support\\s+(\\S+)$")
+	holdReg          = regexp.MustCompile("^(\\S+)\\s+hold$")
+	convoyReg        = regexp.MustCompile("^(\\S+)\\s+convoy\\s+(\\S+)\\s+move\\s+(\\S+)$")
+	buildReg         = regexp.MustCompile("^build\\s+(Army|Fleet)\\s+(\\S+)$")
+	removeReg        = regexp.MustCompile("^remove\\s+(\\S+)$")
+	disbandReg       = regexp.MustCompile("^(\\S+)\\s+disband$")
+
+	optionsCalculated           int64
+	timeSpentCalculatingOptions time.Duration
+	worstOptionsCalculation     time.Duration
+)
 
 const (
 	positionsTag = "POSITIONS"
@@ -132,6 +139,7 @@ func setPhase(t *testing.T, sp **state.State, match []string) {
 }
 
 func assertGame(t *testing.T, name string) (phases, ords, positions, fails int, s *state.State) {
+	worstOptionsCalculation = 0
 	file, err := os.Open(fmt.Sprintf("games/%v", name))
 	if err != nil {
 		t.Fatalf("%v", err)
@@ -147,6 +155,18 @@ func assertGame(t *testing.T, name string) (phases, ords, positions, fails int, 
 		line = strings.TrimSpace(line)
 		switch state {
 		case inNothing:
+			if os.Getenv("BENCHMARK_OPTIONS") == "true" {
+				for _, nat := range cla.Nations {
+					t := time.Now()
+					s.Phase().Options(s, nat)
+					spent := time.Now().Sub(t)
+					timeSpentCalculatingOptions += spent
+					if spent > worstOptionsCalculation {
+						worstOptionsCalculation = spent
+					}
+					optionsCalculated++
+				}
+			}
 			if match = phaseReg.FindStringSubmatch(line); match != nil {
 				phases += 1
 				setPhase(t, &s, match)
@@ -220,7 +240,11 @@ func TestDroidippyGames(t *testing.T) {
 		if skip := os.Getenv("SKIP"); skip == "" || bytes.Compare([]byte(skip), []byte(name)) < 1 {
 			if gameFileReg.MatchString(name) {
 				phases, orders, positions, fails, s := assertGame(t, name)
-				fmt.Printf("Checked %v phases, executed %v orders and asserted %v positions in %v, found %v failures.\n", phases, orders, positions, name, fails)
+				fmt.Printf("Checked %v phases, executed %v orders and asserted %v positions in %v, found %v failures. ", phases, orders, positions, name, fails)
+				if os.Getenv("BENCHMARK_OPTIONS") == "true" {
+					fmt.Printf("Spent on average %v calculating options, never more than %v.", timeSpentCalculatingOptions/time.Duration(optionsCalculated), worstOptionsCalculation)
+				}
+				fmt.Println()
 				if fails > 0 {
 					dip.DumpLog()
 					for prov, err := range s.Resolutions() {

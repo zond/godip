@@ -21,3 +21,5 @@ _testmain.go
 
 *.exe
 *.swp
+
+classical/droidippy/games/*.txt
