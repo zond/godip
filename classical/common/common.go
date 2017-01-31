@@ -178,6 +178,7 @@ func HasEdge(v Validator, typ UnitType, src, dst Province) bool {
 }
 
 func MustConvoy(r Resolver, src Province) bool {
+	defer v.Profile("MustConvoy", time.Now())
 	unit, _, ok := r.Unit(src)
 	if !ok {
 		return false
@@ -198,6 +199,7 @@ func MustConvoy(r Resolver, src Province) bool {
 }
 
 func AnyConvoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *Nation) (result []Province) {
+	defer v.Profile("AnyConvoyPath", time.Now())
 	if !v.Graph().AllFlags(src)[Sea] || !v.Graph().AllFlags(dst)[Sea] {
 		return
 	}
