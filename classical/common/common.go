@@ -178,7 +178,7 @@ func HasEdge(v Validator, typ UnitType, src, dst Province) bool {
 }
 
 func MustConvoy(r Resolver, src Province) bool {
-	defer v.Profile("MustConvoy", time.Now())
+	defer r.Profile("MustConvoy", time.Now())
 	unit, _, ok := r.Unit(src)
 	if !ok {
 		return false
