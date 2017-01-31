@@ -63,36 +63,42 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 	if src.Super() != src {
 		return
 	}
-	if v.Phase().Type() == cla.Movement {
-		if v.Graph().Has(src) {
-			if convoyer, actualSrc, ok := v.Unit(src); ok && convoyer.Type == cla.Fleet {
-				if !v.Graph().Flags(actualSrc)[cla.Land] {
-					if convoyer.Nation == nation {
-						for origMvSrc, unit := range v.Units() {
-							mvSrcSup := origMvSrc.Super()
-							for _, mvSrc := range v.Graph().Coasts(mvSrcSup) {
-								if v.Graph().Flags(mvSrc)[cla.Sea] {
-									if unit.Type == cla.Army {
-										for _, mvDst := range v.Graph().Provinces() {
-											if v.Graph().Flags(mvDst)[cla.Land] {
-												if _, err := cla.AnyMovePossible(v, cla.Army, mvSrc, mvDst, false, true, false); err == nil {
-													if result == nil {
-														result = dip.Options{}
-													}
-													if result[dip.SrcProvince(actualSrc)] == nil {
-														result[dip.SrcProvince(actualSrc)] = dip.Options{}
-													}
-													opt, f := result[dip.SrcProvince(actualSrc)][origMvSrc]
-													if !f {
-														opt = dip.Options{}
-														result[dip.SrcProvince(actualSrc)][origMvSrc] = opt
-													}
-													opt[mvDst] = nil
-												}
-											}
-										}
-									}
+	if v.Phase().Type() != cla.Movement {
+		return
+	}
+	if !v.Graph().Has(src) {
+		return
+	}
+	convoyer, actualSrc, ok := v.Unit(src)
+	if !ok || convoyer.Type != cla.Fleet {
+		return
+	}
+	if v.Graph().Flags(actualSrc)[cla.Land] {
+		return
+	}
+	if convoyer.Nation != nation {
+		return
+	}
+	for origMvSrc, unit := range v.Units() {
+		mvSrcSup := origMvSrc.Super()
+		for _, mvSrc := range v.Graph().Coasts(mvSrcSup) {
+			if v.Graph().Flags(mvSrc)[cla.Sea] {
+				if unit.Type == cla.Army {
+					for _, mvDst := range v.Graph().Provinces() {
+						if v.Graph().Flags(mvDst)[cla.Land] {
+							if _, err := cla.AnyMovePossible(v, cla.Army, mvSrc, mvDst, false, true, false); err == nil {
+								if result == nil {
+									result = dip.Options{}
 								}
+								if result[dip.SrcProvince(actualSrc)] == nil {
+									result[dip.SrcProvince(actualSrc)] = dip.Options{}
+								}
+								opt, f := result[dip.SrcProvince(actualSrc)][origMvSrc]
+								if !f {
+									opt = dip.Options{}
+									result[dip.SrcProvince(actualSrc)][origMvSrc] = opt
+								}
+								opt[mvDst] = nil
 							}
 						}
 					}
