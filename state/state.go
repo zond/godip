@@ -95,6 +95,7 @@ func (self *State) Graph() common.Graph {
 }
 
 func (self *State) Options(orders []common.Order, nation common.Nation) (result common.Options) {
+	defer self.Profile("Options", time.Now())
 	result = common.Options{}
 	for _, prov := range self.graph.Provinces() {
 		for _, order := range orders {
