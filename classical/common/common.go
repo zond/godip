@@ -138,13 +138,26 @@ func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, ds
 	}
 }
 
-func HasFleetNeighbour(v Validator, prov Province) bool {
-	for prov := range v.Graph().Edges(prov) {
-		if unit, _, ok := v.Unit(prov); ok && unit.Type == Fleet {
-			return true
+func ConvoyDestinations(v Validator, src Province) []Province {
+	potentialConvoyCoasts := []Province{}
+	v.Graph().Path(src, "-", func(prov Province, edgeFlags, provFlags map[Flag]bool, sc *Nation) bool {
+		if !edgeFlags[Sea] {
+			return false
 		}
-	}
-	return false
+		if provFlags[Land] {
+			potentialConvoyCoasts = append(potentialConvoyCoasts, prov)
+			return false
+		}
+		unit, _, found := v.Unit(prov)
+		if !found {
+			return false
+		}
+		if unit.Type != Fleet {
+			return false
+		}
+		return true
+	})
+	return potentialConvoyCoasts
 }
 
 func ConvoyPathPossible(v Validator, via, src, dst Province, resolveConvoys bool) []Province {
@@ -162,12 +175,6 @@ func ConvoyPathPossible(v Validator, via, src, dst Province, resolveConvoys bool
 func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *Nation) []Province {
 	defer v.Profile("convoyPath", time.Now())
 	if src == dst {
-		return nil
-	}
-	if !HasFleetNeighbour(v, src) {
-		return nil
-	}
-	if !HasFleetNeighbour(v, dst) {
 		return nil
 	}
 	// Find all fleets that could or will convoy.
@@ -268,22 +275,21 @@ func PossibleMoves(v Validator, src Province, allowConvoy, dislodged bool) (resu
 		unit, realSrc, found = v.Unit(src)
 	}
 	if found {
-		if unit.Type == Army && !allowConvoy {
+		if unit.Type == Army {
 			for dst, flags := range v.Graph().Edges(realSrc) {
 				if flags[Land] && v.Graph().Flags(dst)[Land] {
 					dsts[dst] = true
+				}
+			}
+			if allowConvoy {
+				for _, prov := range ConvoyDestinations(v, src) {
+					dsts[prov] = true
 				}
 			}
 		} else if unit.Type == Fleet {
 			for dst, flags := range v.Graph().Edges(realSrc) {
 				if flags[Sea] && v.Graph().Flags(dst)[Sea] {
 					dsts[dst] = true
-				}
-			}
-		} else {
-			for _, prov := range v.Graph().Provinces() {
-				if err := movePossible(v, unit.Type, realSrc, prov, allowConvoy, false); err == nil {
-					dsts[prov] = true
 				}
 			}
 		}

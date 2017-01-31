@@ -88,14 +88,8 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 			if unit.Type != cla.Army {
 				continue
 			}
-			if !cla.HasFleetNeighbour(v, mvSrc) {
-				continue
-			}
 			for _, mvDst := range v.Graph().Provinces() {
 				if !v.Graph().Flags(mvDst)[cla.Land] || !v.Graph().Flags(mvDst)[cla.Sea] {
-					continue
-				}
-				if !cla.HasFleetNeighbour(v, mvDst) {
 					continue
 				}
 				if path := cla.ConvoyPathPossible(v, actualSrc, mvSrc, mvDst, false); len(path) == 0 {
