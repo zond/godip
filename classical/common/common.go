@@ -138,14 +138,29 @@ func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, ds
 	}
 }
 
+func HasFleetNeighbour(v Validator, prov Province) bool {
+	for prov := range v.Graph().Edges(prov) {
+		if unit, _, ok := v.Unit(prov); ok && unit.Type == Fleet {
+			return true
+		}
+	}
+	return false
+}
+
 func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *Nation) []Province {
 	defer v.Profile("convoyPath", time.Now())
 	if src == dst {
 		return nil
 	}
+	if !HasFleetNeighbour(v, src) {
+		return nil
+	}
+	if !HasFleetNeighbour(v, dst) {
+		return nil
+	}
 	// Find all fleets that could or will convoy.
+	t := time.Now()
 	waypoints, _, _ := v.Find(func(p Province, o Order, u *Unit) bool {
-		defer v.Profile("convoyPath { v.Find([matching fleets]) }", time.Now())
 		if !v.Graph().Flags(p)[Land] && u != nil && (viaNation == nil || u.Nation == *viaNation) && u.Type == Fleet {
 			if !resolveConvoys {
 				if viaNation == nil || (o != nil && o.Type() == Convoy && o.Targets()[1].Contains(src) && o.Targets()[2].Contains(dst)) {
@@ -162,8 +177,9 @@ func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *
 		}
 		return false
 	})
+	v.Profile("convoyPath { v.Find([matching fleets]) }", t)
 	for _, waypoint := range waypoints {
-		t := time.Now()
+		t = time.Now()
 		if part1 := v.Graph().Path(src, waypoint, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false)); part1 != nil {
 			t2 := time.Now()
 			if part2 := v.Graph().Path(waypoint, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true)); part2 != nil {

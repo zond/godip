@@ -82,27 +82,37 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 	for origMvSrc, unit := range v.Units() {
 		mvSrcSup := origMvSrc.Super()
 		for _, mvSrc := range v.Graph().Coasts(mvSrcSup) {
-			if v.Graph().Flags(mvSrc)[cla.Sea] {
-				if unit.Type == cla.Army {
-					for _, mvDst := range v.Graph().Provinces() {
-						if v.Graph().Flags(mvDst)[cla.Land] {
-							if _, err := cla.AnyMovePossible(v, cla.Army, mvSrc, mvDst, false, true, false); err == nil {
-								if result == nil {
-									result = dip.Options{}
-								}
-								if result[dip.SrcProvince(actualSrc)] == nil {
-									result[dip.SrcProvince(actualSrc)] = dip.Options{}
-								}
-								opt, f := result[dip.SrcProvince(actualSrc)][origMvSrc]
-								if !f {
-									opt = dip.Options{}
-									result[dip.SrcProvince(actualSrc)][origMvSrc] = opt
-								}
-								opt[mvDst] = nil
-							}
-						}
-					}
+			if !v.Graph().Flags(mvSrc)[cla.Sea] {
+				continue
+			}
+			if unit.Type != cla.Army {
+				continue
+			}
+			if !cla.HasFleetNeighbour(v, mvSrc) {
+				continue
+			}
+			for _, mvDst := range v.Graph().Provinces() {
+				if !v.Graph().Flags(mvDst)[cla.Land] || !v.Graph().Flags(mvDst)[cla.Sea] {
+					continue
 				}
+				if !cla.HasFleetNeighbour(v, mvDst) {
+					continue
+				}
+				if _, err := cla.AnyMovePossible(v, cla.Army, mvSrc, mvDst, false, true, false); err != nil {
+					continue
+				}
+				if result == nil {
+					result = dip.Options{}
+				}
+				if result[dip.SrcProvince(actualSrc)] == nil {
+					result[dip.SrcProvince(actualSrc)] = dip.Options{}
+				}
+				opt, f := result[dip.SrcProvince(actualSrc)][origMvSrc]
+				if !f {
+					opt = dip.Options{}
+					result[dip.SrcProvince(actualSrc)][origMvSrc] = opt
+				}
+				opt[mvDst] = nil
 			}
 		}
 	}
