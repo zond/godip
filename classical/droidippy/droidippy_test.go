@@ -138,6 +138,30 @@ func setPhase(t *testing.T, sp **state.State, match []string) {
 	}
 }
 
+func verifyValidOrder(t *testing.T, nat dip.Nation, v dip.Validator, order []string) {
+	order[0], order[1] = order[1], order[0]
+	parsed, err := orders.Parse(order)
+	if err != nil {
+		t.Errorf("got unparseable order %+v: %v", order, err)
+	}
+	foundNat, err := parsed.Validate(v)
+	if foundNat != nat {
+		t.Errorf("Wanted %q, got %q", nat, foundNat)
+	}
+	if err != nil {
+		t.Errorf("got invalid order %v: %v", parsed, err)
+	}
+}
+
+func verifyValidOptions(t *testing.T, nat dip.Nation, v dip.Validator, opts dip.Options, stack []string) {
+	if len(opts) == 0 {
+		verifyValidOrder(t, nat, v, stack)
+	}
+	for nextPart, nextOptions := range opts {
+		verifyValidOptions(t, nat, v, nextOptions, append(append([]string{}, stack...), fmt.Sprint(nextPart)))
+	}
+}
+
 func assertGame(t *testing.T, name string) (phases, ords, positions, fails int, s *state.State) {
 	worstOptionsCalculation = 0
 	file, err := os.Open(fmt.Sprintf("games/%v", name))
@@ -157,14 +181,17 @@ func assertGame(t *testing.T, name string) (phases, ords, positions, fails int, 
 		case inNothing:
 			if os.Getenv("BENCHMARK_OPTIONS") == "true" {
 				for _, nat := range cla.Nations {
-					t := time.Now()
-					s.Phase().Options(s, nat)
-					spent := time.Now().Sub(t)
+					t1 := time.Now()
+					options := s.Phase().Options(s, nat)
+					spent := time.Now().Sub(t1)
 					timeSpentCalculatingOptions += spent
 					if spent > worstOptionsCalculation {
 						worstOptionsCalculation = spent
 					}
 					optionsCalculated++
+					for _, opts := range options {
+						verifyValidOptions(t, nat, s, opts, nil)
+					}
 				}
 			}
 			if match = phaseReg.FindStringSubmatch(line); match != nil {
