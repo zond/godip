@@ -376,6 +376,24 @@ func TestConvoyOpts(t *testing.T) {
 	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "ber", "kie"})
 	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "con", "smy"})
 	assertOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "nwy"})
+	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "yor"})
+}
+
+func TestSupportOpts(t *testing.T) {
+	judge := startState(t)
+	judge.SetOrder("lon", orders.Move("lon", "eng"))
+	judge.SetOrder("lvp", orders.Move("lvp", "wal"))
+	judge.SetOrder("edi", orders.Move("edi", "nth"))
+	judge.Next()
+	judge.Next()
+	opts := judge.Phase().Options(judge, cla.England)
+	assertOpt(t, opts, []string{"eng", "Support", "eng", "wal", "lon"})
+	assertOpt(t, opts, []string{"nth", "Support", "nth", "wal", "bel"})
+	assertNoOpt(t, opts, []string{"eng", "Support", "eng", "wal", "bel"})
+	opts = judge.Phase().Options(judge, cla.France)
+	assertOpt(t, opts, []string{"par", "Support", "par", "bre", "pic"})
+	assertNoOpt(t, opts, []string{"par", "Support", "par", "par", "pic"})
+	assertNoOpt(t, opts, []string{"par", "Support", "par", "pic", "par"})
 }
 
 func TestSTPOptionsAtStart(t *testing.T) {

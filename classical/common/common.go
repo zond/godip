@@ -138,7 +138,7 @@ func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, ds
 	}
 }
 
-func ConvoyDestinations(v Validator, src Province) []Province {
+func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Province {
 	potentialConvoyCoasts := []Province{}
 	v.Graph().Path(src, "-", func(prov Province, edgeFlags, provFlags map[Flag]bool, sc *Nation) bool {
 		if !edgeFlags[Sea] {
@@ -146,6 +146,9 @@ func ConvoyDestinations(v Validator, src Province) []Province {
 		}
 		if provFlags[Land] {
 			potentialConvoyCoasts = append(potentialConvoyCoasts, prov)
+			return false
+		}
+		if noConvoy != nil && *noConvoy == prov {
 			return false
 		}
 		unit, _, found := v.Unit(prov)
@@ -264,35 +267,27 @@ func AnySupportPossible(v Validator, typ UnitType, src, dst Province) (err error
 	return
 }
 
-func PossibleMoves(v Validator, src Province, allowConvoy, dislodged bool) (result []Province) {
+func PossibleMovesUnit(v Validator, unitType UnitType, src Province, allowConvoy bool, noConvoy *Province) (result []Province) {
 	dsts := map[Province]bool{}
-	var unit Unit
-	var realSrc Province
-	var found bool
-	if dislodged {
-		unit, realSrc, found = v.Dislodged(src)
-	} else {
-		unit, realSrc, found = v.Unit(src)
-	}
-	if found {
-		if unit.Type == Army {
-			for dst, flags := range v.Graph().Edges(realSrc) {
-				if flags[Land] && v.Graph().Flags(dst)[Land] {
-					dsts[dst] = true
-				}
-			}
-			if allowConvoy {
-				for _, prov := range ConvoyDestinations(v, src) {
-					dsts[prov] = true
-				}
-			}
-		} else if unit.Type == Fleet {
-			for dst, flags := range v.Graph().Edges(realSrc) {
-				if flags[Sea] && v.Graph().Flags(dst)[Sea] {
-					dsts[dst] = true
-				}
+	if unitType == Army {
+		for dst, flags := range v.Graph().Edges(src) {
+			if flags[Land] && v.Graph().Flags(dst)[Land] {
+				dsts[dst] = true
 			}
 		}
+		if allowConvoy {
+			for _, prov := range ConvoyDestinations(v, src, noConvoy) {
+				dsts[prov] = true
+			}
+		}
+	} else if unitType == Fleet {
+		for dst, flags := range v.Graph().Edges(src) {
+			if flags[Sea] && v.Graph().Flags(dst)[Sea] {
+				dsts[dst] = true
+			}
+		}
+	} else {
+		panic(fmt.Errorf("unknown unit type %q", unitType))
 	}
 	for dst, _ := range dsts {
 		if dst.Super() == dst {
@@ -311,7 +306,23 @@ func PossibleMoves(v Validator, src Province, allowConvoy, dislodged bool) (resu
 			}
 		}
 	}
-	return
+	return result
+}
+
+func PossibleMoves(v Validator, src Province, allowConvoy, dislodged bool) (result []Province) {
+	defer v.Profile("PossibleMoves", time.Now())
+	var unit Unit
+	var realSrc Province
+	var found bool
+	if dislodged {
+		unit, realSrc, found = v.Dislodged(src)
+	} else {
+		unit, realSrc, found = v.Unit(src)
+	}
+	if found {
+		return PossibleMovesUnit(v, unit.Type, realSrc, allowConvoy, nil)
+	}
+	return nil
 }
 
 func AnyMovePossible(v Validator, typ UnitType, src, dst Province, lax, allowConvoy, resolveConvoys bool) (dstCoast Province, err error) {

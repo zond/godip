@@ -89,45 +89,79 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 	if src.Super() != src {
 		return
 	}
-	if v.Phase().Type() == cla.Movement {
-		if v.Graph().Has(src) {
-			if supporter, actualSrc, ok := v.Unit(src); ok {
-				if supporter.Nation == nation {
-					for _, supportable := range cla.PossibleMoves(v, src, false, false) {
-						if _, supporteeSrc, ok := v.Unit(supportable); ok {
-							if result == nil {
-								result = dip.Options{}
-							}
-							if result[dip.SrcProvince(actualSrc)] == nil {
-								result[dip.SrcProvince(actualSrc)] = dip.Options{}
-							}
-							opt, f := result[dip.SrcProvince(actualSrc)][supporteeSrc.Super()]
-							if !f {
-								opt = dip.Options{}
-								result[dip.SrcProvince(actualSrc)][supporteeSrc.Super()] = opt
-							}
-							opt[supporteeSrc.Super()] = nil
-						}
-						for mvSrc, unit := range v.Units() {
-							if mvSrc != actualSrc {
-								if mvDst, err := cla.AnyMovePossible(v, unit.Type, mvSrc, supportable, true, true, false); err == nil {
-									if result == nil {
-										result = dip.Options{}
-									}
-									if result[dip.SrcProvince(actualSrc)] == nil {
-										result[dip.SrcProvince(actualSrc)] = dip.Options{}
-									}
-									opt, f := result[dip.SrcProvince(actualSrc)][mvSrc.Super()]
-									if !f {
-										opt = dip.Options{}
-										result[dip.SrcProvince(actualSrc)][mvSrc.Super()] = opt
-									}
-									opt[mvDst.Super()] = nil
-								}
-							}
-						}
-					}
+	if v.Phase().Type() != cla.Movement {
+		return
+	}
+	if !v.Graph().Has(src) {
+		return
+	}
+	supporter, actualSrc, ok := v.Unit(src)
+	if !ok {
+		return
+	}
+	if supporter.Nation != nation {
+		return
+	}
+	for _, supportable := range cla.PossibleMoves(v, src, false, false) {
+		if _, supporteeSrc, ok := v.Unit(supportable); ok {
+			if result == nil {
+				result = dip.Options{}
+			}
+			if result[dip.SrcProvince(actualSrc)] == nil {
+				result[dip.SrcProvince(actualSrc)] = dip.Options{}
+			}
+			opt, f := result[dip.SrcProvince(actualSrc)][supporteeSrc.Super()]
+			if !f {
+				opt = dip.Options{}
+				result[dip.SrcProvince(actualSrc)][supporteeSrc.Super()] = opt
+			}
+			opt[supporteeSrc.Super()] = nil
+		}
+		for _, mvDst := range v.Graph().Coasts(supportable) {
+			if mvDst.Super() == actualSrc.Super() {
+				continue
+			}
+			for _, moveSupportable := range cla.PossibleMovesUnit(v, cla.Fleet, mvDst, false, nil) {
+				if moveSupportable.Super() == actualSrc.Super() {
+					continue
 				}
+				supportee, mvSrc, ok := v.Unit(moveSupportable)
+				if !ok || supportee.Type != cla.Fleet {
+					continue
+				}
+				if result == nil {
+					result = dip.Options{}
+				}
+				if result[dip.SrcProvince(actualSrc)] == nil {
+					result[dip.SrcProvince(actualSrc)] = dip.Options{}
+				}
+				opt, f := result[dip.SrcProvince(actualSrc)][mvSrc.Super()]
+				if !f {
+					opt = dip.Options{}
+					result[dip.SrcProvince(actualSrc)][mvSrc.Super()] = opt
+				}
+				opt[mvDst.Super()] = nil
+			}
+			for _, moveSupportable := range cla.PossibleMovesUnit(v, cla.Army, supportable, true, &actualSrc) {
+				if moveSupportable.Super() == actualSrc.Super() {
+					continue
+				}
+				supportee, mvSrc, ok := v.Unit(moveSupportable)
+				if !ok || supportee.Type != cla.Army {
+					continue
+				}
+				if result == nil {
+					result = dip.Options{}
+				}
+				if result[dip.SrcProvince(actualSrc)] == nil {
+					result[dip.SrcProvince(actualSrc)] = dip.Options{}
+				}
+				opt, f := result[dip.SrcProvince(actualSrc)][mvSrc.Super()]
+				if !f {
+					opt = dip.Options{}
+					result[dip.SrcProvince(actualSrc)][mvSrc.Super()] = opt
+				}
+				opt[mvDst.Super()] = nil
 			}
 		}
 	}
