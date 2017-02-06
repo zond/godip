@@ -369,6 +369,8 @@ func TestConvoyOpts(t *testing.T) {
 	judge := startState(t)
 	judge.SetOrder("lon", orders.Move("lon", "nth"))
 	judge.SetOrder("lvp", orders.Move("lvp", "yor"))
+	judge.SetOrder("stp", orders.Move("stp", "bot"))
+	judge.SetOrder("mos", orders.Move("mos", "stp"))
 	judge.Next()
 	judge.Next()
 	opts := judge.Phase().Options(judge, cla.England)
@@ -377,6 +379,9 @@ func TestConvoyOpts(t *testing.T) {
 	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "con", "smy"})
 	assertOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "nwy"})
 	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "yor"})
+	opts = judge.Phase().Options(judge, cla.Russia)
+	assertOpt(t, opts, []string{"bot", "Convoy", "bot", "stp", "swe"})
+	assertOpt(t, opts, []string{"stp", "Move", "stp", "swe"})
 }
 
 func TestSupportOpts(t *testing.T) {

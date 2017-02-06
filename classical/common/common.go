@@ -276,8 +276,10 @@ func PossibleMovesUnit(v Validator, unitType UnitType, src Province, allowConvoy
 			}
 		}
 		if allowConvoy {
-			for _, prov := range ConvoyDestinations(v, src, noConvoy) {
-				dsts[prov] = true
+			for _, coast := range v.Graph().Coasts(src) {
+				for _, prov := range ConvoyDestinations(v, coast, noConvoy) {
+					dsts[prov] = true
+				}
 			}
 		}
 	} else if unitType == Fleet {
