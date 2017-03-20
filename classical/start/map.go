@@ -24,11 +24,11 @@ func Graph() *graph.Graph {
 		// nrg
 		Prov("nrg").Conn("nat", c.Sea).Conn("bar", c.Sea).Conn("nwy", c.Sea).Conn("nth", c.Sea).Conn("edi", c.Sea).Conn("cly", c.Sea).Flag(c.Sea).
 		// bar
-		Prov("bar").Conn("nrg", c.Sea).Conn("stp/nc", c.Sea).Conn("nwy", c.Sea).Flag(c.Sea).
+		Prov("bar").Conn("nrg", c.Sea).Conn("stp/nc", c.Sea).Conn("nwy", c.Sea).Conn("stp", c.Sea).Flag(c.Sea).
 		// stp/nc
-		Prov("stp/nc").Conn("bar", c.Sea).Conn("nwy", c.Sea).Flag(c.Coast...).
+		Prov("stp/nc").Conn("bar", c.Sea).Conn("nwy", c.Sea).Flag(c.Sea).
 		// stp
-		Prov("stp").Conn("fin", c.Land).Conn("nwy", c.Land).Conn("mos", c.Land).Conn("lvn", c.Land).Flag(c.Land).SC(c.Russia).
+		Prov("stp").Conn("fin", c.Land).Conn("nwy", c.Land).Conn("mos", c.Land).Conn("lvn", c.Land).Flag(c.Land).Conn("bar", c.Sea).Conn("bot", c.Sea).SC(c.Russia).
 		// mos
 		Prov("mos").Conn("stp", c.Land).Conn("sev", c.Land).Conn("ukr", c.Land).Conn("war", c.Land).Conn("lvn", c.Land).Flag(c.Land).SC(c.Russia).
 		// sev
@@ -46,7 +46,7 @@ func Graph() *graph.Graph {
 		// naf
 		Prov("naf").Conn("mid", c.Sea).Conn("wes", c.Sea).Conn("tun", c.Coast...).Flag(c.Coast...).
 		// mid
-		Prov("mid").Conn("wes", c.Sea).Conn("nat", c.Sea).Conn("iri", c.Sea).Conn("eng", c.Sea).Conn("bre", c.Sea).Conn("gas", c.Sea).Conn("spa/nc", c.Sea).Conn("por", c.Sea).Conn("spa/sc", c.Sea).Conn("naf", c.Sea).Flag(c.Sea).
+		Prov("mid").Conn("wes", c.Sea).Conn("nat", c.Sea).Conn("iri", c.Sea).Conn("eng", c.Sea).Conn("bre", c.Sea).Conn("gas", c.Sea).Conn("spa/nc", c.Sea).Conn("por", c.Sea).Conn("spa/sc", c.Sea).Conn("naf", c.Sea).Conn("spa", c.Sea).Flag(c.Sea).
 		// iri
 		Prov("iri").Conn("nat", c.Sea).Conn("lvp", c.Sea).Conn("wal", c.Sea).Conn("eng", c.Sea).Conn("mid", c.Sea).Flag(c.Sea).
 		// lvp
@@ -60,7 +60,7 @@ func Graph() *graph.Graph {
 		// nwy
 		Prov("nwy").Conn("nth", c.Sea).Conn("nrg", c.Sea).Conn("bar", c.Sea).Conn("stp/nc", c.Sea).Conn("stp", c.Land).Conn("fin", c.Land).Conn("swe", c.Coast...).Conn("ska", c.Sea).Flag(c.Coast...).SC(c.Neutral).
 		// stp/sc
-		Prov("stp/sc").Conn("bot", c.Sea).Conn("fin", c.Sea).Conn("lvn", c.Sea).Flag(c.Coast...).
+		Prov("stp/sc").Conn("bot", c.Sea).Conn("fin", c.Sea).Conn("lvn", c.Sea).Flag(c.Sea).
 		// lvn
 		Prov("lvn").Conn("stp", c.Land).Conn("bal", c.Sea).Conn("bot", c.Sea).Conn("stp/sc", c.Sea).Conn("mos", c.Land).Conn("war", c.Land).Conn("pru", c.Coast...).Flag(c.Coast...).
 		// war
@@ -68,13 +68,13 @@ func Graph() *graph.Graph {
 		// ukr
 		Prov("ukr").Conn("war", c.Land).Conn("mos", c.Land).Conn("sev", c.Land).Conn("rum", c.Land).Conn("gal", c.Land).Flag(c.Land).
 		// bla
-		Prov("bla").Conn("bul/ec", c.Sea).Conn("rum", c.Sea).Conn("sev", c.Sea).Conn("arm", c.Sea).Conn("ank", c.Sea).Conn("con", c.Sea).Flag(c.Sea).
+		Prov("bla").Conn("bul/ec", c.Sea).Conn("rum", c.Sea).Conn("sev", c.Sea).Conn("arm", c.Sea).Conn("ank", c.Sea).Conn("con", c.Sea).Conn("bul", c.Sea).Flag(c.Sea).
 		// ank
 		Prov("ank").Conn("con", c.Coast...).Conn("bla", c.Sea).Conn("arm", c.Coast...).Conn("smy", c.Land).Flag(c.Coast...).SC(c.Turkey).
 		// smy
 		Prov("smy").Conn("aeg", c.Sea).Conn("con", c.Coast...).Conn("ank", c.Land).Conn("arm", c.Land).Conn("syr", c.Coast...).Conn("eas", c.Sea).Flag(c.Coast...).SC(c.Turkey).
 		// aeg
-		Prov("aeg").Conn("eas", c.Sea).Conn("ion", c.Sea).Conn("gre", c.Sea).Conn("bul/sc", c.Sea).Conn("con", c.Sea).Conn("smy", c.Sea).Flag(c.Sea).
+		Prov("aeg").Conn("eas", c.Sea).Conn("ion", c.Sea).Conn("gre", c.Sea).Conn("bul/sc", c.Sea).Conn("con", c.Sea).Conn("smy", c.Sea).Conn("bul", c.Sea).Flag(c.Sea).
 		// gre
 		Prov("gre").Conn("ion", c.Sea).Conn("alb", c.Coast...).Conn("ser", c.Land).Conn("bul", c.Land).Conn("bul/sc", c.Sea).Conn("aeg", c.Sea).Flag(c.Coast...).SC(c.Neutral).
 		// nap
@@ -82,13 +82,13 @@ func Graph() *graph.Graph {
 		// tys
 		Prov("tys").Conn("wes", c.Sea).Conn("gol", c.Sea).Conn("tus", c.Sea).Conn("rom", c.Sea).Conn("nap", c.Sea).Conn("ion", c.Sea).Conn("tun", c.Sea).Flag(c.Sea).
 		// wes
-		Prov("wes").Conn("mid", c.Sea).Conn("spa/sc", c.Sea).Conn("gol", c.Sea).Conn("tys", c.Sea).Conn("tun", c.Sea).Conn("naf", c.Sea).Flag(c.Sea).
+		Prov("wes").Conn("mid", c.Sea).Conn("spa/sc", c.Sea).Conn("gol", c.Sea).Conn("tys", c.Sea).Conn("tun", c.Sea).Conn("naf", c.Sea).Conn("spa", c.Sea).Flag(c.Sea).
 		// spa/sc
-		Prov("spa/sc").Conn("mid", c.Sea).Conn("por", c.Sea).Conn("mar", c.Sea).Conn("gol", c.Sea).Conn("wes", c.Sea).Flag(c.Coast...).
+		Prov("spa/sc").Conn("mid", c.Sea).Conn("por", c.Sea).Conn("mar", c.Sea).Conn("gol", c.Sea).Conn("wes", c.Sea).Flag(c.Sea).
 		// spa
-		Prov("spa").Conn("por", c.Land).Conn("gas", c.Land).Conn("mar", c.Land).Flag(c.Land).SC(c.Neutral).
+		Prov("spa").Conn("por", c.Land).Conn("gas", c.Land).Conn("mar", c.Land).Conn("mid", c.Sea).Conn("gol", c.Sea).Conn("wes", c.Sea).Flag(c.Land).SC(c.Neutral).
 		// spa/nc
-		Prov("spa/nc").Conn("por", c.Sea).Conn("mid", c.Sea).Conn("gas", c.Sea).Flag(c.Coast...).
+		Prov("spa/nc").Conn("por", c.Sea).Conn("mid", c.Sea).Conn("gas", c.Sea).Flag(c.Sea).
 		// por
 		Prov("por").Conn("mid", c.Sea).Conn("spa/nc", c.Sea).Conn("spa", c.Land).Conn("spa/sc", c.Sea).Flag(c.Coast...).SC(c.Neutral).
 		// gas
@@ -108,7 +108,7 @@ func Graph() *graph.Graph {
 		// fin
 		Prov("fin").Conn("nwy", c.Land).Conn("bot", c.Sea).Conn("swe", c.Coast...).Conn("stp", c.Land).Conn("stp/sc", c.Sea).Flag(c.Coast...).
 		// bot
-		Prov("bot").Conn("swe", c.Sea).Conn("fin", c.Sea).Conn("stp/sc", c.Sea).Conn("lvn", c.Sea).Conn("bal", c.Sea).Flag(c.Sea).
+		Prov("bot").Conn("swe", c.Sea).Conn("fin", c.Sea).Conn("stp/sc", c.Sea).Conn("lvn", c.Sea).Conn("bal", c.Sea).Conn("stp", c.Sea).Flag(c.Sea).
 		// bal
 		Prov("bal").Conn("den", c.Sea).Conn("swe", c.Sea).Conn("bot", c.Sea).Conn("lvn", c.Sea).Conn("pru", c.Sea).Conn("ber", c.Sea).Conn("kie", c.Sea).Flag(c.Sea).
 		// pru
@@ -120,13 +120,13 @@ func Graph() *graph.Graph {
 		// rum
 		Prov("rum").Conn("bla", c.Sea).Conn("bud", c.Land).Conn("gal", c.Land).Conn("ukr", c.Land).Conn("sev", c.Coast...).Conn("bul/ec", c.Sea).Conn("bul", c.Land).Conn("ser", c.Land).Flag(c.Coast...).SC(c.Neutral).
 		// bul/ec
-		Prov("bul/ec").Conn("rum", c.Sea).Conn("bla", c.Sea).Conn("con", c.Sea).Flag(c.Coast...).
+		Prov("bul/ec").Conn("rum", c.Sea).Conn("bla", c.Sea).Conn("con", c.Sea).Flag(c.Sea).
 		// bul
-		Prov("bul").Conn("ser", c.Land).Conn("rum", c.Land).Conn("con", c.Land).Conn("gre", c.Land).Flag(c.Land).SC(c.Neutral).
+		Prov("bul").Conn("ser", c.Land).Conn("rum", c.Land).Conn("con", c.Land).Conn("gre", c.Land).Flag(c.Land).Conn("aeg", c.Sea).Conn("bla", c.Sea).SC(c.Neutral).
 		// con
 		Prov("con").Conn("bul/sc", c.Sea).Conn("bul", c.Land).Conn("bul/ec", c.Sea).Conn("bla", c.Sea).Conn("ank", c.Coast...).Conn("smy", c.Coast...).Conn("aeg", c.Sea).Flag(c.Coast...).SC(c.Turkey).
 		// bul/sc
-		Prov("bul/sc").Conn("gre", c.Sea).Conn("con", c.Sea).Conn("aeg", c.Sea).Flag(c.Coast...).
+		Prov("bul/sc").Conn("gre", c.Sea).Conn("con", c.Sea).Conn("aeg", c.Sea).Flag(c.Sea).
 		// ser
 		Prov("ser").Conn("tri", c.Land).Conn("bud", c.Land).Conn("rum", c.Land).Conn("bul", c.Land).Conn("gre", c.Land).Conn("alb", c.Land).Flag(c.Land).SC(c.Neutral).
 		// alb
@@ -140,7 +140,7 @@ func Graph() *graph.Graph {
 		// tus
 		Prov("tus").Conn("gol", c.Sea).Conn("pie", c.Coast...).Conn("ven", c.Land).Conn("rom", c.Coast...).Conn("tys", c.Sea).Flag(c.Coast...).
 		// gol
-		Prov("gol").Conn("spa/sc", c.Sea).Conn("mar", c.Sea).Conn("pie", c.Sea).Conn("tus", c.Sea).Conn("tys", c.Sea).Conn("wes", c.Sea).Flag(c.Sea).
+		Prov("gol").Conn("spa/sc", c.Sea).Conn("mar", c.Sea).Conn("pie", c.Sea).Conn("tus", c.Sea).Conn("tys", c.Sea).Conn("wes", c.Sea).Conn("spa", c.Sea).Flag(c.Sea).
 		// mar
 		Prov("mar").Conn("spa", c.Land).Conn("gas", c.Land).Conn("bur", c.Land).Conn("pie", c.Coast...).Conn("gol", c.Sea).Conn("spa/sc", c.Sea).Flag(c.Coast...).SC(c.France).
 		// bur

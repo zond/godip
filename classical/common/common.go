@@ -117,10 +117,10 @@ func (self ErrBounce) Error() string {
 
 func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, dstOk bool) PathFilter {
 	return func(name Province, edgeFlags, nodeFlags map[Flag]bool, sc *Nation) bool {
-		if dstOk && name.Contains(dst) {
+		if dstOk && name.Contains(dst) && nodeFlags[Land] {
 			return true
 		}
-		if nodeFlags[Land] {
+		if nodeFlags[Land] || !nodeFlags[Sea] {
 			return false
 		}
 		if u, _, ok := v.Unit(name); ok && u.Type == Fleet {

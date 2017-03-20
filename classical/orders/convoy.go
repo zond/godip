@@ -91,7 +91,7 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 				if mvDst.Super() == origMvSrc.Super() {
 					continue
 				}
-				if !v.Graph().Flags(mvDst)[cla.Land] || !v.Graph().Flags(mvDst)[cla.Sea] {
+				if !v.Graph().Flags(mvDst)[cla.Land] {
 					continue
 				}
 				if path := cla.ConvoyPathPossible(v, actualSrc, mvSrc, mvDst, false); len(path) == 0 {

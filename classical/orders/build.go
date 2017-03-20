@@ -93,7 +93,7 @@ func (self *build) Options(v dip.Validator, nation dip.Nation, src dip.Province)
 	if _, _, balance := cla.AdjustmentStatus(v, me); balance < 1 {
 		return
 	}
-	if v.Graph().Flags(src)[cla.Land] {
+	if v.Graph().Flags(src)[cla.Land] || v.Graph().Flags(src.Super())[cla.Land] {
 		if result == nil {
 			result = dip.Options{}
 		}
@@ -102,7 +102,7 @@ func (self *build) Options(v dip.Validator, nation dip.Nation, src dip.Province)
 		}
 		result[cla.Army][dip.SrcProvince(src.Super())] = nil
 	}
-	if v.Graph().Flags(src)[cla.Sea] {
+	if v.Graph().Flags(src)[cla.Sea] || v.Graph().Flags(src.Super())[cla.Sea] {
 		if result == nil {
 			result = dip.Options{}
 		}

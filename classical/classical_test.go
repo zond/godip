@@ -91,6 +91,17 @@ func TestSupportValidation(t *testing.T) {
 	assertOrderValidity(t, judge, orders.SupportMove("mar", "spa/nc", "bur"), "", cla.ErrIllegalSupportMove)
 }
 
+func TestConvoy(t *testing.T) {
+	judge := startState(t)
+
+	judge.SetUnit("bal", dip.Unit{cla.Fleet, cla.Germany})
+	assertOrderValidity(t, judge, orders.Move("ber", "lvn"), cla.Germany, nil)
+
+	judge.SetUnit("tys", dip.Unit{cla.Fleet, cla.Italy})
+	judge.SetUnit("gol", dip.Unit{cla.Fleet, cla.Italy})
+	assertOrderValidity(t, judge, orders.Move("rom", "spa"), cla.Italy, nil)
+}
+
 func TestConvoyValidation(t *testing.T) {
 	judge := startState(t)
 	judge.SetUnit("nth", dip.Unit{cla.Fleet, cla.France})
@@ -165,6 +176,11 @@ func TestMoveValidation(t *testing.T) {
 	judge.SetOrder("pic", orders.SupportMove("pic", "bur", "par"))
 	judge.Next()
 	assertOrderValidity(t, judge, orders.Move("par", "gas"), cla.France, nil)
+
+	judge.Next()
+	judge.SetUnit("tys", dip.Unit{cla.Fleet, cla.Italy})
+	judge.SetUnit("gol", dip.Unit{cla.Fleet, cla.Italy})
+	assertOrderValidity(t, judge, orders.Move("rom", "spa/sc"), cla.Italy, nil)
 }
 
 func TestMoveAdjudication(t *testing.T) {
@@ -382,6 +398,16 @@ func TestConvoyOpts(t *testing.T) {
 	opts = judge.Phase().Options(judge, cla.Russia)
 	assertOpt(t, opts, []string{"bot", "Convoy", "bot", "stp", "swe"})
 	assertOpt(t, opts, []string{"stp", "Move", "stp", "swe"})
+
+	judge.SetUnit("tys", dip.Unit{cla.Fleet, cla.Italy})
+	judge.SetUnit("gol", dip.Unit{cla.Fleet, cla.Italy})
+	opts = judge.Phase().Options(judge, cla.Italy)
+	assertOpt(t, opts, []string{"rom", "Move", "rom", "spa"})
+	assertOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa"})
+	assertNoOpt(t, opts, []string{"rom", "Move", "rom", "spa/sc"})
+	assertNoOpt(t, opts, []string{"rom", "Move", "rom", "spa/nc"})
+	assertNoOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa/sc"})
+	assertNoOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa/nc"})
 }
 
 func TestSupportOpts(t *testing.T) {
