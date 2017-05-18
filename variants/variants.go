@@ -200,22 +200,33 @@ var OrderedVariants = []Variant{
 	},
 	Variant{
 		Name: Pure,
-		Graph: func() dip.Graph {
-			okNations := map[dip.Nation]bool{
-				cla.France:  true,
-				cla.Austria: true,
-				cla.Neutral: true,
+		Graph: func() dip.Graph { return start.PureGraph() },
+		Start: func() (result *state.State, err error) {
+			if result, err = classical.Start(); err != nil {
+				return
 			}
-			neutral := cla.Neutral
-			result := start.Graph()
-			for _, node := range result.Nodes {
-				if node.SC != nil && !okNations[*node.SC] {
-					node.SC = &neutral
-				}
+			if err = result.SetUnits(map[dip.Province]dip.Unit{
+				"ber": dip.Unit{cla.Army, cla.Germany},
+				"lon": dip.Unit{cla.Army, cla.England},
+				"par": dip.Unit{cla.Army, cla.France},
+				"rom": dip.Unit{cla.Army, cla.Italy},
+				"con": dip.Unit{cla.Army, cla.Turkey},
+				"vie": dip.Unit{cla.Army, cla.Austria},
+				"mos": dip.Unit{cla.Army, cla.Russia},
+			}); err != nil {
+				return
 			}
-			return result
+			result.SetSupplyCenters(map[dip.Province]dip.Nation{
+				"ber": cla.Germany,
+				"lon": cla.England,
+				"par": cla.France,
+				"rom": cla.Italy,
+				"con": cla.Turkey,
+				"vie": cla.Austria,
+				"mos": cla.Russia,
+			})
+			return
 		},
-		Start: classical.Start,
 		Blank:             classical.Blank,
 		Phase:             classical.Phase,
 		ParseOrders:       orders.ParseAll,
