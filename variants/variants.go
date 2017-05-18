@@ -14,6 +14,7 @@ const (
 	Classical     = "Classical"
 	FleetRome     = "Fleet Rome"
 	FranceAustria = "France vs Austria"
+	Pure          = "Pure"
 )
 
 // Variant defines a dippy variant supported by godip.
@@ -194,6 +195,49 @@ var OrderedVariants = []Variant{
 			},
 			cla.Fleet: func() ([]byte, error) {
 				return classical.Asset("svg/fleet.svg")
+			},
+		},
+	},
+	Variant{
+		Name: Pure,
+		Graph: func() dip.Graph {
+			okNations := map[dip.Nation]bool{
+				cla.France:  true,
+				cla.Austria: true,
+				cla.Neutral: true,
+			}
+			neutral := cla.Neutral
+			result := start.Graph()
+			for _, node := range result.Nodes {
+				if node.SC != nil && !okNations[*node.SC] {
+					node.SC = &neutral
+				}
+			}
+			return result
+		},
+		Start: classical.Start,
+		Blank:             classical.Blank,
+		Phase:             classical.Phase,
+		ParseOrders:       orders.ParseAll,
+		ParseOrder:        orders.Parse,
+		OrderTypes:        []dip.OrderType{
+			cla.Build,
+			cla.Move,
+			cla.Hold,
+			cla.Support,
+			cla.Disband,
+		},
+		Nations:           cla.Nations,
+		PhaseTypes:        cla.PhaseTypes,
+		Seasons:           cla.Seasons,
+		UnitTypes:         []dip.UnitType{cla.Army},
+		SoloSupplyCenters: 4,
+		SVGMap: func() ([]byte, error) {
+			return Asset("svg/pure_map.svg")
+		},
+		SVGUnits: map[dip.UnitType]func() ([]byte, error){
+			cla.Army: func() ([]byte, error) {
+				return classical.Asset("svg/army.svg")
 			},
 		},
 	},
