@@ -48,8 +48,8 @@ type Variant struct {
 	SoloSupplyCenters int
 	// SVG representing the variant map graphics.
 	SVGMap func() ([]byte, error) `json:"-"`
-	// A version for the map graphics (for use in caching mechanisms).
-	SVGMapVersion string
+	// A version for the vector graphics (for use in caching mechanisms).
+	SVGVersion string
 	// SVG representing the variant units.
 	SVGUnits map[dip.UnitType]func() ([]byte, error) `json:"-"`
 }
@@ -84,7 +84,7 @@ var OrderedVariants = []Variant{
 		SVGMap: func() ([]byte, error) {
 			return classical.Asset("svg/map.svg")
 		},
-		SVGMapVersion: "1482957154",
+		SVGVersion: "1482957154",
 		SVGUnits: map[dip.UnitType]func() ([]byte, error){
 			cla.Army: func() ([]byte, error) {
 				return classical.Asset("svg/army.svg")
@@ -123,7 +123,7 @@ var OrderedVariants = []Variant{
 		SVGMap: func() ([]byte, error) {
 			return classical.Asset("svg/map.svg")
 		},
-		SVGMapVersion: "1482957154",
+		SVGVersion: "1482957154",
 		SVGUnits: map[dip.UnitType]func() ([]byte, error){
 			cla.Army: func() ([]byte, error) {
 				return classical.Asset("svg/army.svg")
@@ -187,7 +187,7 @@ var OrderedVariants = []Variant{
 		SVGMap: func() ([]byte, error) {
 			return classical.Asset("svg/map.svg")
 		},
-		SVGMapVersion: "1482957154",
+		SVGVersion: "1482957154",
 		SVGUnits: map[dip.UnitType]func() ([]byte, error){
 			cla.Army: func() ([]byte, error) {
 				return classical.Asset("svg/army.svg")
