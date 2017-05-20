@@ -201,33 +201,8 @@ var OrderedVariants = []Variant{
 	Variant{
 		Name: Pure,
 		Graph: func() dip.Graph { return start.PureGraph() },
-		Start: func() (result *state.State, err error) {
-			if result, err = classical.Start(); err != nil {
-				return
-			}
-			if err = result.SetUnits(map[dip.Province]dip.Unit{
-				"ber": dip.Unit{cla.Army, cla.Germany},
-				"lon": dip.Unit{cla.Army, cla.England},
-				"par": dip.Unit{cla.Army, cla.France},
-				"rom": dip.Unit{cla.Army, cla.Italy},
-				"con": dip.Unit{cla.Army, cla.Turkey},
-				"vie": dip.Unit{cla.Army, cla.Austria},
-				"mos": dip.Unit{cla.Army, cla.Russia},
-			}); err != nil {
-				return
-			}
-			result.SetSupplyCenters(map[dip.Province]dip.Nation{
-				"ber": cla.Germany,
-				"lon": cla.England,
-				"par": cla.France,
-				"rom": cla.Italy,
-				"con": cla.Turkey,
-				"vie": cla.Austria,
-				"mos": cla.Russia,
-			})
-			return
-		},
-		Blank:             classical.Blank,
+		Start: PureStart,
+		Blank: PureBlank,
 		Phase:             classical.Phase,
 		ParseOrders:       orders.ParseAll,
 		ParseOrder:        orders.Parse,
@@ -253,4 +228,35 @@ var OrderedVariants = []Variant{
 			},
 		},
 	},
+}
+
+func PureBlank(phase dip.Phase) *state.State {
+	return state.New(start.PureGraph(), phase, classical.BackupRule)
+}
+
+func PureStart() (result *state.State, err error) {
+	if result, err = classical.Start(); err != nil {
+		return
+	}
+	if err = result.SetUnits(map[dip.Province]dip.Unit{
+		"ber": dip.Unit{cla.Army, cla.Germany},
+		"lon": dip.Unit{cla.Army, cla.England},
+		"par": dip.Unit{cla.Army, cla.France},
+		"rom": dip.Unit{cla.Army, cla.Italy},
+		"con": dip.Unit{cla.Army, cla.Turkey},
+		"vie": dip.Unit{cla.Army, cla.Austria},
+		"mos": dip.Unit{cla.Army, cla.Russia},
+	}); err != nil {
+		return
+	}
+	result.SetSupplyCenters(map[dip.Province]dip.Nation{
+		"ber": cla.Germany,
+		"lon": cla.England,
+		"par": cla.France,
+		"rom": cla.Italy,
+		"con": cla.Turkey,
+		"vie": cla.Austria,
+		"mos": cla.Russia,
+	})
+	return
 }
