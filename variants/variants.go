@@ -244,8 +244,9 @@ var OrderedVariants = []Variant{
 		UnitTypes:         []dip.UnitType{cla.Army},
 		SoloSupplyCenters: 4,
 		SVGMap: func() ([]byte, error) {
-			return Asset("svg/pure_map.svg")
+			return Asset("svg/puremap.svg")
 		},
+		SVGVersion: "1",
 		SVGUnits: map[dip.UnitType]func() ([]byte, error){
 			cla.Army: func() ([]byte, error) {
 				return classical.Asset("svg/army.svg")
