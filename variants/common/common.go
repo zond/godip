@@ -1,0 +1,45 @@
+package common
+
+import (
+	"github.com/zond/godip/state"
+
+	dip "github.com/zond/godip/common"
+)
+
+// Variant defines a dippy variant supported by godip.
+type Variant struct {
+	// Name is the display name and key for this variant.
+	Name string
+	// Start returns a state with the correct graph, units, phase and supply centers for starting this variant.
+	Start func() (*state.State, error) `json:"-"`
+	// BlankStart returns a state with the correct graph, phase and supply centers for starting this variant.
+	BlankStart func() (*state.State, error) `json:"-"`
+	// Blank returns a state with the correct graph and the provided phase for this variant.
+	Blank func(dip.Phase) *state.State `json:"-"`
+	// Phase returns a phase with the provided year, season and phase type for this variant.
+	Phase func(int, dip.Season, dip.PhaseType) dip.Phase `json:"-"`
+	// ParserOrders parses a map of orders.
+	ParseOrders func(map[dip.Nation]map[dip.Province][]string) (map[dip.Province]dip.Adjudicator, error) `json:"-"`
+	// ParseOrder parses a single tokenized order.
+	ParseOrder func([]string) (dip.Adjudicator, error) `json:"-"`
+	// Graph is the graph for this variant.
+	Graph func() dip.Graph
+	// Nations are the nations playing this variant.
+	Nations []dip.Nation
+	// PhaseTypes are the phase types the phases of this variant have.
+	PhaseTypes []dip.PhaseType
+	// Seasons are the seasons the phases of this variant have.
+	Seasons []dip.Season
+	// UnitTypes are the types the units of this variant have.
+	UnitTypes []dip.UnitType
+	// OrderTypes are the types the orders of this variant have.
+	OrderTypes []dip.OrderType
+	// Number of SCs required to solo.
+	SoloSupplyCenters int
+	// SVG representing the variant map graphics.
+	SVGMap func() ([]byte, error) `json:"-"`
+	// A version for the vector graphics (for use in caching mechanisms).
+	SVGVersion string
+	// SVG representing the variant units.
+	SVGUnits map[dip.UnitType]func() ([]byte, error) `json:"-"`
+}

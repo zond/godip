@@ -1,4 +1,4 @@
-package variants
+package pure
 
 import (
     "bytes"
