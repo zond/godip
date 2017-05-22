@@ -1,19 +1,19 @@
 package pure
 
 import (
-	"github.com/zond/godip/classical"
-	"github.com/zond/godip/classical/orders"
-	"github.com/zond/godip/classical/start"
+	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/variants/classical"
+	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 
-	cla "github.com/zond/godip/classical/common"
+	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
 )
 
 var PureVariant = common.Variant{
 	Name: "Pure",
-	Graph: func() dip.Graph { return start.PureGraph() },
+	Graph: func() dip.Graph { return PureGraph() },
 	Start: PureStart,
 	Blank: PureBlank,
 	Phase:             classical.Phase,
@@ -43,7 +43,7 @@ var PureVariant = common.Variant{
 }
 
 func PureBlank(phase dip.Phase) *state.State {
-	return state.New(start.PureGraph(), phase, classical.BackupRule)
+	return state.New(PureGraph(), phase, classical.BackupRule)
 }
 
 func PureStart() (result *state.State, err error) {
@@ -71,4 +71,23 @@ func PureStart() (result *state.State, err error) {
 		"mos": cla.Russia,
 	})
 	return
+}
+
+func PureGraph() *graph.Graph {
+	return graph.New().
+		// ber
+		Prov("ber").Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Germany).
+		// lon
+		Prov("lon").Conn("ber", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.England).
+		// par
+		Prov("par").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.France).
+		// rom
+		Prov("rom").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Italy).
+		// con
+		Prov("con").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Turkey).
+		// vie
+		Prov("vie").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Austria).
+		// mos
+		Prov("mos").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Flag(cla.Land).SC(cla.Russia).
+		Done()
 }
