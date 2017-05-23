@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	cla "github.com/zond/godip/classical/common"
+	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
 )
 

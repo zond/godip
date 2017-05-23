@@ -1,7 +1,7 @@
 package start
 
 import (
-  . "github.com/zond/godip/classical/common"
+  . "github.com/zond/godip/variants/classical/common"
   "github.com/zond/godip/common"
 )
 

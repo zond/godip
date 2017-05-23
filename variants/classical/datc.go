@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	cla "github.com/zond/godip/classical/common"
-	"github.com/zond/godip/classical/orders"
-	"github.com/zond/godip/classical/start"
+	cla "github.com/zond/godip/variants/classical/common"
+	"github.com/zond/godip/variants/classical/orders"
+	"github.com/zond/godip/variants/classical/start"
 	dip "github.com/zond/godip/common"
 )
 

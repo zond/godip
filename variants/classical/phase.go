@@ -6,8 +6,8 @@ import (
 	"sort"
 	"strings"
 
-	cla "github.com/zond/godip/classical/common"
-	"github.com/zond/godip/classical/orders"
+	cla "github.com/zond/godip/variants/classical/common"
+	"github.com/zond/godip/variants/classical/orders"
 	dip "github.com/zond/godip/common"
 )
 
