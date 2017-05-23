@@ -183,3 +183,22 @@ func Graph() *graph.Graph {
 		Prov("kie").Conn("hol", c.Coast...).Conn("hel", c.Sea).Conn("den", c.Coast...).Conn("bal", c.Sea).Conn("ber", c.Coast...).Conn("mun", c.Land).Conn("ruh", c.Land).Flag(c.Coast...).SC(c.Germany).
 		Done()
 }
+
+func PureGraph() *graph.Graph {
+	return graph.New().
+		// ber
+		Prov("ber").Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Germany).
+		// lon
+		Prov("lon").Conn("ber", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.England).
+		// par
+		Prov("par").Conn("ber", c.Land).Conn("lon", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.France).
+		// rom
+		Prov("rom").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Italy).
+		// con
+		Prov("con").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Turkey).
+		// vie
+		Prov("vie").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Austria).
+		// mos
+		Prov("mos").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Flag(c.Land).SC(c.Russia).
+		Done()
+}
