@@ -49,4 +49,8 @@ var FleetRomeVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
+	CreatedBy: "Richard Sharp",
+	Version: "",
+	Description: "Classical Diplomacy, but Italy starts with a fleet in Rome.",
+	Rules: "The first to 18 supply centers is the winner.  Rules are as per classical Diplomacy, but Italy starts with a fleet in Rome rather than an army.",
 }

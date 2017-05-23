@@ -42,4 +42,12 @@ type Variant struct {
 	SVGVersion string
 	// SVG representing the variant units.
 	SVGUnits map[dip.UnitType]func() ([]byte, error) `json:"-"`
+	// Who the version was created by (or the empty string if no creator information is known).
+	CreatedBy string
+	// Version of the variant (or the empty string if no version information is known).
+	Version string
+	// A short description summarising the variant.
+	Description string
+	// The rules of the variant (in particular where they differ from classical).
+	Rules string
 }
