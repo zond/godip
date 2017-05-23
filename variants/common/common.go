@@ -23,7 +23,7 @@ type Variant struct {
 	// ParseOrder parses a single tokenized order.
 	ParseOrder func([]string) (dip.Adjudicator, error) `json:"-"`
 	// Graph is the graph for this variant.
-	Graph func() dip.Graph
+	Graph func() dip.Graph `json:"-"`
 	// Nations are the nations playing this variant.
 	Nations []dip.Nation
 	// PhaseTypes are the phase types the phases of this variant have.
