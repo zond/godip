@@ -200,13 +200,30 @@ var OrderedVariants = []Variant{
 	},
 	Variant{
 		Name: Pure,
-		Graph: func() dip.Graph { return start.PureGraph() },
-		Start: PureStart,
-		Blank: PureBlank,
-		Phase:             classical.Phase,
-		ParseOrders:       orders.ParseAll,
-		ParseOrder:        orders.Parse,
-		OrderTypes:        []dip.OrderType{
+		Graph: func() dip.Graph {
+			return graph.New().
+				// ber
+				Prov("ber").Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Germany).
+				// lon
+				Prov("lon").Conn("ber", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.England).
+				// par
+				Prov("par").Conn("ber", c.Land).Conn("lon", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.France).
+				// rom
+				Prov("rom").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Italy).
+				// con
+				Prov("con").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("vie", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Turkey).
+				// vie
+				Prov("vie").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("mos", c.Land).Flag(c.Land).SC(c.Austria).
+				// mos
+				Prov("mos").Conn("ber", c.Land).Conn("lon", c.Land).Conn("par", c.Land).Conn("rom", c.Land).Conn("con", c.Land).Conn("vie", c.Land).Flag(c.Land).SC(c.Russia).
+				Done()
+		},
+		Start:       PureStart,
+		Blank:       PureBlank,
+		Phase:       classical.Phase,
+		ParseOrders: orders.ParseAll,
+		ParseOrder:  orders.Parse,
+		OrderTypes: []dip.OrderType{
 			cla.Build,
 			cla.Move,
 			cla.Hold,
