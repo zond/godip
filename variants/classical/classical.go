@@ -42,6 +42,10 @@ var ClassicalVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
+	CreatedBy: "Allan B. Calhamer",
+	Version: "",
+	Description: "The original game of Diplomacy.",
+	Rules: "The first to 18 supply centers is the winner. See the Wikibooks article for how to play: https://en.wikibooks.org/wiki/Diplomacy/Rules",
 }
 func Blank(phase dip.Phase) *state.State {
 	return state.New(start.Graph(), phase, BackupRule)

@@ -74,4 +74,8 @@ var FranceAustriaVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
+	CreatedBy: "",
+	Version: "",
+	Description: "A two player variant on the classical map.",
+	Rules: "The first to 18 supply centers is the winner. The rules are as per classical Diplomacy, but with only France and Austria.",
 }

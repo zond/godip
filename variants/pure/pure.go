@@ -40,6 +40,10 @@ var PureVariant = common.Variant{
 			return classical.Asset("svg/army.svg")
 		},
 	},
+	CreatedBy: "Danny Loeb",
+	Version: "vb10",
+	Description: "A very minimal version of classical Diplomacy where each country is a single province.",
+	Rules: "Each of the seven nations has a single supply center, and each is adjacent to all of the others. The first player to own four of these centers is the winner.",
 }
 
 func PureBlank(phase dip.Phase) *state.State {
