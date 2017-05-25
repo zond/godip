@@ -81,6 +81,9 @@ Maps are svg files and can be created with a combination of the free tool [Inksc
  * Units layer (with `id="units"`): This will be empty in the map file.
  * Orders layer (with `id="orders"`): This will also be empty in the map file.
 
+Currently the [script](https://github.com/zond/diplicity/blob/master/app/js/dippymap.js) to handle map manipulation does not cope well with [transform](https://developer.mozilla.org/en/docs/Web/SVG/Attribute/transform) attributes.
+To remove these attributes from the svg use one of the [methods on this page](https://stackoverflow.com/questions/13329125/removing-transforms-in-svg-files).
+
 To prepare the svg file for use by go, the tool [go-bindata](https://github.com/jteeuwen/go-bindata) can be used. For example the command `go-bindata -pkg variants ./svg` will convert all assets in the svg directory into a script in the package "variants".
 
 ### Algorithm

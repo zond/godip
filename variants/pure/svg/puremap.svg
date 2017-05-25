@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="29.290072"
-     inkscape:cy="438.52129"
+     inkscape:cx="351.09705"
+     inkscape:cy="341.74207"
      inkscape:document-units="px"
-     inkscape:current-layer="names"
+     inkscape:current-layer="supplycenters"
      showgrid="false"
      inkscape:snap-object-midpoints="true"
      inkscape:window-width="1855"
@@ -116,45 +116,39 @@
     <circle
        style="fill:#ffffff;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="lonBackground"
-       cx="-63.24202"
-       cy="320.22617"
-       r="60"
-       transform="matrix(0.62348395,-0.78183615,0.78183615,0.62348395,0,0)" />
+       cx="210.93401"
+       cy="249.10077"
+       r="60" />
     <circle
        style="fill:#ffffff;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="parBackground"
-       cx="-428.38553"
-       cy="84.441467"
-       r="60"
-       transform="matrix(-0.22253552,-0.97492458,0.97492458,-0.22253552,0,0)" />
+       cx="177.65506"
+       cy="398.85233"
+       r="60" />
     <circle
        style="fill:#ffffff;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="romBackground"
-       cx="-471.70163"
-       cy="-348.04889"
-       r="60"
-       transform="matrix(-0.9009786,-0.43386352,0.43386352,-0.9009786,0,0)" />
+       cx="273.98737"
+       cy="518.23871"
+       r="60" />
     <circle
        style="fill:#ffffff;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="conBackground"
-       cx="-160.57193"
-       cy="-651.5658"
-       r="60"
-       transform="matrix(-0.90095589,0.43391069,-0.43391069,-0.90095589,0,0)" />
+       cx="427.38959"
+       cy="517.35815"
+       r="60" />
     <circle
        style="fill:#ffffff;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="vieBackground"
-       cx="270.71292"
-       cy="-597.55127"
-       r="60"
-       transform="matrix(-0.22248447,0.97493623,-0.97493623,-0.22248447,0,0)" />
+       cx="522.34491"
+       cy="396.87369"
+       r="60" />
     <circle
        style="fill:#ffffff;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="mosBackground"
-       cx="497.38159"
-       cy="-226.67999"
-       r="60"
-       transform="matrix(0.62352489,0.7818035,-0.7818035,0.62352489,0,0)" />
+       cx="487.349"
+       cy="247.51404"
+       r="60" />
   </g>
   <g
      inkscape:label="provinces"
@@ -170,45 +164,39 @@
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="lon"
-       cx="-63.24202"
-       cy="320.22617"
-       r="60"
-       transform="matrix(0.62348395,-0.78183615,0.78183615,0.62348395,0,0)" />
+       cx="210.93401"
+       cy="249.10077"
+       r="60" />
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="par"
-       cx="-428.38553"
-       cy="84.441467"
-       r="60"
-       transform="matrix(-0.22253552,-0.97492458,0.97492458,-0.22253552,0,0)" />
+       cx="177.65506"
+       cy="398.85236"
+       r="60" />
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="rom"
-       cx="-471.70163"
-       cy="-348.04889"
-       r="60"
-       transform="matrix(-0.9009786,-0.43386352,0.43386352,-0.9009786,0,0)" />
+       cx="273.98737"
+       cy="518.23871"
+       r="60" />
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="con"
-       cx="-160.57193"
-       cy="-651.5658"
-       r="60"
-       transform="matrix(-0.90095589,0.43391069,-0.43391069,-0.90095589,0,0)" />
+       cx="427.38959"
+       cy="517.35815"
+       r="60" />
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="vie"
-       cx="270.71292"
-       cy="-597.55127"
-       r="60"
-       transform="matrix(-0.22248447,0.97493623,-0.97493623,-0.22248447,0,0)" />
+       cx="522.34491"
+       cy="396.87369"
+       r="60" />
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:2.22519755;stroke-opacity:1"
        id="mos"
-       cx="497.38159"
-       cy="-226.67999"
-       r="60"
-       transform="matrix(0.62352489,0.7818035,-0.7818035,0.62352489,0,0)" />
+       cx="487.349"
+       cy="247.51405"
+       r="60" />
   </g>
   <g
      inkscape:label="supply centers"
@@ -250,7 +238,8 @@
        d="m 351.40868,186.03932 c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z"
        inkscape:connector-curvature="0" />
   </g>
-  <g id="highlights"></g>
+  <g
+     id="highlights" />
   <g
      inkscape:label="names"
      inkscape:groupmode="layer"
