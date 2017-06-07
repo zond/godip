@@ -3,10 +3,13 @@ package pure
 import (
 	"bytes"
 	"encoding/xml"
+	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
+	"strings"
 	"testing"
 
 	cla "github.com/zond/godip/variants/classical/common"
@@ -38,21 +41,25 @@ func openFile(name string) *os.File {
 }
 
 func provincesContain(provinces []dip.Province, needle string) bool {
-	for _, sc := range provinces {
-		if needle == string(sc) {
+	for _, province := range provinces {
+		if needle == string(province) {
 			return true
 		}
 	}
 	return false
 }
 
-func variantContains(variant vrt.Variant, needle string) bool {
+func variantContainsSC(variant vrt.Variant, needle string) bool {
 	for _, nation := range variant.Nations {
 		if provincesContain(variant.Graph().SCs(nation), needle) {
 			return true
 		}
 	}
 	return provincesContain(variant.Graph().SCs(cla.Neutral), needle)
+}
+
+func variantContainsProvince(variant vrt.Variant, needle string) bool {
+	return provincesContain(variant.Graph().Provinces(), needle)
 }
 
 func findAttr(attrs []xml.Attr, name string) *xml.Attr {
@@ -85,6 +92,15 @@ func removeAttr(attrs []xml.Attr, name string) {
 	}
 }
 
+type coordinates struct {
+	x float32
+	y float32
+}
+
+//func addArrow(start dip.Province, end dip.Province, provinceCenters map[string]coordinates) {
+//	
+//}
+
 // Create svg files which can be inspected manually to check the binary map data is correct.
 func TestDrawMaps(t *testing.T) {
 	variant := PureVariant
@@ -113,7 +129,7 @@ func TestDrawMaps(t *testing.T) {
 				// Ensure the provinces layer is visible.
 				if id == "provinces" {
 					removeAttr(startElement.Attr, "style")
-				} else if variantContains(variant, id) {
+				} else if variantContainsSC(variant, id) {
 					// Colour each supply center province red.
 					var styleAttr = findAttr(startElement.Attr, "style")
 					if styleAttr != nil {
@@ -123,6 +139,54 @@ func TestDrawMaps(t *testing.T) {
 						styleAttr.Value = newStyle
 						setAttr(startElement.Attr, "style", newStyle)
 					}
+				}
+			}
+			// Remove the duplicate xmlns attribute from the root element.
+			// See https://github.com/golang/go/issues/13400 for the ongoing issues with this.
+			if startElement.Name.Local == "svg" {
+				removeAttr(startElement.Attr, "xmlns")
+			}
+		}
+		encoder.EncodeToken(token)
+	}
+	encoder.Flush()
+
+	// Draw arrows between connected provinces
+	xmlFile = bytes.NewReader(b)
+	decoder = xml.NewDecoder(xmlFile)
+	encoder = xml.NewEncoder(openFile("orders.svg"))
+	provinceCenters := make(map[string]coordinates)
+	for {
+		token, _ := decoder.Token()
+		if token == nil {
+			break
+		}
+		switch startElement := token.(type) {
+			case xml.StartElement:
+			var idAttr = findAttr(startElement.Attr, "id")
+			if idAttr != nil {
+				id := idAttr.Value
+				// Find the location of each province.
+				if strings.HasSuffix(id, "Center") {
+					province := strings.Replace(id, "Center", "", 1)
+					if variantContainsProvince(variant, province) {
+						// Extract the coordinates from the d attribute.
+						var dAttr = findAttr(startElement.Attr, "d")
+						if dAttr != nil {
+							var d = dAttr.Value
+							var re = regexp.MustCompile(`^m\s+([\d-.]+),([\d-.]+)\s+`)
+							result := re.FindStringSubmatch(d)
+							x, errX := strconv.ParseFloat(result[1], 32)
+							y, errY := strconv.ParseFloat(result[2], 32)
+							if errX != nil || errY != nil {
+								panic("Error extracting center of province")
+							}
+							provinceCenters[province] = coordinates{float32(x), float32(y)}
+						}
+					}
+				} else if id == "orders" {
+					// TODO Draw arrows for all orders here.
+					fmt.Println(provinceCenters)
 				}
 			}
 			// Remove the duplicate xmlns attribute from the root element.
