@@ -23,3 +23,5 @@ _testmain.go
 *.swp
 
 classical/droidippy/games/*.txt
+test_output_maps
+
