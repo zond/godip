@@ -359,95 +359,109 @@ func TestDrawMaps(t *testing.T) {
 		}
 		encoder.Flush()
 	}
-	
-	// Draw units in each province
-	for _, unitType := range variant.UnitTypes {
-		xmlFile = bytes.NewReader(b)
-		decoder = xml.NewDecoder(xmlFile)
-		encoder = xml.NewEncoder(openFile("units_" + string(unitType) + ".svg"))
-		for {
-			outputUnits := false
-			token, _ := decoder.Token()
-			if token == nil {
-				break
-			}
-			switch startElement := token.(type) {
-				case xml.StartElement:
-				idAttr := findAttr(startElement.Attr, "id")
-				if idAttr != nil {
-					id := idAttr.Value
-					// Ensure the provinces layer is visible.
-					if id == "provinces" {
-						startElement.Attr = removeAttr(startElement.Attr, "style")
-					} else if variantContainsProvince(variant, id) {
-						// Duplicate each province region.
-						styleAttr := findAttr(startElement.Attr, "style")
-						if styleAttr != nil {
-							style := styleAttr.Value
-							re := regexp.MustCompile(`fill:[^;]+`)
-							newStyle := re.ReplaceAllString(style, `fill:#ffffff`)
-							styleAttr.Value = newStyle
-							startElement.Attr = setAttr(startElement.Attr, "style", newStyle)
-						}
-						highlights = append(highlights, startElement)
-					} else if id == "units" {
-						outputUnits = true
-					}
-				}
-				// Remove the duplicate xmlns attribute from the root element.
-				// See https://github.com/golang/go/issues/13400 for the ongoing issues with this.
-				if startElement.Name.Local == "svg" {
-					startElement.Attr = removeAttr(startElement.Attr, "xmlns")
-				}
-			}
-			encoder.EncodeToken(token)
-			if outputUnits {
-				unit, err := variant.SVGUnits[unitType]()
-				if err != nil {
-					panic(err)
-				}
-				for _, coordinates := range provinceCenters {
-					unitFile := bytes.NewReader(unit)
-					unitDecoder := xml.NewDecoder(unitFile)
-					for {
-						unitToken, _ := unitDecoder.Token()
-						if unitToken == nil {
-							break
-						}
-						switch startElement := unitToken.(type) {
-							case xml.StartElement:
-							idAttr := findAttr(startElement.Attr, "id")
-							if idAttr != nil {
-								id := idAttr.Value
-								if id == "hull" || id == "body" || id == "shadow" {
-									offset := vector{0.0, 0.0}
-									if id == "hull" {
-										offset = vector{-65.0, -15.0}
-									} else if id == "body" {
-										offset = vector{-40.0, -5.0}
-									} else if id == "shadow" {
-										offset = vector{-40.0, -5.0}
-									}
-									xStr := toStr(coordinates.x + offset.dx)
-									yStr := toStr(coordinates.y + offset.dy)
-									startElement.Attr = setAttr(startElement.Attr, "transform", "translate(" + xStr + "," + yStr + ")")
-									unitToken = startElement
-								}
-							}
-							// Remove the duplicate xmlns attribute from the root element.
-							// See https://github.com/golang/go/issues/13400 for the ongoing issues with this.
-							if startElement.Name.Local == "svg" {
-								startElement.Attr = removeAttr(startElement.Attr, "xmlns")
-								// Remove the bounds from the embedded svg.
-								startElement.Attr = removeAttr(startElement.Attr, "width")
-								startElement.Attr = removeAttr(startElement.Attr, "height")
-							}
-						}
-						encoder.EncodeToken(unitToken)
-					}
-				}
+
+	// Find all the types of province that exist.
+	provinceTypes := make(map[dip.Flag]bool)
+	for _, province := range variant.Graph().Provinces() {
+		for flag, b := range variant.Graph().Flags(province) {
+			if b {
+				provinceTypes[flag] = true
 			}
 		}
-		encoder.Flush()
+	}
+
+	// Draw each type of unit in each type of province
+	for provinceType, _ := range provinceTypes {
+		for _, unitType := range variant.UnitTypes {
+			xmlFile = bytes.NewReader(b)
+			decoder = xml.NewDecoder(xmlFile)
+			encoder = xml.NewEncoder(openFile("units_" + string(unitType) + "_" + string(provinceType) + ".svg"))
+			for {
+				outputUnits := false
+				token, _ := decoder.Token()
+				if token == nil {
+					break
+				}
+				switch startElement := token.(type) {
+					case xml.StartElement:
+					idAttr := findAttr(startElement.Attr, "id")
+					if idAttr != nil {
+						id := idAttr.Value
+						// Ensure the provinces layer is visible.
+						if id == "provinces" {
+							startElement.Attr = removeAttr(startElement.Attr, "style")
+						} else if variantContainsProvince(variant, id) {
+							// Duplicate each province region.
+							styleAttr := findAttr(startElement.Attr, "style")
+							if styleAttr != nil {
+								style := styleAttr.Value
+								re := regexp.MustCompile(`fill:[^;]+`)
+								newStyle := re.ReplaceAllString(style, `fill:#ffffff`)
+								styleAttr.Value = newStyle
+								startElement.Attr = setAttr(startElement.Attr, "style", newStyle)
+							}
+							highlights = append(highlights, startElement)
+						} else if id == "units" {
+							outputUnits = true
+						}
+					}
+					// Remove the duplicate xmlns attribute from the root element.
+					// See https://github.com/golang/go/issues/13400 for the ongoing issues with this.
+					if startElement.Name.Local == "svg" {
+						startElement.Attr = removeAttr(startElement.Attr, "xmlns")
+					}
+				}
+				encoder.EncodeToken(token)
+				if outputUnits {
+					unit, err := variant.SVGUnits[unitType]()
+					if err != nil {
+						panic(err)
+					}
+					for province, coordinates := range provinceCenters {
+						if variant.Graph().Flags(dip.Province(province))[provinceType] {
+							unitFile := bytes.NewReader(unit)
+							unitDecoder := xml.NewDecoder(unitFile)
+							for {
+								unitToken, _ := unitDecoder.Token()
+								if unitToken == nil {
+									break
+								}
+								switch startElement := unitToken.(type) {
+									case xml.StartElement:
+									idAttr := findAttr(startElement.Attr, "id")
+									if idAttr != nil {
+										id := idAttr.Value
+										if id == "hull" || id == "body" || id == "shadow" {
+											offset := vector{0.0, 0.0}
+											if id == "hull" {
+												offset = vector{-65.0, -15.0}
+											} else if id == "body" {
+												offset = vector{-40.0, -5.0}
+											} else if id == "shadow" {
+												offset = vector{-40.0, -5.0}
+											}
+											xStr := toStr(coordinates.x + offset.dx)
+											yStr := toStr(coordinates.y + offset.dy)
+											startElement.Attr = setAttr(startElement.Attr, "transform", "translate(" + xStr + "," + yStr + ")")
+											unitToken = startElement
+										}
+									}
+									// Remove the duplicate xmlns attribute from the root element.
+									// See https://github.com/golang/go/issues/13400 for the ongoing issues with this.
+									if startElement.Name.Local == "svg" {
+										startElement.Attr = removeAttr(startElement.Attr, "xmlns")
+										// Remove the bounds from the embedded svg.
+										startElement.Attr = removeAttr(startElement.Attr, "width")
+										startElement.Attr = removeAttr(startElement.Attr, "height")
+									}
+								}
+								encoder.EncodeToken(unitToken)
+							}
+						}
+					}
+				}
+			}
+			encoder.Flush()
+		}
 	}
 }
