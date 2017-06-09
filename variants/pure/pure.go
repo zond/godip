@@ -34,7 +34,7 @@ var PureVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/puremap.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion: "2",
 	SVGUnits: map[dip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
