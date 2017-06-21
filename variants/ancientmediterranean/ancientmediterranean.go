@@ -56,9 +56,8 @@ func AncientMediterraneanBlank(phase dip.Phase) *state.State {
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {
-	if result, err = classical.Start(); err != nil {
-		return
-	}
+	startPhase := classical.Phase(1, cla.Spring, cla.Movement)
+	result = state.New(AncientMediterraneanGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{
 		"nea": dip.Unit{cla.Fleet, Rome},
 		"rom": dip.Unit{cla.Army, Rome},
