@@ -47,8 +47,8 @@ var AncientMediterraneanVariant = common.Variant{
 	},
 	CreatedBy: "Don Hessong",
 	Version: "",
-	Description: "Five historical nations battle ",
-	Rules: "",
+	Description: "Five historical nations battle for dominance of the Mediterranean.",
+	Rules: "Rules are as per classical Diplomacy, with a few parts of the map that have noteworthy connectivity. The canal between Athens and Sparta is passable for armies, and means that Athens only has a single coast. Similarly the canal in Byzantium, the Sicilian Straits and the River Nile. There is a four way connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium. The first to 18 supply centers is the winner.",
 }
 
 func AncientMediterraneanBlank(phase dip.Phase) *state.State {
