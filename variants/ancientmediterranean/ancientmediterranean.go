@@ -162,7 +162,7 @@ func AncientMediterraneanGraph() *graph.Graph {
 		// gal
 		Prov("gal").Conn("sip", cla.Land).Conn("cap", cla.Land).Conn("isa", cla.Land).Conn("mil", cla.Land).Conn("byz", cla.Land).Conn("bit", cla.Land).Flag(cla.Land).
 		// isa
-		Prov("isa").Conn("gal", cla.Land).Conn("cap", cla.Coast...).Conn("cil", cla.Sea).Conn("min", cla.Sea).Conn("aeg", cla.Sea).Conn("mil", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("isa").Conn("gal", cla.Land).Conn("cap", cla.Coast...).Conn("cil", cla.Sea).Conn("min", cla.Sea).Conn("aeg", cla.Sea).Conn("mil", cla.Coast...).Flag(cla.Coast...).
 		// cap
 		Prov("cap").Conn("sip", cla.Land).Conn("arm", cla.Land).Conn("dam", cla.Land).Conn("ant", cla.Coast...).Conn("cil", cla.Sea).Conn("isa", cla.Coast...).Conn("gal", cla.Land).Flag(cla.Coast...).
 		// ant
@@ -218,7 +218,7 @@ func AncientMediterraneanGraph() *graph.Graph {
 		// cre
 		Prov("cre").Conn("aeg", cla.Sea).Conn("min", cla.Sea).Conn("egy", cla.Sea).Conn("lib", cla.Sea).Conn("mes", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// cyp
-		Prov("cyp").Conn("cil", cla.Sea).Conn("syr", cla.Sea).Conn("egy", cla.Sea).Flag(cla.Coast...).
+		Prov("cyp").Conn("cil", cla.Sea).Conn("syr", cla.Sea).Conn("egy", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// ibe
 		Prov("ibe").Conn("sag", cla.Sea).Conn("ber", cla.Sea).Conn("mau", cla.Sea).Flag(cla.Sea).
 		// ber
