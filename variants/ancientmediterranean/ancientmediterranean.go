@@ -48,7 +48,14 @@ var AncientMediterraneanVariant = common.Variant{
 	CreatedBy: "Don Hessong",
 	Version: "",
 	Description: "Five historical nations battle for dominance of the Mediterranean.",
-	Rules: "Rules are as per classical Diplomacy, with a few parts of the map that have noteworthy connectivity. The canal between Athens and Sparta is passable for armies, and means that Athens only has a single coast. Similarly the canal in Byzantium, the Sicilian Straits and the River Nile. There is a four way connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium. The first to 18 supply centers is the winner.",
+	Rules: "Rules are as per classical Diplomacy, with a few parts of the map that have noteworthy connectivity. " +
+	       "Baleares is an archipelago that can be occupied by armies or fleets. Armies may not move directly from " +
+	       "the mainland to Baleares, and a fleet in Baleares is able to form part of a convoy chain. " +
+	       "The canal between Athens and Sparta is passable for armies, and means that Athens only has a single " +
+	       "coast. Similarly the canal in Byzantium, the Sicilian Straits and the River Nile. There is a four way " +
+	       "connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another " +
+	       "four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium. The first to 18 supply " +
+	       "centers is the winner.",
 }
 
 func AncientMediterraneanBlank(phase dip.Phase) *state.State {
@@ -134,7 +141,7 @@ func AncientMediterraneanGraph() *graph.Graph {
 		// sag
 		Prov("sag").Conn("tar", cla.Coast...).Conn("bal", cla.Sea).Conn("ber", cla.Sea).Conn("ibe", cla.Sea).Conn("mau", cla.Coast...).Conn("lus", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
 		// bal
-		Prov("bal").Conn("lig", cla.Sea).Conn("ber", cla.Sea).Conn("sag", cla.Sea).Conn("tar", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("bal").Conn("lig", cla.Sea).Conn("ber", cla.Sea).Conn("sag", cla.Sea).Conn("tar", cla.Sea).Flag(cla.Archipelago...).SC(cla.Neutral).
 		// rom
 		Prov("rom").Conn("rav", cla.Land).Conn("apu", cla.Land).Conn("nea", cla.Coast...).Conn("tys", cla.Sea).Conn("lig", cla.Sea).Conn("etr", cla.Coast...).Flag(cla.Coast...).SC(Rome).
 		// rav

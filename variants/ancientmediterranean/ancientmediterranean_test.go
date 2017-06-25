@@ -151,14 +151,18 @@ func TestNileDelta(t *testing.T) {
 func TestConvoyBaleares(t *testing.T) {
 	judge := startState(t)
 
-	// Test convoys through Baleares
+	// Test convoys through Baleares.
 	judge.SetUnit("sag", dip.Unit{cla.Army, Rome})
 	judge.SetUnit("bal", dip.Unit{cla.Fleet, Rome})
 	judge.SetUnit("lig", dip.Unit{cla.Fleet, Rome})
+	assertOrderValidity(t, judge, orders.Move("sag", "cor"), Rome, nil)
+	assertOrderValidity(t, judge, orders.Convoy("bal", "sag", "cor"), Rome, nil)
 
-	// TODO Decide if we want to implement the original convoy rules for Baleares or stick with the simple option.
-	// assertOrderValidity(t, judge, orders.Move("sag", "cor"), Rome, nil)
-	// assertOrderValidity(t, judge, orders.Convoy("bal", "sag", "cor"), Rome, nil)
+	// Test an army in Baleares can't be part of a convoy chain.
+	judge.RemoveUnit("bal")
+	judge.SetUnit("bal", dip.Unit{cla.Army, Rome})
+	assertOrderValidity(t, judge, orders.Move("sag", "cor"), "", cla.ErrMissingConvoyPath)
+	assertOrderValidity(t, judge, orders.Convoy("bal", "sag", "cor"), "", cla.ErrIllegalConvoyer)
 }
 
 

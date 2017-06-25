@@ -129,7 +129,7 @@ func (self *convoy) Validate(v dip.Validator) (dip.Nation, error) {
 		return "", cla.ErrInvalidTarget
 	}
 	for _, src := range v.Graph().Coasts(self.targets[0]) {
-		if v.Graph().Flags(src)[cla.Land] {
+		if v.Graph().Flags(src)[cla.Land] && !v.Graph().Flags(src)[cla.Convoyable] {
 			return "", cla.ErrIllegalConvoyPath
 		}
 	}
