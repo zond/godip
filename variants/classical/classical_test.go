@@ -108,6 +108,14 @@ func TestConvoyValidation(t *testing.T) {
 	judge.RemoveUnit("lon")
 	judge.SetUnit("lon", dip.Unit{cla.Army, cla.England})
 	assertOrderValidity(t, judge, orders.Convoy("nth", "lon", "nwy"), cla.France, nil)
+
+	// Check that we can't convoy via Constantinople (nb. all edges are sea).
+	judge.RemoveUnit("sev")
+	judge.SetUnit("sev", dip.Unit{cla.Army, cla.Russia})
+	judge.SetUnit("bla", dip.Unit{cla.Fleet, cla.Russia})
+	judge.SetUnit("con", dip.Unit{cla.Fleet, cla.Russia})
+	judge.SetUnit("aeg", dip.Unit{cla.Fleet, cla.Russia})
+	assertOrderValidity(t, judge, orders.Convoy("bla", "sev", "gre"), "", cla.ErrIllegalConvoyMove)
 }
 
 func TestHoldValidation(t *testing.T) {

@@ -9,8 +9,9 @@ import (
 )
 
 const (
-	Sea  Flag = "Sea"
-	Land Flag = "Land"
+	Sea        Flag = "Sea"
+	Land       Flag = "Land"
+	Convoyable Flag = "Convoyable"
 
 	Army  UnitType = "Army"
 	Fleet UnitType = "Fleet"
@@ -42,7 +43,8 @@ const (
 	ViaConvoy Flag = "C"
 )
 
-var Coast = []Flag{Sea, Land}
+var Coast       = []Flag{Sea, Land}
+var Archipelago = []Flag{Sea, Land, Convoyable}
 
 var Nations = []Nation{Austria, England, France, Germany, Italy, Turkey, Russia}
 var PhaseTypes = []PhaseType{Movement, Retreat, Adjustment}
@@ -57,7 +59,7 @@ var ErrInvalidTarget = fmt.Errorf("ErrInvalidTarget")
 var ErrInvalidPhase = fmt.Errorf("ErrInvalidPhase")
 var ErrMissingUnit = fmt.Errorf("ErrMissingUnit")
 var ErrIllegalDestination = fmt.Errorf("ErrIllegalDestination")
-var ErrMissingConvoyPath = fmt.Errorf("ErrMissignConvoyPath")
+var ErrMissingConvoyPath = fmt.Errorf("ErrMissingConvoyPath")
 var ErrIllegalMove = fmt.Errorf("ErrIllegalMove")
 var ErrConvoyParadox = fmt.Errorf("ErrConvoyParadox")
 var ErrIllegalSupportPosition = fmt.Errorf("ErrIllegalSupportPosition")
@@ -120,7 +122,7 @@ func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, ds
 		if dstOk && name.Contains(dst) && nodeFlags[Land] {
 			return true
 		}
-		if nodeFlags[Land] || !nodeFlags[Sea] {
+		if (nodeFlags[Land] || !nodeFlags[Sea]) && !nodeFlags[Convoyable] {
 			return false
 		}
 		if u, _, ok := v.Unit(name); ok && u.Type == Fleet {
@@ -183,7 +185,7 @@ func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *
 	// Find all fleets that could or will convoy.
 	t := time.Now()
 	waypoints, _, _ := v.Find(func(p Province, o Order, u *Unit) bool {
-		if !v.Graph().Flags(p)[Land] && u != nil && (viaNation == nil || u.Nation == *viaNation) && u.Type == Fleet {
+		if (!v.Graph().Flags(p)[Land] || v.Graph().Flags(p)[Convoyable]) && u != nil && (viaNation == nil || u.Nation == *viaNation) && u.Type == Fleet {
 			if !resolveConvoys {
 				if viaNation == nil || (o != nil && o.Type() == Convoy && o.Targets()[1].Contains(src) && o.Targets()[2].Contains(dst)) {
 					return true
