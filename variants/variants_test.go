@@ -466,5 +466,46 @@ func TestDrawMaps(t *testing.T) {
 				encoder.Flush()
 			}
 		}
+
+		// Highlight home centers for each nation
+		for _, nation := range variant.Nations {
+			xmlFile := bytes.NewReader(b)
+			decoder := xml.NewDecoder(xmlFile)
+			encoder := xml.NewEncoder(openFile(variant.Name, "home_centers_" + string(nation) + ".svg"))
+			for {
+				token, _ := decoder.Token()
+				if token == nil {
+					break
+				}
+				switch startElement := token.(type) {
+					case xml.StartElement:
+					var idAttr = findAttr(startElement.Attr, "id")
+					if idAttr != nil {
+						id := idAttr.Value
+						// Ensure the provinces layer is visible.
+						if id == "provinces" {
+							startElement.Attr = removeAttr(startElement.Attr, "style")
+						} else if provincesContain(variant.Graph().SCs(nation), id) {
+							// Colour each home center province red.
+							var styleAttr = findAttr(startElement.Attr, "style")
+							if styleAttr != nil {
+								var style = styleAttr.Value
+								var re = regexp.MustCompile(`fill:[^;]+`)
+								newStyle := re.ReplaceAllString(style, `fill:#ff0000`)
+								styleAttr.Value = newStyle
+								startElement.Attr = setAttr(startElement.Attr, "style", newStyle)
+							}
+						}
+					}
+					// Remove the duplicate xmlns attribute from the root element.
+					// See https://github.com/golang/go/issues/13400 for the ongoing issues with this.
+					if startElement.Name.Local == "svg" {
+						startElement.Attr = removeAttr(startElement.Attr, "xmlns")
+					}
+				}
+				encoder.EncodeToken(token)
+			}
+			encoder.Flush()
+		}
 	}
 }
