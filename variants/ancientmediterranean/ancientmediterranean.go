@@ -199,7 +199,7 @@ func AncientMediterraneanGraph() *graph.Graph {
 		// bay
 		Prov("bay").Conn("mem", cla.Coast...).Conn("the", cla.Coast...).Conn("sah", cla.Land).Conn("pha", cla.Land).Conn("mar", cla.Land).Flag(cla.Coast...).
 		// cyr
-		Prov("cyr").Conn("lib", cla.Sea).Conn("ale", cla.Coast...).Conn("mem", cla.Land).Conn("mar", cla.Land).Conn("lep", cla.Coast...).Conn("gos", cla.Sea).Flag(cla.Coast...).SC(Egypt).
+		Prov("cyr").Conn("lib", cla.Sea).Conn("ale", cla.Coast...).Conn("mem", cla.Land).Conn("mar", cla.Land).Conn("lep", cla.Coast...).Conn("gos", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// mar
 		Prov("mar").Conn("cyr", cla.Land).Conn("mem", cla.Land).Conn("bay", cla.Land).Conn("pha", cla.Land).Conn("lep", cla.Land).Flag(cla.Land).
 		// lep
