@@ -8,8 +8,8 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/orders"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -81,19 +81,19 @@ func TestByzantium(t *testing.T) {
 	// Test can't bypass Byzantium.
 	judge.SetUnit("aeg", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("aeg", "bla"), "", cla.ErrIllegalMove)
-	
+
 	// Test can sail through it.
 	assertOrderValidity(t, judge, orders.Move("aeg", "byz"), Greece, nil)
 	judge.SetUnit("byz", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("byz", "bla"), Greece, nil)
-	
+
 	// Check can't convoy via Byzantium.
 	assertOrderValidity(t, judge, orders.Move("ath", "bit"), "", cla.ErrMissingConvoyPath)
 }
 
 func TestHighSeas(t *testing.T) {
 	judge := startState(t)
-	
+
 	judge.SetUnit("aus", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("aus", "mes"), Greece, nil)
 	assertOrderValidity(t, judge, orders.Move("aus", "lib"), Greece, nil)
@@ -111,7 +111,7 @@ func TestDiolkos(t *testing.T) {
 	// Test can't bypass Athens or Sparta.
 	judge.SetUnit("ion", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("ion", "aeg"), "", cla.ErrIllegalMove)
-	
+
 	// Test can walk from Athens to Sparta.
 	assertOrderValidity(t, judge, orders.Move("ath", "spa"), Greece, nil)
 }
@@ -123,7 +123,7 @@ func TestSicily(t *testing.T) {
 	judge.SetUnit("sic", dip.Unit{cla.Army, Rome})
 	assertOrderValidity(t, judge, orders.Move("sic", "nea"), Rome, nil)
 	assertOrderValidity(t, judge, orders.Move("nea", "sic"), Rome, nil)
-	
+
 	// Test can sail through the 'Strait of Messina'.
 	judge.SetUnit("tys", dip.Unit{cla.Fleet, Rome})
 	assertOrderValidity(t, judge, orders.Move("tys", "aus"), Rome, nil)
@@ -141,7 +141,7 @@ func TestCorsica(t *testing.T) {
 
 func TestNileDelta(t *testing.T) {
 	judge := startState(t)
-	
+
 	// Happy paths near Nile Delta
 	assertOrderValidity(t, judge, orders.Move("the", "sii"), Egypt, nil)
 	assertOrderValidity(t, judge, orders.SupportHold("the", "mem"), Egypt, nil)
@@ -151,7 +151,7 @@ func TestNileDelta(t *testing.T) {
 	assertOrderValidity(t, judge, orders.SupportMove("the", "ale", "sii"), Egypt, nil)
 	judge.SetUnit("gop", dip.Unit{cla.Fleet, Rome})
 	assertOrderValidity(t, judge, orders.Move("the", "jer"), Egypt, nil)
-	
+
 	// Illegal moves near Nile Delta
 	judge.SetUnit("ree", dip.Unit{cla.Fleet, Rome})
 	assertOrderValidity(t, judge, orders.Move("ree", "ale"), "", cla.ErrIllegalMove)
@@ -208,8 +208,8 @@ func TestAutomaticDisbands(t *testing.T) {
 	judge.Next()
 	// Check that automatic disbands worked.
 	assertNoUnit(t, judge, "tar")
-	assertUnit(t, judge, "bal", dip.Unit{cla.Fleet, Carthage})
-	assertNoUnit(t, judge, "pun")
-	assertUnit(t, judge, "car", dip.Unit{cla.Fleet, Carthage})
+	assertNoUnit(t, judge, "bal")
 	assertNoUnit(t, judge, "ber")
+	assertUnit(t, judge, "pun", dip.Unit{cla.Fleet, Carthage})
+	assertUnit(t, judge, "car", dip.Unit{cla.Fleet, Carthage})
 }
