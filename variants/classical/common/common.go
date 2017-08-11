@@ -43,7 +43,7 @@ const (
 	ViaConvoy Flag = "C"
 )
 
-var Coast       = []Flag{Sea, Land}
+var Coast = []Flag{Sea, Land}
 var Archipelago = []Flag{Sea, Land, Convoyable}
 
 var Nations = []Nation{Austria, England, France, Germany, Italy, Turkey, Russia}
@@ -117,6 +117,9 @@ func (self ErrBounce) Error() string {
 	return fmt.Sprintf("ErrBounce:%v", self.Province)
 }
 
+// PossibleConvoyPathFilter returns a path filter for Graph that only accepts nodes that can partake in a convoy from
+// src to dst. If resolveConvoys, then the convoys have to be successful. If dstOk then the dst is acceptable as convoying
+// node.
 func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, dstOk bool) PathFilter {
 	return func(name Province, edgeFlags, nodeFlags map[Flag]bool, sc *Nation) bool {
 		if dstOk && name.Contains(dst) && nodeFlags[Land] {
