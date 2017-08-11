@@ -3,12 +3,13 @@ package ancientmediterranean
 import (
 	"reflect"
 	"testing"
+	"time"
 
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/orders"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -53,6 +54,19 @@ func assertMove(t *testing.T, j *state.State, src, dst dip.Province, success boo
 	}
 }
 
+func assertUnit(t *testing.T, j *state.State, province dip.Province, unit dip.Unit) {
+	if found, _, _ := j.Unit(province); !reflect.DeepEqual(found, unit) {
+		t.Errorf("%v should be at %v now", unit, province)
+	}
+}
+
+func assertNoUnit(t *testing.T, j *state.State, province dip.Province) {
+	_, _, ok := j.Unit(province)
+	if ok {
+		t.Errorf("There should be no unit at %v now", province)
+	}
+}
+
 func startState(t *testing.T) *state.State {
 	judge, err := AncientMediterraneanStart()
 	if err != nil {
@@ -67,19 +81,19 @@ func TestByzantium(t *testing.T) {
 	// Test can't bypass Byzantium.
 	judge.SetUnit("aeg", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("aeg", "bla"), "", cla.ErrIllegalMove)
-	
+
 	// Test can sail through it.
 	assertOrderValidity(t, judge, orders.Move("aeg", "byz"), Greece, nil)
 	judge.SetUnit("byz", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("byz", "bla"), Greece, nil)
-	
+
 	// Check can't convoy via Byzantium.
 	assertOrderValidity(t, judge, orders.Move("ath", "bit"), "", cla.ErrMissingConvoyPath)
 }
 
 func TestHighSeas(t *testing.T) {
 	judge := startState(t)
-	
+
 	judge.SetUnit("aus", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("aus", "mes"), Greece, nil)
 	assertOrderValidity(t, judge, orders.Move("aus", "lib"), Greece, nil)
@@ -97,7 +111,7 @@ func TestDiolkos(t *testing.T) {
 	// Test can't bypass Athens or Sparta.
 	judge.SetUnit("ion", dip.Unit{cla.Fleet, Greece})
 	assertOrderValidity(t, judge, orders.Move("ion", "aeg"), "", cla.ErrIllegalMove)
-	
+
 	// Test can walk from Athens to Sparta.
 	assertOrderValidity(t, judge, orders.Move("ath", "spa"), Greece, nil)
 }
@@ -109,7 +123,7 @@ func TestSicily(t *testing.T) {
 	judge.SetUnit("sic", dip.Unit{cla.Army, Rome})
 	assertOrderValidity(t, judge, orders.Move("sic", "nea"), Rome, nil)
 	assertOrderValidity(t, judge, orders.Move("nea", "sic"), Rome, nil)
-	
+
 	// Test can sail through the 'Strait of Messina'.
 	judge.SetUnit("tys", dip.Unit{cla.Fleet, Rome})
 	assertOrderValidity(t, judge, orders.Move("tys", "aus"), Rome, nil)
@@ -127,7 +141,7 @@ func TestCorsica(t *testing.T) {
 
 func TestNileDelta(t *testing.T) {
 	judge := startState(t)
-	
+
 	// Happy paths near Nile Delta
 	assertOrderValidity(t, judge, orders.Move("the", "sii"), Egypt, nil)
 	assertOrderValidity(t, judge, orders.SupportHold("the", "mem"), Egypt, nil)
@@ -137,7 +151,7 @@ func TestNileDelta(t *testing.T) {
 	assertOrderValidity(t, judge, orders.SupportMove("the", "ale", "sii"), Egypt, nil)
 	judge.SetUnit("gop", dip.Unit{cla.Fleet, Rome})
 	assertOrderValidity(t, judge, orders.Move("the", "jer"), Egypt, nil)
-	
+
 	// Illegal moves near Nile Delta
 	judge.SetUnit("ree", dip.Unit{cla.Fleet, Rome})
 	assertOrderValidity(t, judge, orders.Move("ree", "ale"), "", cla.ErrIllegalMove)
@@ -165,4 +179,37 @@ func TestConvoyBaleares(t *testing.T) {
 	assertOrderValidity(t, judge, orders.Convoy("bal", "sag", "cor"), "", cla.ErrIllegalConvoyer)
 }
 
+func TestAutomaticDisbands(t *testing.T) {
+	judge := startState(t)
+	judge.RemoveUnit("car")
+	judge.RemoveUnit("cir")
+	judge.RemoveUnit("tha")
+	// Give original HCs to Rome
+	judge.SetUnit("cir", dip.Unit{cla.Army, Rome})
+	judge.SetUnit("tha", dip.Unit{cla.Army, Rome})
 
+	// Set up Carthage position from https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAwI6gjQoM/Phase/35/Map
+	judge.SetUnit("tar", dip.Unit{cla.Army, Carthage})
+	judge.SetUnit("bal", dip.Unit{cla.Fleet, Carthage})
+	judge.SetUnit("ber", dip.Unit{cla.Fleet, Carthage})
+	judge.SetUnit("pun", dip.Unit{cla.Fleet, Carthage})
+	judge.SetUnit("car", dip.Unit{cla.Fleet, Carthage})
+
+	// Spring movement
+	judge.Next()
+	// Sprint retreat
+	judge.Next()
+	// Fall movement
+	judge.Next()
+	// Fall retreat
+	judge.Next()
+	// Order contains one disband but should have three.
+	judge.SetOrder("ber", orders.Disband("ber", time.Now()))
+	judge.Next()
+	// Check that automatic disbands worked.
+	assertNoUnit(t, judge, "tar")
+	assertNoUnit(t, judge, "bal")
+	assertNoUnit(t, judge, "ber")
+	assertUnit(t, judge, "pun", dip.Unit{cla.Fleet, Carthage})
+	assertUnit(t, judge, "car", dip.Unit{cla.Fleet, Carthage})
+}

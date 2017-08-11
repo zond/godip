@@ -5,6 +5,8 @@ import (
 	"fmt"
 
 	"github.com/zond/godip/common"
+
+	c "github.com/zond/godip/variants/classical/common"
 )
 
 func New() *Graph {
@@ -151,6 +153,20 @@ func (self *Graph) Prov(n common.Province) *SubNode {
 		}
 	}
 	return self.Nodes[p].sub(c)
+}
+
+func (self *Graph) Nations() (result []common.Nation) {
+	found := map[common.Nation]bool{}
+	for _, node := range self.Nodes {
+		if node.SC != nil && *node.SC != c.Neutral {
+			found[*node.SC] = true
+		}
+	}
+	result = make([]common.Nation, 0, len(found))
+	for nation := range found {
+		result = append(result, nation)
+	}
+	return
 }
 
 func (self *Graph) Provinces() (result []common.Province) {

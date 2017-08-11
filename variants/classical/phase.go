@@ -6,9 +6,10 @@ import (
 	"sort"
 	"strings"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	"github.com/zond/godip/variants/classical/orders"
+
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
@@ -185,7 +186,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 			})
 		}
 	} else if self.typ == cla.Adjustment {
-		for _, nationality := range cla.Nations {
+		for _, nationality := range s.Graph().Nations() {
 			_, _, balance := cla.AdjustmentStatus(s, nationality)
 			if balance < 0 {
 				var su []dip.Province
