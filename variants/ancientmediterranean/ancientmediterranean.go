@@ -7,8 +7,8 @@ import (
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
@@ -19,16 +19,18 @@ const (
 	Egypt    dip.Nation = "Egypt"
 )
 
+var Nations = []dip.Nation{Rome, Greece, Egypt, Persia, Carthage}
+
 var AncientMediterraneanVariant = common.Variant{
-	Name: "Ancient Mediterranean",
-	Graph: func() dip.Graph { return AncientMediterraneanGraph() },
-	Start: AncientMediterraneanStart,
-	Blank: AncientMediterraneanBlank,
+	Name:              "Ancient Mediterranean",
+	Graph:             func() dip.Graph { return AncientMediterraneanGraph() },
+	Start:             AncientMediterraneanStart,
+	Blank:             AncientMediterraneanBlank,
 	Phase:             classical.Phase,
 	ParseOrders:       orders.ParseAll,
 	ParseOrder:        orders.Parse,
 	OrderTypes:        orders.OrderTypes(),
-	Nations:           []dip.Nation{Rome, Greece, Egypt, Persia, Carthage},
+	Nations:           Nations,
 	PhaseTypes:        cla.PhaseTypes,
 	Seasons:           cla.Seasons,
 	UnitTypes:         cla.UnitTypes,
@@ -45,17 +47,17 @@ var AncientMediterraneanVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy: "Don Hessong",
-	Version: "",
+	CreatedBy:   "Don Hessong",
+	Version:     "",
 	Description: "Five historical nations battle for dominance of the Mediterranean.",
 	Rules: "Rules are as per classical Diplomacy, with a few parts of the map that have noteworthy connectivity. " +
-	       "Baleares is an archipelago that can be occupied by armies or fleets. Armies may not move directly from " +
-	       "the mainland to Baleares, and a fleet in Baleares is able to form part of a convoy chain. " +
-	       "The canal between Athens and Sparta is passable for armies, and means that Athens only has a single " +
-	       "coast. Similarly the canal in Byzantium, the Sicilian Straits and the River Nile. There is a four way " +
-	       "connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another " +
-	       "four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium. The first to 18 supply " +
-	       "centers is the winner.",
+		"Baleares is an archipelago that can be occupied by armies or fleets. Armies may not move directly from " +
+		"the mainland to Baleares, and a fleet in Baleares is able to form part of a convoy chain. " +
+		"The canal between Athens and Sparta is passable for armies, and means that Athens only has a single " +
+		"coast. Similarly the canal in Byzantium, the Sicilian Straits and the River Nile. There is a four way " +
+		"connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another " +
+		"four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium. The first to 18 supply " +
+		"centers is the winner.",
 }
 
 func AncientMediterraneanBlank(phase dip.Phase) *state.State {
@@ -117,7 +119,7 @@ func AncientMediterraneanGraph() *graph.Graph {
 		// vin
 		Prov("vin").Conn("sam", cla.Land).Conn("ill", cla.Land).Conn("dal", cla.Land).Conn("ven", cla.Land).Conn("rha", cla.Land).Flag(cla.Land).SC(cla.Neutral).
 		// dac
-		Prov("dac").Conn("che", cla.Coast...).Conn("bla",cla.Sea).Conn("byz", cla.Coast...).Conn("mac", cla.Land).Conn("ill", cla.Land).Conn("sam", cla.Land).Flag(cla.Coast...).
+		Prov("dac").Conn("che", cla.Coast...).Conn("bla", cla.Sea).Conn("byz", cla.Coast...).Conn("mac", cla.Land).Conn("ill", cla.Land).Conn("sam", cla.Land).Flag(cla.Coast...).
 		// bla
 		Prov("bla").Conn("che", cla.Sea).Conn("sip", cla.Sea).Conn("bit", cla.Sea).Conn("byz", cla.Sea).Conn("dac", cla.Sea).Flag(cla.Sea).
 		// sip

@@ -15,8 +15,8 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/orders"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -179,7 +179,7 @@ func assertGame(t *testing.T, name string) (phases, ords, positions, fails int, 
 		switch state {
 		case inNothing:
 			if os.Getenv("BENCHMARK_OPTIONS") == "true" {
-				for _, nat := range cla.Nations {
+				for _, nat := range Nations {
 					t1 := time.Now()
 					options := s.Phase().Options(s, nat)
 					spent := time.Now().Sub(t1)
@@ -251,7 +251,7 @@ func assertGame(t *testing.T, name string) (phases, ords, positions, fails int, 
 	return
 }
 
-func TestDroidippyGames(t *testing.T) {
+func TestGames(t *testing.T) {
 	gamedir, err := os.Open("games")
 	if err != nil {
 		t.Fatalf("%v", err)
