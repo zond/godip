@@ -3,6 +3,7 @@ package ancientmediterranean
 import (
 	"reflect"
 	"testing"
+	"time"
 
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/orders"
@@ -50,6 +51,19 @@ func assertMove(t *testing.T, j *state.State, src, dst dip.Province, success boo
 		if now, _, _ := j.Unit(src); !reflect.DeepEqual(now, unit) {
 			t.Errorf("%v should not have moved from %v", now, src)
 		}
+	}
+}
+
+func assertUnit(t *testing.T, j *state.State, province dip.Province, unit dip.Unit) {
+	if found, _, _ := j.Unit(province); !reflect.DeepEqual(found, unit) {
+		t.Errorf("%v should be at %v now", unit, province)
+	}
+}
+
+func assertNoUnit(t *testing.T, j *state.State, province dip.Province) {
+	_, _, ok := j.Unit(province)
+	if ok {
+		t.Errorf("There should be no unit at %v now", province)
 	}
 }
 
@@ -165,4 +179,37 @@ func TestConvoyBaleares(t *testing.T) {
 	assertOrderValidity(t, judge, orders.Convoy("bal", "sag", "cor"), "", cla.ErrIllegalConvoyer)
 }
 
+func TestAutomaticDisbands(t *testing.T) {
+	judge := startState(t)
+	judge.RemoveUnit("car")
+	judge.RemoveUnit("cir")
+	judge.RemoveUnit("tha")
+	// Give original HCs to Rome
+	judge.SetUnit("cir", dip.Unit{cla.Army, Rome})
+	judge.SetUnit("tha", dip.Unit{cla.Army, Rome})
 
+	// Set up Carthage position from https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAwI6gjQoM/Phase/35/Map
+	judge.SetUnit("tar", dip.Unit{cla.Army, Carthage})
+	judge.SetUnit("bal", dip.Unit{cla.Fleet, Carthage})
+	judge.SetUnit("ber", dip.Unit{cla.Fleet, Carthage})
+	judge.SetUnit("pun", dip.Unit{cla.Fleet, Carthage})
+	judge.SetUnit("car", dip.Unit{cla.Fleet, Carthage})
+
+	// Spring movement
+	judge.Next()
+	// Sprint retreat
+	judge.Next()
+	// Fall movement
+	judge.Next()
+	// Fall retreat
+	judge.Next()
+	// Order contains one disband but should have three.
+	judge.SetOrder("ber", orders.Disband("ber", time.Now()))
+	judge.Next()
+	// Check that automatic disbands worked.
+	assertNoUnit(t, judge, "tar")
+	assertUnit(t, judge, "bal", dip.Unit{cla.Fleet, Carthage})
+	assertNoUnit(t, judge, "pun")
+	assertUnit(t, judge, "car", dip.Unit{cla.Fleet, Carthage})
+	assertNoUnit(t, judge, "ber")
+}
