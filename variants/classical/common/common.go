@@ -188,7 +188,8 @@ func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *
 	// Find all fleets that could or will convoy.
 	t := time.Now()
 	waypoints, _, _ := v.Find(func(p Province, o Order, u *Unit) bool {
-		if (!v.Graph().Flags(p)[Land] || v.Graph().Flags(p)[Convoyable]) && u != nil && (viaNation == nil || u.Nation == *viaNation) && u.Type == Fleet {
+		//  (not on land               or is convoyable)                 and exists  and is the viaNation, if provided               and is a fleet     and is not _at_ src or dst.
+		if (!v.Graph().Flags(p)[Land] || v.Graph().Flags(p)[Convoyable]) && u != nil && (viaNation == nil || u.Nation == *viaNation) && u.Type == Fleet && p.Super() != src.Super() && p.Super() != dst.Super() {
 			if !resolveConvoys {
 				if viaNation == nil || (o != nil && o.Type() == Convoy && o.Targets()[1].Contains(src) && o.Targets()[2].Contains(dst)) {
 					return true
