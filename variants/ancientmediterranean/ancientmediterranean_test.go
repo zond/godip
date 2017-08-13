@@ -67,6 +67,13 @@ func assertNoUnit(t *testing.T, j *state.State, province dip.Province) {
 	}
 }
 
+func assertNoOptionToMoveTo(t *testing.T, j *state.State, nat dip.Nation, src dip.Province, dst dip.Province) {
+	options := j.Phase().Options(j, nat)[src];
+	if _, ok := options[cla.Move][dip.SrcProvince(src)][dst]; ok {
+		t.Errorf("There should be no option for %v to move %v to %v", nat, src, dst)
+	}
+}
+
 func startState(t *testing.T) *state.State {
 	judge, err := AncientMediterraneanStart()
 	if err != nil {
@@ -212,4 +219,19 @@ func TestAutomaticDisbands(t *testing.T) {
 	assertNoUnit(t, judge, "ber")
 	assertUnit(t, judge, "pun", dip.Unit{cla.Fleet, Carthage})
 	assertUnit(t, judge, "car", dip.Unit{cla.Fleet, Carthage})
+}
+
+func TestSuggestedMoveBaleares(t *testing.T) {
+	judge := startState(t)
+
+	// In Spring 8AD of this game Godip suggested moving an army in Saguntum to Baleares:
+    // https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAwI6gjQoM
+	judge.SetUnit("sag", dip.Unit{cla.Army, Rome})
+
+	// Test there's no suggestion of a move from Saguntum to Baleares when the destination is empty.
+	assertNoOptionToMoveTo(t, judge, Rome, "sag", "bal")
+
+	// Test there's no suggestion of a move from Saguntum to Baleares when the destination contains a fleet.
+	judge.SetUnit("bal", dip.Unit{cla.Fleet, Carthage})
+	assertNoOptionToMoveTo(t, judge, Rome, "sag", "bal")
 }
