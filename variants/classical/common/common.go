@@ -121,7 +121,7 @@ func (self ErrBounce) Error() string {
 // src to dst. If resolveConvoys, then the convoys have to be successful. If dstOk then the dst is acceptable as convoying
 // node.
 func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, dstOk bool) PathFilter {
-	return func(name Province, edgeFlags, nodeFlags map[Flag]bool, sc *Nation) bool {
+	return func(name Province, edgeFlags, nodeFlags map[Flag]bool, sc *Nation, trace []Province) bool {
 		if dstOk && name.Contains(dst) && nodeFlags[Land] {
 			return true
 		}
@@ -145,13 +145,17 @@ func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, ds
 
 func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Province {
 	potentialConvoyCoasts := []Province{}
-	v.Graph().Path(src, "-", func(prov Province, edgeFlags, provFlags map[Flag]bool, sc *Nation) bool {
+	v.Graph().Path(src, "-", func(prov Province, edgeFlags, provFlags map[Flag]bool, sc *Nation, trace []Province) bool {
 		if !edgeFlags[Sea] {
 			return false
 		}
 		if provFlags[Land] {
-			potentialConvoyCoasts = append(potentialConvoyCoasts, prov)
-			return false
+			if len(trace) > 0 {
+				potentialConvoyCoasts = append(potentialConvoyCoasts, prov)
+			}
+			if !provFlags[Convoyable] {
+				return false
+			}
 		}
 		if noConvoy != nil && *noConvoy == prov {
 			return false

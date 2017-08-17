@@ -105,7 +105,7 @@ func (self *Graph) pathHelper(dst common.Province, queue []pathStep, filter comm
 		seen[step.pos] = true
 		for name, edge := range self.edges(step.pos) {
 			if !seen[name] {
-				if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC) {
+				if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
 					thisPath := append(append([]common.Province{}, step.path...), name)
 					if name == dst {
 						return thisPath
