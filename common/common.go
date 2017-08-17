@@ -133,7 +133,7 @@ type Phase interface {
 	Winner(Validator) *Nation
 }
 
-type PathFilter func(n Province, edgeFlags, provFlags map[Flag]bool, sc *Nation) bool
+type PathFilter func(n Province, edgeFlags, provFlags map[Flag]bool, sc *Nation, trace []Province) bool
 
 type Flag string
 

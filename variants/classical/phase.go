@@ -62,11 +62,11 @@ func (self *phase) shortestDistance(s dip.State, src dip.Province, dst []dip.Pro
 	found := false
 	for _, destination := range dst {
 		if unit.Type == cla.Fleet {
-			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation) bool {
+			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation, trace []dip.Province) bool {
 				return edgeFlags[cla.Sea] && nodeFlags[cla.Sea]
 			}
 		} else {
-			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation) bool {
+			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation, trace []dip.Province) bool {
 				if p.Super() == destination.Super() {
 					return true
 				}
