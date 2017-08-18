@@ -235,15 +235,17 @@ func TestSuggestedMoveBaleares(t *testing.T) {
 	// https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAwI6gjQoM/Phase/36
 	judge.SetUnit("sag", dip.Unit{cla.Army, Rome})
 
-	// Test there's no suggestion of a move from Saguntum to Baleares when the destination is empty.
+	// Test there's no suggestion of a move from Saguntum to Baleares when the destination is empty and there's
+	// no fleet to convoy.
+	assertNoOptionToMoveTo(t, judge, Rome, "sag", "bal")
+
+	// Test there's no suggestion of a move from Saguntum to Baleares when the destination contains a fleet
+	// but there's still no fleet to convoy.
+	judge.SetUnit("bal", dip.Unit{cla.Fleet, Carthage})
 	assertNoOptionToMoveTo(t, judge, Rome, "sag", "bal")
 
 	// Test there IS a suggestion of a move from sag to bal when there is a fleet in ber.
 	judge.SetUnit("ber", dip.Unit{cla.Fleet, Carthage})
 	assertOptionToMove(t, judge, Rome, "sag", "bal")
 
-	judge.RemoveUnit("ber")
-	// Test there's no suggestion of a move from Saguntum to Baleares when the destination contains a fleet.
-	judge.SetUnit("bal", dip.Unit{cla.Fleet, Carthage})
-	assertNoOptionToMoveTo(t, judge, Rome, "sag", "bal")
 }
