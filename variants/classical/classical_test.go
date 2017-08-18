@@ -12,8 +12,8 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/orders"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -463,6 +463,19 @@ func TestSTPBuildOptions(t *testing.T) {
 	assertOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp"})
 	assertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/nc"})
 	assertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/sc"})
+}
+
+func TestSupportSTPOpts(t *testing.T) {
+	judge := startState(t)
+	opts := judge.Phase().Options(judge, cla.Russia)
+	// Check that initially Moscow can support St Petersburg South Coast to Livonia
+	assertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
+
+	// Swap St Petersburg to North Coast and check there's no support option to Livonia
+	judge.RemoveUnit("stp/sc")
+	judge.SetUnit("stp/nc", dip.Unit{cla.Fleet, cla.Russia})
+	opts = judge.Phase().Options(judge, cla.Russia)
+	assertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 }
 
 func TestBULOptions(t *testing.T) {
