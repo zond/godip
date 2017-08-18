@@ -242,8 +242,8 @@ func TestSuggestedMoveBaleares(t *testing.T) {
 	judge.SetUnit("ber", dip.Unit{cla.Fleet, Carthage})
 	assertOptionToMove(t, judge, Rome, "sag", "bal")
 
+	judge.RemoveUnit("ber")
 	// Test there's no suggestion of a move from Saguntum to Baleares when the destination contains a fleet.
 	judge.SetUnit("bal", dip.Unit{cla.Fleet, Carthage})
 	assertNoOptionToMoveTo(t, judge, Rome, "sag", "bal")
-
 }
