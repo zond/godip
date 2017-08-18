@@ -168,15 +168,15 @@ func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Provinc
 			return false
 		}
 		return true
-	})
+	}, true)
 	return potentialConvoyCoasts
 }
 
 func ConvoyPathPossible(v Validator, via, src, dst Province, resolveConvoys bool) []Province {
 	defer v.Profile("ConvoyPathPossible", time.Now())
-	if part1 := v.Graph().Path(src, via, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false)); part1 != nil {
+	if part1 := v.Graph().Path(src, via, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false), false); part1 != nil {
 		t2 := time.Now()
-		if part2 := v.Graph().Path(via, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true)); part2 != nil {
+		if part2 := v.Graph().Path(via, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true), false); part2 != nil {
 			return append(part1, part2...)
 		}
 		v.Profile("ConvoyPathPossble { [ check second half ] }", t2)

@@ -97,41 +97,51 @@ func (self *Graph) edges(n common.Province) (result map[common.Province]*edge) {
 type pathStep struct {
 	path []common.Province
 	pos  common.Province
+	seen map[common.Province]bool
 }
 
-func (self *Graph) pathHelper(dst common.Province, queue []pathStep, filter common.PathFilter, seen map[common.Province]bool) []common.Province {
+func (self *Graph) pathHelper(dst common.Province, queue []pathStep, filter common.PathFilter, revisit bool) []common.Province {
 	var newQueue []pathStep
 	for _, step := range queue {
-		seen[step.pos] = true
+		step.seen[step.pos] = true
 		for name, edge := range self.edges(step.pos) {
-			if !seen[name] {
+			if !step.seen[name] {
 				if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
 					thisPath := append(append([]common.Province{}, step.path...), name)
 					if name == dst {
 						return thisPath
 					}
+					newSeen := step.seen
+					if revisit {
+						newSeen = map[common.Province]bool{}
+						for k, v := range step.seen {
+							newSeen[k] = v
+						}
+					}
 					newQueue = append(newQueue, pathStep{
 						path: thisPath,
 						pos:  name,
+						seen: newSeen,
 					})
 				}
 			}
 		}
 	}
 	if len(newQueue) > 0 {
-		return self.pathHelper(dst, newQueue, filter, seen)
+		return self.pathHelper(dst, newQueue, filter, revisit)
 	}
 	return nil
 }
 
-func (self *Graph) Path(src, dst common.Province, filter common.PathFilter) []common.Province {
+func (self *Graph) Path(src, dst common.Province, filter common.PathFilter, revisit bool) []common.Province {
 	queue := []pathStep{
 		pathStep{
 			path: nil,
 			pos:  src,
+			seen: map[common.Province]bool{},
 		},
 	}
-	return self.pathHelper(dst, queue, filter, make(map[common.Province]bool))
+	return self.pathHelper(dst, queue, filter, revisit)
 }
 
 func (self *Graph) Coasts(prov common.Province) (result []common.Province) {
