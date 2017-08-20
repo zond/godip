@@ -470,12 +470,20 @@ func TestSupportSTPOpts(t *testing.T) {
 	opts := judge.Phase().Options(judge, cla.Russia)
 	// Check that initially Moscow can support St Petersburg South Coast to Livonia
 	assertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
+	// Check that the south coast is not mentioned in the suggestion list.
+	assertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp/sc", "lvn"})
 
 	// Swap St Petersburg to North Coast and check there's no support option to Livonia
 	judge.RemoveUnit("stp/sc")
 	judge.SetUnit("stp/nc", dip.Unit{cla.Fleet, cla.Russia})
 	opts = judge.Phase().Options(judge, cla.Russia)
 	assertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
+
+	// Swap St Petersburg to contain an army instead and check the support option is back.
+	judge.RemoveUnit("stp/nc")
+	judge.SetUnit("stp", dip.Unit{cla.Army, cla.Russia})
+	opts = judge.Phase().Options(judge, cla.Russia)
+	assertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 }
 
 func TestBULOptions(t *testing.T) {
