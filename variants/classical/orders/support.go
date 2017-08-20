@@ -125,8 +125,8 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
-				supportee, mvSrc, ok := v.Unit(moveSupportable)
-				if !ok || supportee.Type != cla.Fleet {
+				supportee, mvSrc, ok := v.Unit(moveSupportable.Super())
+				if !ok || supportee.Type != cla.Fleet || mvSrc != moveSupportable {
 					continue
 				}
 				if result == nil {

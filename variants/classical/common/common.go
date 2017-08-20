@@ -302,20 +302,8 @@ func PossibleMovesUnit(v Validator, unitType UnitType, src Province, allowConvoy
 		panic(fmt.Errorf("unknown unit type %q", unitType))
 	}
 	for dst, _ := range dsts {
-		if dst.Super() == dst {
+		if dst.Super() == dst || !dsts[dst.Super()] {
 			result = append(result, dst)
-		} else if !dsts[dst.Super()] {
-			foundCoasts := 0
-			for _, coast := range v.Graph().Coasts(dst) {
-				if dsts[coast] {
-					foundCoasts += 1
-				}
-			}
-			if foundCoasts == 1 {
-				result = append(result, dst.Super())
-			} else {
-				result = append(result, dst)
-			}
 		}
 	}
 	return result
