@@ -142,7 +142,7 @@ type Graph interface {
 	Flags(Province) map[Flag]bool
 	AllFlags(Province) map[Flag]bool
 	SC(Province) *Nation
-	Path(src, dst Province, filter PathFilter) []Province
+	Path(src, dst Province, filter PathFilter, revisit bool) []Province
 	Coasts(Province) []Province
 	Edges(src Province) map[Province]map[Flag]bool
 	SCs(Nation) []Province

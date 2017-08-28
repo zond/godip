@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -142,7 +142,7 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 				}
 				opt[mvDst.Super()] = nil
 			}
-			for _, moveSupportable := range cla.PossibleMovesUnit(v, cla.Army, supportable, true, &actualSrc) {
+			for _, moveSupportable := range cla.PossibleMovesUnit(v, cla.Army, mvDst, true, &actualSrc) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
