@@ -11,9 +11,10 @@ import (
 	"github.com/zond/godip/datc"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/orders"
+	"github.com/zond/godip/variants/classical/start"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -481,4 +482,27 @@ func TestBULOptions(t *testing.T) {
 	assertNoOpt(t, opts, []string{"bul", "Move", "bul/ec"})
 	assertOpt(t, opts, []string{"bul", "Move", "bul", "rum"})
 	assertOpt(t, opts, []string{"bul", "Move", "bul", "gre"})
+}
+
+// Test that por M spa supported by mid works in
+// https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAgOr0mgoM/Phase/12/Map
+func TestMIDPORSPASupportOptions(t *testing.T) {
+	judge := state.New(start.Graph(), &phase{1903, cla.Fall, cla.Movement}, BackupRule)
+	if err := judge.SetUnits(start.Units()); err != nil {
+		t.Fatal(err)
+	}
+	scs := start.SupplyCenters()
+	scs["por"] = cla.France
+	scs["spa"] = cla.France
+	scs["mar"] = cla.France
+	judge.SetSupplyCenters(scs)
+	judge.SetUnit("mid", dip.Unit{cla.Fleet, cla.France})
+	judge.SetUnit("por", dip.Unit{cla.Army, cla.France})
+	judge.RemoveUnit("mar")
+	judge.SetUnit("mar", dip.Unit{cla.Army, cla.Italy})
+	judge.SetUnit("gol", dip.Unit{cla.Fleet, cla.Italy})
+	judge.SetUnit("wes", dip.Unit{cla.Fleet, cla.Italy})
+	opts := judge.Phase().Options(judge, cla.France)
+	assertOpt(t, opts, []string{"por", "Move", "por", "spa"})
+	assertOpt(t, opts, []string{"mid", "Support", "mid", "por", "spa"})
 }
