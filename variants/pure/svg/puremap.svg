@@ -51,7 +51,7 @@
   </metadata>
   <style
      type="text/css"
-     id="style4421"> 
+     id="style4421">
 
       @font-face {
       font-family: 'latoregular';
@@ -201,7 +201,7 @@
   <g
      inkscape:label="supply centers"
      inkscape:groupmode="layer"
-     id="supplycenters">
+     id="supply-centers">
     <path
        id="lonCenter"
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.22519755;stroke-opacity:1;enable-background:new"
