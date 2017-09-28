@@ -74,12 +74,12 @@ Maps are svg files and can be created with a combination of the free tool [Inksc
 
  * The background (bottom layer): This should contain regions in the colour they should be when not owned.
  * Provinces with `id="provinces"`: This should be a hidden layer (`style="display:none"`) containing each province. When a province is owned then it will be revealed and coloured appropriately. Each province should have its id set to the appropriate abbreviation (e.g. in the classical game the "London" region has the id "lon").
- * Supply centers: This is a layer of markers for supply centers. Each supply center should have the id set to the province name concatenated with "Center" (e.g. the supply center for "London" has the id "lonCenter"). These markers are used to position units and when drawing order symbols on the map.
- * Province centers: This is a similar layer of markers, but for the regions which aren't supply centers.  There should also be a center here for any subprovince (e.g. St. Petersberg North Coast has a center with id "stp/ncCenter").  The markers should follow the same naming convention as the supply center layer, but each marker should contain `fill:none;stroke:none;` in its style attribute so that it isn't displayed.
- * Highlights layer (with `id="highlights"`): This is used to highlight selectable regions.
- * Names layer: A layer containing text so the player knows what each region is called.
- * Units layer (with `id="units"`): This will be empty in the map file.
- * Orders layer (with `id="orders"`): This will also be empty in the map file.
+ * Supply centers with `id="supply-centers"`: This is a layer of markers for supply centers. Each supply center should have the id set to the province name concatenated with "Center" (e.g. the supply center for "London" has the id "lonCenter"). These markers are used to position units and when drawing order symbols on the map.
+ * Province centers with `id="province-centers"`: This is a similar layer of markers, but for the regions which aren't supply centers.  There should also be a center here for any subprovince (e.g. St. Petersberg North Coast has a center with id "stp/ncCenter").  The markers should follow the same naming convention as the supply center layer, but each marker should contain `fill:none;stroke:none;` in its style attribute so that it isn't displayed.
+ * Highlights layer with `id="highlights"`: This is used to highlight selectable regions.
+ * Names layer with `id="names"`: A layer containing text so the player knows what each region is called.
+ * Units layer with `id="units"`: This will be empty in the map file.
+ * Orders layer with `id="orders"`: This will also be empty in the map file.
 
 Currently the [script](https://github.com/zond/diplicity/blob/master/app/js/dippymap.js) to handle map manipulation does not cope well with [transform](https://developer.mozilla.org/en/docs/Web/SVG/Attribute/transform) attributes.
 To remove these attributes from the svg use one of the [methods on this page](https://stackoverflow.com/questions/13329125/removing-transforms-in-svg-files).

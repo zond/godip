@@ -41,7 +41,7 @@
      inkscape:object-paths="false" />
   <style
      type="text/css"
-     id="style4421"> 
+     id="style4421">
 
       @font-face {
       font-family: 'latoregular';
@@ -1194,7 +1194,7 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer5"
+     id="supply-centers"
      inkscape:label="supply centers"
      style="display:inline;opacity:1">
     <path
@@ -1403,7 +1403,7 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer6"
+     id="province-centers"
      inkscape:label="province centers"
      style="display:none">
     <path
@@ -1681,7 +1681,7 @@
      id="highlights" />
   <g
      inkscape:groupmode="layer"
-     id="layer2"
+     id="names"
      inkscape:label="names"
      style="display:inline">
     <text
