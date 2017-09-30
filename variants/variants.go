@@ -5,6 +5,7 @@ import (
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/fleetrome"
 	"github.com/zond/godip/variants/franceaustria"
+	"github.com/zond/godip/variants/hundred"
 	"github.com/zond/godip/variants/pure"
 	"github.com/zond/godip/variants/ancientmediterranean"
 )
@@ -21,6 +22,7 @@ var OrderedVariants = []common.Variant{
 	classical.ClassicalVariant,
 	fleetrome.FleetRomeVariant,
 	franceaustria.FranceAustriaVariant,
+	hundred.HundredVariant,
 	pure.PureVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
 }
