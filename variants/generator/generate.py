@@ -16,6 +16,8 @@ START_UNITS = {'Burgundy': {'Army': ['dij', 'lux', 'fla'], 'Fleet': ['hol']},
 NATIONS = START_UNITS.keys()
 # The first year of the game
 START_YEAR = 1425
+# Overrides to swap region full names. This only needs to contain something if the greedy algorithm fails.
+NAME_OVERRIDES = [(('Dijon',), ('Lorraine',))]
 
 ### Constants ###
 
@@ -63,6 +65,12 @@ def subLocs(locA, locB):
 
 def strFrom(loc):
     return ','.join(map(lambda x: str(x), loc))
+
+def reverseMapLookup(inputMap, value):
+    for k, v in inputMap.items():
+        if v == value:
+            return k
+    raise Exception('Could not find value {} in map {}'.format(value, inputMap))
 
 def findDist(locA, locB):
     dx = locA[0] - locB[0]
@@ -357,7 +365,92 @@ def guessRegionNames(regions, allCenters):
         middlePoints.remove(m)
         centerPoints.remove(c)
     return regionNames
-    
+
+def makeLocsToNames(namesLayer):
+    locsToNames = {}
+    for text in namesLayer.findall('{}text'.format(SVG)):
+        transform = text.get('transform')
+        x, y = float(text.get('x')), float(text.get('y'))
+        if transform != None:
+            if re.match(r'^rotate\([^\(\)\,]*\)$', transform):
+                angle = math.radians(float(transform.split('(')[1].split(')')[0]))
+                x, y = x * math.cos(angle) - y * math.sin(angle), x * math.sin(angle) + y * math.cos(angle)
+            else:
+                print 'Unsupported text transformation: ' + transform
+        loc = (x, y)
+        name = []
+        for tspan in text.findall('.//{}tspan'.format(SVG)):
+            if tspan.text != None:
+                name += re.split(r' +', tspan.text)
+        locsToNames[loc] = tuple(name)
+    for nameA, nameB in NAME_OVERRIDES:
+        locA = reverseMapLookup(locsToNames, nameA)
+        locB = reverseMapLookup(locsToNames, nameB)
+        locsToNames[locA], locsToNames[locB] = locsToNames[locB], locsToNames[locA]
+    return locsToNames
+
+def guessRegionFullNames(regions, namesLayer):
+    locsToNames = makeLocsToNames(namesLayer)
+    # Use a greedy algorithm to name regions based on how close their middle is to a center.
+    middleToRegion = {}
+    for region in regions:
+        middleToRegion[middleOfRegion(region)] = region
+    middlePoints = list(middleToRegion.keys())
+    centerPoints = list(locsToNames.keys())
+    regionNames = {}
+    while len(centerPoints) > 0:
+        m, c = findClosestPair(middlePoints, centerPoints)
+        regionNames[locsToNames[c]] = middleToRegion[m]
+        middlePoints.remove(m)
+        centerPoints.remove(c)
+    return regionNames
+
+def makeFullNameToAbbr(regionFullNames, regionNames):
+    """Create a map from region abbreviation to region name. Note that currently this takes the region abbreviations
+    as an input, but at some point it might be useful to rewrite it so that it determines a set of sensible abbreviations."""
+    fullNameToAbbr = {}
+    for fullName, region in regionFullNames.items():
+        for abbr, abbrRegion in regionNames.items():
+            if region == abbrRegion:
+                fullNameToAbbr[fullName] = abbr
+    return fullNameToAbbr
+
+def addNamesLayer(root, namesLayer, fullNameToAbbr):
+    """Add the names layer to root and try to highlight the abbreviation in bold."""
+    '<tspan style="font-weight:bold">'
+    for text in namesLayer.findall('{}text'.format(SVG)):
+        name = []
+        for tspan in text.findall('.//{}tspan'.format(SVG)):
+            if tspan.text != None:
+                name += re.split(r' +', tspan.text)
+        abbr = fullNameToAbbr[tuple(name)]
+        i = 0
+        for tspan in text.findall('.//{}tspan'.format(SVG)):
+            if tspan.text != None:
+                oldText = tspan.text
+                newParts = []
+                j = len(abbr)
+                while j > i:
+                    if abbr[i:j] in oldText.lower():
+                        start = oldText.lower().index(abbr[i:j])
+                        newParts += [oldText[:start], oldText[start:start+j-i]]
+                        oldText = oldText[start+j-i:]
+                        i = j
+                        j = len(abbr)
+                        if i >= len(abbr):
+                            break
+                    else:
+                        j -= 1
+                if len(newParts) > 0:
+                    newParts.append(re.sub('.*' + newParts[-1], '', oldText))
+                    tspan.text = None
+                    for index, part in enumerate(newParts):
+                        if len(part) != 0:
+                            fontWeight = 'normal' if index % 2 == 0 else 'bold'
+                            e = xml.etree.ElementTree.Element('{}tspan'.format(SVG), {'style': 'font-weight:' + fontWeight})
+                            e.text = part
+                            tspan.append(e)
+    root.append(namesLayer)
 
 def addLayerWithEdges(root, edges):
     layer = getLayer(root, 'names')
@@ -626,8 +719,12 @@ edgeToDMap = findDesiredEdges(junctions, oldEdgeToDMap)
 
 #updateEdges(root, oldEdges, edges)
 
+namesLayer = getLayer(root, 'names')
+
 regions = makeRegions(junctions, edgeToDMap.keys(), corners)
+regionFullNames = guessRegionFullNames(regions, namesLayer)
 regionNames = guessRegionNames(regions, allCenters)
+fullNameToAbbr = makeFullNameToAbbr(regionFullNames, regionNames)
 
 #adjacencyGraph = findAdjacencyGraph(allCenters, edges)
 
@@ -650,7 +747,7 @@ root.append(scLayer)
 root.append(pcLayer)
 addLayer(root, 'highlights', True)
 addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners)
-addLayer(root, 'names', True)
+addNamesLayer(root, namesLayer, fullNameToAbbr)
 addLayer(root, 'units', True)
 addLayer(root, 'orders', True)
 
