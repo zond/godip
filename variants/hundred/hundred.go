@@ -125,7 +125,7 @@ func HundredGraph() *graph.Graph {
 		// wal
 		Prov("wal").Conn("num", cla.Land).Conn("iri", cla.Coast...).Conn("bch", cla.Coast...).Conn("dev", cla.Land).Flag(cla.Coast...).
 		// lux
-		Prov("lux").Conn("fla", cla.Land).Conn("dij", cla.Land).Conn("lor", cla.Land).Conn("ger", cla.Land).Conn("fri", cla.Land).Conn("hol", cla.Land).Flag(cla.Land).SC(Burgundy).
+		Prov("lux").Conn("fla", cla.Land).Conn("dij", cla.Land).Conn("lor", cla.Land).Conn("fri", cla.Land).Conn("hol", cla.Land).Flag(cla.Land).SC(Burgundy).
 		// lim
 		Prov("lim").Conn("orl", cla.Land).Conn("poi", cla.Land).Conn("tou", cla.Land).Conn("pro", cla.Land).Conn("dau", cla.Land).Flag(cla.Land).
 		// hol
@@ -133,15 +133,15 @@ func HundredGraph() *graph.Graph {
 		// lon
 		Prov("lon").Conn("ech", cla.Coast...).Conn("dxx", cla.Coast...).Conn("dov", cla.Coast...).Conn("ang", cla.Land).Conn("dev", cla.Land).Flag(cla.Coast...).SC(England).
 		// als
-		Prov("als").Conn("lon", cla.Land).Conn("dev", cla.Land).Conn("ger", cla.Land).Conn("lor", cla.Land).Conn("can", cla.Land).Flag(cla.Land).
+		Prov("als").Conn("lon", cla.Land).Conn("dev", cla.Land).Conn("lor", cla.Land).Conn("can", cla.Land).Flag(cla.Land).
 		// lor
-		Prov("lor").Conn("dij", cla.Land).Conn("can", cla.Land).Conn("als", cla.Land).Conn("ger", cla.Land).Conn("lux", cla.Land).Flag(cla.Land).
+		Prov("lor").Conn("dij", cla.Land).Conn("can", cla.Land).Conn("als", cla.Land).Conn("lux", cla.Land).Flag(cla.Land).
 		// iri
 		Prov("iri").Conn("nth", cla.Sea).Conn("pal", cla.Coast...).Conn("atl", cla.Sea).Conn("bch", cla.Sea).Conn("wal", cla.Coast...).Conn("num", cla.Coast...).Conn("sco", cla.Coast...).Flag(cla.Sea).
 		// pal
-		Prov("pal").Conn("atl", cla.Coast...).Conn("iri", cla.Coast...).Conn("nth", cla.Coast...).Conn("ire", cla.Land).Flag(cla.Coast...).
+		Prov("pal").Conn("atl", cla.Coast...).Conn("iri", cla.Coast...).Conn("nth", cla.Coast...).Flag(cla.Coast...).
 		// med
-		Prov("med").Conn("pal", cla.Coast...).Conn("ire", cla.Coast...).Conn("sav", cla.Coast...).Conn("pro", cla.Coast...).Conn("tou", cla.Coast...).Conn("ara", cla.Coast...).Conn("cas", cla.Coast...).Conn("atl", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
+		Prov("med").Conn("pal", cla.Coast...).Conn("sav", cla.Coast...).Conn("pro", cla.Coast...).Conn("tou", cla.Coast...).Conn("ara", cla.Coast...).Conn("cas", cla.Coast...).Conn("atl", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
 		// ech
 		Prov("ech").Conn("lon", cla.Coast...).Conn("dev", cla.Coast...).Conn("bch", cla.Sea).Conn("brt", cla.Coast...).Conn("nmd", cla.Coast...).Conn("dxx", cla.Sea).Flag(cla.Sea).
 		// dau
@@ -155,13 +155,13 @@ func HundredGraph() *graph.Graph {
 		// dij
 		Prov("dij").Conn("par", cla.Land).Conn("cha", cla.Land).Conn("dau", cla.Land).Conn("can", cla.Land).Conn("lor", cla.Land).Conn("lux", cla.Land).Conn("fla", cla.Land).Conn("cal", cla.Land).Flag(cla.Land).SC(Burgundy).
 		// nth
-		Prov("nth").Conn("dij", cla.Coast...).Conn("cal", cla.Coast...).Conn("dij", cla.Coast...).Conn("cal", cla.Coast...).Conn("ire", cla.Coast...).Conn("pal", cla.Coast...).Conn("iri", cla.Sea).Conn("sco", cla.Coast...).Conn("num", cla.Coast...).Conn("ang", cla.Coast...).Conn("was", cla.Sea).Flag(cla.Sea).
+		Prov("nth").Conn("dij", cla.Coast...).Conn("cal", cla.Coast...).Conn("dij", cla.Coast...).Conn("cal", cla.Coast...).Conn("pal", cla.Coast...).Conn("iri", cla.Sea).Conn("sco", cla.Coast...).Conn("num", cla.Coast...).Conn("ang", cla.Coast...).Conn("was", cla.Sea).Flag(cla.Sea).
 		// cas
 		Prov("cas").Conn("med", cla.Coast...).Conn("ara", cla.Land).Conn("bis", cla.Coast...).Conn("atl", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
 		// was
 		Prov("was").Conn("cas", cla.Coast...).Conn("atl", cla.Sea).Conn("nth", cla.Sea).Conn("ang", cla.Coast...).Conn("dov", cla.Sea).Conn("hol", cla.Coast...).Conn("fri", cla.Coast...).Conn("fri", cla.Coast...).Flag(cla.Sea).
 		// atl
-		Prov("atl").Conn("was", cla.Sea).Conn("fri", cla.Coast...).Conn("med", cla.Sea).Conn("cas", cla.Coast...).Conn("bis", cla.Sea).Conn("bch", cla.Sea).Conn("iri", cla.Sea).Conn("pal", cla.Coast...).Conn("ire", cla.Coast...).Conn("ire", cla.Coast...).Flag(cla.Sea).
+		Prov("atl").Conn("was", cla.Sea).Conn("fri", cla.Coast...).Conn("med", cla.Sea).Conn("cas", cla.Coast...).Conn("bis", cla.Sea).Conn("bch", cla.Sea).Conn("iri", cla.Sea).Conn("pal", cla.Coast...).Flag(cla.Sea).
 		// orl
 		Prov("orl").Conn("nmd", cla.Land).Conn("anj", cla.Land).Conn("brt", cla.Land).Conn("poi", cla.Land).Conn("lim", cla.Land).Conn("dau", cla.Land).Conn("par", cla.Land).Flag(cla.Land).SC(France).
 		// dev
@@ -177,6 +177,6 @@ func HundredGraph() *graph.Graph {
 		// dov
 		Prov("dov").Conn("ang", cla.Coast...).Conn("lon", cla.Coast...).Conn("cal", cla.Coast...).Conn("fla", cla.Coast...).Conn("hol", cla.Coast...).Conn("was", cla.Sea).Flag(cla.Sea).
 		// fri
-		Prov("fri").Conn("was", cla.Coast...).Conn("hol", cla.Land).Conn("lux", cla.Land).Conn("ger", cla.Land).Flag(cla.Coast...).
+		Prov("fri").Conn("was", cla.Coast...).Conn("hol", cla.Land).Conn("lux", cla.Land).Flag(cla.Coast...).
 		Done()
 }

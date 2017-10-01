@@ -83,7 +83,7 @@ func svgHundredmapSvg() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "svg/hundredmap.svg", size: 204563, mode: os.FileMode(420), modTime: time.Unix(1506741055, 0)}
+	info := bindataFileInfo{name: "svg/hundredmap.svg", size: 204563, mode: os.FileMode(420), modTime: time.Unix(1506853460, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
