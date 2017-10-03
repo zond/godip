@@ -673,21 +673,15 @@ func {0}Graph() *graph.Graph {{
         f.write('\t\t// {}\n'.format(center))
         f.write('\t\tProv("{}").'.format(center))
         region = regionNames[center]
-        for edge in zip(region, region[1:] + [region[0]]):
-            reverse = (edge[1], edge[0])
-            if edge in edgeToNames.keys() and center in edgeToNames[edge]:
-                selected = edgeToNames[edge]
-            elif reverse in edgeToNames.keys() and center in edgeToNames[reverse]:
-                selected = edgeToNames[reverse]
-            for other in selected:
-                if other != center and other in passableCenters:
-                    if center in seaCenters or other in seaCenters:
-                        borderType = 'Sea'
-                    elif center not in seaCenters and other not in seaCenters:
-                        borderType = 'Land'
-                    else:
-                        borderType = 'Coast...'
-                    f.write('Conn("{}", cla.{}).'.format(other, borderType))
+        for other in getNeighbours(center, regionNames):
+            if other != center and other in passableCenters:
+                if center in seaCenters or other in seaCenters:
+                    borderType = 'Sea'
+                elif center not in seaCenters and other not in seaCenters:
+                    borderType = 'Land'
+                else:
+                    borderType = 'Coast...'
+                f.write('Conn("{}", cla.{}).'.format(other, borderType))
         f.write('Flag(cla.{}).'.format(flags[center]))
         if center in supplyCenters:
             owner = 'cla.Neutral'
