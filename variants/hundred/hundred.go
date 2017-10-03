@@ -97,84 +97,84 @@ func HundredStart() (result *state.State, err error) {
 func HundredGraph() *graph.Graph {
 	return graph.New().
 		// sco
-		Prov("sco").Conn("num", cla.Land).Conn("nth", cla.Coast...).Conn("iri", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sco").Conn("num", cla.Land).Conn("nth", cla.Sea).Conn("iri", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// ang
-		Prov("ang").Conn("dov", cla.Coast...).Conn("was", cla.Coast...).Conn("nth", cla.Coast...).Conn("num", cla.Land).Conn("dev", cla.Land).Conn("lon", cla.Land).Flag(cla.Coast...).
+		Prov("ang").Conn("dov", cla.Sea).Conn("was", cla.Sea).Conn("nth", cla.Sea).Conn("num", cla.Land).Conn("dev", cla.Land).Conn("lon", cla.Land).Flag(cla.Coast...).
 		// pro
-		Prov("pro").Conn("dau", cla.Land).Conn("lim", cla.Land).Conn("tou", cla.Land).Conn("med", cla.Coast...).Conn("sav", cla.Land).Flag(cla.Coast...).
+		Prov("pro").Conn("dau", cla.Land).Conn("lim", cla.Land).Conn("tou", cla.Land).Conn("med", cla.Sea).Conn("sav", cla.Land).Flag(cla.Coast...).
 		// brt
-		Prov("brt").Conn("ech", cla.Coast...).Conn("bch", cla.Coast...).Conn("bis", cla.Coast...).Conn("guy", cla.Land).Conn("poi", cla.Land).Conn("orl", cla.Land).Conn("anj", cla.Land).Conn("nmd", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("brt").Conn("ech", cla.Sea).Conn("bch", cla.Sea).Conn("bis", cla.Sea).Conn("guy", cla.Land).Conn("poi", cla.Land).Conn("orl", cla.Land).Conn("anj", cla.Land).Conn("nmd", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
 		// anj
 		Prov("anj").Conn("nmd", cla.Land).Conn("brt", cla.Land).Conn("orl", cla.Land).Flag(cla.Land).
 		// ara
-		Prov("ara").Conn("med", cla.Coast...).Conn("tou", cla.Land).Conn("guy", cla.Land).Conn("bis", cla.Coast...).Conn("cas", cla.Land).Flag(cla.Coast...).
+		Prov("ara").Conn("med", cla.Sea).Conn("tou", cla.Land).Conn("guy", cla.Land).Conn("bis", cla.Sea).Conn("cas", cla.Land).Flag(cla.Coast...).
 		// num
-		Prov("num").Conn("nth", cla.Coast...).Conn("sco", cla.Land).Conn("iri", cla.Coast...).Conn("wal", cla.Land).Conn("dev", cla.Land).Conn("ang", cla.Land).Flag(cla.Coast...).
+		Prov("num").Conn("nth", cla.Sea).Conn("sco", cla.Land).Conn("iri", cla.Sea).Conn("wal", cla.Land).Conn("dev", cla.Land).Conn("ang", cla.Land).Flag(cla.Coast...).
 		// poi
 		Prov("poi").Conn("tou", cla.Land).Conn("lim", cla.Land).Conn("orl", cla.Land).Conn("brt", cla.Land).Conn("guy", cla.Land).Flag(cla.Land).
 		// tou
-		Prov("tou").Conn("poi", cla.Land).Conn("guy", cla.Land).Conn("ara", cla.Land).Conn("med", cla.Coast...).Conn("pro", cla.Land).Conn("lim", cla.Land).Flag(cla.Coast...).SC(France).
+		Prov("tou").Conn("poi", cla.Land).Conn("guy", cla.Land).Conn("ara", cla.Land).Conn("med", cla.Sea).Conn("pro", cla.Land).Conn("lim", cla.Land).Flag(cla.Coast...).SC(France).
 		// sav
-		Prov("sav").Conn("lim", cla.Land).Conn("tou", cla.Land).Conn("can", cla.Land).Conn("dau", cla.Land).Conn("pro", cla.Land).Conn("med", cla.Coast...).Flag(cla.Coast...).
+		Prov("sav").Conn("lim", cla.Land).Conn("tou", cla.Land).Conn("can", cla.Land).Conn("dau", cla.Land).Conn("pro", cla.Land).Conn("med", cla.Sea).Flag(cla.Coast...).
 		// cha
 		Prov("cha").Conn("dij", cla.Land).Conn("par", cla.Land).Conn("dau", cla.Land).Flag(cla.Land).
 		// par
 		Prov("par").Conn("dij", cla.Land).Conn("cal", cla.Land).Conn("nmd", cla.Land).Conn("orl", cla.Land).Conn("dau", cla.Land).Conn("cha", cla.Land).Flag(cla.Land).SC(France).
 		// wal
-		Prov("wal").Conn("num", cla.Land).Conn("iri", cla.Coast...).Conn("bch", cla.Coast...).Conn("dev", cla.Land).Flag(cla.Coast...).
+		Prov("wal").Conn("num", cla.Land).Conn("iri", cla.Sea).Conn("bch", cla.Sea).Conn("dev", cla.Land).Flag(cla.Coast...).
 		// lux
 		Prov("lux").Conn("fla", cla.Land).Conn("dij", cla.Land).Conn("lor", cla.Land).Conn("fri", cla.Land).Conn("hol", cla.Land).Flag(cla.Land).SC(Burgundy).
 		// lim
 		Prov("lim").Conn("orl", cla.Land).Conn("poi", cla.Land).Conn("tou", cla.Land).Conn("pro", cla.Land).Conn("dau", cla.Land).Flag(cla.Land).
 		// hol
-		Prov("hol").Conn("dov", cla.Coast...).Conn("fla", cla.Land).Conn("lux", cla.Land).Conn("fri", cla.Land).Conn("was", cla.Coast...).Flag(cla.Coast...).SC(Burgundy).
+		Prov("hol").Conn("dov", cla.Sea).Conn("fla", cla.Land).Conn("lux", cla.Land).Conn("fri", cla.Land).Conn("was", cla.Sea).Flag(cla.Coast...).SC(Burgundy).
 		// lon
-		Prov("lon").Conn("ech", cla.Coast...).Conn("dov", cla.Coast...).Conn("ang", cla.Land).Conn("dev", cla.Land).Flag(cla.Coast...).SC(England).
+		Prov("lon").Conn("ech", cla.Sea).Conn("dov", cla.Sea).Conn("ang", cla.Land).Conn("dev", cla.Land).Flag(cla.Coast...).SC(England).
 		// als
 		Prov("als").Conn("lon", cla.Land).Conn("dev", cla.Land).Conn("lor", cla.Land).Conn("can", cla.Land).Flag(cla.Land).
 		// lor
 		Prov("lor").Conn("dij", cla.Land).Conn("can", cla.Land).Conn("als", cla.Land).Conn("lux", cla.Land).Flag(cla.Land).
 		// iri
-		Prov("iri").Conn("nth", cla.Sea).Conn("pal", cla.Coast...).Conn("atl", cla.Sea).Conn("bch", cla.Sea).Conn("wal", cla.Coast...).Conn("num", cla.Coast...).Conn("sco", cla.Coast...).Flag(cla.Sea).
+		Prov("iri").Conn("nth", cla.Sea).Conn("pal", cla.Sea).Conn("atl", cla.Sea).Conn("bch", cla.Sea).Conn("wal", cla.Sea).Conn("num", cla.Sea).Conn("sco", cla.Sea).Flag(cla.Sea).
 		// pal
-		Prov("pal").Conn("atl", cla.Coast...).Conn("iri", cla.Coast...).Conn("nth", cla.Coast...).Flag(cla.Coast...).
+		Prov("pal").Conn("atl", cla.Sea).Conn("iri", cla.Sea).Conn("nth", cla.Sea).Flag(cla.Coast...).
 		// med
-		Prov("med").Conn("pal", cla.Coast...).Conn("sav", cla.Coast...).Conn("pro", cla.Coast...).Conn("tou", cla.Coast...).Conn("ara", cla.Coast...).Conn("cas", cla.Coast...).Conn("atl", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
+		Prov("med").Conn("pal", cla.Sea).Conn("sav", cla.Sea).Conn("pro", cla.Sea).Conn("tou", cla.Sea).Conn("ara", cla.Sea).Conn("cas", cla.Sea).Conn("atl", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
 		// ech
-		Prov("ech").Conn("lon", cla.Coast...).Conn("dev", cla.Coast...).Conn("bch", cla.Sea).Conn("brt", cla.Coast...).Conn("nmd", cla.Coast...).Conn("dov", cla.Sea).Flag(cla.Sea).
+		Prov("ech").Conn("lon", cla.Sea).Conn("dev", cla.Sea).Conn("bch", cla.Sea).Conn("brt", cla.Sea).Conn("nmd", cla.Sea).Conn("dov", cla.Sea).Flag(cla.Sea).
 		// dau
 		Prov("dau").Conn("par", cla.Land).Conn("orl", cla.Land).Conn("lim", cla.Land).Conn("pro", cla.Land).Conn("sav", cla.Land).Conn("can", cla.Land).Conn("dij", cla.Land).Conn("cha", cla.Land).Flag(cla.Land).SC(France).
 		// nmd
-		Prov("nmd").Conn("dov", cla.Coast...).Conn("ech", cla.Coast...).Conn("brt", cla.Land).Conn("anj", cla.Land).Conn("orl", cla.Land).Conn("par", cla.Land).Conn("cal", cla.Land).Flag(cla.Coast...).SC(England).
+		Prov("nmd").Conn("dov", cla.Sea).Conn("ech", cla.Sea).Conn("brt", cla.Land).Conn("anj", cla.Land).Conn("orl", cla.Land).Conn("par", cla.Land).Conn("cal", cla.Land).Flag(cla.Coast...).SC(England).
 		// bis
-		Prov("bis").Conn("atl", cla.Sea).Conn("cas", cla.Coast...).Conn("ara", cla.Coast...).Conn("guy", cla.Coast...).Conn("brt", cla.Coast...).Conn("bch", cla.Sea).Flag(cla.Sea).
+		Prov("bis").Conn("atl", cla.Sea).Conn("cas", cla.Sea).Conn("ara", cla.Sea).Conn("guy", cla.Sea).Conn("brt", cla.Sea).Conn("bch", cla.Sea).Flag(cla.Sea).
 		// bch
-		Prov("bch").Conn("iri", cla.Sea).Conn("atl", cla.Sea).Conn("bis", cla.Sea).Conn("brt", cla.Coast...).Conn("ech", cla.Sea).Conn("dev", cla.Coast...).Conn("wal", cla.Coast...).Flag(cla.Sea).
+		Prov("bch").Conn("iri", cla.Sea).Conn("atl", cla.Sea).Conn("bis", cla.Sea).Conn("brt", cla.Sea).Conn("ech", cla.Sea).Conn("dev", cla.Sea).Conn("wal", cla.Sea).Flag(cla.Sea).
 		// dij
 		Prov("dij").Conn("par", cla.Land).Conn("cha", cla.Land).Conn("dau", cla.Land).Conn("can", cla.Land).Conn("lor", cla.Land).Conn("lux", cla.Land).Conn("fla", cla.Land).Conn("cal", cla.Land).Flag(cla.Land).SC(Burgundy).
 		// nth
-		Prov("nth").Conn("dij", cla.Coast...).Conn("cal", cla.Coast...).Conn("dij", cla.Coast...).Conn("cal", cla.Coast...).Conn("pal", cla.Coast...).Conn("iri", cla.Sea).Conn("sco", cla.Coast...).Conn("num", cla.Coast...).Conn("ang", cla.Coast...).Conn("was", cla.Sea).Flag(cla.Sea).
+		Prov("nth").Conn("dij", cla.Sea).Conn("cal", cla.Sea).Conn("dij", cla.Sea).Conn("cal", cla.Sea).Conn("pal", cla.Sea).Conn("iri", cla.Sea).Conn("sco", cla.Sea).Conn("num", cla.Sea).Conn("ang", cla.Sea).Conn("was", cla.Sea).Flag(cla.Sea).
 		// cas
-		Prov("cas").Conn("med", cla.Coast...).Conn("ara", cla.Land).Conn("bis", cla.Coast...).Conn("atl", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("cas").Conn("med", cla.Sea).Conn("ara", cla.Land).Conn("bis", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// was
-		Prov("was").Conn("cas", cla.Coast...).Conn("atl", cla.Sea).Conn("nth", cla.Sea).Conn("ang", cla.Coast...).Conn("dov", cla.Sea).Conn("hol", cla.Coast...).Conn("fri", cla.Coast...).Conn("fri", cla.Coast...).Flag(cla.Sea).
+		Prov("was").Conn("cas", cla.Sea).Conn("atl", cla.Sea).Conn("nth", cla.Sea).Conn("ang", cla.Sea).Conn("dov", cla.Sea).Conn("hol", cla.Sea).Conn("fri", cla.Sea).Conn("fri", cla.Sea).Flag(cla.Sea).
 		// atl
-		Prov("atl").Conn("was", cla.Sea).Conn("fri", cla.Coast...).Conn("med", cla.Sea).Conn("cas", cla.Coast...).Conn("bis", cla.Sea).Conn("bch", cla.Sea).Conn("iri", cla.Sea).Conn("pal", cla.Coast...).Flag(cla.Sea).
+		Prov("atl").Conn("was", cla.Sea).Conn("fri", cla.Sea).Conn("med", cla.Sea).Conn("cas", cla.Sea).Conn("bis", cla.Sea).Conn("bch", cla.Sea).Conn("iri", cla.Sea).Conn("pal", cla.Sea).Flag(cla.Sea).
 		// orl
 		Prov("orl").Conn("nmd", cla.Land).Conn("anj", cla.Land).Conn("brt", cla.Land).Conn("poi", cla.Land).Conn("lim", cla.Land).Conn("dau", cla.Land).Conn("par", cla.Land).Flag(cla.Land).SC(France).
 		// dev
-		Prov("dev").Conn("ech", cla.Coast...).Conn("lon", cla.Land).Conn("ang", cla.Land).Conn("num", cla.Land).Conn("wal", cla.Land).Conn("bch", cla.Coast...).Flag(cla.Coast...).SC(England).
+		Prov("dev").Conn("ech", cla.Sea).Conn("lon", cla.Land).Conn("ang", cla.Land).Conn("num", cla.Land).Conn("wal", cla.Land).Conn("bch", cla.Sea).Flag(cla.Coast...).SC(England).
 		// can
-		Prov("can").Conn("bch", cla.Coast...).Conn("dev", cla.Land).Conn("als", cla.Land).Conn("lor", cla.Land).Conn("dij", cla.Land).Conn("dau", cla.Land).Conn("sav", cla.Land).Flag(cla.Land).SC(cla.Neutral).
+		Prov("can").Conn("bch", cla.Sea).Conn("dev", cla.Land).Conn("als", cla.Land).Conn("lor", cla.Land).Conn("dij", cla.Land).Conn("dau", cla.Land).Conn("sav", cla.Land).Flag(cla.Land).SC(cla.Neutral).
 		// cal
-		Prov("cal").Conn("nmd", cla.Land).Conn("par", cla.Land).Conn("dij", cla.Land).Conn("fla", cla.Land).Conn("dov", cla.Coast...).Flag(cla.Coast...).SC(England).
+		Prov("cal").Conn("nmd", cla.Land).Conn("par", cla.Land).Conn("dij", cla.Land).Conn("fla", cla.Land).Conn("dov", cla.Sea).Flag(cla.Coast...).SC(England).
 		// fla
-		Prov("fla").Conn("lux", cla.Land).Conn("hol", cla.Land).Conn("dov", cla.Coast...).Conn("cal", cla.Land).Conn("dij", cla.Land).Flag(cla.Coast...).SC(Burgundy).
+		Prov("fla").Conn("lux", cla.Land).Conn("hol", cla.Land).Conn("dov", cla.Sea).Conn("cal", cla.Land).Conn("dij", cla.Land).Flag(cla.Coast...).SC(Burgundy).
 		// guy
-		Prov("guy").Conn("brt", cla.Land).Conn("bis", cla.Coast...).Conn("ara", cla.Land).Conn("tou", cla.Land).Conn("poi", cla.Land).Flag(cla.Coast...).SC(England).
+		Prov("guy").Conn("brt", cla.Land).Conn("bis", cla.Sea).Conn("ara", cla.Land).Conn("tou", cla.Land).Conn("poi", cla.Land).Flag(cla.Coast...).SC(England).
 		// dov
-		Prov("dov").Conn("nmd", cla.Coast...).Conn("cal", cla.Coast...).Conn("fla", cla.Coast...).Conn("hol", cla.Coast...).Conn("was", cla.Sea).Conn("ang", cla.Coast...).Conn("lon", cla.Coast...).Conn("ech", cla.Sea).Flag(cla.Sea).
+		Prov("dov").Conn("nmd", cla.Sea).Conn("cal", cla.Sea).Conn("fla", cla.Sea).Conn("hol", cla.Sea).Conn("was", cla.Sea).Conn("ang", cla.Sea).Conn("lon", cla.Sea).Conn("ech", cla.Sea).Flag(cla.Sea).
 		// fri
-		Prov("fri").Conn("was", cla.Coast...).Conn("hol", cla.Land).Conn("lux", cla.Land).Flag(cla.Coast...).
+		Prov("fri").Conn("was", cla.Sea).Conn("hol", cla.Land).Conn("lux", cla.Land).Flag(cla.Coast...).
 		Done()
 }

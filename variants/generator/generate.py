@@ -681,7 +681,7 @@ func {0}Graph() *graph.Graph {{
                 selected = edgeToNames[reverse]
             for other in selected:
                 if other != center and other in passableCenters:
-                    if center in seaCenters and other in seaCenters:
+                    if center in seaCenters or other in seaCenters:
                         borderType = 'Sea'
                     elif center not in seaCenters and other not in seaCenters:
                         borderType = 'Land'
