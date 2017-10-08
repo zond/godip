@@ -3,21 +3,25 @@
 import xml.etree.ElementTree
 import re
 import math
+import itertools
+import collections
 
 ### Data to be gathered for the variant. ###
 
 # The name of the variant
-VARIANT = 'Hundred'
+VARIANT = 'Cold War'
 # The starting units
-START_UNITS = {'Burgundy': {'Army': ['dij', 'lux', 'fla'], 'Fleet': ['hol']},
-               'England': {'Army': ['cal', 'guy', 'nmd'], 'Fleet': ['lon', 'dev']},
-               'France': {'Army': ['dau', 'orl', 'par', 'tou', 'pro'], 'Fleet': []}}
+START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
+               # Fleet should be Leningrad South Coast
+               'USSR': {'Army': ['Moscow', 'Shanghai', 'Vladivostok'], 'Fleet': ['Leningrad', 'Albania', 'Havana']}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
-START_YEAR = 1425
+START_YEAR = 1960
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS = {'Iran': 'irn', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind'}
 # Overrides to swap region full names. This only needs to contain something if the greedy algorithm fails.
-NAME_OVERRIDES = [(('Dijon',), ('Lorraine',))]
+NAME_OVERRIDES = []
 
 ### Constants ###
 
@@ -86,26 +90,31 @@ def getCentersWithin(root, layerLabel):
     layer = getLayer(root, layerLabel)
     if layer != None:
         for path in layer.findall('{}path'.format(SVG)):
-            name = path.get('id').split('Center')[0]
+            name = path.get('id')
             loc = locFrom(path.get('d').split(' ')[1])
             centers[name] = loc
     return centers
+
+def findMiddleOfEllipse(ellipse):
+    x = float(ellipse.get('cx'))
+    y = float(ellipse.get('cy'))
+    if abs(x - corners[0][0]) < GUTTER:
+        x = corners[0][0]
+    elif abs(x - corners[2][0]) < GUTTER:
+        x = corners[2][0]
+    if abs(y - corners[0][1]) < GUTTER:
+        y = corners[0][1]
+    elif abs(y - corners[2][1]) < GUTTER:
+        y = corners[2][1]
+    return (x, y)
 
 def getJunctions(root, corners):
     junctions = []
     layer = getLayer(root, 'points')
     for circle in layer.findall('{}circle'.format(SVG)):
-        x = float(circle.get('cx'))
-        y = float(circle.get('cy'))
-        if abs(x - corners[0][0]) < GUTTER:
-            x = corners[0][0]
-        elif abs(x - corners[2][0]) < GUTTER:
-            x = corners[2][0]
-        if abs(y - corners[0][1]) < GUTTER:
-            y = corners[0][1]
-        elif abs(y - corners[2][1]) < GUTTER:
-            y = corners[2][1]
-        junctions.append((x, y))
+        junctions.append(findMiddleOfEllipse(circle))
+    for ellipse in layer.findall('{}ellipse'.format(SVG)):
+        junctions.append(findMiddleOfEllipse(ellipse))
     return junctions
 
 def getToolParts(d):
@@ -126,7 +135,7 @@ def getEdges(root):
         toolStart = None
         for bit in d.split(' '):
             # Check if this is a supported tool
-            if bit in ['M', 'm', 'c', 'v', 'H', 'h', 'l', 'L']:
+            if bit in ['M', 'm', 'c', 'V', 'v', 'H', 'h', 'l', 'L']:
                 tool = bit
                 toolStart = loc
                 if tool == 'c':
@@ -142,6 +151,8 @@ def getEdges(root):
                     cIgnoreCount = (cIgnoreCount + 1) % 3
                     if cIgnoreCount == 0:
                         loc = addLocs(loc, locFrom(bit))
+                elif tool == 'V':
+                    loc = (loc[0], float(bit))
                 elif tool == 'v':
                     loc = addLocs(toolStart, (0, float(bit)))
                 elif tool == 'H':
@@ -348,16 +359,18 @@ def findClosestPair(pointsA, pointsB):
                 bestPair = (a, b)
     return bestPair
 
-def guessRegionNames(regions, allCenters):
-    # Use a greedy algorithm to name regions based on how close their middle is to a center.
+def matchRegionMarkerToRegion(regions, allMarkers):
+    # Use a greedy algorithm to match regions based on how close their middle is to a marker.
     middleToRegion = {}
     for region in regions:
         middleToRegion[middleOfRegion(region)] = region
     centerToName = {}
-    for name, center in allCenters.items():
+    for name, center in allMarkers.items():
         centerToName[center] = name
     middlePoints = list(middleToRegion.keys())
-    centerPoints = list(allCenters.values())
+    centerPoints = list(allMarkers.values())
+    if len(middlePoints) != len(centerPoints):
+        raise Exception('There are {0} areas on the map, and {1} markers.'.format(len(middlePoints), len(centerPoints)))
     regionNames = {}
     while len(middlePoints) > 0:
         m, c = findClosestPair(middlePoints, centerPoints)
@@ -404,6 +417,55 @@ def guessRegionFullNames(regions, namesLayer):
         middlePoints.remove(m)
         centerPoints.remove(c)
     return regionNames
+
+def abbrFromName(n, indexes):
+    r = ''
+    for i in indexes:
+        r += n[i]
+    return r
+
+def abbreviationsForNames(fullNames, indexSets, abbrCount):
+    abbrMap = {}
+    for indexes in indexSets:
+        for n in fullNames:
+            if indexes[-1] < len(n):
+                abbrCount[abbrFromName(n, indexes)] += 1
+        for fullName, abbr in abbrMap.items():
+            if abbrCount[abbr] > 1:
+                del abbrMap[fullName]
+        for n in fullNames:
+            if indexes[-1] < len(n):
+                if n not in abbrMap.keys() and abbrCount[abbrFromName(n, indexes)] == 1:
+                    # Find the first suitable abbreviation (as we may have skipped a sensible one).
+                    for nIndexes in indexSets:
+                        if nIndexes[-1] < len(n):
+                            if abbrCount[abbrFromName(n, nIndexes)] == 1:
+                                abbrMap[n] = abbrFromName(n, indexes)
+                                break
+        if len(abbrMap) == len(fullNames):
+            break
+    return abbrMap
+
+def inventAbbreviations(fullNamesTuples):
+    fullNames = map(lambda n: ''.join(n).lower(), fullNamesTuples)
+    fixedAbbrs = {}
+    for name, abbr in map(lambda (n, a): (n.replace(' ', '').lower(), a), ABBREVIATIONS.items()):
+        fixedAbbrs[name] = abbr
+    remainingNames = filter(lambda n: n not in fixedAbbrs.keys(), fullNames)
+
+    abbrCount = collections.Counter()
+    for presetAbbr in ABBREVIATIONS.values():
+        abbrCount[presetAbbr] += 1
+    # Start by taking any unique first three letters.
+    remainingNames = set(fullNames).difference(set(fixedAbbrs.keys()))
+    fixedAbbrs.update(abbreviationsForNames(remainingNames, [(0, 1, 2)], abbrCount))
+    # combinations returns the indexes in lexigographical order, which is basically what we want.
+    remainingNames = set(fullNames).difference(set(fixedAbbrs.keys()))
+    maxLength = max(map(len, remainingNames))
+    fixedAbbrs.update(abbreviationsForNames(remainingNames, list(itertools.combinations(range(maxLength), 3)), abbrCount))
+    if len(fixedAbbrs) != len(fullNames):
+        raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNames).difference(set(fixedAbbrs.keys()))))
+    return fixedAbbrs
 
 def makeFullNameToAbbr(regionFullNames, regionNames):
     """Create a map from region abbreviation to region name. Note that currently this takes the region abbreviations
@@ -698,26 +760,29 @@ func {0}Graph() *graph.Graph {{
 
 # Load data from the svg file.
 corners = getCorners(root)
+junctions = getJunctions(root, corners)
+oldEdgeToDMap = getEdges(root)
+edgeToDMap = findDesiredEdges(junctions, oldEdgeToDMap)
+
+namesLayer = getLayer(root, 'names')
+regions = makeRegions(junctions, edgeToDMap.keys(), corners)
+regionFullNames = guessRegionFullNames(regions, namesLayer)
+abbreviations = inventAbbreviations(regionFullNames.keys())
+
+# Here we assume that each region has a marker on exactly one of the four layers.
 supplyCenters = getCentersWithin(root, 'supply-centers')
 regionCenters = getCentersWithin(root, 'province-centers')
 seaCenters = getCentersWithin(root, 'sea')
 impassableCenters = getCentersWithin(root, 'impassable')
-allCenters = dict(supplyCenters)
-allCenters.update(regionCenters)
-passableCenters = dict(allCenters)
-allCenters.update(impassableCenters)
-junctions = getJunctions(root, corners)
-oldEdgeToDMap = getEdges(root)
-
-edgeToDMap = findDesiredEdges(junctions, oldEdgeToDMap)
+allMarkers = dict(supplyCenters)
+allMarkers.update(regionCenters)
+allMarkers.update(seaCenters)
+passableCenters = dict(allMarkers)
+allMarkers.update(impassableCenters)
 
 #updateEdges(root, oldEdges, edges)
 
-namesLayer = getLayer(root, 'names')
-
-regions = makeRegions(junctions, edgeToDMap.keys(), corners)
-regionFullNames = guessRegionFullNames(regions, namesLayer)
-regionNames = guessRegionNames(regions, allCenters)
+regionNames = matchRegionMarkerToRegion(regions, allMarkers)
 fullNameToAbbr = makeFullNameToAbbr(regionFullNames, regionNames)
 
 #adjacencyGraph = findAdjacencyGraph(allCenters, edges)
