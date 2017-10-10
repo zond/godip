@@ -5,6 +5,7 @@ import re
 import math
 import itertools
 import collections
+import random
 
 ### Data to be gathered for the variant. ###
 
@@ -19,9 +20,11 @@ NATIONS = START_UNITS.keys()
 # The first year of the game
 START_YEAR = 1960
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
-ABBREVIATIONS = {'Iran': 'irn', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind'}
+ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
 # Overrides to swap region full names. This only needs to contain something if the greedy algorithm fails.
-NAME_OVERRIDES = []
+NAME_OVERRIDES = [('Venezuala', 'Colombia'), ('Finland', 'Leningrad'), ('Venezuala', 'Havana'), ('Saigon', 'South China Sea'), ('South West', 'Mexico')]
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('Finland', 'Leningrad'), ('Saigon', 'South China Sea'), ('Venezuala', 'Colombia'), ('Venezuala', 'Caribbean Sea'), ('Indian Ocean', 'Arabian Sea'), ('Brazil', 'West Atlantic'), ('Black Sea', 'Istanbul')]
 
 ### Constants ###
 
@@ -379,6 +382,37 @@ def matchRegionMarkerToRegion(regions, allMarkers):
         centerPoints.remove(c)
     return regionNames
 
+def makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations):
+    idToAbbrMap = {}
+    for originalId, region in originalIdToRegion.items():
+        for name, anotherRegion in regionFullNames.items():
+            if region == anotherRegion:
+                idToAbbrMap[originalId] = abbreviations[name]
+                break
+    for nameA, nameB in CENTER_OVERRIDES:
+        nameA, nameB = tuple(nameA.split(' ')), tuple(nameB.split(' '))
+        originalIdA = reverseMapLookup(idToAbbrMap, abbreviations[nameA])
+        originalIdB = reverseMapLookup(idToAbbrMap, abbreviations[nameB])
+        idToAbbrMap[originalIdA], idToAbbrMap[originalIdB] = idToAbbrMap[originalIdB], idToAbbrMap[originalIdA]
+    return idToAbbrMap
+
+def replaceOriginalIds(centers, originalIdToAbbr):
+    output = {}
+    for originalId in centers.keys():
+        output[originalIdToAbbr[originalId]] = centers[originalId]
+    return output
+
+def makeIdToRegionMap(originalIdToRegion, originalIdToAbbr):
+    idToRegionMap = {}
+    i = 0
+    for originalId, region in originalIdToRegion.items():
+        if originalId not in originalIdToAbbr.keys():
+            # Assume that the region was impassible (and so didn't match any text on the map).
+            originalIdToAbbr[originalId] = 'impassible_{0}'.format(i)
+            i += 1
+        idToRegionMap[originalIdToAbbr[originalId]] = region
+    return idToRegionMap
+
 def makeLocsToNames(namesLayer):
     locsToNames = {}
     for text in namesLayer.findall('{}text'.format(SVG)):
@@ -397,6 +431,7 @@ def makeLocsToNames(namesLayer):
                 name += re.split(r' +', tspan.text)
         locsToNames[loc] = tuple(name)
     for nameA, nameB in NAME_OVERRIDES:
+        nameA, nameB = tuple(nameA.split(' ')), tuple(nameB.split(' '))
         locA = reverseMapLookup(locsToNames, nameA)
         locB = reverseMapLookup(locsToNames, nameB)
         locsToNames[locA], locsToNames[locB] = locsToNames[locB], locsToNames[locA]
@@ -418,53 +453,66 @@ def guessRegionFullNames(regions, namesLayer):
         centerPoints.remove(c)
     return regionNames
 
+def regionsDifference(regionsA, regionsB):
+    """Find the regions in the first iterable, but not the second."""
+    difference = []
+    for region in regionsA:
+        if region not in regionsB:
+            difference.append(region)
+    return difference
+
 def abbrFromName(n, indexes):
     r = ''
     for i in indexes:
         r += n[i]
     return r
 
-def abbreviationsForNames(fullNames, indexSets, abbrCount):
+def findTupleFromName(name, fullNamesTuples):
+    name = name.replace(' ', '').lower()
+    for fullNameTuple in fullNamesTuples:
+        if ''.join(fullNameTuple).lower() == name:
+            return fullNameTuple
+    raise Exception('Couldn\'t find tuple matching {0}'.format(name))
+
+def abbreviationsForNames(fullNamesTuples, indexSets, abbrCount):
     abbrMap = {}
     for indexes in indexSets:
-        for n in fullNames:
+        for nTuple in fullNamesTuples:
+            n = ''.join(nTuple).lower()
             if indexes[-1] < len(n):
                 abbrCount[abbrFromName(n, indexes)] += 1
-        for fullName, abbr in abbrMap.items():
+        for fullNameTuple, abbr in abbrMap.items():
             if abbrCount[abbr] > 1:
-                del abbrMap[fullName]
-        for n in fullNames:
+                del abbrMap[fullNameTuple]
+        for nTuple in fullNamesTuples:
+            n = ''.join(nTuple).lower()
             if indexes[-1] < len(n):
-                if n not in abbrMap.keys() and abbrCount[abbrFromName(n, indexes)] == 1:
+                if nTuple not in abbrMap.keys() and abbrCount[abbrFromName(n, indexes)] == 1:
                     # Find the first suitable abbreviation (as we may have skipped a sensible one).
                     for nIndexes in indexSets:
                         if nIndexes[-1] < len(n):
                             if abbrCount[abbrFromName(n, nIndexes)] == 1:
-                                abbrMap[n] = abbrFromName(n, indexes)
+                                abbrMap[nTuple] = abbrFromName(n, indexes)
                                 break
-        if len(abbrMap) == len(fullNames):
+        if len(abbrMap) == len(fullNamesTuples):
             break
     return abbrMap
 
 def inventAbbreviations(fullNamesTuples):
-    fullNames = map(lambda n: ''.join(n).lower(), fullNamesTuples)
     fixedAbbrs = {}
-    for name, abbr in map(lambda (n, a): (n.replace(' ', '').lower(), a), ABBREVIATIONS.items()):
-        fixedAbbrs[name] = abbr
-    remainingNames = filter(lambda n: n not in fixedAbbrs.keys(), fullNames)
-
     abbrCount = collections.Counter()
-    for presetAbbr in ABBREVIATIONS.values():
-        abbrCount[presetAbbr] += 1
+    for name, abbr in map(lambda (n, a): (n.replace(' ', '').lower(), a), ABBREVIATIONS.items()):
+        fixedAbbrs[findTupleFromName(name, fullNamesTuples)] = abbr
+        abbrCount[abbr] += 1
     # Start by taking any unique first three letters.
-    remainingNames = set(fullNames).difference(set(fixedAbbrs.keys()))
+    remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
     fixedAbbrs.update(abbreviationsForNames(remainingNames, [(0, 1, 2)], abbrCount))
     # combinations returns the indexes in lexigographical order, which is basically what we want.
-    remainingNames = set(fullNames).difference(set(fixedAbbrs.keys()))
-    maxLength = max(map(len, remainingNames))
+    remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
+    maxLength = max(map(lambda nameTuple: len(''.join(nameTuple)), remainingNames))
     fixedAbbrs.update(abbreviationsForNames(remainingNames, list(itertools.combinations(range(maxLength), 3)), abbrCount))
-    if len(fixedAbbrs) != len(fullNames):
-        raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNames).difference(set(fixedAbbrs.keys()))))
+    if len(fixedAbbrs) != len(fullNamesTuples):
+        raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNamesTuples).difference(set(fixedAbbrs.keys()))))
     return fixedAbbrs
 
 def makeFullNameToAbbr(regionFullNames, regionNames):
@@ -477,7 +525,7 @@ def makeFullNameToAbbr(regionFullNames, regionNames):
                 fullNameToAbbr[fullName] = abbr
     return fullNameToAbbr
 
-def addNamesLayer(root, namesLayer, fullNameToAbbr):
+def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
     """Add the names layer to root and try to highlight the abbreviation in bold."""
     '<tspan style="font-weight:bold">'
     for text in namesLayer.findall('{}text'.format(SVG)):
@@ -486,6 +534,9 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr):
             if tspan.text != None:
                 name += re.split(r' +', tspan.text)
         abbr = fullNameToAbbr[tuple(name)]
+        if abbr not in passableCenterAbbrs:
+            namesLayer.remove(text)
+            continue
         i = 0
         for tspan in text.findall('.//{}tspan'.format(SVG)):
             if tspan.text != None:
@@ -548,7 +599,7 @@ def addRectToLayer(layer, corners, fill):
     height = '{}'.format(corners[2][1] - corners[0][1])
     xml.etree.ElementTree.SubElement(layer, '{}rect'.format(SVG), {'id': 'bg_rect', 'style': style, 'width': width, 'height': height, 'x': '0', 'y': '0'})
 
-def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible, corners = None):
+def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible, corners = None, edgesOnly = False):
     layer = addLayer(root, layerName, visible)
     if corners != None:
         addRectToLayer(layer, corners, True)
@@ -577,7 +628,11 @@ def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible
                     d += '{0} {1} {2} '.format(strFrom(locA), strFrom(loc), strFrom(locB))
             lastR = r
         d += ' z'
-        xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': name, 'd': d, 'style': 'fill:{0};fill-opacity:1;vector-effect:none;fill-rule:evenodd'.format(color)})
+        regionColor = color if color is not None else '#' + ''.join(random.sample('0123456789abcdef', 6))
+        style = 'fill:{0};fill-opacity:1;vector-effect:none;fill-rule:evenodd'.format(regionColor)
+        if edgesOnly:
+            style += ';stroke:#000000;stroke-width:2px'
+        xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': name, 'd': d, 'style': style})
 
 def getEdgeThickness(edges, regionNames, sea, impassable):
     edgeThickness = {}
@@ -622,6 +677,14 @@ def addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners):
         xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': 'e_'+'_'.join(edgeToNames[edge]), 'd': d, 'style': 'fill:none;vector-effect:none;fill-rule:evenodd;stroke:#000100;stroke-width:{};stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1'.format(thickness)})
     addRectToLayer(layer, corners, False)
 
+def addCenterLayer(root, oldLayers, newLayer, originalIdToAbbr, layerName):
+    newLayer = getLayer(root, layerName)
+    for oldLayer in oldLayers:
+        for path in oldLayer.findall('{}path'.format(SVG)):
+            originalId = path.get('id')
+            path.set('id', originalIdToAbbr[originalId] + 'Center')
+            newLayer.append(path)
+
 def getNeighbours(center, regionNames):
     region = regionNames[center]
     neighbours = []
@@ -639,7 +702,7 @@ def getNeighbours(center, regionNames):
 
 def createGraphFile(fileName, passableCenters, supplyCenters, seaCenters, regionNames, edgeToNames):
     f = open(fileName, 'w')
-    f.write('package {}\n'.format(VARIANT.lower()))
+    f.write('package {}\n'.format(VARIANT.lower().replace(' ', '')))
     f.write("""
 import (
 	"github.com/zond/godip/graph"
@@ -658,11 +721,11 @@ const (
     for nation in START_UNITS.keys():
         f.write('\t{{0:<{}}} dip.Nation = "{{0}}"\n'.format(nationLength).format(nation))
     f.write(')\n\nvar Nations = []dip.Nation{{{}}}\n'.format(', '.join(START_UNITS.keys())))
-    f.write('\nvar {}Variant = common.Variant{{\n'.format(VARIANT))
+    f.write('\nvar {}Variant = common.Variant{{\n'.format(VARIANT.replace(' ', '')))
     f.write('\tName:        "{}",\n'.format(VARIANT))
-    f.write('\tGraph:       func() dip.Graph {{ return {}Graph() }},\n'.format(VARIANT))
-    f.write('\tStart:       {}Start,\n'.format(VARIANT))
-    f.write('\tBlank:       {}Blank,\n'.format(VARIANT))
+    f.write('\tGraph:       func() dip.Graph {{ return {}Graph() }},\n'.format(VARIANT.replace(' ', '')))
+    f.write('\tStart:       {}Start,\n'.format(VARIANT.replace(' ', '')))
+    f.write('\tBlank:       {}Blank,\n'.format(VARIANT.replace(' ', '')))
     f.write("""	Phase:       classical.Phase,
 	ParseOrders: orders.ParseAll,
 	ParseOrder:  orders.Parse,
@@ -689,7 +752,7 @@ const (
 	Description: "",
 	Rules: "",
 }}
-""".format(VARIANT.lower()))
+""".format(VARIANT.lower().replace(' ', '')))
     f.write("""
 func {0}Blank(phase dip.Phase) *state.State {{
 	return state.New({0}Graph(), phase, classical.BackupRule)
@@ -699,7 +762,7 @@ func {0}Start() (result *state.State, err error) {{
 	startPhase := classical.Phase({1}, cla.Spring, cla.Movement)
 	result = state.New({0}Graph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{{
-""".format(VARIANT, START_YEAR))
+""".format(VARIANT.replace(' ', ''), START_YEAR))
     for nation, units in START_UNITS.items():
         for unitType in units.keys():
             for region in units[unitType]:
@@ -720,7 +783,7 @@ func {0}Start() (result *state.State, err error) {{
 
 func {0}Graph() *graph.Graph {{
 	return graph.New().
-""".format(VARIANT, START_YEAR))
+""".format(VARIANT.replace(' ', ''), START_YEAR))
     flags = {}
     for center in passableCenters:
         if center in seaCenters:
@@ -758,6 +821,13 @@ func {0}Graph() *graph.Graph {{
 """)
     f.close()
 
+def createDebuggingMap(root, regions, edgeToDMap, corners):
+    debugNames = {}
+    for i, region in enumerate(regions):
+        debugNames['region{0}'.format(i)] = region
+    addLayerWithRegions(root, debugNames, edgeToDMap, 'background', None, True, corners, True)
+    xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'debug.svg')
+
 # Load data from the svg file.
 corners = getCorners(root)
 junctions = getJunctions(root, corners)
@@ -782,35 +852,46 @@ allMarkers.update(impassableCenters)
 
 #updateEdges(root, oldEdges, edges)
 
-regionNames = matchRegionMarkerToRegion(regions, allMarkers)
-fullNameToAbbr = makeFullNameToAbbr(regionFullNames, regionNames)
+createDebuggingMap(root, regions, edgeToDMap, corners)
+
+originalIdToRegion = matchRegionMarkerToRegion(regions, allMarkers)
+originalIdToAbbr = makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations)
+idToRegion = makeIdToRegionMap(originalIdToRegion, originalIdToAbbr)
+
+supplyCenters = replaceOriginalIds(supplyCenters, originalIdToAbbr)
+regionCenters = replaceOriginalIds(regionCenters, originalIdToAbbr)
+seaCenters = replaceOriginalIds(seaCenters, originalIdToAbbr)
+impassableCenters = replaceOriginalIds(impassableCenters, originalIdToAbbr)
+passableCenters = replaceOriginalIds(passableCenters, originalIdToAbbr)
 
 #adjacencyGraph = findAdjacencyGraph(allCenters, edges)
 
 scLayer = getLayer(root, 'supply-centers')
 pcLayer = getLayer(root, 'province-centers')
+seaLayer = getLayer(root, 'sea')
 removeAllLayers(root)
 #addLayerWithEdges(root, edges)
 backgroundRegionNames = {}
-for regionName in regionNames.keys():
+for regionName in idToRegion.keys():
     if regionName in seaCenters.keys():
-        backgroundRegionNames[regionName + '_background'] = regionNames[regionName]
+        backgroundRegionNames[regionName + '_background'] = idToRegion[regionName]
 addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', SEA_COLOR, True, corners)
-edgeThickness, edgeToNames = getEdgeThickness(edgeToDMap.keys(), regionNames, seaCenters.keys(), impassableCenters.keys())
+edgeThickness, edgeToNames = getEdgeThickness(edgeToDMap.keys(), idToRegion, seaCenters.keys(), impassableCenters.keys())
 passableNames = {}
-for name, region in regionNames.items():
-    if name in passableCenters:
-        passableNames[name] = region
+for regionId, region in idToRegion.items():
+    if regionId in passableCenters:
+        passableNames[regionId] = region
 addLayerWithRegions(root, passableNames, edgeToDMap, 'provinces', '#000000', False)
-root.append(scLayer)
-root.append(pcLayer)
+# TODO: These should be generated and the province list should contain sea centers
+addCenterLayer(root, [scLayer], addLayer(root, 'supply-centers', True), originalIdToAbbr, 'supply-centers')
+addCenterLayer(root, [pcLayer, seaLayer], addLayer(root, 'province-centers', False), originalIdToAbbr, 'province-centers')
 addLayer(root, 'highlights', True)
 addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners)
-addNamesLayer(root, namesLayer, fullNameToAbbr)
+addNamesLayer(root, namesLayer, abbreviations, passableCenters.keys())
 addLayer(root, 'units', True)
 addLayer(root, 'orders', True)
 
 # Create an output svg file.
-xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower() + 'map.svg')
+xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'map.svg')
 
-createGraphFile(VARIANT.lower() + '.go', passableCenters, supplyCenters, seaCenters, regionNames, edgeToNames)
+createGraphFile(VARIANT.lower().replace(' ', '') + '.go', passableCenters, supplyCenters, seaCenters, idToRegion, edgeToNames)
