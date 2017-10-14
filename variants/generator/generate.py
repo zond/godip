@@ -706,7 +706,7 @@ def getNeighbours(province, provinces):
                 neighbours.append(other)
     return neighbours
 
-def createGraphFile(fileName, provinces, passableCenters, supplyCenters, seaCenters):
+def createGraphFile(fileName, provinces):
     """Create a *.go file for the variant."""
     f = open(fileName, 'w')
     f.write('package {}\n'.format(VARIANT.lower().replace(' ', '')))
@@ -880,7 +880,6 @@ supplyCenters = replaceOriginalIds(supplyCenters, originalIdToAbbr, abbreviation
 regionCenters = replaceOriginalIds(regionCenters, originalIdToAbbr, abbreviations)
 seaCenters = replaceOriginalIds(seaCenters, originalIdToAbbr, abbreviations)
 impassableCenters = replaceOriginalIds(impassableCenters, originalIdToAbbr, abbreviations)
-passableCenters = replaceOriginalIds(passableCenters, originalIdToAbbr, abbreviations)
 
 # Put all the data into the DTO.
 provinces = []
@@ -923,4 +922,4 @@ addLayer(root, 'orders', True)
 xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'map.svg')
 
 # Create the output go file.
-createGraphFile(VARIANT.lower().replace(' ', '') + '.go', provinces, passableCenters, supplyCenters, seaCenters)
+createGraphFile(VARIANT.lower().replace(' ', '') + '.go', provinces)
