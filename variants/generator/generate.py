@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 
 import xml.etree.ElementTree
 import re
@@ -49,6 +49,7 @@ CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396
 #CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.16118 2.65678,1.11007 5.06242,-2.03135 3.31362,-4.32711 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
 
 class Flags:
+    """A class to hold boolean attributes of a province."""
     def __init__(self, supplyCenter, province, sea, impassable):
         self.supplyCenter = supplyCenter
         self.province = province
@@ -57,6 +58,7 @@ class Flags:
     def __repr__(self):
         return 'sc:{0},p:{1},s:{2},i:{3}'.format(self.supplyCenter, self.province, self.sea, self.impassable)
 class Province:
+    """A DTO for province details constructed from the inputs."""
     def __init__(self, name, abbreviation, center, flags, edges):
         self.name = name
         self.abbreviation = abbreviation
@@ -66,16 +68,17 @@ class Province:
     def __repr__(self):
         return '{0}: {1}'.format(self.abbreviation, self.name)
 
-root = xml.etree.ElementTree.parse(MAP).getroot()
-
 def getLayer(root, label):
+    """Get the layer from root with the given Inkscape label."""
     return root.find('{}g[@{}label="{}"]'.format(SVG, INK, label))
 
 def removeAllLayers(root):
+    """Remove all layers from root."""
     for layer in root.findall('{}g'.format(SVG)):
         root.remove(layer)
 
 def addLayer(root, name, visible):
+    """Add a new layer to root with the given name and visibility."""
     display = 'inline' if visible else 'none'
     'svg:style="display:none"'
     attrs = {'id': name, '{}groupmode'.format(INK): 'layer', '{}label'.format(INK): name, 'style': 'display:' + display}
@@ -83,34 +86,43 @@ def addLayer(root, name, visible):
     return getLayer(root, name)
 
 def locFrom(locString):
+    """Convert a coordinate string (e.g. from a path) into a coordinate pair."""
     loc = locString.split(',')
     return (float(loc[0]), float(loc[1]))
 
 def addLocs(locA, locB):
+    """Add two coordinate pairs."""
     return (locA[0] + locB[0], locA[1] + locB[1])
 
 def subLocs(locA, locB):
+    """Subtract locB from locA."""
     return (locA[0] - locB[0], locA[1] - locB[1])
 
 def strFrom(loc):
+    """Convert a coordinate pair into a string suitable for use in a path."""
     return ','.join(map(lambda x: str(x), loc))
 
 def reverseMapLookup(inputMap, value):
+    """Determine the key which has the given value in the map. This returns the first such
+    key found if there are many, and throws an exception if there are none."""
     for k, v in inputMap.items():
         if v == value:
             return k
     raise Exception('Could not find value {} in map {}'.format(value, inputMap))
 
 def findDist(locA, locB):
+    """Find the euclidean distance between two coordinates."""
     dx = locA[0] - locB[0]
     dy = locA[1] - locB[1]
     return math.sqrt(dx*dx + dy*dy)
 
 def getCorners(root):
+    """Determine the coordinates of the corners of an svg view box."""
     viewBox = map(float, root.get('viewBox').split(' '))
     return ((viewBox[0], viewBox[1]), (viewBox[2], viewBox[1]), (viewBox[2], viewBox[3]), (viewBox[0], viewBox[3]))
 
 def getCentersWithin(root, layerLabel):
+    """For the given layer, create a map from the id of the paths in it to the location of their starts."""
     centers = {}
     layer = getLayer(root, layerLabel)
     if layer != None:
@@ -121,6 +133,7 @@ def getCentersWithin(root, layerLabel):
     return centers
 
 def findMiddleOfEllipse(ellipse):
+    """For the given svg ellipse (or circle) find the coordinates of the center."""
     x = float(ellipse.get('cx'))
     y = float(ellipse.get('cy'))
     if abs(x - corners[0][0]) < GUTTER:
@@ -134,6 +147,7 @@ def findMiddleOfEllipse(ellipse):
     return (x, y)
 
 def getJunctions(root, corners):
+    """Find the coordinates of the junction points in the 'points' layer."""
     junctions = []
     layer = getLayer(root, 'points')
     for circle in layer.findall('{}circle'.format(SVG)):
@@ -143,9 +157,11 @@ def getJunctions(root, corners):
     return junctions
 
 def getToolParts(d):
+    """Get all the instructions in the given 'd' path, grouped by the tool used."""
     return re.findall(r'[LM] [0-9\.\-e,]+', d)
 
 def makeToolPart(tool, loc):
+    """Create a 'd' path string using the given tool and location."""
     return '{0} {1}'.format(tool, strFrom(loc))
 
 def getEdges(root):
@@ -199,26 +215,8 @@ def getEdges(root):
         edges[(start, end)] = (forwardD, reversedD)
     return edges
 
-def reverseD(d):
-    toolParts = re.findall(r'[a-zA-Z][ 0-9\.,\-]*', d)
-    ret = ''
-    for toolPart in reversed(toolParts):
-        tool, instruction = toolPart.split(' ', 1)
-        if tool == 'c':
-            ret += tool
-            for triple in reversed(re.findall(r'[0-9\.,\-]* [0-9\.,\-]* [0-9\.,\-]* *', instruction)):
-                locA, locB, locC = map(locFrom, triple.strip().split(' '))
-                ret += ' ' + strFrom(subLocs(locB, locC))
-                ret += ' ' + strFrom(subLocs(locA, locC))
-                ret += ' ' + strFrom(subLocs((0,0), locC))
-        elif tool == 'v':
-            ret += tool
-            ret += ' ' + str(-float(instruction))
-        else:
-            raise Exception('Unsuported tool: ' + tool)
-    return ret
-
 def findClosestJunction(junctions, point):
+    """Find the closest junction point to the given location."""
     closestJunction = None
     closestDist = 1000000
     for junction in junctions:
@@ -229,6 +227,7 @@ def findClosestJunction(junctions, point):
     return closestJunction
 
 def findDesiredEdges(junctions, edges):
+    """Create a set of edges by snapping the ends of the given edges to the nearest junction points."""
     desiredEdges = {}
     for edge, d in edges.items():
         start = findClosestJunction(junctions, edge[0])
@@ -237,49 +236,6 @@ def findDesiredEdges(junctions, edges):
         d1 = [makeToolPart('M', end)] + getToolParts(d[1])[1:-1] + [makeToolPart('L', start)]
         desiredEdges[(start, end)] = (' '.join(d0), ' '.join(d1))
     return desiredEdges
-
-def updateEdges(root, oldEdges, edges):
-    # This doesn't really work like I hoped.
-    layer = getLayer(root, 'edges')
-    i = 0
-    for edge in layer.findall('{}path'.format(SVG)):
-        d = edge.get('d')
-        # Assume that the edge starts with an M or m and doesn't ends with a pair of coordinates.
-        if not d.lower().startswith('m ') and ',' not in d.split(' ')[-1]:
-            raise Exception('Unsupported update to edge: ' + d)
-        bits = d.split(' ')
-        s = subLocs(addLocs(locFrom(bits[1]), edges[i][0]), oldEdges[i][0])
-        e = edges[i][1]
-        newBits = bits[:1] + [strFrom(s)] + bits[2:] + ['M', strFrom(e)]
-        edge.set('d', ' '.join(newBits))
-        i += 1
-
-# See http://bryceboe.com/2006/10/23/line-segment-intersection-algorithm/
-def ccw(A,B,C):
-    return (C[1]-A[1]) * (B[0]-A[0]) > (B[1]-A[1]) * (C[0]-A[0])
-def intersect(first, second):
-    A,B = first
-    C,D = second
-    return ccw(A,C,D) != ccw(B,C,D) and ccw(A,B,C) != ccw(A,B,D)
-
-def singleIntersection(segment, edges):
-    count = 0
-    for edge in edges:
-        if intersect(segment, edge):
-            count += 1
-            if count > 1:
-                return False
-    return count == 1
-
-def findAdjacencyGraph(allCenters, edges):
-    centerList = allCenters.items()
-    adjacentPairs = []
-    for i, a in enumerate(centerList):
-        for b in centerList[i+1:]:
-            adjEdge = (a[1], b[1])
-            if singleIntersection(adjEdge, edges):
-                adjacentPairs.append((a[0], b[0]))
-    return adjacentPairs
 
 def vectorAngle(start, end):
     return math.atan2(end[1] - start[1], end[0] - start[0])
@@ -318,6 +274,8 @@ def ccwBorderDist(borderJunction, corners):
         raise Exception('Border junction is not on border: ' + borderJunction)
 
 def makeRegions(junctions, edges, corners):
+    """Take the given edges and the four sides of the map, and create the set of cycles that
+    represents regions on the map."""
     for corner in corners:
         if corner not in junctions:
             junctions.append(corner)
@@ -368,12 +326,13 @@ def makeRegions(junctions, edges, corners):
     return regions
 
 def middleOfRegion(region):
-    # Estimate the middle of the region by the middle of its bounding box
+    """Estimate the middle of the region by the middle of its bounding box."""
     xs = map(lambda r: r[0], region)
     ys = map(lambda r: r[1], region)
     return ((max(xs) + min(xs)) / 2.0, (max(ys) + min(ys)) / 2.0)
 
 def findClosestPair(pointsA, pointsB):
+    """Find the shortest line segment from a point in the first set to a point in the second set."""
     bestDist = 1000000
     bestPair = None
     for a in pointsA:
@@ -385,7 +344,7 @@ def findClosestPair(pointsA, pointsB):
     return bestPair
 
 def matchRegionMarkerToRegion(regions, allMarkers):
-    # Use a greedy algorithm to match regions based on how close their middle is to a marker.
+    """Use a greedy algorithm to match regions based on how close their middle is to a marker."""
     middleToRegion = {}
     for region in regions:
         middleToRegion[middleOfRegion(region)] = region
@@ -405,6 +364,8 @@ def matchRegionMarkerToRegion(regions, allMarkers):
     return regionNames
 
 def makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations):
+    """Create a map from the original id of a center in the input to a region abbreviation
+    that will be in the output."""
     idToAbbrMap = {}
     for originalId, region in originalIdToRegion.items():
         for name, anotherRegion in regionFullNames.items():
@@ -414,23 +375,15 @@ def makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations):
     return idToAbbrMap
 
 def replaceOriginalIds(centers, originalIdToAbbr, abbreviations):
+    """Take a map where the keys are ids from the input svg, and return a map where the
+    keys are abbreviations used in the output."""
     output = {}
     for originalId in centers.keys():
         output[originalIdToAbbr[originalId]] = centers[originalId]
     return output
 
-def makeIdToRegionMap(originalIdToRegion, originalIdToAbbr):
-    idToRegionMap = {}
-    i = 0
-    for originalId, region in originalIdToRegion.items():
-        if originalId not in originalIdToAbbr.keys():
-            # Assume that the region was impassible (and so didn't match any text on the map).
-            originalIdToAbbr[originalId] = 'impassible_{0}'.format(i)
-            i += 1
-        idToRegionMap[originalIdToAbbr[originalId]] = region
-    return idToRegionMap
-
 def makeLocsToNames(namesLayer):
+    """Create a map from coordinates to names of provinces."""
     locsToNames = {}
     for text in namesLayer.findall('{}text'.format(SVG)):
         transform = text.get('transform')
@@ -440,7 +393,7 @@ def makeLocsToNames(namesLayer):
                 angle = math.radians(float(transform.split('(')[1].split(')')[0]))
                 x, y = x * math.cos(angle) - y * math.sin(angle), x * math.sin(angle) + y * math.cos(angle)
             else:
-                print 'Unsupported text transformation: ' + transform
+                print('Unsupported text transformation: ' + transform)
         loc = (x, y)
         name = []
         for tspan in text.findall('.//{}tspan'.format(SVG)):
@@ -450,8 +403,8 @@ def makeLocsToNames(namesLayer):
     return locsToNames
 
 def guessRegionFullNames(regions, namesLayer):
+    """Use a greedy algorithm to name regions based on how close their middle is to a center."""
     locsToNames = makeLocsToNames(namesLayer)
-    # Use a greedy algorithm to name regions based on how close their middle is to a center.
     middleToRegion = {}
     for region in regions:
         middleToRegion[middleOfRegion(region)] = region
@@ -473,13 +426,15 @@ def regionsDifference(regionsA, regionsB):
             difference.append(region)
     return difference
 
-def abbrFromName(n, indexes):
-    r = ''
+def abbrFromName(name, indexes):
+    """Create a potential abbreviation from a name by picking out the letters at the given indexes."""
+    abbr = ''
     for i in indexes:
-        r += n[i]
-    return r
+        abbr += name[i]
+    return abbr
 
 def findTupleFromName(name, fullNamesTuples):
+    """Find the name tuple that has the same letters (in the same order) as the given name."""
     name = name.replace(' ', '').lower()
     for fullNameTuple in fullNamesTuples:
         if ''.join(fullNameTuple).lower() == name:
@@ -487,6 +442,7 @@ def findTupleFromName(name, fullNamesTuples):
     raise Exception('Couldn\'t find tuple matching {0}'.format(name))
 
 def abbreviationsForNames(fullNamesTuples, indexSets, abbrCount):
+    """Try to create unique abbreviations for the given name tuples by considering the letters at the given indexes."""
     abbrMap = {}
     for indexes in indexSets:
         for nTuple in fullNamesTuples:
@@ -511,9 +467,11 @@ def abbreviationsForNames(fullNamesTuples, indexSets, abbrCount):
     return abbrMap
 
 def inventAbbreviations(fullNamesTuples):
+    """Determine a suitable set of unique abbreviations for the given name tuples. Use any values from
+    the user ABBREVIATIONS override list."""
     fixedAbbrs = {}
     abbrCount = collections.Counter()
-    for name, abbr in map(lambda (n, a): (n.replace(' ', '').lower(), a), ABBREVIATIONS.items()):
+    for name, abbr in map(lambda na: (na[0].replace(' ', '').lower(), na[1]), ABBREVIATIONS.items()):
         fixedAbbrs[findTupleFromName(name, fullNamesTuples)] = abbr
         abbrCount[abbr] += 1
     # Start by taking any unique first three letters.
@@ -591,12 +549,9 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
                             tspan.append(e)
     root.append(namesLayer)
 
-def addLayerWithEdges(root, edges):
-    layer = getLayer(root, 'names')
-    for edge in edges:
-        xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'d': 'M {} c 0,0 0,0 {}'.format(strFrom(edge[0]), strFrom(subLocs(edge[1], edge[0]))), 'style': 'opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000100;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1'})
-
 def calculateCurvePoints(lastLoc, loc, nextLoc):
+    """Calculate a pair of bezier curve handle points. These points will be on the straight line
+    parallel to the line joining lastLoc and nextLoc, which passes through loc."""
     # Check if gradient is infinity
     if nextLoc[0] == lastLoc[0]:
         yA = (loc[1] + CURVE_WEIGHT * lastLoc[1]) / (CURVE_WEIGHT + 1.0)
@@ -619,6 +574,7 @@ def calculateCurvePoints(lastLoc, loc, nextLoc):
     return locA, locB
 
 def addPattern(root):
+    """Add the pattern that's used for indicating provinces that can be clicked on by the player."""
     '''<pattern xmlns="http://www.w3.org/2000/svg" id="stripes" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45 2 2)">
     <path xmlns="http://www.w3.org/2000/svg" d="M -1,2 l 6,0" stroke="#ff0000" stroke-width="1" id="path4424"></path>
     </pattern>'''
@@ -627,6 +583,7 @@ def addPattern(root):
     xml.etree.ElementTree.SubElement(stripes, '{}path'.format(SVG), {'id': 'stripePath', 'd': 'M -1,2 l 6,0', 'stroke': '#ff0000', 'stroke-width': '1'})
 
 def addRectToLayer(layer, corners, fill):
+    """Draw a rectangle using the given corners and fill in the specified color."""
     fillStyle = 'fill:{};fill-opacity:1;'.format(LAND_COLOR) if fill else 'fill:none;'
     style= fillStyle + 'display:inline;stroke:#000000;stroke-width:{};stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'.format(THICK)
     width = '{}'.format(corners[2][0] - corners[0][0])
@@ -634,6 +591,7 @@ def addRectToLayer(layer, corners, fill):
     xml.etree.ElementTree.SubElement(layer, '{}rect'.format(SVG), {'id': 'bg_rect', 'style': style, 'width': width, 'height': height, 'x': '0', 'y': '0'})
 
 def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible, corners = None, edgesOnly = False):
+    """Create a layer containing the provinces coloured in."""
     layer = addLayer(root, layerName, visible)
     if corners != None:
         addRectToLayer(layer, corners, True)
@@ -669,6 +627,8 @@ def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible
         xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': name, 'd': d, 'style': style})
 
 def getEdgeThickness(edges, provinces):
+    """Create a map giving the desired thickness of each edge.  Coastal edges are thick,
+    as are edges involving impassable areas. All other edges are thin."""
     edgeThickness = {}
     edgeToNames = {}
     for edge in edges:
@@ -688,6 +648,7 @@ def getEdgeThickness(edges, provinces):
     return edgeThickness, edgeToNames
 
 def addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners):
+    """Create the foreground layer, consisting of all the edges and a map border."""
     layer = addLayer(root, 'foreground', True)
     edgeIds = set()
     for edge, biedge in edgeToDMap.items():
@@ -719,16 +680,19 @@ def addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners):
     addRectToLayer(layer, corners, False)
 
 def addCenterPath(layer, province):
+    """Add a supply center marker to a given layer."""
     centerId = '{0}Center'.format(province.abbreviation)
     d = CENTER_PATH.format(strFrom(province.center))
     xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': centerId, 'd': d, 'style': 'display:inline;opacity:1;fill:none;stroke:#9f9f9f;stroke-width:0.59603512;stroke-opacity:1;enable-background:new'})
 
 def addCenterLayer(root, layerName, visible, provinces):
+    """Add a layer of supply centers for all the given provinces."""
     newLayer = addLayer(root, layerName, visible)
     for province in provinces:
         addCenterPath(newLayer, province)
 
 def getNeighbours(province, provinces):
+    """Get the neighbours of the specified province. Note that this assumes provinces don't contain holes - e.g. provinces completely enclosed by other provinces."""
     neighbours = []
     region = province.edges
     for edge in zip(region, region[1:] + [region[0]]):
@@ -742,7 +706,8 @@ def getNeighbours(province, provinces):
                 neighbours.append(other)
     return neighbours
 
-def createGraphFile(fileName, provinces, passableCenters, supplyCenters, seaCenters, regionNames):
+def createGraphFile(fileName, provinces, passableCenters, supplyCenters, seaCenters):
+    """Create a *.go file for the variant."""
     f = open(fileName, 'w')
     f.write('package {}\n'.format(VARIANT.lower().replace(' ', '')))
     f.write("""
@@ -846,7 +811,6 @@ func {0}Graph() *graph.Graph {{
             continue
         f.write('\t\t// {}\n'.format(' '.join(province.name)))
         f.write('\t\tProv("{}").'.format(province.abbreviation))
-        region = regionNames[province.abbreviation]
         for neighbour in getNeighbours(province, provinces):
             if not neighbour.flags.impassable:
                 if province.flags.sea or neighbour.flags.sea:
@@ -875,6 +839,8 @@ func {0}Graph() *graph.Graph {{
     f.close()
 
 def createDebuggingMap(root, regions, edgeToDMap, corners):
+    """Create a map for use when looking for problems with the input map. Draw all the regions in
+    random colors so that it's easy to see any adjacent regions which have been merged by the script."""
     debugNames = {}
     for i, region in enumerate(regions):
         debugNames['region{0}'.format(i)] = region
@@ -882,6 +848,7 @@ def createDebuggingMap(root, regions, edgeToDMap, corners):
     xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'debug.svg')
 
 # Load data from the svg file.
+root = xml.etree.ElementTree.parse(MAP).getroot()
 corners = getCorners(root)
 junctions = getJunctions(root, corners)
 oldEdgeToDMap = getEdges(root)
@@ -903,13 +870,11 @@ allMarkers.update(seaCenters)
 passableCenters = dict(allMarkers)
 allMarkers.update(impassableCenters)
 
-#updateEdges(root, oldEdges, edges)
-
+# At this point we have enough information to create a map that's useful for investigating errors in the input map.
 createDebuggingMap(root, regions, edgeToDMap, corners)
 
 originalIdToRegion = matchRegionMarkerToRegion(regions, allMarkers)
 originalIdToAbbr = makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations)
-idToRegion = makeIdToRegionMap(originalIdToRegion, originalIdToAbbr)
 
 supplyCenters = replaceOriginalIds(supplyCenters, originalIdToAbbr, abbreviations)
 regionCenters = replaceOriginalIds(regionCenters, originalIdToAbbr, abbreviations)
@@ -917,8 +882,7 @@ seaCenters = replaceOriginalIds(seaCenters, originalIdToAbbr, abbreviations)
 impassableCenters = replaceOriginalIds(impassableCenters, originalIdToAbbr, abbreviations)
 passableCenters = replaceOriginalIds(passableCenters, originalIdToAbbr, abbreviations)
 
-#adjacencyGraph = findAdjacencyGraph(allCenters, edges)
-
+# Put all the data into the DTO.
 provinces = []
 for name in regionFullNames.keys():
     abbr = abbreviations[name]
@@ -926,15 +890,17 @@ for name in regionFullNames.keys():
     center = allMarkers[oldId]
     flags = Flags(abbr in supplyCenters, abbr in regionCenters, abbr in seaCenters, abbr in impassableCenters)
     provinces.append(Province(name, abbr, center, flags, regionFullNames[name]))
-
+# Swap any details that the user has manually overridden.
 performOverrides(provinces)
 
 scLayer = getLayer(root, 'supply-centers')
 pcLayer = getLayer(root, 'province-centers')
 seaLayer = getLayer(root, 'sea')
+# Remove all layers from the root, ready to construct the output svg.
 removeAllLayers(root)
+# Add the pattern layer for when provinces are selectable.
 addPattern(root)
-#addLayerWithEdges(root, edges)
+# Add all the layers to the output.
 backgroundRegionNames = {}
 for province in provinces:
     if province.flags.sea:
@@ -946,7 +912,6 @@ for province in provinces:
     if not province.flags.impassable:
         passableNames[province.abbreviation] = province.edges
 addLayerWithRegions(root, passableNames, edgeToDMap, 'provinces', '#000000', False)
-# TODO: These should be generated and the province list should contain sea centers
 addCenterLayer(root, 'supply-centers', True, [province for province in provinces if province.flags.supplyCenter])
 addCenterLayer(root, 'province-centers', False, [province for province in provinces if province.flags.province or province.flags.sea])
 addLayer(root, 'highlights', True)
@@ -954,8 +919,8 @@ addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners)
 addNamesLayer(root, namesLayer, abbreviations, passableNames.keys())
 addLayer(root, 'units', True)
 addLayer(root, 'orders', True)
-
-# Create an output svg file.
+# Create the output svg file.
 xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'map.svg')
 
-createGraphFile(VARIANT.lower().replace(' ', '') + '.go', provinces, passableCenters, supplyCenters, seaCenters, idToRegion)
+# Create the output go file.
+createGraphFile(VARIANT.lower().replace(' ', '') + '.go', provinces, passableCenters, supplyCenters, seaCenters)
