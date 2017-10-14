@@ -21,10 +21,10 @@ NATIONS = START_UNITS.keys()
 START_YEAR = 1960
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
-# Overrides to swap region full names. This only needs to contain something if the greedy algorithm fails.
-NAME_OVERRIDES = [('Venezuala', 'Colombia'), ('Finland', 'Leningrad'), ('Venezuala', 'Havana'), ('Saigon', 'South China Sea'), ('South West', 'Mexico')]
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
-CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('Finland', 'Leningrad'), ('Saigon', 'South China Sea'), ('Venezuala', 'Colombia'), ('Venezuala', 'Caribbean Sea'), ('Indian Ocean', 'Arabian Sea'), ('Brazil', 'West Atlantic'), ('Black Sea', 'Istanbul')]
+CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Mexico', 'South West'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala')]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('Finland', 'Leningrad'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
 
 ### Constants ###
 
@@ -43,6 +43,28 @@ LAND_COLOR = '#ffffff'
 THICK = 2.225
 # The thickness of thin lines
 THIN = 1
+# A path for the supply center symbol. This should be formatted to include the absolute start location.
+#CENTER_PATH = 'm {0} c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z'
+CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.161181 2.65678,1.110069 5.06242,-2.031351 3.31362,-4.327111 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
+#CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.16118 2.65678,1.11007 5.06242,-2.03135 3.31362,-4.32711 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
+
+class Flags:
+    def __init__(self, supplyCenter, province, sea, impassable):
+        self.supplyCenter = supplyCenter
+        self.province = province
+        self.sea = sea
+        self.impassable = impassable
+    def __repr__(self):
+        return 'sc:{0},p:{1},s:{2},i:{3}'.format(self.supplyCenter, self.province, self.sea, self.impassable)
+class Province:
+    def __init__(self, name, abbreviation, center, flags, edges):
+        self.name = name
+        self.abbreviation = abbreviation
+        self.center = center
+        self.flags = flags
+        self.edges = edges
+    def __repr__(self):
+        return '{0}: {1}'.format(self.abbreviation, self.name)
 
 root = xml.etree.ElementTree.parse(MAP).getroot()
 
@@ -389,14 +411,9 @@ def makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations):
             if region == anotherRegion:
                 idToAbbrMap[originalId] = abbreviations[name]
                 break
-    for nameA, nameB in CENTER_OVERRIDES:
-        nameA, nameB = tuple(nameA.split(' ')), tuple(nameB.split(' '))
-        originalIdA = reverseMapLookup(idToAbbrMap, abbreviations[nameA])
-        originalIdB = reverseMapLookup(idToAbbrMap, abbreviations[nameB])
-        idToAbbrMap[originalIdA], idToAbbrMap[originalIdB] = idToAbbrMap[originalIdB], idToAbbrMap[originalIdA]
     return idToAbbrMap
 
-def replaceOriginalIds(centers, originalIdToAbbr):
+def replaceOriginalIds(centers, originalIdToAbbr, abbreviations):
     output = {}
     for originalId in centers.keys():
         output[originalIdToAbbr[originalId]] = centers[originalId]
@@ -430,11 +447,6 @@ def makeLocsToNames(namesLayer):
             if tspan.text != None:
                 name += re.split(r' +', tspan.text)
         locsToNames[loc] = tuple(name)
-    for nameA, nameB in NAME_OVERRIDES:
-        nameA, nameB = tuple(nameA.split(' ')), tuple(nameB.split(' '))
-        locA = reverseMapLookup(locsToNames, nameA)
-        locB = reverseMapLookup(locsToNames, nameB)
-        locsToNames[locA], locsToNames[locB] = locsToNames[locB], locsToNames[locA]
     return locsToNames
 
 def guessRegionFullNames(regions, namesLayer):
@@ -525,6 +537,20 @@ def makeFullNameToAbbr(regionFullNames, regionNames):
                 fullNameToAbbr[fullName] = abbr
     return fullNameToAbbr
 
+def performOverrides(provinces):
+    """Swap province centers, flags and edge sets according to the configured manual override values."""
+    for nameA, nameB in CENTER_OVERRIDES:
+        nameA, nameB = tuple(nameA.split(' ')), tuple(nameB.split(' '))
+        provinceA = [province for province in provinces if province.name == nameA][0]
+        provinceB = [province for province in provinces if province.name == nameB][0]
+        provinceA.center, provinceB.center = provinceB.center, provinceA.center
+        provinceA.flags, provinceB.flags = provinceB.flags, provinceA.flags
+    for nameA, nameB in REGION_OVERRIDES:
+        nameA, nameB = tuple(nameA.split(' ')), tuple(nameB.split(' '))
+        provinceA = [province for province in provinces if province.name == nameA][0]
+        provinceB = [province for province in provinces if province.name == nameB][0]
+        provinceA.edges, provinceB.edges = provinceB.edges, provinceA.edges
+
 def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
     """Add the names layer to root and try to highlight the abbreviation in bold."""
     '<tspan style="font-weight:bold">'
@@ -592,6 +618,14 @@ def calculateCurvePoints(lastLoc, loc, nextLoc):
             locB = ((yB - offset) / gradient, yB)
     return locA, locB
 
+def addPattern(root):
+    '''<pattern xmlns="http://www.w3.org/2000/svg" id="stripes" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45 2 2)">
+    <path xmlns="http://www.w3.org/2000/svg" d="M -1,2 l 6,0" stroke="#ff0000" stroke-width="1" id="path4424"></path>
+    </pattern>'''
+    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(45 2 2)'})
+    stripes = root.find('{0}pattern[@id="stripes"]'.format(SVG))
+    xml.etree.ElementTree.SubElement(stripes, '{}path'.format(SVG), {'id': 'stripePath', 'd': 'M -1,2 l 6,0', 'stroke': '#ff0000', 'stroke-width': '1'})
+
 def addRectToLayer(layer, corners, fill):
     fillStyle = 'fill:{};fill-opacity:1;'.format(LAND_COLOR) if fill else 'fill:none;'
     style= fillStyle + 'display:inline;stroke:#000000;stroke-width:{};stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'.format(THICK)
@@ -634,27 +668,28 @@ def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible
             style += ';stroke:#000000;stroke-width:2px'
         xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': name, 'd': d, 'style': style})
 
-def getEdgeThickness(edges, regionNames, sea, impassable):
+def getEdgeThickness(edges, provinces):
     edgeThickness = {}
     edgeToNames = {}
     for edge in edges:
         touches = set()
-        names = []
-        for name, region in regionNames.items():
-            if edge[0] in region and edge[1] in region and abs(region.index(edge[0]) - region.index(edge[1])) in [1, len(region)-1]:
-                if name in sea:
+        abbreviations = []
+        for province in provinces:
+            if edge[0] in province.edges and edge[1] in province.edges and abs(province.edges.index(edge[0]) - province.edges.index(edge[1])) in [1, len(province.edges)-1]:
+                if province.flags.sea:
                     touches.add('sea')
                 else:
                     touches.add('land')
-                if name in impassable:
+                if province.flags.impassable:
                     touches.add('impassible')
-                names.append(name)
-        edgeToNames[edge] = names
+                abbreviations.append(province.abbreviation)
+        edgeToNames[edge] = abbreviations
         edgeThickness[edge] = THICK if len(touches) > 1 else THIN
     return edgeThickness, edgeToNames
 
 def addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners):
     layer = addLayer(root, 'foreground', True)
+    edgeIds = set()
     for edge, biedge in edgeToDMap.items():
         edgePath = biedge[0]
         toolParts = getToolParts(edgePath)
@@ -674,33 +709,40 @@ def addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners):
                 locA, locB = calculateCurvePoints(lastLoc, loc, nextLoc)
                 d += '{0} {1} {2} '.format(strFrom(locA), strFrom(loc), strFrom(locB))
         thickness = edgeThickness[edge]
-        xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': 'e_'+'_'.join(edgeToNames[edge]), 'd': d, 'style': 'fill:none;vector-effect:none;fill-rule:evenodd;stroke:#000100;stroke-width:{};stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1'.format(thickness)})
+        edgeId = 'e_'+'_'.join(edgeToNames[edge])
+        n = 2
+        while edgeId in edgeIds:
+            edgeId = 'e_'+'_'.join(edgeToNames[edge]) + '_{0}'.format(n)
+            n += 1
+        edgeIds.add(edgeId)
+        xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': edgeId, 'd': d, 'style': 'fill:none;vector-effect:none;fill-rule:evenodd;stroke:#000100;stroke-width:{};stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1'.format(thickness)})
     addRectToLayer(layer, corners, False)
 
-def addCenterLayer(root, oldLayers, newLayer, originalIdToAbbr, layerName):
-    newLayer = getLayer(root, layerName)
-    for oldLayer in oldLayers:
-        for path in oldLayer.findall('{}path'.format(SVG)):
-            originalId = path.get('id')
-            path.set('id', originalIdToAbbr[originalId] + 'Center')
-            newLayer.append(path)
+def addCenterPath(layer, province):
+    centerId = '{0}Center'.format(province.abbreviation)
+    d = CENTER_PATH.format(strFrom(province.center))
+    xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': centerId, 'd': d, 'style': 'display:inline;opacity:1;fill:none;stroke:#9f9f9f;stroke-width:0.59603512;stroke-opacity:1;enable-background:new'})
 
-def getNeighbours(center, regionNames):
-    region = regionNames[center]
+def addCenterLayer(root, layerName, visible, provinces):
+    newLayer = addLayer(root, layerName, visible)
+    for province in provinces:
+        addCenterPath(newLayer, province)
+
+def getNeighbours(province, provinces):
     neighbours = []
+    region = province.edges
     for edge in zip(region, region[1:] + [region[0]]):
         reverse = (edge[1], edge[0])
-        selected = []
-        if edge in edgeToNames.keys() and center in edgeToNames[edge]:
-            selected = list(edgeToNames[edge])
-        elif reverse in edgeToNames.keys() and center in edgeToNames[reverse]:
-            selected = list(edgeToNames[reverse])
-        if len(selected) == 2:
-            selected.remove(center)
-            neighbours.append(selected[0])
+        for other in provinces:
+            if other.abbreviation == province.abbreviation:
+                continue
+            otherRegion = other.edges
+            otherEdges = zip(otherRegion, otherRegion[1:] + [otherRegion[0]])
+            if edge in otherEdges or reverse in otherEdges:
+                neighbours.append(other)
     return neighbours
 
-def createGraphFile(fileName, passableCenters, supplyCenters, seaCenters, regionNames, edgeToNames):
+def createGraphFile(fileName, provinces, passableCenters, supplyCenters, seaCenters, regionNames):
     f = open(fileName, 'w')
     f.write('package {}\n'.format(VARIANT.lower().replace(' ', '')))
     f.write("""
@@ -734,7 +776,8 @@ const (
 	PhaseTypes:  cla.PhaseTypes,
 	Seasons:     cla.Seasons,
 	UnitTypes:   cla.UnitTypes,""")
-    f.write('\n\tSoloSupplyCenters: {},\n'.format(int(round(len(supplyCenters) / 2.0))))
+    scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
+    f.write('\n\tSoloSupplyCenters: {},\n'.format(scCount))
     f.write("""	SVGMap: func() ([]byte, error) {{
 		return Asset("svg/{}map.svg")
 	}},
@@ -766,7 +809,8 @@ func {0}Start() (result *state.State, err error) {{
     for nation, units in START_UNITS.items():
         for unitType in units.keys():
             for region in units[unitType]:
-                f.write('\t\t"{}": dip.Unit{{cla.{}, {}}},\n'.format(region, unitType, nation))
+                abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
+                f.write('\t\t"{}": dip.Unit{{cla.{}, {}}},\n'.format(abbr, unitType, nation))
     f.write("""	}); err != nil {
 		return
 	}
@@ -775,8 +819,9 @@ func {0}Start() (result *state.State, err error) {{
     for nation, units in START_UNITS.items():
         for unitType in units.keys():
             for region in units[unitType]:
-                if region in supplyCenters:
-                    f.write('\t\t"{}": {},\n'.format(region, nation))
+                province = [province for province in provinces if province.name == tuple(region.split(' '))][0]
+                if province.flags.supplyCenter:
+                    f.write('\t\t"{}": {},\n'.format(province.abbreviation, nation))
     f.write("""	}})
 	return
 }}
@@ -785,34 +830,42 @@ func {0}Graph() *graph.Graph {{
 	return graph.New().
 """.format(VARIANT.replace(' ', ''), START_YEAR))
     flags = {}
-    for center in passableCenters:
-        if center in seaCenters:
-            flags[center] = 'Sea'
+    for province in provinces:
+        if province.flags.impassable:
+            continue
+        if province.flags.sea:
+            flags[province.abbreviation] = 'Sea'
         else:
             flag = 'Land'
-            for neighbour in getNeighbours(center, regionNames):
-                if neighbour in seaCenters:
+            for neighbour in getNeighbours(province, provinces):
+                if neighbour.flags.sea:
                     flag = 'Coast...'
-            flags[center] = flag
-    for center in passableCenters:
-        f.write('\t\t// {}\n'.format(center))
-        f.write('\t\tProv("{}").'.format(center))
-        region = regionNames[center]
-        for other in getNeighbours(center, regionNames):
-            if other != center and other in passableCenters:
-                if center in seaCenters or other in seaCenters:
+            flags[province.abbreviation] = flag
+    for province in provinces:
+        if province.flags.impassable:
+            continue
+        f.write('\t\t// {}\n'.format(' '.join(province.name)))
+        f.write('\t\tProv("{}").'.format(province.abbreviation))
+        region = regionNames[province.abbreviation]
+        for neighbour in getNeighbours(province, provinces):
+            if not neighbour.flags.impassable:
+                if province.flags.sea or neighbour.flags.sea:
                     borderType = 'Sea'
-                elif center not in seaCenters and other not in seaCenters:
-                    borderType = 'Land'
                 else:
-                    borderType = 'Coast...'
-                f.write('Conn("{}", cla.{}).'.format(other, borderType))
-        f.write('Flag(cla.{}).'.format(flags[center]))
-        if center in supplyCenters:
+                    # Assume coastal border if regions share a common sea neighbour
+                    abbrsA = set([n.abbreviation for n in getNeighbours(province, provinces) if n.flags.sea])
+                    abbrsB = set([n.abbreviation for n in getNeighbours(neighbour, provinces) if n.flags.sea])
+                    if len(abbrsA.intersection(abbrsB)) > 0:
+                        borderType = 'Coast...'
+                    else:
+                        borderType = 'Land'
+                f.write('Conn("{}", cla.{}).'.format(neighbour.abbreviation, borderType))
+        f.write('Flag(cla.{}).'.format(flags[province.abbreviation]))
+        if province.flags.supplyCenter:
             owner = 'cla.Neutral'
             for nation, units in START_UNITS.items():
                 for regions in units.values():
-                    if center in regions:
+                    if province.name in map(lambda name: tuple(name.split(' ')), regions):
                         owner = nation
             f.write('SC({}).'.format(owner))
         f.write('\n')
@@ -858,40 +911,51 @@ originalIdToRegion = matchRegionMarkerToRegion(regions, allMarkers)
 originalIdToAbbr = makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations)
 idToRegion = makeIdToRegionMap(originalIdToRegion, originalIdToAbbr)
 
-supplyCenters = replaceOriginalIds(supplyCenters, originalIdToAbbr)
-regionCenters = replaceOriginalIds(regionCenters, originalIdToAbbr)
-seaCenters = replaceOriginalIds(seaCenters, originalIdToAbbr)
-impassableCenters = replaceOriginalIds(impassableCenters, originalIdToAbbr)
-passableCenters = replaceOriginalIds(passableCenters, originalIdToAbbr)
+supplyCenters = replaceOriginalIds(supplyCenters, originalIdToAbbr, abbreviations)
+regionCenters = replaceOriginalIds(regionCenters, originalIdToAbbr, abbreviations)
+seaCenters = replaceOriginalIds(seaCenters, originalIdToAbbr, abbreviations)
+impassableCenters = replaceOriginalIds(impassableCenters, originalIdToAbbr, abbreviations)
+passableCenters = replaceOriginalIds(passableCenters, originalIdToAbbr, abbreviations)
 
 #adjacencyGraph = findAdjacencyGraph(allCenters, edges)
+
+provinces = []
+for name in regionFullNames.keys():
+    abbr = abbreviations[name]
+    oldId = reverseMapLookup(originalIdToAbbr, abbr)
+    center = allMarkers[oldId]
+    flags = Flags(abbr in supplyCenters, abbr in regionCenters, abbr in seaCenters, abbr in impassableCenters)
+    provinces.append(Province(name, abbr, center, flags, regionFullNames[name]))
+
+performOverrides(provinces)
 
 scLayer = getLayer(root, 'supply-centers')
 pcLayer = getLayer(root, 'province-centers')
 seaLayer = getLayer(root, 'sea')
 removeAllLayers(root)
+addPattern(root)
 #addLayerWithEdges(root, edges)
 backgroundRegionNames = {}
-for regionName in idToRegion.keys():
-    if regionName in seaCenters.keys():
-        backgroundRegionNames[regionName + '_background'] = idToRegion[regionName]
+for province in provinces:
+    if province.flags.sea:
+        backgroundRegionNames[province.abbreviation + '_background'] = province.edges
 addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', SEA_COLOR, True, corners)
-edgeThickness, edgeToNames = getEdgeThickness(edgeToDMap.keys(), idToRegion, seaCenters.keys(), impassableCenters.keys())
+edgeThickness, edgeToNames = getEdgeThickness(edgeToDMap.keys(), provinces)
 passableNames = {}
-for regionId, region in idToRegion.items():
-    if regionId in passableCenters:
-        passableNames[regionId] = region
+for province in provinces:
+    if not province.flags.impassable:
+        passableNames[province.abbreviation] = province.edges
 addLayerWithRegions(root, passableNames, edgeToDMap, 'provinces', '#000000', False)
 # TODO: These should be generated and the province list should contain sea centers
-addCenterLayer(root, [scLayer], addLayer(root, 'supply-centers', True), originalIdToAbbr, 'supply-centers')
-addCenterLayer(root, [pcLayer, seaLayer], addLayer(root, 'province-centers', False), originalIdToAbbr, 'province-centers')
+addCenterLayer(root, 'supply-centers', True, [province for province in provinces if province.flags.supplyCenter])
+addCenterLayer(root, 'province-centers', False, [province for province in provinces if province.flags.province or province.flags.sea])
 addLayer(root, 'highlights', True)
 addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners)
-addNamesLayer(root, namesLayer, abbreviations, passableCenters.keys())
+addNamesLayer(root, namesLayer, abbreviations, passableNames.keys())
 addLayer(root, 'units', True)
 addLayer(root, 'orders', True)
 
 # Create an output svg file.
 xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'map.svg')
 
-createGraphFile(VARIANT.lower().replace(' ', '') + '.go', passableCenters, supplyCenters, seaCenters, idToRegion, edgeToNames)
+createGraphFile(VARIANT.lower().replace(' ', '') + '.go', provinces, passableCenters, supplyCenters, seaCenters, idToRegion)
