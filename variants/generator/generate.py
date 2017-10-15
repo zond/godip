@@ -22,9 +22,11 @@ START_YEAR = 1960
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
-CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Mexico', 'South West'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala')]
+CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
-REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('Finland', 'Leningrad'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
+REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
+# Whether to highlight the region abbreviation in bold or not.
+BOLD_ABBREVIATIONS = False
 
 ### Constants ###
 
@@ -514,8 +516,7 @@ def performOverrides(provinces):
         provinceA.edges, provinceB.edges = provinceB.edges, provinceA.edges
 
 def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
-    """Add the names layer to root and try to highlight the abbreviation in bold."""
-    '<tspan style="font-weight:bold">'
+    """Add the names layer to root and try to highlight the abbreviation in bold (if BOLD_ABBREVIATIONS is set)."""
     for text in namesLayer.findall('{}text'.format(SVG)):
         name = []
         for tspan in text.findall('.//{}tspan'.format(SVG)):
@@ -529,28 +530,29 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
         for tspan in text.findall('.//{}tspan'.format(SVG)):
             if tspan.text != None:
                 oldText = tspan.text
-                newParts = []
-                j = len(abbr)
-                while j > i:
-                    if abbr[i:j] in oldText.lower():
-                        start = oldText.lower().index(abbr[i:j])
-                        newParts += [oldText[:start], oldText[start:start+j-i]]
-                        oldText = oldText[start+j-i:]
-                        i = j
-                        j = len(abbr)
-                        if i >= len(abbr):
-                            break
-                    else:
-                        j -= 1
-                if len(newParts) > 0:
-                    newParts.append(re.sub('.*' + newParts[-1], '', oldText))
-                    tspan.text = None
-                    for index, part in enumerate(newParts):
-                        if len(part) != 0:
-                            fontWeight = 'normal' if index % 2 == 0 else 'bold'
-                            e = xml.etree.ElementTree.Element('{}tspan'.format(SVG), {'style': 'font-weight:' + fontWeight})
-                            e.text = part
-                            tspan.append(e)
+                if BOLD_ABBREVIATIONS:
+                    newParts = []
+                    j = len(abbr)
+                    while j > i:
+                        if abbr[i:j] in oldText.lower():
+                            start = oldText.lower().index(abbr[i:j])
+                            newParts += [oldText[:start], oldText[start:start+j-i]]
+                            oldText = oldText[start+j-i:]
+                            i = j
+                            j = len(abbr)
+                            if i >= len(abbr):
+                                break
+                        else:
+                            j -= 1
+                    if len(newParts) > 0:
+                        newParts.append(re.sub('.*' + newParts[-1], '', oldText))
+                        tspan.text = None
+                        for index, part in enumerate(newParts):
+                            if len(part) != 0:
+                                fontWeight = 'normal' if index % 2 == 0 else 'bold'
+                                e = xml.etree.ElementTree.Element('{}tspan'.format(SVG), {'style': 'font-weight:' + fontWeight})
+                                e.text = part
+                                tspan.append(e)
     root.append(namesLayer)
 
 def calculateCurvePoints(lastLoc, loc, nextLoc):
