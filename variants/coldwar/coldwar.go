@@ -31,7 +31,7 @@ var ColdWarVariant = common.Variant{
 	PhaseTypes:  cla.PhaseTypes,
 	Seasons:     cla.Seasons,
 	UnitTypes:   cla.UnitTypes,
-	SoloSupplyCenters: 14,
+	SoloSupplyCenters: 17,
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/coldwarmap.svg")
 	},
@@ -237,7 +237,7 @@ func ColdWarGraph() *graph.Graph {
 		// West Germany
 		Prov("weg").Conn("eag", cla.Land).Conn("den", cla.Coast...).Conn("nts", cla.Sea).Conn("par", cla.Land).Conn("par/nc", cla.Sea).Conn("yug", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
 		// Greece
-		Prov("grc").Conn("ion", cla.Sea).Conn("etm", cla.Sea).Conn("ist", cla.Coast...).Conn("ukr", cla.Land).Conn("yug", cla.Coast...).Conn("alb", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("grc").Conn("ion", cla.Sea).Conn("etm", cla.Sea).Conn("ist", cla.Coast...).Conn("ukr", cla.Land).Conn("yug", cla.Coast...).Conn("alb", cla.Coast...).Flag(cla.Coast...).
 		// Arctic Ocean
 		Prov("arc").Conn("grd", cla.Sea).Conn("nwe", cla.Sea).Conn("ura", cla.Sea).Conn("sib", cla.Sea).Conn("kam", cla.Sea).Conn("ber", cla.Sea).Conn("ala", cla.Sea).Conn("wtn/nc", cla.Sea).Conn("hud", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
 		// Sweden
