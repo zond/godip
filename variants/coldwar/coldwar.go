@@ -123,7 +123,7 @@ func ColdWarGraph() *graph.Graph {
 		// Venezuala
 		Prov("ven").Conn("col", cla.Land).Conn("col/nc", cla.Sea).Conn("bra", cla.Coast...).Conn("wel", cla.Sea).Conn("car", cla.Sea).Flag(cla.Coast...).
 		// Caribbean Sea
-		Prov("car").Conn("hav", cla.Sea).Conn("gum", cla.Sea).Conn("mex/ec", cla.Sea).Conn("cen/ec", cla.Sea).Conn("pan", cla.Sea).Conn("col/nc", cla.Sea).Conn("ven", cla.Sea).Conn("wel", cla.Sea).Conn("flo", cla.Sea).Conn("gum", cla.Sea).Conn("hav", cla.Sea).Flag(cla.Sea).
+		Prov("car").Conn("hav", cla.Sea).Conn("gum", cla.Sea).Conn("mex", cla.Sea).Conn("mex/ec", cla.Sea).Conn("cen", cla.Sea).Conn("cen/ec", cla.Sea).Conn("pan", cla.Sea).Conn("col", cla.Sea).Conn("col/nc", cla.Sea).Conn("ven", cla.Sea).Conn("wel", cla.Sea).Conn("flo", cla.Sea).Flag(cla.Sea).
 		// Greenland
 		Prov("grd").Conn("arc", cla.Sea).Conn("wel", cla.Sea).Conn("nwe", cla.Sea).Flag(cla.Coast...).
 		// Paris
@@ -137,13 +137,13 @@ func ColdWarGraph() *graph.Graph {
 		// Brazil
 		Prov("bra").Conn("wel", cla.Sea).Conn("ven", cla.Coast...).Conn("col", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
 		// Gulf of Mexico
-		Prov("gum").Conn("mex/ec", cla.Sea).Conn("car", cla.Sea).Conn("hav", cla.Sea).Conn("car", cla.Sea).Conn("flo", cla.Sea).Conn("sow", cla.Sea).Flag(cla.Sea).
+		Prov("gum").Conn("mex", cla.Sea).Conn("mex/ec", cla.Sea).Conn("car", cla.Sea).Conn("hav", cla.Sea).Conn("car", cla.Sea).Conn("flo", cla.Sea).Conn("sow", cla.Sea).Flag(cla.Sea).
 		// West Atlantic
 		Prov("wel").Conn("eal", cla.Sea).Conn("nwe", cla.Sea).Conn("grd", cla.Sea).Conn("arc", cla.Sea).Conn("hud", cla.Sea).Conn("que", cla.Sea).Conn("new", cla.Sea).Conn("flo", cla.Sea).Conn("car", cla.Sea).Conn("ven", cla.Sea).Conn("bra", cla.Sea).Flag(cla.Sea).
 		// West China
 		Prov("weh").Conn("mon", cla.Land).Conn("sib", cla.Land).Conn("pak", cla.Land).Conn("ban", cla.Land).Conn("sha", cla.Land).Flag(cla.Land).
 		// Havana
-		Prov("hav").Conn("car", cla.Sea).Conn("car", cla.Sea).Conn("gum", cla.Sea).Flag(cla.Coast...).SC(USSR).
+		Prov("hav").Conn("car", cla.Sea).Conn("gum", cla.Sea).Flag(cla.Coast...).SC(USSR).
 		// Arabia
 		Prov("ara").Conn("egy", cla.Coast...).Conn("red", cla.Sea).Conn("arb", cla.Sea).Conn("irq", cla.Coast...).Conn("lev", cla.Land).Flag(cla.Coast...).
 		// East Germany
@@ -157,7 +157,7 @@ func ColdWarGraph() *graph.Graph {
 		// North Africa
 		Prov("nof").Conn("lib", cla.Land).Conn("tun", cla.Coast...).Conn("wtm", cla.Sea).Conn("eal", cla.Sea).Flag(cla.Coast...).
 		// Baltic Sea
-		Prov("bal").Conn("fin", cla.Sea).Conn("swe", cla.Sea).Conn("den", cla.Sea).Conn("eag", cla.Sea).Conn("len/sc", cla.Sea).Flag(cla.Sea).
+		Prov("bal").Conn("fin", cla.Sea).Conn("swe", cla.Sea).Conn("den", cla.Sea).Conn("eag", cla.Sea).Conn("len", cla.Sea).Conn("len/sc", cla.Sea).Flag(cla.Sea).
 		// Yugoslavia
 		Prov("yug").Conn("weg", cla.Land).Conn("ita", cla.Coast...).Conn("ion", cla.Sea).Conn("alb", cla.Coast...).Conn("grc", cla.Coast...).Conn("ukr", cla.Land).Conn("eag", cla.Land).Flag(cla.Coast...).
 		// Toronto
@@ -173,7 +173,7 @@ func ColdWarGraph() *graph.Graph {
 		// Japan
 		Prov("jap").Conn("soj", cla.Sea).Conn("yel", cla.Sea).Conn("wep", cla.Sea).Conn("ber", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Denmark
-		Prov("den").Conn("bal", cla.Sea).Conn("nts", cla.Sea).Conn("weg", cla.Coast...).Conn("eag", cla.Coast...).Flag(cla.Coast...).
+		Prov("den").Conn("bal", cla.Sea).Conn("nts", cla.Sea).Conn("weg", cla.Coast...).Conn("eag", cla.Coast...).Conn("swe", cla.Coast...).Flag(cla.Coast...).
 		// Seoul
 		Prov("seo").Conn("nok", cla.Land).Conn("nok/wc", cla.Sea).Conn("nok/ec", cla.Sea).Conn("yel", cla.Sea).Conn("soj", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Bering Sea
@@ -199,13 +199,13 @@ func ColdWarGraph() *graph.Graph {
 		// East Mediterranean
 		Prov("etm").Conn("lev", cla.Sea).Conn("ist", cla.Sea).Conn("grc", cla.Sea).Conn("ion", cla.Sea).Conn("lib", cla.Sea).Conn("egy", cla.Sea).Flag(cla.Sea).
 		// North Sea
-		Prov("nts").Conn("swe", cla.Sea).Conn("noy", cla.Sea).Conn("nwe", cla.Sea).Conn("lon", cla.Sea).Conn("eal", cla.Sea).Conn("par/nc", cla.Sea).Conn("weg", cla.Sea).Conn("den", cla.Sea).Flag(cla.Sea).
+		Prov("nts").Conn("swe", cla.Sea).Conn("noy", cla.Sea).Conn("nwe", cla.Sea).Conn("lon", cla.Sea).Conn("eal", cla.Sea).Conn("par", cla.Sea).Conn("par/nc", cla.Sea).Conn("weg", cla.Sea).Conn("den", cla.Sea).Flag(cla.Sea).
 		// Urals
 		Prov("ura").Conn("nwe", cla.Sea).Conn("len", cla.Land).Conn("len/nc", cla.Sea).Conn("mos", cla.Land).Conn("cau", cla.Land).Conn("irn", cla.Land).Conn("afg", cla.Land).Conn("sib", cla.Coast...).Conn("arc", cla.Sea).Flag(cla.Coast...).
 		// Manchuria
 		Prov("man").Conn("vla", cla.Land).Conn("sib", cla.Land).Conn("mon", cla.Land).Conn("sha", cla.Coast...).Conn("yel", cla.Sea).Conn("nok", cla.Land).Conn("nok/wc", cla.Sea).Flag(cla.Coast...).
 		// East Atlantic
-		Prov("eal").Conn("nof", cla.Sea).Conn("wtm", cla.Sea).Conn("spa", cla.Sea).Conn("par/nc", cla.Sea).Conn("nts", cla.Sea).Conn("nwe", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
+		Prov("eal").Conn("nof", cla.Sea).Conn("wtm", cla.Sea).Conn("spa", cla.Sea).Conn("par", cla.Sea).Conn("par/nc", cla.Sea).Conn("nts", cla.Sea).Conn("nwe", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
 		// Alaska
 		Prov("ala").Conn("arc", cla.Sea).Conn("ber", cla.Sea).Conn("gus", cla.Sea).Conn("wtn", cla.Land).Conn("wtn/nc", cla.Sea).Conn("wtn/wc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Bay of Bengal
@@ -217,31 +217,31 @@ func ColdWarGraph() *graph.Graph {
 		// Bangladesh
 		Prov("ban").Conn("sha", cla.Land).Conn("weh", cla.Land).Conn("ind", cla.Coast...).Conn("bay", cla.Sea).Conn("sta", cla.Coast...).Conn("nov", cla.Land).Flag(cla.Coast...).
 		// Sea of Japan
-		Prov("soj").Conn("nok/ec", cla.Sea).Conn("seo", cla.Sea).Conn("yel", cla.Sea).Conn("jap", cla.Sea).Conn("ber", cla.Sea).Conn("vla", cla.Sea).Flag(cla.Sea).
+		Prov("soj").Conn("nok", cla.Sea).Conn("nok/ec", cla.Sea).Conn("seo", cla.Sea).Conn("yel", cla.Sea).Conn("jap", cla.Sea).Conn("ber", cla.Sea).Conn("vla", cla.Sea).Flag(cla.Sea).
 		// East Pacific
-		Prov("eap").Conn("col/wc", cla.Sea).Conn("pan", cla.Sea).Conn("cen/wc", cla.Sea).Conn("mex/wc", cla.Sea).Conn("los", cla.Sea).Conn("gus", cla.Sea).Conn("ber", cla.Sea).Conn("wep", cla.Sea).Flag(cla.Sea).
+		Prov("eap").Conn("col", cla.Sea).Conn("col/wc", cla.Sea).Conn("pan", cla.Sea).Conn("cen", cla.Sea).Conn("cen/wc", cla.Sea).Conn("mex", cla.Sea).Conn("mex/wc", cla.Sea).Conn("los", cla.Sea).Conn("gus", cla.Sea).Conn("ber", cla.Sea).Conn("wep", cla.Sea).Flag(cla.Sea).
 		// Spain
 		Prov("spa").Conn("wtm", cla.Sea).Conn("par", cla.Land).Conn("par/nc", cla.Sea).Conn("par/sc", cla.Sea).Conn("eal", cla.Sea).Flag(cla.Coast...).
 		// Indian Ocean
 		Prov("inc").Conn("aus", cla.Sea).Conn("ins", cla.Sea).Conn("bay", cla.Sea).Conn("bay", cla.Sea).Conn("ind", cla.Sea).Conn("arb", cla.Sea).Conn("red", cla.Sea).Conn("etf", cla.Sea).Flag(cla.Sea).
 		// Norwegian Sea
-		Prov("nwe").Conn("ura", cla.Sea).Conn("arc", cla.Sea).Conn("grd", cla.Sea).Conn("wel", cla.Sea).Conn("eal", cla.Sea).Conn("nts", cla.Sea).Conn("lon", cla.Sea).Conn("nts", cla.Sea).Conn("noy", cla.Sea).Conn("len/nc", cla.Sea).Flag(cla.Sea).
+		Prov("nwe").Conn("ura", cla.Sea).Conn("arc", cla.Sea).Conn("grd", cla.Sea).Conn("wel", cla.Sea).Conn("eal", cla.Sea).Conn("nts", cla.Sea).Conn("lon", cla.Sea).Conn("nts", cla.Sea).Conn("noy", cla.Sea).Conn("len", cla.Sea).Conn("len/nc", cla.Sea).Flag(cla.Sea).
 		// Hudson Bay
-		Prov("hud").Conn("arc", cla.Sea).Conn("wtn/nc", cla.Sea).Conn("tor", cla.Sea).Conn("que", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
+		Prov("hud").Conn("arc", cla.Sea).Conn("wtn", cla.Sea).Conn("wtn/nc", cla.Sea).Conn("tor", cla.Sea).Conn("que", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
 		// Philippeans
 		Prov("phi").Conn("yel", cla.Sea).Conn("soc", cla.Sea).Conn("ins", cla.Coast...).Conn("wep", cla.Sea).Flag(cla.Coast...).
 		// Mongolia
 		Prov("mon").Conn("weh", cla.Land).Conn("sha", cla.Land).Conn("man", cla.Land).Conn("sib", cla.Land).Flag(cla.Land).
 		// Yellow Sea
-		Prov("yel").Conn("wep", cla.Sea).Conn("jap", cla.Sea).Conn("soj", cla.Sea).Conn("seo", cla.Sea).Conn("nok/wc", cla.Sea).Conn("man", cla.Sea).Conn("sha", cla.Sea).Conn("soc", cla.Sea).Conn("phi", cla.Sea).Flag(cla.Sea).
+		Prov("yel").Conn("wep", cla.Sea).Conn("jap", cla.Sea).Conn("soj", cla.Sea).Conn("seo", cla.Sea).Conn("nok", cla.Sea).Conn("nok/wc", cla.Sea).Conn("man", cla.Sea).Conn("sha", cla.Sea).Conn("soc", cla.Sea).Conn("phi", cla.Sea).Flag(cla.Sea).
 		// West Germany
 		Prov("weg").Conn("eag", cla.Land).Conn("den", cla.Coast...).Conn("nts", cla.Sea).Conn("par", cla.Land).Conn("par/nc", cla.Sea).Conn("yug", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
 		// Greece
 		Prov("grc").Conn("ion", cla.Sea).Conn("etm", cla.Sea).Conn("ist", cla.Coast...).Conn("ukr", cla.Land).Conn("yug", cla.Coast...).Conn("alb", cla.Coast...).Flag(cla.Coast...).
 		// Arctic Ocean
-		Prov("arc").Conn("grd", cla.Sea).Conn("nwe", cla.Sea).Conn("ura", cla.Sea).Conn("sib", cla.Sea).Conn("kam", cla.Sea).Conn("ber", cla.Sea).Conn("ala", cla.Sea).Conn("wtn/nc", cla.Sea).Conn("hud", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
+		Prov("arc").Conn("grd", cla.Sea).Conn("nwe", cla.Sea).Conn("ura", cla.Sea).Conn("sib", cla.Sea).Conn("kam", cla.Sea).Conn("ber", cla.Sea).Conn("ala", cla.Sea).Conn("wtn", cla.Sea).Conn("wtn/nc", cla.Sea).Conn("hud", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
 		// Sweden
-		Prov("swe").Conn("bal", cla.Sea).Conn("nts", cla.Sea).Conn("fin", cla.Coast...).Conn("noy", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("swe").Conn("bal", cla.Sea).Conn("nts", cla.Sea).Conn("fin", cla.Coast...).Conn("noy", cla.Coast...).Conn("den", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
 		// Iraq
 		Prov("irq").Conn("arb", cla.Sea).Conn("irn", cla.Coast...).Conn("arm", cla.Land).Conn("lev", cla.Land).Conn("ara", cla.Coast...).Flag(cla.Coast...).
 		// Pakistan
@@ -283,7 +283,7 @@ func ColdWarGraph() *graph.Graph {
 		// Indonesia
 		Prov("ins").Conn("aus", cla.Coast...).Conn("wep", cla.Sea).Conn("wep", cla.Sea).Conn("phi", cla.Coast...).Conn("soc", cla.Sea).Conn("bay", cla.Sea).Conn("inc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// West Mediterranean
-		Prov("wtm").Conn("spa", cla.Sea).Conn("eal", cla.Sea).Conn("nof", cla.Sea).Conn("tun", cla.Sea).Conn("ion", cla.Sea).Conn("ita", cla.Sea).Conn("par/sc", cla.Sea).Flag(cla.Sea).
+		Prov("wtm").Conn("spa", cla.Sea).Conn("eal", cla.Sea).Conn("nof", cla.Sea).Conn("tun", cla.Sea).Conn("ion", cla.Sea).Conn("ita", cla.Sea).Conn("par", cla.Sea).Conn("par/sc", cla.Sea).Flag(cla.Sea).
 		// Colombia
 		Prov("col").Conn("bra", cla.Land).Conn("ven", cla.Land).Conn("pan", cla.Land).Flag(cla.Land).
 		// Colombia
@@ -299,6 +299,6 @@ func ColdWarGraph() *graph.Graph {
 		// Moscow
 		Prov("mos").Conn("cau", cla.Land).Conn("ura", cla.Land).Conn("len", cla.Land).Conn("eag", cla.Land).Conn("ukr", cla.Land).Flag(cla.Land).SC(USSR).
 		// Gulf of Alaska
-		Prov("gus").Conn("eap", cla.Sea).Conn("los", cla.Sea).Conn("wtn/wc", cla.Sea).Conn("ala", cla.Sea).Conn("ber", cla.Sea).Flag(cla.Sea).
+		Prov("gus").Conn("eap", cla.Sea).Conn("los", cla.Sea).Conn("wtn", cla.Sea).Conn("wtn/wc", cla.Sea).Conn("ala", cla.Sea).Conn("ber", cla.Sea).Flag(cla.Sea).
 		Done()
 }
