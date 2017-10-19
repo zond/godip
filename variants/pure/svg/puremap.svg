@@ -14,7 +14,7 @@
    viewBox="0 0 700 700"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.1 r15371"
    sodipodi:docname="puremap.svg">
   <defs
      id="defs4" />
@@ -25,11 +25,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="351.09705"
-     inkscape:cy="341.74207"
+     inkscape:zoom="3.959798"
+     inkscape:cx="392.92768"
+     inkscape:cy="243.82141"
      inkscape:document-units="px"
-     inkscape:current-layer="supplycenters"
+     inkscape:current-layer="supply-centers"
      showgrid="false"
      inkscape:snap-object-midpoints="true"
      inkscape:window-width="1855"
@@ -51,7 +51,7 @@
   </metadata>
   <style
      type="text/css"
-     id="style4421"> 
+     id="style4421">
 
       @font-face {
       font-family: 'latoregular';
@@ -201,7 +201,7 @@
   <g
      inkscape:label="supply centers"
      inkscape:groupmode="layer"
-     id="supplycenters">
+     id="supply-centers">
     <path
        id="lonCenter"
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.22519755;stroke-opacity:1;enable-background:new"
@@ -211,11 +211,6 @@
        id="parCenter"
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.22519755;stroke-opacity:1;enable-background:new"
        d="m 180.29966,403.13991 c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z"
-       inkscape:connector-curvature="0" />
-    <path
-       id="conCenter"
-       style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.22519755;stroke-opacity:1;enable-background:new"
-       d="m 430.0342,513.07058 c 4.88873,2.52806 2.58951,9.39761 -3.14536,9.39761 -1.13481,0 -2.17382,-0.50204 -3.23479,-1.56302 -4.31527,-4.31523 0.87083,-10.68356 6.38015,-7.83459 z m -6.59908,-0.6722 c -4.99986,3.93285 -2.38906,11.13924 4.0356,11.13924 4.05721,0 6.11664,-2.07045 6.11664,-6.14923 0,-5.40177 -5.92591,-8.31447 -10.15224,-4.99001 z m 8.257,-3.31016 c 6.5417,3.33731 6.45845,13.34383 -0.13743,16.5369 -8.7036,4.21333 -17.33545,-5.4274 -11.97776,-13.37771 2.78105,-4.12675 7.70298,-5.41019 12.11528,-3.15919 z m -8.79902,-1.36887 c -8.20665,3.66308 -7.96067,15.77876 0.39112,19.26839 9.91863,4.14426 18.8997,-7.5837 12.37085,-16.15453 -2.66427,-3.49756 -8.63734,-4.95494 -12.76197,-3.11386 z"
        inkscape:connector-curvature="0" />
     <path
        id="romCenter"
@@ -237,6 +232,11 @@
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.22519755;stroke-opacity:1;enable-background:new"
        d="m 351.40868,186.03932 c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z"
        inkscape:connector-curvature="0" />
+    <path
+       id="conCenter"
+       style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.22519732;stroke-opacity:1;enable-background:new"
+       d="m 430.0342,521.64573 c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      id="highlights" />
@@ -247,81 +247,81 @@
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="46.212917"
        y="183.66364"
-       id="text4391"
-       sodipodi:linespacing="125%"><tspan
+       id="text4391"><tspan
          sodipodi:role="line"
          id="tspan4393"
          x="46.212917"
-         y="183.66364">London</tspan></text>
+         y="183.66364"
+         style="font-size:40px;line-height:1.25">London</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="46.212917"
        y="491.51422"
-       id="text4403"
-       sodipodi:linespacing="125%"><tspan
+       id="text4403"><tspan
          sodipodi:role="line"
          id="tspan4405"
          x="46.212917"
-         y="491.51422">Paris</tspan></text>
+         y="491.51422"
+         style="font-size:40px;line-height:1.25">Paris</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="133.70111"
        y="622.22681"
-       id="text4407"
-       sodipodi:linespacing="125%"><tspan
+       id="text4407"><tspan
          sodipodi:role="line"
          id="tspan4409"
          x="133.70111"
-         y="622.22681">Rome</tspan></text>
+         y="622.22681"
+         style="font-size:40px;line-height:1.25">Rome</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="550.38342"
        y="491.51422"
-       id="text4411"
-       sodipodi:linespacing="125%"><tspan
+       id="text4411"><tspan
          sodipodi:role="line"
          id="tspan4413"
          x="550.38342"
-         y="491.51422">Vienna</tspan></text>
+         y="491.51422"
+         style="font-size:40px;line-height:1.25">Vienna</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="526.8678"
        y="183.0484"
-       id="text4419"
-       sodipodi:linespacing="125%"><tspan
+       id="text4419"><tspan
          sodipodi:role="line"
          id="tspan4421"
          x="526.8678"
-         y="183.0484">Moscow</tspan></text>
+         y="183.0484"
+         style="font-size:40px;line-height:1.25">Moscow</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="291.70898"
        y="100.77651"
-       id="text4423"
-       sodipodi:linespacing="125%"><tspan
+       id="text4423"><tspan
          sodipodi:role="line"
          id="tspan4425"
          x="291.70898"
-         y="100.77651">Berlin</tspan></text>
+         y="100.77651"
+         style="font-size:40px;line-height:1.25">Berlin</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:latoregular;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="384.95972"
        y="618.96509"
-       id="text4427"
-       sodipodi:linespacing="125%"><tspan
+       id="text4427"><tspan
          sodipodi:role="line"
          id="tspan4429"
          x="384.95972"
-         y="618.96509">Constantinople</tspan></text>
+         y="618.96509"
+         style="font-size:40px;line-height:1.25">Constantinople</tspan></text>
   </g>
   <g
      id="units" />
