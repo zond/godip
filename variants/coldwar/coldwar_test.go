@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 
 	dip "github.com/zond/godip/common"
@@ -88,6 +89,12 @@ func startState(t *testing.T) *state.State {
 	return judge
 }
 
+func blankState(t *testing.T) *state.State {
+	startPhase := classical.Phase(1960, cla.Spring, cla.Movement)
+	judge := ColdWarBlank(startPhase)
+	return judge
+}
+
 func TestPanama(t *testing.T) {
 	judge := startState(t)
 
@@ -166,7 +173,7 @@ func TestKorea(t *testing.T) {
 }
 
 func TestStraits(t *testing.T) {
-	judge := startState(t)
+	judge := blankState(t)
 
 	// Test that several bodies of water require convoys.
 	judge.SetUnit("wtn", dip.Unit{cla.Army, USSR})
@@ -174,10 +181,12 @@ func TestStraits(t *testing.T) {
 	judge.SetUnit("arc", dip.Unit{cla.Fleet, USSR})
 	assertOrderValidity(t, judge, orders.Move("wtn", "grd"), USSR, nil)
 
-	judge.SetUnit("flo", dip.Unit{cla.Army, USSR})
-	assertOrderValidity(t, judge, orders.Move("flo", "hav"), "", cla.ErrMissingConvoyPath)
+	judge.SetUnit("hav", dip.Unit{cla.Army, USSR})
+	assertOrderValidity(t, judge, orders.Move("hav", "mex"), "", cla.ErrMissingConvoyPath)
+	assertOrderValidity(t, judge, orders.Move("hav", "flo"), "", cla.ErrMissingConvoyPath)
 	judge.SetUnit("gum", dip.Unit{cla.Fleet, USSR})
-	assertOrderValidity(t, judge, orders.Move("flo", "hav"), USSR, nil)
+	assertOrderValidity(t, judge, orders.Move("hav", "mex"), USSR, nil)
+	assertOrderValidity(t, judge, orders.Move("hav", "flo"), USSR, nil)
 
 	// Test convoys to and from Paris - it's worth a bit more testing because it has two coasts.
 	judge.RemoveUnit("lon")
@@ -207,13 +216,6 @@ func TestStraits(t *testing.T) {
 	assertOrderValidity(t, judge, orders.Move("jap", "vla"), USSR, nil)
 	judge.SetUnit("yel", dip.Unit{cla.Fleet, USSR})
 	assertOrderValidity(t, judge, orders.Move("jap", "seo"), USSR, nil)
-
-	judge.SetUnit("hav", dip.Unit{cla.Army, USSR})
-	assertOrderValidity(t, judge, orders.Move("hav", "mex"), "", cla.ErrMissingConvoyPath)
-	assertOrderValidity(t, judge, orders.Move("hav", "flo"), "", cla.ErrMissingConvoyPath)
-	judge.SetUnit("gum", dip.Unit{cla.Fleet, USSR})
-	assertOrderValidity(t, judge, orders.Move("hav", "mex"), USSR, nil)
-	assertOrderValidity(t, judge, orders.Move("hav", "flo"), USSR, nil)
 }
 
 func TestIstanbul(t *testing.T) {
