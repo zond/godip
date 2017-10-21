@@ -95,7 +95,7 @@ func ColdWarGraph() *graph.Graph {
 		// Tunisia
 		Prov("tun").Conn("nof", cla.Coast...).Conn("lib", cla.Coast...).Conn("ion", cla.Sea).Conn("wtm", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// North Vietnam
-		Prov("nov").Conn("sai", cla.Coast...).Conn("soc", cla.Sea).Conn("sha", cla.Coast...).Conn("ban", cla.Land).Conn("sta", cla.Coast...).Flag(cla.Coast...).
+		Prov("nov").Conn("sai", cla.Coast...).Conn("soc", cla.Sea).Conn("sha", cla.Coast...).Conn("sta", cla.Coast...).Flag(cla.Coast...).
 		// Albania
 		Prov("alb").Conn("ion", cla.Sea).Conn("grc", cla.Coast...).Conn("yug", cla.Coast...).Flag(cla.Coast...).SC(USSR).
 		// Iran
@@ -103,7 +103,7 @@ func ColdWarGraph() *graph.Graph {
 		// Florida
 		Prov("flo").Conn("wel", cla.Sea).Conn("new", cla.Coast...).Conn("mid", cla.Land).Conn("sow", cla.Coast...).Conn("gum", cla.Sea).Conn("car", cla.Sea).Flag(cla.Coast...).
 		// London
-		Prov("lon").Conn("nts", cla.Sea).Conn("nwe", cla.Sea).Conn("nts", cla.Sea).Flag(cla.Coast...).SC(NATO).
+		Prov("lon").Conn("nts", cla.Sea).Conn("nwe", cla.Sea).Conn("nts", cla.Sea).Conn("eal", cla.Sea).Flag(cla.Coast...).SC(NATO).
 		// Afghanistan
 		Prov("afg").Conn("pak", cla.Land).Conn("sib", cla.Land).Conn("ura", cla.Land).Conn("irn", cla.Land).Flag(cla.Land).
 		// Midwest
@@ -120,7 +120,7 @@ func ColdWarGraph() *graph.Graph {
 		Prov("ind").Conn("ban", cla.Coast...).Conn("pak", cla.Coast...).Conn("arb", cla.Sea).Conn("inc", cla.Sea).Conn("bay", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// New York
 		Prov("new").Conn("que", cla.Coast...).Conn("tor", cla.Land).Conn("mid", cla.Land).Conn("flo", cla.Coast...).Conn("wel", cla.Sea).Flag(cla.Coast...).SC(NATO).
-		// Venezuala
+		// Venezuela
 		Prov("ven").Conn("col", cla.Land).Conn("col/nc", cla.Sea).Conn("bra", cla.Coast...).Conn("wel", cla.Sea).Conn("car", cla.Sea).Flag(cla.Coast...).
 		// Caribbean Sea
 		Prov("car").Conn("hav", cla.Sea).Conn("gum", cla.Sea).Conn("mex", cla.Sea).Conn("mex/ec", cla.Sea).Conn("cen", cla.Sea).Conn("cen/ec", cla.Sea).Conn("pan", cla.Sea).Conn("col", cla.Sea).Conn("col/nc", cla.Sea).Conn("ven", cla.Sea).Conn("wel", cla.Sea).Conn("flo", cla.Sea).Flag(cla.Sea).
@@ -186,7 +186,7 @@ func ColdWarGraph() *graph.Graph {
 		Prov("arm").Conn("irq", cla.Land).Conn("irn", cla.Land).Conn("cau", cla.Coast...).Conn("bla", cla.Sea).Conn("ist", cla.Coast...).Conn("lev", cla.Land).Flag(cla.Coast...).
 		// Panama
 		Prov("pan").Conn("col", cla.Land).Conn("col/nc", cla.Sea).Conn("col/wc", cla.Sea).Conn("car", cla.Sea).Conn("cen", cla.Land).Conn("cen/ec", cla.Sea).Conn("cen/wc", cla.Sea).Conn("eap", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
-		// South West
+		// Southwest
 		Prov("sow").Conn("mid", cla.Land).Conn("los", cla.Land).Conn("mex", cla.Land).Conn("mex/ec", cla.Sea).Conn("gum", cla.Sea).Conn("flo", cla.Coast...).Flag(cla.Coast...).
 		// South China Sea
 		Prov("soc").Conn("sai", cla.Sea).Conn("sta", cla.Sea).Conn("bay", cla.Sea).Conn("ins", cla.Sea).Conn("phi", cla.Sea).Conn("yel", cla.Sea).Conn("sha", cla.Sea).Conn("nov", cla.Sea).Flag(cla.Sea).
@@ -205,7 +205,7 @@ func ColdWarGraph() *graph.Graph {
 		// Manchuria
 		Prov("man").Conn("vla", cla.Land).Conn("sib", cla.Land).Conn("mon", cla.Land).Conn("sha", cla.Coast...).Conn("yel", cla.Sea).Conn("nok", cla.Land).Conn("nok/wc", cla.Sea).Flag(cla.Coast...).
 		// East Atlantic
-		Prov("eal").Conn("nof", cla.Sea).Conn("wtm", cla.Sea).Conn("spa", cla.Sea).Conn("par", cla.Sea).Conn("par/nc", cla.Sea).Conn("nts", cla.Sea).Conn("nwe", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
+		Prov("eal").Conn("nof", cla.Sea).Conn("wtm", cla.Sea).Conn("spa", cla.Sea).Conn("par", cla.Sea).Conn("par/nc", cla.Sea).Conn("nts", cla.Sea).Conn("nwe", cla.Sea).Conn("wel", cla.Sea).Conn("lon", cla.Sea).Flag(cla.Sea).
 		// Alaska
 		Prov("ala").Conn("arc", cla.Sea).Conn("ber", cla.Sea).Conn("gus", cla.Sea).Conn("wtn", cla.Land).Conn("wtn/nc", cla.Sea).Conn("wtn/wc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Bay of Bengal
@@ -215,7 +215,7 @@ func ColdWarGraph() *graph.Graph {
 		// Saigon
 		Prov("sai").Conn("soc", cla.Sea).Conn("nov", cla.Coast...).Conn("sta", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
 		// Bangladesh
-		Prov("ban").Conn("sha", cla.Land).Conn("weh", cla.Land).Conn("ind", cla.Coast...).Conn("bay", cla.Sea).Conn("sta", cla.Coast...).Conn("nov", cla.Land).Flag(cla.Coast...).
+		Prov("ban").Conn("sha", cla.Land).Conn("weh", cla.Land).Conn("ind", cla.Coast...).Conn("bay", cla.Sea).Conn("sta", cla.Coast...).Flag(cla.Coast...).
 		// Sea of Japan
 		Prov("soj").Conn("nok", cla.Sea).Conn("nok/ec", cla.Sea).Conn("seo", cla.Sea).Conn("yel", cla.Sea).Conn("jap", cla.Sea).Conn("ber", cla.Sea).Conn("vla", cla.Sea).Flag(cla.Sea).
 		// East Pacific
@@ -228,7 +228,7 @@ func ColdWarGraph() *graph.Graph {
 		Prov("nwe").Conn("ura", cla.Sea).Conn("arc", cla.Sea).Conn("grd", cla.Sea).Conn("wel", cla.Sea).Conn("eal", cla.Sea).Conn("nts", cla.Sea).Conn("lon", cla.Sea).Conn("nts", cla.Sea).Conn("noy", cla.Sea).Conn("len", cla.Sea).Conn("len/nc", cla.Sea).Flag(cla.Sea).
 		// Hudson Bay
 		Prov("hud").Conn("arc", cla.Sea).Conn("wtn", cla.Sea).Conn("wtn/nc", cla.Sea).Conn("tor", cla.Sea).Conn("que", cla.Sea).Conn("wel", cla.Sea).Flag(cla.Sea).
-		// Philippeans
+		// Philippines
 		Prov("phi").Conn("yel", cla.Sea).Conn("soc", cla.Sea).Conn("ins", cla.Coast...).Conn("wep", cla.Sea).Flag(cla.Coast...).
 		// Mongolia
 		Prov("mon").Conn("weh", cla.Land).Conn("sha", cla.Land).Conn("man", cla.Land).Conn("sib", cla.Land).Flag(cla.Land).
@@ -247,7 +247,7 @@ func ColdWarGraph() *graph.Graph {
 		// Pakistan
 		Prov("pak").Conn("arb", cla.Sea).Conn("ind", cla.Coast...).Conn("weh", cla.Land).Conn("sib", cla.Land).Conn("afg", cla.Land).Conn("irn", cla.Coast...).Flag(cla.Coast...).
 		// Shanghai
-		Prov("sha").Conn("ban", cla.Land).Conn("nov", cla.Coast...).Conn("soc", cla.Sea).Conn("yel", cla.Sea).Conn("man", cla.Coast...).Conn("mon", cla.Land).Conn("weh", cla.Land).Flag(cla.Coast...).SC(USSR).
+		Prov("sha").Conn("ban", cla.Land).Conn("nov", cla.Coast...).Conn("soc", cla.Sea).Conn("yel", cla.Sea).Conn("man", cla.Coast...).Conn("mon", cla.Land).Conn("weh", cla.Land).Conn("sta", cla.Land).Flag(cla.Coast...).SC(USSR).
 		// Mexico
 		Prov("mex").Conn("sow", cla.Land).Conn("los", cla.Land).Conn("cen", cla.Land).Flag(cla.Land).
 		// Mexico (East Coast)
@@ -293,7 +293,7 @@ func ColdWarGraph() *graph.Graph {
 		// Quebec
 		Prov("que").Conn("new", cla.Coast...).Conn("wel", cla.Sea).Conn("hud", cla.Sea).Conn("tor", cla.Coast...).Flag(cla.Coast...).
 		// South East Asia
-		Prov("sta").Conn("sai", cla.Coast...).Conn("nov", cla.Coast...).Conn("ban", cla.Coast...).Conn("bay", cla.Sea).Conn("soc", cla.Sea).Flag(cla.Coast...).
+		Prov("sta").Conn("sai", cla.Coast...).Conn("nov", cla.Coast...).Conn("ban", cla.Coast...).Conn("bay", cla.Sea).Conn("soc", cla.Sea).Conn("sha", cla.Land).Flag(cla.Coast...).
 		// Italy
 		Prov("ita").Conn("par", cla.Land).Conn("par/sc", cla.Sea).Conn("wtm", cla.Sea).Conn("ion", cla.Sea).Conn("yug", cla.Coast...).Flag(cla.Coast...).
 		// Moscow
