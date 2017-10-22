@@ -1,8 +1,6 @@
 package classical
 
 import (
-	"encoding/json"
-	"fmt"
 	"os"
 	"testing"
 	"time"
@@ -304,54 +302,6 @@ func TestDATC(t *testing.T) {
 	assertDATC(t, "datc/real.txt")
 }
 
-func hasOptHelper(opts map[string]interface{}, order []string, originalOpts map[string]interface{}, originalOrder []string) error {
-	if len(order) == 0 {
-		return nil
-	}
-	if _, found := opts[order[0]]; !found {
-		b, err := json.MarshalIndent(originalOpts, "  ", "  ")
-		if err != nil {
-			return err
-		}
-		b2, err := json.MarshalIndent(opts, "  ", "  ")
-		if err != nil {
-			return err
-		}
-		return fmt.Errorf("Got no option for %+v in %s, failed at %+v in %s, wanted it!", originalOrder, b, order, b2)
-	}
-	return hasOptHelper(opts[order[0]].(map[string]interface{})["Next"].(map[string]interface{}), order[1:], originalOpts, originalOrder)
-}
-
-func hasOpt(opts dip.Options, order []string) error {
-	b, err := json.MarshalIndent(opts, "  ", "  ")
-	if err != nil {
-		return err
-	}
-	converted := map[string]interface{}{}
-	if err := json.Unmarshal(b, &converted); err != nil {
-		return err
-	}
-	return hasOptHelper(converted, order, converted, order)
-}
-
-func assertOpt(t *testing.T, opts dip.Options, order []string) {
-	err := hasOpt(opts, order)
-	if err != nil {
-		t.Error(err)
-	}
-}
-
-func assertNoOpt(t *testing.T, opts dip.Options, order []string) {
-	err := hasOpt(opts, order)
-	if err == nil {
-		b, err := json.MarshalIndent(opts, "  ", "  ")
-		if err != nil {
-			t.Fatal(err)
-		}
-		t.Errorf("Found option for %+v in %s, didn't want it", order, b)
-	}
-}
-
 func TestConvoyOpts(t *testing.T) {
 	judge := startState(t)
 	judge.SetOrder("lon", orders.Move("lon", "nth"))
@@ -361,24 +311,24 @@ func TestConvoyOpts(t *testing.T) {
 	judge.Next()
 	judge.Next()
 	opts := judge.Phase().Options(judge, cla.England)
-	assertOpt(t, opts, []string{"yor", "Move", "yor", "nwy"})
-	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "ber", "kie"})
-	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "con", "smy"})
-	assertOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "nwy"})
-	assertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "yor"})
+	tst.AssertOpt(t, opts, []string{"yor", "Move", "yor", "nwy"})
+	tst.AssertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "ber", "kie"})
+	tst.AssertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "con", "smy"})
+	tst.AssertOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "nwy"})
+	tst.AssertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "yor"})
 	opts = judge.Phase().Options(judge, cla.Russia)
-	assertOpt(t, opts, []string{"bot", "Convoy", "bot", "stp", "swe"})
-	assertOpt(t, opts, []string{"stp", "Move", "stp", "swe"})
+	tst.AssertOpt(t, opts, []string{"bot", "Convoy", "bot", "stp", "swe"})
+	tst.AssertOpt(t, opts, []string{"stp", "Move", "stp", "swe"})
 
 	judge.SetUnit("tys", dip.Unit{cla.Fleet, cla.Italy})
 	judge.SetUnit("gol", dip.Unit{cla.Fleet, cla.Italy})
 	opts = judge.Phase().Options(judge, cla.Italy)
-	assertOpt(t, opts, []string{"rom", "Move", "rom", "spa"})
-	assertOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa"})
-	assertNoOpt(t, opts, []string{"rom", "Move", "rom", "spa/sc"})
-	assertNoOpt(t, opts, []string{"rom", "Move", "rom", "spa/nc"})
-	assertNoOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa/sc"})
-	assertNoOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa/nc"})
+	tst.AssertOpt(t, opts, []string{"rom", "Move", "rom", "spa"})
+	tst.AssertOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa"})
+	tst.AssertNoOpt(t, opts, []string{"rom", "Move", "rom", "spa/sc"})
+	tst.AssertNoOpt(t, opts, []string{"rom", "Move", "rom", "spa/nc"})
+	tst.AssertNoOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa/sc"})
+	tst.AssertNoOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa/nc"})
 }
 
 func TestSupportOpts(t *testing.T) {
@@ -389,24 +339,24 @@ func TestSupportOpts(t *testing.T) {
 	judge.Next()
 	judge.Next()
 	opts := judge.Phase().Options(judge, cla.England)
-	assertOpt(t, opts, []string{"eng", "Support", "eng", "wal", "lon"})
-	assertOpt(t, opts, []string{"nth", "Support", "nth", "wal", "bel"})
-	assertNoOpt(t, opts, []string{"eng", "Support", "eng", "wal", "bel"})
+	tst.AssertOpt(t, opts, []string{"eng", "Support", "eng", "wal", "lon"})
+	tst.AssertOpt(t, opts, []string{"nth", "Support", "nth", "wal", "bel"})
+	tst.AssertNoOpt(t, opts, []string{"eng", "Support", "eng", "wal", "bel"})
 	opts = judge.Phase().Options(judge, cla.France)
-	assertOpt(t, opts, []string{"par", "Support", "par", "bre", "pic"})
-	assertNoOpt(t, opts, []string{"par", "Support", "par", "par", "pic"})
-	assertNoOpt(t, opts, []string{"par", "Support", "par", "pic", "par"})
+	tst.AssertOpt(t, opts, []string{"par", "Support", "par", "bre", "pic"})
+	tst.AssertNoOpt(t, opts, []string{"par", "Support", "par", "par", "pic"})
+	tst.AssertNoOpt(t, opts, []string{"par", "Support", "par", "pic", "par"})
 }
 
 func TestSTPOptionsAtStart(t *testing.T) {
 	judge := startState(t)
 	opts := judge.Phase().Options(judge, cla.Russia)
-	assertNoOpt(t, opts, []string{"stp/nc"})
-	assertNoOpt(t, opts, []string{"stp/sc"})
-	assertOpt(t, opts, []string{"stp", "Move", "stp/sc", "lvn"})
-	assertOpt(t, opts, []string{"stp", "Move", "stp/sc", "bot"})
-	assertOpt(t, opts, []string{"stp", "Move", "stp/sc", "fin"})
-	assertNoOpt(t, opts, []string{"stp", "Convoy"})
+	tst.AssertNoOpt(t, opts, []string{"stp/nc"})
+	tst.AssertNoOpt(t, opts, []string{"stp/sc"})
+	tst.AssertOpt(t, opts, []string{"stp", "Move", "stp/sc", "lvn"})
+	tst.AssertOpt(t, opts, []string{"stp", "Move", "stp/sc", "bot"})
+	tst.AssertOpt(t, opts, []string{"stp", "Move", "stp/sc", "fin"})
+	tst.AssertNoOpt(t, opts, []string{"stp", "Convoy"})
 }
 
 func TestSTPBuildOptions(t *testing.T) {
@@ -418,53 +368,53 @@ func TestSTPBuildOptions(t *testing.T) {
 	judge.Next()
 	judge.Next()
 	opts := judge.Phase().Options(judge, cla.Russia)
-	assertNoOpt(t, opts, []string{"stp"})
-	assertOpt(t, opts, []string{"stp/nc", "Build", "Fleet", "stp/nc"})
-	assertOpt(t, opts, []string{"stp/sc", "Build", "Fleet", "stp/sc"})
-	assertNoOpt(t, opts, []string{"stp/sc", "Build", "Fleet", "stp"})
-	assertOpt(t, opts, []string{"stp/nc", "Build", "Army", "stp"})
-	assertOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp"})
-	assertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/nc"})
-	assertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/sc"})
+	tst.AssertNoOpt(t, opts, []string{"stp"})
+	tst.AssertOpt(t, opts, []string{"stp/nc", "Build", "Fleet", "stp/nc"})
+	tst.AssertOpt(t, opts, []string{"stp/sc", "Build", "Fleet", "stp/sc"})
+	tst.AssertNoOpt(t, opts, []string{"stp/sc", "Build", "Fleet", "stp"})
+	tst.AssertOpt(t, opts, []string{"stp/nc", "Build", "Army", "stp"})
+	tst.AssertOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp"})
+	tst.AssertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/nc"})
+	tst.AssertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/sc"})
 }
 
 func TestSupportSTPOpts(t *testing.T) {
 	judge := startState(t)
 	opts := judge.Phase().Options(judge, cla.Russia)
 	// Check that initially Moscow can support St Petersburg South Coast to Livonia
-	assertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
+	tst.AssertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 	// Check that the south coast is not mentioned in the suggestion list.
-	assertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp/sc", "lvn"})
+	tst.AssertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp/sc", "lvn"})
 
 	// Swap St Petersburg to North Coast and check there's no support option to Livonia
 	judge.RemoveUnit("stp/sc")
 	judge.SetUnit("stp/nc", dip.Unit{cla.Fleet, cla.Russia})
 	opts = judge.Phase().Options(judge, cla.Russia)
-	assertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
+	tst.AssertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 
 	// Swap St Petersburg to contain an army instead and check the support option is back.
 	judge.RemoveUnit("stp/nc")
 	judge.SetUnit("stp", dip.Unit{cla.Army, cla.Russia})
 	opts = judge.Phase().Options(judge, cla.Russia)
-	assertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
+	tst.AssertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 }
 
 func TestBULOptions(t *testing.T) {
 	judge := startState(t)
 	opts := judge.Phase().Options(judge, cla.Turkey)
-	assertNoOpt(t, opts, []string{"con", "Move", "con", "bul/sc"})
-	assertNoOpt(t, opts, []string{"con", "Move", "con", "bul/ec"})
-	assertOpt(t, opts, []string{"con", "Move", "con", "bul"})
+	tst.AssertNoOpt(t, opts, []string{"con", "Move", "con", "bul/sc"})
+	tst.AssertNoOpt(t, opts, []string{"con", "Move", "con", "bul/ec"})
+	tst.AssertOpt(t, opts, []string{"con", "Move", "con", "bul"})
 	judge.SetOrder("con", orders.Move("con", "bul"))
 	judge.Next()
 	judge.Next()
 	opts = judge.Phase().Options(judge, cla.Turkey)
-	assertNoOpt(t, opts, []string{"bul/sc"})
-	assertNoOpt(t, opts, []string{"bul/ec"})
-	assertNoOpt(t, opts, []string{"bul", "Move", "bul/sc"})
-	assertNoOpt(t, opts, []string{"bul", "Move", "bul/ec"})
-	assertOpt(t, opts, []string{"bul", "Move", "bul", "rum"})
-	assertOpt(t, opts, []string{"bul", "Move", "bul", "gre"})
+	tst.AssertNoOpt(t, opts, []string{"bul/sc"})
+	tst.AssertNoOpt(t, opts, []string{"bul/ec"})
+	tst.AssertNoOpt(t, opts, []string{"bul", "Move", "bul/sc"})
+	tst.AssertNoOpt(t, opts, []string{"bul", "Move", "bul/ec"})
+	tst.AssertOpt(t, opts, []string{"bul", "Move", "bul", "rum"})
+	tst.AssertOpt(t, opts, []string{"bul", "Move", "bul", "gre"})
 }
 
 // Test that por M spa supported by mid works in
@@ -486,6 +436,6 @@ func TestMIDPORSPASupportOptions(t *testing.T) {
 	judge.SetUnit("gol", dip.Unit{cla.Fleet, cla.Italy})
 	judge.SetUnit("wes", dip.Unit{cla.Fleet, cla.Italy})
 	opts := judge.Phase().Options(judge, cla.France)
-	assertOpt(t, opts, []string{"por", "Move", "por", "spa"})
-	assertOpt(t, opts, []string{"mid", "Support", "mid", "por", "spa"})
+	tst.AssertOpt(t, opts, []string{"por", "Move", "por", "spa"})
+	tst.AssertOpt(t, opts, []string{"mid", "Support", "mid", "por", "spa"})
 }

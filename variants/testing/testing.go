@@ -1,6 +1,8 @@
 package testing
 
 import (
+	"encoding/json"
+	"fmt"
 	"reflect"
 	"testing"
 
@@ -73,5 +75,53 @@ func AssertOptionToMove(t *testing.T, j *state.State, nat dip.Nation, src dip.Pr
 	options := j.Phase().Options(j, nat)[src]
 	if _, ok := options[cla.Move][dip.SrcProvince(src)][dst]; !ok {
 		t.Errorf("There should be an option for %v to move %v to %v", nat, src, dst)
+	}
+}
+
+func hasOptHelper(opts map[string]interface{}, order []string, originalOpts map[string]interface{}, originalOrder []string) error {
+	if len(order) == 0 {
+		return nil
+	}
+	if _, found := opts[order[0]]; !found {
+		b, err := json.MarshalIndent(originalOpts, "  ", "  ")
+		if err != nil {
+			return err
+		}
+		b2, err := json.MarshalIndent(opts, "  ", "  ")
+		if err != nil {
+			return err
+		}
+		return fmt.Errorf("Got no option for %+v in %s, failed at %+v in %s, wanted it!", originalOrder, b, order, b2)
+	}
+	return hasOptHelper(opts[order[0]].(map[string]interface{})["Next"].(map[string]interface{}), order[1:], originalOpts, originalOrder)
+}
+
+func hasOpt(opts dip.Options, order []string) error {
+	b, err := json.MarshalIndent(opts, "  ", "  ")
+	if err != nil {
+		return err
+	}
+	converted := map[string]interface{}{}
+	if err := json.Unmarshal(b, &converted); err != nil {
+		return err
+	}
+	return hasOptHelper(converted, order, converted, order)
+}
+
+func AssertOpt(t *testing.T, opts dip.Options, order []string) {
+	err := hasOpt(opts, order)
+	if err != nil {
+		t.Error(err)
+	}
+}
+
+func AssertNoOpt(t *testing.T, opts dip.Options, order []string) {
+	err := hasOpt(opts, order)
+	if err == nil {
+		b, err := json.MarshalIndent(opts, "  ", "  ")
+		if err != nil {
+			t.Fatal(err)
+		}
+		t.Errorf("Found option for %+v in %s, didn't want it", order, b)
 	}
 }
