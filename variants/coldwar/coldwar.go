@@ -19,18 +19,18 @@ const (
 var Nations = []dip.Nation{USSR, NATO}
 
 var ColdWarVariant = common.Variant{
-	Name:        "Cold War",
-	Graph:       func() dip.Graph { return ColdWarGraph() },
-	Start:       ColdWarStart,
-	Blank:       ColdWarBlank,
-	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,
+	Name:              "Cold War",
+	Graph:             func() dip.Graph { return ColdWarGraph() },
+	Start:             ColdWarStart,
+	Blank:             ColdWarBlank,
+	Phase:             classical.Phase,
+	ParseOrders:       orders.ParseAll,
+	ParseOrder:        orders.Parse,
+	OrderTypes:        orders.OrderTypes(),
+	Nations:           Nations,
+	PhaseTypes:        cla.PhaseTypes,
+	Seasons:           cla.Seasons,
+	UnitTypes:         cla.UnitTypes,
 	SoloSupplyCenters: 17,
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/coldwarmap.svg")
@@ -44,10 +44,16 @@ var ColdWarVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules: "",
+	CreatedBy:   "Firehawk & Safari",
+	Version:     "1",
+	Description: "NATO and the USSR fight each other to see which will be the dominant superpower.",
+	Rules: "Rules are as per classical Diplomacy, but with a different map. " +
+		"Indonesia is connected to Australia and the Phillipines by bridges which " +
+		"allow armies and fleets to travel between them. Panama, Egypt and Istanbul " +
+		"contain canals, which allows fleets to enter and exit from either side. " +
+		"Denmark and Sweden are single coast provinces which fleets and armies can " +
+		"move between. Fleets in the North Sea must move to one of these provinces " +
+		"to get to the Baltic. Fleets may only convoy if they are in all-sea provinces.",
 }
 
 func ColdWarBlank(phase dip.Phase) *state.State {
@@ -59,17 +65,17 @@ func ColdWarStart() (result *state.State, err error) {
 	result = state.New(ColdWarGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{
 		"len/sc": dip.Unit{cla.Fleet, USSR},
-		"alb": dip.Unit{cla.Fleet, USSR},
-		"hav": dip.Unit{cla.Fleet, USSR},
-		"mos": dip.Unit{cla.Army, USSR},
-		"sha": dip.Unit{cla.Army, USSR},
-		"vla": dip.Unit{cla.Army, USSR},
-		"lon": dip.Unit{cla.Fleet, NATO},
-		"ist": dip.Unit{cla.Fleet, NATO},
-		"aus": dip.Unit{cla.Fleet, NATO},
-		"new": dip.Unit{cla.Army, NATO},
-		"los": dip.Unit{cla.Army, NATO},
-		"par": dip.Unit{cla.Army, NATO},
+		"alb":    dip.Unit{cla.Fleet, USSR},
+		"hav":    dip.Unit{cla.Fleet, USSR},
+		"mos":    dip.Unit{cla.Army, USSR},
+		"sha":    dip.Unit{cla.Army, USSR},
+		"vla":    dip.Unit{cla.Army, USSR},
+		"lon":    dip.Unit{cla.Fleet, NATO},
+		"ist":    dip.Unit{cla.Fleet, NATO},
+		"aus":    dip.Unit{cla.Fleet, NATO},
+		"new":    dip.Unit{cla.Army, NATO},
+		"los":    dip.Unit{cla.Army, NATO},
+		"par":    dip.Unit{cla.Army, NATO},
 	}); err != nil {
 		return
 	}
