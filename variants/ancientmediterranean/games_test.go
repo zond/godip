@@ -12,5 +12,5 @@ func init() {
 }
 
 func TestGames(t *testing.T) {
-	tst.TestGames(t, Nations, AncientMediterraneanStart, AncientMediterraneanBlank)
+	tst.TestGames(t, AncientMediterraneanVariant)
 }
