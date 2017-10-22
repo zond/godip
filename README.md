@@ -17,17 +17,17 @@ go test
 To run the tests against the real human played games:
 
 ```
-cd classical/droidippy/games
+cd variants/classical/droidippy/games
 tar xvf games.tar.bz2
 cd ..
-go test
+env DEBUG=true go test
 ```
 
 The real game tests will likely die from timeout, to continue testing where it left off:
 
 ```
 cd classical/droidippy
-env SKIP=game_xxxx.txt go test
+env DEBUG=true SKIP=game_xxxx.txt go test
 ```
 
 ### Web service
@@ -44,7 +44,7 @@ See https://github.com/zond/godip/tree/master/gae for exact implementation detai
 
 ### Variant support
 
-Currently only Standard diplomacy and Fleet Rome are supported.
+Currently only a few variants are supported.
 
 Many variants would, however, be simple to implement in godip, or using godip.
 
