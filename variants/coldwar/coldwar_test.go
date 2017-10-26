@@ -74,7 +74,7 @@ func TestArmyOceana(t *testing.T) {
 	judge.SetUnit("ins", dip.Unit{cla.Fleet, NATO})
 	tst.AssertOrderValidity(t, judge, orders.Move("ins", "aus"), NATO, nil)
 	tst.AssertOrderValidity(t, judge, orders.Move("ins", "phi"), NATO, nil)
-	tst.AssertOrderValidity(t, judge, orders.Move("ins", "sta"), "", cla.ErrIllegalMove)
+	tst.AssertOrderValidity(t, judge, orders.Move("ins", "sea"), "", cla.ErrIllegalMove)
 }
 
 func TestEgypt(t *testing.T) {
@@ -82,44 +82,44 @@ func TestEgypt(t *testing.T) {
 
 	// Test can sail through Egypt.
 	judge.SetUnit("egy", dip.Unit{cla.Fleet, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("egy", "etm"), USSR, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("egy", "eme"), USSR, nil)
 	tst.AssertOrderValidity(t, judge, orders.Move("egy", "red"), USSR, nil)
 }
 
 func TestKorea(t *testing.T) {
 	// Test can convoy from North Korea.
 	judge := startState(t)
-	judge.SetUnit("nok", dip.Unit{cla.Army, USSR})
+	judge.SetUnit("nko", dip.Unit{cla.Army, USSR})
 	judge.SetUnit("soj", dip.Unit{cla.Fleet, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("nok", "jap"), USSR, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("nko", "jap"), USSR, nil)
 	judge.RemoveUnit("soj")
 	judge.SetUnit("yel", dip.Unit{cla.Fleet, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("nok", "phi"), USSR, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("nko", "phi"), USSR, nil)
 
 	// Test can convoy to North Korea.
 	judge = startState(t)
 	judge.SetUnit("jap", dip.Unit{cla.Army, USSR})
 	judge.SetUnit("soj", dip.Unit{cla.Fleet, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("jap", "nok"), USSR, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("jap", "nko"), USSR, nil)
 	judge.RemoveUnit("soj")
 	judge.SetUnit("phi", dip.Unit{cla.Army, USSR})
 	judge.SetUnit("yel", dip.Unit{cla.Fleet, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("phi", "nok"), USSR, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("phi", "nko"), USSR, nil)
 }
 
 func TestStraits(t *testing.T) {
 	judge := blankState(t)
 
 	// Test that several bodies of water require convoys.
-	judge.SetUnit("wtn", dip.Unit{cla.Army, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("wtn", "grd"), "", cla.ErrMissingConvoyPath)
+	judge.SetUnit("wca", dip.Unit{cla.Army, USSR})
+	tst.AssertOrderValidity(t, judge, orders.Move("wca", "grd"), "", cla.ErrMissingConvoyPath)
 	judge.SetUnit("arc", dip.Unit{cla.Fleet, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("wtn", "grd"), USSR, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("wca", "grd"), USSR, nil)
 
 	judge.SetUnit("hav", dip.Unit{cla.Army, USSR})
 	tst.AssertOrderValidity(t, judge, orders.Move("hav", "mex"), "", cla.ErrMissingConvoyPath)
 	tst.AssertOrderValidity(t, judge, orders.Move("hav", "flo"), "", cla.ErrMissingConvoyPath)
-	judge.SetUnit("gum", dip.Unit{cla.Fleet, USSR})
+	judge.SetUnit("gom", dip.Unit{cla.Fleet, USSR})
 	tst.AssertOrderValidity(t, judge, orders.Move("hav", "mex"), USSR, nil)
 	tst.AssertOrderValidity(t, judge, orders.Move("hav", "flo"), USSR, nil)
 
@@ -138,9 +138,9 @@ func TestStraits(t *testing.T) {
 	tst.AssertOrderValidity(t, judge, orders.Move("lon", "par"), USSR, nil)
 
 	judge.SetUnit("ins", dip.Unit{cla.Army, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("ins", "sta"), "", cla.ErrMissingConvoyPath)
-	judge.SetUnit("soc", dip.Unit{cla.Fleet, USSR})
-	tst.AssertOrderValidity(t, judge, orders.Move("ins", "sta"), USSR, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("ins", "sea"), "", cla.ErrMissingConvoyPath)
+	judge.SetUnit("scs", dip.Unit{cla.Fleet, USSR})
+	tst.AssertOrderValidity(t, judge, orders.Move("ins", "sea"), USSR, nil)
 
 	judge.SetUnit("jap", dip.Unit{cla.Army, USSR})
 	tst.AssertOrderValidity(t, judge, orders.Move("jap", "kam"), "", cla.ErrMissingConvoyPath)
