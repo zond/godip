@@ -14,6 +14,7 @@ import (
 
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/orders"
+	"github.com/zond/godip/variants/common"
 
 	dip "github.com/zond/godip/common"
 	cla "github.com/zond/godip/variants/classical/common"
@@ -251,7 +252,7 @@ func assertGame(t *testing.T, name string, nations []dip.Nation, startFn func() 
 	return
 }
 
-func TestGames(t *testing.T, nations []dip.Nation, startFn func() (*state.State, error), blankFn func(dip.Phase) *state.State) {
+func TestGames(t *testing.T, variant common.Variant) {
 	gamedir, err := os.Open("games")
 	if err != nil {
 		t.Fatalf("%v", err)
@@ -265,7 +266,7 @@ func TestGames(t *testing.T, nations []dip.Nation, startFn func() (*state.State,
 	for _, name := range gamefiles {
 		if skip := os.Getenv("SKIP"); skip == "" || bytes.Compare([]byte(skip), []byte(name)) < 1 {
 			if gameFileReg.MatchString(name) {
-				phases, orders, positions, fails, s := assertGame(t, name, nations, startFn, blankFn)
+				phases, orders, positions, fails, s := assertGame(t, name, variant.Nations, variant.Start, variant.Blank)
 				if os.Getenv("DEBUG") == "true" {
 					fmt.Printf("Checked %v phases, executed %v orders and asserted %v positions in %v, found %v failures.\n", phases, orders, positions, name, fails)
 				}

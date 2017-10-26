@@ -6,7 +6,6 @@ import (
 	"github.com/zond/godip/variants/classical"
 
 	dip "github.com/zond/godip/common"
-	cla "github.com/zond/godip/variants/classical/common"
 	tst "github.com/zond/godip/variants/testing"
 )
 
@@ -15,5 +14,5 @@ func init() {
 }
 
 func TestDroidippyGames(t *testing.T) {
-	tst.TestGames(t, cla.Nations, classical.Start, classical.Blank)
+	tst.TestGames(t, classical.ClassicalVariant)
 }

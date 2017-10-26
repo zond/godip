@@ -1,4 +1,4 @@
-package ancientmediterranean
+package coldwar
 
 import (
 	"testing"
@@ -12,5 +12,5 @@ func init() {
 }
 
 func TestGames(t *testing.T) {
-	tst.TestGames(t, AncientMediterraneanVariant)
+	tst.TestGames(t, ColdWarVariant)
 }
