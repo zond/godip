@@ -17,17 +17,17 @@ go test
 To run the tests against the real human played games:
 
 ```
-cd classical/droidippy/games
+cd variants/classical/droidippy/games
 tar xvf games.tar.bz2
 cd ..
-go test
+env DEBUG=true go test
 ```
 
 The real game tests will likely die from timeout, to continue testing where it left off:
 
 ```
 cd classical/droidippy
-env SKIP=game_xxxx.txt go test
+env DEBUG=true SKIP=game_xxxx.txt go test
 ```
 
 ### Web service
@@ -44,7 +44,7 @@ See https://github.com/zond/godip/tree/master/gae for exact implementation detai
 
 ### Variant support
 
-Currently only Standard diplomacy and Fleet Rome are supported.
+Currently only a few variants are supported.
 
 Many variants would, however, be simple to implement in godip, or using godip.
 
@@ -73,7 +73,7 @@ These are the truths that should be valid for such a variant to be godip compati
 Maps are svg files and can be created with a combination of the free tool [Inkscape](https://inkscape.org/en/) and your favourite text editor.  The file should contain a pattern with id "stripes", which can be used by the client to highlight regions that the player can select.  The file should have at least the following layers in it:
 
  * The background (bottom layer): This should contain regions in the colour they should be when not owned.
- * Provinces with `id="provinces"`: This should be a hidden layer (`style="display:none"`) containing each province. When a province is owned then it will be revealed and coloured appropriately. Each province should have its id set to the appropriate abbreviation (e.g. in the classical game the "London" region has the id "lon").
+ * Provinces with `id="provinces"`: This should be a hidden layer (`style="display:none"`) containing each province. When a province is owned then it will be revealed and coloured appropriately. Each province should have its id set to the appropriate abbreviation (e.g. in the classical game the "London" region has the id "lon"). There should also be an extra transparent province for each coast (i.e. in the classical game "St. Petersburg" has two transparent coastal regions "stp/nc" and "stp/sc").
  * Supply centers with `id="supply-centers"`: This is a layer of markers for supply centers. Each supply center should have the id set to the province name concatenated with "Center" (e.g. the supply center for "London" has the id "lonCenter"). These markers are used to position units and when drawing order symbols on the map.
  * Province centers with `id="province-centers"`: This is a similar layer of markers, but for the regions which aren't supply centers.  There should also be a center here for any subprovince (e.g. St. Petersberg North Coast has a center with id "stp/ncCenter").  The markers should follow the same naming convention as the supply center layer, but each marker should contain `fill:none;stroke:none;` in its style attribute so that it isn't displayed.
  * Highlights layer with `id="highlights"`: This is used to highlight selectable regions.

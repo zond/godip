@@ -13,37 +13,37 @@ POSITIONS
 	USSR: supply mos
 	USSR: supply len
 	NATO: army los
-	NATO: army new
+	NATO: army nyk
 	NATO: fleet ist
 	NATO: army par
 	NATO: fleet aus
 	NATO: fleet lon
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ist
 	NATO: supply par
 	NATO: supply aus
 	NATO: supply lon
 ORDERS
-	sha move sta
-	vla move nok
+	sha move sea
+	vla move nko
 	hav move car
 	alb move ion
-	len/sc move eag
+	len/sc move ege
 	mos move cau
-	new move que
-	los move wtn
-	par move weg
+	nyk move que
+	los move wca
+	par move wge
 	lon move nts
 	ist move grc
 	aus move ins
 PHASE 1960 Fall Movement
 POSITIONS
 	USSR: army cau
-	USSR: army sta
+	USSR: army sea
 	USSR: fleet car
-	USSR: fleet eag
-	USSR: army nok
+	USSR: fleet ege
+	USSR: army nko
 	USSR: fleet ion
 	USSR: supply vla
 	USSR: supply hav
@@ -53,40 +53,40 @@ POSITIONS
 	USSR: supply len
 	NATO: fleet grc
 	NATO: fleet ins
-	NATO: army weg
+	NATO: army wge
 	NATO: army que
-	NATO: army wtn
+	NATO: army wca
 	NATO: fleet nts
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ist
 	NATO: supply par
 	NATO: supply aus
 	NATO: supply lon
 ORDERS
-	eag hold
-	nok move seo
-	sta move sai
+	ege hold
+	nko move seo
+	sea move sai
 	car move pan
 	ion move alb
 	cau move irn
 	ins hold
 	nts move swe
 	grc move alb
-	wtn move ala
-	weg move eag
+	wca move ala
+	wge move ege
 	que move tor
 PHASE 1960 Fall Adjustment
 POSITIONS
 	USSR: supply irn
 	USSR: supply pan
 	USSR: supply seo
-	USSR: supply eag
+	USSR: supply ege
 	USSR: supply sai
 	USSR: army seo
 	USSR: fleet pan
 	USSR: army sai
-	USSR: fleet eag
+	USSR: fleet ege
 	USSR: fleet ion
 	USSR: army irn
 	USSR: supply vla
@@ -95,7 +95,7 @@ POSITIONS
 	USSR: supply alb
 	USSR: supply mos
 	USSR: supply len
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply ala
 	NATO: supply swe
 	NATO: supply ins
@@ -103,11 +103,11 @@ POSITIONS
 	NATO: fleet swe
 	NATO: fleet grc
 	NATO: fleet ins
-	NATO: army weg
+	NATO: army wge
 	NATO: army ala
 	NATO: army tor
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ist
 	NATO: supply par
 	NATO: supply aus
@@ -121,12 +121,12 @@ ORDERS
 	build Army ist
 	build Army par
 	build Fleet los
-	build Fleet new
+	build Fleet nyk
 	build Fleet aus
 PHASE 1961 Spring Movement
 POSITIONS
 	USSR: supply vla
-	USSR: fleet eag
+	USSR: fleet ege
 	USSR: army len
 	USSR: fleet sha
 	USSR: fleet hav
@@ -137,7 +137,7 @@ POSITIONS
 	USSR: fleet alb
 	USSR: army mos
 	USSR: army irn
-	USSR: supply eag
+	USSR: supply ege
 	USSR: supply len
 	USSR: supply sha
 	USSR: supply hav
@@ -152,8 +152,8 @@ POSITIONS
 	NATO: fleet grc
 	NATO: fleet los
 	NATO: fleet ins
-	NATO: fleet new
-	NATO: army weg
+	NATO: fleet nyk
+	NATO: army wge
 	NATO: army ala
 	NATO: army tor
 	NATO: army ist
@@ -162,8 +162,8 @@ POSITIONS
 	NATO: supply swe
 	NATO: supply los
 	NATO: supply ins
-	NATO: supply new
-	NATO: supply weg
+	NATO: supply nyk
+	NATO: supply wge
 	NATO: supply ala
 	NATO: supply tor
 	NATO: supply ist
@@ -171,42 +171,42 @@ POSITIONS
 	NATO: supply aus
 ORDERS
 	seo hold
-	eag hold
+	ege hold
 	alb move grc
 	hav move car
 	mos move ukr
 	len move noy
 	sha move yel
-	sai move sta
-	pan move eap
+	sai move sea
+	pan move epa
 	irn move pak
 	ion support alb move grc
 	ala hold
-	aus move wep
-	los move eap
-	new move wel
+	aus move wpa
+	los move epa
+	nyk move wat
 	ist move ukr
 	par move ita
-	ins move soc
-	grc move etm
+	ins move scs
+	grc move eme
 	tor move mid
-	weg move eag
+	wge move ege
 	swe move bal
 PHASE 1961 Fall Movement
 POSITIONS
 	USSR: supply vla
 	USSR: army noy
 	USSR: fleet grc
-	USSR: fleet eag
+	USSR: fleet ege
 	USSR: fleet pan
-	USSR: army sta
+	USSR: army sea
 	USSR: fleet car
 	USSR: army seo
 	USSR: army pak
 	USSR: fleet ion
 	USSR: fleet yel
 	USSR: army mos
-	USSR: supply eag
+	USSR: supply ege
 	USSR: supply len
 	USSR: supply sha
 	USSR: supply hav
@@ -218,54 +218,54 @@ POSITIONS
 	USSR: supply irn
 	NATO: supply lon
 	NATO: fleet los
-	NATO: fleet wel
-	NATO: army weg
-	NATO: fleet soc
+	NATO: fleet wat
+	NATO: army wge
+	NATO: fleet scs
 	NATO: army mid
 	NATO: army ita
 	NATO: army ist
 	NATO: fleet bal
-	NATO: fleet wep
-	NATO: fleet etm
+	NATO: fleet wpa
+	NATO: fleet eme
 	NATO: army ala
 	NATO: supply swe
 	NATO: supply los
 	NATO: supply ins
-	NATO: supply new
-	NATO: supply weg
+	NATO: supply nyk
+	NATO: supply wge
 	NATO: supply ala
 	NATO: supply tor
 	NATO: supply ist
 	NATO: supply par
 	NATO: supply aus
 ORDERS
-	sta move sai
+	sea move sai
 	seo move sha
 	noy move swe
 	mos move len
-	car move wel
+	car move wat
 	grc move ist
-	pan move eap
+	pan move epa
 	ion move tun
-	eag move len/sc
+	ege move len/sc
 	pak move ind
 	yel convoy seo move sha
 	ala hold
 	ita move yug
-	wep move jap
-	los move eap
-	wel move bra
+	wpa move jap
+	los move epa
+	wat move bra
 	ist move lev
-	soc move sha
-	etm move egy
+	scs move sha
+	eme move egy
 	mid move sow
-	weg move eag
-	bal support weg move eag
+	wge move ege
+	bal support wge move ege
 PHASE 1961 Fall Retreat
 POSITIONS
 	USSR: supply vla
 	USSR: fleet pan
-	USSR: fleet wel
+	USSR: fleet wat
 	USSR: army sai
 	USSR: fleet tun
 	USSR: army ind
@@ -274,8 +274,8 @@ POSITIONS
 	USSR: army swe
 	USSR: army seo
 	USSR: army mos
-	USSR: fleet/dislodged eag
-	USSR: supply eag
+	USSR: fleet/dislodged ege
+	USSR: supply ege
 	USSR: supply len
 	USSR: supply sha
 	USSR: supply hav
@@ -294,21 +294,21 @@ POSITIONS
 	NATO: fleet jap
 	NATO: army yug
 	NATO: fleet bra
-	NATO: army eag
-	NATO: fleet soc
+	NATO: army ege
+	NATO: fleet scs
 	NATO: army sow
 	NATO: supply swe
 	NATO: supply los
 	NATO: supply ins
-	NATO: supply new
-	NATO: supply weg
+	NATO: supply nyk
+	NATO: supply wge
 	NATO: supply ala
 	NATO: supply tor
 	NATO: supply ist
 	NATO: supply par
 	NATO: supply aus
 ORDERS
-	eag move den
+	ege move den
 PHASE 1961 Fall Adjustment
 POSITIONS
 	USSR: supply ist
@@ -321,7 +321,7 @@ POSITIONS
 	USSR: fleet tun
 	USSR: army ind
 	USSR: fleet pan
-	USSR: fleet wel
+	USSR: fleet wat
 	USSR: army sai
 	USSR: army seo
 	USSR: fleet ist
@@ -340,22 +340,22 @@ POSITIONS
 	NATO: supply lon
 	NATO: supply bra
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 	NATO: fleet bra
 	NATO: fleet los
-	NATO: fleet soc
+	NATO: fleet scs
 	NATO: army ala
 	NATO: fleet jap
 	NATO: fleet egy
-	NATO: army eag
+	NATO: army ege
 	NATO: army yug
 	NATO: fleet bal
 	NATO: army sow
 	NATO: army lev
 	NATO: supply los
 	NATO: supply ins
-	NATO: supply new
-	NATO: supply weg
+	NATO: supply nyk
+	NATO: supply wge
 	NATO: supply ala
 	NATO: supply tor
 	NATO: supply par
@@ -364,7 +364,7 @@ ORDERS
 	build Army alb
 	build Fleet len/nc
 	build Fleet sha
-	build Fleet new
+	build Fleet nyk
 	build Fleet lon
 PHASE 1962 Spring Movement
 POSITIONS
@@ -376,7 +376,7 @@ POSITIONS
 	USSR: army ind
 	USSR: fleet sha
 	USSR: fleet pan
-	USSR: fleet wel
+	USSR: fleet wat
 	USSR: army sai
 	USSR: army alb
 	USSR: fleet tun
@@ -396,19 +396,19 @@ POSITIONS
 	USSR: supply seo
 	USSR: supply ist
 	USSR: supply mos
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply ins
 	NATO: supply tor
 	NATO: supply aus
 	NATO: supply par
 	NATO: fleet bra
 	NATO: fleet los
-	NATO: fleet new
-	NATO: fleet soc
+	NATO: fleet nyk
+	NATO: fleet scs
 	NATO: army ala
 	NATO: fleet jap
 	NATO: fleet egy
-	NATO: army eag
+	NATO: army ege
 	NATO: army yug
 	NATO: fleet bal
 	NATO: fleet lon
@@ -416,40 +416,40 @@ POSITIONS
 	NATO: army lev
 	NATO: supply bra
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ala
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply lon
 ORDERS
 	seo hold
 	ind hold
 	sai hold
-	wel move eal
-	ist move etm
+	wat move eat
+	ist move eme
 	alb move yug
 	len/nc move noy
-	sha move soc
+	sha move scs
 	swe move noy
-	den move eag
-	tun move wtm
-	pan move eap
-	mos support den move eag
-	yel support sha move soc
-	soc hold
-	new move wel
+	den move ege
+	tun move wme
+	pan move epa
+	mos support den move ege
+	yel support sha move scs
+	scs hold
+	nyk move wat
 	lon move nts
 	lev move ist
-	los move eap
+	los move epa
 	jap move yel
-	yug move eag
-	egy move etm
-	eag move len
-	ala move wtn
+	yug move ege
+	egy move eme
+	ege move len
+	ala move wca
 	sow move mex
-	bra support new move wel
-	bal support eag move len
+	bra support nyk move wat
+	bal support ege move len
 PHASE 1962 Spring Retreat
 POSITIONS
 	USSR: supply vla
@@ -457,13 +457,13 @@ POSITIONS
 	USSR: supply hav
 	USSR: army mos
 	USSR: army seo
-	USSR: fleet wtm
+	USSR: fleet wme
 	USSR: fleet pan
 	USSR: fleet yel
 	USSR: army swe
 	USSR: army alb
-	USSR: fleet eag
-	USSR: fleet eal
+	USSR: fleet ege
+	USSR: fleet eat
 	USSR: fleet sha
 	USSR: fleet ist
 	USSR: army sai
@@ -484,15 +484,15 @@ POSITIONS
 	NATO: supply aus
 	NATO: supply tor
 	NATO: supply par
-	NATO: supply weg
+	NATO: supply wge
 	NATO: fleet bra
 	NATO: fleet nts
-	NATO: army wtn
+	NATO: army wca
 	NATO: army len
-	NATO: fleet soc
+	NATO: fleet scs
 	NATO: army yug
 	NATO: fleet bal
-	NATO: fleet wel
+	NATO: fleet wat
 	NATO: fleet egy
 	NATO: fleet los
 	NATO: army mex
@@ -500,32 +500,32 @@ POSITIONS
 	NATO: fleet jap
 	NATO: supply bra
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ala
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply lon
 ORDERS
-	len/nc move nwe
+	len/nc move nws
 PHASE 1962 Fall Movement
 POSITIONS
 	USSR: supply hav
 	USSR: supply vla
 	USSR: supply irn
 	USSR: army swe
-	USSR: fleet eag
-	USSR: fleet wtm
+	USSR: fleet ege
+	USSR: fleet wme
 	USSR: army ind
 	USSR: fleet sha
 	USSR: fleet pan
 	USSR: army sai
 	USSR: army alb
 	USSR: fleet yel
-	USSR: fleet nwe
+	USSR: fleet nws
 	USSR: army seo
 	USSR: fleet ist
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: army mos
 	USSR: supply swe
 	USSR: supply len
@@ -540,58 +540,58 @@ POSITIONS
 	USSR: supply mos
 	NATO: supply tor
 	NATO: supply par
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply aus
 	NATO: supply ins
 	NATO: fleet jap
 	NATO: army mex
 	NATO: army len
 	NATO: fleet los
-	NATO: fleet wel
-	NATO: fleet soc
+	NATO: fleet wat
+	NATO: fleet scs
 	NATO: fleet bra
 	NATO: fleet egy
 	NATO: army yug
 	NATO: fleet bal
-	NATO: army wtn
+	NATO: army wca
 	NATO: fleet nts
 	NATO: army lev
 	NATO: supply bra
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ala
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply lon
 ORDERS
 	swe hold
 	sai hold
 	ind hold
 	mos move len
-	eal move par/nc
-	ist move etm
+	eat move par/nc
+	ist move eme
 	alb move yug
-	nwe move lon
-	sha move soc
+	nws move lon
+	sha move scs
 	seo move phi
-	pan move eap
-	eag support mos move len
-	wtm support eal move par
+	pan move epa
+	ege support mos move len
+	wme support eat move par
 	yel convoy seo move phi
-	wel move car
+	wat move car
 	nts move par/nc
 	lev move irq
 	bra move ven
-	los move eap
+	los move epa
 	jap move yel
-	yug move eag
-	soc move sha
+	yug move ege
+	scs move sha
 	mex move cen
-	wtn move tor
+	wca move tor
 	len move mos
-	egy move etm
-	bal support yug move eag
+	egy move eme
+	bal support yug move ege
 PHASE 1962 Fall Retreat
 POSITIONS
 	USSR: supply irn
@@ -608,9 +608,9 @@ POSITIONS
 	USSR: army mos
 	USSR: fleet yel
 	USSR: fleet lon
-	USSR: fleet wtm
+	USSR: fleet wme
 	USSR: fleet ist
-	USSR: fleet/dislodged eag
+	USSR: fleet/dislodged ege
 	USSR: supply swe
 	USSR: supply len
 	USSR: supply ind
@@ -622,7 +622,7 @@ POSITIONS
 	USSR: supply seo
 	USSR: supply ist
 	USSR: supply mos
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply tor
 	NATO: supply aus
 	NATO: supply par
@@ -633,8 +633,8 @@ POSITIONS
 	NATO: fleet jap
 	NATO: fleet ven
 	NATO: fleet los
-	NATO: fleet soc
-	NATO: army eag
+	NATO: fleet scs
+	NATO: army ege
 	NATO: fleet car
 	NATO: fleet nts
 	NATO: army tor
@@ -642,14 +642,14 @@ POSITIONS
 	NATO: army len
 	NATO: supply bra
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ala
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply lon
 ORDERS
-	eag move den
+	ege move den
 PHASE 1962 Fall Adjustment
 POSITIONS
 	USSR: supply irn
@@ -668,7 +668,7 @@ POSITIONS
 	USSR: army yug
 	USSR: fleet ist
 	USSR: fleet lon
-	USSR: fleet wtm
+	USSR: fleet wme
 	USSR: army mos
 	USSR: fleet par/nc
 	USSR: supply swe
@@ -682,7 +682,7 @@ POSITIONS
 	USSR: supply ist
 	USSR: supply mos
 	NATO: supply tor
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply len
 	NATO: supply ins
 	NATO: supply aus
@@ -690,7 +690,7 @@ POSITIONS
 	NATO: army len
 	NATO: fleet los
 	NATO: army tor
-	NATO: fleet soc
+	NATO: fleet scs
 	NATO: fleet car
 	NATO: fleet jap
 	NATO: fleet egy
@@ -698,14 +698,14 @@ POSITIONS
 	NATO: fleet ven
 	NATO: fleet bal
 	NATO: fleet nts
-	NATO: army eag
+	NATO: army ege
 	NATO: supply bra
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ala
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	build Fleet hav
 	remove tor
@@ -728,7 +728,7 @@ POSITIONS
 	USSR: army yug
 	USSR: fleet ist
 	USSR: fleet lon
-	USSR: fleet wtm
+	USSR: fleet wme
 	USSR: army mos
 	USSR: army phi
 	USSR: supply swe
@@ -741,8 +741,8 @@ POSITIONS
 	USSR: supply ist
 	USSR: supply lon
 	USSR: supply mos
-	NATO: supply weg
-	NATO: supply new
+	NATO: supply wge
+	NATO: supply nyk
 	NATO: supply bra
 	NATO: supply ins
 	NATO: supply aus
@@ -751,7 +751,7 @@ POSITIONS
 	NATO: army cen
 	NATO: army len
 	NATO: fleet los
-	NATO: fleet soc
+	NATO: fleet scs
 	NATO: fleet car
 	NATO: fleet jap
 	NATO: fleet bal
@@ -759,40 +759,40 @@ POSITIONS
 	NATO: fleet ven
 	NATO: fleet egy
 	NATO: fleet nts
-	NATO: army eag
+	NATO: army ege
 	NATO: supply len
 	NATO: supply los
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	swe hold
 	sai hold
 	mos move len
 	ist move arm
-	yug move eag
+	yug move ege
 	lon move nts
-	sha move soc
+	sha move scs
 	phi move ins
 	pan move car
-	wtm move ion
+	wme move ion
 	ind move pak
 	par/nc support lon move nts
 	hav support pan move car
-	yel support sha move soc
-	den support yug move eag
+	yel support sha move scs
+	den support yug move ege
 	jap move soj
-	los move eap
+	los move epa
 	ven move car
 	irq move irn
-	car move gum
-	eag move weg
-	soc move ins
+	car move gom
+	ege move wge
+	scs move ins
 	cen move pan
-	bal move eag
-	egy move etm
-	nts support eag move weg
-	len support bal move eag
+	bal move ege
+	egy move eme
+	nts support ege move wge
+	len support bal move ege
 PHASE 1963 Spring Retreat
 POSITIONS
 	USSR: supply seo
@@ -802,7 +802,7 @@ POSITIONS
 	USSR: supply vla
 	USSR: fleet nts
 	USSR: fleet par/nc
-	USSR: fleet soc
+	USSR: fleet scs
 	USSR: army swe
 	USSR: fleet hav
 	USSR: army sai
@@ -810,7 +810,7 @@ POSITIONS
 	USSR: army pak
 	USSR: fleet arm
 	USSR: army phi
-	USSR: army eag
+	USSR: army ege
 	USSR: fleet ion
 	USSR: army mos
 	USSR: fleet yel
@@ -827,31 +827,31 @@ POSITIONS
 	USSR: supply mos
 	NATO: supply bra
 	NATO: supply aus
-	NATO: supply weg
-	NATO: supply new
+	NATO: supply wge
+	NATO: supply nyk
 	NATO: supply tor
 	NATO: supply ins
 	NATO: supply ala
 	NATO: army len
 	NATO: fleet soj
-	NATO: fleet gum
+	NATO: fleet gom
 	NATO: army irn
-	NATO: fleet etm
-	NATO: army weg
+	NATO: fleet eme
+	NATO: army wge
 	NATO: army pan
-	NATO: fleet eap
+	NATO: fleet epa
 	NATO: fleet ven
 	NATO: fleet bal
 	NATO: fleet/dislodged nts
-	NATO: fleet/dislodged soc
+	NATO: fleet/dislodged scs
 	NATO: supply len
 	NATO: supply los
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
-	soc move bay
-	nts move eal
+	scs move bay
+	nts move eat
 PHASE 1963 Fall Movement
 POSITIONS
 	USSR: supply tun
@@ -866,14 +866,14 @@ POSITIONS
 	USSR: army mos
 	USSR: army sai
 	USSR: fleet arm
-	USSR: fleet soc
+	USSR: fleet scs
 	USSR: fleet car
 	USSR: fleet ion
 	USSR: army phi
 	USSR: fleet yel
 	USSR: fleet nts
 	USSR: fleet par/nc
-	USSR: army eag
+	USSR: army ege
 	USSR: supply swe
 	USSR: supply ind
 	USSR: supply sha
@@ -886,56 +886,56 @@ POSITIONS
 	USSR: supply mos
 	NATO: supply ins
 	NATO: supply bra
-	NATO: supply new
-	NATO: supply weg
+	NATO: supply nyk
+	NATO: supply wge
 	NATO: supply tor
 	NATO: supply aus
 	NATO: supply ala
 	NATO: fleet bay
 	NATO: fleet soj
 	NATO: army pan
-	NATO: fleet eap
-	NATO: fleet gum
+	NATO: fleet epa
+	NATO: fleet gom
 	NATO: army irn
-	NATO: army weg
+	NATO: army wge
 	NATO: army len
 	NATO: fleet bal
 	NATO: fleet ven
-	NATO: fleet etm
-	NATO: fleet eal
+	NATO: fleet eme
+	NATO: fleet eat
 	NATO: supply len
 	NATO: supply los
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	mos move len
-	par/nc move weg
+	par/nc move wge
 	arm move ist
 	nts move lon
-	hav move gum
+	hav move gom
 	swe move fin
 	yel move jap
 	pak move ind
-	ion move etm
-	car move wel
-	sai move sta
+	ion move eme
+	car move wat
+	sai move sea
 	phi move ins
-	eag support par move weg
-	soc support phi move ins
-	den support par move weg
+	ege support par move wge
+	scs support phi move ins
+	den support par move wge
 	irn hold
 	pan hold
 	ven move car
-	eap move wep
+	epa move wpa
 	soj move vla
-	weg move par
+	wge move par
 	bay move inc
-	etm move ist
-	len move eag
-	gum support ven move car
-	eal support weg move par
-	bal support len move eag
+	eme move ist
+	len move ege
+	gom support ven move car
+	eat support wge move par
+	bal support len move ege
 PHASE 1963 Fall Retreat
 POSITIONS
 	USSR: supply alb
@@ -950,14 +950,14 @@ POSITIONS
 	USSR: fleet jap
 	USSR: fleet lon
 	USSR: army fin
-	USSR: fleet wel
+	USSR: fleet wat
 	USSR: fleet ion
 	USSR: fleet par/nc
-	USSR: fleet soc
+	USSR: fleet scs
 	USSR: army ins
-	USSR: army sta
+	USSR: army sea
 	USSR: fleet arm
-	USSR: army/dislodged eag
+	USSR: army/dislodged ege
 	USSR: supply swe
 	USSR: supply ind
 	USSR: supply sha
@@ -968,10 +968,10 @@ POSITIONS
 	USSR: supply ist
 	USSR: supply lon
 	USSR: supply mos
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply bra
 	NATO: supply aus
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply ins
 	NATO: supply tor
 	NATO: supply ala
@@ -979,21 +979,21 @@ POSITIONS
 	NATO: fleet vla
 	NATO: fleet inc
 	NATO: army pan
-	NATO: fleet eal
-	NATO: army weg
-	NATO: fleet wep
+	NATO: fleet eat
+	NATO: army wge
+	NATO: fleet wpa
 	NATO: army irn
-	NATO: fleet etm
-	NATO: army eag
+	NATO: fleet eme
+	NATO: army ege
 	NATO: fleet bal
-	NATO: fleet gum
+	NATO: fleet gom
 	NATO: supply len
 	NATO: supply los
 	NATO: supply jap
 	NATO: supply egy
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
-	eag move mos
+	ege move mos
 PHASE 1964 Spring Movement
 POSITIONS
 	USSR: supply ist
@@ -1009,15 +1009,15 @@ POSITIONS
 	USSR: fleet hav
 	USSR: army mos
 	USSR: fleet arm
-	USSR: fleet soc
-	USSR: army sta
+	USSR: fleet scs
+	USSR: army sea
 	USSR: fleet jap
 	USSR: army ins
 	USSR: fleet ion
 	USSR: fleet lon
 	USSR: army fin
 	USSR: fleet par/nc
-	USSR: fleet wel
+	USSR: fleet wat
 	USSR: supply ind
 	USSR: supply len
 	USSR: supply hav
@@ -1027,57 +1027,57 @@ POSITIONS
 	USSR: supply lon
 	USSR: supply par
 	NATO: supply aus
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply ala
 	NATO: supply egy
 	NATO: supply bra
 	NATO: supply tor
 	NATO: supply los
 	NATO: army pan
-	NATO: army eag
-	NATO: fleet gum
+	NATO: army ege
+	NATO: fleet gom
 	NATO: army irn
-	NATO: army weg
+	NATO: army wge
 	NATO: fleet car
 	NATO: fleet bal
-	NATO: fleet wep
-	NATO: fleet etm
+	NATO: fleet wpa
+	NATO: fleet eme
 	NATO: fleet inc
-	NATO: fleet eal
+	NATO: fleet eat
 	NATO: fleet vla
 	NATO: supply pan
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply irn
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply vla
 ORDERS
 	hav hold
 	ind hold
 	fin move swe
-	par/nc move weg
+	par/nc move wge
 	arm move ist
-	mos move eag
-	lon move eal
-	soc move yel
+	mos move ege
+	lon move eat
+	scs move yel
 	jap move soj
 	ins move aus
 	den move bal
-	ion move etm
-	wel move new
-	sta move sha
-	len support mos move eag
-	gum move hav
-	eal move par/nc
+	ion move eme
+	wat move nyk
+	sea move sha
+	len support mos move ege
+	gom move hav
+	eat move par/nc
 	irn move ura
-	wep move jap
-	vla move nok/ec
+	wpa move jap
+	vla move nko/ec
 	inc move aus
-	etm move lib
+	eme move lib
 	pan move cen
-	bal support eag
-	eag support weg
-	car support gum move hav
-	weg support eal move par
+	bal support ege
+	ege support wge
+	car support gom move hav
+	wge support eat move par
 PHASE 1964 Spring Retreat
 POSITIONS
 	USSR: supply sai
@@ -1087,12 +1087,12 @@ POSITIONS
 	USSR: supply sha
 	USSR: supply swe
 	USSR: supply tun
-	USSR: army eag
-	USSR: fleet eal
-	USSR: fleet etm
+	USSR: army ege
+	USSR: fleet eat
+	USSR: fleet eme
 	USSR: army ind
 	USSR: fleet yel
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: fleet ist
 	USSR: army len
 	USSR: fleet soj
@@ -1112,31 +1112,31 @@ POSITIONS
 	NATO: supply egy
 	NATO: supply tor
 	NATO: supply los
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply aus
 	NATO: supply bra
 	NATO: supply ala
 	NATO: fleet bal
 	NATO: fleet par/nc
 	NATO: fleet hav
-	NATO: army weg
+	NATO: army wge
 	NATO: fleet car
 	NATO: fleet inc
 	NATO: army cen
 	NATO: fleet lib
 	NATO: fleet jap
 	NATO: army ura
-	NATO: fleet nok/ec
-	NATO: army/dislodged eag
+	NATO: fleet nko/ec
+	NATO: army/dislodged ege
 	NATO: supply pan
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply irn
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply vla
 ORDERS
 	par/nc move nts
 	remove hav 
-	eag move ukr
+	ege move ukr
 PHASE 1964 Fall Movement
 POSITIONS
 	USSR: supply sha
@@ -1152,14 +1152,14 @@ POSITIONS
 	USSR: army ind
 	USSR: fleet soj
 	USSR: army len
-	USSR: fleet new
-	USSR: fleet etm
+	USSR: fleet nyk
+	USSR: fleet eme
 	USSR: army ins
 	USSR: army sha
 	USSR: fleet ist
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: fleet nts
-	USSR: army eag
+	USSR: army ege
 	USSR: supply ind
 	USSR: supply len
 	USSR: supply hav
@@ -1168,7 +1168,7 @@ POSITIONS
 	USSR: supply ins
 	USSR: supply lon
 	USSR: supply par
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply aus
 	NATO: supply bra
 	NATO: supply egy
@@ -1179,45 +1179,45 @@ POSITIONS
 	NATO: army cen
 	NATO: army ura
 	NATO: fleet hav
-	NATO: army weg
+	NATO: army wge
 	NATO: fleet car
 	NATO: fleet jap
 	NATO: fleet bal
-	NATO: fleet nok/ec
+	NATO: fleet nko/ec
 	NATO: fleet inc
 	NATO: army ukr
 	NATO: fleet par/nc
 	NATO: supply pan
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply irn
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply vla
 ORDERS
 	swe hold
-	new hold
-	ist move etm
+	nyk hold
+	ist move eme
 	soj move jap
 	ins move aus
 	sha move man
-	etm move egy
-	den move weg
+	eme move egy
+	den move wge
 	ind move pak
-	len support eag
-	eag support len
-	nts support den move weg
-	eal support nts move par
+	len support ege
+	ege support len
+	nts support den move wge
+	eat support nts move par
 	yel support soj move jap
 	jap hold
 	hav hold
 	par/nc hold
-	nok/ec move seo
-	car move wel
+	nko/ec move seo
+	car move wat
 	inc move aus
 	lib move tun
 	cen move mex
 	ukr move mos
-	bal move eag
-	weg support par
+	bal move ege
+	wge support par
 	ura support ukr move mos
 PHASE 1964 Fall Retreat
 POSITIONS
@@ -1229,18 +1229,18 @@ POSITIONS
 	USSR: supply seo
 	USSR: supply ist
 	USSR: army ins
-	USSR: fleet weg
+	USSR: fleet wge
 	USSR: army len
 	USSR: fleet yel
 	USSR: army man
 	USSR: fleet egy
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: fleet jap
-	USSR: fleet etm
+	USSR: fleet eme
 	USSR: army pak
-	USSR: army eag
+	USSR: army ege
 	USSR: fleet nts
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: army swe
 	USSR: supply ind
 	USSR: supply len
@@ -1255,10 +1255,10 @@ POSITIONS
 	NATO: supply bra
 	NATO: supply ala
 	NATO: supply tor
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply egy
 	NATO: fleet tun
-	NATO: fleet wel
+	NATO: fleet wat
 	NATO: army mex
 	NATO: fleet bal
 	NATO: fleet seo
@@ -1268,40 +1268,40 @@ POSITIONS
 	NATO: army mos
 	NATO: fleet inc
 	NATO: fleet/dislodged jap
-	NATO: army/dislodged weg
+	NATO: army/dislodged wge
 	NATO: supply pan
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply irn
-	NATO: supply weg
+	NATO: supply wge
 	NATO: supply vla
 ORDERS
-	weg move yug
-	jap move wep
+	wge move yug
+	jap move wpa
 PHASE 1964 Fall Adjustment
 POSITIONS
 	USSR: supply ist
-	USSR: supply eag
+	USSR: supply ege
 	USSR: supply egy
 	USSR: supply sha
 	USSR: supply alb
-	USSR: supply new
+	USSR: supply nyk
 	USSR: supply swe
 	USSR: supply sai
-	USSR: supply weg
+	USSR: supply wge
 	USSR: army swe
-	USSR: fleet weg
+	USSR: fleet wge
 	USSR: army pak
 	USSR: army len
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: fleet yel
 	USSR: army man
 	USSR: fleet jap
 	USSR: army ins
 	USSR: fleet egy
-	USSR: fleet etm
-	USSR: fleet eal
+	USSR: fleet eme
+	USSR: fleet eat
 	USSR: fleet nts
-	USSR: army eag
+	USSR: army ege
 	USSR: supply ind
 	USSR: supply len
 	USSR: supply jap
@@ -1317,13 +1317,13 @@ POSITIONS
 	NATO: supply seo
 	NATO: supply tor
 	NATO: supply mos
-	NATO: fleet wep
+	NATO: fleet wpa
 	NATO: army yug
 	NATO: fleet tun
 	NATO: army ura
 	NATO: army mex
 	NATO: fleet hav
-	NATO: fleet wel
+	NATO: fleet wat
 	NATO: fleet bal
 	NATO: fleet inc
 	NATO: army mos
@@ -1343,27 +1343,27 @@ POSITIONS
 	USSR: supply ind
 	USSR: supply sai
 	USSR: army swe
-	USSR: fleet weg
+	USSR: fleet wge
 	USSR: army pak
 	USSR: army len
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: fleet yel
 	USSR: army man
 	USSR: fleet jap
 	USSR: army ins
 	USSR: fleet egy
-	USSR: fleet etm
-	USSR: fleet eal
+	USSR: fleet eme
+	USSR: fleet eat
 	USSR: fleet nts
-	USSR: army eag
+	USSR: army ege
 	USSR: supply swe
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply len
-	USSR: supply new
+	USSR: supply nyk
 	USSR: supply jap
 	USSR: supply ins
 	USSR: supply egy
-	USSR: supply eag
+	USSR: supply ege
 	NATO: supply vla
 	NATO: supply ala
 	NATO: supply pan
@@ -1375,10 +1375,10 @@ POSITIONS
 	NATO: army ura
 	NATO: army mex
 	NATO: fleet hav
-	NATO: fleet wel
+	NATO: fleet wat
 	NATO: army mos
 	NATO: fleet bal
-	NATO: fleet wep
+	NATO: fleet wpa
 	NATO: army yug
 	NATO: fleet inc
 	NATO: fleet aus
@@ -1391,33 +1391,33 @@ POSITIONS
 	NATO: supply par
 	NATO: supply seo
 ORDERS
-	new hold
+	nyk hold
 	swe move den
-	etm move ion
-	eag move mos
-	eal move par/nc
-	jap move wep
+	eme move ion
+	ege move mos
+	eat move par/nc
+	jap move wpa
 	ins move aus
 	man move vla
 	egy move lib
-	weg move par/nc
+	wge move par/nc
 	pak move irn
-	len support eag move mos
-	nts support weg move par
-	yel support jap move wep
+	len support ege move mos
+	nts support wge move par
+	yel support jap move wpa
 	mex hold
 	hav move car
-	par/nc move weg
-	wel move eal
-	wep move ins
+	par/nc move wge
+	wat move eat
+	wpa move ins
 	seo move soj
-	yug move eag
+	yug move ege
 	inc move ind
 	tun move ion
 	bal move len/sc
 	ura support mos
-	aus support wep move ins
-	mos support yug move eag
+	aus support wpa move ins
+	mos support yug move ege
 PHASE 1965 Spring Retreat
 POSITIONS
 	USSR: supply sha
@@ -1426,7 +1426,7 @@ POSITIONS
 	USSR: supply alb
 	USSR: supply lon
 	USSR: supply ist
-	USSR: fleet etm
+	USSR: fleet eme
 	USSR: army vla
 	USSR: fleet lib
 	USSR: army den
@@ -1434,20 +1434,20 @@ POSITIONS
 	USSR: fleet par/nc
 	USSR: fleet yel
 	USSR: army irn
-	USSR: fleet eal
-	USSR: fleet new
+	USSR: fleet eat
+	USSR: fleet nyk
 	USSR: fleet nts
-	USSR: fleet wep
+	USSR: fleet wpa
 	USSR: army/dislodged ins
-	USSR: army/dislodged eag
+	USSR: army/dislodged ege
 	USSR: supply swe
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply len
-	USSR: supply new
+	USSR: supply nyk
 	USSR: supply jap
 	USSR: supply ins
 	USSR: supply egy
-	USSR: supply eag
+	USSR: supply ege
 	NATO: supply los
 	NATO: supply pan
 	NATO: supply irn
@@ -1457,10 +1457,10 @@ POSITIONS
 	NATO: supply vla
 	NATO: army mos
 	NATO: fleet ins
-	NATO: army eag
+	NATO: army ege
 	NATO: fleet bal
 	NATO: fleet soj
-	NATO: fleet wel
+	NATO: fleet wat
 	NATO: fleet car
 	NATO: fleet ind
 	NATO: army ura
@@ -1476,7 +1476,7 @@ POSITIONS
 	NATO: supply seo
 ORDERS
 	ins move phi
-	eag move ukr
+	ege move ukr
 	par/nc move spa
 PHASE 1965 Fall Movement
 POSITIONS
@@ -1489,25 +1489,25 @@ POSITIONS
 	USSR: fleet lib
 	USSR: fleet yel
 	USSR: army len
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: army vla
 	USSR: army irn
 	USSR: army den
-	USSR: fleet wep
+	USSR: fleet wpa
 	USSR: army ukr
-	USSR: fleet etm
+	USSR: fleet eme
 	USSR: army phi
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: fleet nts
 	USSR: fleet par/nc
 	USSR: supply swe
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply len
-	USSR: supply new
+	USSR: supply nyk
 	USSR: supply jap
 	USSR: supply ins
 	USSR: supply egy
-	USSR: supply eag
+	USSR: supply ege
 	NATO: supply bra
 	NATO: supply los
 	NATO: supply tor
@@ -1522,8 +1522,8 @@ POSITIONS
 	NATO: fleet ins
 	NATO: fleet car
 	NATO: fleet aus
-	NATO: army eag
-	NATO: fleet wel
+	NATO: army ege
+	NATO: fleet wat
 	NATO: fleet bal
 	NATO: army mos
 	NATO: fleet ind
@@ -1535,33 +1535,33 @@ POSITIONS
 	NATO: supply par
 	NATO: supply seo
 ORDERS
-	new hold
+	nyk hold
 	vla hold
 	len move ura
-	nts move weg
-	etm move grc
-	ukr move eag
-	eal move wtm
-	wep move jap
+	nts move wge
+	eme move grc
+	ukr move ege
+	eat move wme
+	wpa move jap
 	irn move ura
 	lib move tun
 	phi move seo
-	den support ukr move eag
-	par/nc support nts move weg
+	den support ukr move ege
+	par/nc support nts move wge
 	yel convoy phi move seo
 	ins hold
 	ind hold
 	car move pan
-	spa move wtm
-	wel move eal
+	spa move wme
+	wat move eat
 	soj move seo
 	tun move lib
 	mos move len
 	mex move sow
 	aus support ins
-	bal support eag
+	bal support ege
 	ura support mos move len
-	eag support mos move len
+	ege support mos move len
 PHASE 1966 Spring Movement
 POSITIONS
 	USSR: supply lon
@@ -1572,10 +1572,10 @@ POSITIONS
 	USSR: supply alb
 	USSR: supply sha
 	USSR: fleet lib
-	USSR: fleet weg
+	USSR: fleet wge
 	USSR: fleet grc
 	USSR: army len
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: army vla
 	USSR: army irn
 	USSR: fleet yel
@@ -1583,11 +1583,11 @@ POSITIONS
 	USSR: army den
 	USSR: army ukr
 	USSR: army phi
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: fleet par/nc
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply len
-	USSR: supply new
+	USSR: supply nyk
 	USSR: supply vla
 	USSR: supply irn
 	USSR: supply jap
@@ -1602,10 +1602,10 @@ POSITIONS
 	NATO: army ura
 	NATO: fleet soj
 	NATO: fleet pan
-	NATO: fleet wel
+	NATO: fleet wat
 	NATO: army mos
 	NATO: fleet bal
-	NATO: army eag
+	NATO: army ege
 	NATO: fleet ins
 	NATO: army sow
 	NATO: fleet aus
@@ -1614,37 +1614,37 @@ POSITIONS
 	NATO: supply tun
 	NATO: supply pan
 	NATO: supply mos
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply ins
 	NATO: supply aus
 	NATO: supply ind
 ORDERS
-	new hold
+	nyk hold
 	vla hold
 	len move mos
-	weg move par/nc
+	wge move par/nc
 	grc move ion
-	ukr move eag
-	eal move nof
+	ukr move ege
+	eat move naf
 	jap move soj
 	phi move ins
 	irn move ura
 	par/nc move spa
 	lib move tun
 	yel support jap move soj
-	den support ukr move eag
+	den support ukr move ege
 	tun hold
 	aus move ins
 	pan move car
-	spa move wtm
+	spa move wme
 	ura move len
-	wel move new
-	ins move soc
+	wat move nyk
+	ins move scs
 	soj move seo
 	ind move bay
 	sow move mid
-	bal support eag
-	eag support ura move len
+	bal support ege
+	ege support ura move len
 	mos support ura move len
 PHASE 1966 Spring Retreat
 POSITIONS
@@ -1660,18 +1660,18 @@ POSITIONS
 	USSR: fleet lib
 	USSR: army vla
 	USSR: fleet yel
-	USSR: fleet nof
+	USSR: fleet naf
 	USSR: army den
 	USSR: fleet par/nc
 	USSR: army phi
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: fleet soj
 	USSR: fleet spa
 	USSR: army ura
 	USSR: army/dislodged len
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply len
-	USSR: supply new
+	USSR: supply nyk
 	USSR: supply vla
 	USSR: supply irn
 	USSR: supply jap
@@ -1686,19 +1686,19 @@ POSITIONS
 	NATO: army mos
 	NATO: fleet aus
 	NATO: fleet bay
-	NATO: fleet wtm
+	NATO: fleet wme
 	NATO: fleet car
 	NATO: fleet bal
-	NATO: fleet soc
+	NATO: fleet scs
 	NATO: army mid
 	NATO: army len
-	NATO: fleet wel
-	NATO: army eag
+	NATO: fleet wat
+	NATO: army ege
 	NATO: fleet seo
 	NATO: supply tun
 	NATO: supply pan
 	NATO: supply mos
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply ins
 	NATO: supply aus
 	NATO: supply ind
@@ -1715,9 +1715,9 @@ POSITIONS
 	USSR: supply ist
 	USSR: fleet lib
 	USSR: army ura
-	USSR: fleet nof
+	USSR: fleet naf
 	USSR: fleet soj
-	USSR: fleet new
+	USSR: fleet nyk
 	USSR: army vla
 	USSR: army den
 	USSR: fleet ion
@@ -1727,9 +1727,9 @@ POSITIONS
 	USSR: army fin
 	USSR: fleet par/nc
 	USSR: fleet spa
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply len
-	USSR: supply new
+	USSR: supply nyk
 	USSR: supply vla
 	USSR: supply irn
 	USSR: supply jap
@@ -1743,51 +1743,51 @@ POSITIONS
 	NATO: fleet tun
 	NATO: fleet bay
 	NATO: army len
-	NATO: fleet wel
-	NATO: fleet soc
+	NATO: fleet wat
+	NATO: fleet scs
 	NATO: army mid
 	NATO: army mos
 	NATO: fleet car
 	NATO: fleet bal
-	NATO: army eag
-	NATO: fleet wtm
+	NATO: army ege
+	NATO: fleet wme
 	NATO: fleet aus
 	NATO: fleet seo
 	NATO: supply tun
 	NATO: supply pan
 	NATO: supply mos
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply ins
 	NATO: supply aus
 	NATO: supply ind
 ORDERS
-	den move weg
+	den move wge
 	fin move len
 	yel move sha
 	phi move ins
-	vla move nok
+	vla move nko
 	soj move seo
 	ura move mos
-	spa move eal
+	spa move eat
 	lib move tun
-	new move que
-	par/nc support den move weg
+	nyk move que
+	par/nc support den move wge
 	ion support lib move tun
 	ukr support ura move mos
-	nof support spa move eal
-	soc move sai
-	wel move new
-	wtm move ion
-	car move wel
+	naf support spa move eat
+	scs move sai
+	wat move nyk
+	wme move ion
+	car move wat
 	aus move ins
 	seo move yel
 	tun move lib
 	bay move inc
 	len support mos
-	eag support mos
+	ege support mos
 	mos support len
-	bal support eag
-	mid support wel move new
+	bal support ege
+	mid support wat move nyk
 PHASE 1966 Fall Adjustment
 POSITIONS
 	USSR: supply sha
@@ -1798,22 +1798,22 @@ POSITIONS
 	USSR: supply ist
 	USSR: supply alb
 	USSR: army phi
-	USSR: army nok
+	USSR: army nko
 	USSR: fleet lib
 	USSR: army ura
-	USSR: fleet nof
+	USSR: fleet naf
 	USSR: fleet sha
-	USSR: army weg
+	USSR: army wge
 	USSR: fleet par/nc
-	USSR: army nok
+	USSR: army nko
 	USSR: fleet ion
 	USSR: army ukr
 	USSR: army phi
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: army fin
 	USSR: fleet que
 	USSR: fleet seo
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply vla
 	USSR: supply irn
 	USSR: supply jap
@@ -1821,34 +1821,34 @@ POSITIONS
 	NATO: supply hav
 	NATO: supply los
 	NATO: supply len
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply bra
 	NATO: supply sai
 	NATO: supply tor
 	NATO: supply ala
 	NATO: fleet tun
-	NATO: fleet wtm
+	NATO: fleet wme
 	NATO: fleet sai
 	NATO: army len
-	NATO: fleet new
-	NATO: fleet wel
+	NATO: fleet nyk
+	NATO: fleet wat
 	NATO: army mid
 	NATO: army mos
 	NATO: fleet bal
 	NATO: fleet inc
 	NATO: fleet yel
 	NATO: fleet aus
-	NATO: army eag
+	NATO: army ege
 	NATO: supply tun
 	NATO: supply pan
 	NATO: supply mos
-	NATO: supply eag
+	NATO: supply ege
 	NATO: supply ins
 	NATO: supply aus
 	NATO: supply ind
 ORDERS
 	remove phi
-	remove nok
+	remove nko
 	build Fleet los
 PHASE 1967 Spring Movement
 POSITIONS
@@ -1862,18 +1862,18 @@ POSITIONS
 	USSR: supply ist
 	USSR: fleet lib
 	USSR: army ura
-	USSR: fleet nof
+	USSR: fleet naf
 	USSR: fleet sha
-	USSR: army weg
+	USSR: army wge
 	USSR: fleet ion
 	USSR: army ukr
 	USSR: fleet que
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: army fin
 	USSR: fleet par/nc
 	USSR: fleet seo
 	USSR: supply sha
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply par
 	USSR: supply seo
 	NATO: supply ala
@@ -1884,11 +1884,11 @@ POSITIONS
 	NATO: supply tor
 	NATO: supply ind
 	NATO: fleet tun
-	NATO: fleet wtm
+	NATO: fleet wme
 	NATO: fleet sai
 	NATO: army len
-	NATO: fleet new
-	NATO: fleet wel
+	NATO: fleet nyk
+	NATO: fleet wat
 	NATO: fleet los
 	NATO: army mid
 	NATO: army mos
@@ -1896,42 +1896,42 @@ POSITIONS
 	NATO: fleet inc
 	NATO: fleet yel
 	NATO: fleet aus
-	NATO: army eag
+	NATO: army ege
 	NATO: supply tun
 	NATO: supply sai
 	NATO: supply len
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply los
 	NATO: supply mos
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
-	weg move eag
+	wge move ege
 	fin move len
 	ion move tun
 	ukr move mos
-	nof move wtm
+	naf move wme
 	sha move yel
 	que move hud
 	par/nc move nts
 	seo support sha move yel
 	ura support fin move len
-	eal support nof move wtm
+	eat support naf move wme
 	lib support ion move tun
-	los move gus
-	sai move soc
-	new move wel
-	wel move nwe
+	los move goa
+	sai move scs
+	nyk move wat
+	wat move nws
 	aus move ins
 	yel move jap
 	inc move arb
 	mid move tor
 	tun move ion
 	len support mos
-	eag support mos
+	ege support mos
 	mos support len
-	bal support eag
-	wtm support tun move ion
+	bal support ege
+	wme support tun move ion
 PHASE 1967 Spring Retreat
 POSITIONS
 	USSR: supply vla
@@ -1948,14 +1948,14 @@ POSITIONS
 	USSR: army ukr
 	USSR: army ura
 	USSR: fleet tun
-	USSR: fleet eal
+	USSR: fleet eat
 	USSR: fleet lib
 	USSR: fleet yel
-	USSR: fleet wtm
-	USSR: army weg
+	USSR: fleet wme
+	USSR: army wge
 	USSR: fleet nts
 	USSR: supply sha
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply par
 	USSR: supply seo
 	NATO: supply tor
@@ -1965,31 +1965,31 @@ POSITIONS
 	NATO: supply pan
 	NATO: supply ala
 	NATO: supply ind
-	NATO: fleet gus
+	NATO: fleet goa
 	NATO: army mos
-	NATO: fleet soc
+	NATO: fleet scs
 	NATO: army tor
 	NATO: fleet bal
 	NATO: fleet jap
 	NATO: fleet ins
 	NATO: fleet arb
-	NATO: army eag
-	NATO: fleet nwe
-	NATO: fleet wel
-	NATO: fleet/dislodged wtm
+	NATO: army ege
+	NATO: fleet nws
+	NATO: fleet wat
+	NATO: fleet/dislodged wme
 	NATO: fleet/dislodged tun
 	NATO: army/dislodged len
 	NATO: supply tun
 	NATO: supply sai
 	NATO: supply len
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply los
 	NATO: supply mos
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	len move noy
-	wtm move ion
+	wme move ion
 	remove tun 
 PHASE 1967 Fall Movement
 POSITIONS
@@ -2003,18 +2003,18 @@ POSITIONS
 	USSR: supply swe
 	USSR: fleet lib
 	USSR: fleet tun
-	USSR: fleet wtm
+	USSR: fleet wme
 	USSR: army len
 	USSR: army ura
-	USSR: army weg
-	USSR: fleet eal
+	USSR: army wge
+	USSR: fleet eat
 	USSR: fleet hud
 	USSR: army ukr
 	USSR: fleet yel
 	USSR: fleet nts
 	USSR: fleet seo
 	USSR: supply sha
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply par
 	USSR: supply seo
 	NATO: supply ins
@@ -2027,50 +2027,50 @@ POSITIONS
 	NATO: army mos
 	NATO: army noy
 	NATO: fleet arb
-	NATO: fleet wel
+	NATO: fleet wat
 	NATO: fleet ion
-	NATO: fleet soc
-	NATO: fleet nwe
+	NATO: fleet scs
+	NATO: fleet nws
 	NATO: fleet jap
 	NATO: fleet bal
-	NATO: fleet gus
+	NATO: fleet goa
 	NATO: fleet ins
 	NATO: army tor
-	NATO: army eag
+	NATO: army ege
 	NATO: supply tun
 	NATO: supply sai
 	NATO: supply len
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply los
 	NATO: supply mos
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
-	weg move eag
+	wge move ege
 	nts move swe
 	ukr move mos
-	wtm move ita
+	wme move ita
 	yel move sha
 	seo move soj
 	hud move arc
 	lib move ion
-	eal move lon
-	len support weg move eag
+	eat move lon
+	len support wge move ege
 	tun support lib move ion
 	ura support ukr move mos
 	jap hold
 	tor hold
-	gus move ber
-	wel move eal
+	goa move ber
+	wat move eat
 	ins move phi
-	nwe move ura
+	nws move ura
 	ion move alb
 	arb move irn
-	soc move sha
+	scs move sha
 	mos move len
 	bal move swe
 	noy support mos move len
-	eag support mos move len
+	ege support mos move len
 PHASE 1967 Fall Retreat
 POSITIONS
 	USSR: supply lon
@@ -2083,7 +2083,7 @@ POSITIONS
 	USSR: supply swe
 	USSR: fleet tun
 	USSR: fleet ion
-	USSR: army weg
+	USSR: army wge
 	USSR: fleet arc
 	USSR: fleet lon
 	USSR: fleet yel
@@ -2094,7 +2094,7 @@ POSITIONS
 	USSR: army mos
 	USSR: army/dislodged len
 	USSR: supply sha
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply par
 	USSR: supply seo
 	NATO: supply ins
@@ -2108,23 +2108,23 @@ POSITIONS
 	NATO: fleet ber
 	NATO: army tor
 	NATO: fleet phi
-	NATO: army eag
+	NATO: army ege
 	NATO: fleet jap
-	NATO: fleet eal
-	NATO: fleet soc
+	NATO: fleet eat
+	NATO: fleet scs
 	NATO: fleet bal
 	NATO: fleet irn
 	NATO: army noy
 	NATO: army len
-	NATO: fleet nwe
+	NATO: fleet nws
 	NATO: supply tun
 	NATO: supply sai
 	NATO: supply len
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply los
 	NATO: supply mos
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	len move fin
 PHASE 1967 Fall Adjustment
@@ -2142,14 +2142,14 @@ POSITIONS
 	USSR: fleet soj
 	USSR: fleet nts
 	USSR: fleet ion
-	USSR: army weg
+	USSR: army wge
 	USSR: fleet ita
 	USSR: fleet lon
 	USSR: fleet yel
 	USSR: army mos
 	USSR: fleet arc
 	USSR: supply sha
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply par
 	USSR: supply seo
 	NATO: supply ind
@@ -2167,23 +2167,23 @@ POSITIONS
 	NATO: fleet phi
 	NATO: army len
 	NATO: fleet ber
-	NATO: fleet soc
-	NATO: fleet nwe
+	NATO: fleet scs
+	NATO: fleet nws
 	NATO: fleet jap
 	NATO: fleet bal
 	NATO: fleet alb
-	NATO: fleet eal
+	NATO: fleet eat
 	NATO: army tor
-	NATO: army eag
+	NATO: army ege
 	NATO: supply sai
 	NATO: supply len
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply los
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	remove tun
-	build Fleet new
+	build Fleet nyk
 	build Fleet aus
 	build Fleet los
 PHASE 1968 Spring Movement
@@ -2200,7 +2200,7 @@ POSITIONS
 	USSR: army ura
 	USSR: fleet soj
 	USSR: fleet ita
-	USSR: army weg
+	USSR: army wge
 	USSR: army fin
 	USSR: fleet ion
 	USSR: fleet lon
@@ -2208,7 +2208,7 @@ POSITIONS
 	USSR: fleet nts
 	USSR: fleet arc
 	USSR: supply mos
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply lon
 	NATO: supply pan
 	NATO: supply hav
@@ -2224,52 +2224,52 @@ POSITIONS
 	NATO: fleet ber
 	NATO: fleet los
 	NATO: army tor
-	NATO: fleet new
-	NATO: fleet soc
-	NATO: fleet nwe
+	NATO: fleet nyk
+	NATO: fleet scs
+	NATO: fleet nws
 	NATO: fleet jap
 	NATO: fleet bal
 	NATO: fleet alb
-	NATO: fleet eal
+	NATO: fleet eat
 	NATO: fleet aus
-	NATO: army eag
+	NATO: army ege
 	NATO: supply irn
 	NATO: supply len
 	NATO: supply los
 	NATO: supply tor
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply jap
 	NATO: supply alb
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	yel move sha
 	ita move par/sc
 	nts move swe
-	weg move eag
+	wge move ege
 	soj move vla
-	arc move nwe
+	arc move nws
 	ion move alb
-	lon move nwe
+	lon move nws
 	ura move len
-	mos support weg move eag
+	mos support wge move ege
 	fin support ura move len
 	irn hold
 	alb move grc
-	nwe move lon
-	los move gus
-	aus move wep
-	new move wel
+	nws move lon
+	los move goa
+	aus move wpa
+	nyk move wat
 	noy move swe
-	soc move sha
-	tor move wtn
+	scs move sha
+	tor move wca
 	ber support jap
-	len support eag
-	bal support eag
-	eag support len
-	phi support aus move wep
-	eal support nwe move lon
-	jap support aus move wep
+	len support ege
+	bal support ege
+	ege support len
+	phi support aus move wpa
+	eat support nws move lon
+	jap support aus move wpa
 PHASE 1968 Spring Retreat
 POSITIONS
 	USSR: supply swe
@@ -2286,12 +2286,12 @@ POSITIONS
 	USSR: fleet par/sc
 	USSR: fleet nts
 	USSR: army len
-	USSR: army weg
-	USSR: fleet nwe
+	USSR: army wge
+	USSR: fleet nws
 	USSR: fleet alb
 	USSR: fleet vla
 	USSR: supply mos
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply lon
 	NATO: supply hav
 	NATO: supply bra
@@ -2301,16 +2301,16 @@ POSITIONS
 	NATO: supply ind
 	NATO: supply sai
 	NATO: fleet phi
-	NATO: fleet wep
-	NATO: fleet wel
+	NATO: fleet wpa
+	NATO: fleet wat
 	NATO: fleet bal
-	NATO: fleet eal
-	NATO: fleet gus
+	NATO: fleet eat
+	NATO: fleet goa
 	NATO: fleet ber
-	NATO: army eag
-	NATO: army wtn
+	NATO: army ege
+	NATO: army wca
 	NATO: army noy
-	NATO: fleet soc
+	NATO: fleet scs
 	NATO: fleet jap
 	NATO: fleet lon
 	NATO: fleet irn
@@ -2319,11 +2319,11 @@ POSITIONS
 	NATO: supply len
 	NATO: supply los
 	NATO: supply tor
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply jap
 	NATO: supply alb
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	remove lon 
 	remove len 
@@ -2339,8 +2339,8 @@ POSITIONS
 	USSR: supply seo
 	USSR: army len
 	USSR: army fin
-	USSR: army weg
-	USSR: fleet nwe
+	USSR: army wge
+	USSR: fleet nws
 	USSR: fleet par/sc
 	USSR: fleet nts
 	USSR: fleet alb
@@ -2348,7 +2348,7 @@ POSITIONS
 	USSR: army mos
 	USSR: fleet vla
 	USSR: supply mos
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply lon
 	NATO: supply ala
 	NATO: supply hav
@@ -2361,52 +2361,52 @@ POSITIONS
 	NATO: army noy
 	NATO: fleet grc
 	NATO: fleet phi
-	NATO: fleet gus
+	NATO: fleet goa
 	NATO: fleet ber
-	NATO: fleet wel
-	NATO: fleet soc
+	NATO: fleet wat
+	NATO: fleet scs
 	NATO: fleet jap
 	NATO: fleet bal
-	NATO: fleet wep
-	NATO: army wtn
+	NATO: fleet wpa
+	NATO: army wca
 	NATO: fleet lon
-	NATO: fleet eal
-	NATO: army eag
+	NATO: fleet eat
+	NATO: army ege
 	NATO: supply irn
 	NATO: supply len
 	NATO: supply los
 	NATO: supply tor
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply jap
 	NATO: supply alb
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
 	par/sc hold
 	vla hold
 	alb hold
 	yel move sha
-	mos move eag
-	nwe move lon
+	mos move ege
+	nws move lon
 	fin support len
-	nts support nwe move lon
-	weg support mos move eag
-	len support mos move eag
-	wtn hold
+	nts support nws move lon
+	wge support mos move ege
+	len support mos move ege
+	wca hold
 	irn hold
 	grc move ist
 	phi move yel
 	ber move soj
-	gus move ber
-	wel move nwe
+	goa move ber
+	wat move nws
 	bal move swe
-	eag move yug
-	eal support lon
-	lon support wel move nwe
-	wep support gus move ber
+	ege move yug
+	eat support lon
+	lon support wat move nws
+	wpa support goa move ber
 	noy support bal move swe
 	jap support ber move soj
-	soc support phi move yel
+	scs support phi move yel
 PHASE 1968 Fall Retreat
 POSITIONS
 	USSR: supply ist
@@ -2419,16 +2419,16 @@ POSITIONS
 	USSR: supply seo
 	USSR: fleet alb
 	USSR: fleet vla
-	USSR: army eag
+	USSR: army ege
 	USSR: army fin
 	USSR: fleet par/sc
 	USSR: fleet nts
 	USSR: fleet sha
-	USSR: army weg
+	USSR: army wge
 	USSR: army len
-	USSR: fleet/dislodged nwe
+	USSR: fleet/dislodged nws
 	USSR: supply mos
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply lon
 	NATO: supply ind
 	NATO: supply bra
@@ -2441,28 +2441,28 @@ POSITIONS
 	NATO: fleet jap
 	NATO: fleet irn
 	NATO: fleet soj
-	NATO: fleet eal
+	NATO: fleet eat
 	NATO: army yug
-	NATO: army wtn
+	NATO: army wca
 	NATO: fleet yel
 	NATO: army noy
 	NATO: fleet swe
-	NATO: fleet nwe
+	NATO: fleet nws
 	NATO: fleet ber
-	NATO: fleet soc
-	NATO: fleet wep
+	NATO: fleet scs
+	NATO: fleet wpa
 	NATO: fleet ist
 	NATO: supply irn
 	NATO: supply len
 	NATO: supply los
 	NATO: supply tor
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply jap
 	NATO: supply alb
 	NATO: supply aus
-	NATO: supply eag
+	NATO: supply ege
 ORDERS
-	nwe move ura
+	nws move ura
 PHASE 1968 Fall Adjustment
 POSITIONS
 	USSR: supply tun
@@ -2471,7 +2471,7 @@ POSITIONS
 	USSR: supply alb
 	USSR: supply seo
 	USSR: supply len
-	USSR: supply eag
+	USSR: supply ege
 	USSR: supply vla
 	USSR: supply par
 	USSR: fleet ura
@@ -2479,13 +2479,13 @@ POSITIONS
 	USSR: fleet sha
 	USSR: fleet nts
 	USSR: fleet par/sc
-	USSR: army weg
+	USSR: army wge
 	USSR: fleet vla
 	USSR: fleet alb
 	USSR: army fin
-	USSR: army eag
+	USSR: army ege
 	USSR: supply mos
-	USSR: supply weg
+	USSR: supply wge
 	NATO: supply ist
 	NATO: supply swe
 	NATO: supply sai
@@ -2499,22 +2499,22 @@ POSITIONS
 	NATO: fleet irn
 	NATO: army noy
 	NATO: fleet swe
-	NATO: fleet eal
+	NATO: fleet eat
 	NATO: fleet soj
 	NATO: fleet ber
 	NATO: army yug
-	NATO: fleet soc
-	NATO: fleet nwe
+	NATO: fleet scs
+	NATO: fleet nws
 	NATO: fleet jap
-	NATO: fleet wep
-	NATO: army wtn
+	NATO: fleet wpa
+	NATO: army wca
 	NATO: fleet ist
 	NATO: fleet lon
 	NATO: fleet yel
 	NATO: supply irn
 	NATO: supply los
 	NATO: supply tor
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply jap
 	NATO: supply aus
 ORDERS
@@ -2529,26 +2529,26 @@ POSITIONS
 	USSR: fleet sha
 	USSR: fleet nts
 	USSR: fleet par/sc
-	USSR: army weg
+	USSR: army wge
 	USSR: fleet ura
 	USSR: fleet vla
 	USSR: fleet alb
 	USSR: army mos
-	USSR: army eag
+	USSR: army ege
 	USSR: army fin
 	USSR: supply len
 	USSR: supply sha
 	USSR: supply par
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply vla
 	USSR: supply alb
 	USSR: supply mos
-	USSR: supply eag
+	USSR: supply ege
 	NATO: supply ins
 	NATO: supply pan
 	NATO: supply ala
 	NATO: supply ind
-	NATO: supply new
+	NATO: supply nyk
 	NATO: supply tor
 	NATO: supply hav
 	NATO: supply bra
@@ -2561,15 +2561,15 @@ POSITIONS
 	NATO: fleet soj
 	NATO: fleet ber
 	NATO: army aus
-	NATO: fleet soc
-	NATO: fleet nwe
+	NATO: fleet scs
+	NATO: fleet nws
 	NATO: fleet jap
 	NATO: army yug
-	NATO: army wtn
+	NATO: army wca
 	NATO: fleet ist
 	NATO: fleet lon
-	NATO: fleet eal
-	NATO: fleet wep
+	NATO: fleet eat
+	NATO: fleet wpa
 	NATO: supply irn
 	NATO: supply swe
 	NATO: supply aus
@@ -2580,30 +2580,30 @@ ORDERS
 	par/sc hold
 	len hold
 	mos move ukr
-	sha move nov
-	eag move yug
+	sha move nvi
+	ege move yug
 	vla move soj
 	ura move arc
 	nts move swe
 	fin support nts move swe
-	weg support eag move yug
-	alb support eag move yug
+	wge support ege move yug
+	alb support ege move yug
 	irn hold
 	soj move seo
 	aus move sha
-	ist move etm
+	ist move eme
 	noy move swe
-	wtn move ala
+	wca move ala
 	swe move nts
 	yug move grc
 	jap move soj
-	eal move wtm
-	lon support nwe
+	eat move wme
+	lon support nws
 	ber support jap move soj
-	nwe support swe move nts
-	soc support aus move sha
+	nws support swe move nts
+	scs support aus move sha
 	yel convoy aus move sha
-	wep convoy aus move sha
+	wpa convoy aus move sha
 PHASE 1969 Fall Movement
 POSITIONS
 	USSR: supply egy
@@ -2612,8 +2612,8 @@ POSITIONS
 	USSR: fleet arc
 	USSR: army len
 	USSR: army fin
-	USSR: army weg
-	USSR: fleet nov
+	USSR: army wge
+	USSR: fleet nvi
 	USSR: fleet vla
 	USSR: army yug
 	USSR: army ukr
@@ -2623,12 +2623,12 @@ POSITIONS
 	USSR: supply len
 	USSR: supply sha
 	USSR: supply par
-	USSR: supply weg
+	USSR: supply wge
 	USSR: supply vla
 	USSR: supply alb
 	USSR: supply mos
-	USSR: supply eag
-	NATO: supply new
+	USSR: supply ege
+	NATO: supply nyk
 	NATO: supply ala
 	NATO: supply pan
 	NATO: supply bra
@@ -2641,15 +2641,15 @@ POSITIONS
 	NATO: fleet irn
 	NATO: army noy
 	NATO: fleet swe
-	NATO: fleet wtm
+	NATO: fleet wme
 	NATO: fleet soj
 	NATO: fleet ber
 	NATO: army ala
-	NATO: fleet soc
-	NATO: fleet nwe
+	NATO: fleet scs
+	NATO: fleet nws
 	NATO: army grc
-	NATO: fleet wep
-	NATO: fleet etm
+	NATO: fleet wpa
+	NATO: fleet eme
 	NATO: army sha
 	NATO: fleet lon
 	NATO: fleet yel
@@ -2664,27 +2664,27 @@ ORDERS
 	vla hold
 	ukr move ist
 	len move noy
-	nov move sai
-	par/sc move wtm
+	nvi move sai
+	par/sc move wme
 	yug move alb
 	nts move swe
-	arc move wtn/nc
+	arc move wca/nc
 	alb move ion
-	weg support par
+	wge support par
 	fin support nts move swe
 	seo hold
 	sha hold
 	noy hold
-	yel move soc
-	nwe move nts
-	etm move egy
-	soc move sai
+	yel move scs
+	nws move nts
+	eme move egy
+	scs move sai
 	ala move vla
 	irn move pak
 	grc move ist
-	wtm move tun
-	wep support ber
+	wme move tun
+	wpa support ber
 	swe support noy
-	lon support nwe move nts
+	lon support nws move nts
 	soj support ala move vla
 	ber convoy ala move vla
