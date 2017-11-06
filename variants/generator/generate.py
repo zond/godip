@@ -10,21 +10,25 @@ import random
 ### Data to be gathered for the variant. ###
 
 # The name of the variant
-VARIANT = 'Cold War'
+VARIANT = 'Classical'
 # The starting units
-START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
-               # Fleet should be Leningrad South Coast
-               'USSR': {'Army': ['Moscow', 'Shanghai', 'Vladivostok'], 'Fleet': ['Leningrad', 'Albania', 'Havana']}}
+#START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
+#               # Fleet should be Leningrad South Coast
+#               'USSR': {'Army': ['Moscow', 'Shanghai', 'Vladivostok'], 'Fleet': ['Leningrad', 'Albania', 'Havana']}}
+START_UNITS = {}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
-START_YEAR = 1960
+START_YEAR = 1901
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
-ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
+#ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
+ABBREVIATIONS = {}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
-CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
+#CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
+CENTER_OVERRIDES = []
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
-REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
+#REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
+REGION_OVERRIDES = []
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = False
 
@@ -416,6 +420,7 @@ def guessRegionFullNames(regions, namesLayer):
         middleToRegion[middleOfRegion(region)] = region
     middlePoints = list(middleToRegion.keys())
     centerPoints = list(locsToNames.keys())
+    print len(middlePoints), len(centerPoints), len(regions)
     regionNames = {}
     while len(centerPoints) > 0:
         m, c = findClosestPair(middlePoints, centerPoints)
@@ -862,6 +867,10 @@ edgeToDMap = findDesiredEdges(junctions, oldEdgeToDMap)
 
 namesLayer = getLayer(root, 'names')
 regions = makeRegions(junctions, edgeToDMap.keys(), corners)
+
+# At this point we have enough information to create a map that's useful for investigating errors in the input map.
+createDebuggingMap(root, regions, edgeToDMap, corners)
+
 regionFullNames = guessRegionFullNames(regions, namesLayer)
 abbreviations = inventAbbreviations(regionFullNames.keys())
 
@@ -875,9 +884,6 @@ allMarkers.update(regionCenters)
 allMarkers.update(seaCenters)
 passableCenters = dict(allMarkers)
 allMarkers.update(impassableCenters)
-
-# At this point we have enough information to create a map that's useful for investigating errors in the input map.
-createDebuggingMap(root, regions, edgeToDMap, corners)
 
 originalIdToRegion = matchRegionMarkerToRegion(regions, allMarkers)
 originalIdToAbbr = makeIdToAbbrMap(originalIdToRegion, regionFullNames, abbreviations)
