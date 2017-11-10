@@ -15,20 +15,20 @@ VARIANT = 'Classical'
 #START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
 #               # Fleet should be Leningrad South Coast
 #               'USSR': {'Army': ['Moscow', 'Shanghai', 'Vladivostok'], 'Fleet': ['Leningrad', 'Albania', 'Havana']}}
-START_UNITS = {}
+START_UNITS = {'England': {'Fleet': 'London'}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
 START_YEAR = 1901
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 #ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
-ABBREVIATIONS = {}
+ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 #CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
-CENTER_OVERRIDES = []
+CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
-REGION_OVERRIDES = []
+REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = False
 
