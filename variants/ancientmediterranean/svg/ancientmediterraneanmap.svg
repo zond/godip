@@ -1683,10 +1683,10 @@
      inkscape:groupmode="layer"
      id="names"
      inkscape:label="names"
-     style="display:inline">
+     style="display:inline;font-family:lacoregular;font-style:normal;line-height:125%;text-align:center;letter-spacing:0px;word-spacing:0px">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:20px;text-anchor:middle"
        x="209.26567"
        y="54.826694"
        id="text8259"
@@ -1696,11 +1696,11 @@
          x="209.26567"
          y="54.826694"
          style="font-size:25px"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12964">Gau</tspan>l</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start"
        x="235.80095"
        y="203.64577"
        id="text8263"
@@ -1709,11 +1709,11 @@
          id="tspan8265"
          x="235.80095"
          y="203.64577"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12976">Mas</tspan>silia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="348.57141"
        y="25.714296"
        id="text8267"
@@ -1722,11 +1722,11 @@
          id="tspan8269"
          x="348.57141"
          y="25.714296"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12966">Rha</tspan>etia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="573.16351"
        y="34.112411"
        id="text8271"
@@ -1735,13 +1735,13 @@
          id="tspan8273"
          x="573.16351"
          y="34.112411"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12968">Sa<tspan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+   style="font-variant:normal;font-weight:normal;font-stretch:normal;-inkscape-font-specification:Sans"
    id="tspan12996">r</tspan>m</tspan>atia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="917.85712"
        y="70.714294"
        id="text8275"
@@ -1750,11 +1750,11 @@
          id="tspan8277"
          x="917.85712"
          y="70.714294"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13128">Che</tspan>rsonesus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="704.28571"
        y="143.21429"
        id="text8279"
@@ -1763,11 +1763,11 @@
          id="tspan8281"
          x="704.28571"
          y="143.21429"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13130">Dac</tspan>ia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="571.41803"
        y="154.53084"
        id="text8283"
@@ -1776,11 +1776,11 @@
          id="tspan8285"
          x="571.41803"
          y="154.53084"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12998">Ill</tspan>yria</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="552.51178"
        y="212.35643"
        id="text8287"
@@ -1789,11 +1789,11 @@
          id="tspan8289"
          x="552.51178"
          y="212.35643"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13000">Dal</tspan>matia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="427.54333"
        y="145.51251"
        id="text8291"
@@ -1802,11 +1802,11 @@
          id="tspan8293"
          x="427.54333"
          y="145.51251"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12972">Ven</tspan>etia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="365.35098"
        y="184.59955"
        id="text8295"
@@ -1815,11 +1815,11 @@
          id="tspan8297"
          x="365.35098"
          y="184.59955"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12974">Etr</tspan>uria</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="392.62927"
        y="-247.60211"
        id="text8299"
@@ -1829,11 +1829,11 @@
          id="tspan8301"
          x="392.62927"
          y="-247.60211"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13002">Rav</tspan>enna</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="501.64819"
        y="-155.62901"
        id="text8303"
@@ -1843,11 +1843,11 @@
          id="tspan8305"
          x="501.64819"
          y="-155.62901"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13004">Rom</tspan>a</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="575.10211"
        y="-87.696304"
        id="text8307"
@@ -1857,11 +1857,11 @@
          id="tspan8309"
          x="575.10211"
          y="-87.696304"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13006">Apu</tspan>lia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="591.60675"
        y="2.4180357"
        id="text8311"
@@ -1873,11 +1873,11 @@
          id="tspan8313"
          x="591.60675"
          y="2.4180357"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13008">Nea</tspan>polis</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="490.71429"
        y="103.57144"
        id="text8315"
@@ -1886,11 +1886,11 @@
          id="tspan8317"
          x="490.71429"
          y="103.57144"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12970">Vin</tspan>dobona</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="891.44342"
        y="220.30205"
        id="text8319"
@@ -1899,11 +1899,11 @@
          id="tspan8321"
          x="891.44342"
          y="220.30205"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13132">Bla</tspan>ck Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="616.07141"
        y="251.42857"
        id="text8323"
@@ -1912,11 +1912,11 @@
          id="tspan8325"
          x="616.07141"
          y="251.42857"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13012">Epi</tspan>rus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="677.5"
        y="268.92859"
        id="text8327"
@@ -1925,11 +1925,11 @@
          id="tspan8329"
          x="677.5"
          y="268.92859"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13014">Mac</tspan>edonia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="652.68384"
        y="335.04642"
        id="text8331"
@@ -1938,11 +1938,11 @@
          id="tspan8333"
          x="652.68384"
          y="335.04642"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13016">Ath</tspan>ens</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="442.30234"
        y="659.43567"
        id="text8335"
@@ -1952,11 +1952,11 @@
          id="tspan8337"
          x="442.30234"
          y="659.43567"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13018">Spa</tspan>rta</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="487.14285"
        y="399.64285"
        id="text8339"
@@ -1965,11 +1965,11 @@
          id="tspan8341"
          x="487.14285"
          y="399.64285"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13024">Sic</tspan>ilia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="297.09464"
        y="-391.18991"
        id="text8343"
@@ -1979,13 +1979,13 @@
          id="tspan8345"
          x="297.09464"
          y="-391.18991"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12992">Sa</tspan>r<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12994">d</tspan>inia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:8.75px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:8.75px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="248.42749"
        y="-388.92609"
        id="text8347"
@@ -1995,11 +1995,11 @@
          id="tspan8349"
          x="248.42749"
          y="-388.92609"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12990">Cor</tspan>sica</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="10.357143"
        y="259.64285"
        id="text8351"
@@ -2008,11 +2008,11 @@
          id="tspan8353"
          x="10.357143"
          y="259.64285"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12978">Lus</tspan>itania</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="134.73386"
        y="283.27121"
        id="text8355"
@@ -2021,11 +2021,11 @@
          id="tspan8357"
          x="134.73386"
          y="283.27121"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12980">Tar</tspan>raconensis</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="21.337559"
        y="395.76324"
        id="text8359"
@@ -2034,11 +2034,11 @@
          id="tspan8361"
          x="21.337559"
          y="395.76324"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12982">Sag</tspan>untum</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="10"
        y="581.42859"
        id="text8363"
@@ -2047,11 +2047,11 @@
          id="tspan8365"
          x="10"
          y="581.42859"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13042">Mau</tspan>retania</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="95"
        y="780.35712"
        id="text8367"
@@ -2060,11 +2060,11 @@
          id="tspan8369"
          x="95"
          y="780.35712"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13046">Sah</tspan>ara</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="258.57144"
        y="577.85718"
        id="text8371"
@@ -2073,11 +2073,11 @@
          id="tspan8373"
          x="258.57144"
          y="577.85718"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13044">Cir</tspan>ta</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="252.85715"
        y="448.57144"
        id="text8375"
@@ -2086,11 +2086,11 @@
          id="tspan8377"
          x="252.85715"
          y="448.57144"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13040">Car</tspan>thage</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="377.64792"
        y="521.77521"
        id="text8379"
@@ -2099,11 +2099,11 @@
          id="tspan8381"
          x="377.64792"
          y="521.77521"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13056">Tha</tspan>psus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="446.42856"
        y="558.57141"
        id="text8383"
@@ -2112,11 +2112,11 @@
          id="tspan8385"
          x="446.42856"
          y="558.57141"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13054">Num</tspan>idia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="530"
        y="625.71429"
        id="text8387"
@@ -2125,11 +2125,11 @@
          id="tspan8389"
          x="530"
          y="625.71429"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13052">Lep</tspan>tis</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="450.44815"
        y="739.7005"
        id="text8391"
@@ -2138,11 +2138,11 @@
          id="tspan8393"
          x="450.44815"
          y="739.7005"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13048">Pha</tspan>zania</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="627.14282"
        y="805"
        id="text8395"
@@ -2151,11 +2151,11 @@
          id="tspan8397"
          x="627.14282"
          y="805"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13144">Bay</tspan>uda</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="613.57141"
        y="737.14288"
        id="text8399"
@@ -2164,11 +2164,11 @@
          id="tspan8401"
          x="613.57141"
          y="737.14288"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13050">Mar</tspan>marica</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="747.14282"
        y="725.71429"
        id="text8403"
@@ -2177,11 +2177,11 @@
          id="tspan8405"
          x="747.14282"
          y="725.71429"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13142">Mem</tspan>phis</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="645"
        y="617.14288"
        id="text8407"
@@ -2190,11 +2190,11 @@
          id="tspan8409"
          x="645"
          y="617.14288"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13148">Cyr</tspan>ene</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="767.14282"
        y="611.42859"
        id="text8411"
@@ -2203,11 +2203,11 @@
          id="tspan8413"
          x="767.14282"
          y="611.42859"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13146">Ale</tspan>xandria</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="912.68384"
        y="810.71429"
        id="text8415"
@@ -2216,11 +2216,11 @@
          id="tspan8417"
          x="912.68384"
          y="810.71429"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13140">The</tspan>bes</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1099.9999"
        y="-455.08286"
        id="text8419"
@@ -2230,11 +2230,11 @@
          id="tspan8421"
          x="1099.9999"
          y="-455.08286"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13138">Ree</tspan>d Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1075.7144"
        y="729.28571"
        id="text8423"
@@ -2243,11 +2243,11 @@
          id="tspan8425"
          x="1075.7144"
          y="729.28571"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13136">Nab</tspan>atea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="929.4231"
        y="593.65814"
        id="text8427"
@@ -2256,13 +2256,13 @@
          id="tspan8429"
          x="929.4231"
          y="593.65814"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13120">Si</tspan>na<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13122">i</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="993.79553"
        y="591.5437"
        id="text8431"
@@ -2271,11 +2271,11 @@
          id="tspan8433"
          x="993.79553"
          y="591.5437"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13118">Pet</tspan>ra</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="549.17615"
        y="991.53998"
        id="text8435"
@@ -2285,11 +2285,11 @@
          id="tspan8437"
          x="549.17615"
          y="991.53998"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13110">Jer</tspan>usalem</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="993.57141"
        y="520.71429"
        id="text8439"
@@ -2298,13 +2298,13 @@
          id="tspan8441"
          x="993.57141"
          y="520.71429"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13106">Ty</tspan>r<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13108">e</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1007.8571"
        y="482.85715"
        id="text8443"
@@ -2313,11 +2313,11 @@
          id="tspan8445"
          x="1007.8571"
          y="482.85715"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13104">Sid</tspan>on</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1106.4286"
        y="559.28571"
        id="text8447"
@@ -2326,11 +2326,11 @@
          id="tspan8449"
          x="1106.4286"
          y="559.28571"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13134">Ara</tspan>bia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1104.2856"
        y="456.42859"
        id="text8451"
@@ -2339,11 +2339,11 @@
          id="tspan8453"
          x="1104.2856"
          y="456.42859"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13124">Dam</tspan>ascus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1032.9735"
        y="444.97897"
        id="text8455"
@@ -2352,11 +2352,11 @@
          id="tspan8457"
          x="1032.9735"
          y="444.97897"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13102">Ant</tspan>ioch</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:8.75px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:8.75px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="745"
        y="468.92856"
        id="text8459"
@@ -2365,11 +2365,11 @@
          id="tspan8461"
          x="745"
          y="468.92856"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13074">Cre</tspan>te</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:8.75px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:8.75px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="927.5"
        y="472.85715"
        id="text8463"
@@ -2378,11 +2378,11 @@
          id="tspan8465"
          x="927.5"
          y="472.85715"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13080">Cyp</tspan>rus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1130.7144"
        y="358.57144"
        id="text8467"
@@ -2391,11 +2391,11 @@
          id="tspan8469"
          x="1130.7144"
          y="358.57144"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13126">Arm</tspan>enia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="996.42859"
        y="397.14285"
        id="text8471"
@@ -2404,11 +2404,11 @@
          id="tspan8473"
          x="996.42859"
          y="397.14285"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13100">Cap</tspan>padocia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="1004.2857"
        y="312.5"
        id="text8475"
@@ -2417,13 +2417,13 @@
          id="tspan8477"
          x="1004.2857"
          y="312.5"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13096">Si</tspan>no<tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13098">p</tspan>e</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="901.42859"
        y="367.85715"
        id="text8479"
@@ -2432,11 +2432,11 @@
          id="tspan8481"
          x="901.42859"
          y="367.85715"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13090">Gal</tspan>atia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="918.46375"
        y="405.61276"
        id="text8483"
@@ -2445,11 +2445,11 @@
          id="tspan8485"
          x="918.46375"
          y="405.61276"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13088">Isa</tspan>uria</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="917.14282"
        y="315"
        id="text8487"
@@ -2458,11 +2458,11 @@
          id="tspan8489"
          x="917.14282"
          y="315"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13094">Bit</tspan>hynia</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="813.21429"
        y="331.07144"
        id="text8491"
@@ -2471,11 +2471,11 @@
          id="tspan8493"
          x="813.21429"
          y="331.07144"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13092">Byz</tspan>antium</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="291.93408"
        y="267.34503"
        id="text8495"
@@ -2484,11 +2484,11 @@
          id="tspan8497"
          x="291.93408"
          y="267.34503"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12988">Lig</tspan>urian Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="216.31624"
        y="308.65796"
        id="text8499"
@@ -2497,11 +2497,11 @@
          id="tspan8501"
          x="216.31624"
          y="308.65796"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12984">Bal</tspan>eares</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="243.44676"
        y="401.69534"
        id="text8503"
@@ -2510,11 +2510,11 @@
          id="tspan8505"
          x="243.44676"
          y="401.69534"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan12986">Ber</tspan>ber Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="78.791901"
        y="448.16235"
        id="text8507"
@@ -2523,11 +2523,11 @@
          id="tspan8509"
          x="78.791901"
          y="448.16235"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13038">Ibe</tspan>rian Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="395.9798"
        y="380.48212"
        id="text8511"
@@ -2536,11 +2536,11 @@
          id="tspan8513"
          x="395.9798"
          y="380.48212"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13028">Pun</tspan>ic Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="417.95059"
        y="324.41864"
        id="text8515"
@@ -2549,15 +2549,15 @@
          id="tspan8517"
          x="417.95059"
          y="324.41864"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13030">Ty</tspan>rrhenea<tspan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+   style="font-variant:normal;font-weight:normal;font-stretch:normal;-inkscape-font-specification:Sans"
    id="tspan13032">n</tspan><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13036"> S</tspan>ea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="533.33752"
        y="-151.24808"
        id="text8519"
@@ -2567,11 +2567,11 @@
          id="tspan8521"
          x="533.33752"
          y="-151.24808"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13010">Adr</tspan>iatic Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="578.86816"
        y="369.54376"
        id="text8523"
@@ -2580,11 +2580,11 @@
          id="tspan8525"
          x="578.86816"
          y="369.54376"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13022">Ion</tspan>ian Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="481.84277"
        y="443.11157"
        id="text8527"
@@ -2593,11 +2593,11 @@
          id="tspan8529"
          x="481.84277"
          y="443.11157"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13026">Aus</tspan>onian Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="456.58893"
        y="499.68011"
        id="text8531"
@@ -2606,15 +2606,15 @@
          id="tspan8533"
          x="456.58893"
          y="499.68011"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13066">G</tspan>ulf <tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13068">o</tspan>f <tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13070">T</tspan>acape</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="549.52301"
        y="562.30957"
        id="text8535"
@@ -2623,15 +2623,15 @@
          id="tspan8537"
          x="549.52301"
          y="562.30957"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13058">G</tspan>ulf <tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13060">o</tspan>f <tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13062">S</tspan>yrtis</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="611.14227"
        y="511.80194"
        id="text8539"
@@ -2640,11 +2640,11 @@
          id="tspan8541"
          x="611.14227"
          y="511.80194"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13064">Lib</tspan>yan Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="609.6524"
        y="464.42194"
        id="text8543"
@@ -2653,11 +2653,11 @@
          id="tspan8545"
          x="609.6524"
          y="464.42194"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13072">Mes</tspan>senian Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="808.12201"
        y="532.005"
        id="text8547"
@@ -2666,11 +2666,11 @@
          id="tspan8549"
          x="808.12201"
          y="532.005"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13084">Egy</tspan>ptian Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="723.14661"
        y="413.5213"
        id="text8551"
@@ -2679,11 +2679,11 @@
          id="tspan8553"
          x="723.14661"
          y="413.5213"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13020">Aeg</tspan>ean Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="780.29639"
        y="459.86575"
        id="text8555"
@@ -2692,11 +2692,11 @@
          id="tspan8557"
          x="780.29639"
          y="459.86575"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13076">Min</tspan>oan Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="868.7312"
        y="455.2334"
        id="text8559"
@@ -2705,11 +2705,11 @@
          id="tspan8561"
          x="868.7312"
          y="455.2334"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13078">Cil</tspan>ician Strait</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;text-anchor:middle"
        x="971.40015"
        y="491.59891"
        id="text8563"
@@ -2718,7 +2718,7 @@
          id="tspan8565"
          x="971.40015"
          y="491.59891"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13082">Syr</tspan>ian</tspan><tspan
          sodipodi:role="line"
          x="971.40015"
@@ -2726,7 +2726,7 @@
          id="tspan8583">Sea</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;text-anchor:middle"
        x="939.49341"
        y="550.76898"
        id="text8567"
@@ -2735,19 +2735,19 @@
          x="939.49341"
          y="550.76898"
          id="tspan8577"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13112">G</tspan>ulf <tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13114">o</tspan>f</tspan><tspan
          sodipodi:role="line"
          x="939.49341"
          y="566.39398"
          id="tspan8581"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13116">P</tspan>elusium</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px"
        x="817.50928"
        y="395.91977"
        id="text8571"
@@ -2756,7 +2756,7 @@
          id="tspan8573"
          x="817.50928"
          y="395.91977"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
+   style="font-variant:normal;font-weight:bold;font-stretch:normal;-inkscape-font-specification:'Sans Bold'"
    id="tspan13086">Mil</tspan>etus</tspan></text>
   </g>
   <g
