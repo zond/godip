@@ -33,7 +33,7 @@ var ClassicalVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/map.svg")
 	},
-	SVGVersion: "2",
+	SVGVersion: "3",
 	SVGUnits: map[dip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")

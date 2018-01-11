@@ -45,7 +45,7 @@ var ColdWarVariant = common.Variant{
 		},
 	},
 	CreatedBy:   "Firehawk & Safari",
-	Version:     "1",
+	Version:     "2",
 	Description: "NATO and the USSR fight each other to see which will be the dominant superpower.",
 	Rules: "Rules are as per classical Diplomacy, but with a different map. The winner " +
 		"is the first to seventeen supply centers, which is slightly more than half. " +
