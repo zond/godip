@@ -10,33 +10,45 @@ import random
 ### Data to be gathered for the variant. ###
 
 # The name of the variant
-VARIANT = 'Classical'
+VARIANT = 'Youngstown Redux'
 # The starting units
 #START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
 #               # Fleet should be Leningrad South Coast
 #               'USSR': {'Army': ['Moscow', 'Shanghai', 'Vladivostok'], 'Fleet': ['Leningrad', 'Albania', 'Havana']}}
-START_UNITS = {'England': {'Fleet': 'London'}}
+START_UNITS = {'Russia': {'Army': ['Moscow', 'Omsk', 'Warsaw'], 'Fleet': ['Sevastopol', 'St. Petersburg', 'Vladivostok']},
+               'China': {'Army': ['Peking', 'Guangzhou', 'Wuhan'], 'Fleet': ['Shanghai']},
+               'Japan': {'Army': ['Kyoto'], 'Fleet': ['Tokyo', 'Osaka', 'Sapporo']},
+               'India': {'Army': ['Delhi', 'Calcutta'], 'Fleet': ['Bombay', 'Madras']},
+               'Turkey': {'Army': ['Constantinople', 'Baghdad', 'Mecca'], 'Fleet': ['Ankara']},
+               'France': {'Army': ['Paris', 'Marseilles'], 'Fleet': ['Brest', 'Saigon']},
+               'Britain': {'Fleet': ['London', 'Liverpool', 'Edinburgh', 'Aden', 'Singapore']},
+               'Italy': {'Army': ['Rome', 'Milan'], 'Fleet': ['Naples', 'Mogadishu']},
+               'Germany': {'Army': ['Berlin', 'Munich', 'Cologne'], 'Fleet': ['Tsingtao', 'Kiel']},
+               'Austria': {'Army': ['Vienna', 'Budapest', 'Trieste'], 'Fleet': ['Sarajevo']}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
 START_YEAR = 1901
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 #ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
-ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
+#ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
+ABBREVIATIONS = {'Box A bcd': 'bxa', 'Box B ace': 'bxb', 'Box C abfgh': 'bxc', 'Box D aef': 'bxd', 'Box E bdf': 'bxe', 'Box F cdegh': 'bxf', 'Box G cfh': 'bxg', 'Box H cfg': 'bxh', 'Java Sea': 'jvs', 'Arabian Sea': 'ars', 'Persian Gulf': 'psg'}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 #CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
-CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
+#CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
+CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
-REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
+#REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
+REGION_OVERRIDES = [('Red Sea', 'Mecca')]#, ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
 # Whether to highlight the region abbreviation in bold or not.
-BOLD_ABBREVIATIONS = False
+BOLD_ABBREVIATIONS = True
 
 ### Constants ###
 
 INK = '{http://www.inkscape.org/namespaces/inkscape}'
 SVG = '{http://www.w3.org/2000/svg}'
-MAP = 'input.svg'
+MAP = 'youngstownredux_input.svg'
 # Any junctions within GUTTER pixels from the edge of the page will be moved to the edge.
 GUTTER = 5
 # How curvy the edges should be made
@@ -50,7 +62,8 @@ THICK = 2.225
 # The thickness of thin lines
 THIN = 1
 # A path for the supply center symbol. This should be formatted to include the absolute start location.
-CENTER_PATH = 'm {0} c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z'
+CENTER_PATH = 'm {0} c 4.9401,2.5533 2.6167,9.4913 -3.1784,9.4913 -1.1467,0 -2.1967,-0.5071 -3.2688,-1.5786 -4.3606,-4.3582 0.88,-10.79 6.4472,-7.9127 z m -6.6684,-0.6788 c -5.0525,3.972 -2.4142,11.2502 4.078,11.2502 4.0998,0 6.1809,-2.0911 6.1809,-6.2105 0,-5.4556 -5.9882,-8.3973 -10.2589,-5.0397 z m 8.3437,-3.3432 c 6.6105,3.3706 6.5264,13.4768 -0.1388,16.7017 -8.795,4.2552 -17.5176,-5.4815 -12.1036,-13.511 2.8103,-4.1678 7.7839,-5.4641 12.2426,-3.1907 z m -8.8915,-1.3825 c -8.2929,3.6996 -8.0443,15.936 0.3953,19.4604 10.0229,4.1855 19.0983,-7.6593 12.5008,-16.3155 -2.6922,-3.5324 -8.7281,-5.0043 -12.8961,-3.1449 z'
+#CENTER_PATH = 'm {0} c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z'
 #CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.161181 2.65678,1.110069 5.06242,-2.031351 3.31362,-4.327111 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
 #CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.16118 2.65678,1.11007 5.06242,-2.03135 3.31362,-4.32711 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
 #d="m {0} c 4.94922,2.55935 2.62155,9.5139 -3.18428,9.5139 -1.14885,0 -2.20071,-0.50825 -3.27481,-1.58236 -4.36866,-4.36863 0.88161,-10.81575 6.45909,-7.93154 z m -6.68073,-0.68051 c -5.06172,3.98151 -2.41862,11.27707 4.08553,11.27707 4.10742,0 6.19233,-2.09607 6.19233,-6.22533 0,-5.4686 -5.99924,-8.41734 -10.27786,-5.05174 z m 8.35917,-3.35112 c 6.62264,3.37861 6.53836,13.50894 -0.13913,16.74152 -8.8113,4.26546 -17.54995,-5.49456 -12.12597,-13.54324 2.81546,-4.17781 7.79829,-5.47714 12.26519,-3.19828 z m -8.9079,-1.38582 c -8.30819,3.70842 -8.05917,15.97401 0.39596,19.50682 10.04136,4.19554 19.13356,-7.67754 12.52392,-16.35443 -2.69723,-3.54082 -8.74421,-5.01624 -12.91988,-3.15239 z"
@@ -313,6 +326,8 @@ def makeRegions(junctions, edges, corners):
     for edge in edges:
         directedEdges.append(edge)
         directedEdges.append((edge[1], edge[0]))
+    if len(set(edges)) < len(edges):
+        print('Warning: Duplicate edges: {0}'.format([edge for edge in edges if edges.count(edge) > 1]))
 
     regions = []
     while len(directedEdges) > 0:
@@ -420,10 +435,12 @@ def guessRegionFullNames(regions, namesLayer):
         middleToRegion[middleOfRegion(region)] = region
     middlePoints = list(middleToRegion.keys())
     centerPoints = list(locsToNames.keys())
-    print len(middlePoints), len(centerPoints), len(regions)
+    print 'Number of middle points: {0}, Name points: {1}, Regions: {2}'.format(len(middlePoints), len(centerPoints), len(regions))
     regionNames = {}
     while len(centerPoints) > 0:
         m, c = findClosestPair(middlePoints, centerPoints)
+        if locsToNames[c] in regionNames:
+            raise Exception('{0} appears twice as a region name'.format(locsToNames[c]))
         regionNames[locsToNames[c]] = middleToRegion[m]
         middlePoints.remove(m)
         centerPoints.remove(c)
@@ -441,12 +458,12 @@ def abbrFromName(name, indexes):
     """Create a potential abbreviation from a name by picking out the letters at the given indexes."""
     abbr = ''
     for i in indexes:
-        abbr += name[i]
+        abbr += name.replace('.','')[i]
     return abbr
 
 def findTupleFromName(name, fullNamesTuples):
     """Find the name tuple that has the same letters (in the same order) as the given name."""
-    name = name.replace(' ', '').lower()
+    name = name.replace(' ', '').replace('.', '').lower()
     for fullNameTuple in fullNamesTuples:
         if ''.join(fullNameTuple).lower() == name:
             return fullNameTuple
@@ -477,22 +494,46 @@ def abbreviationsForNames(fullNamesTuples, indexSets, abbrCount):
             break
     return abbrMap
 
+def firstLetterAbbr(nTuple):
+    """Create an abbreviation from the first letter of the first three words."""
+    return (nTuple[0][0]+nTuple[1][0]+nTuple[2][0]).lower()
+
+def abbreviationsForNames_firstLetter(fullNamesTuples, abbrCount):
+    """Try to create unique abbreviations for the given name tuples by considering the first letters of the first three words."""
+    abbrMap = {}
+    for nTuple in fullNamesTuples:
+        if len(nTuple) >= 3:
+            abbrCount[firstLetterAbbr(nTuple)] += 1
+    for fullNameTuple, abbr in abbrMap.items():
+        if abbrCount[abbr] > 1:
+            del abbrMap[fullNameTuple]
+    for nTuple in fullNamesTuples:
+        if len(nTuple) >= 3:
+            if nTuple not in abbrMap.keys() and abbrCount[firstLetterAbbr(nTuple)] == 1:
+                abbrMap[nTuple] = firstLetterAbbr(nTuple)
+    return abbrMap
+
 def inventAbbreviations(fullNamesTuples):
     """Determine a suitable set of unique abbreviations for the given name tuples. Use any values from
     the user ABBREVIATIONS override list."""
     fixedAbbrs = {}
     abbrCount = collections.Counter()
-    for name, abbr in map(lambda na: (na[0].replace(' ', '').lower(), na[1]), ABBREVIATIONS.items()):
+    for name, abbr in map(lambda na: (na[0].replace(' ', '').replace('.', '').lower(), na[1]), ABBREVIATIONS.items()):
         fixedAbbrs[findTupleFromName(name, fullNamesTuples)] = abbr
         abbrCount[abbr] += 1
     # Start by taking any unique first three letters.
     remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
     fixedAbbrs.update(abbreviationsForNames(remainingNames, [(0, 1, 2)], abbrCount))
+    # Add any abbreviations from the first three words (if the name has three words).
+    remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
+    fixedAbbrs.update(abbreviationsForNames_firstLetter(remainingNames, abbrCount))
     # combinations returns the indexes in lexigographical order, which is basically what we want.
     remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
     maxLength = max(map(lambda nameTuple: len(''.join(nameTuple)), remainingNames))
     fixedAbbrs.update(abbreviationsForNames(remainingNames, list(itertools.combinations(range(maxLength), 3)), abbrCount))
     if len(fixedAbbrs) != len(fullNamesTuples):
+        print fixedAbbrs
+        print 'Managed to abbreviate {0} regions.'.format(len(fixedAbbrs))
         raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNamesTuples).difference(set(fixedAbbrs.keys()))))
     return fixedAbbrs
 
@@ -516,6 +557,10 @@ def performOverrides(provinces):
         provinceA.flags, provinceB.flags = provinceB.flags, provinceA.flags
     for nameA, nameB in REGION_OVERRIDES:
         nameA, nameB = tuple(nameA.split(' ')), tuple(nameB.split(' '))
+        if nameA not in [p.name for p in provinces]:
+            raise Exception('{0} not found on map.'.format(nameA))
+        if nameB not in [p.name for p in provinces]:
+            raise Exception('{0} not found on map.'.format(nameB))
         provinceA = [province for province in provinces if province.name == nameA][0]
         provinceB = [province for province in provinces if province.name == nameB][0]
         provinceA.edges, provinceB.edges = provinceB.edges, provinceA.edges
@@ -531,6 +576,7 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
         if abbr not in passableCenterAbbrs:
             namesLayer.remove(text)
             continue
+        boldAbbr = ''
         i = 0
         for tspan in text.findall('.//{}tspan'.format(SVG)):
             if tspan.text != None:
@@ -541,7 +587,11 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
                     while j > i:
                         if abbr[i:j] in oldText.lower():
                             start = oldText.lower().index(abbr[i:j])
-                            newParts += [oldText[:start], oldText[start:start+j-i]]
+                            # Fix to try to ensure a part isn't just whitespace (which gets stripped by some renderers).
+                            if oldText[:start].endswith(' '):
+                                newParts += [oldText[:start-1], oldText[start-1:start+j-i]]
+                            else:
+                                newParts += [oldText[:start], oldText[start:start+j-i]]
                             oldText = oldText[start+j-i:]
                             i = j
                             j = len(abbr)
@@ -550,14 +600,18 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
                         else:
                             j -= 1
                     if len(newParts) > 0:
+                        boldAbbr += ''.join(newParts[1::2]).lower()
                         newParts.append(re.sub('.*' + newParts[-1], '', oldText))
                         tspan.text = None
                         for index, part in enumerate(newParts):
                             if len(part) != 0:
                                 fontWeight = 'normal' if index % 2 == 0 else 'bold'
-                                e = xml.etree.ElementTree.Element('{}tspan'.format(SVG), {'style': 'font-weight:' + fontWeight})
+                                attributes = {'style': 'font-weight:' + fontWeight}
+                                e = xml.etree.ElementTree.Element('{}tspan'.format(SVG), attributes)
                                 e.text = part
                                 tspan.append(e)
+        if BOLD_ABBREVIATIONS and boldAbbr.replace(' ', '') != abbr:
+            print 'Failed to automatically bold the abbreviation for {0} (got "{1}" rather than "{2}")'.format(name, boldAbbr, abbr)
     root.append(namesLayer)
 
 def calculateCurvePoints(lastLoc, loc, nextLoc):
@@ -785,6 +839,8 @@ func {0}Start() (result *state.State, err error) {{
     for nation, units in START_UNITS.items():
         for unitType in units.keys():
             for region in units[unitType]:
+                if len([province.abbreviation for province in provinces if province.name == tuple(region.split(' '))]) == 0:
+                    raise Exception('Could not find region {} when setting starting units.'.format(region))
                 abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
                 f.write('\t\t"{}": dip.Unit{{cla.{}, {}}},\n'.format(abbr, unitType, nation))
     f.write("""	}); err != nil {
