@@ -7,7 +7,7 @@ Creating a map-only variant involves a lot of manual effort, and this generator 
 
 In particular the current generator does not cope with:
 
-* Coasts
+* Provinces with multiple coasts (e.g. Spain in the Classical game).
 * Build anywhere.
 * Victory conditions other than 'more than half'.
 * Non-planar maps (the extra edges must be added by hand afterwards).
@@ -90,7 +90,8 @@ bindata.go file (see the main README for more details).  Update the variants.go 
 
 The map may need some manual tweaks (e.g. to add canals, coasts or other details), and once this is done then you can generate the bindata.go file.
 
-You can generate some other maps to check that everything generally looks right by running `go test -v ./...` from the variants directory, and looking in the `test_output_maps` directory afterwards.
+You can generate some other maps to check that everything generally looks right by running `go test -v ./...` from the variants directory, and looking in the `test_output_maps` directory afterwards. One
+thing to look out for is erroneous sea-connections between coastal regions that fleets shouldn't be able to travel between.
 
 #### Add variant tests
 
