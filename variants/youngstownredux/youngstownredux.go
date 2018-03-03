@@ -165,7 +165,7 @@ func YoungstownReduxStart() (result *state.State, err error) {
 func YoungstownReduxGraph() *graph.Graph {
 	return graph.New().
 		// Box H cfg
-		Prov("bxh").Conn("eio", cla.Sea).Conn("eio", cla.Sea).Conn("eio", cla.Sea).Flag(cla.Sea).
+		Prov("bxh").Conn("eio", cla.Sea).Conn("eio", cla.Sea).Conn("eio", cla.Sea).Conn("bxc", cla.Sea).Conn("bxf", cla.Sea).Conn("bxg", cla.Sea).Flag(cla.Sea).
 		// Tunisia
 		Prov("tun").Conn("alg", cla.Coast...).Conn("sah", cla.Land).Conn("trp", cla.Coast...).Conn("ion", cla.Sea).Conn("tyh", cla.Sea).Flag(cla.Coast...).
 		// Bombay
@@ -239,7 +239,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Mogadishu
 		Prov("mog").Conn("ken", cla.Coast...).Conn("hor", cla.Sea).Conn("goa", cla.Sea).Conn("awd", cla.Coast...).Conn("eth", cla.Coast...).Flag(cla.Coast...).SC(Italy).
 		// Box A bcd
-		Prov("bxa").Conn("nao", cla.Sea).Conn("nao", cla.Sea).Flag(cla.Sea).
+		Prov("bxa").Conn("nao", cla.Sea).Conn("nao", cla.Sea).Conn("bxb", cla.Sea).Conn("bxc", cla.Sea).Conn("bxd", cla.Sea).Flag(cla.Sea).
 		// Saxony
 		Prov("sax").Conn("mun", cla.Land).Conn("boh", cla.Land).Conn("sil", cla.Land).Conn("ber", cla.Land).Conn("kie", cla.Land).Conn("col", cla.Land).Flag(cla.Land).
 		// Ethiopia
@@ -273,7 +273,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Calcutta
 		Prov("cal").Conn("bay", cla.Sea).Conn("bum", cla.Coast...).Conn("tib", cla.Land).Conn("nep", cla.Land).Conn("del", cla.Land).Conn("dec", cla.Land).Conn("mad", cla.Coast...).Flag(cla.Coast...).SC(India).
 		// Box D aef
-		Prov("bxd").Conn("npo", cla.Sea).Conn("npo", cla.Sea).Flag(cla.Sea).
+		Prov("bxd").Conn("npo", cla.Sea).Conn("npo", cla.Sea).Conn("bxa", cla.Sea).Conn("bxe", cla.Sea).Conn("bxf", cla.Sea).Flag(cla.Sea).
 		// Edinburgh
 		Prov("edi").Conn("cly", cla.Coast...).Conn("lie", cla.Land).Conn("yor", cla.Coast...).Conn("not", cla.Sea).Conn("noi", cla.Sea).Flag(cla.Coast...).SC(Britain).
 		// Piedmont
@@ -435,9 +435,9 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Nepal
 		Prov("nep").Conn("tib", cla.Land).Conn("del", cla.Land).Conn("cal", cla.Land).Flag(cla.Land).
 		// Box E bdf
-		Prov("bxe").Conn("spo", cla.Sea).Conn("spo", cla.Sea).Conn("spo", cla.Sea).Flag(cla.Sea).
+		Prov("bxe").Conn("spo", cla.Sea).Conn("spo", cla.Sea).Conn("spo", cla.Sea).Conn("bxb", cla.Sea).Conn("bxd", cla.Sea).Conn("bxf", cla.Sea).Flag(cla.Sea).
 		// Box F cdegh
-		Prov("bxf").Conn("tim", cla.Sea).Conn("tim", cla.Sea).Flag(cla.Sea).
+		Prov("bxf").Conn("tim", cla.Sea).Conn("tim", cla.Sea).Conn("bxc", cla.Sea).Conn("bxd", cla.Sea).Conn("bxe", cla.Sea).Conn("bxg", cla.Sea).Conn("bxh", cla.Sea).Flag(cla.Sea).
 		// Bohemia
 		Prov("boh").Conn("vnn", cla.Land).Conn("gal", cla.Land).Conn("sil", cla.Land).Conn("sax", cla.Land).Conn("mun", cla.Land).Conn("tyo", cla.Land).Flag(cla.Land).
 		// Laos
@@ -461,7 +461,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Formosa
 		Prov("for").Conn("ecs", cla.Sea).Conn("ecs", cla.Sea).Conn("scs", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Box G cfh
-		Prov("bxg").Conn("wio", cla.Sea).Conn("wio", cla.Sea).Conn("wio", cla.Sea).Flag(cla.Sea).
+		Prov("bxg").Conn("wio", cla.Sea).Conn("wio", cla.Sea).Conn("wio", cla.Sea).Conn("bxc", cla.Sea).Conn("bxf", cla.Sea).Conn("bxh", cla.Sea).Flag(cla.Sea).
 		// Osaka
 		Prov("osa").Conn("kag", cla.Coast...).Conn("ecs", cla.Sea).Conn("spo", cla.Sea).Conn("shi", cla.Coast...).Conn("kyo", cla.Land).Flag(cla.Coast...).SC(Japan).
 		// Turkmenistan
@@ -481,9 +481,9 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Burma
 		Prov("bum").Conn("yun", cla.Land).Conn("tib", cla.Land).Conn("cal", cla.Coast...).Conn("bay", cla.Sea).Conn("and", cla.Sea).Conn("tha", cla.Coast...).Conn("lao", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
 		// Box B ace
-		Prov("bxb").Conn("mid", cla.Sea).Conn("mid", cla.Sea).Conn("mid", cla.Sea).Flag(cla.Sea).
+		Prov("bxb").Conn("mid", cla.Sea).Conn("mid", cla.Sea).Conn("mid", cla.Sea).Conn("bxa", cla.Sea).Conn("bxc", cla.Sea).Conn("bxe", cla.Sea).Flag(cla.Sea).
 		// Box C abfgh
-		Prov("bxc").Conn("sao", cla.Sea).Conn("sao", cla.Sea).Flag(cla.Sea).
+		Prov("bxc").Conn("sao", cla.Sea).Conn("sao", cla.Sea).Conn("bxa", cla.Sea).Conn("bxb", cla.Sea).Conn("bxf", cla.Sea).Conn("bxg", cla.Sea).Conn("bxh", cla.Sea).Flag(cla.Sea).
 		// Siberia
 		Prov("sib").Conn("tur", cla.Land).Conn("xin", cla.Land).Conn("mon", cla.Land).Conn("man", cla.Land).Conn("vla", cla.Land).Conn("kam", cla.Land).Conn("oms", cla.Land).Flag(cla.Land).
 		// Oman
