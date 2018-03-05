@@ -7,8 +7,8 @@ import (
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var FleetRomeVariant = common.Variant{
@@ -27,16 +27,16 @@ var FleetRomeVariant = common.Variant{
 		}
 		return
 	},
-	Blank:             classical.Blank,
-	Phase:             classical.Phase,
-	ParseOrders:       orders.ParseAll,
-	ParseOrder:        orders.Parse,
-	OrderTypes:        orders.OrderTypes(),
-	Nations:           cla.Nations,
-	PhaseTypes:        cla.PhaseTypes,
-	Seasons:           cla.Seasons,
-	UnitTypes:         cla.UnitTypes,
-	SoloSupplyCenters: 18,
+	Blank:       classical.Blank,
+	Phase:       classical.Phase,
+	ParseOrders: orders.ParseAll,
+	ParseOrder:  orders.Parse,
+	OrderTypes:  orders.OrderTypes(),
+	Nations:     cla.Nations,
+	PhaseTypes:  cla.PhaseTypes,
+	Seasons:     cla.Seasons,
+	UnitTypes:   cla.UnitTypes,
+	SoloWinner:  common.SCCountWinner(18),
 	SVGMap: func() ([]byte, error) {
 		return classical.Asset("svg/map.svg")
 	},
@@ -49,8 +49,8 @@ var FleetRomeVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy: "Richard Sharp",
-	Version: "",
+	CreatedBy:   "Richard Sharp",
+	Version:     "",
 	Description: "Classical Diplomacy, but Italy starts with a fleet in Rome.",
-	Rules: "The first to 18 supply centers is the winner.  Rules are as per classical Diplomacy, but Italy starts with a fleet in Rome rather than an army.",
+	Rules:       "The first to 18 supply centers is the winner.  Rules are as per classical Diplomacy, but Italy starts with a fleet in Rome rather than an army.",
 }
