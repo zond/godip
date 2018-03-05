@@ -54,8 +54,14 @@ var YoungstownReduxVariant = common.Variant{
 	},
 	CreatedBy:   "airborne",
 	Version:     "I",
-	Description: "",
-	Rules:       "",
+	Description: "A ten player variant that adds China, India and Japan to the standard seven nations.",
+	Rules:       "Rules are as per classical Diplomacy. There are eight box sea regions which are each connected ", +
+		"to the other boxes in the same row and column, and allow fleets to travel 'around the world'. Six provinces " +
+		"have two coasts (Spain, St. Petersburg, Levant, Arabia, Hebei and Thailand), and all other coastal regions have a " +
+		"single coast. The winner is the first nation to 28 supply centers, or the player with the most in the case of " +
+		"multiple nations reaching 28 in the same turn. If the leading two nations both have the same number of centers " +
+		"then the game will continue for another year.  This variant is based on the Youngstown variant by Rod Walker, " + 
+		"A. Phillips, Ken Lowe and Jon Monsarret."
 }
 
 func YoungstownReduxBlank(phase dip.Phase) *state.State {
