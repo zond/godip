@@ -19,19 +19,19 @@ const (
 var Nations = []dip.Nation{USSR, NATO}
 
 var ColdWarVariant = common.Variant{
-	Name:              "Cold War",
-	Graph:             func() dip.Graph { return ColdWarGraph() },
-	Start:             ColdWarStart,
-	Blank:             ColdWarBlank,
-	Phase:             classical.Phase,
-	ParseOrders:       orders.ParseAll,
-	ParseOrder:        orders.Parse,
-	OrderTypes:        orders.OrderTypes(),
-	Nations:           Nations,
-	PhaseTypes:        cla.PhaseTypes,
-	Seasons:           cla.Seasons,
-	UnitTypes:         cla.UnitTypes,
-	SoloSupplyCenters: 17,
+	Name:        "Cold War",
+	Graph:       func() dip.Graph { return ColdWarGraph() },
+	Start:       ColdWarStart,
+	Blank:       ColdWarBlank,
+	Phase:       classical.Phase,
+	ParseOrders: orders.ParseAll,
+	ParseOrder:  orders.Parse,
+	OrderTypes:  orders.OrderTypes(),
+	Nations:     Nations,
+	PhaseTypes:  cla.PhaseTypes,
+	Seasons:     cla.Seasons,
+	UnitTypes:   cla.UnitTypes,
+	SoloWinner:  common.SCCountWinner(17),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/coldwarmap.svg")
 	},
@@ -45,7 +45,7 @@ var ColdWarVariant = common.Variant{
 		},
 	},
 	CreatedBy:   "Firehawk & Safari",
-	Version:     "1",
+	Version:     "2",
 	Description: "NATO and the USSR fight each other to see which will be the dominant superpower.",
 	Rules: "Rules are as per classical Diplomacy, but with a different map. The winner " +
 		"is the first to seventeen supply centers, which is slightly more than half. " +
