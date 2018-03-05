@@ -55,13 +55,13 @@ var YoungstownReduxVariant = common.Variant{
 	CreatedBy:   "airborne",
 	Version:     "I",
 	Description: "A ten player variant that adds China, India and Japan to the standard seven nations.",
-	Rules:       "Rules are as per classical Diplomacy. There are eight box sea regions which are each connected ", +
+	Rules:       "Rules are as per classical Diplomacy. There are eight box sea regions which are each connected " +
 		"to the other boxes in the same row and column, and allow fleets to travel 'around the world'. Six provinces " +
 		"have two coasts (Spain, St. Petersburg, Levant, Arabia, Hebei and Thailand), and all other coastal regions have a " +
 		"single coast. The winner is the first nation to 28 supply centers, or the player with the most in the case of " +
 		"multiple nations reaching 28 in the same turn. If the leading two nations both have the same number of centers " +
 		"then the game will continue for another year.  This variant is based on the Youngstown variant by Rod Walker, " + 
-		"A. Phillips, Ken Lowe and Jon Monsarret."
+		"A. Phillips, Ken Lowe and Jon Monsarret.",
 }
 
 func YoungstownReduxBlank(phase dip.Phase) *state.State {
@@ -197,9 +197,9 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Kashmir
 		Prov("kas").Conn("del", cla.Land).Conn("tib", cla.Land).Conn("afg", cla.Land).Conn("sid", cla.Land).Flag(cla.Land).
 		// Red Sea
-		Prov("red").Conn("lev/sc", cla.Sea).Conn("egy", cla.Sea).Conn("sud", cla.Sea).Conn("eth", cla.Sea).Conn("goa", cla.Sea).Conn("ade", cla.Sea).Conn("ara/sc", cla.Sea).Conn("mec", cla.Sea).Flag(cla.Sea).
+		Prov("red").Conn("lev", cla.Sea).Conn("lev/sc", cla.Sea).Conn("egy", cla.Sea).Conn("sud", cla.Sea).Conn("eth", cla.Sea).Conn("goa", cla.Sea).Conn("ade", cla.Sea).Conn("ara", cla.Sea).Conn("ara/sc", cla.Sea).Conn("mec", cla.Sea).Flag(cla.Sea).
 		// London
-		Prov("lon").Conn("not", cla.Sea).Conn("yor", cla.Coast...).Conn("lie", cla.Land).Conn("wal", cla.Coast...).Conn("eng", cla.Sea).Flag(cla.Coast...).SC(Britain).
+		Prov("lon").Conn("not", cla.Sea).Conn("yor", cla.Coast...).Conn("wal", cla.Coast...).Conn("eng", cla.Sea).Flag(cla.Coast...).SC(Britain).
 		// Galicia
 		Prov("gal").Conn("ukr", cla.Land).Conn("war", cla.Land).Conn("sil", cla.Land).Conn("boh", cla.Land).Conn("vnn", cla.Land).Conn("bud", cla.Land).Conn("rum", cla.Land).Flag(cla.Land).
 		// Yemen
@@ -249,7 +249,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Switzerland
 		Prov("swi").Conn("swa", cla.Land).Conn("bug", cla.Land).Conn("mar", cla.Land).Conn("pie", cla.Land).Conn("mil", cla.Land).Conn("tyo", cla.Land).Conn("mun", cla.Land).Flag(cla.Land).SC(cla.Neutral).
 		// Gulf of Lyons
-		Prov("gol").Conn("mar", cla.Sea).Conn("spa/sc", cla.Sea).Conn("wms", cla.Sea).Conn("tyh", cla.Sea).Conn("rom", cla.Sea).Conn("pie", cla.Sea).Flag(cla.Sea).
+		Prov("gol").Conn("mar", cla.Sea).Conn("spa/sc", cla.Sea).Conn("spa", cla.Sea).Conn("wms", cla.Sea).Conn("tyh", cla.Sea).Conn("rom", cla.Sea).Conn("pie", cla.Sea).Flag(cla.Sea).
 		// Skagerrak
 		Prov("ska").Conn("swe", cla.Sea).Conn("nay", cla.Sea).Conn("not", cla.Sea).Conn("den", cla.Sea).Flag(cla.Sea).
 		// Western Indian Ocean
@@ -273,7 +273,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Arabia (South Coast)
 		Prov("ara/sc").Conn("mec", cla.Sea).Conn("red", cla.Sea).Conn("ade", cla.Sea).Flag(cla.Sea).
 		// Barents Sea
-		Prov("bar").Conn("noi", cla.Sea).Conn("nay", cla.Sea).Conn("stp/nc", cla.Sea).Flag(cla.Sea).
+		Prov("bar").Conn("noi", cla.Sea).Conn("nay", cla.Sea).Conn("stp", cla.Sea).Conn("stp/nc", cla.Sea).Flag(cla.Sea).
 		// North Sea
 		Prov("not").Conn("lon", cla.Sea).Conn("eng", cla.Sea).Conn("bel", cla.Sea).Conn("hol", cla.Sea).Conn("hel", cla.Sea).Conn("den", cla.Sea).Conn("ska", cla.Sea).Conn("nay", cla.Sea).Conn("noi", cla.Sea).Conn("edi", cla.Sea).Conn("yor", cla.Sea).Flag(cla.Sea).
 		// Inner Mongolia
@@ -329,17 +329,17 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Ireland
 		Prov("ire").Conn("nao", cla.Sea).Conn("mid", cla.Sea).Conn("iri", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Western Mediterranean Sea
-		Prov("wms").Conn("alg", cla.Sea).Conn("tyh", cla.Sea).Conn("gol", cla.Sea).Conn("spa/sc", cla.Sea).Conn("mid", cla.Sea).Conn("mor", cla.Sea).Flag(cla.Sea).
+		Prov("wms").Conn("alg", cla.Sea).Conn("tyh", cla.Sea).Conn("gol", cla.Sea).Conn("spa/sc", cla.Sea).Conn("spa", cla.Sea).Conn("mid", cla.Sea).Conn("mor", cla.Sea).Flag(cla.Sea).
 		// Mali
 		Prov("mal").Conn("sah", cla.Land).Conn("mor", cla.Coast...).Conn("sao", cla.Sea).Flag(cla.Coast...).
 		// Liverpool
-		Prov("lie").Conn("iri", cla.Sea).Conn("wal", cla.Coast...).Conn("lon", cla.Land).Conn("yor", cla.Land).Conn("edi", cla.Land).Conn("cly", cla.Coast...).Conn("nao", cla.Sea).Flag(cla.Coast...).SC(Britain).
+		Prov("lie").Conn("iri", cla.Sea).Conn("wal", cla.Coast...).Conn("yor", cla.Land).Conn("edi", cla.Land).Conn("cly", cla.Coast...).Conn("nao", cla.Sea).Flag(cla.Coast...).SC(Britain).
 		// Sapporo
 		Prov("sap").Conn("npo", cla.Sea).Conn("soj", cla.Sea).Conn("npo", cla.Sea).Flag(cla.Coast...).SC(Japan).
 		// Sudan
 		Prov("sud").Conn("ken", cla.Land).Conn("eth", cla.Coast...).Conn("red", cla.Sea).Conn("egy", cla.Coast...).Conn("fez", cla.Land).Conn("cen", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
 		// Eastern Mediterranean Sea
-		Prov("ems").Conn("kon", cla.Sea).Conn("aeg", cla.Sea).Conn("ion", cla.Sea).Conn("cyr", cla.Sea).Conn("egy", cla.Sea).Conn("lev/nc", cla.Sea).Flag(cla.Sea).
+		Prov("ems").Conn("kon", cla.Sea).Conn("aeg", cla.Sea).Conn("ion", cla.Sea).Conn("cyr", cla.Sea).Conn("egy", cla.Sea).Conn("lev", cla.Sea).Conn("lev/nc", cla.Sea).Flag(cla.Sea).
 		// Denmark
 		Prov("den").Conn("not", cla.Sea).Conn("hel", cla.Sea).Conn("kie", cla.Coast...).Conn("bal", cla.Sea).Conn("swe", cla.Coast...).Conn("ska", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Aegean Sea
@@ -379,7 +379,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Cyrene
 		Prov("cyr").Conn("fez", cla.Land).Conn("egy", cla.Coast...).Conn("ems", cla.Sea).Conn("ion", cla.Sea).Conn("trp", cla.Coast...).Flag(cla.Coast...).
 		// Gulf of Bothnia
-		Prov("gob").Conn("bal", cla.Sea).Conn("lia", cla.Sea).Conn("stp/sc", cla.Sea).Conn("fin", cla.Sea).Conn("swe", cla.Sea).Flag(cla.Sea).
+		Prov("gob").Conn("bal", cla.Sea).Conn("lia", cla.Sea).Conn("stp", cla.Sea).Conn("stp/sc", cla.Sea).Conn("fin", cla.Sea).Conn("swe", cla.Sea).Flag(cla.Sea).
 		// Gascony
 		Prov("gas").Conn("mar", cla.Land).Conn("par", cla.Land).Conn("bre", cla.Coast...).Conn("mid", cla.Sea).Conn("spa", cla.Land).Conn("spa/nc", cla.Sea).Flag(cla.Coast...).
 		// Celebes Sea
@@ -403,11 +403,11 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Marseilles
 		Prov("mar").Conn("gol", cla.Sea).Conn("pie", cla.Coast...).Conn("swi", cla.Land).Conn("bug", cla.Land).Conn("par", cla.Land).Conn("gas", cla.Land).Conn("spa", cla.Land).Conn("spa/sc", cla.Sea).Flag(cla.Coast...).SC(France).
 		// York
-		Prov("yor").Conn("not", cla.Sea).Conn("edi", cla.Coast...).Conn("lie", cla.Land).Conn("lon", cla.Coast...).Flag(cla.Coast...).
+		Prov("yor").Conn("not", cla.Sea).Conn("edi", cla.Coast...).Conn("lie", cla.Land).Conn("wal", cla.Land).Conn("lon", cla.Coast...).Flag(cla.Coast...).
 		// Ukraine
 		Prov("ukr").Conn("rum", cla.Land).Conn("sev", cla.Land).Conn("mos", cla.Land).Conn("war", cla.Land).Conn("gal", cla.Land).Flag(cla.Land).
 		// Mid Atlantic Ocean
-		Prov("mid").Conn("sao", cla.Sea).Conn("mor", cla.Sea).Conn("wms", cla.Sea).Conn("spa/sc", cla.Sea).Conn("spa/nc", cla.Sea).Conn("por", cla.Sea).Conn("gas", cla.Sea).Conn("bre", cla.Sea).Conn("eng", cla.Sea).Conn("iri", cla.Sea).Conn("ire", cla.Sea).Conn("nao", cla.Sea).Conn("bxb", cla.Sea).Conn("bxb", cla.Sea).Conn("bxb", cla.Sea).Flag(cla.Sea).
+		Prov("mid").Conn("sao", cla.Sea).Conn("mor", cla.Sea).Conn("wms", cla.Sea).Conn("spa/sc", cla.Sea).Conn("spa/nc", cla.Sea).Conn("spa", cla.Sea).Conn("por", cla.Sea).Conn("gas", cla.Sea).Conn("bre", cla.Sea).Conn("eng", cla.Sea).Conn("iri", cla.Sea).Conn("ire", cla.Sea).Conn("nao", cla.Sea).Conn("bxb", cla.Sea).Conn("bxb", cla.Sea).Conn("bxb", cla.Sea).Flag(cla.Sea).
 		// Saigon
 		Prov("sai").Conn("scs", cla.Sea).Conn("ann", cla.Coast...).Conn("cam", cla.Coast...).Conn("guh", cla.Sea).Flag(cla.Coast...).SC(France).
 		// Gulf of Tonkin
@@ -417,7 +417,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Cambodia
 		Prov("cam").Conn("ann", cla.Land).Conn("lao", cla.Land).Conn("tha", cla.Land).Conn("tha/ec", cla.Sea).Conn("guh", cla.Sea).Conn("sai", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
 		// East China Sea
-		Prov("ecs").Conn("phi", cla.Sea).Conn("spo", cla.Sea).Conn("osa", cla.Sea).Conn("kag", cla.Sea).Conn("soj", cla.Sea).Conn("kor", cla.Sea).Conn("yel", cla.Sea).Conn("tsi", cla.Sea).Conn("heb/sc", cla.Sea).Conn("sha", cla.Sea).Conn("scs", cla.Sea).Conn("for", cla.Sea).Conn("for", cla.Sea).Conn("scs", cla.Sea).Flag(cla.Sea).
+		Prov("ecs").Conn("phi", cla.Sea).Conn("spo", cla.Sea).Conn("osa", cla.Sea).Conn("kag", cla.Sea).Conn("soj", cla.Sea).Conn("kor", cla.Sea).Conn("yel", cla.Sea).Conn("tsi", cla.Sea).Conn("heb", cla.Sea).Conn("heb/sc", cla.Sea).Conn("sha", cla.Sea).Conn("scs", cla.Sea).Conn("for", cla.Sea).Conn("for", cla.Sea).Conn("scs", cla.Sea).Flag(cla.Sea).
 		// North Atlantic Ocean
 		Prov("nao").Conn("bxa", cla.Sea).Conn("bxa", cla.Sea).Conn("mid", cla.Sea).Conn("ire", cla.Sea).Conn("iri", cla.Sea).Conn("lie", cla.Sea).Conn("cly", cla.Sea).Conn("noi", cla.Sea).Flag(cla.Sea).
 		// Swabia
@@ -451,9 +451,9 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Mongolia
 		Prov("mon").Conn("sib", cla.Land).Conn("xin", cla.Land).Conn("inn", cla.Land).Conn("man", cla.Land).Flag(cla.Land).SC(cla.Neutral).
 		// Wales
-		Prov("wal").Conn("eng", cla.Sea).Conn("lon", cla.Coast...).Conn("lie", cla.Coast...).Conn("iri", cla.Sea).Flag(cla.Coast...).
+		Prov("wal").Conn("eng", cla.Sea).Conn("lon", cla.Coast...).Conn("yor", cla.Land).Conn("lie", cla.Coast...).Conn("iri", cla.Sea).Flag(cla.Coast...).
 		// Yellow Sea
-		Prov("yel").Conn("kor", cla.Sea).Conn("man", cla.Sea).Conn("pek", cla.Sea).Conn("heb/nc", cla.Sea).Conn("tsi", cla.Sea).Conn("ecs", cla.Sea).Flag(cla.Sea).
+		Prov("yel").Conn("kor", cla.Sea).Conn("man", cla.Sea).Conn("pek", cla.Sea).Conn("heb", cla.Sea).Conn("heb/nc", cla.Sea).Conn("tsi", cla.Sea).Conn("ecs", cla.Sea).Flag(cla.Sea).
 		// Greece
 		Prov("gre").Conn("aeg", cla.Sea).Conn("mac", cla.Coast...).Conn("alb", cla.Coast...).Conn("ion", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Venice
@@ -461,7 +461,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Vienna
 		Prov("vnn").Conn("boh", cla.Land).Conn("tyo", cla.Land).Conn("tes", cla.Land).Conn("bud", cla.Land).Conn("gal", cla.Land).Flag(cla.Land).SC(Austria).
 		// Andaman Sea
-		Prov("and").Conn("sum", cla.Sea).Conn("jvs", cla.Sea).Conn("sig", cla.Sea).Conn("tha/wc", cla.Sea).Conn("bum", cla.Sea).Conn("bay", cla.Sea).Conn("eio", cla.Sea).Flag(cla.Sea).
+		Prov("and").Conn("sum", cla.Sea).Conn("jvs", cla.Sea).Conn("sig", cla.Sea).Conn("tha", cla.Sea).Conn("tha/wc", cla.Sea).Conn("bum", cla.Sea).Conn("bay", cla.Sea).Conn("eio", cla.Sea).Flag(cla.Sea).
 		// Nepal
 		Prov("nep").Conn("tib", cla.Land).Conn("del", cla.Land).Conn("cal", cla.Land).Flag(cla.Land).
 		// Box E bdf
@@ -519,7 +519,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Oman
 		Prov("oma").Conn("ars", cla.Sea).Conn("psg", cla.Sea).Conn("ara", cla.Land).Conn("ara/nc", cla.Sea).Conn("yem", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
 		// Gulf of Thailand
-		Prov("guh").Conn("scs", cla.Sea).Conn("sai", cla.Sea).Conn("cam", cla.Sea).Conn("tha/ec", cla.Sea).Conn("sig", cla.Sea).Conn("jvs", cla.Sea).Conn("bor", cla.Sea).Flag(cla.Sea).
+		Prov("guh").Conn("scs", cla.Sea).Conn("sai", cla.Sea).Conn("cam", cla.Sea).Conn("tha", cla.Sea).Conn("tha/ec", cla.Sea).Conn("sig", cla.Sea).Conn("jvs", cla.Sea).Conn("bor", cla.Sea).Flag(cla.Sea).
 		// Irish Sea
 		Prov("iri").Conn("nao", cla.Sea).Conn("ire", cla.Sea).Conn("mid", cla.Sea).Conn("eng", cla.Sea).Conn("wal", cla.Sea).Conn("lie", cla.Sea).Flag(cla.Sea).
 		// Finland
@@ -537,7 +537,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Mecca
 		Prov("mec").Conn("lev", cla.Land).Conn("lev/sc", cla.Sea).Conn("red", cla.Sea).Conn("ara", cla.Land).Conn("ara/sc", cla.Sea).Flag(cla.Coast...).SC(Turkey).
 		// Persian Gulf
-		Prov("psg").Conn("per", cla.Sea).Conn("bag", cla.Sea).Conn("ara/nc", cla.Sea).Conn("oma", cla.Sea).Conn("ars", cla.Sea).Flag(cla.Sea).
+		Prov("psg").Conn("per", cla.Sea).Conn("bag", cla.Sea).Conn("ara", cla.Sea).Conn("ara/nc", cla.Sea).Conn("oma", cla.Sea).Conn("ars", cla.Sea).Flag(cla.Sea).
 		// Naples
 		Prov("nap").Conn("apu", cla.Coast...).Conn("rom", cla.Coast...).Conn("tyh", cla.Sea).Conn("ion", cla.Sea).Flag(cla.Coast...).SC(Italy).
 		// Tripolitania

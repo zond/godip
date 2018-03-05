@@ -36,7 +36,7 @@ ABBREVIATIONS = {'Box A bcd': 'bxa', 'Box B ace': 'bxb', 'Box C abfgh': 'bxc', '
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 #CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
 #CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
-CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
+CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu'), ('Liverpool', 'Irish Sea')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
 #REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
