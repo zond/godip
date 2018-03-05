@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/common"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/classical/start"
+	"github.com/zond/godip/variants/common"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var ClassicalVariant = common.Variant{
@@ -20,16 +20,16 @@ var ClassicalVariant = common.Variant{
 		result = Blank(Phase(1900, cla.Fall, cla.Adjustment))
 		return
 	},
-	ParseOrders:       orders.ParseAll,
-	ParseOrder:        orders.Parse,
-	Graph:             func() dip.Graph { return start.Graph() },
-	Phase:             Phase,
-	OrderTypes:        orders.OrderTypes(),
-	Nations:           cla.Nations,
-	PhaseTypes:        cla.PhaseTypes,
-	Seasons:           cla.Seasons,
-	UnitTypes:         cla.UnitTypes,
-	SoloSupplyCenters: 18,
+	ParseOrders: orders.ParseAll,
+	ParseOrder:  orders.Parse,
+	Graph:       func() dip.Graph { return start.Graph() },
+	Phase:       Phase,
+	OrderTypes:  orders.OrderTypes(),
+	Nations:     cla.Nations,
+	PhaseTypes:  cla.PhaseTypes,
+	Seasons:     cla.Seasons,
+	UnitTypes:   cla.UnitTypes,
+	SoloWinner:  common.SCCountWinner(18),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/map.svg")
 	},
@@ -42,11 +42,12 @@ var ClassicalVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy: "Allan B. Calhamer",
-	Version: "",
+	CreatedBy:   "Allan B. Calhamer",
+	Version:     "",
 	Description: "The original game of Diplomacy.",
-	Rules: "The first to 18 supply centers is the winner. See the Wikibooks article for how to play: https://en.wikibooks.org/wiki/Diplomacy/Rules",
+	Rules:       "The first to 18 supply centers is the winner. See the Wikibooks article for how to play: https://en.wikibooks.org/wiki/Diplomacy/Rules",
 }
+
 func Blank(phase dip.Phase) *state.State {
 	return state.New(start.Graph(), phase, BackupRule)
 }

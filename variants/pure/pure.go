@@ -7,30 +7,30 @@ import (
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var PureVariant = common.Variant{
-	Name: "Pure",
-	Graph: func() dip.Graph { return PureGraph() },
-	Start: PureStart,
-	Blank: PureBlank,
-	Phase:             classical.Phase,
-	ParseOrders:       orders.ParseAll,
-	ParseOrder:        orders.Parse,
-	OrderTypes:        []dip.OrderType{
+	Name:        "Pure",
+	Graph:       func() dip.Graph { return PureGraph() },
+	Start:       PureStart,
+	Blank:       PureBlank,
+	Phase:       classical.Phase,
+	ParseOrders: orders.ParseAll,
+	ParseOrder:  orders.Parse,
+	OrderTypes: []dip.OrderType{
 		cla.Build,
 		cla.Move,
 		cla.Hold,
 		cla.Support,
 		cla.Disband,
 	},
-	Nations:           cla.Nations,
-	PhaseTypes:        cla.PhaseTypes,
-	Seasons:           cla.Seasons,
-	UnitTypes:         []dip.UnitType{cla.Army},
-	SoloSupplyCenters: 4,
+	Nations:    cla.Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  []dip.UnitType{cla.Army},
+	SoloWinner: common.SCCountWinner(4),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/puremap.svg")
 	},
@@ -40,10 +40,10 @@ var PureVariant = common.Variant{
 			return classical.Asset("svg/army.svg")
 		},
 	},
-	CreatedBy: "Danny Loeb",
-	Version: "vb10",
+	CreatedBy:   "Danny Loeb",
+	Version:     "vb10",
 	Description: "A very minimal version of classical Diplomacy where each country is a single province.",
-	Rules: "Each of the seven nations has a single supply center, and each is adjacent to all of the others. The first player to own four of these centers is the winner.",
+	Rules:       "Each of the seven nations has a single supply center, and each is adjacent to all of the others. The first player to own four of these centers is the winner.",
 }
 
 func PureBlank(phase dip.Phase) *state.State {

@@ -34,8 +34,8 @@ type Variant struct {
 	UnitTypes []dip.UnitType
 	// OrderTypes are the types the orders of this variant have.
 	OrderTypes []dip.OrderType
-	// Number of SCs required to solo.
-	SoloSupplyCenters int
+	// Function to return a nation with a solo (or the empty string if no such nation exists).
+	SoloWinner func(*state.State) dip.Nation
 	// SVG representing the variant map graphics.
 	SVGMap func() ([]byte, error) `json:"-"`
 	// A version for the vector graphics (for use in caching mechanisms).
@@ -50,4 +50,33 @@ type Variant struct {
 	Description string
 	// The rules of the variant (in particular where they differ from classical).
 	Rules string
+}
+
+// Return a function that declares a solo winner if a nation has more SCs than the given number (and more than any other nation).
+func SCCountWinner(soloSupplyCenters int) func(*state.State) dip.Nation {
+	return func(s *state.State) dip.Nation {
+		// Create a map from nation to count of owned SCs.
+		scCount := map[dip.Nation]int{}
+		for _, nat := range s.SupplyCenters() {
+			if nat != "" {
+				scCount[nat] = scCount[nat] + 1
+			}
+		}
+		// Check if there's a current clear leader.
+		highestSCCount := 0
+		var leader dip.Nation
+		for nat, count := range scCount {
+			if count > highestSCCount {
+				leader = nat
+				highestSCCount = count
+			} else if count == highestSCCount {
+				leader = ""
+			}
+		}
+		// Return the nation if they have more than the required SCs.
+		if leader != "" && scCount[leader] > soloSupplyCenters {
+			return leader
+		}
+		return ""
+	}
 }
