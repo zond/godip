@@ -74,7 +74,7 @@ func SCCountWinner(soloSupplyCenters int) func(*state.State) dip.Nation {
 			}
 		}
 		// Return the nation if they have more than the required SCs.
-		if leader != "" && scCount[leader] > soloSupplyCenters {
+		if leader != "" && scCount[leader] >= soloSupplyCenters {
 			return leader
 		}
 		return ""
