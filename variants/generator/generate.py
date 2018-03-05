@@ -807,7 +807,7 @@ const (
 	Seasons:     cla.Seasons,
 	UnitTypes:   cla.UnitTypes,""")
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
-    f.write('\n\tSoloSupplyCenters: {},\n'.format(scCount))
+    f.write('\n\tSoloWinner:  common.SCCountWinner({}),\n'.format(scCount))
     f.write("""	SVGMap: func() ([]byte, error) {{
 		return Asset("svg/{}map.svg")
 	}},
