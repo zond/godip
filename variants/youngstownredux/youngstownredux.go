@@ -225,7 +225,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Tyrol
 		Prov("tyo").Conn("boh", cla.Land).Conn("mun", cla.Land).Conn("swi", cla.Land).Conn("mil", cla.Land).Conn("ven", cla.Land).Conn("tes", cla.Land).Conn("vnn", cla.Land).Flag(cla.Land).
 		// Paris
-		Prov("par").Conn("bre", cla.Land).Conn("gas", cla.Land).Conn("mar", cla.Land).Conn("bug", cla.Land).Conn("pic", cla.Land).Flag(cla.Land).SC(France).
+		Prov("par").Conn("bre", cla.Land).Conn("gas", cla.Land).Conn("bug", cla.Land).Conn("pic", cla.Land).Flag(cla.Land).SC(France).
 		// Korea
 		Prov("kor").Conn("yel", cla.Sea).Conn("ecs", cla.Sea).Conn("soj", cla.Sea).Conn("vla", cla.Coast...).Conn("man", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
 		// Ionian Sea
@@ -381,7 +381,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Gulf of Bothnia
 		Prov("gob").Conn("bal", cla.Sea).Conn("lia", cla.Sea).Conn("stp", cla.Sea).Conn("stp/sc", cla.Sea).Conn("fin", cla.Sea).Conn("swe", cla.Sea).Flag(cla.Sea).
 		// Gascony
-		Prov("gas").Conn("mar", cla.Land).Conn("par", cla.Land).Conn("bre", cla.Coast...).Conn("mid", cla.Sea).Conn("spa", cla.Land).Conn("spa/nc", cla.Sea).Flag(cla.Coast...).
+		Prov("gas").Conn("mar", cla.Land).Conn("par", cla.Land).Conn("bre", cla.Coast...).Conn("mid", cla.Sea).Conn("spa", cla.Land).Conn("spa/nc", cla.Sea).Conn("bug", cla.Land).Flag(cla.Coast...).
 		// Celebes Sea
 		Prov("cel").Conn("jvs", cla.Sea).Conn("jav", cla.Sea).Conn("tim", cla.Sea).Conn("spo", cla.Sea).Conn("phi", cla.Sea).Conn("scs", cla.Sea).Conn("bor", cla.Sea).Flag(cla.Sea).
 		// Timor Sea
@@ -401,7 +401,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Bay of Bengal
 		Prov("bay").Conn("mad", cla.Sea).Conn("eio", cla.Sea).Conn("and", cla.Sea).Conn("bum", cla.Sea).Conn("cal", cla.Sea).Flag(cla.Sea).
 		// Marseilles
-		Prov("mar").Conn("gol", cla.Sea).Conn("pie", cla.Coast...).Conn("swi", cla.Land).Conn("bug", cla.Land).Conn("par", cla.Land).Conn("gas", cla.Land).Conn("spa", cla.Land).Conn("spa/sc", cla.Sea).Flag(cla.Coast...).SC(France).
+		Prov("mar").Conn("gol", cla.Sea).Conn("pie", cla.Coast...).Conn("swi", cla.Land).Conn("bug", cla.Land).Conn("gas", cla.Land).Conn("spa", cla.Land).Conn("spa/sc", cla.Sea).Flag(cla.Coast...).SC(France).
 		// York
 		Prov("yor").Conn("not", cla.Sea).Conn("edi", cla.Coast...).Conn("lie", cla.Land).Conn("wal", cla.Land).Conn("lon", cla.Coast...).Flag(cla.Coast...).
 		// Ukraine
@@ -533,7 +533,7 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Livonia
 		Prov("lia").Conn("bal", cla.Sea).Conn("pru", cla.Coast...).Conn("war", cla.Land).Conn("mos", cla.Land).Conn("stp", cla.Land).Conn("stp/sc", cla.Sea).Conn("gob", cla.Sea).Flag(cla.Coast...).
 		// Burgundy
-		Prov("bug").Conn("swi", cla.Land).Conn("swa", cla.Land).Conn("col", cla.Land).Conn("bel", cla.Land).Conn("pic", cla.Land).Conn("par", cla.Land).Conn("mar", cla.Land).Flag(cla.Land).
+		Prov("bug").Conn("swi", cla.Land).Conn("swa", cla.Land).Conn("col", cla.Land).Conn("bel", cla.Land).Conn("pic", cla.Land).Conn("par", cla.Land).Conn("mar", cla.Land).Conn("gas", cla.Land).Flag(cla.Land).
 		// Mecca
 		Prov("mec").Conn("lev", cla.Land).Conn("lev/sc", cla.Sea).Conn("red", cla.Sea).Conn("ara", cla.Land).Conn("ara/sc", cla.Sea).Flag(cla.Coast...).SC(Turkey).
 		// Persian Gulf
