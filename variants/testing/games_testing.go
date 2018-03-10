@@ -266,6 +266,7 @@ func TestGames(t *testing.T, variant common.Variant) {
 	for _, name := range gamefiles {
 		if skip := os.Getenv("SKIP"); skip == "" || bytes.Compare([]byte(skip), []byte(name)) < 1 {
 			if gameFileReg.MatchString(name) {
+				fmt.Printf("Testing %v %v\n", variant.Name, name);
 				phases, orders, positions, fails, s := assertGame(t, name, variant.Nations, variant.Start, variant.Blank)
 				if os.Getenv("DEBUG") == "true" {
 					fmt.Printf("Checked %v phases, executed %v orders and asserted %v positions in %v, found %v failures.\n", phases, orders, positions, name, fails)

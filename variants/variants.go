@@ -1,13 +1,14 @@
 package variants
 
 import (
+	"github.com/zond/godip/variants/ancientmediterranean"
 	"github.com/zond/godip/variants/common"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/coldwar"
 	"github.com/zond/godip/variants/fleetrome"
 	"github.com/zond/godip/variants/franceaustria"
 	"github.com/zond/godip/variants/pure"
-	"github.com/zond/godip/variants/ancientmediterranean"
+	"github.com/zond/godip/variants/youngstownredux"
 )
 
 func init() {
@@ -25,4 +26,5 @@ var OrderedVariants = []common.Variant{
 	franceaustria.FranceAustriaVariant,
 	pure.PureVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
+	youngstownredux.YoungstownReduxVariant,
 }

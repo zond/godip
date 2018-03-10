@@ -1,0 +1,7765 @@
+PHASE 1901 Spring Movement
+POSITIONS
+	Turkey: army bag
+	Turkey: army con
+	Turkey: army mec
+	Turkey: fleet ank
+	Turkey: supply bag
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply ank
+	Italy: army rom
+	Italy: fleet mog
+	Italy: fleet nap
+	Italy: army mil
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply nap
+	Italy: supply mil
+	India: fleet mad
+	India: army del
+	India: fleet bom
+	India: army cal
+	India: supply mad
+	India: supply del
+	India: supply bom
+	India: supply cal
+	Britain: fleet lon
+	Britain: fleet sig
+	Britain: fleet lie
+	Britain: fleet edi
+	Britain: fleet ade
+	Britain: supply lon
+	Britain: supply sig
+	Britain: supply lie
+	Britain: supply edi
+	Britain: supply ade
+	France: fleet sai
+	France: army par
+	France: army mar
+	France: fleet bre
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Austria: army tes
+	Austria: army vnn
+	Austria: army bud
+	Austria: fleet sar
+	Austria: supply tes
+	Austria: supply vnn
+	Austria: supply bud
+	Austria: supply sar
+	China: army pek
+	China: army gua
+	China: army wuh
+	China: fleet sha
+	China: supply pek
+	China: supply gua
+	China: supply wuh
+	China: supply sha
+	Japan: army kyo
+	Japan: fleet sap
+	Japan: fleet osa
+	Japan: fleet tok
+	Japan: supply kyo
+	Japan: supply sap
+	Japan: supply osa
+	Japan: supply tok
+	Germany: army ber
+	Germany: army col
+	Germany: army mun
+	Germany: fleet kie
+	Germany: fleet tsi
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply tsi
+	Russia: fleet sev
+	Russia: army oms
+	Russia: fleet stp/sc
+	Russia: army war
+	Russia: army mos
+	Russia: fleet vla
+	Russia: supply sev
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply war
+	Russia: supply mos
+	Russia: supply vla
+ORDERS
+	bag move per
+	mec move ara
+	con move bul
+	ank move bla
+	mil hold
+	rom hold
+	nap hold
+	mog hold
+	cal move bum
+	del move kas
+	mad move wio
+	bom move ars
+	edi hold
+	lon hold
+	sig move guh
+	ade move red
+	lie move iri
+	mar hold
+	par hold
+	bre hold
+	sai move guh
+	bud move rum
+	tes move sar
+	vnn move tyo
+	sar move alb
+	gua move vit
+	wuh move heb
+	sha move scs
+	pek move man
+	osa hold
+	kyo move shi
+	sap move npo
+	tok move spo
+	col move bel
+	mun move swi
+	ber move kie
+	tsi move ecs
+	kie move den
+	war hold
+	sev hold
+	oms move tur
+	mos move stp
+	vla move soo
+	stp/sc move fin
+PHASE 1901 Fall Movement
+POSITIONS
+	Turkey: fleet bla
+	Turkey: army bul
+	Turkey: army per
+	Turkey: army ara
+	Turkey: supply bag
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply ank
+	Italy: army rom
+	Italy: fleet mog
+	Italy: fleet nap
+	Italy: army mil
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply nap
+	Italy: supply mil
+	India: army kas
+	India: fleet ars
+	India: fleet wio
+	India: army bum
+	India: supply mad
+	India: supply del
+	India: supply bom
+	India: supply cal
+	Britain: fleet red
+	Britain: fleet sig
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: fleet iri
+	Britain: supply lon
+	Britain: supply sig
+	Britain: supply lie
+	Britain: supply edi
+	Britain: supply ade
+	France: fleet bre
+	France: army par
+	France: army mar
+	France: fleet sai
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Austria: army sar
+	Austria: fleet alb
+	Austria: army tyo
+	Austria: army rum
+	Austria: supply tes
+	Austria: supply vnn
+	Austria: supply bud
+	Austria: supply sar
+	China: fleet scs
+	China: army heb
+	China: army vit
+	China: army man
+	China: supply pek
+	China: supply gua
+	China: supply wuh
+	China: supply sha
+	Japan: army shi
+	Japan: fleet npo
+	Japan: fleet osa
+	Japan: fleet spo
+	Japan: supply kyo
+	Japan: supply sap
+	Japan: supply osa
+	Japan: supply tok
+	Germany: fleet den
+	Germany: fleet ecs
+	Germany: army swi
+	Germany: army kie
+	Germany: army bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply tsi
+	Russia: fleet soo
+	Russia: fleet sev
+	Russia: army tur
+	Russia: fleet fin
+	Russia: army war
+	Russia: army stp
+	Russia: supply sev
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply war
+	Russia: supply mos
+	Russia: supply vla
+ORDERS
+	per hold
+	bul hold
+	bla hold
+	ara move bag
+	mil hold
+	rom hold
+	nap hold
+	mog hold
+	bum hold
+	kas hold
+	wio hold
+	ars hold
+	sig hold
+	red hold
+	iri hold
+	edi hold
+	lon hold
+	sai hold
+	mar hold
+	par hold
+	bre hold
+	rum hold
+	alb hold
+	sar move ser
+	tyo move swi
+	vit hold
+	man hold
+	heb move tsi
+	scs move ann
+	npo hold
+	osa hold
+	shi move phi
+	spo convoy shi move phi
+	bel hold
+	ecs hold
+	den hold
+	swi move mun
+	kie move hol
+	sev hold
+	war move ukr
+	tur move per
+	stp move nay
+	soo move kar
+	fin move swe
+PHASE 1901 Fall Adjustment
+POSITIONS
+	Turkey: supply bul
+	Turkey: supply per
+	Turkey: army bag
+	Turkey: fleet bla
+	Turkey: army bul
+	Turkey: army per
+	Turkey: supply bag
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply ank
+	Italy: army rom
+	Italy: fleet mog
+	Italy: fleet nap
+	Italy: army mil
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply nap
+	Italy: supply mil
+	India: supply bum
+	India: army kas
+	India: fleet ars
+	India: fleet wio
+	India: army bum
+	India: supply mad
+	India: supply del
+	India: supply bom
+	India: supply cal
+	Britain: fleet red
+	Britain: fleet sig
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: fleet iri
+	Britain: supply lon
+	Britain: supply sig
+	Britain: supply lie
+	Britain: supply edi
+	Britain: supply ade
+	France: fleet bre
+	France: army par
+	France: army mar
+	France: fleet sai
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Austria: supply rum
+	Austria: supply alb
+	Austria: supply ser
+	Austria: supply swi
+	Austria: fleet alb
+	Austria: army swi
+	Austria: army ser
+	Austria: army rum
+	Austria: supply tes
+	Austria: supply vnn
+	Austria: supply bud
+	Austria: supply sar
+	China: supply vit
+	China: supply tsi
+	China: supply man
+	China: army tsi
+	China: fleet ann
+	China: army vit
+	China: army man
+	China: supply pek
+	China: supply gua
+	China: supply wuh
+	China: supply sha
+	Germany: supply hol
+	Germany: supply den
+	Germany: supply bel
+	Germany: fleet den
+	Germany: fleet ecs
+	Germany: army mun
+	Germany: army hol
+	Germany: army bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply mun
+	Germany: supply kie
+	Japan: supply phi
+	Japan: fleet spo
+	Japan: army phi
+	Japan: fleet npo
+	Japan: fleet osa
+	Japan: supply kyo
+	Japan: supply sap
+	Japan: supply osa
+	Japan: supply tok
+	Russia: supply swe
+	Russia: supply kar
+	Russia: supply nay
+	Russia: fleet swe
+	Russia: fleet sev
+	Russia: army nay
+	Russia: army tur
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: supply sev
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply war
+	Russia: supply mos
+	Russia: supply vla
+ORDERS
+	build Army mec
+	build Army ank
+	build Army del
+	build Army vnn
+	build Army tes
+	build Army sar
+	build Army bud
+	build Army pek
+	build Fleet gua
+	build Fleet sha
+	build Army kie
+	build Army ber
+	build Fleet tok
+	build Army oms
+	build Army war
+	build Fleet vla
+PHASE 1902 Spring Movement
+POSITIONS
+	Turkey: supply con
+	Turkey: army ank
+	Turkey: fleet bla
+	Turkey: army bag
+	Turkey: army bul
+	Turkey: army per
+	Turkey: army mec
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: supply bul
+	Turkey: supply per
+	Turkey: supply mec
+	Italy: army rom
+	Italy: fleet mog
+	Italy: fleet nap
+	Italy: army mil
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply nap
+	Italy: supply mil
+	India: supply mad
+	India: supply cal
+	India: supply bom
+	India: army kas
+	India: army del
+	India: fleet ars
+	India: fleet wio
+	India: army bum
+	India: supply del
+	India: supply bum
+	Britain: supply ade
+	Britain: supply lie
+	Britain: fleet red
+	Britain: fleet sig
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: fleet iri
+	Britain: supply sig
+	Britain: supply lon
+	Britain: supply edi
+	France: fleet sai
+	France: army par
+	France: army mar
+	France: fleet bre
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Austria: army tes
+	Austria: army swi
+	Austria: army ser
+	Austria: army rum
+	Austria: army sar
+	Austria: army bud
+	Austria: fleet alb
+	Austria: army vnn
+	Austria: supply tes
+	Austria: supply swi
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	Austria: supply vnn
+	China: supply wuh
+	China: fleet gua
+	China: fleet sha
+	China: army man
+	China: fleet ann
+	China: army pek
+	China: army vit
+	China: army tsi
+	China: supply gua
+	China: supply sha
+	China: supply man
+	China: supply pek
+	China: supply vit
+	China: supply tsi
+	Japan: supply kyo
+	Japan: supply sap
+	Japan: fleet spo
+	Japan: army phi
+	Japan: fleet npo
+	Japan: fleet osa
+	Japan: fleet tok
+	Japan: supply phi
+	Japan: supply osa
+	Japan: supply tok
+	Germany: supply col
+	Germany: fleet den
+	Germany: fleet ecs
+	Germany: army mun
+	Germany: army kie
+	Germany: army hol
+	Germany: army bel
+	Germany: army ber
+	Germany: supply den
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply hol
+	Germany: supply bel
+	Germany: supply ber
+	Russia: supply mos
+	Russia: supply stp
+	Russia: fleet swe
+	Russia: fleet sev
+	Russia: army oms
+	Russia: army nay
+	Russia: army tur
+	Russia: army war
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: fleet vla
+	Russia: supply swe
+	Russia: supply sev
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply vla
+ORDERS
+	bla hold
+	ank move arm
+	mec move lev
+	per move afg
+	bag move per
+	bul move mac
+	mil hold
+	rom hold
+	nap move ion
+	mog move awd
+	del move nep
+	bum move tib
+	kas move afg
+	wio move ars
+	ars move oma
+	sig hold
+	edi hold
+	lon hold
+	red move sud
+	iri move ire
+	mar hold
+	par hold
+	bre hold
+	sai move scs
+	swi hold
+	bud move gal
+	sar move alb
+	tes move tyo
+	vnn move boh
+	ser move bud
+	alb move ion
+	rum support bud move gal
+	sha move ecs
+	gua move goo
+	pek move inn
+	vit move lao
+	tsi move heb
+	ann move sai
+	man move kor
+	phi hold
+	npo hold
+	osa hold
+	tok move spo
+	spo move cel
+	bel hold
+	ber move pru
+	kie move sax
+	mun move col
+	hol move kie
+	ecs move scs
+	den move not
+	war hold
+	ukr hold
+	nay hold
+	sev hold
+	swe hold
+	vla move kor
+	oms move mos
+	kar move npo
+	tur support kas move afg
+PHASE 1902 Fall Movement
+POSITIONS
+	Turkey: supply con
+	Turkey: army mac
+	Turkey: army arm
+	Turkey: fleet bla
+	Turkey: army bag
+	Turkey: army per
+	Turkey: army lev
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: supply bul
+	Turkey: supply per
+	Turkey: supply mec
+	Italy: army rom
+	Italy: fleet nap
+	Italy: army mil
+	Italy: fleet awd
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply nap
+	Italy: supply mil
+	India: supply bom
+	India: supply cal
+	India: supply mad
+	India: army tib
+	India: fleet oma
+	India: fleet ars
+	India: army nep
+	India: army afg
+	India: supply del
+	India: supply bum
+	Britain: supply ade
+	Britain: supply lie
+	Britain: fleet sig
+	Britain: fleet ire
+	Britain: fleet sud
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: supply sig
+	Britain: supply lon
+	Britain: supply edi
+	France: fleet bre
+	France: army par
+	France: army mar
+	France: fleet sai
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Austria: army tyo
+	Austria: army swi
+	Austria: army boh
+	Austria: army rum
+	Austria: army sar
+	Austria: army bud
+	Austria: fleet alb
+	Austria: army gal
+	Austria: supply tes
+	Austria: supply swi
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	Austria: supply vnn
+	China: supply wuh
+	China: fleet sha
+	China: army lao
+	China: fleet ann
+	China: army inn
+	China: army man
+	China: fleet goo
+	China: army heb
+	China: supply gua
+	China: supply sha
+	China: supply man
+	China: supply pek
+	China: supply vit
+	China: supply tsi
+	Japan: supply sap
+	Japan: supply kyo
+	Japan: fleet spo
+	Japan: army phi
+	Japan: fleet npo
+	Japan: fleet cel
+	Japan: fleet osa
+	Japan: supply phi
+	Japan: supply osa
+	Japan: supply tok
+	Germany: supply col
+	Germany: fleet ecs
+	Germany: army pru
+	Germany: army kie
+	Germany: army bel
+	Germany: army col
+	Germany: fleet not
+	Germany: army sax
+	Germany: supply den
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply hol
+	Germany: supply bel
+	Germany: supply ber
+	Russia: supply mos
+	Russia: supply stp
+	Russia: fleet swe
+	Russia: fleet sev
+	Russia: army nay
+	Russia: army tur
+	Russia: army war
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: army mos
+	Russia: fleet vla
+	Russia: supply swe
+	Russia: supply sev
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply vla
+ORDERS
+	per hold
+	lev move egy
+	mac move gre
+	bla move sev
+	bag support per
+	arm support bla move sev
+	mil hold
+	rom hold
+	nap move tyh
+	awd move eth
+	afg hold
+	oma hold
+	nep move tib
+	ars move yem
+	tib support afg
+	sig hold
+	sud hold
+	ire hold
+	edi hold
+	lon hold
+	sai hold
+	mar hold
+	par hold
+	bre hold
+	sar hold
+	bud hold
+	alb hold
+	boh move sil
+	gal support rum
+	tyo support swi
+	rum support gal
+	swi support tyo
+	goo hold
+	sha move ecs
+	inn move xin
+	lao move tha
+	heb move pek
+	ann move sai
+	man move kor
+	spo hold
+	npo hold
+	cel hold
+	osa hold
+	phi move bor
+	pru hold
+	sax hold
+	bel hold
+	col hold
+	kie hold
+	ecs hold
+	not hold
+	war hold
+	nay hold
+	sev hold
+	kar hold
+	vla move kam
+	mos move lia
+	tur move oms
+	ukr support war
+	swe support nay
+PHASE 1902 Fall Retreat
+POSITIONS
+	Turkey: supply con
+	Turkey: army arm
+	Turkey: fleet sev
+	Turkey: army egy
+	Turkey: army per
+	Turkey: army gre
+	Turkey: army bag
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: supply bul
+	Turkey: supply per
+	Turkey: supply mec
+	Italy: army mil
+	Italy: fleet tyh
+	Italy: fleet eth
+	Italy: army rom
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply nap
+	Italy: supply mil
+	India: supply mad
+	India: supply bom
+	India: supply cal
+	India: army tib
+	India: army afg
+	India: army nep
+	India: fleet oma
+	India: fleet yem
+	India: supply del
+	India: supply bum
+	Austria: army swi
+	Austria: army gal
+	Austria: army sil
+	Austria: army rum
+	Austria: fleet alb
+	Austria: army tyo
+	Austria: army bud
+	Austria: army sar
+	Austria: supply tes
+	Austria: supply swi
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	Austria: supply vnn
+	France: army mar
+	France: fleet bre
+	France: army par
+	France: fleet sai
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Britain: supply ade
+	Britain: supply lie
+	Britain: fleet sig
+	Britain: fleet ire
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: fleet sud
+	Britain: supply sig
+	Britain: supply lon
+	Britain: supply edi
+	China: supply wuh
+	China: fleet sha
+	China: army tha
+	China: army kor
+	China: army xin
+	China: fleet ann
+	China: army pek
+	China: fleet goo
+	China: supply gua
+	China: supply sha
+	China: supply man
+	China: supply pek
+	China: supply vit
+	China: supply tsi
+	Japan: supply kyo
+	Japan: supply sap
+	Japan: fleet spo
+	Japan: fleet cel
+	Japan: army phi
+	Japan: fleet npo
+	Japan: fleet osa
+	Japan: supply phi
+	Japan: supply osa
+	Japan: supply tok
+	Germany: supply col
+	Germany: fleet not
+	Germany: fleet ecs
+	Germany: army bel
+	Germany: army kie
+	Germany: army pru
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply hol
+	Germany: supply bel
+	Germany: supply ber
+	Russia: supply stp
+	Russia: supply mos
+	Russia: fleet swe
+	Russia: army lia
+	Russia: army oms
+	Russia: army war
+	Russia: fleet kam
+	Russia: fleet kar
+	Russia: army nay
+	Russia: army ukr
+	Russia: supply swe
+	Russia: supply sev
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply vla
+ORDERS
+	sev disband
+PHASE 1902 Fall Adjustment
+POSITIONS
+	Turkey: supply sev
+	Turkey: supply egy
+	Turkey: supply gre
+	Turkey: supply con
+	Turkey: army egy
+	Turkey: army bag
+	Turkey: fleet sev
+	Turkey: army arm
+	Turkey: army per
+	Turkey: army gre
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: supply bul
+	Turkey: supply per
+	Turkey: supply mec
+	Italy: supply eth
+	Italy: army rom
+	Italy: fleet tyh
+	Italy: fleet eth
+	Italy: army mil
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply nap
+	Italy: supply mil
+	India: supply cal
+	India: supply afg
+	India: supply bom
+	India: supply mad
+	India: supply oma
+	India: fleet yem
+	India: fleet oma
+	India: army tib
+	India: army nep
+	India: army afg
+	India: supply del
+	India: supply bum
+	Austria: army tyo
+	Austria: army swi
+	Austria: army rum
+	Austria: army sar
+	Austria: army bud
+	Austria: army sil
+	Austria: fleet alb
+	Austria: army gal
+	Austria: supply tes
+	Austria: supply swi
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	Austria: supply vnn
+	France: fleet bre
+	France: army par
+	France: army mar
+	France: fleet sai
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Britain: supply lie
+	Britain: supply ade
+	Britain: supply ire
+	Britain: supply sud
+	Britain: fleet sig
+	Britain: fleet ire
+	Britain: fleet sud
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: supply sig
+	Britain: supply lon
+	Britain: supply edi
+	China: supply kor
+	China: supply xin
+	China: supply tha
+	China: supply wuh
+	China: army xin
+	China: army tha
+	China: fleet sha
+	China: army kor
+	China: fleet ann
+	China: army pek
+	China: fleet goo
+	China: supply gua
+	China: supply sha
+	China: supply man
+	China: supply pek
+	China: supply vit
+	China: supply tsi
+	Japan: supply kyo
+	Japan: supply sap
+	Japan: fleet spo
+	Japan: army phi
+	Japan: fleet npo
+	Japan: fleet cel
+	Japan: fleet osa
+	Japan: supply phi
+	Japan: supply osa
+	Japan: supply tok
+	Germany: supply col
+	Germany: fleet ecs
+	Germany: army pru
+	Germany: army kie
+	Germany: army bel
+	Germany: army col
+	Germany: fleet not
+	Germany: army sax
+	Germany: supply den
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply hol
+	Germany: supply bel
+	Germany: supply ber
+	Russia: supply mos
+	Russia: supply stp
+	Russia: fleet swe
+	Russia: fleet kam
+	Russia: army nay
+	Russia: army lia
+	Russia: army oms
+	Russia: army war
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: supply swe
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply vla
+ORDERS
+	build Army con
+	build Army ank
+	build Fleet mec
+	build Army nap
+	build Army bom
+	build Fleet mad
+	build Army ade
+	build Army wuh
+	build Army gua
+PHASE 1903 Spring Movement
+POSITIONS
+	Turkey: supply bul
+	Turkey: army ank
+	Turkey: army egy
+	Turkey: fleet sev
+	Turkey: fleet mec
+	Turkey: army arm
+	Turkey: army con
+	Turkey: army per
+	Turkey: army bag
+	Turkey: army gre
+	Turkey: supply ank
+	Turkey: supply egy
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply bag
+	Turkey: supply gre
+	Italy: supply mog
+	Italy: army rom
+	Italy: army nap
+	Italy: fleet eth
+	Italy: army mil
+	Italy: fleet tyh
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply eth
+	Italy: supply mil
+	India: supply bum
+	India: supply del
+	India: supply cal
+	India: army tib
+	India: army bom
+	India: fleet oma
+	India: army nep
+	India: army afg
+	India: fleet yem
+	India: fleet mad
+	India: supply bom
+	India: supply oma
+	India: supply afg
+	India: supply mad
+	Britain: supply lie
+	Britain: fleet sig
+	Britain: fleet sud
+	Britain: fleet ire
+	Britain: fleet edi
+	Britain: army ade
+	Britain: fleet lon
+	Britain: supply sig
+	Britain: supply sud
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	France: fleet sai
+	France: army par
+	France: army mar
+	France: fleet bre
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Austria: supply ser
+	Austria: supply vnn
+	Austria: supply tes
+	Austria: army tyo
+	Austria: army swi
+	Austria: army rum
+	Austria: army sar
+	Austria: army bud
+	Austria: army sil
+	Austria: fleet alb
+	Austria: army gal
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	China: supply tsi
+	China: supply man
+	China: supply vit
+	China: army tha
+	China: army xin
+	China: fleet sha
+	China: army gua
+	China: army kor
+	China: fleet ann
+	China: army pek
+	China: army wuh
+	China: fleet goo
+	China: supply tha
+	China: supply xin
+	China: supply sha
+	China: supply gua
+	China: supply kor
+	China: supply pek
+	China: supply wuh
+	Japan: supply sap
+	Japan: supply kyo
+	Japan: supply tok
+	Japan: fleet spo
+	Japan: army phi
+	Japan: fleet npo
+	Japan: fleet cel
+	Japan: fleet osa
+	Japan: supply phi
+	Japan: supply osa
+	Germany: supply ber
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply den
+	Germany: fleet ecs
+	Germany: army pru
+	Germany: army kie
+	Germany: army bel
+	Germany: army col
+	Germany: fleet not
+	Germany: army sax
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply col
+	Russia: supply vla
+	Russia: supply stp
+	Russia: supply mos
+	Russia: fleet swe
+	Russia: army oms
+	Russia: army nay
+	Russia: army lia
+	Russia: fleet kam
+	Russia: army war
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: supply swe
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+ORDERS
+	egy hold
+	sev hold
+	mec move red
+	ank move arm
+	con move bul
+	arm move bag
+	per move tur
+	bag move per
+	gre move mac
+	mil hold
+	eth hold
+	nap move alg
+	rom move tun
+	tyh convoy nap move alg
+	afg hold
+	mad move wio
+	bom move sid
+	nep move tib
+	tib move bum
+	yem support oma
+	oma support yem
+	ade hold
+	sud hold
+	ire hold
+	edi hold
+	lon hold
+	sig move jvs
+	bre hold
+	sai move guh
+	mar move spa
+	par move gas
+	sar hold
+	sil hold
+	bud move tes
+	swi move pie
+	alb move adr
+	gal support rum
+	rum support gal
+	tyo support swi move mil
+	kor hold
+	gua move yun
+	wuh move qin
+	sha move ecs
+	goo move ann
+	xin move mon
+	tha move cam
+	pek move inn
+	ann move sai
+	spo hold
+	phi move bor
+	npo move soj
+	osa move kag
+	cel convoy phi move bor
+	pru hold
+	sax hold
+	bel hold
+	col hold
+	not hold
+	kie move den
+	ecs move scs
+	oms hold
+	kar hold
+	war move mos
+	kam move soo
+	lia move mos
+	ukr move mos
+	nay move stp
+	swe move gob
+PHASE 1903 Fall Movement
+POSITIONS
+	Turkey: supply bul
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army egy
+	Turkey: fleet sev
+	Turkey: army arm
+	Turkey: army tur
+	Turkey: army per
+	Turkey: army bag
+	Turkey: army bul
+	Turkey: supply ank
+	Turkey: supply egy
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply bag
+	Turkey: supply gre
+	Italy: supply mog
+	Italy: army rom
+	Italy: fleet tyh
+	Italy: fleet eth
+	Italy: army mil
+	Italy: army alg
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply eth
+	Italy: supply mil
+	India: supply cal
+	India: supply del
+	India: supply bum
+	India: army tib
+	India: fleet oma
+	India: army afg
+	India: fleet yem
+	India: army bum
+	India: fleet wio
+	India: army sid
+	India: supply bom
+	India: supply oma
+	India: supply afg
+	India: supply mad
+	Britain: supply lie
+	Britain: fleet sud
+	Britain: fleet jvs
+	Britain: fleet ire
+	Britain: fleet edi
+	Britain: army ade
+	Britain: fleet lon
+	Britain: supply sig
+	Britain: supply sud
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	France: army gas
+	France: fleet bre
+	France: fleet guh
+	France: army spa
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Austria: supply ser
+	Austria: supply tes
+	Austria: supply vnn
+	Austria: fleet adr
+	Austria: army tes
+	Austria: army rum
+	Austria: army sar
+	Austria: army pie
+	Austria: army gal
+	Austria: army sil
+	Austria: army tyo
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	China: supply man
+	China: supply tsi
+	China: supply vit
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet sai
+	China: army kor
+	China: fleet ann
+	China: army inn
+	China: army cam
+	China: army yun
+	China: supply tha
+	China: supply xin
+	China: supply sha
+	China: supply gua
+	China: supply kor
+	China: supply pek
+	China: supply wuh
+	Japan: supply tok
+	Japan: supply kyo
+	Japan: supply sap
+	Japan: fleet spo
+	Japan: fleet kag
+	Japan: fleet cel
+	Japan: army bor
+	Japan: fleet soj
+	Japan: supply phi
+	Japan: supply osa
+	Germany: supply hol
+	Germany: supply ber
+	Germany: supply mun
+	Germany: supply den
+	Germany: army pru
+	Germany: army bel
+	Germany: fleet scs
+	Germany: army col
+	Germany: army den
+	Germany: fleet not
+	Germany: army sax
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply col
+	Russia: supply mos
+	Russia: supply stp
+	Russia: supply vla
+	Russia: fleet soo
+	Russia: army oms
+	Russia: army lia
+	Russia: fleet gob
+	Russia: army war
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: army stp
+	Russia: supply swe
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+ORDERS
+	sev hold
+	mac hold
+	bul hold
+	tur move xin
+	egy move sud
+	arm move cau
+	per support tur
+	bag support per
+	red support egy move sud
+	eth hold
+	rom hold
+	mil hold
+	alg hold
+	tyh move wms
+	bum hold
+	oma move yem
+	yem move goa
+	sid move per
+	wio move cey
+	afg support sid move per
+	tib support oms move tur
+	lon hold
+	edi hold
+	ire hold
+	sud hold
+	jvs hold
+	ade hold
+	bre hold
+	guh hold
+	gas move spa
+	spa move por
+	pie hold
+	adr move ion
+	tes move sar
+	tyo move tes
+	sar move alb
+	rum support gal
+	sil support gal
+	gal support rum
+	kor hold
+	sai hold
+	inn hold
+	cam hold
+	mon hold
+	ann hold
+	ecs hold
+	qin hold
+	yun hold
+	kag hold
+	cel hold
+	soj hold
+	bor hold
+	spo hold
+	den hold
+	bel hold
+	sax hold
+	pru hold
+	scs move guh
+	col move kie
+	not support den
+	kar hold
+	stp hold
+	oms hold
+	gob move bal
+	lia move mos
+	soo move npo
+	ukr support war
+	war support ukr
+PHASE 1903 Fall Retreat
+POSITIONS
+	Turkey: supply bul
+	Turkey: army cau
+	Turkey: army bag
+	Turkey: army bul
+	Turkey: army per
+	Turkey: army sud
+	Turkey: fleet red
+	Turkey: army xin
+	Turkey: army mac
+	Turkey: fleet sev
+	Turkey: supply ank
+	Turkey: supply egy
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply bag
+	Turkey: supply gre
+	Italy: supply mog
+	Italy: fleet wms
+	Italy: fleet eth
+	Italy: army mil
+	Italy: army alg
+	Italy: army rom
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply eth
+	Italy: supply mil
+	India: supply del
+	India: supply bum
+	India: supply cal
+	India: army sid
+	India: army tib
+	India: fleet goa
+	India: army afg
+	India: fleet yem
+	India: army bum
+	India: fleet cey
+	India: supply bom
+	India: supply oma
+	India: supply afg
+	India: supply mad
+	Austria: supply vnn
+	Austria: supply ser
+	Austria: supply tes
+	Austria: army sil
+	Austria: fleet ion
+	Austria: army gal
+	Austria: army sar
+	Austria: army pie
+	Austria: army alb
+	Austria: army rum
+	Austria: army tes
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	France: army por
+	France: army spa
+	France: fleet bre
+	France: fleet guh
+	France: supply sai
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Britain: supply lie
+	Britain: fleet jvs
+	Britain: army ade
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: fleet ire
+	Britain: supply sig
+	Britain: supply sud
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	China: supply man
+	China: supply tsi
+	China: supply vit
+	China: army yun
+	China: army cam
+	China: army mon
+	China: army inn
+	China: fleet ann
+	China: army kor
+	China: fleet sai
+	China: army qin
+	China: fleet ecs
+	China: supply tha
+	China: supply xin
+	China: supply sha
+	China: supply gua
+	China: supply kor
+	China: supply pek
+	China: supply wuh
+	Japan: supply tok
+	Japan: supply sap
+	Japan: supply kyo
+	Japan: army bor
+	Japan: fleet kag
+	Japan: fleet soj
+	Japan: fleet cel
+	Japan: fleet spo
+	Japan: supply phi
+	Japan: supply osa
+	Germany: supply ber
+	Germany: supply hol
+	Germany: supply den
+	Germany: supply mun
+	Germany: fleet scs
+	Germany: fleet not
+	Germany: army pru
+	Germany: army bel
+	Germany: army sax
+	Germany: army kie
+	Germany: army den
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply col
+	Russia: supply mos
+	Russia: supply stp
+	Russia: supply vla
+	Russia: fleet kar
+	Russia: fleet bal
+	Russia: army mos
+	Russia: army war
+	Russia: fleet npo
+	Russia: army ukr
+	Russia: army oms
+	Russia: army stp
+	Russia: supply swe
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+ORDERS
+	sud disband
+PHASE 1903 Fall Adjustment
+POSITIONS
+	Turkey: supply bul
+	Turkey: supply xin
+	Turkey: supply sud
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army xin
+	Turkey: army cau
+	Turkey: fleet sev
+	Turkey: army sud
+	Turkey: army bag
+	Turkey: army per
+	Turkey: army bul
+	Turkey: supply ank
+	Turkey: supply egy
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply bag
+	Turkey: supply gre
+	Italy: supply alg
+	Italy: supply mog
+	Italy: army rom
+	Italy: fleet eth
+	Italy: army mil
+	Italy: fleet wms
+	Italy: army alg
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply eth
+	Italy: supply mil
+	India: supply bum
+	India: supply cey
+	India: supply cal
+	India: supply del
+	India: army tib
+	India: fleet goa
+	India: army afg
+	India: fleet cey
+	India: fleet yem
+	India: army bum
+	India: army sid
+	India: supply bom
+	India: supply oma
+	India: supply afg
+	India: supply mad
+	Austria: supply ser
+	Austria: supply vnn
+	Austria: supply tes
+	Austria: army tes
+	Austria: army sil
+	Austria: army alb
+	Austria: army rum
+	Austria: army sar
+	Austria: army pie
+	Austria: fleet ion
+	Austria: army gal
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply alb
+	France: supply por
+	France: supply spa
+	France: army por
+	France: army spa
+	France: fleet bre
+	France: fleet guh
+	France: supply par
+	France: supply mar
+	France: supply bre
+	Britain: supply lie
+	Britain: army ade
+	Britain: fleet lon
+	Britain: fleet ire
+	Britain: fleet edi
+	Britain: fleet jvs
+	Britain: supply sig
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	China: supply sai
+	China: supply mon
+	China: supply vit
+	China: supply tsi
+	China: supply man
+	China: supply cam
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet sai
+	China: army kor
+	China: fleet ann
+	China: army inn
+	China: army cam
+	China: army yun
+	China: supply tha
+	China: supply sha
+	China: supply gua
+	China: supply kor
+	China: supply pek
+	China: supply wuh
+	Japan: supply sap
+	Japan: supply tok
+	Japan: supply kyo
+	Japan: supply bor
+	Japan: fleet spo
+	Japan: fleet kag
+	Japan: fleet cel
+	Japan: army bor
+	Japan: fleet soj
+	Japan: supply phi
+	Japan: supply osa
+	Germany: supply hol
+	Germany: supply den
+	Germany: supply mun
+	Germany: supply ber
+	Germany: army pru
+	Germany: army kie
+	Germany: army bel
+	Germany: fleet scs
+	Germany: army den
+	Germany: fleet not
+	Germany: army sax
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply col
+	Russia: supply vla
+	Russia: supply stp
+	Russia: supply mos
+	Russia: army oms
+	Russia: army mos
+	Russia: fleet bal
+	Russia: army war
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: fleet npo
+	Russia: army stp
+	Russia: supply swe
+	Russia: supply oms
+	Russia: supply nay
+	Russia: supply war
+	Russia: supply kar
+ORDERS
+	build Army ank
+	build Fleet mec
+	build Fleet mog
+	build Army del
+	build Army par
+	build Army lie
+	build Army wuh
+	build Army sha
+	build Fleet gua
+	build Army kyo
+PHASE 1904 Spring Movement
+POSITIONS
+	Turkey: supply gre
+	Turkey: supply egy
+	Turkey: supply con
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army ank
+	Turkey: army cau
+	Turkey: army xin
+	Turkey: fleet sev
+	Turkey: fleet mec
+	Turkey: army sud
+	Turkey: army bag
+	Turkey: army per
+	Turkey: army bul
+	Turkey: supply ank
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply sud
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply bul
+	Italy: supply nap
+	Italy: army mil
+	Italy: army alg
+	Italy: army rom
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: fleet wms
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cal
+	India: supply mad
+	India: supply oma
+	India: supply bom
+	India: army tib
+	India: army del
+	India: fleet goa
+	India: army afg
+	India: fleet cey
+	India: fleet yem
+	India: army bum
+	India: army sid
+	India: supply del
+	India: supply afg
+	India: supply cey
+	India: supply bum
+	Britain: supply sig
+	Britain: fleet jvs
+	Britain: army lie
+	Britain: fleet ire
+	Britain: fleet edi
+	Britain: army ade
+	Britain: fleet lon
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	France: supply mar
+	France: army por
+	France: army spa
+	France: army par
+	France: fleet bre
+	France: fleet guh
+	France: supply por
+	France: supply spa
+	France: supply par
+	France: supply bre
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: supply ser
+	Austria: army tes
+	Austria: fleet ion
+	Austria: army alb
+	Austria: army rum
+	Austria: army sar
+	Austria: army pie
+	Austria: army sil
+	Austria: army gal
+	Austria: supply tes
+	Austria: supply alb
+	Austria: supply rum
+	Austria: supply sar
+	China: supply man
+	China: supply pek
+	China: supply vit
+	China: supply tha
+	China: supply tsi
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet gua
+	China: army kor
+	China: fleet ann
+	China: army inn
+	China: fleet sai
+	China: army wuh
+	China: army sha
+	China: army cam
+	China: army yun
+	China: supply mon
+	China: supply gua
+	China: supply kor
+	China: supply sai
+	China: supply wuh
+	China: supply sha
+	China: supply cam
+	Japan: supply tok
+	Japan: supply osa
+	Japan: supply sap
+	Japan: supply phi
+	Japan: fleet kag
+	Japan: fleet soj
+	Japan: fleet cel
+	Japan: fleet spo
+	Japan: army bor
+	Japan: army kyo
+	Japan: supply bor
+	Japan: supply kyo
+	Germany: supply col
+	Germany: supply mun
+	Germany: supply ber
+	Germany: supply hol
+	Germany: army pru
+	Germany: army kie
+	Germany: army den
+	Germany: fleet scs
+	Germany: army bel
+	Germany: fleet not
+	Germany: army sax
+	Germany: supply kie
+	Germany: supply den
+	Germany: supply bel
+	Russia: supply vla
+	Russia: supply swe
+	Russia: supply nay
+	Russia: army oms
+	Russia: army mos
+	Russia: fleet bal
+	Russia: fleet npo
+	Russia: army war
+	Russia: fleet kar
+	Russia: army ukr
+	Russia: army stp
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply stp
+ORDERS
+	sud hold
+	sev hold
+	ank move arm
+	mec move ara/sc
+	bag move per
+	xin move inn
+	per move tur
+	bul support mac
+	mac support bul
+	red support mec move ara
+	cau support bag move per
+	mil hold
+	rom hold
+	eth hold
+	mog move awd
+	alg move tun
+	wms move mor
+	cey move wio
+	goa move ade
+	yem move ade
+	del support tib
+	sid support afg
+	tib support afg
+	bum support tib
+	afg support per move sid
+	ade hold
+	ire hold
+	lon hold
+	lie move yor
+	jvs move sum
+	edi support not
+	guh hold
+	par move gas
+	por move spa
+	spa move mor
+	bre move eng
+	alb move trp
+	tes move bud
+	sil move boh
+	sar move ser
+	pie move swi
+	gal support rum
+	rum support gal
+	ion convoy alb move trp
+	yun hold
+	kor hold
+	sha move heb
+	gua move sha
+	wuh move qin
+	qin move xin
+	ecs move for
+	ann move scs
+	cam move tha
+	sai move cam
+	mon support qin move xin
+	inn support qin move xin
+	bor hold
+	soj hold
+	kyo move osa
+	cel move jav
+	kag move ecs
+	spo support kag move ecs
+	pru hold
+	bel hold
+	den hold
+	not hold
+	kie move ber
+	scs move guh
+	sax support kie move ber
+	npo hold
+	war move lia
+	ukr move sev
+	oms move sib
+	stp move oms
+	kar move sak
+	bal move gob
+	mos support ukr move sev
+PHASE 1904 Spring Retreat
+POSITIONS
+	Turkey: supply con
+	Turkey: supply gre
+	Turkey: supply egy
+	Turkey: army tur
+	Turkey: army sud
+	Turkey: fleet ara/sc
+	Turkey: army cau
+	Turkey: army mac
+	Turkey: army bul
+	Turkey: fleet red
+	Turkey: army per
+	Turkey: army arm
+	Turkey: fleet/dislodged sev
+	Turkey: supply ank
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply sud
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply bul
+	Italy: supply nap
+	Italy: army mil
+	Italy: army rom
+	Italy: fleet awd
+	Italy: army tun
+	Italy: fleet eth
+	Italy: fleet mor
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply oma
+	India: supply mad
+	India: supply cal
+	India: army sid
+	India: army bum
+	India: army afg
+	India: fleet goa
+	India: fleet yem
+	India: army del
+	India: army tib
+	India: fleet wio
+	India: supply del
+	India: supply afg
+	India: supply cey
+	India: supply bum
+	Austria: supply ser
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: supply bud
+	Austria: army trp
+	Austria: army boh
+	Austria: army rum
+	Austria: army swi
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army gal
+	Austria: army ser
+	Austria: supply tes
+	Austria: supply alb
+	Austria: supply rum
+	Austria: supply sar
+	France: supply mar
+	France: fleet eng
+	France: fleet guh
+	France: army spa
+	France: army gas
+	France: army por
+	France: supply por
+	France: supply spa
+	France: supply par
+	France: supply bre
+	Britain: supply sig
+	Britain: army yor
+	Britain: fleet ire
+	Britain: fleet sum
+	Britain: fleet lon
+	Britain: fleet edi
+	Britain: army ade
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	China: supply vit
+	China: supply tha
+	China: supply pek
+	China: supply man
+	China: supply tsi
+	China: army kor
+	China: army heb
+	China: army mon
+	China: army yun
+	China: army inn
+	China: fleet ann
+	China: fleet for
+	China: army qin
+	China: fleet cam
+	China: fleet sha
+	China: army tha
+	China: army xin
+	China: supply mon
+	China: supply gua
+	China: supply kor
+	China: supply sai
+	China: supply wuh
+	China: supply sha
+	China: supply cam
+	Japan: supply sap
+	Japan: supply phi
+	Japan: supply tok
+	Japan: supply osa
+	Japan: army bor
+	Japan: fleet spo
+	Japan: army osa
+	Japan: fleet jav
+	Japan: fleet ecs
+	Japan: fleet soj
+	Japan: supply bor
+	Japan: supply kyo
+	Germany: supply mun
+	Germany: supply col
+	Germany: supply ber
+	Germany: supply hol
+	Germany: army den
+	Germany: army sax
+	Germany: army bel
+	Germany: army ber
+	Germany: army pru
+	Germany: fleet scs
+	Germany: fleet not
+	Germany: supply kie
+	Germany: supply den
+	Germany: supply bel
+	Russia: supply swe
+	Russia: supply vla
+	Russia: supply nay
+	Russia: army oms
+	Russia: army lia
+	Russia: army sev
+	Russia: fleet gob
+	Russia: fleet npo
+	Russia: army sib
+	Russia: fleet sak
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply stp
+ORDERS
+	sev move bla
+	xin disband
+PHASE 1904 Fall Movement
+POSITIONS
+	Turkey: supply gre
+	Turkey: supply con
+	Turkey: supply egy
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army cau
+	Turkey: fleet bla
+	Turkey: army sud
+	Turkey: army arm
+	Turkey: army tur
+	Turkey: army per
+	Turkey: fleet ara/sc
+	Turkey: army bul
+	Turkey: supply ank
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply sud
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply bul
+	Italy: supply nap
+	Italy: army mil
+	Italy: fleet awd
+	Italy: army tun
+	Italy: fleet mor
+	Italy: army rom
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply cal
+	India: supply mad
+	India: supply oma
+	India: army tib
+	India: army del
+	India: fleet goa
+	India: army afg
+	India: fleet yem
+	India: army sid
+	India: fleet wio
+	India: army bum
+	India: supply del
+	India: supply afg
+	India: supply cey
+	India: supply bum
+	Britain: supply sig
+	Britain: army yor
+	Britain: fleet ire
+	Britain: fleet sum
+	Britain: fleet edi
+	Britain: army ade
+	Britain: fleet lon
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	France: supply mar
+	France: army por
+	France: fleet eng
+	France: army gas
+	France: fleet guh
+	France: army spa
+	France: supply por
+	France: supply spa
+	France: supply par
+	France: supply bre
+	Austria: supply bud
+	Austria: supply ser
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: army trp
+	Austria: army swi
+	Austria: army boh
+	Austria: army ser
+	Austria: army rum
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army gal
+	Austria: supply tes
+	Austria: supply alb
+	Austria: supply rum
+	Austria: supply sar
+	China: supply tha
+	China: supply vit
+	China: supply tsi
+	China: supply pek
+	China: supply man
+	China: army mon
+	China: army qin
+	China: army xin
+	China: army tha
+	China: army kor
+	China: fleet sha
+	China: fleet ann
+	China: army inn
+	China: fleet cam
+	China: fleet for
+	China: army heb
+	China: army yun
+	China: supply mon
+	China: supply gua
+	China: supply kor
+	China: supply sai
+	China: supply wuh
+	China: supply sha
+	China: supply cam
+	Japan: supply tok
+	Japan: supply phi
+	Japan: supply osa
+	Japan: supply sap
+	Japan: fleet ecs
+	Japan: army osa
+	Japan: fleet soj
+	Japan: fleet jav
+	Japan: fleet spo
+	Japan: army bor
+	Japan: supply bor
+	Japan: supply kyo
+	Germany: supply hol
+	Germany: supply mun
+	Germany: supply col
+	Germany: supply ber
+	Germany: fleet scs
+	Germany: army pru
+	Germany: army bel
+	Germany: army ber
+	Germany: army den
+	Germany: fleet not
+	Germany: army sax
+	Germany: supply kie
+	Germany: supply den
+	Germany: supply bel
+	Russia: supply swe
+	Russia: supply nay
+	Russia: supply vla
+	Russia: fleet sak
+	Russia: army oms
+	Russia: army sev
+	Russia: army lia
+	Russia: fleet gob
+	Russia: fleet npo
+	Russia: army sib
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply stp
+ORDERS
+	ara/sc hold
+	sud move lev
+	arm move sev
+	mac support bul
+	tur support per
+	per support tur
+	bul support mac
+	bla support arm move sev
+	cau support arm move sev
+	red convoy sud move lev
+	eth hold
+	mor hold
+	rom hold
+	tun hold
+	mil move pie
+	awd support eth
+	goa move ade
+	wio move ars
+	del move kas
+	afg support sid
+	bum support tib
+	tib support bum
+	sid support afg
+	yem support goa move ade
+	lon hold
+	edi hold
+	sum hold
+	ade hold
+	ire move mid
+	yor move wal
+	eng hold
+	spa hold
+	por hold
+	gas hold
+	guh move jvs
+	ion hold
+	swi hold
+	trp hold
+	ser move alb
+	boh move vnn
+	rum support gal
+	bud support rum
+	gal support bud
+	kor hold
+	xin hold
+	yun hold
+	heb hold
+	cam move sai
+	tha move sig
+	ann move scs
+	sha move ecs
+	inn support xin
+	mon support xin
+	qin support xin
+	for support sha move ecs
+	ecs hold
+	jav hold
+	soj hold
+	bor hold
+	osa hold
+	spo move phi
+	ber hold
+	bel hold
+	sax hold
+	not move nay
+	scs move guh
+	den move swe
+	pru move war
+	npo hold
+	gob move fin
+	sak move soo
+	oms move tur
+	lia move stp
+	mos support sev
+	sib support oms move tur
+	sev support mos move cau
+PHASE 1904 Fall Retreat
+POSITIONS
+	Turkey: supply egy
+	Turkey: supply gre
+	Turkey: supply con
+	Turkey: fleet ara/sc
+	Turkey: army per
+	Turkey: army sev
+	Turkey: army tur
+	Turkey: army bul
+	Turkey: army cau
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army lev
+	Turkey: fleet bla
+	Turkey: supply ank
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply sud
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply bul
+	Italy: supply nap
+	Italy: fleet awd
+	Italy: army rom
+	Italy: fleet eth
+	Italy: army tun
+	Italy: army pie
+	Italy: fleet mor
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply eth
+	India: supply oma
+	India: supply mad
+	India: supply bom
+	India: supply cal
+	India: army sid
+	India: fleet yem
+	India: army tib
+	India: fleet ade
+	India: army afg
+	India: army bum
+	India: fleet ars
+	India: army kas
+	India: supply del
+	India: supply afg
+	India: supply cey
+	India: supply bum
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: supply ser
+	Austria: army vnn
+	Austria: army trp
+	Austria: army alb
+	Austria: army gal
+	Austria: fleet ion
+	Austria: army swi
+	Austria: army rum
+	Austria: army bud
+	Austria: supply tes
+	Austria: supply alb
+	Austria: supply rum
+	Austria: supply sar
+	France: supply mar
+	France: fleet eng
+	France: army gas
+	France: fleet jvs
+	France: army spa
+	France: army por
+	France: supply por
+	France: supply spa
+	France: supply par
+	France: supply bre
+	Britain: supply sig
+	Britain: fleet edi
+	Britain: fleet sum
+	Britain: army wal
+	Britain: fleet mid
+	Britain: fleet lon
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply ade
+	Britain: supply lon
+	China: supply tha
+	China: supply vit
+	China: supply man
+	China: supply pek
+	China: supply tsi
+	China: army qin
+	China: army xin
+	China: army sig
+	China: fleet for
+	China: fleet scs
+	China: fleet ecs
+	China: army mon
+	China: army kor
+	China: army inn
+	China: fleet sai
+	China: army yun
+	China: army heb
+	China: supply mon
+	China: supply gua
+	China: supply kor
+	China: supply sai
+	China: supply wuh
+	China: supply sha
+	China: supply cam
+	Japan: supply tok
+	Japan: supply osa
+	Japan: supply sap
+	Japan: supply phi
+	Japan: fleet phi
+	Japan: fleet jav
+	Japan: army osa
+	Japan: fleet soj
+	Japan: army bor
+	Japan: fleet/dislodged ecs
+	Japan: supply bor
+	Japan: supply kyo
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply hol
+	Germany: supply mun
+	Germany: army ber
+	Germany: army sax
+	Germany: fleet guh
+	Germany: army bel
+	Germany: army war
+	Germany: fleet nay
+	Germany: army swe
+	Germany: supply kie
+	Germany: supply den
+	Germany: supply bel
+	Russia: supply nay
+	Russia: supply swe
+	Russia: supply vla
+	Russia: fleet soo
+	Russia: fleet npo
+	Russia: army stp
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army sib
+	Russia: army/dislodged sev
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply war
+	Russia: supply kar
+	Russia: supply stp
+ORDERS
+	ade disband
+	ecs move spo
+	sev move ukr
+PHASE 1904 Fall Adjustment
+POSITIONS
+	Turkey: supply gre
+	Turkey: supply con
+	Turkey: supply egy
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army cau
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army bul
+	Turkey: army per
+	Turkey: fleet ara/sc
+	Turkey: army lev
+	Turkey: supply ank
+	Turkey: supply sev
+	Turkey: supply mec
+	Turkey: supply sud
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply bul
+	Italy: supply mor
+	Italy: supply nap
+	Italy: fleet awd
+	Italy: army tun
+	Italy: fleet mor
+	Italy: army pie
+	Italy: army rom
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply rom
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply ade
+	India: supply cal
+	India: supply oma
+	India: supply mad
+	India: army tib
+	India: army kas
+	India: fleet ars
+	India: fleet ade
+	India: army afg
+	India: fleet yem
+	India: army sid
+	India: army bum
+	India: supply del
+	India: supply afg
+	India: supply cey
+	India: supply bum
+	Britain: fleet lon
+	Britain: fleet mid
+	Britain: fleet sum
+	Britain: fleet edi
+	Britain: army wal
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply lon
+	France: supply mar
+	France: army por
+	France: fleet eng
+	France: army gas
+	France: fleet jvs
+	France: army spa
+	France: supply por
+	France: supply spa
+	France: supply par
+	France: supply bre
+	Austria: supply bud
+	Austria: supply swi
+	Austria: supply ser
+	Austria: supply vnn
+	Austria: supply trp
+	Austria: army trp
+	Austria: army swi
+	Austria: army alb
+	Austria: army rum
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army gal
+	Austria: army vnn
+	Austria: supply tes
+	Austria: supply alb
+	Austria: supply rum
+	Austria: supply sar
+	China: supply xin
+	China: supply pek
+	China: supply tha
+	China: supply man
+	China: supply vit
+	China: supply tsi
+	China: supply for
+	China: supply sig
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet sai
+	China: army xin
+	China: army kor
+	China: army inn
+	China: fleet scs
+	China: fleet for
+	China: army sig
+	China: army heb
+	China: army yun
+	China: supply mon
+	China: supply gua
+	China: supply kor
+	China: supply sai
+	China: supply wuh
+	China: supply sha
+	China: supply cam
+	Japan: supply sap
+	Japan: supply phi
+	Japan: supply jav
+	Japan: supply osa
+	Japan: supply tok
+	Japan: fleet spo
+	Japan: army bor
+	Japan: fleet phi
+	Japan: army osa
+	Japan: fleet soj
+	Japan: fleet jav
+	Japan: supply bor
+	Japan: supply kyo
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply mun
+	Germany: supply swe
+	Germany: supply nay
+	Germany: supply hol
+	Germany: supply war
+	Germany: army swe
+	Germany: fleet guh
+	Germany: army bel
+	Germany: army ber
+	Germany: fleet nay
+	Germany: army sax
+	Germany: army war
+	Germany: supply kie
+	Germany: supply den
+	Germany: supply bel
+	Russia: supply vla
+	Russia: army ukr
+	Russia: fleet soo
+	Russia: fleet npo
+	Russia: fleet soo
+	Russia: army oms
+	Russia: army stp
+	Russia: fleet fin
+	Russia: fleet npo
+	Russia: army sib
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply kar
+	Russia: supply stp
+ORDERS
+	build Army mil
+	build Army bom
+	remove edi
+	build Fleet sar
+	build Army pek
+	build Fleet gua
+	build Fleet sha
+	build Army kyo
+	build Army mun
+	build Army col
+	build Fleet kie
+	remove sib
+	remove soo
+	remove npo
+PHASE 1905 Spring Movement
+POSITIONS
+	Turkey: supply mec
+	Turkey: supply sud
+	Turkey: supply gre
+	Turkey: supply egy
+	Turkey: supply con
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army cau
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army bul
+	Turkey: army per
+	Turkey: fleet ara/sc
+	Turkey: army lev
+	Turkey: supply sev
+	Turkey: supply bul
+	Turkey: supply per
+	Italy: supply nap
+	Italy: supply alg
+	Italy: supply mog
+	Italy: army mil
+	Italy: fleet awd
+	Italy: army tun
+	Italy: fleet mor
+	Italy: army pie
+	Italy: army rom
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply mor
+	Italy: supply rom
+	Italy: supply eth
+	India: supply cal
+	India: supply cey
+	India: supply mad
+	India: supply del
+	India: supply oma
+	India: army tib
+	India: army kas
+	India: army bom
+	India: fleet ars
+	India: fleet ade
+	India: army afg
+	India: fleet yem
+	India: army sid
+	India: army bum
+	India: supply bom
+	India: supply ade
+	India: supply afg
+	India: supply bum
+	Britain: supply edi
+	Britain: supply lie
+	Britain: supply ire
+	Britain: fleet mid
+	Britain: fleet lon
+	Britain: army wal
+	Britain: fleet sum
+	Britain: supply lon
+	France: supply mar
+	France: supply bre
+	France: supply par
+	France: army por
+	France: army spa
+	France: army gas
+	France: fleet jvs
+	France: fleet eng
+	France: supply por
+	France: supply spa
+	Austria: supply tes
+	Austria: supply ser
+	Austria: army trp
+	Austria: army alb
+	Austria: army swi
+	Austria: army rum
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army gal
+	Austria: army vnn
+	Austria: fleet sar
+	Austria: supply trp
+	Austria: supply alb
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: supply sar
+	China: supply man
+	China: supply tha
+	China: supply tsi
+	China: supply wuh
+	China: supply vit
+	China: supply cam
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet sai
+	China: army xin
+	China: army kor
+	China: fleet sha
+	China: army inn
+	China: army pek
+	China: fleet scs
+	China: fleet for
+	China: fleet gua
+	China: army sig
+	China: army heb
+	China: army yun
+	China: supply mon
+	China: supply sai
+	China: supply xin
+	China: supply kor
+	China: supply sha
+	China: supply pek
+	China: supply for
+	China: supply gua
+	China: supply sig
+	Japan: supply sap
+	Japan: supply tok
+	Japan: army osa
+	Japan: army bor
+	Japan: fleet spo
+	Japan: fleet jav
+	Japan: fleet phi
+	Japan: army kyo
+	Japan: fleet soj
+	Japan: supply osa
+	Japan: supply bor
+	Japan: supply jav
+	Japan: supply phi
+	Japan: supply kyo
+	Germany: supply hol
+	Germany: supply den
+	Germany: army swe
+	Germany: army mun
+	Germany: fleet kie
+	Germany: fleet guh
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army war
+	Germany: army sax
+	Germany: fleet nay
+	Germany: supply swe
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Germany: supply nay
+	Russia: supply kar
+	Russia: supply vla
+	Russia: army oms
+	Russia: army stp
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army ukr
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	ara/sc hold
+	red move goa
+	cau move mos
+	lev move bag
+	bul support mac
+	per support tur
+	tur support per
+	mac support bul
+	bla support sev
+	sev support cau move mos
+	mil hold
+	awd hold
+	pie hold
+	mor hold
+	eth hold
+	tun move alg
+	rom move ven
+	bom move oma
+	kas support afg
+	sid support afg
+	tib support bum
+	bum support tib
+	afg support sid
+	ade support yem
+	yem support ade
+	ars convoy bom move oma
+	sum hold
+	lon hold
+	wal move yor
+	mid move wms
+	gas hold
+	por hold
+	spa hold
+	eng hold
+	jvs support scs move bor
+	alb hold
+	swi hold
+	ion hold
+	sar move adr
+	trp move sah
+	vnn move boh
+	gal support bud
+	bud support rum
+	rum support gal
+	yun hold
+	pek move heb
+	heb move kag
+	scs move bor
+	mon move sib
+	sig move tha
+	sai move scs
+	kor move vla
+	sha support ecs
+	gua support scs
+	qin support xin
+	for support ecs
+	inn support xin
+	xin support mon move sib
+	ecs convoy heb move kag
+	kyo hold
+	osa hold
+	phi hold
+	bor hold
+	soj hold
+	jav hold
+	spo move bxe
+	col hold
+	war hold
+	bel hold
+	kie move bal
+	mun move sax
+	sax move ber
+	ber move pru
+	guh move jvs
+	swe support nay
+	nay support swe
+	mos move war
+	oms move sib
+	stp support fin
+	fin support stp
+	ukr support mos move war
+PHASE 1905 Spring Retreat
+POSITIONS
+	Turkey: supply mec
+	Turkey: supply egy
+	Turkey: supply sud
+	Turkey: supply bag
+	Turkey: supply con
+	Turkey: supply ank
+	Turkey: supply gre
+	Turkey: army bag
+	Turkey: fleet bla
+	Turkey: army mos
+	Turkey: army mac
+	Turkey: army tur
+	Turkey: fleet goa
+	Turkey: army sev
+	Turkey: army per
+	Turkey: fleet ara/sc
+	Turkey: army bul
+	Turkey: supply sev
+	Turkey: supply bul
+	Turkey: supply per
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply nap
+	Italy: army pie
+	Italy: army mil
+	Italy: fleet awd
+	Italy: army alg
+	Italy: army ven
+	Italy: fleet mor
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply mor
+	Italy: supply rom
+	Italy: supply eth
+	India: supply mad
+	India: supply del
+	India: supply cal
+	India: supply oma
+	India: supply cey
+	India: army bum
+	India: army kas
+	India: army oma
+	India: fleet ars
+	India: fleet yem
+	India: army sid
+	India: army tib
+	India: army afg
+	India: fleet ade
+	India: supply bom
+	India: supply ade
+	India: supply afg
+	India: supply bum
+	Austria: supply ser
+	Austria: supply tes
+	Austria: army swi
+	Austria: army gal
+	Austria: army rum
+	Austria: army alb
+	Austria: army bud
+	Austria: army boh
+	Austria: fleet adr
+	Austria: army sah
+	Austria: fleet ion
+	Austria: supply trp
+	Austria: supply alb
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: supply sar
+	France: supply mar
+	France: supply bre
+	France: supply par
+	France: fleet jvs
+	France: army gas
+	France: army por
+	France: army spa
+	France: fleet eng
+	France: supply por
+	France: supply spa
+	Britain: supply lie
+	Britain: supply edi
+	Britain: supply ire
+	Britain: fleet wms
+	Britain: fleet sum
+	Britain: fleet lon
+	Britain: army yor
+	Britain: supply lon
+	Germany: supply den
+	Germany: supply hol
+	Germany: fleet guh
+	Germany: army bel
+	Germany: army pru
+	Germany: army ber
+	Germany: army sax
+	Germany: fleet bal
+	Germany: army swe
+	Germany: army col
+	Germany: fleet nay
+	Germany: army/dislodged war
+	Germany: supply swe
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Germany: supply nay
+	Japan: supply tok
+	Japan: supply sap
+	Japan: fleet soj
+	Japan: fleet bxe
+	Japan: fleet jav
+	Japan: army bor
+	Japan: fleet phi
+	Japan: army kyo
+	Japan: army osa
+	Japan: supply osa
+	Japan: supply bor
+	Japan: supply jav
+	Japan: supply phi
+	Japan: supply kyo
+	China: supply wuh
+	China: supply tha
+	China: supply vit
+	China: supply cam
+	China: supply tsi
+	China: supply man
+	China: fleet gua
+	China: army sib
+	China: army qin
+	China: army inn
+	China: fleet sha
+	China: army heb
+	China: army yun
+	China: fleet ecs
+	China: army xin
+	China: army kag
+	China: fleet for
+	China: army vla
+	China: army tha
+	China: fleet scs
+	China: fleet sai
+	China: supply mon
+	China: supply sai
+	China: supply xin
+	China: supply kor
+	China: supply sha
+	China: supply pek
+	China: supply for
+	China: supply gua
+	China: supply sig
+	Russia: supply kar
+	Russia: supply vla
+	Russia: army ukr
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army stp
+	Russia: army war
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	war move lia
+PHASE 1905 Fall Movement
+POSITIONS
+	Turkey: supply con
+	Turkey: supply ank
+	Turkey: supply mec
+	Turkey: supply bag
+	Turkey: supply gre
+	Turkey: supply egy
+	Turkey: supply sud
+	Turkey: army mac
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army bag
+	Turkey: fleet goa
+	Turkey: army per
+	Turkey: fleet ara/sc
+	Turkey: army mos
+	Turkey: army bul
+	Turkey: supply sev
+	Turkey: supply bul
+	Turkey: supply per
+	Italy: supply nap
+	Italy: supply alg
+	Italy: supply mog
+	Italy: army ven
+	Italy: army mil
+	Italy: army alg
+	Italy: fleet awd
+	Italy: fleet mor
+	Italy: army pie
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply mor
+	Italy: supply rom
+	Italy: supply eth
+	India: supply cey
+	India: supply del
+	India: supply oma
+	India: supply cal
+	India: supply mad
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: fleet ars
+	India: army afg
+	India: army oma
+	India: army sid
+	India: fleet yem
+	India: army bum
+	India: supply bom
+	India: supply ade
+	India: supply afg
+	India: supply bum
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply edi
+	Britain: army yor
+	Britain: fleet lon
+	Britain: fleet sum
+	Britain: fleet wms
+	Britain: supply lon
+	France: supply bre
+	France: supply mar
+	France: supply par
+	France: army por
+	France: fleet eng
+	France: army gas
+	France: fleet jvs
+	France: army spa
+	France: supply por
+	France: supply spa
+	Austria: supply tes
+	Austria: supply ser
+	Austria: fleet adr
+	Austria: army swi
+	Austria: army sah
+	Austria: army alb
+	Austria: army rum
+	Austria: army boh
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army gal
+	Austria: supply trp
+	Austria: supply alb
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: supply sar
+	China: supply man
+	China: supply wuh
+	China: supply tsi
+	China: supply vit
+	China: supply tha
+	China: supply cam
+	China: fleet ecs
+	China: army qin
+	China: fleet gua
+	China: army xin
+	China: army tha
+	China: fleet sha
+	China: army vla
+	China: army kag
+	China: army inn
+	China: fleet scs
+	China: fleet for
+	China: army sib
+	China: fleet sai
+	China: army heb
+	China: army yun
+	China: supply mon
+	China: supply sai
+	China: supply xin
+	China: supply kor
+	China: supply sha
+	China: supply pek
+	China: supply for
+	China: supply gua
+	China: supply sig
+	Japan: supply sap
+	Japan: supply tok
+	Japan: fleet phi
+	Japan: fleet jav
+	Japan: fleet bxe
+	Japan: army bor
+	Japan: army osa
+	Japan: army kyo
+	Japan: fleet soj
+	Japan: supply osa
+	Japan: supply bor
+	Japan: supply jav
+	Japan: supply phi
+	Japan: supply kyo
+	Germany: supply den
+	Germany: supply hol
+	Germany: army swe
+	Germany: army pru
+	Germany: fleet guh
+	Germany: army bel
+	Germany: army lia
+	Germany: army ber
+	Germany: army col
+	Germany: fleet bal
+	Germany: fleet nay
+	Germany: army sax
+	Germany: supply swe
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Germany: supply nay
+	Russia: supply vla
+	Russia: supply kar
+	Russia: army oms
+	Russia: army ukr
+	Russia: fleet fin
+	Russia: army stp
+	Russia: army war
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	goa hold
+	sev hold
+	bla move con
+	mac move gre
+	bul move mac
+	mos move cau
+	ara/sc move mec
+	bag support per
+	per support tur
+	tur support oms move sib
+	eth hold
+	mor hold
+	ven hold
+	pie hold
+	alg hold
+	mil hold
+	awd move mog
+	oma hold
+	yem move ade
+	ade move red
+	ars move yem
+	afg support sid
+	bum support tib
+	tib support bum
+	sid support afg
+	kas support tib
+	sum hold
+	yor hold
+	lon move eng
+	wms move mid
+	eng hold
+	spa hold
+	por hold
+	jvs hold
+	gas hold
+	swi hold
+	adr hold
+	alb move trp
+	boh move tyo
+	sah move mal
+	rum support bud
+	bud support gal
+	gal support rum
+	ion convoy alb move trp
+	tha hold
+	inn move qin
+	scs move guh
+	yun move lao
+	qin move yun
+	gua move scs
+	heb move osa
+	vla support sib
+	sib support xin
+	for support ecs
+	xin support sib
+	sha support ecs
+	sai support scs move guh
+	kag support heb move osa
+	ecs convoy heb move osa
+	jav hold
+	bor hold
+	phi hold
+	bxe move spo
+	soj move kor
+	kyo move kag
+	osa support kyo move kag
+	swe hold
+	bel hold
+	ber hold
+	sax hold
+	col hold
+	nay move noi
+	guh move cam
+	pru move war
+	bal move den
+	lia support pru move war
+	war hold
+	fin move stp/sc
+	oms move sib
+	stp move mos
+	ukr support stp move mos
+PHASE 1905 Fall Retreat
+POSITIONS
+	Turkey: supply egy
+	Turkey: supply gre
+	Turkey: supply sud
+	Turkey: supply mec
+	Turkey: supply bag
+	Turkey: supply con
+	Turkey: supply ank
+	Turkey: army gre
+	Turkey: army sev
+	Turkey: army tur
+	Turkey: fleet mec
+	Turkey: fleet goa
+	Turkey: army bag
+	Turkey: army mac
+	Turkey: fleet con
+	Turkey: army per
+	Turkey: army cau
+	Turkey: supply sev
+	Turkey: supply bul
+	Turkey: supply per
+	Italy: supply alg
+	Italy: supply nap
+	Italy: supply mog
+	Italy: army alg
+	Italy: fleet mor
+	Italy: fleet mog
+	Italy: army mil
+	Italy: army ven
+	Italy: fleet eth
+	Italy: army pie
+	Italy: supply mil
+	Italy: supply mor
+	Italy: supply rom
+	Italy: supply eth
+	India: supply oma
+	India: supply del
+	India: supply mad
+	India: supply cal
+	India: supply cey
+	India: army oma
+	India: army bum
+	India: army afg
+	India: army kas
+	India: fleet red
+	India: fleet ade
+	India: army tib
+	India: fleet yem
+	India: army sid
+	India: supply bom
+	India: supply ade
+	India: supply afg
+	India: supply bum
+	Austria: supply ser
+	Austria: supply tes
+	Austria: army bud
+	Austria: army swi
+	Austria: army mal
+	Austria: army trp
+	Austria: army gal
+	Austria: fleet ion
+	Austria: army rum
+	Austria: fleet adr
+	Austria: army tyo
+	Austria: supply trp
+	Austria: supply alb
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: supply sar
+	France: supply par
+	France: supply mar
+	France: supply bre
+	France: fleet jvs
+	France: army spa
+	France: army por
+	France: fleet eng
+	France: army gas
+	France: supply por
+	France: supply spa
+	Britain: supply lie
+	Britain: supply edi
+	Britain: supply ire
+	Britain: fleet mid
+	Britain: fleet lon
+	Britain: fleet sum
+	Britain: army yor
+	Britain: supply lon
+	China: supply vit
+	China: supply man
+	China: supply wuh
+	China: supply cam
+	China: supply tsi
+	China: supply tha
+	China: army vla
+	China: fleet ecs
+	China: fleet scs
+	China: fleet sai
+	China: army sib
+	China: fleet guh
+	China: fleet for
+	China: army xin
+	China: army heb
+	China: army tha
+	China: fleet sha
+	China: army qin
+	China: army lao
+	China: army yun
+	China: army kag
+	China: supply mon
+	China: supply sai
+	China: supply xin
+	China: supply kor
+	China: supply sha
+	China: supply pek
+	China: supply for
+	China: supply gua
+	China: supply sig
+	Japan: supply sap
+	Japan: supply tok
+	Japan: fleet kor
+	Japan: fleet phi
+	Japan: army osa
+	Japan: fleet jav
+	Japan: army kyo
+	Japan: fleet spo
+	Japan: army bor
+	Japan: supply osa
+	Japan: supply bor
+	Japan: supply jav
+	Japan: supply phi
+	Japan: supply kyo
+	Germany: supply hol
+	Germany: supply den
+	Germany: army war
+	Germany: army col
+	Germany: fleet cam
+	Germany: army ber
+	Germany: fleet den
+	Germany: army swe
+	Germany: army lia
+	Germany: army sax
+	Germany: fleet noi
+	Germany: army bel
+	Germany: supply swe
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Germany: supply nay
+	Russia: supply vla
+	Russia: supply kar
+	Russia: fleet stp/sc
+	Russia: army ukr
+	Russia: army oms
+	Russia: army mos
+	Russia: army/dislodged war
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	war move sil
+PHASE 1905 Fall Adjustment
+POSITIONS
+	Turkey: supply con
+	Turkey: supply egy
+	Turkey: supply ank
+	Turkey: supply sud
+	Turkey: supply gre
+	Turkey: supply bag
+	Turkey: supply mec
+	Turkey: army mac
+	Turkey: army cau
+	Turkey: army bag
+	Turkey: fleet mec
+	Turkey: army sev
+	Turkey: army tur
+	Turkey: fleet con
+	Turkey: fleet goa
+	Turkey: army per
+	Turkey: army gre
+	Turkey: supply sev
+	Turkey: supply bul
+	Turkey: supply per
+	Italy: supply nap
+	Italy: supply alg
+	Italy: supply mog
+	Italy: army ven
+	Italy: army mil
+	Italy: army alg
+	Italy: fleet mor
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply mor
+	Italy: supply rom
+	Italy: supply eth
+	India: supply oma
+	India: supply mad
+	India: supply cey
+	India: supply cal
+	India: supply del
+	India: fleet red
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: fleet yem
+	India: army sid
+	India: army oma
+	India: army bum
+	India: supply bom
+	India: supply ade
+	India: supply afg
+	India: supply bum
+	Austria: supply ser
+	Austria: supply tes
+	Austria: fleet adr
+	Austria: army gal
+	Austria: army trp
+	Austria: army swi
+	Austria: army mal
+	Austria: army rum
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army tyo
+	Austria: supply trp
+	Austria: supply alb
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: supply sar
+	France: supply par
+	France: supply bre
+	France: supply mar
+	France: army por
+	France: fleet eng
+	France: army gas
+	France: fleet jvs
+	France: army spa
+	France: supply por
+	France: supply spa
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply edi
+	Britain: army yor
+	Britain: fleet lon
+	Britain: fleet mid
+	Britain: fleet sum
+	Britain: supply lon
+	China: supply wuh
+	China: supply tha
+	China: supply vla
+	China: supply vit
+	China: supply tsi
+	China: supply man
+	China: army qin
+	China: fleet ecs
+	China: army qin
+	China: fleet sai
+	China: army xin
+	China: army tha
+	China: fleet sha
+	China: army vla
+	China: army lao
+	China: fleet guh
+	China: fleet scs
+	China: fleet for
+	China: army sib
+	China: army kag
+	China: army heb
+	China: army yun
+	China: supply mon
+	China: supply sai
+	China: supply xin
+	China: supply sha
+	China: supply pek
+	China: supply for
+	China: supply gua
+	China: supply sig
+	Germany: supply cam
+	Germany: supply hol
+	Germany: supply den
+	Germany: army swe
+	Germany: fleet cam
+	Germany: fleet noi
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army war
+	Germany: fleet den
+	Germany: army sax
+	Germany: supply swe
+	Germany: supply mun
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Germany: supply nay
+	Japan: supply sap
+	Japan: supply kor
+	Japan: supply tok
+	Japan: fleet phi
+	Japan: fleet jav
+	Japan: fleet spo
+	Japan: army bor
+	Japan: army osa
+	Japan: army kyo
+	Japan: fleet kor
+	Japan: supply osa
+	Japan: supply bor
+	Japan: supply jav
+	Japan: supply phi
+	Japan: supply kyo
+	Russia: supply kar
+	Russia: army sil
+	Russia: army oms
+	Russia: army mos
+	Russia: fleet stp/sc
+	Russia: army ukr
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	remove qin
+	build Fleet kie
+	build Fleet sap
+	remove sil
+PHASE 1906 Spring Movement
+POSITIONS
+	Turkey: supply egy
+	Turkey: supply bul
+	Turkey: supply sud
+	Turkey: supply ank
+	Turkey: army mac
+	Turkey: army cau
+	Turkey: fleet con
+	Turkey: fleet mec
+	Turkey: army sev
+	Turkey: army tur
+	Turkey: army bag
+	Turkey: fleet goa
+	Turkey: army per
+	Turkey: army gre
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply sev
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply gre
+	Italy: supply rom
+	Italy: supply nap
+	Italy: army ven
+	Italy: army mil
+	Italy: army alg
+	Italy: fleet mor
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mor
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply cey
+	India: supply del
+	India: supply mad
+	India: supply cal
+	India: fleet red
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: army sid
+	India: fleet yem
+	India: army bum
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply lie
+	Britain: supply edi
+	Britain: supply ire
+	Britain: army yor
+	Britain: fleet lon
+	Britain: fleet mid
+	Britain: fleet sum
+	Britain: supply lon
+	France: supply bre
+	France: supply par
+	France: supply mar
+	France: army por
+	France: army spa
+	France: army gas
+	France: fleet jvs
+	France: fleet eng
+	France: supply por
+	France: supply spa
+	Austria: supply ser
+	Austria: supply sar
+	Austria: supply tes
+	Austria: supply vnn
+	Austria: supply alb
+	Austria: fleet adr
+	Austria: army gal
+	Austria: army trp
+	Austria: army swi
+	Austria: army mal
+	Austria: army rum
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army tyo
+	Austria: supply trp
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	China: supply wuh
+	China: supply tsi
+	China: supply man
+	China: supply sig
+	China: supply pek
+	China: supply vit
+	China: supply mon
+	China: supply gua
+	China: fleet ecs
+	China: fleet sai
+	China: army tha
+	China: army xin
+	China: fleet sha
+	China: army vla
+	China: army lao
+	China: fleet guh
+	China: fleet scs
+	China: fleet for
+	China: army sib
+	China: army kag
+	China: army heb
+	China: army yun
+	China: supply sai
+	China: supply tha
+	China: supply xin
+	China: supply sha
+	China: supply vla
+	China: supply for
+	Japan: supply tok
+	Japan: army osa
+	Japan: fleet kor
+	Japan: fleet jav
+	Japan: fleet spo
+	Japan: army bor
+	Japan: fleet phi
+	Japan: army kyo
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply kor
+	Japan: supply jav
+	Japan: supply bor
+	Japan: supply phi
+	Japan: supply kyo
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply nay
+	Germany: fleet den
+	Germany: army swe
+	Germany: fleet kie
+	Germany: fleet cam
+	Germany: fleet noi
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army war
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply cam
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Russia: supply kar
+	Russia: army oms
+	Russia: army ukr
+	Russia: fleet stp/sc
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	sev hold
+	mec hold
+	goa hold
+	gre hold
+	mac move con
+	per move tur
+	bag move per
+	tur move xin
+	con move bla
+	cau support sev
+	mil hold
+	mog hold
+	alg hold
+	pie hold
+	ven hold
+	eth hold
+	mor move sao
+	oma hold
+	kas hold
+	yem hold
+	sid hold
+	tib hold
+	bum hold
+	afg hold
+	red hold
+	ade hold
+	sum hold
+	yor move edi
+	mid move bxb
+	lon move eng
+	gas hold
+	jvs hold
+	por hold
+	spa hold
+	eng hold
+	mal hold
+	swi hold
+	adr move ion
+	tyo move tes
+	trp move sah
+	ion move tyh
+	gal support rum
+	bud support rum
+	rum support gal
+	sha move heb/sc
+	heb move pek
+	scs move bor
+	kag move osa
+	ecs move kor
+	yun move gua
+	lao move cam
+	for move scs
+	xin support sib
+	sib support xin
+	guh support scs move bor
+	tha support lao move cam
+	sai support lao move cam
+	vla support ecs move kor
+	sap hold
+	kyo hold
+	osa hold
+	phi hold
+	bor hold
+	kor hold
+	jav hold
+	spo hold
+	kie hold
+	den hold
+	col hold
+	sax hold
+	lia hold
+	ber hold
+	bel hold
+	swe hold
+	cam hold
+	noi hold
+	war move pru
+	mos hold
+	ukr hold
+	oms hold
+	stp/sc hold
+PHASE 1906 Spring Retreat
+POSITIONS
+	Turkey: supply ank
+	Turkey: supply sud
+	Turkey: supply bul
+	Turkey: supply egy
+	Turkey: fleet goa
+	Turkey: army con
+	Turkey: army per
+	Turkey: army gre
+	Turkey: fleet mec
+	Turkey: army cau
+	Turkey: army tur
+	Turkey: army bag
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply sev
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply gre
+	Italy: supply nap
+	Italy: supply rom
+	Italy: fleet eth
+	Italy: fleet mog
+	Italy: army pie
+	Italy: army mil
+	Italy: army alg
+	Italy: fleet sao
+	Italy: army ven
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mor
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cey
+	India: supply del
+	India: supply cal
+	India: supply bom
+	India: supply mad
+	India: army afg
+	India: fleet yem
+	India: army kas
+	India: army tib
+	India: army oma
+	India: army bum
+	India: army sid
+	India: fleet red
+	India: fleet ade
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Austria: supply ser
+	Austria: supply vnn
+	Austria: supply sar
+	Austria: supply alb
+	Austria: supply tes
+	Austria: army swi
+	Austria: army tes
+	Austria: fleet ion
+	Austria: fleet tyh
+	Austria: army rum
+	Austria: army bud
+	Austria: army gal
+	Austria: army mal
+	Austria: army sah
+	Austria: supply trp
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	France: supply par
+	France: supply bre
+	France: supply mar
+	France: fleet eng
+	France: fleet jvs
+	France: army gas
+	France: army spa
+	France: army por
+	France: supply por
+	France: supply spa
+	Britain: supply ire
+	Britain: supply lie
+	Britain: supply edi
+	Britain: fleet sum
+	Britain: fleet bxb
+	Britain: fleet lon
+	Britain: army edi
+	Britain: supply lon
+	China: supply mon
+	China: supply gua
+	China: supply wuh
+	China: supply man
+	China: supply tsi
+	China: supply pek
+	China: supply vit
+	China: supply sig
+	China: army pek
+	China: army tha
+	China: army vla
+	China: army xin
+	China: fleet scs
+	China: army gua
+	China: army cam
+	China: fleet guh
+	China: army kag
+	China: army sib
+	China: fleet sai
+	China: fleet heb/sc
+	China: fleet kor
+	China: fleet bor
+	China: supply sai
+	China: supply tha
+	China: supply xin
+	China: supply sha
+	China: supply vla
+	China: supply for
+	Germany: supply nay
+	Germany: supply hol
+	Germany: supply mun
+	Germany: army ber
+	Germany: fleet kie
+	Germany: army lia
+	Germany: fleet noi
+	Germany: army col
+	Germany: army sax
+	Germany: army swe
+	Germany: fleet den
+	Germany: army bel
+	Germany: army pru
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply cam
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Japan: supply tok
+	Japan: army kyo
+	Japan: army osa
+	Japan: fleet spo
+	Japan: fleet jav
+	Japan: fleet sap
+	Japan: fleet phi
+	Japan: fleet/dislodged kor
+	Japan: supply osa
+	Japan: supply kor
+	Japan: supply jav
+	Japan: supply bor
+	Japan: supply phi
+	Japan: supply kyo
+	Japan: supply sap
+	Russia: supply kar
+	Russia: fleet stp/sc
+	Russia: army ukr
+	Russia: army oms
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	cam disband
+	kor move soj
+	bor disband
+PHASE 1906 Fall Movement
+POSITIONS
+	Turkey: supply bul
+	Turkey: supply ank
+	Turkey: supply egy
+	Turkey: supply sud
+	Turkey: army cau
+	Turkey: fleet mec
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army bag
+	Turkey: fleet goa
+	Turkey: army con
+	Turkey: army per
+	Turkey: army gre
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply sev
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply gre
+	Italy: supply nap
+	Italy: supply rom
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mor
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply cal
+	India: supply cey
+	India: supply mad
+	India: supply del
+	India: fleet red
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: fleet yem
+	India: army sid
+	India: army oma
+	India: army bum
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply ire
+	Britain: supply edi
+	Britain: supply lie
+	Britain: fleet lon
+	Britain: army edi
+	Britain: fleet sum
+	Britain: fleet bxb
+	Britain: supply lon
+	France: supply bre
+	France: supply par
+	France: supply mar
+	France: army por
+	France: army spa
+	France: army gas
+	France: fleet jvs
+	France: fleet eng
+	France: supply por
+	France: supply spa
+	Austria: supply sar
+	Austria: supply ser
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply tes
+	Austria: fleet tyh
+	Austria: army tes
+	Austria: army sah
+	Austria: army swi
+	Austria: army mal
+	Austria: army rum
+	Austria: army bud
+	Austria: fleet ion
+	Austria: army gal
+	Austria: supply trp
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	China: supply wuh
+	China: supply man
+	China: supply vit
+	China: supply pek
+	China: supply gua
+	China: supply sig
+	China: supply tsi
+	China: supply mon
+	China: fleet heb/sc
+	China: fleet sai
+	China: army tha
+	China: army xin
+	China: army vla
+	China: army gua
+	China: fleet guh
+	China: army pek
+	China: fleet scs
+	China: army sib
+	China: fleet bor
+	China: army kag
+	China: army cam
+	China: fleet kor
+	China: supply sai
+	China: supply tha
+	China: supply xin
+	China: supply sha
+	China: supply vla
+	China: supply for
+	Japan: supply tok
+	Japan: army osa
+	Japan: fleet soj
+	Japan: fleet spo
+	Japan: fleet jav
+	Japan: fleet phi
+	Japan: army kyo
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply kor
+	Japan: supply jav
+	Japan: supply bor
+	Japan: supply phi
+	Japan: supply kyo
+	Japan: supply sap
+	Germany: supply nay
+	Germany: supply hol
+	Germany: supply mun
+	Germany: fleet den
+	Germany: army swe
+	Germany: army pru
+	Germany: fleet kie
+	Germany: fleet noi
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply cam
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Russia: supply kar
+	Russia: army oms
+	Russia: army mos
+	Russia: fleet stp/sc
+	Russia: army ukr
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	sev hold
+	mec move red
+	goa move wio
+	con move kon
+	per move tur
+	bag move per
+	tur move xin
+	gre move mac
+	cau support sev
+	bla support sev
+	mil hold
+	mog hold
+	alg hold
+	pie hold
+	ven hold
+	sao hold
+	eth hold
+	yem move ade
+	red move lev/sc
+	ade move ara/sc
+	kas support tib
+	sid support afg
+	bum support tib
+	afg support sid
+	oma support ade move ara
+	tib support tur move xin
+	edi hold
+	sum hold
+	bxb move bxe
+	lon move not
+	por hold
+	gas move par
+	jvs move and
+	spa move mar
+	eng move iri
+	gal hold
+	ion move cyr
+	mal move sah
+	bud move rum
+	tes move sar
+	rum move bul
+	sah move fez
+	swi move tyo
+	tyh move wms
+	kag hold
+	heb/sc move ecs
+	pek move heb
+	gua move yun
+	xin move tur
+	scs move for
+	guh move jvs
+	sai move scs
+	cam support tha
+	tha support cam
+	vla support sib
+	bor support guh move jvs
+	kor support heb move ecs
+	sib support xin move tur
+	sap hold
+	kyo hold
+	osa hold
+	phi hold
+	soj hold
+	jav hold
+	spo hold
+	kie hold
+	den hold
+	col hold
+	sax hold
+	lia hold
+	ber hold
+	bel hold
+	pru hold
+	swe hold
+	noi move nao
+	stp/sc hold
+	mos move war
+	ukr move mos
+	oms move sib
+PHASE 1906 Fall Retreat
+POSITIONS
+	Turkey: supply bul
+	Turkey: supply egy
+	Turkey: supply sud
+	Turkey: supply ank
+	Turkey: army cau
+	Turkey: fleet red
+	Turkey: army per
+	Turkey: army tur
+	Turkey: army kon
+	Turkey: army mac
+	Turkey: fleet wio
+	Turkey: army sev
+	Turkey: army xin
+	Turkey: fleet bla
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply sev
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply gre
+	Italy: supply nap
+	Italy: supply rom
+	Italy: army ven
+	Italy: fleet eth
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mor
+	Italy: supply mog
+	Italy: supply eth
+	India: supply del
+	India: supply mad
+	India: supply cey
+	India: supply cal
+	India: supply bom
+	India: fleet lev/sc
+	India: army oma
+	India: army kas
+	India: army bum
+	India: army afg
+	India: fleet ade
+	India: army sid
+	India: army tib
+	India: fleet ara/sc
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Austria: supply alb
+	Austria: supply ser
+	Austria: supply vnn
+	Austria: supply tes
+	Austria: supply sar
+	Austria: army sar
+	Austria: army bul
+	Austria: army sah
+	Austria: army gal
+	Austria: fleet wms
+	Austria: army tyo
+	Austria: army rum
+	Austria: fleet cyr
+	Austria: army fez
+	Austria: supply trp
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	France: supply bre
+	France: supply par
+	France: supply mar
+	France: army par
+	France: fleet and
+	France: fleet iri
+	France: army mar
+	France: army por
+	France: supply por
+	France: supply spa
+	Britain: supply ire
+	Britain: supply lie
+	Britain: supply edi
+	Britain: fleet bxe
+	Britain: fleet sum
+	Britain: army edi
+	Britain: fleet not
+	Britain: supply lon
+	China: supply vit
+	China: supply mon
+	China: supply sig
+	China: supply pek
+	China: supply wuh
+	China: supply tsi
+	China: supply gua
+	China: supply man
+	China: army kag
+	China: fleet scs
+	China: fleet for
+	China: fleet bor
+	China: army cam
+	China: army tha
+	China: army heb
+	China: army vla
+	China: fleet jvs
+	China: army sib
+	China: army yun
+	China: fleet kor
+	China: fleet ecs
+	China: army/dislodged xin
+	China: supply sai
+	China: supply tha
+	China: supply xin
+	China: supply sha
+	China: supply vla
+	China: supply for
+	Japan: supply tok
+	Japan: army osa
+	Japan: fleet jav
+	Japan: fleet sap
+	Japan: fleet spo
+	Japan: fleet phi
+	Japan: fleet soj
+	Japan: army kyo
+	Japan: supply osa
+	Japan: supply kor
+	Japan: supply jav
+	Japan: supply bor
+	Japan: supply phi
+	Japan: supply kyo
+	Japan: supply sap
+	Germany: supply hol
+	Germany: supply mun
+	Germany: supply nay
+	Germany: army ber
+	Germany: fleet kie
+	Germany: army bel
+	Germany: army pru
+	Germany: army swe
+	Germany: fleet den
+	Germany: army col
+	Germany: army lia
+	Germany: fleet nao
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply cam
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Germany: supply war
+	Russia: supply kar
+	Russia: fleet stp/sc
+	Russia: army mos
+	Russia: army oms
+	Russia: army war
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	xin move mon
+PHASE 1906 Fall Adjustment
+POSITIONS
+	Turkey: supply ank
+	Turkey: supply egy
+	Turkey: supply sud
+	Turkey: supply xin
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army cau
+	Turkey: army xin
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army per
+	Turkey: army kon
+	Turkey: fleet wio
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply sev
+	Turkey: supply bag
+	Turkey: supply per
+	Turkey: supply gre
+	Italy: supply nap
+	Italy: supply rom
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mor
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cey
+	India: supply mad
+	India: supply del
+	India: supply cal
+	India: supply bom
+	India: fleet lev/sc
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army sid
+	India: army oma
+	India: fleet ara/sc
+	India: army bum
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply edi
+	Britain: supply ire
+	Britain: supply lie
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: fleet not
+	Britain: supply lon
+	France: supply mar
+	France: supply bre
+	France: supply par
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply spa
+	Austria: supply tes
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply bul
+	Austria: supply ser
+	Austria: supply sar
+	Austria: army tyo
+	Austria: army fez
+	Austria: army sah
+	Austria: army rum
+	Austria: army sar
+	Austria: fleet wms
+	Austria: fleet cyr
+	Austria: army gal
+	Austria: army bul
+	Austria: supply trp
+	Austria: supply swi
+	Austria: supply rum
+	Austria: supply bud
+	China: supply wuh
+	China: supply pek
+	China: supply tsi
+	China: supply cam
+	China: supply man
+	China: supply kor
+	China: supply bor
+	China: supply gua
+	China: supply vit
+	China: supply sig
+	China: supply mon
+	China: army mon
+	China: fleet ecs
+	China: fleet bor
+	China: army tha
+	China: fleet jvs
+	China: army vla
+	China: fleet kor
+	China: fleet scs
+	China: army cam
+	China: fleet for
+	China: army sib
+	China: army kag
+	China: army heb
+	China: army yun
+	China: supply sai
+	China: supply tha
+	China: supply sha
+	China: supply vla
+	China: supply for
+	Germany: supply nay
+	Germany: supply hol
+	Germany: supply mun
+	Germany: fleet den
+	Germany: army swe
+	Germany: fleet nao
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Japan: supply tok
+	Japan: army kyo
+	Japan: army osa
+	Japan: fleet soj
+	Japan: fleet spo
+	Japan: fleet jav
+	Japan: fleet phi
+	Japan: army kyo
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply jav
+	Japan: supply phi
+	Japan: supply kyo
+	Japan: supply sap
+	Russia: supply kar
+	Russia: supply war
+	Russia: army oms
+	Russia: army mos
+	Russia: fleet stp/sc
+	Russia: army war
+	Russia: supply oms
+	Russia: supply stp
+	Russia: supply mos
+ORDERS
+	build Army bud
+	build Army pek
+	build Army wuh
+	remove nao
+	remove kyo
+PHASE 1907 Spring Movement
+POSITIONS
+	Turkey: supply con
+	Turkey: supply bag
+	Turkey: supply ank
+	Turkey: supply egy
+	Turkey: supply sud
+	Turkey: supply mec
+	Turkey: supply gre
+	Turkey: fleet red
+	Turkey: army mac
+	Turkey: army xin
+	Turkey: army cau
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army per
+	Turkey: army kon
+	Turkey: fleet wio
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply per
+	Italy: supply mor
+	Italy: supply rom
+	Italy: supply nap
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cal
+	India: supply mad
+	India: supply cey
+	India: supply bom
+	India: supply del
+	India: fleet lev/sc
+	India: fleet ara/sc
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: army bum
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply ire
+	Britain: supply lon
+	Britain: supply lie
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: fleet not
+	Britain: supply edi
+	France: supply bre
+	France: supply spa
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply tes
+	Austria: supply ser
+	Austria: supply swi
+	Austria: supply trp
+	Austria: army gal
+	Austria: army fez
+	Austria: army sah
+	Austria: army rum
+	Austria: army sar
+	Austria: fleet wms
+	Austria: army bud
+	Austria: fleet cyr
+	Austria: army tyo
+	Austria: army bul
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply bul
+	China: supply tsi
+	China: supply sai
+	China: supply sig
+	China: supply man
+	China: supply gua
+	China: supply sha
+	China: supply vit
+	China: fleet jvs
+	China: fleet ecs
+	China: fleet bor
+	China: fleet kor
+	China: army tha
+	China: army mon
+	China: army vla
+	China: army pek
+	China: fleet scs
+	China: army wuh
+	China: army heb
+	China: fleet for
+	China: army sib
+	China: army kag
+	China: army cam
+	China: army yun
+	China: supply bor
+	China: supply kor
+	China: supply tha
+	China: supply mon
+	China: supply vla
+	China: supply pek
+	China: supply wuh
+	China: supply for
+	China: supply cam
+	Japan: supply kyo
+	Japan: supply tok
+	Japan: fleet phi
+	Japan: fleet soj
+	Japan: fleet spo
+	Japan: fleet jav
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply phi
+	Japan: supply jav
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply hol
+	Germany: supply mun
+	Germany: supply nay
+	Germany: fleet den
+	Germany: army swe
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply kar
+	Russia: army oms
+	Russia: army mos
+	Russia: fleet stp/sc
+	Russia: army war
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply stp
+	Russia: supply war
+ORDERS
+	mac move ser
+	kon move con
+	cau move sev
+	wio move bxg
+	red move goa
+	sev move rum
+	per support tur
+	bla support sev move rum
+	xin support oms move sib
+	tur support oms move sib
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	ara/sc hold
+	lev/sc hold
+	afg hold
+	bum hold
+	tib hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	bxe hold
+	sum hold
+	edi hold
+	not move eng
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	wms move mid
+	tyo move vnn
+	fez move sud
+	bul move con
+	sar move alb
+	sah move fez
+	cyr move egy
+	rum support gal
+	gal support rum
+	bud support rum
+	scs move phi
+	cam move lao
+	kor move soj
+	kag move kyo
+	bor move cel
+	pek move inn
+	wuh move qin
+	vla support sib
+	sib support mon
+	for support ecs
+	tha support cam move lao
+	jvs support bor move cel
+	mon support pek move inn
+	yun support wuh move qin
+	heb support wuh move qin
+	ecs support scs move phi
+	spo hold
+	jav hold
+	soj hold
+	phi hold
+	osa hold
+	sap hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	swe support den
+	war hold
+	stp/sc move fin
+	oms move sib
+	mos move stp
+PHASE 1907 Spring Retreat
+POSITIONS
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: supply gre
+	Turkey: supply egy
+	Turkey: supply bag
+	Turkey: supply sud
+	Turkey: supply ank
+	Turkey: army xin
+	Turkey: army per
+	Turkey: army ser
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army kon
+	Turkey: fleet goa
+	Turkey: army tur
+	Turkey: fleet bxg
+	Turkey: army cau
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply per
+	Italy: supply nap
+	Italy: supply rom
+	Italy: supply mor
+	Italy: army mil
+	Italy: army pie
+	Italy: fleet eth
+	Italy: army alg
+	Italy: fleet mog
+	Italy: fleet sao
+	Italy: army ven
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply del
+	India: supply cal
+	India: supply mad
+	India: supply cey
+	India: army sid
+	India: army afg
+	India: fleet ara/sc
+	India: fleet ade
+	India: army tib
+	India: fleet lev/sc
+	India: army kas
+	India: army oma
+	India: army bum
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply tes
+	Austria: supply swi
+	Austria: supply trp
+	Austria: supply ser
+	Austria: army gal
+	Austria: army rum
+	Austria: fleet egy
+	Austria: fleet mid
+	Austria: army alb
+	Austria: army sud
+	Austria: army fez
+	Austria: army vnn
+	Austria: army bud
+	Austria: army bul
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply bul
+	France: supply bre
+	France: supply spa
+	France: fleet and
+	France: army por
+	France: army par
+	France: fleet iri
+	France: army mar
+	France: supply por
+	France: supply par
+	France: supply mar
+	Britain: supply ire
+	Britain: supply lie
+	Britain: supply lon
+	Britain: fleet sum
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: supply edi
+	China: supply sai
+	China: supply gua
+	China: supply vit
+	China: supply man
+	China: supply sig
+	China: supply sha
+	China: supply tsi
+	China: fleet for
+	China: army heb
+	China: army lao
+	China: fleet jvs
+	China: fleet cel
+	China: army kyo
+	China: army vla
+	China: fleet kor
+	China: army mon
+	China: army tha
+	China: fleet phi
+	China: army yun
+	China: fleet ecs
+	China: army inn
+	China: army qin
+	China: army/dislodged sib
+	China: supply bor
+	China: supply kor
+	China: supply tha
+	China: supply mon
+	China: supply vla
+	China: supply pek
+	China: supply wuh
+	China: supply for
+	China: supply cam
+	Japan: supply tok
+	Japan: supply kyo
+	Japan: fleet spo
+	Japan: fleet soj
+	Japan: fleet jav
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply phi
+	Japan: supply jav
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply hol
+	Germany: supply mun
+	Germany: supply nay
+	Germany: army pru
+	Germany: army sax
+	Germany: army bel
+	Germany: fleet kie
+	Germany: army ber
+	Germany: army lia
+	Germany: army col
+	Germany: fleet den
+	Germany: army swe
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply kar
+	Russia: army war
+	Russia: fleet fin
+	Russia: army sib
+	Russia: army stp
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply stp
+	Russia: supply war
+ORDERS
+	sib move man
+	phi disband
+PHASE 1907 Fall Movement
+POSITIONS
+	Turkey: supply sud
+	Turkey: supply con
+	Turkey: supply egy
+	Turkey: supply ank
+	Turkey: supply mec
+	Turkey: supply gre
+	Turkey: supply bag
+	Turkey: army xin
+	Turkey: army cau
+	Turkey: fleet bxg
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army ser
+	Turkey: fleet goa
+	Turkey: army per
+	Turkey: army tur
+	Turkey: army kon
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply per
+	Italy: supply rom
+	Italy: supply mor
+	Italy: supply nap
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply mad
+	India: supply del
+	India: supply bom
+	India: supply cal
+	India: supply cey
+	India: fleet lev/sc
+	India: fleet ara/sc
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: army bum
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply lon
+	Britain: supply lie
+	Britain: supply ire
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply bre
+	France: supply spa
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply vnn
+	Austria: supply alb
+	Austria: supply trp
+	Austria: supply ser
+	Austria: supply swi
+	Austria: supply tes
+	Austria: fleet mid
+	Austria: army fez
+	Austria: army sud
+	Austria: army alb
+	Austria: army rum
+	Austria: fleet egy
+	Austria: army bud
+	Austria: army gal
+	Austria: army vnn
+	Austria: army bul
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply bul
+	China: supply tsi
+	China: supply sha
+	China: supply vit
+	China: supply gua
+	China: supply man
+	China: supply sai
+	China: supply sig
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet phi
+	China: fleet kor
+	China: fleet jvs
+	China: army vla
+	China: army lao
+	China: fleet cel
+	China: army inn
+	China: army man
+	China: fleet for
+	China: army tha
+	China: army kyo
+	China: army heb
+	China: army yun
+	China: supply bor
+	China: supply kor
+	China: supply tha
+	China: supply mon
+	China: supply vla
+	China: supply pek
+	China: supply wuh
+	China: supply for
+	China: supply cam
+	Japan: supply kyo
+	Japan: supply tok
+	Japan: fleet spo
+	Japan: army osa
+	Japan: fleet soj
+	Japan: fleet jav
+	Japan: fleet sap
+	Japan: supply phi
+	Japan: supply jav
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply nay
+	Germany: fleet den
+	Germany: army swe
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply kar
+	Russia: army sib
+	Russia: fleet fin
+	Russia: army stp
+	Russia: army war
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply stp
+	Russia: supply war
+ORDERS
+	ser move sar
+	xin move mon
+	kon move con
+	cau move sev
+	bxg move bxf
+	goa move wio
+	sev move rum
+	per support tur
+	tur support xin
+	bla support sev move rum
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	ara/sc hold
+	lev/sc hold
+	afg hold
+	bum hold
+	tib hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	eng hold
+	bxe hold
+	sum hold
+	edi hold
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	sud hold
+	mid move nao
+	vnn move tes
+	bul move con
+	alb move gre
+	fez move trp
+	egy move red
+	bud move ser
+	gal support rum
+	rum support bud move ser
+	tha hold
+	kyo hold
+	jvs move jav
+	lao move yun
+	yun move qin
+	kor move soj
+	qin move xin
+	vla support man
+	phi support ecs
+	man support mon
+	for support ecs
+	heb support qin
+	mon support qin move xin
+	cel support jvs move jav
+	ecs support kor move soj
+	inn support qin move xin
+	spo hold
+	jav hold
+	soj hold
+	osa hold
+	sap hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	swe support den
+	fin hold
+	sib move kam
+	stp move oms
+	war move mos
+PHASE 1907 Fall Retreat
+POSITIONS
+	Turkey: supply gre
+	Turkey: supply bag
+	Turkey: supply mec
+	Turkey: supply sud
+	Turkey: supply ank
+	Turkey: supply con
+	Turkey: supply egy
+	Turkey: army per
+	Turkey: fleet wio
+	Turkey: army cau
+	Turkey: fleet bxf
+	Turkey: army sar
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army kon
+	Turkey: army sev
+	Turkey: army/dislodged xin
+	Turkey: supply xin
+	Turkey: supply sev
+	Turkey: supply per
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply mor
+	Italy: army pie
+	Italy: army mil
+	Italy: fleet sao
+	Italy: army ven
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: army alg
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cal
+	India: supply mad
+	India: supply del
+	India: supply cey
+	India: supply bom
+	India: army kas
+	India: army tib
+	India: fleet lev/sc
+	India: fleet ara/sc
+	India: fleet ade
+	India: army bum
+	India: army oma
+	India: army afg
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Austria: supply vnn
+	Austria: supply ser
+	Austria: supply alb
+	Austria: supply tes
+	Austria: supply trp
+	Austria: supply swi
+	Austria: army ser
+	Austria: army tes
+	Austria: fleet nao
+	Austria: army rum
+	Austria: army gal
+	Austria: army sud
+	Austria: army trp
+	Austria: army bul
+	Austria: army gre
+	Austria: fleet red
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bud
+	Austria: supply bul
+	France: supply spa
+	France: supply bre
+	France: army por
+	France: fleet and
+	France: army par
+	France: fleet iri
+	France: army mar
+	France: supply por
+	France: supply par
+	France: supply mar
+	Britain: supply lie
+	Britain: supply lon
+	Britain: supply ire
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet eng
+	Britain: fleet sum
+	Britain: supply edi
+	China: supply sig
+	China: supply sai
+	China: supply sha
+	China: supply tsi
+	China: supply vit
+	China: supply gua
+	China: supply man
+	China: fleet cel
+	China: fleet ecs
+	China: army kyo
+	China: fleet jav
+	China: fleet soj
+	China: army mon
+	China: army qin
+	China: army inn
+	China: army vla
+	China: army tha
+	China: fleet phi
+	China: army yun
+	China: army heb
+	China: army xin
+	China: fleet for
+	China: army man
+	China: supply bor
+	China: supply kor
+	China: supply tha
+	China: supply mon
+	China: supply vla
+	China: supply pek
+	China: supply wuh
+	China: supply for
+	China: supply cam
+	Japan: supply kyo
+	Japan: supply tok
+	Japan: army osa
+	Japan: fleet spo
+	Japan: fleet sap
+	Japan: fleet/dislodged jav
+	Japan: fleet/dislodged soj
+	Japan: supply phi
+	Japan: supply jav
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply nay
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army sax
+	Germany: army bel
+	Germany: army swe
+	Germany: fleet den
+	Germany: army col
+	Germany: army pru
+	Germany: army ber
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply kar
+	Russia: fleet fin
+	Russia: army oms
+	Russia: army kam
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply stp
+	Russia: supply war
+ORDERS
+	xin move sib
+	jav disband
+	soj disband
+PHASE 1907 Fall Adjustment
+POSITIONS
+	Turkey: supply bag
+	Turkey: supply sar
+	Turkey: supply ank
+	Turkey: supply con
+	Turkey: supply mec
+	Turkey: supply egy
+	Turkey: army sib
+	Turkey: army cau
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army sar
+	Turkey: army tur
+	Turkey: army per
+	Turkey: fleet bxf
+	Turkey: army kon
+	Turkey: fleet wio
+	Turkey: supply sev
+	Turkey: supply per
+	Italy: supply nap
+	Italy: supply mor
+	Italy: supply rom
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply mad
+	India: supply bom
+	India: supply del
+	India: supply cey
+	India: supply cal
+	India: fleet lev/sc
+	India: fleet ara/sc
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: army bum
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply lon
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply spa
+	France: supply bre
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply tes
+	Austria: supply ser
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply trp
+	Austria: supply sud
+	Austria: supply swi
+	Austria: supply gre
+	Austria: fleet red
+	Austria: army tes
+	Austria: army trp
+	Austria: army sud
+	Austria: army ser
+	Austria: army rum
+	Austria: fleet nao
+	Austria: army gal
+	Austria: army bul
+	Austria: army gre
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply bul
+	China: supply gua
+	China: supply vit
+	China: supply sig
+	China: supply sai
+	China: supply xin
+	China: supply kyo
+	China: supply sha
+	China: supply phi
+	China: supply jav
+	China: supply man
+	China: supply tsi
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet phi
+	China: fleet soj
+	China: army tha
+	China: army vla
+	China: fleet cel
+	China: army inn
+	China: army man
+	China: fleet jav
+	China: army xin
+	China: fleet for
+	China: army kyo
+	China: army heb
+	China: army yun
+	China: supply bor
+	China: supply kor
+	China: supply tha
+	China: supply mon
+	China: supply vla
+	China: supply pek
+	China: supply wuh
+	China: supply for
+	China: supply cam
+	Japan: supply tok
+	Japan: fleet spo
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply hol
+	Germany: supply mun
+	Germany: supply nay
+	Germany: fleet den
+	Germany: army swe
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply kar
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army kam
+	Russia: supply oms
+	Russia: supply mos
+	Russia: supply stp
+	Russia: supply war
+ORDERS
+	remove cau
+	remove sib
+	build Army bud
+	build Army wuh
+	build Army pek
+	build Fleet gua
+	build Fleet sha
+PHASE 1908 Spring Movement
+POSITIONS
+	Turkey: supply egy
+	Turkey: supply ank
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: supply bag
+	Turkey: fleet bxf
+	Turkey: fleet bla
+	Turkey: army sar
+	Turkey: army tur
+	Turkey: army per
+	Turkey: army sev
+	Turkey: army kon
+	Turkey: fleet wio
+	Turkey: supply sar
+	Turkey: supply per
+	Turkey: supply sev
+	Italy: supply rom
+	Italy: supply mor
+	Italy: supply nap
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cey
+	India: supply del
+	India: supply cal
+	India: supply bom
+	India: supply mad
+	India: fleet lev/sc
+	India: fleet ara/sc
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: army bum
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply ire
+	Britain: supply lie
+	Britain: supply lon
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply spa
+	France: supply bre
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: fleet red
+	Austria: army tes
+	Austria: army trp
+	Austria: army sud
+	Austria: army ser
+	Austria: army rum
+	Austria: fleet nao
+	Austria: army bud
+	Austria: army gal
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply trp
+	Austria: supply sud
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply bul
+	Austria: supply gre
+	China: supply bor
+	China: supply vit
+	China: supply kor
+	China: supply cam
+	China: supply sig
+	China: supply tsi
+	China: supply sai
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet gua
+	China: fleet soj
+	China: army tha
+	China: fleet sha
+	China: army vla
+	China: fleet cel
+	China: army inn
+	China: army man
+	China: army wuh
+	China: fleet jav
+	China: army xin
+	China: fleet for
+	China: fleet phi
+	China: army pek
+	China: army kyo
+	China: army heb
+	China: army yun
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply sha
+	China: supply vla
+	China: supply man
+	China: supply wuh
+	China: supply jav
+	China: supply xin
+	China: supply for
+	China: supply phi
+	China: supply pek
+	China: supply kyo
+	Japan: supply tok
+	Japan: fleet spo
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply nay
+	Germany: fleet den
+	Germany: army swe
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply war
+	Russia: supply stp
+	Russia: supply kar
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army kam
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	bla hold
+	sar hold
+	per hold
+	tur hold
+	kon hold
+	bxf hold
+	wio hold
+	sev hold
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	ara/sc hold
+	lev/sc hold
+	afg hold
+	bum hold
+	tib hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	eng hold
+	bxe hold
+	sum hold
+	edi hold
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	nao hold
+	tes hold
+	sud hold
+	bul hold
+	gre hold
+	rum hold
+	trp hold
+	gal hold
+	red hold
+	ser hold
+	bud hold
+	tha hold
+	man move sib
+	yun move lao
+	soj move kar
+	kyo move tok
+	cel move tim
+	heb move kag
+	gua move scs
+	wuh move yun
+	pek move man
+	phi support ecs
+	for support ecs
+	qin support xin
+	inn support xin
+	sha support ecs
+	vla support man move sib
+	jav support cel move tim
+	mon support man move sib
+	xin support man move sib
+	ecs convoy heb move kag
+	spo hold
+	osa hold
+	sap hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	swe support den
+	fin hold
+	kam hold
+	oms hold
+	mos hold
+PHASE 1908 Fall Movement
+POSITIONS
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: supply egy
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: fleet bxf
+	Turkey: fleet bla
+	Turkey: army sar
+	Turkey: army tur
+	Turkey: army per
+	Turkey: army sev
+	Turkey: army kon
+	Turkey: fleet wio
+	Turkey: supply sar
+	Turkey: supply per
+	Turkey: supply sev
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply mor
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply mad
+	India: supply cal
+	India: supply bom
+	India: supply cey
+	India: supply del
+	India: fleet lev/sc
+	India: fleet ara/sc
+	India: army tib
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: army bum
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Britain: supply lie
+	Britain: supply ire
+	Britain: supply lon
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply spa
+	France: supply bre
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply vnn
+	Austria: supply alb
+	Austria: supply swi
+	Austria: fleet red
+	Austria: fleet nao
+	Austria: army trp
+	Austria: army sud
+	Austria: army ser
+	Austria: army rum
+	Austria: army tes
+	Austria: army bud
+	Austria: army gal
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply trp
+	Austria: supply sud
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply bul
+	Austria: supply gre
+	China: supply sig
+	China: supply sai
+	China: supply vit
+	China: supply bor
+	China: supply cam
+	China: supply tsi
+	China: supply kor
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet phi
+	China: army tok
+	China: army tha
+	China: fleet sha
+	China: army vla
+	China: army xin
+	China: army lao
+	China: army inn
+	China: army man
+	China: fleet scs
+	China: fleet jav
+	China: fleet tim
+	China: fleet for
+	China: army sib
+	China: army kag
+	China: fleet kar
+	China: army yun
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply sha
+	China: supply vla
+	China: supply man
+	China: supply wuh
+	China: supply jav
+	China: supply xin
+	China: supply for
+	China: supply phi
+	China: supply pek
+	China: supply kyo
+	Japan: supply tok
+	Japan: fleet spo
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply nay
+	Germany: army swe
+	Germany: fleet den
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply stp
+	Russia: supply war
+	Russia: supply kar
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army kam
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	bxf hold
+	sar move alb
+	kon move con
+	wio move mad
+	sev move rum
+	per support tur
+	tur support per
+	bla support kon move con
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	ara/sc hold
+	lev/sc hold
+	afg hold
+	bum hold
+	tib hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	eng hold
+	bxe hold
+	sum hold
+	edi hold
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	nao move bxa
+	sud move egy
+	bul move con
+	gre move alb
+	trp move tun
+	gal move ukr
+	red move mec
+	bud move sar
+	rum support ser
+	ser support rum
+	tes support bud move sar
+	kar hold
+	tok hold
+	tim hold
+	kag hold
+	for move scs
+	lao move bum
+	ecs move spo
+	scs move guh
+	sha move ecs
+	yun move tib
+	vla support sib
+	sib support vla
+	jav support tim
+	mon support sib
+	inn support xin
+	man support sib
+	phi support ecs move spo
+	tha support lao move bum
+	qin support yun move tib
+	xin support yun move tib
+	spo hold
+	osa hold
+	sap hold
+	swe hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	fin hold
+	kam hold
+	oms hold
+	mos hold
+PHASE 1908 Fall Retreat
+POSITIONS
+	Turkey: supply mec
+	Turkey: supply con
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: supply egy
+	Turkey: army tur
+	Turkey: fleet mad
+	Turkey: fleet bxf
+	Turkey: army con
+	Turkey: army per
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: supply sar
+	Turkey: supply per
+	Turkey: supply sev
+	Italy: supply nap
+	Italy: supply mor
+	Italy: supply rom
+	Italy: army alg
+	Italy: army ven
+	Italy: fleet eth
+	Italy: army mil
+	Italy: fleet sao
+	Italy: fleet mog
+	Italy: army pie
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cey
+	India: supply mad
+	India: supply cal
+	India: supply del
+	India: supply bom
+	India: army kas
+	India: fleet lev/sc
+	India: army sid
+	India: army afg
+	India: fleet ade
+	India: fleet ara/sc
+	India: army oma
+	India: army/dislodged bum
+	India: army/dislodged tib
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	India: supply bum
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: supply alb
+	Austria: army tun
+	Austria: fleet mec
+	Austria: army rum
+	Austria: army ukr
+	Austria: army gre
+	Austria: army bul
+	Austria: army ser
+	Austria: army egy
+	Austria: fleet bxa
+	Austria: army sar
+	Austria: army tes
+	Austria: supply tes
+	Austria: supply trp
+	Austria: supply sud
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply bul
+	Austria: supply gre
+	France: supply bre
+	France: supply spa
+	France: fleet iri
+	France: fleet and
+	France: army mar
+	France: army par
+	France: army por
+	France: supply por
+	France: supply par
+	France: supply mar
+	Britain: supply lon
+	Britain: supply ire
+	Britain: supply lie
+	Britain: fleet eng
+	Britain: fleet sum
+	Britain: army edi
+	Britain: fleet bxe
+	Britain: supply edi
+	China: supply sig
+	China: supply kor
+	China: supply cam
+	China: supply sai
+	China: supply tsi
+	China: supply vit
+	China: supply bor
+	China: fleet phi
+	China: army bum
+	China: army inn
+	China: fleet kar
+	China: army sib
+	China: fleet ecs
+	China: fleet spo
+	China: army xin
+	China: army tib
+	China: army tha
+	China: army vla
+	China: army kag
+	China: fleet tim
+	China: fleet jav
+	China: army qin
+	China: army mon
+	China: fleet guh
+	China: army man
+	China: fleet scs
+	China: army tok
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply sha
+	China: supply vla
+	China: supply man
+	China: supply wuh
+	China: supply jav
+	China: supply xin
+	China: supply for
+	China: supply phi
+	China: supply pek
+	China: supply kyo
+	Japan: supply tok
+	Japan: army osa
+	Japan: fleet sap
+	Japan: fleet/dislodged spo
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply nay
+	Germany: supply hol
+	Germany: fleet den
+	Germany: army lia
+	Germany: army ber
+	Germany: fleet kie
+	Germany: army pru
+	Germany: army bel
+	Germany: army col
+	Germany: army swe
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply kar
+	Russia: supply war
+	Russia: supply stp
+	Russia: army kam
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	sar disband
+	tib disband
+	bum disband
+	spo disband
+PHASE 1908 Fall Adjustment
+POSITIONS
+	Turkey: supply con
+	Turkey: supply ank
+	Turkey: supply mad
+	Turkey: supply bag
+	Turkey: fleet bxf
+	Turkey: fleet bxf
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army con
+	Turkey: army per
+	Turkey: army sev
+	Turkey: fleet mad
+	Turkey: supply per
+	Turkey: supply sev
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply mor
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cey
+	India: supply bom
+	India: supply del
+	India: supply cal
+	India: fleet lev/sc
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: fleet ara/sc
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	Austria: supply mec
+	Austria: supply swi
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply egy
+	Austria: supply sar
+	Austria: army tes
+	Austria: army egy
+	Austria: fleet mec
+	Austria: army ser
+	Austria: army tun
+	Austria: army rum
+	Austria: army sar
+	Austria: fleet bxa
+	Austria: army ukr
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply trp
+	Austria: supply sud
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply bud
+	Austria: supply bul
+	Austria: supply gre
+	France: supply bre
+	France: supply spa
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Britain: supply lon
+	Britain: supply ire
+	Britain: supply lie
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	China: supply cam
+	China: supply sai
+	China: supply kor
+	China: supply tsi
+	China: supply kar
+	China: supply sig
+	China: supply vit
+	China: supply bor
+	China: supply tok
+	China: supply bum
+	China: army mon
+	China: fleet ecs
+	China: army qin
+	China: fleet phi
+	China: army tok
+	China: army tib
+	China: army vla
+	China: army xin
+	China: fleet kar
+	China: fleet guh
+	China: army inn
+	China: army man
+	China: fleet scs
+	China: fleet spo
+	China: fleet jav
+	China: fleet tim
+	China: army tha
+	China: army sib
+	China: army kag
+	China: army bum
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply sha
+	China: supply vla
+	China: supply man
+	China: supply wuh
+	China: supply jav
+	China: supply xin
+	China: supply for
+	China: supply phi
+	China: supply pek
+	China: supply kyo
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply nay
+	Germany: supply mun
+	Germany: supply hol
+	Germany: army swe
+	Germany: fleet den
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply den
+	Germany: supply swe
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply war
+	Russia: supply stp
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army kam
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	remove bxf
+	build Army wuh
+	build Army pek
+	build Fleet gua
+PHASE 1909 Spring Movement
+POSITIONS
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army con
+	Turkey: army per
+	Turkey: fleet mad
+	Turkey: supply sev
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply mad
+	Italy: supply nap
+	Italy: supply rom
+	Italy: supply mor
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply cal
+	India: supply del
+	India: supply cey
+	India: fleet lev/sc
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: fleet ara/sc
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	Britain: supply lon
+	Britain: supply ire
+	Britain: supply lie
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply bre
+	France: supply spa
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply sud
+	Austria: supply vnn
+	Austria: supply alb
+	Austria: supply bud
+	Austria: supply trp
+	Austria: supply swi
+	Austria: army tes
+	Austria: army egy
+	Austria: fleet mec
+	Austria: army ser
+	Austria: fleet bxa
+	Austria: army rum
+	Austria: army sar
+	Austria: army tun
+	Austria: army ukr
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply egy
+	Austria: supply mec
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bul
+	Austria: supply gre
+	China: supply cam
+	China: supply kyo
+	China: supply bor
+	China: supply tsi
+	China: supply sai
+	China: supply sig
+	China: supply kor
+	China: supply for
+	China: supply vit
+	China: supply sha
+	China: fleet phi
+	China: army tok
+	China: army tib
+	China: army inn
+	China: army pek
+	China: army sib
+	China: army xin
+	China: army vla
+	China: army bum
+	China: army mon
+	China: fleet ecs
+	China: fleet gua
+	China: army tha
+	China: fleet guh
+	China: fleet scs
+	China: fleet jav
+	China: fleet kar
+	China: army qin
+	China: army man
+	China: fleet spo
+	China: army wuh
+	China: fleet tim
+	China: army kag
+	China: supply phi
+	China: supply tok
+	China: supply pek
+	China: supply xin
+	China: supply vla
+	China: supply bum
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply jav
+	China: supply kar
+	China: supply man
+	China: supply wuh
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply hol
+	Germany: supply nay
+	Germany: supply mun
+	Germany: army swe
+	Germany: fleet den
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply swe
+	Germany: supply den
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply war
+	Russia: supply stp
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army kam
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	bla hold
+	per hold
+	tur hold
+	con hold
+	mad hold
+	sev hold
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	ara/sc hold
+	lev/sc hold
+	afg hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	eng hold
+	bxe hold
+	sum hold
+	edi hold
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	bxa hold
+	tes hold
+	egy hold
+	bul hold
+	gre hold
+	rum hold
+	tun hold
+	ukr hold
+	mec hold
+	ser hold
+	sar hold
+	vla hold
+	phi hold
+	tha hold
+	sib hold
+	jav hold
+	scs hold
+	mon hold
+	bum hold
+	qin hold
+	kar hold
+	tok hold
+	tim hold
+	kag hold
+	spo hold
+	inn hold
+	xin hold
+	guh hold
+	ecs hold
+	tib hold
+	man hold
+	wuh hold
+	pek hold
+	gua hold
+	osa hold
+	sap hold
+	swe hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	fin hold
+	kam hold
+	oms hold
+	mos hold
+PHASE 1909 Fall Movement
+POSITIONS
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army con
+	Turkey: army per
+	Turkey: fleet mad
+	Turkey: supply sev
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply mad
+	Italy: supply nap
+	Italy: supply mor
+	Italy: supply rom
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cey
+	India: supply del
+	India: supply cal
+	India: supply bom
+	India: fleet lev/sc
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: fleet ara/sc
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	Britain: supply ire
+	Britain: supply lie
+	Britain: supply lon
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply bre
+	France: supply spa
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply alb
+	Austria: supply vnn
+	Austria: supply bud
+	Austria: supply sud
+	Austria: supply swi
+	Austria: supply trp
+	Austria: army tes
+	Austria: army egy
+	Austria: fleet mec
+	Austria: army ser
+	Austria: fleet bxa
+	Austria: army rum
+	Austria: army sar
+	Austria: army tun
+	Austria: army ukr
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply egy
+	Austria: supply mec
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bul
+	Austria: supply gre
+	China: supply sai
+	China: supply kor
+	China: supply sig
+	China: supply sha
+	China: supply tsi
+	China: supply kyo
+	China: supply cam
+	China: supply bor
+	China: supply vit
+	China: supply for
+	China: fleet phi
+	China: army tok
+	China: army tib
+	China: army inn
+	China: army pek
+	China: army sib
+	China: army xin
+	China: army vla
+	China: army bum
+	China: army mon
+	China: fleet ecs
+	China: fleet gua
+	China: army tha
+	China: fleet guh
+	China: fleet scs
+	China: fleet jav
+	China: fleet kar
+	China: army qin
+	China: army man
+	China: fleet spo
+	China: army wuh
+	China: fleet tim
+	China: army kag
+	China: supply phi
+	China: supply tok
+	China: supply pek
+	China: supply xin
+	China: supply vla
+	China: supply bum
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply jav
+	China: supply kar
+	China: supply man
+	China: supply wuh
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply nay
+	Germany: supply mun
+	Germany: supply hol
+	Germany: army swe
+	Germany: fleet den
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply swe
+	Germany: supply den
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply stp
+	Russia: supply war
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: army kam
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	bla hold
+	per hold
+	tur hold
+	con hold
+	mad hold
+	sev hold
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	ara/sc hold
+	lev/sc hold
+	afg hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	eng hold
+	bxe hold
+	sum hold
+	edi hold
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	bxa hold
+	tes hold
+	egy hold
+	bul hold
+	gre hold
+	rum hold
+	tun hold
+	ukr hold
+	mec hold
+	ser hold
+	sar hold
+	tok hold
+	vla move kam
+	phi move cel
+	tha move bum
+	jav move eio
+	scs move guh
+	mon move sib
+	bum move cal
+	qin move tib
+	kar move sak
+	tim move bxf
+	kag move kyo
+	spo move npo
+	guh move jvs
+	ecs move soj
+	tib move del
+	man move vla
+	wuh move yun
+	pek move qin
+	gua move scs
+	inn support xin
+	xin support sib
+	sib support vla move kam
+	osa hold
+	sap hold
+	swe hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	fin hold
+	kam hold
+	oms hold
+	mos hold
+PHASE 1909 Fall Retreat
+POSITIONS
+	Turkey: supply ank
+	Turkey: supply bag
+	Turkey: army tur
+	Turkey: army con
+	Turkey: fleet mad
+	Turkey: army sev
+	Turkey: army per
+	Turkey: fleet bla
+	Turkey: supply sev
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply mad
+	Italy: supply nap
+	Italy: supply mor
+	Italy: supply rom
+	Italy: fleet sao
+	Italy: army pie
+	Italy: army alg
+	Italy: army ven
+	Italy: army mil
+	Italy: fleet eth
+	Italy: fleet mog
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply cey
+	India: supply cal
+	India: supply bom
+	India: supply del
+	India: army oma
+	India: fleet lev/sc
+	India: fleet ade
+	India: army kas
+	India: army afg
+	India: army sid
+	India: fleet ara/sc
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	Austria: supply sud
+	Austria: supply trp
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: supply alb
+	Austria: supply bud
+	Austria: army bul
+	Austria: fleet bxa
+	Austria: army tun
+	Austria: army egy
+	Austria: fleet mec
+	Austria: army ukr
+	Austria: army sar
+	Austria: army ser
+	Austria: army rum
+	Austria: army gre
+	Austria: army tes
+	Austria: supply tes
+	Austria: supply egy
+	Austria: supply mec
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bul
+	Austria: supply gre
+	France: supply spa
+	France: supply bre
+	France: fleet iri
+	France: army mar
+	France: fleet and
+	France: army por
+	France: army par
+	France: supply por
+	France: supply par
+	France: supply mar
+	Britain: supply ire
+	Britain: supply lie
+	Britain: supply lon
+	Britain: fleet eng
+	Britain: fleet sum
+	Britain: army edi
+	Britain: fleet bxe
+	Britain: supply edi
+	China: supply sai
+	China: supply vit
+	China: supply kyo
+	China: supply cam
+	China: supply kor
+	China: supply bor
+	China: supply sha
+	China: supply tsi
+	China: supply for
+	China: supply sig
+	China: fleet cel
+	China: army qin
+	China: fleet npo
+	China: fleet eio
+	China: army tib
+	China: army bum
+	China: army mon
+	China: army vla
+	China: army xin
+	China: army inn
+	China: army kyo
+	China: army yun
+	China: army del
+	China: fleet guh
+	China: fleet bxf
+	China: army tok
+	China: fleet soj
+	China: army sib
+	China: fleet scs
+	China: army cal
+	China: fleet jvs
+	China: army kam
+	China: fleet sak
+	China: supply phi
+	China: supply tok
+	China: supply pek
+	China: supply xin
+	China: supply vla
+	China: supply bum
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply jav
+	China: supply kar
+	China: supply man
+	China: supply wuh
+	Japan: fleet sap
+	Japan: army osa
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply nay
+	Germany: army sax
+	Germany: army pru
+	Germany: army bel
+	Germany: fleet den
+	Germany: army ber
+	Germany: army lia
+	Germany: army swe
+	Germany: army col
+	Germany: fleet kie
+	Germany: supply swe
+	Germany: supply den
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply stp
+	Russia: supply war
+	Russia: army mos
+	Russia: fleet fin
+	Russia: army oms
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	kam disband
+PHASE 1909 Fall Adjustment
+POSITIONS
+	Turkey: supply bag
+	Turkey: supply ank
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army con
+	Turkey: army per
+	Turkey: fleet mad
+	Turkey: supply sev
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply mad
+	Italy: supply mor
+	Italy: supply rom
+	Italy: supply nap
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply cey
+	India: fleet lev/sc
+	India: army kas
+	India: fleet ade
+	India: army afg
+	India: army oma
+	India: fleet ara/sc
+	India: army sid
+	India: supply ade
+	India: supply afg
+	India: supply oma
+	Austria: supply bud
+	Austria: supply sud
+	Austria: supply trp
+	Austria: supply swi
+	Austria: supply vnn
+	Austria: supply alb
+	Austria: army tes
+	Austria: army egy
+	Austria: fleet mec
+	Austria: army ser
+	Austria: fleet bxa
+	Austria: army rum
+	Austria: army sar
+	Austria: army tun
+	Austria: army ukr
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply egy
+	Austria: supply mec
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bul
+	Austria: supply gre
+	France: supply bre
+	France: supply spa
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Britain: supply lon
+	Britain: supply lie
+	Britain: supply ire
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	China: supply kor
+	China: supply vit
+	China: supply cam
+	China: supply for
+	China: supply kyo
+	China: supply sai
+	China: supply bor
+	China: supply del
+	China: supply sha
+	China: supply cal
+	China: supply sig
+	China: supply tsi
+	China: army tok
+	China: army tib
+	China: fleet bxf
+	China: fleet cel
+	China: army inn
+	China: army sib
+	China: army kyo
+	China: army yun
+	China: army xin
+	China: army vla
+	China: army del
+	China: fleet npo
+	China: army bum
+	China: fleet eio
+	China: army mon
+	China: fleet sak
+	China: fleet guh
+	China: fleet scs
+	China: army qin
+	China: fleet soj
+	China: fleet jvs
+	China: army kam
+	China: army cal
+	China: supply phi
+	China: supply tok
+	China: supply pek
+	China: supply xin
+	China: supply vla
+	China: supply bum
+	China: supply mon
+	China: supply gua
+	China: supply tha
+	China: supply jav
+	China: supply kar
+	China: supply man
+	China: supply wuh
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply hol
+	Germany: supply nay
+	Germany: army swe
+	Germany: fleet den
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply swe
+	Germany: supply den
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply war
+	Russia: supply stp
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	remove ara/sc
+	remove lev/sc
+	build Army wuh
+	build Army pek
+PHASE 1910 Spring Movement
+POSITIONS
+	Turkey: supply bag
+	Turkey: supply ank
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army con
+	Turkey: army per
+	Turkey: fleet mad
+	Turkey: supply sev
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply mad
+	Italy: supply rom
+	Italy: supply nap
+	Italy: supply mor
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply cey
+	India: army kas
+	India: army oma
+	India: army sid
+	India: fleet ade
+	India: army afg
+	India: supply oma
+	India: supply ade
+	India: supply afg
+	Britain: supply lon
+	Britain: supply ire
+	Britain: supply lie
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply bre
+	France: supply spa
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply alb
+	Austria: supply swi
+	Austria: supply sud
+	Austria: supply trp
+	Austria: supply bud
+	Austria: supply vnn
+	Austria: army tes
+	Austria: army egy
+	Austria: fleet mec
+	Austria: army ser
+	Austria: fleet bxa
+	Austria: army rum
+	Austria: army sar
+	Austria: army tun
+	Austria: army ukr
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply egy
+	Austria: supply mec
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bul
+	Austria: supply gre
+	China: supply kar
+	China: supply sai
+	China: supply sig
+	China: supply man
+	China: supply kor
+	China: supply vit
+	China: supply cam
+	China: supply tsi
+	China: supply tha
+	China: supply gua
+	China: supply bor
+	China: supply jav
+	China: supply for
+	China: supply phi
+	China: supply sha
+	China: army tok
+	China: army tib
+	China: fleet bxf
+	China: fleet cel
+	China: army inn
+	China: army pek
+	China: army sib
+	China: army kyo
+	China: army yun
+	China: army xin
+	China: army vla
+	China: army del
+	China: fleet npo
+	China: army bum
+	China: fleet eio
+	China: army mon
+	China: fleet sak
+	China: fleet guh
+	China: fleet scs
+	China: army qin
+	China: fleet soj
+	China: fleet jvs
+	China: army wuh
+	China: army kam
+	China: army cal
+	China: supply tok
+	China: supply pek
+	China: supply kyo
+	China: supply xin
+	China: supply vla
+	China: supply del
+	China: supply bum
+	China: supply mon
+	China: supply wuh
+	China: supply cal
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply nay
+	Germany: supply hol
+	Germany: supply mun
+	Germany: army swe
+	Germany: fleet den
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply swe
+	Germany: supply den
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply stp
+	Russia: supply war
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	bla hold
+	per hold
+	tur hold
+	con hold
+	mad hold
+	sev hold
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	afg hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	eng hold
+	bxe hold
+	sum hold
+	edi hold
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	bxa hold
+	tes hold
+	egy hold
+	bul hold
+	gre hold
+	rum hold
+	tun hold
+	ukr hold
+	mec hold
+	ser hold
+	sar hold
+	kam hold
+	cel hold
+	bum hold
+	sib hold
+	eio hold
+	guh hold
+	mon hold
+	cal hold
+	tib hold
+	sak hold
+	tok hold
+	bxf hold
+	kyo hold
+	npo hold
+	inn hold
+	xin hold
+	jvs hold
+	soj hold
+	del hold
+	vla hold
+	yun hold
+	qin hold
+	scs hold
+	wuh hold
+	pek hold
+	osa hold
+	sap hold
+	swe hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	fin hold
+	oms hold
+	mos hold
+PHASE 1910 Fall Movement
+POSITIONS
+	Turkey: supply bag
+	Turkey: supply ank
+	Turkey: army sev
+	Turkey: fleet bla
+	Turkey: army tur
+	Turkey: army con
+	Turkey: army per
+	Turkey: fleet mad
+	Turkey: supply sev
+	Turkey: supply con
+	Turkey: supply per
+	Turkey: supply mad
+	Italy: supply nap
+	Italy: supply rom
+	Italy: supply mor
+	Italy: army ven
+	Italy: fleet sao
+	Italy: army mil
+	Italy: army alg
+	Italy: army pie
+	Italy: fleet mog
+	Italy: fleet eth
+	Italy: supply mil
+	Italy: supply alg
+	Italy: supply mog
+	Italy: supply eth
+	India: supply bom
+	India: supply cey
+	India: army kas
+	India: army oma
+	India: army sid
+	India: fleet ade
+	India: army afg
+	India: supply oma
+	India: supply ade
+	India: supply afg
+	Britain: supply ire
+	Britain: supply lie
+	Britain: supply lon
+	Britain: fleet eng
+	Britain: fleet bxe
+	Britain: army edi
+	Britain: fleet sum
+	Britain: supply edi
+	France: supply spa
+	France: supply bre
+	France: army por
+	France: army par
+	France: army mar
+	France: fleet and
+	France: fleet iri
+	France: supply por
+	France: supply par
+	France: supply mar
+	Austria: supply alb
+	Austria: supply trp
+	Austria: supply vnn
+	Austria: supply swi
+	Austria: supply sud
+	Austria: supply bud
+	Austria: army tes
+	Austria: army egy
+	Austria: fleet mec
+	Austria: army ser
+	Austria: fleet bxa
+	Austria: army rum
+	Austria: army sar
+	Austria: army tun
+	Austria: army ukr
+	Austria: army bul
+	Austria: army gre
+	Austria: supply tes
+	Austria: supply egy
+	Austria: supply mec
+	Austria: supply ser
+	Austria: supply rum
+	Austria: supply sar
+	Austria: supply bul
+	Austria: supply gre
+	China: supply sai
+	China: supply phi
+	China: supply bor
+	China: supply sig
+	China: supply vit
+	China: supply tsi
+	China: supply kar
+	China: supply gua
+	China: supply for
+	China: supply jav
+	China: supply sha
+	China: supply man
+	China: supply cam
+	China: supply kor
+	China: supply tha
+	China: army tok
+	China: army tib
+	China: fleet bxf
+	China: fleet cel
+	China: army inn
+	China: army pek
+	China: army sib
+	China: army kyo
+	China: army yun
+	China: army xin
+	China: army vla
+	China: army del
+	China: fleet npo
+	China: army bum
+	China: fleet eio
+	China: army mon
+	China: fleet sak
+	China: fleet guh
+	China: fleet scs
+	China: army qin
+	China: fleet soj
+	China: fleet jvs
+	China: army wuh
+	China: army kam
+	China: army cal
+	China: supply tok
+	China: supply pek
+	China: supply kyo
+	China: supply xin
+	China: supply vla
+	China: supply del
+	China: supply bum
+	China: supply mon
+	China: supply wuh
+	China: supply cal
+	Japan: army osa
+	Japan: fleet sap
+	Japan: supply osa
+	Japan: supply sap
+	Germany: supply mun
+	Germany: supply nay
+	Germany: supply hol
+	Germany: army swe
+	Germany: fleet den
+	Germany: army pru
+	Germany: fleet kie
+	Germany: army lia
+	Germany: army bel
+	Germany: army ber
+	Germany: army col
+	Germany: army sax
+	Germany: supply swe
+	Germany: supply den
+	Germany: supply kie
+	Germany: supply bel
+	Germany: supply ber
+	Germany: supply col
+	Russia: supply stp
+	Russia: supply war
+	Russia: army oms
+	Russia: fleet fin
+	Russia: army mos
+	Russia: supply oms
+	Russia: supply mos
+ORDERS
+	bla hold
+	per hold
+	tur hold
+	con hold
+	mad hold
+	sev hold
+	eth hold
+	sao hold
+	ven hold
+	pie hold
+	alg hold
+	mog hold
+	mil hold
+	afg hold
+	sid hold
+	ade hold
+	kas hold
+	oma hold
+	eng hold
+	bxe hold
+	sum hold
+	edi hold
+	iri hold
+	mar hold
+	por hold
+	and hold
+	par hold
+	bxa hold
+	tes hold
+	egy hold
+	bul hold
+	gre hold
+	rum hold
+	tun hold
+	ukr hold
+	mec hold
+	ser hold
+	sar hold
+	kam hold
+	cel hold
+	bum hold
+	sib hold
+	eio hold
+	guh hold
+	mon hold
+	cal hold
+	tib hold
+	sak hold
+	tok hold
+	bxf hold
+	kyo hold
+	npo hold
+	inn hold
+	xin hold
+	jvs hold
+	soj hold
+	del hold
+	vla hold
+	yun hold
+	qin hold
+	scs hold
+	wuh hold
+	pek hold
+	osa hold
+	sap hold
+	swe hold
+	pru hold
+	bel hold
+	ber hold
+	lia hold
+	sax hold
+	col hold
+	den hold
+	kie hold
+	fin hold
+	oms hold
+	mos hold

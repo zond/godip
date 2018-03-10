@@ -24,4 +24,5 @@ _testmain.go
 
 classical/droidippy/games/*.txt
 test_output_maps
-
+generator/*.go
+generator/*map.svg

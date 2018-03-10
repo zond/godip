@@ -1,0 +1,9 @@
+game_1.txt from http://www.vdiplomacy.com/board.php?gameID=32873
+game_2.txt from http://www.vdiplomacy.com/board.php?gameID=30781
+game_3.txt from http://www.vdiplomacy.com/board.php?gameID=29323
+game_4.txt from http://www.vdiplomacy.com/board.php?gameID=6667
+game_5.txt from http://www.vdiplomacy.com/board.php?gameID=6670
+game_6.txt from http://www.vdiplomacy.com/board.php?gameID=6676
+game_7.txt from http://www.vdiplomacy.com/board.php?gameID=7157
+game_8.txt from http://www.vdiplomacy.com/board.php?gameID=7369
+game_9.txt from http://www.vdiplomacy.com/board.php?gameID=11983
