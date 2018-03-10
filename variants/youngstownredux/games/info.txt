@@ -1,1 +1,2 @@
 game_1.txt from http://www.vdiplomacy.com/board.php?gameID=32873
+game_2.txt from http://www.vdiplomacy.com/board.php?gameID=30781
