@@ -105,11 +105,11 @@ func HundredGraph() *graph.Graph {
 		// Anjou
 		Prov("anj").Conn("orl", cla.Land).Conn("nom", cla.Land).Conn("brt", cla.Land).Flag(cla.Land).
 		// Guyenne
-		Prov("guy").Conn("ara", cla.Coast...).Conn("tou", cla.Land).Conn("poi", cla.Land).Conn("brt", cla.Coast...).Conn("bis", cla.Sea).Flag(cla.Coast...).SC(England).
+		Prov("guy").Conn("ara", cla.Land).Conn("ara/nc", cla.Sea).Conn("tou", cla.Land).Conn("poi", cla.Land).Conn("brt", cla.Coast...).Conn("bis", cla.Sea).Flag(cla.Coast...).SC(England).
 		// Friesland
 		Prov("fri").Conn("lux", cla.Land).Conn("thw", cla.Sea).Conn("hol", cla.Coast...).Flag(cla.Coast...).
 		// North Sea
-		Prov("nos").Conn("thp", cla.Sea).Conn("iri", cla.Sea).Conn("sco", cla.Sea).Conn("not", cla.Sea).Conn("ang", cla.Sea).Conn("thw", cla.Sea).Flag(cla.Sea).
+		Prov("nos").Conn("thp", cla.Sea).Conn("iri", cla.Sea).Conn("sco", cla.Sea).Conn("not", cla.Sea).Conn("not/ec", cla.Sea).Conn("ang", cla.Sea).Conn("thw", cla.Sea).Flag(cla.Sea).
 		// The Wash
 		Prov("thw").Conn("nos", cla.Sea).Conn("ang", cla.Sea).Conn("str", cla.Sea).Conn("hol", cla.Sea).Conn("fri", cla.Sea).Flag(cla.Sea).
 		// Devon
@@ -123,7 +123,7 @@ func HundredGraph() *graph.Graph {
 		// Poitou
 		Prov("poi").Conn("lim", cla.Land).Conn("orl", cla.Land).Conn("brt", cla.Land).Conn("guy", cla.Land).Conn("tou", cla.Land).Flag(cla.Land).
 		// Biscay
-		Prov("bis").Conn("cas", cla.Sea).Conn("ara", cla.Sea).Conn("guy", cla.Sea).Conn("brt", cla.Sea).Conn("brs", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
+		Prov("bis").Conn("cas", cla.Sea).Conn("ara", cla.Sea).Conn("ara/nc", cla.Sea).Conn("guy", cla.Sea).Conn("brt", cla.Sea).Conn("brs", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
 		// Savoy
 		Prov("sav").Conn("can", cla.Land).Conn("dau", cla.Land).Conn("pro", cla.Coast...).Conn("med", cla.Sea).Flag(cla.Coast...).
 		// Orleanais
@@ -131,7 +131,7 @@ func HundredGraph() *graph.Graph {
 		// Strait of Dover
 		Prov("str").Conn("cal", cla.Sea).Conn("fla", cla.Sea).Conn("hol", cla.Sea).Conn("thw", cla.Sea).Conn("ang", cla.Sea).Conn("lon", cla.Sea).Conn("eng", cla.Sea).Conn("nom", cla.Sea).Flag(cla.Sea).
 		// Mediterranean
-		Prov("med").Conn("sav", cla.Sea).Conn("pro", cla.Sea).Conn("tou", cla.Sea).Conn("ara", cla.Sea).Conn("cas", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
+		Prov("med").Conn("sav", cla.Sea).Conn("pro", cla.Sea).Conn("tou", cla.Sea).Conn("ara", cla.Sea).Conn("ara/sc", cla.Sea).Conn("cas", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
 		// Lorraine
 		Prov("lor").Conn("lux", cla.Land).Conn("dij", cla.Land).Conn("can", cla.Land).Conn("als", cla.Land).Flag(cla.Land).
 		// Flanders
@@ -141,19 +141,23 @@ func HundredGraph() *graph.Graph {
 		// Cantons
 		Prov("can").Conn("als", cla.Land).Conn("lor", cla.Land).Conn("dij", cla.Land).Conn("dau", cla.Land).Conn("sav", cla.Land).Flag(cla.Land).SC(cla.Neutral).
 		// Northumbria
-		Prov("not").Conn("wal", cla.Coast...).Conn("dev", cla.Land).Conn("ang", cla.Coast...).Conn("nos", cla.Sea).Conn("sco", cla.Coast...).Conn("iri", cla.Sea).Flag(cla.Coast...).
+		Prov("not").Conn("wal", cla.Land).Conn("dev", cla.Land).Conn("ang", cla.Land).Conn("sco", cla.Land).Flag(cla.Land).
+		// Northumbria (West Coast)
+		Prov("not/wc").Conn("wal", cla.Sea).Conn("sco", cla.Sea).Conn("iri", cla.Sea).Flag(cla.Sea).
+		// Northumbria (East Coast)
+		Prov("not/ec").Conn("ang", cla.Sea).Conn("nos", cla.Sea).Conn("sco", cla.Sea).Flag(cla.Sea).
 		// Provence
 		Prov("pro").Conn("lim", cla.Land).Conn("tou", cla.Coast...).Conn("med", cla.Sea).Conn("sav", cla.Coast...).Conn("dau", cla.Land).Flag(cla.Coast...).
 		// Paris
 		Prov("par").Conn("orl", cla.Land).Conn("dau", cla.Land).Conn("cha", cla.Land).Conn("dij", cla.Land).Conn("cal", cla.Land).Conn("nom", cla.Land).Flag(cla.Land).SC(France).
 		// Toulouse
-		Prov("tou").Conn("med", cla.Sea).Conn("pro", cla.Coast...).Conn("lim", cla.Land).Conn("poi", cla.Land).Conn("guy", cla.Land).Conn("ara", cla.Coast...).Flag(cla.Coast...).SC(France).
+		Prov("tou").Conn("med", cla.Sea).Conn("pro", cla.Coast...).Conn("lim", cla.Land).Conn("poi", cla.Land).Conn("guy", cla.Land).Conn("ara", cla.Land).Conn("ara/sc", cla.Sea).Flag(cla.Coast...).SC(France).
 		// Irish Sea
-		Prov("iri").Conn("nos", cla.Sea).Conn("thp", cla.Sea).Conn("atl", cla.Sea).Conn("brs", cla.Sea).Conn("wal", cla.Sea).Conn("not", cla.Sea).Conn("sco", cla.Sea).Flag(cla.Sea).
+		Prov("iri").Conn("nos", cla.Sea).Conn("thp", cla.Sea).Conn("atl", cla.Sea).Conn("brs", cla.Sea).Conn("wal", cla.Sea).Conn("not", cla.Sea).Conn("not/wc", cla.Sea).Conn("sco", cla.Sea).Flag(cla.Sea).
 		// Dijon
 		Prov("dij").Conn("lux", cla.Land).Conn("fla", cla.Land).Conn("cal", cla.Land).Conn("par", cla.Land).Conn("cha", cla.Land).Conn("dau", cla.Land).Conn("can", cla.Land).Conn("lor", cla.Land).Flag(cla.Land).SC(Burgundy).
 		// Scotland
-		Prov("sco").Conn("nos", cla.Sea).Conn("iri", cla.Sea).Conn("not", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sco").Conn("nos", cla.Sea).Conn("iri", cla.Sea).Conn("not", cla.Land).Conn("not/ec", cla.Sea).Conn("not/wc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Brittany
 		Prov("brt").Conn("bis", cla.Sea).Conn("guy", cla.Coast...).Conn("poi", cla.Land).Conn("orl", cla.Land).Conn("anj", cla.Land).Conn("nom", cla.Coast...).Conn("eng", cla.Sea).Conn("brs", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Limousin
@@ -161,15 +165,19 @@ func HundredGraph() *graph.Graph {
 		// Luxembourg
 		Prov("lux").Conn("fri", cla.Land).Conn("hol", cla.Land).Conn("fla", cla.Land).Conn("dij", cla.Land).Conn("lor", cla.Land).Flag(cla.Land).SC(Burgundy).
 		// Wales
-		Prov("wal").Conn("brs", cla.Sea).Conn("dev", cla.Coast...).Conn("not", cla.Coast...).Conn("iri", cla.Sea).Flag(cla.Coast...).
+		Prov("wal").Conn("brs", cla.Sea).Conn("dev", cla.Coast...).Conn("not", cla.Land).Conn("not/wc", cla.Sea).Conn("iri", cla.Sea).Flag(cla.Coast...).
 		// English Channel
 		Prov("eng").Conn("str", cla.Sea).Conn("lon", cla.Sea).Conn("dev", cla.Sea).Conn("brs", cla.Sea).Conn("brt", cla.Sea).Conn("nom", cla.Sea).Flag(cla.Sea).
 		// Anglia
-		Prov("ang").Conn("thw", cla.Sea).Conn("nos", cla.Sea).Conn("not", cla.Coast...).Conn("dev", cla.Land).Conn("lon", cla.Coast...).Conn("str", cla.Sea).Flag(cla.Coast...).
+		Prov("ang").Conn("thw", cla.Sea).Conn("nos", cla.Sea).Conn("not", cla.Land).Conn("not/ec", cla.Sea).Conn("dev", cla.Land).Conn("lon", cla.Coast...).Conn("str", cla.Sea).Flag(cla.Coast...).
 		// Aragon
-		Prov("ara").Conn("med", cla.Sea).Conn("tou", cla.Coast...).Conn("guy", cla.Coast...).Conn("bis", cla.Sea).Conn("cas", cla.Coast...).Flag(cla.Coast...).
+		Prov("ara").Conn("tou", cla.Land).Conn("guy", cla.Land).Conn("cas", cla.Land).Flag(cla.Land).
+		// Aragon (North Coast)
+		Prov("ara/nc").Conn("guy", cla.Sea).Conn("bis", cla.Sea).Conn("cas", cla.Sea).Flag(cla.Sea).
+		// Aragon (South Coast)
+		Prov("ara/sc").Conn("med", cla.Sea).Conn("tou", cla.Sea).Conn("cas", cla.Sea).Flag(cla.Sea).
 		// Castile
-		Prov("cas").Conn("bis", cla.Sea).Conn("atl", cla.Sea).Conn("med", cla.Sea).Conn("ara", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("cas").Conn("bis", cla.Sea).Conn("atl", cla.Sea).Conn("med", cla.Sea).Conn("ara", cla.Land).Conn("ara/nc", cla.Sea).Conn("ara/sc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
 		// Charolais
 		Prov("cha").Conn("dau", cla.Land).Conn("dij", cla.Land).Conn("par", cla.Land).Flag(cla.Land).
 		// The Pale
