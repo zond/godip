@@ -2,6 +2,7 @@ package hundred
 
 import (
 	"testing"
+	"time"
 
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
@@ -41,4 +42,25 @@ func TestLondonCalais(t *testing.T) {
 	judge.RemoveUnit("lon")
 	judge.SetUnit("cal", dip.Unit{cla.Army, England})
 	tst.AssertOrderValidity(t, judge, orders.Move("cal", "lon"), England, nil)
+}
+
+func TestBuildAnywhere(t *testing.T) {
+	judge := startState(t)
+	// Give England an extra SC in England.
+	judge.SetSC("sco", England)
+
+	// Spring movement
+	judge.Next()
+	// Sprint retreat
+	judge.Next()
+	// Fall movement
+	judge.Next()
+	// Fall retreat
+	judge.Next()
+
+	// Fall adjustment - Try to build a new Army in Scotland.
+	judge.SetOrder("sco", orders.Build("sco", cla.Army, time.Now()))
+	judge.Next()
+	// Check that it was successful.
+	tst.AssertUnit(t, judge, "sco", dip.Unit{cla.Army, England})
 }
