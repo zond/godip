@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -252,6 +252,31 @@ func (self *move) validateMovementPhase(v dip.Validator) (dip.Nation, error) {
 		return "", err
 	}
 	return unit.Nation, nil
+}
+
+func (self *move) Parse(bits []string) (dip.Adjudicator, error) {
+	var result dip.Adjudicator
+	var err error
+	if !self.flags[cla.ViaConvoy] {
+		if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+			if len(bits) == 3 {
+				result = Move(dip.Province(bits[0]), dip.Province(bits[2]))
+			}
+			if result == nil {
+				err = fmt.Errorf("Can't parse as %+v", bits)
+			}
+		}
+	} else {
+		if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+			if len(bits) == 3 {
+				result = Move(dip.Province(bits[0]), dip.Province(bits[2])).ViaConvoy()
+			}
+			if result == nil {
+				err = fmt.Errorf("Can't parse as %+v", bits)
+			}
+		}
+	}
+	return result, err
 }
 
 func (self *move) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {

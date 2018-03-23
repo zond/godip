@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -94,6 +94,20 @@ func (self *disband) validateBuildPhase(v dip.Validator) (dip.Nation, error) {
 		return "", cla.ErrMissingDeficit
 	}
 	return unit.Nation, nil
+}
+
+func (self *disband) Parse(bits []string) (dip.Adjudicator, error) {
+	var result dip.Adjudicator
+	var err error
+	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+		if len(bits) == 2 {
+			result = Disband(dip.Province(bits[0]), time.Now())
+		}
+		if result == nil {
+			err = fmt.Errorf("Can't parse as %+v", bits)
+		}
+	}
+	return result, err
 }
 
 func (self *disband) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {

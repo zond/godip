@@ -85,6 +85,24 @@ func (self *support) Adjudicate(r dip.Resolver) error {
 	return nil
 }
 
+func (self *support) Parse(bits []string) (dip.Adjudicator, error) {
+	var result dip.Adjudicator
+	var err error
+	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+		if len(bits) == 4 {
+			if bits[2] == bits[3] {
+				result = SupportHold(dip.Province(bits[0]), dip.Province(bits[2]))
+			} else {
+				result = SupportMove(dip.Province(bits[0]), dip.Province(bits[2]), dip.Province(bits[3]))
+			}
+		}
+		if result == nil {
+			err = fmt.Errorf("Can't parse as %+v", bits)
+		}
+	}
+	return result, err
+}
+
 func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
 	if src.Super() != src {
 		return
