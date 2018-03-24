@@ -4,13 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func init() {
-	generators = append(generators, func() dip.Order { return &hold{} })
-}
+var HoldGenerator func() dip.Order = func() dip.Order { return &hold{} }
 
 func Hold(source dip.Province) *hold {
 	return &hold{
@@ -48,6 +46,20 @@ func (self *hold) At() time.Time {
 
 func (self *hold) Adjudicate(r dip.Resolver) error {
 	return nil
+}
+
+func (self *hold) Parse(bits []string) (dip.Adjudicator, error) {
+	var result dip.Adjudicator
+	var err error
+	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+		if len(bits) == 2 {
+			result = Hold(dip.Province(bits[0]))
+		}
+		if result == nil {
+			err = fmt.Errorf("Can't parse as %+v", bits)
+		}
+	}
+	return result, err
 }
 
 func (self *hold) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {

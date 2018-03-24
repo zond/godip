@@ -138,9 +138,9 @@ func setPhase(t *testing.T, sp **state.State, match []string, blankFn func(dip.P
 	}
 }
 
-func verifyValidOrder(t *testing.T, nat dip.Nation, v dip.Validator, order []string) {
+func verifyValidOrder(t *testing.T, nat dip.Nation, v dip.Validator, order []string, parse func(bits []string) (result dip.Adjudicator, err error)) {
 	order[0], order[1] = order[1], order[0]
-	parsed, err := orders.Parse(order)
+	parsed, err := parse(order)
 	if err != nil {
 		t.Errorf("got unparseable order %+v: %v", order, err)
 	}
@@ -153,16 +153,19 @@ func verifyValidOrder(t *testing.T, nat dip.Nation, v dip.Validator, order []str
 	}
 }
 
-func verifyValidOptions(t *testing.T, nat dip.Nation, v dip.Validator, opts dip.Options, stack []string) {
+func verifyValidOptions(t *testing.T, nat dip.Nation, v dip.Validator, opts dip.Options, stack []string, parse func(bits []string) (result dip.Adjudicator, err error)) {
 	if len(opts) == 0 {
-		verifyValidOrder(t, nat, v, stack)
+		verifyValidOrder(t, nat, v, stack, parse)
 	}
 	for nextPart, nextOptions := range opts {
-		verifyValidOptions(t, nat, v, nextOptions, append(append([]string{}, stack...), fmt.Sprint(nextPart)))
+		verifyValidOptions(t, nat, v, nextOptions, append(append([]string{}, stack...), fmt.Sprint(nextPart)), parse)
 	}
 }
 
-func assertGame(t *testing.T, name string, nations []dip.Nation, startFn func() (*state.State, error), blankFn func(dip.Phase) *state.State) (phases, ords, positions, fails int, s *state.State) {
+func assertGame(t *testing.T, name string, nations []dip.Nation,
+	startFn func() (*state.State, error), blankFn func(dip.Phase) *state.State,
+	parse func(bits []string) (result dip.Adjudicator, err error)) (phases, ords, positions, fails int, s *state.State) {
+
 	worstOptionsCalculation = 0
 	file, err := os.Open(fmt.Sprintf("games/%v", name))
 	if err != nil {
@@ -190,7 +193,7 @@ func assertGame(t *testing.T, name string, nations []dip.Nation, startFn func() 
 					}
 					optionsCalculated++
 					for _, opts := range options {
-						verifyValidOptions(t, nat, s, opts, nil)
+						verifyValidOptions(t, nat, s, opts, nil, parse)
 					}
 				}
 			}
@@ -266,8 +269,8 @@ func TestGames(t *testing.T, variant common.Variant) {
 	for _, name := range gamefiles {
 		if skip := os.Getenv("SKIP"); skip == "" || bytes.Compare([]byte(skip), []byte(name)) < 1 {
 			if gameFileReg.MatchString(name) {
-				fmt.Printf("Testing %v %v\n", variant.Name, name);
-				phases, orders, positions, fails, s := assertGame(t, name, variant.Nations, variant.Start, variant.Blank)
+				fmt.Printf("Testing %v %v\n", variant.Name, name)
+				phases, orders, positions, fails, s := assertGame(t, name, variant.Nations, variant.Start, variant.Blank, variant.Parser.Parse)
 				if os.Getenv("DEBUG") == "true" {
 					fmt.Printf("Checked %v phases, executed %v orders and asserted %v positions in %v, found %v failures.\n", phases, orders, positions, name, fails)
 				}

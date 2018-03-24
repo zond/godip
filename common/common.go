@@ -188,6 +188,7 @@ type Order interface {
 	Type() OrderType
 	DisplayType() OrderType
 	Targets() []Province
+	Parse([]string) (Adjudicator, error)
 	Validate(Validator) (Nation, error)
 	Options(Validator, Nation, Province) Options
 	At() time.Time

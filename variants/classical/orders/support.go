@@ -8,9 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func init() {
-	generators = append(generators, func() dip.Order { return &support{} })
-}
+var SupportGenerator func() dip.Order = func() dip.Order { return &support{} }
 
 func SupportHold(prov, target dip.Province) *support {
 	return &support{
@@ -83,6 +81,24 @@ func (self *support) Adjudicate(r dip.Resolver) error {
 		return cla.ErrSupportBroken{dislodgers[0]}
 	}
 	return nil
+}
+
+func (self *support) Parse(bits []string) (dip.Adjudicator, error) {
+	var result dip.Adjudicator
+	var err error
+	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+		if len(bits) == 4 {
+			if bits[2] == bits[3] {
+				result = SupportHold(dip.Province(bits[0]), dip.Province(bits[2]))
+			} else {
+				result = SupportMove(dip.Province(bits[0]), dip.Province(bits[2]), dip.Province(bits[3]))
+			}
+		}
+		if result == nil {
+			err = fmt.Errorf("Can't parse as %+v", bits)
+		}
+	}
+	return result, err
 }
 
 func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {

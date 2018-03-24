@@ -4,13 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func init() {
-	generators = append(generators, func() dip.Order { return &build{} })
-}
+var BuildGenerator func() dip.Order = func() dip.Order { return &build{} }
 
 func Build(source dip.Province, typ dip.UnitType, at time.Time) *build {
 	return &build{
@@ -57,6 +55,20 @@ func (self *build) Adjudicate(r dip.Resolver) error {
 		return cla.ErrIllegalBuild
 	}
 	return nil
+}
+
+func (self *build) Parse(bits []string) (dip.Adjudicator, error) {
+	var result dip.Adjudicator
+	var err error
+	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+		if len(bits) == 3 {
+			result = Build(dip.Province(bits[0]), dip.UnitType(bits[2]), time.Now())
+		}
+		if result == nil {
+			err = fmt.Errorf("Can't parse as %+v", bits)
+		}
+	}
+	return result, err
 }
 
 func (self *build) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
