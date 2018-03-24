@@ -8,23 +8,28 @@ import (
 	"github.com/zond/godip/variants/common"
 
 	dip "github.com/zond/godip/common"
+	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
+var generators = []func() dip.Order{
+	orders.BuildGenerator,
+	orders.MoveGenerator,
+	orders.HoldGenerator,
+	orders.SupportGenerator,
+	orders.DisbandGenerator,
+}
+
+var pureParser = ord.NewParser(generators)
+
 var PureVariant = common.Variant{
-	Name:   "Pure",
-	Graph:  func() dip.Graph { return PureGraph() },
-	Start:  PureStart,
-	Blank:  PureBlank,
-	Phase:  classical.Phase,
-	Parser: orders.ClassicalParser,
-	OrderTypes: []dip.OrderType{
-		cla.Build,
-		cla.Move,
-		cla.Hold,
-		cla.Support,
-		cla.Disband,
-	},
+	Name:       "Pure",
+	Graph:      func() dip.Graph { return PureGraph() },
+	Start:      PureStart,
+	Blank:      PureBlank,
+	Phase:      classical.Phase,
+	Parser:     pureParser,
+	OrderTypes: pureParser.OrderTypes(),
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
