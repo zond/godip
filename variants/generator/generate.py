@@ -794,20 +794,19 @@ const (
         f.write('\t{{0:<{}}} dip.Nation = "{{0}}"\n'.format(nationLength).format(nation))
     f.write(')\n\nvar Nations = []dip.Nation{{{}}}\n'.format(', '.join(START_UNITS.keys())))
     f.write('\nvar {}Variant = common.Variant{{\n'.format(VARIANT.replace(' ', '')))
-    f.write('\tName:        "{}",\n'.format(VARIANT))
-    f.write('\tGraph:       func() dip.Graph {{ return {}Graph() }},\n'.format(VARIANT.replace(' ', '')))
-    f.write('\tStart:       {}Start,\n'.format(VARIANT.replace(' ', '')))
-    f.write('\tBlank:       {}Blank,\n'.format(VARIANT.replace(' ', '')))
-    f.write("""	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,""")
+    f.write('\tName:       "{}",\n'.format(VARIANT))
+    f.write('\tGraph:      func() dip.Graph {{ return {}Graph() }},\n'.format(VARIANT.replace(' ', '')))
+    f.write('\tStart:      {}Start,\n'.format(VARIANT.replace(' ', '')))
+    f.write('\tBlank:      {}Blank,\n'.format(VARIANT.replace(' ', '')))
+    f.write("""	Phase:      classical.Phase,
+	Parser:     orders.ClassicalParser,
+	OrderTypes: orders.ClassicalParser.OrderTypes(),
+	Nations:    Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  cla.UnitTypes,""")
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
-    f.write('\n\tSoloWinner:  common.SCCountWinner({}),\n'.format(scCount))
+    f.write('\n\tSoloWinner: common.SCCountWinner({}),\n'.format(scCount))
     f.write("""	SVGMap: func() ([]byte, error) {{
 		return Asset("svg/{}map.svg")
 	}},

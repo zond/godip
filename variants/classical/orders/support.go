@@ -8,9 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func init() {
-	generators = append(generators, func() dip.Order { return &support{} })
-}
+var SupportGenerator func() dip.Order = func() dip.Order { return &support{} }
 
 func SupportHold(prov, target dip.Province) *support {
 	return &support{

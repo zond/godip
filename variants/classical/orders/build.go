@@ -8,9 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func init() {
-	generators = append(generators, func() dip.Order { return &build{} })
-}
+var BuildGenerator func() dip.Order = func() dip.Order { return &build{} }
 
 func Build(source dip.Province, typ dip.UnitType, at time.Time) *build {
 	return &build{

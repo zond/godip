@@ -8,9 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func init() {
-	generators = append(generators, func() dip.Order { return &hold{} })
-}
+var HoldGenerator func() dip.Order = func() dip.Order { return &hold{} }
 
 func Hold(source dip.Province) *hold {
 	return &hold{

@@ -27,7 +27,7 @@ func (self *phase) String() string {
 }
 
 func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
-	return s.Options(orders.Orders(), nation)
+	return s.Options(orders.ClassicalParser.Orders(), nation)
 }
 
 func (self *phase) Winner(s dip.Validator) *dip.Nation {

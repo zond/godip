@@ -1,6 +1,7 @@
 package common
 
 import (
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 
 	dip "github.com/zond/godip/common"
@@ -18,10 +19,8 @@ type Variant struct {
 	Blank func(dip.Phase) *state.State `json:"-"`
 	// Phase returns a phase with the provided year, season and phase type for this variant.
 	Phase func(int, dip.Season, dip.PhaseType) dip.Phase `json:"-"`
-	// ParserOrders parses a map of orders.
-	ParseOrders func(map[dip.Nation]map[dip.Province][]string) (map[dip.Province]dip.Adjudicator, error) `json:"-"`
-	// ParseOrder parses a single tokenized order.
-	ParseOrder func([]string) (dip.Adjudicator, error) `json:"-"`
+	// Parser for orders in the variant.
+	Parser orders.Parser `json:"-"`
 	// Graph is the graph for this variant.
 	Graph func() dip.Graph `json:"-"`
 	// Nations are the nations playing this variant.

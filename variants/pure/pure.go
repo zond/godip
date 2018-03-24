@@ -12,13 +12,12 @@ import (
 )
 
 var PureVariant = common.Variant{
-	Name:        "Pure",
-	Graph:       func() dip.Graph { return PureGraph() },
-	Start:       PureStart,
-	Blank:       PureBlank,
-	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
+	Name:   "Pure",
+	Graph:  func() dip.Graph { return PureGraph() },
+	Start:  PureStart,
+	Blank:  PureBlank,
+	Phase:  classical.Phase,
+	Parser: orders.ClassicalParser,
 	OrderTypes: []dip.OrderType{
 		cla.Build,
 		cla.Move,

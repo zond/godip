@@ -19,19 +19,18 @@ const (
 var Nations = []dip.Nation{USSR, NATO}
 
 var ColdWarVariant = common.Variant{
-	Name:        "Cold War",
-	Graph:       func() dip.Graph { return ColdWarGraph() },
-	Start:       ColdWarStart,
-	Blank:       ColdWarBlank,
-	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,
-	SoloWinner:  common.SCCountWinner(17),
+	Name:       "Cold War",
+	Graph:      func() dip.Graph { return ColdWarGraph() },
+	Start:      ColdWarStart,
+	Blank:      ColdWarBlank,
+	Phase:      classical.Phase,
+	Parser:     orders.ClassicalParser,
+	OrderTypes: orders.ClassicalParser.OrderTypes(),
+	Nations:    Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  cla.UnitTypes,
+	SoloWinner: common.SCCountWinner(17),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/coldwarmap.svg")
 	},
