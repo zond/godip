@@ -6,14 +6,12 @@ import (
 	dip "github.com/zond/godip/common"
 )
 
-var generators = []func() dip.Order{
-	BuildGenerator,
-	ConvoyGenerator,
-	DisbandGenerator,
-	HoldGenerator,
-	MoveGenerator,
-	MoveViaConvoyGenerator,
-	SupportGenerator,
-}
-
-var ClassicalParser = orders.NewParser(generators)
+var ClassicalParser = orders.NewParser([]dip.Order{
+	BuildOrder,
+	ConvoyOrder,
+	DisbandOrder,
+	HoldOrder,
+	MoveOrder,
+	MoveViaConvoyOrder,
+	SupportOrder,
+})

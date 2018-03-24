@@ -8,7 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-var SupportGenerator func() dip.Order = func() dip.Order { return &support{} }
+var SupportOrder = &support{}
 
 func SupportHold(prov, target dip.Province) *support {
 	return &support{

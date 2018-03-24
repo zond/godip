@@ -8,14 +8,12 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-var MoveGenerator func() dip.Order = func() dip.Order { return &move{} }
+var MoveOrder = &move{}
 
-var MoveViaConvoyGenerator func() dip.Order = func() dip.Order {
-	return &move{
-		flags: map[dip.Flag]bool{
-			cla.ViaConvoy: true,
-		},
-	}
+var MoveViaConvoyOrder = &move{
+	flags: map[dip.Flag]bool{
+		cla.ViaConvoy: true,
+	},
 }
 
 func Move(source, dest dip.Province) *move {

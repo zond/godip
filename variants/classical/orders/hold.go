@@ -8,7 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-var HoldGenerator func() dip.Order = func() dip.Order { return &hold{} }
+var HoldOrder = &hold{}
 
 func Hold(source dip.Province) *hold {
 	return &hold{

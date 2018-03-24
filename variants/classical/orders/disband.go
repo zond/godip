@@ -8,7 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-var DisbandGenerator func() dip.Order = func() dip.Order { return &disband{} }
+var DisbandOrder = &disband{}
 
 func Disband(source dip.Province, at time.Time) *disband {
 	return &disband{

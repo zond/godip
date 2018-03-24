@@ -12,15 +12,13 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-var generators = []func() dip.Order{
-	orders.BuildGenerator,
-	orders.MoveGenerator,
-	orders.HoldGenerator,
-	orders.SupportGenerator,
-	orders.DisbandGenerator,
-}
-
-var pureParser = ord.NewParser(generators)
+var pureParser = ord.NewParser([]dip.Order{
+	orders.BuildOrder,
+	orders.DisbandOrder,
+	orders.HoldOrder,
+	orders.MoveOrder,
+	orders.SupportOrder,
+})
 
 var PureVariant = common.Variant{
 	Name:       "Pure",

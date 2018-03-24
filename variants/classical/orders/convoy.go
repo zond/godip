@@ -8,7 +8,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-var ConvoyGenerator func() dip.Order = func() dip.Order { return &convoy{} }
+var ConvoyOrder = &convoy{}
 
 func Convoy(source, from, to dip.Province) *convoy {
 	return &convoy{
