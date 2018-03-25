@@ -7,26 +7,24 @@ import (
 )
 
 type Parser struct {
-	generators []dip.Order
+	prototypes []dip.Order
 }
 
-func NewParser(generators []dip.Order) Parser {
-	return Parser{generators}
+func NewParser(prototypes []dip.Order) Parser {
+	return Parser{prototypes}
 }
 
 func (self Parser) OrderTypes() (result []dip.OrderType) {
-	result = make([]dip.OrderType, len(self.generators))
-	for index, gen := range self.generators {
-		result[index] = gen.DisplayType()
+	result = make([]dip.OrderType, len(self.prototypes))
+	for index, prototype := range self.prototypes {
+		result[index] = prototype.DisplayType()
 	}
 	return
 }
 
 func (self Parser) Orders() (result []dip.Order) {
-	result = make([]dip.Order, len(self.generators))
-	for index, gen := range self.generators {
-		result[index] = gen
-	}
+	result = make([]dip.Order, len(self.prototypes))
+	copy(result, self.prototypes)
 	return
 }
 
@@ -49,8 +47,8 @@ func (self Parser) ParseAll(orders map[dip.Nation]map[dip.Province][]string) (re
 }
 
 func (self Parser) Parse(bits []string) (result dip.Adjudicator, err error) {
-	for _, generator := range self.generators {
-		result, err := generator.Parse(bits)
+	for _, prototype := range self.Orders() {
+		result, err := prototype.Parse(bits)
 		if result != nil || err != nil {
 			return result, err
 		}
