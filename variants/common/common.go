@@ -31,8 +31,6 @@ type Variant struct {
 	Seasons []dip.Season
 	// UnitTypes are the types the units of this variant have.
 	UnitTypes []dip.UnitType
-	// OrderTypes are the types the orders of this variant have.
-	OrderTypes []dip.OrderType
 	// Function to return a nation with a solo (or the empty string if no such nation exists).
 	SoloWinner func(*state.State) dip.Nation `json:"-"`
 	// SVG representing the variant map graphics.

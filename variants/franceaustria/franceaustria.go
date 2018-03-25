@@ -55,7 +55,6 @@ var FranceAustriaVariant = common.Variant{
 	Blank:      classical.Blank,
 	Phase:      classical.Phase,
 	Parser:     orders.ClassicalParser,
-	OrderTypes: orders.ClassicalParser.OrderTypes(),
 	Nations:    []dip.Nation{cla.Austria, cla.France},
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,

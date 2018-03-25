@@ -23,7 +23,6 @@ var ClassicalVariant = common.Variant{
 	Parser:     orders.ClassicalParser,
 	Graph:      func() dip.Graph { return start.Graph() },
 	Phase:      Phase,
-	OrderTypes: orders.ClassicalParser.OrderTypes(),
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,

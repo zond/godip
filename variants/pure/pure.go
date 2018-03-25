@@ -27,7 +27,6 @@ var PureVariant = common.Variant{
 	Blank:      PureBlank,
 	Phase:      classical.Phase,
 	Parser:     pureParser,
-	OrderTypes: pureParser.OrderTypes(),
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
