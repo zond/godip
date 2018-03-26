@@ -22,19 +22,17 @@ const (
 var Nations = []dip.Nation{Rome, Greece, Egypt, Persia, Carthage}
 
 var AncientMediterraneanVariant = common.Variant{
-	Name:        "Ancient Mediterranean",
-	Graph:       func() dip.Graph { return AncientMediterraneanGraph() },
-	Start:       AncientMediterraneanStart,
-	Blank:       AncientMediterraneanBlank,
-	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,
-	SoloWinner:  common.SCCountWinner(18),
+	Name:       "Ancient Mediterranean",
+	Graph:      func() dip.Graph { return AncientMediterraneanGraph() },
+	Start:      AncientMediterraneanStart,
+	Blank:      AncientMediterraneanBlank,
+	Phase:      classical.Phase,
+	Parser:     orders.ClassicalParser,
+	Nations:    Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  cla.UnitTypes,
+	SoloWinner: common.SCCountWinner(18),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/ancientmediterraneanmap.svg")
 	},

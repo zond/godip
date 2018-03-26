@@ -27,19 +27,17 @@ const (
 var Nations = []dip.Nation{Turkey, Austria, Britain, China, Japan, Italy, Germany, India, Russia, France}
 
 var YoungstownReduxVariant = common.Variant{
-	Name:        "Youngstown Redux",
-	Graph:       func() dip.Graph { return YoungstownReduxGraph() },
-	Start:       YoungstownReduxStart,
-	Blank:       YoungstownReduxBlank,
-	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,
-	SoloWinner:  common.SCCountWinner(28),
+	Name:       "Youngstown Redux",
+	Graph:      func() dip.Graph { return YoungstownReduxGraph() },
+	Start:      YoungstownReduxStart,
+	Blank:      YoungstownReduxBlank,
+	Phase:      classical.Phase,
+	Parser:     orders.ClassicalParser,
+	Nations:    Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  cla.UnitTypes,
+	SoloWinner: common.SCCountWinner(28),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/youngstownreduxmap.svg")
 	},

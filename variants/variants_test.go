@@ -3,6 +3,7 @@ package variants
 import (
 	"bytes"
 	"encoding/xml"
+	"fmt"
 	"io/ioutil"
 	"math"
 	"os"
@@ -12,8 +13,8 @@ import (
 	"strings"
 	"testing"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 	vrt "github.com/zond/godip/variants/common"
 )
 
@@ -37,7 +38,7 @@ func createFile(variant string, name string, bin_data []byte) {
 }
 
 func openFile(variant string, name string) *os.File {
-	file, err := os.OpenFile(createTempPath(variant, name), os.O_WRONLY | os.O_CREATE | os.O_TRUNC, 0644)
+	file, err := os.OpenFile(createTempPath(variant, name), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
 	if err != nil {
 		panic(err)
 	}
@@ -91,7 +92,7 @@ func removeAttr(attrs []xml.Attr, name string) []xml.Attr {
 	for i, attr := range attrs {
 		if attr.Name.Local == name {
 			copy(attrs[i:], attrs[i+1:])
-			attrs[len(attrs)-1] = xml.Attr{xml.Name{"",""}, ""}
+			attrs[len(attrs)-1] = xml.Attr{xml.Name{"", ""}, ""}
 			return attrs[:len(attrs)-1]
 		}
 	}
@@ -104,7 +105,7 @@ type vector struct {
 }
 
 func (v vector) length() float64 {
-	return math.Sqrt(v.dx * v.dx + v.dy * v.dy)
+	return math.Sqrt(v.dx*v.dx + v.dy*v.dy)
 }
 
 func (a vector) add(b vector) vector {
@@ -152,7 +153,7 @@ func addArrow(encoder *xml.Encoder, startProvince dip.Province, endProvince dip.
 	start := provinceCenters[string(startProvince)]
 	end := provinceCenters[string(endProvince)]
 	middle := coordinates{(start.x + end.x) / 2, (start.y + end.y) / 2}
-	
+
 	boundF := 3.0
 	headF1 := boundF * 3
 	headF2 := boundF * 6
@@ -170,7 +171,7 @@ func addArrow(encoder *xml.Encoder, startProvince dip.Province, endProvince dip.
 	end3 := end.sub(part2.dir().mul(spacer))
 	head0 := end0.add(part2.orth().mul(headF1))
 	head1 := end1.sub(part2.orth().mul(headF1))
-	
+
 	path := xml.StartElement{xml.Name{svg, "path"}, []xml.Attr{}}
 	path.Attr = setAttr(path.Attr, "style", "fill:#ff0000;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-opacity:1.0;fill-opacity:0.7;")
 	var d = "M " + toStr(start0.x) + "," + toStr(start0.y)
@@ -188,6 +189,10 @@ func addArrow(encoder *xml.Encoder, startProvince dip.Province, endProvince dip.
 
 // Create svg files which can be inspected manually to check the binary map data is correct.
 func TestDrawMaps(t *testing.T) {
+	if os.Getenv("DRAW_MAPS") != "true" {
+		fmt.Println("Skipping test to draw debug maps. Please use the environment variable DRAW_MAPS=true to enable.")
+		return
+	}
 	for _, variant := range OrderedVariants {
 		// Output what the empty map looks like
 		b, err := variant.SVGMap()
@@ -195,7 +200,7 @@ func TestDrawMaps(t *testing.T) {
 			panic(err)
 		}
 		createFile(variant.Name, "empty.svg", b)
-		
+
 		// Fill each SC red and output it
 		xmlFile := bytes.NewReader(b)
 		decoder := xml.NewDecoder(xmlFile)
@@ -206,7 +211,7 @@ func TestDrawMaps(t *testing.T) {
 				break
 			}
 			switch startElement := token.(type) {
-				case xml.StartElement:
+			case xml.StartElement:
 				var idAttr = findAttr(startElement.Attr, "id")
 				if idAttr != nil {
 					id := idAttr.Value
@@ -247,7 +252,7 @@ func TestDrawMaps(t *testing.T) {
 				break
 			}
 			switch startElement := token.(type) {
-				case xml.StartElement:
+			case xml.StartElement:
 				idAttr := findAttr(startElement.Attr, "id")
 				if idAttr != nil {
 					id := idAttr.Value
@@ -279,7 +284,7 @@ func TestDrawMaps(t *testing.T) {
 			if outputHighlights {
 				for _, highlight := range highlights {
 					id := findAttr(highlight.Attr, "id").Value
-					highlight.Attr = setAttr(highlight.Attr, "id", id + "_highlight")
+					highlight.Attr = setAttr(highlight.Attr, "id", id+"_highlight")
 					highlight.Attr = setAttr(highlight.Attr, "style", "fill:url(#stripes)")
 					highlight.Attr = setAttr(highlight.Attr, "fill-opacity", "1")
 					highlight.Attr = setAttr(highlight.Attr, "stroke", "none")
@@ -307,7 +312,7 @@ func TestDrawMaps(t *testing.T) {
 		for edgeType := range edgeTypes {
 			xmlFile = bytes.NewReader(b)
 			decoder = xml.NewDecoder(xmlFile)
-			encoder = xml.NewEncoder(openFile(variant.Name, "orders_" + string(edgeType) + ".svg"))
+			encoder = xml.NewEncoder(openFile(variant.Name, "orders_"+string(edgeType)+".svg"))
 			for {
 				outputOrders := false
 				token, _ := decoder.Token()
@@ -315,7 +320,7 @@ func TestDrawMaps(t *testing.T) {
 					break
 				}
 				switch startElement := token.(type) {
-					case xml.StartElement:
+				case xml.StartElement:
 					var idAttr = findAttr(startElement.Attr, "id")
 					if idAttr != nil {
 						id := idAttr.Value
@@ -377,7 +382,7 @@ func TestDrawMaps(t *testing.T) {
 			for _, unitType := range variant.UnitTypes {
 				xmlFile = bytes.NewReader(b)
 				decoder = xml.NewDecoder(xmlFile)
-				encoder = xml.NewEncoder(openFile(variant.Name, "units_" + string(unitType) + "_" + string(provinceType) + ".svg"))
+				encoder = xml.NewEncoder(openFile(variant.Name, "units_"+string(unitType)+"_"+string(provinceType)+".svg"))
 				for {
 					outputUnits := false
 					token, _ := decoder.Token()
@@ -385,7 +390,7 @@ func TestDrawMaps(t *testing.T) {
 						break
 					}
 					switch startElement := token.(type) {
-						case xml.StartElement:
+					case xml.StartElement:
 						idAttr := findAttr(startElement.Attr, "id")
 						if idAttr != nil {
 							id := idAttr.Value
@@ -429,7 +434,7 @@ func TestDrawMaps(t *testing.T) {
 										break
 									}
 									switch startElement := unitToken.(type) {
-										case xml.StartElement:
+									case xml.StartElement:
 										idAttr := findAttr(startElement.Attr, "id")
 										if idAttr != nil {
 											id := idAttr.Value
@@ -444,7 +449,7 @@ func TestDrawMaps(t *testing.T) {
 												}
 												xStr := toStr(coordinates.x + offset.dx)
 												yStr := toStr(coordinates.y + offset.dy)
-												startElement.Attr = setAttr(startElement.Attr, "transform", "translate(" + xStr + "," + yStr + ")")
+												startElement.Attr = setAttr(startElement.Attr, "transform", "translate("+xStr+","+yStr+")")
 												unitToken = startElement
 											}
 										}
@@ -471,14 +476,14 @@ func TestDrawMaps(t *testing.T) {
 		for _, nation := range variant.Nations {
 			xmlFile := bytes.NewReader(b)
 			decoder := xml.NewDecoder(xmlFile)
-			encoder := xml.NewEncoder(openFile(variant.Name, "home_centers_" + string(nation) + ".svg"))
+			encoder := xml.NewEncoder(openFile(variant.Name, "home_centers_"+string(nation)+".svg"))
 			for {
 				token, _ := decoder.Token()
 				if token == nil {
 					break
 				}
 				switch startElement := token.(type) {
-					case xml.StartElement:
+				case xml.StartElement:
 					var idAttr = findAttr(startElement.Attr, "id")
 					if idAttr != nil {
 						id := idAttr.Value

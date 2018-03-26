@@ -20,16 +20,14 @@ var ClassicalVariant = common.Variant{
 		result = Blank(Phase(1900, cla.Fall, cla.Adjustment))
 		return
 	},
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	Graph:       func() dip.Graph { return start.Graph() },
-	Phase:       Phase,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     cla.Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,
-	SoloWinner:  common.SCCountWinner(18),
+	Parser:     orders.ClassicalParser,
+	Graph:      func() dip.Graph { return start.Graph() },
+	Phase:      Phase,
+	Nations:    cla.Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  cla.UnitTypes,
+	SoloWinner: common.SCCountWinner(18),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/map.svg")
 	},
