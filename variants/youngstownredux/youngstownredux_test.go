@@ -41,6 +41,12 @@ func TestHebei(t *testing.T) {
 	judge.RemoveUnit("heb/sc")
 	judge.SetUnit("heb/nc", dip.Unit{cla.Fleet, Japan})
 	tst.AssertOrderValidity(t, judge, orders.Move("heb/nc", "yel"), Japan, nil)
+
+	// Check the reverse direction.
+	judge.RemoveUnit("heb/nc")
+	judge.SetUnit("yel", dip.Unit{cla.Fleet, Japan})
+	tst.AssertOrderValidity(t, judge, orders.Move("yel", "heb/sc"), "", cla.ErrIllegalMove)
+	tst.AssertOrderValidity(t, judge, orders.Move("yel", "heb/nc"), Japan, nil)
 }
 
 func TestBoxes(t *testing.T) {
@@ -66,4 +72,22 @@ func TestBoxes(t *testing.T) {
 	tst.AssertOptionToMove(t, judge, Italy, "bxc", "bxf")
 	tst.AssertOptionToMove(t, judge, Italy, "bxc", "bxg")
 	tst.AssertOptionToMove(t, judge, Italy, "bxc", "bxh")
+}
+
+func TestMogadishu(t *testing.T) {
+	judge := startState(t)
+
+	// Test that there is no sea connection between Mogadishu and Ethiopia.
+	tst.AssertOrderValidity(t, judge, orders.Move("mog", "eth"), "", cla.ErrIllegalMove)
+	judge.RemoveUnit("mog")
+	judge.SetUnit("eth", dip.Unit{cla.Fleet, Italy})
+	tst.AssertOrderValidity(t, judge, orders.Move("eth", "mog"), "", cla.ErrIllegalMove)
+
+	// Test that there is a land connection between Mogadishu and Ethiopia.
+	judge.RemoveUnit("eth")
+	judge.SetUnit("mog", dip.Unit{cla.Army, Italy})
+	tst.AssertOrderValidity(t, judge, orders.Move("mog", "eth"), Italy, nil)
+	judge.RemoveUnit("mog")
+	judge.SetUnit("eth", dip.Unit{cla.Army, Italy})
+	tst.AssertOrderValidity(t, judge, orders.Move("eth", "mog"), Italy, nil)
 }

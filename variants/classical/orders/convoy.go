@@ -4,13 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	dip "github.com/zond/godip/common"
+	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func init() {
-	generators = append(generators, func() dip.Order { return &convoy{} })
-}
+var ConvoyOrder = &convoy{}
 
 func Convoy(source, from, to dip.Province) *convoy {
 	return &convoy{
@@ -57,6 +55,20 @@ func (self *convoy) Adjudicate(r dip.Resolver) error {
 		return cla.ErrConvoyDislodged{breaks[0]}
 	}
 	return nil
+}
+
+func (self *convoy) Parse(bits []string) (dip.Adjudicator, error) {
+	var result dip.Adjudicator
+	var err error
+	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+		if len(bits) == 4 {
+			result = Convoy(dip.Province(bits[0]), dip.Province(bits[2]), dip.Province(bits[3]))
+		}
+		if result == nil {
+			err = fmt.Errorf("Can't parse as %+v", bits)
+		}
+	}
+	return result, err
 }
 
 func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {

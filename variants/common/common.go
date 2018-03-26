@@ -1,6 +1,7 @@
 package common
 
 import (
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 
 	dip "github.com/zond/godip/common"
@@ -18,10 +19,8 @@ type Variant struct {
 	Blank func(dip.Phase) *state.State `json:"-"`
 	// Phase returns a phase with the provided year, season and phase type for this variant.
 	Phase func(int, dip.Season, dip.PhaseType) dip.Phase `json:"-"`
-	// ParserOrders parses a map of orders.
-	ParseOrders func(map[dip.Nation]map[dip.Province][]string) (map[dip.Province]dip.Adjudicator, error) `json:"-"`
-	// ParseOrder parses a single tokenized order.
-	ParseOrder func([]string) (dip.Adjudicator, error) `json:"-"`
+	// Parser for orders in the variant.
+	Parser orders.Parser `json:"-"`
 	// Graph is the graph for this variant.
 	Graph func() dip.Graph `json:"-"`
 	// Nations are the nations playing this variant.
@@ -32,10 +31,8 @@ type Variant struct {
 	Seasons []dip.Season
 	// UnitTypes are the types the units of this variant have.
 	UnitTypes []dip.UnitType
-	// OrderTypes are the types the orders of this variant have.
-	OrderTypes []dip.OrderType
 	// Function to return a nation with a solo (or the empty string if no such nation exists).
-	SoloWinner func(*state.State) dip.Nation
+	SoloWinner func(*state.State) dip.Nation `json:"-"`
 	// SVG representing the variant map graphics.
 	SVGMap func() ([]byte, error) `json:"-"`
 	// A version for the vector graphics (for use in caching mechanisms).

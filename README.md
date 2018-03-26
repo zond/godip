@@ -70,6 +70,8 @@ These are the truths that should be valid for such a variant to be godip compati
 
 #### Map format
 
+Most variants require a new map to be created. There is some variant creation tooling in development, for which there are more detailed instructions [here](variants/generator/README.md). This tool has been used to help create several variants, including Cold War and Youngstown Redux.
+
 Maps are svg files and can be created with a combination of the free tool [Inkscape](https://inkscape.org/en/) and your favourite text editor.  The file should contain a pattern with id "stripes", which can be used by the client to highlight regions that the player can select.  The file should have at least the following layers in it:
 
  * The background (bottom layer): This should contain regions in the colour they should be when not owned.

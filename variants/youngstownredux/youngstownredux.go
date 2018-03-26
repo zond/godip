@@ -27,19 +27,17 @@ const (
 var Nations = []dip.Nation{Turkey, Austria, Britain, China, Japan, Italy, Germany, India, Russia, France}
 
 var YoungstownReduxVariant = common.Variant{
-	Name:        "Youngstown Redux",
-	Graph:       func() dip.Graph { return YoungstownReduxGraph() },
-	Start:       YoungstownReduxStart,
-	Blank:       YoungstownReduxBlank,
-	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,
-	SoloWinner:  common.SCCountWinner(28),
+	Name:       "Youngstown Redux",
+	Graph:      func() dip.Graph { return YoungstownReduxGraph() },
+	Start:      YoungstownReduxStart,
+	Blank:      YoungstownReduxBlank,
+	Phase:      classical.Phase,
+	Parser:     orders.ClassicalParser,
+	Nations:    Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  cla.UnitTypes,
+	SoloWinner: common.SCCountWinner(28),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/youngstownreduxmap.svg")
 	},
@@ -55,12 +53,12 @@ var YoungstownReduxVariant = common.Variant{
 	CreatedBy:   "airborne",
 	Version:     "I",
 	Description: "A ten player variant that adds China, India and Japan to the standard seven nations.",
-	Rules:       "Rules are as per classical Diplomacy. There are eight box sea regions which are each connected " +
+	Rules: "Rules are as per classical Diplomacy. There are eight box sea regions which are each connected " +
 		"to the other boxes in the same row and column, and allow fleets to travel 'around the world'. Six provinces " +
 		"have two coasts (Spain, St. Petersburg, Levant, Arabia, Hebei and Thailand), and all other coastal regions have a " +
 		"single coast. The winner is the first nation to 28 supply centers, or the player with the most in the case of " +
 		"multiple nations reaching 28 in the same turn. If the leading two nations both have the same number of centers " +
-		"then the game will continue for another year.  This variant is based on the Youngstown variant by Rod Walker, " + 
+		"then the game will continue for another year.  This variant is based on the Youngstown variant by Rod Walker, " +
 		"A. Phillips, Ken Lowe and Jon Monsarret.",
 }
 
@@ -255,13 +253,13 @@ func YoungstownReduxGraph() *graph.Graph {
 		// Western Indian Ocean
 		Prov("wio").Conn("eio", cla.Sea).Conn("cey", cla.Sea).Conn("eio", cla.Sea).Conn("mad", cla.Sea).Conn("bom", cla.Sea).Conn("ars", cla.Sea).Conn("goa", cla.Sea).Conn("hor", cla.Sea).Conn("bxg", cla.Sea).Conn("bxg", cla.Sea).Conn("bxg", cla.Sea).Flag(cla.Sea).
 		// Mogadishu
-		Prov("mog").Conn("ken", cla.Coast...).Conn("hor", cla.Sea).Conn("goa", cla.Sea).Conn("awd", cla.Coast...).Conn("eth", cla.Coast...).Flag(cla.Coast...).SC(Italy).
+		Prov("mog").Conn("ken", cla.Coast...).Conn("hor", cla.Sea).Conn("goa", cla.Sea).Conn("awd", cla.Coast...).Conn("eth", cla.Land).Flag(cla.Coast...).SC(Italy).
 		// Box A bcd
 		Prov("bxa").Conn("nao", cla.Sea).Conn("nao", cla.Sea).Conn("bxb", cla.Sea).Conn("bxc", cla.Sea).Conn("bxd", cla.Sea).Flag(cla.Sea).
 		// Saxony
 		Prov("sax").Conn("mun", cla.Land).Conn("boh", cla.Land).Conn("sil", cla.Land).Conn("ber", cla.Land).Conn("kie", cla.Land).Conn("col", cla.Land).Flag(cla.Land).
 		// Ethiopia
-		Prov("eth").Conn("goa", cla.Sea).Conn("red", cla.Sea).Conn("sud", cla.Coast...).Conn("ken", cla.Land).Conn("mog", cla.Coast...).Conn("awd", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("eth").Conn("goa", cla.Sea).Conn("red", cla.Sea).Conn("sud", cla.Coast...).Conn("ken", cla.Land).Conn("mog", cla.Land).Conn("awd", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
 		// Tokyo
 		Prov("tok").Conn("spo", cla.Sea).Conn("npo", cla.Sea).Conn("aki", cla.Coast...).Conn("kyo", cla.Land).Conn("shi", cla.Coast...).Flag(cla.Coast...).SC(Japan).
 		// Peking
