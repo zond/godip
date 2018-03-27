@@ -41,6 +41,7 @@ const (
 	Disband       OrderType = "Disband"
 
 	ViaConvoy Flag = "C"
+	Anywhere  Flag = "A"
 )
 
 var Coast = []Flag{Sea, Land}

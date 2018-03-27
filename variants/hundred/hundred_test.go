@@ -50,16 +50,19 @@ func TestBuildAnywhere(t *testing.T) {
 	judge.SetSC("sco", England)
 
 	// Spring movement
+	judge.SetOrder("lon", orders.Move("lon", "str"))
 	judge.Next()
 	// Sprint retreat
 	judge.Next()
 	// Fall movement
+	judge.SetOrder("str", orders.Move("str", "hol"))
+	judge.SetOrder("hol", orders.Move("hol", "fri"))
 	judge.Next()
 	// Fall retreat
 	judge.Next()
 
 	// Fall adjustment - Try to build a new Army in Scotland.
-	judge.SetOrder("sco", orders.Build("sco", cla.Army, time.Now()))
+	judge.SetOrder("sco", orders.BuildAnywhere("sco", cla.Army, time.Now()))
 	judge.Next()
 	// Check that it was successful.
 	tst.AssertUnit(t, judge, "sco", dip.Unit{cla.Army, England})

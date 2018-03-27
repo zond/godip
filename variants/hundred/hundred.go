@@ -8,6 +8,7 @@ import (
 	"github.com/zond/godip/variants/common"
 
 	dip "github.com/zond/godip/common"
+	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
@@ -19,20 +20,27 @@ const (
 
 var Nations = []dip.Nation{England, Burgundy, France}
 
+var BuildAnywhereParser = ord.NewParser([]dip.Order{
+	orders.MoveOrder,
+	orders.MoveViaConvoyOrder,
+	orders.HoldOrder,
+	orders.SupportOrder,
+	orders.BuildAnywhereOrder,
+	orders.DisbandOrder,
+})
+
 var HundredVariant = common.Variant{
-	Name:        "Hundred",
-	Graph:       func() dip.Graph { return HundredGraph() },
-	Start:       HundredStart,
-	Blank:       HundredBlank,
-	Phase:       classical.Phase,
-	ParseOrders: orders.ParseAll,
-	ParseOrder:  orders.Parse,
-	OrderTypes:  orders.OrderTypes(),
-	Nations:     Nations,
-	PhaseTypes:  cla.PhaseTypes,
-	Seasons:     cla.Seasons,
-	UnitTypes:   cla.UnitTypes,
-	SoloWinner:  common.SCCountWinner(9),
+	Name:       "Hundred",
+	Graph:      func() dip.Graph { return HundredGraph() },
+	Start:      HundredStart,
+	Blank:      HundredBlank,
+	Phase:      classical.Phase,
+	Parser:     BuildAnywhereParser,
+	Nations:    Nations,
+	PhaseTypes: cla.PhaseTypes,
+	Seasons:    cla.Seasons,
+	UnitTypes:  cla.UnitTypes,
+	SoloWinner: common.SCCountWinner(9),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/hundredmap.svg")
 	},

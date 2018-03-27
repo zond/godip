@@ -1,4 +1,4 @@
-package classical
+package hundred
 
 import (
 	"bytes"
@@ -12,18 +12,21 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
-	return &phase{year, season, typ}
+const (
+	YearSeason dip.Season = "Year"
+)
+
+func Phase(year int, typ dip.PhaseType) dip.Phase {
+	return &phase{year, typ}
 }
 
 type phase struct {
-	year   int
-	season dip.Season
-	typ    dip.PhaseType
+	year int
+	typ  dip.PhaseType
 }
 
 func (self *phase) String() string {
-	return fmt.Sprintf("%s %d, %s", self.season, self.year, self.typ)
+	return fmt.Sprintf("%s %d, %s", YearSeason, self.year, self.typ)
 }
 
 func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
@@ -155,7 +158,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 		}
 		s.ClearDislodgers()
 		s.ClearBounces()
-		if self.season == cla.Fall {
+		if self.year%10 == 0 {
 			s.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
 				if u != nil {
 					if s.Graph().SC(p) != nil {
@@ -207,7 +210,7 @@ func (self *phase) Year() int {
 }
 
 func (self *phase) Season() dip.Season {
-	return self.season
+	return YearSeason
 }
 
 func (self *phase) Type() dip.PhaseType {
@@ -217,29 +220,25 @@ func (self *phase) Type() dip.PhaseType {
 func (self *phase) Next() dip.Phase {
 	if self.typ == cla.Movement {
 		return &phase{
-			year:   self.year,
-			season: self.season,
-			typ:    cla.Retreat,
+			year: self.year,
+			typ:  cla.Retreat,
 		}
 	} else if self.typ == cla.Retreat {
-		if self.season == cla.Spring {
+		if self.year%10 == 5 {
 			return &phase{
-				year:   self.year,
-				season: cla.Fall,
-				typ:    cla.Movement,
+				year: self.year + 5,
+				typ:  cla.Movement,
 			}
 		} else {
 			return &phase{
-				year:   self.year,
-				season: cla.Fall,
-				typ:    cla.Adjustment,
+				year: self.year,
+				typ:  cla.Adjustment,
 			}
 		}
 	} else {
 		return &phase{
-			year:   self.year + 1,
-			season: cla.Spring,
-			typ:    cla.Movement,
+			year: self.year + 5,
+			typ:  cla.Movement,
 		}
 	}
 	return nil

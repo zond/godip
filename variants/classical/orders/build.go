@@ -10,6 +10,12 @@ import (
 
 var BuildOrder = &build{}
 
+var BuildAnywhereOrder = &build{
+	flags: map[dip.Flag]bool{
+		cla.Anywhere: true,
+	},
+}
+
 func Build(source dip.Province, typ dip.UnitType, at time.Time) *build {
 	return &build{
 		targets: []dip.Province{source},
@@ -18,10 +24,22 @@ func Build(source dip.Province, typ dip.UnitType, at time.Time) *build {
 	}
 }
 
+func BuildAnywhere(source dip.Province, typ dip.UnitType, at time.Time) *build {
+	return &build{
+		targets: []dip.Province{source},
+		typ:     typ,
+		at:      at,
+		flags: map[dip.Flag]bool{
+			cla.Anywhere: true,
+		},
+	}
+}
+
 type build struct {
 	targets []dip.Province
 	typ     dip.UnitType
 	at      time.Time
+	flags   map[dip.Flag]bool
 }
 
 func (self *build) Type() dip.OrderType {
@@ -37,7 +55,11 @@ func (self *build) Flags() map[dip.Flag]bool {
 }
 
 func (self *build) String() string {
-	return fmt.Sprintf("%v %v %v", self.targets[0], cla.Build, self.typ)
+	flagString := ""
+	if self.flags[cla.Anywhere] {
+		flagString = " (anywhere)"
+	}
+	return fmt.Sprintf("%v %v%v %v", self.targets[0], cla.Build, flagString, self.typ)
 }
 
 func (self *build) Targets() []dip.Province {
@@ -49,8 +71,8 @@ func (self *build) At() time.Time {
 }
 
 func (self *build) Adjudicate(r dip.Resolver) error {
-	me := r.Graph().SC(self.targets[0])
-	builds, _, _ := cla.AdjustmentStatus(r, *me)
+	me := r.SupplyCenters()[self.targets[0].Super()]
+	builds, _, _ := cla.AdjustmentStatus(r, me)
 	if len(builds) == 0 || self.at.After(builds[len(builds)-1].At()) {
 		return cla.ErrIllegalBuild
 	}
@@ -95,9 +117,11 @@ func (self *build) Options(v dip.Validator, nation dip.Nation, src dip.Province)
 	if nation != me {
 		return
 	}
-	owner := v.Graph().SC(src.Super())
-	if owner == nil || *owner != me {
-		return
+	if !self.flags[cla.Anywhere] {
+		owner := v.Graph().SC(src.Super())
+		if owner == nil || *owner != me {
+			return
+		}
 	}
 	if _, _, ok = v.Unit(src); ok {
 		return
@@ -137,12 +161,14 @@ func (self *build) Validate(v dip.Validator) (dip.Nation, error) {
 	if me, _, ok = v.SupplyCenter(self.targets[0]); !ok {
 		return "", cla.ErrMissingSupplyCenter
 	}
-	// is there a home sc here
-	owner := v.Graph().SC(self.targets[0].Super())
-	if owner == nil {
-		return "", fmt.Errorf("Should be SOME owner of %v", self.targets[0])
-	} else if *owner != me {
-		return "", cla.ErrHostileSupplyCenter
+	if !self.flags[cla.Anywhere] {
+		// is there a home sc here
+		owner := v.Graph().SC(self.targets[0].Super())
+		if owner == nil {
+			return "", fmt.Errorf("Should be SOME owner of %v", self.targets[0])
+		} else if *owner != me {
+			return "", cla.ErrHostileSupplyCenter
+		}
 	}
 	// is there a unit here
 	if _, _, ok := v.Unit(self.targets[0]); ok {
@@ -167,10 +193,10 @@ func (self *build) Validate(v dip.Validator) (dip.Nation, error) {
 	if self.typ == cla.Fleet && !v.Graph().Flags(self.targets[0])[cla.Sea] {
 		return "", cla.ErrIllegalUnitType
 	}
-	return *owner, nil
+	return me, nil
 }
 
 func (self *build) Execute(state dip.State) {
-	me := state.Graph().SC(self.targets[0].Super())
-	state.SetUnit(self.targets[0], dip.Unit{self.typ, *me})
+	me := state.SupplyCenters()[self.targets[0].Super()]
+	state.SetUnit(self.targets[0], dip.Unit{self.typ, me})
 }

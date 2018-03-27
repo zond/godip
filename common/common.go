@@ -126,11 +126,9 @@ type Phase interface {
 	Season() Season
 	Type() PhaseType
 	Next() Phase
-	Prev() Phase
 	PostProcess(State) error
 	DefaultOrder(Province) Adjudicator
 	Options(Validator, Nation) (result Options)
-	Winner(Validator) *Nation
 }
 
 type PathFilter func(n Province, edgeFlags, provFlags map[Flag]bool, sc *Nation, trace []Province) bool
