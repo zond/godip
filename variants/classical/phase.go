@@ -30,7 +30,7 @@ func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Optio
 	return s.Options(orders.ClassicalParser.Orders(), nation)
 }
 
-func (self *phase) shortestDistance(s dip.State, src dip.Province, dst []dip.Province) (result int, err error) {
+func shortestDistance(s dip.State, src dip.Province, dst []dip.Province) (result int, err error) {
 	var unit dip.Unit
 	var ok bool
 	unit, src, ok = s.Unit(src)
@@ -116,14 +116,14 @@ func (self remoteUnitSlice) Less(i, j int) bool {
 	return self.distances[self.provinces[i]] > self.distances[self.provinces[j]]
 }
 
-func (self *phase) sortedUnits(s dip.State, n dip.Nation) (result []dip.Province, err error) {
+func SortedUnits(s dip.State, n dip.Nation) (result []dip.Province, err error) {
 	provs := remoteUnitSlice{
 		distances: make(map[dip.Province]int),
 		units:     make(map[dip.Province]dip.Unit),
 	}
 	provs.provinces, _, _ = s.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
 		if u != nil && u.Nation == n {
-			if provs.distances[p], err = self.shortestDistance(s, p, s.Graph().SCs(n)); err != nil {
+			if provs.distances[p], err = shortestDistance(s, p, s.Graph().SCs(n)); err != nil {
 				return false
 			}
 			provs.units[p] = *u
@@ -170,7 +170,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 			_, _, balance := cla.AdjustmentStatus(s, nationality)
 			if balance < 0 {
 				var su []dip.Province
-				if su, err = self.sortedUnits(s, nationality); err != nil {
+				if su, err = SortedUnits(s, nationality); err != nil {
 					return
 				}
 				su = su[:-balance]
