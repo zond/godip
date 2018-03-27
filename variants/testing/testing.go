@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/zond/godip/state"
@@ -109,19 +110,23 @@ func hasOpt(opts dip.Options, order []string) error {
 }
 
 func AssertOpt(t *testing.T, opts dip.Options, order []string) {
-	err := hasOpt(opts, order)
-	if err != nil {
-		t.Error(err)
-	}
+	t.Run(strings.Join(order, "_"), func(t *testing.T) {
+		err := hasOpt(opts, order)
+		if err != nil {
+			t.Error(err)
+		}
+	})
 }
 
 func AssertNoOpt(t *testing.T, opts dip.Options, order []string) {
-	err := hasOpt(opts, order)
-	if err == nil {
-		b, err := json.MarshalIndent(opts, "  ", "  ")
-		if err != nil {
-			t.Fatal(err)
+	t.Run(strings.Join(order, "_"), func(t *testing.T) {
+		err := hasOpt(opts, order)
+		if err == nil {
+			b, err := json.MarshalIndent(opts, "  ", "  ")
+			if err != nil {
+				t.Fatal(err)
+			}
+			t.Errorf("Found option for %+v in %s, didn't want it", order, b)
 		}
-		t.Errorf("Found option for %+v in %s, didn't want it", order, b)
-	}
+	})
 }
