@@ -117,32 +117,6 @@ func (self ErrBounce) Error() string {
 	return fmt.Sprintf("ErrBounce:%v", self.Province)
 }
 
-// PossibleConvoyPathFilter returns a path filter for Graph that only accepts nodes that can partake in a convoy from
-// src to dst. If resolveConvoys, then the convoys have to be successful. If dstOk then the dst is acceptable as convoying
-// node.
-func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, dstOk bool) PathFilter {
-	return func(name Province, edgeFlags, nodeFlags map[Flag]bool, sc *Nation, trace []Province) bool {
-		if dstOk && name.Contains(dst) && nodeFlags[Land] {
-			return true
-		}
-		if (nodeFlags[Land] || !nodeFlags[Sea]) && !nodeFlags[Convoyable] {
-			return false
-		}
-		if u, _, ok := v.Unit(name); ok && u.Type == Fleet {
-			if !resolveConvoys {
-				return true
-			}
-			if order, prov, ok := v.Order(name); ok && order.Type() == Convoy && order.Targets()[1].Contains(src) && order.Targets()[2].Contains(dst) {
-				if err := v.(Resolver).Resolve(prov); err != nil {
-					return false
-				}
-				return true
-			}
-		}
-		return false
-	}
-}
-
 func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Province {
 	potentialConvoyCoasts := []Province{}
 	v.Graph().Path(src, "-", func(prov Province, edgeFlags, provFlags map[Flag]bool, sc *Nation, trace []Province) bool {
@@ -172,14 +146,47 @@ func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Provinc
 	return potentialConvoyCoasts
 }
 
-func ConvoyPathPossible(v Validator, via, src, dst Province, resolveConvoys bool) []Province {
-	defer v.Profile("ConvoyPathPossible", time.Now())
+// PossibleConvoyPathFilter returns a path filter for Graph that only accepts nodes that can partake in a convoy from
+// src to dst. If resolveConvoys, then the convoys have to be successful. If dstOk then the dst is acceptable as convoying
+// node.
+func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, dstOk bool) PathFilter {
+	return func(name Province, edgeFlags, nodeFlags map[Flag]bool, sc *Nation, trace []Province) bool {
+		if dstOk && name.Contains(dst) && nodeFlags[Land] {
+			return true
+		}
+		if (nodeFlags[Land] || !nodeFlags[Sea]) && !nodeFlags[Convoyable] {
+			return false
+		}
+		if u, _, ok := v.Unit(name); ok && u.Type == Fleet {
+			if !resolveConvoys {
+				return true
+			}
+			if order, prov, ok := v.Order(name); ok && order.Type() == Convoy && order.Targets()[1].Contains(src) && order.Targets()[2].Contains(dst) {
+				if err := v.(Resolver).Resolve(prov); err != nil {
+					return false
+				}
+				return true
+			}
+		}
+		return false
+	}
+}
+
+// ConvoyParticipantionPossible returns a path that participant (assumed to be a fleet at a convoyable position)
+// could send an army to endpoint.
+func ConvoyParticipationPossible(v Validator, participant, endpoint Province) []Province {
+	defer v.Profile("ConvoyParticipationPossible", time.Now())
+	return v.Graph().Path(participant, endpoint, PossibleConvoyPathFilter(v, participant, endpoint, false, true), false)
+}
+
+func ConvoyPathPossibleVia(v Validator, via, src, dst Province, resolveConvoys bool) []Province {
+	defer v.Profile("ConvoyPathPossibleVia", time.Now())
 	if part1 := v.Graph().Path(src, via, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false), false); part1 != nil {
 		t2 := time.Now()
 		if part2 := v.Graph().Path(via, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true), false); part2 != nil {
 			return append(part1, part2...)
 		}
-		v.Profile("ConvoyPathPossble { [ check second half ] }", t2)
+		v.Profile("ConvoyPathPossbleVia { [ check second half ] }", t2)
 	}
 	return nil
 }
@@ -211,7 +218,7 @@ func convoyPath(v Validator, src, dst Province, resolveConvoys bool, viaNation *
 	})
 	v.Profile("convoyPath { v.Find([matching fleets]) }", t)
 	for _, waypoint := range waypoints {
-		if path := ConvoyPathPossible(v, waypoint, src, dst, resolveConvoys); path != nil {
+		if path := ConvoyPathPossibleVia(v, waypoint, src, dst, resolveConvoys); path != nil {
 			return path
 		}
 	}
