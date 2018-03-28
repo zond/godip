@@ -118,6 +118,7 @@ func (self ErrBounce) Error() string {
 }
 
 func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Province {
+	defer v.Profile("ConvoyDestinations", time.Now())
 	potentialConvoyCoasts := []Province{}
 	v.Graph().Path(src, "-", func(prov Province, edgeFlags, provFlags map[Flag]bool, sc *Nation, trace []Province) bool {
 		if !edgeFlags[Sea] {
@@ -142,7 +143,7 @@ func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Provinc
 			return false
 		}
 		return true
-	}, true)
+	})
 	return potentialConvoyCoasts
 }
 
@@ -176,14 +177,14 @@ func PossibleConvoyPathFilter(v Validator, src, dst Province, resolveConvoys, ds
 // could send an army to endpoint.
 func ConvoyParticipationPossible(v Validator, participant, endpoint Province) []Province {
 	defer v.Profile("ConvoyParticipationPossible", time.Now())
-	return v.Graph().Path(participant, endpoint, PossibleConvoyPathFilter(v, participant, endpoint, false, true), false)
+	return v.Graph().Path(participant, endpoint, PossibleConvoyPathFilter(v, participant, endpoint, false, true))
 }
 
 func ConvoyPathPossibleVia(v Validator, via, src, dst Province, resolveConvoys bool) []Province {
 	defer v.Profile("ConvoyPathPossibleVia", time.Now())
-	if part1 := v.Graph().Path(src, via, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false), false); part1 != nil {
+	if part1 := v.Graph().Path(src, via, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false)); part1 != nil {
 		t2 := time.Now()
-		if part2 := v.Graph().Path(via, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true), false); part2 != nil {
+		if part2 := v.Graph().Path(via, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true)); part2 != nil {
 			return append(part1, part2...)
 		}
 		v.Profile("ConvoyPathPossbleVia { [ check second half ] }", t2)
@@ -285,35 +286,38 @@ func AnySupportPossible(v Validator, typ UnitType, src, dst Province) (err error
 }
 
 func PossibleMovesUnit(v Validator, unitType UnitType, src Province, allowConvoy bool, noConvoy *Province) (result []Province) {
-	dsts := map[Province]bool{}
-	if unitType == Army {
-		for dst, flags := range v.Graph().Edges(src) {
-			if flags[Land] && v.Graph().Flags(dst)[Land] {
-				dsts[dst] = true
-			}
-		}
-		if allowConvoy {
-			for _, coast := range v.Graph().Coasts(src) {
-				for _, prov := range ConvoyDestinations(v, coast, noConvoy) {
-					dsts[prov] = true
+	defer v.Profile("PossibleMovesUnit", time.Now())
+	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesUnit(%v,%v,%v)", unitType, src, allowConvoy, noConvoy), func() []Province {
+		dsts := map[Province]bool{}
+		if unitType == Army {
+			for dst, flags := range v.Graph().Edges(src) {
+				if flags[Land] && v.Graph().Flags(dst)[Land] {
+					dsts[dst] = true
 				}
 			}
+			if allowConvoy {
+				for _, coast := range v.Graph().Coasts(src) {
+					for _, prov := range ConvoyDestinations(v, coast, noConvoy) {
+						dsts[prov] = true
+					}
+				}
+			}
+		} else if unitType == Fleet {
+			for dst, flags := range v.Graph().Edges(src) {
+				if flags[Sea] && v.Graph().Flags(dst)[Sea] {
+					dsts[dst] = true
+				}
+			}
+		} else {
+			panic(fmt.Errorf("unknown unit type %q", unitType))
 		}
-	} else if unitType == Fleet {
-		for dst, flags := range v.Graph().Edges(src) {
-			if flags[Sea] && v.Graph().Flags(dst)[Sea] {
-				dsts[dst] = true
+		for dst, _ := range dsts {
+			if dst.Super() == dst || !dsts[dst.Super()] {
+				result = append(result, dst)
 			}
 		}
-	} else {
-		panic(fmt.Errorf("unknown unit type %q", unitType))
-	}
-	for dst, _ := range dsts {
-		if dst.Super() == dst || !dsts[dst.Super()] {
-			result = append(result, dst)
-		}
-	}
-	return result
+		return result
+	})
 }
 
 func PossibleMoves(v Validator, src Province, allowConvoy, dislodged bool) (result []Province) {
