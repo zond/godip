@@ -16,7 +16,10 @@ const (
 	YearSeason dip.Season = "Year"
 )
 
-func Phase(year int, typ dip.PhaseType) dip.Phase {
+func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
+	if season != YearSeason {
+		fmt.Errorf("Warning - Hundred only supports YearSeason, but got {}", season)
+	}
 	return &phase{year, typ}
 }
 
@@ -30,7 +33,7 @@ func (self *phase) String() string {
 }
 
 func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
-	return s.Options(orders.ClassicalParser.Orders(), nation)
+	return s.Options(BuildAnywhereParser.Orders(), nation)
 }
 
 type remoteUnitSlice struct {

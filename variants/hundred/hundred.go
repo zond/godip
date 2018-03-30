@@ -34,11 +34,11 @@ var HundredVariant = common.Variant{
 	Graph:      func() dip.Graph { return HundredGraph() },
 	Start:      HundredStart,
 	Blank:      HundredBlank,
-	Phase:      classical.Phase,
+	Phase:      Phase,
 	Parser:     BuildAnywhereParser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
-	Seasons:    cla.Seasons,
+	Seasons:    []dip.Season{YearSeason},
 	UnitTypes:  cla.UnitTypes,
 	SoloWinner: common.SCCountWinner(9),
 	SVGMap: func() ([]byte, error) {
@@ -64,7 +64,7 @@ func HundredBlank(phase dip.Phase) *state.State {
 }
 
 func HundredStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1425, cla.Spring, cla.Movement)
+	startPhase := Phase(1425, YearSeason, cla.Movement)
 	result = state.New(HundredGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{
 		"lon": dip.Unit{cla.Fleet, England},
