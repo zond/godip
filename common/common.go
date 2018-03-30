@@ -66,11 +66,25 @@ type UnitType string
 
 type Nation string
 
+func (n *Nation) String() string {
+	if n == nil {
+		return ""
+	}
+	return string(*n)
+}
+
 type OrderType string
 
 type PhaseType string
 
 type Province string
+
+func (p *Province) String() string {
+	if p == nil {
+		return ""
+	}
+	return string(*p)
+}
 
 type Season string
 
@@ -140,7 +154,7 @@ type Graph interface {
 	Flags(Province) map[Flag]bool
 	AllFlags(Province) map[Flag]bool
 	SC(Province) *Nation
-	Path(src, dst Province, filter PathFilter, revisit bool) []Province
+	Path(src, dst Province, filter PathFilter) []Province
 	Coasts(Province) []Province
 	Edges(src Province) map[Province]map[Flag]bool
 	SCs(Nation) []Province
@@ -222,7 +236,9 @@ type Validator interface {
 	Options([]Order, Nation) (result Options)
 
 	Profile(string, time.Time)
-	GetProfile() map[string]time.Duration
+	GetProfile() (map[string]time.Duration, map[string]int)
+
+	MemoizeProvSlice(string, func() []Province) []Province
 }
 
 type Resolver interface {

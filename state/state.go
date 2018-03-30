@@ -9,16 +9,18 @@ import (
 
 func New(graph common.Graph, phase common.Phase, backupRule common.BackupRule) *State {
 	return &State{
-		graph:         graph,
-		phase:         phase,
-		backupRule:    backupRule,
-		orders:        make(map[common.Province]common.Adjudicator),
-		units:         make(map[common.Province]common.Unit),
-		dislodgeds:    make(map[common.Province]common.Unit),
-		supplyCenters: make(map[common.Province]common.Nation),
-		dislodgers:    make(map[common.Province]common.Province),
-		bounces:       make(map[common.Province]map[common.Province]bool),
-		profile:       make(map[string]time.Duration),
+		graph:              graph,
+		phase:              phase,
+		backupRule:         backupRule,
+		orders:             make(map[common.Province]common.Adjudicator),
+		units:              make(map[common.Province]common.Unit),
+		dislodgeds:         make(map[common.Province]common.Unit),
+		supplyCenters:      make(map[common.Province]common.Nation),
+		dislodgers:         make(map[common.Province]common.Province),
+		bounces:            make(map[common.Province]map[common.Province]bool),
+		profile:            make(map[string]time.Duration),
+		profileCounts:      make(map[string]int),
+		memoizedProvSlices: make(map[string][]common.Province),
 	}
 }
 
@@ -60,26 +62,39 @@ func (self *movement) execute(s *State) (err error) {
 }
 
 type State struct {
-	orders        map[common.Province]common.Adjudicator
-	units         map[common.Province]common.Unit
-	dislodgeds    map[common.Province]common.Unit
-	supplyCenters map[common.Province]common.Nation
-	graph         common.Graph
-	phase         common.Phase
-	backupRule    common.BackupRule
-	resolutions   map[common.Province]error
-	dislodgers    map[common.Province]common.Province
-	movements     []*movement
-	bounces       map[common.Province]map[common.Province]bool
-	profile       map[string]time.Duration
+	orders             map[common.Province]common.Adjudicator
+	units              map[common.Province]common.Unit
+	dislodgeds         map[common.Province]common.Unit
+	supplyCenters      map[common.Province]common.Nation
+	graph              common.Graph
+	phase              common.Phase
+	backupRule         common.BackupRule
+	resolutions        map[common.Province]error
+	dislodgers         map[common.Province]common.Province
+	movements          []*movement
+	bounces            map[common.Province]map[common.Province]bool
+	profile            map[string]time.Duration
+	profileCounts      map[string]int
+	memoizedProvSlices map[string][]common.Province
 }
 
 func (self *State) Profile(a string, t time.Time) {
 	self.profile[a] += time.Now().Sub(t)
+	self.profileCounts[a] += 1
 }
 
-func (self *State) GetProfile() map[string]time.Duration {
-	return self.profile
+func (self *State) MemoizeProvSlice(key string, f func() []common.Province) []common.Province {
+	old, found := self.memoizedProvSlices[key]
+	if found {
+		return old
+	}
+	neu := f()
+	self.memoizedProvSlices[key] = neu
+	return neu
+}
+
+func (self *State) GetProfile() (map[string]time.Duration, map[string]int) {
+	return self.profile, self.profileCounts
 }
 
 func (self *State) resolver() *resolver {
@@ -207,6 +222,8 @@ func (self *State) Next() (err error) {
 		return
 	}
 	self.phase = self.phase.Next()
+
+	self.memoizedProvSlices = map[string][]common.Province{}
 	return
 }
 
@@ -217,6 +234,8 @@ func (self *State) Phase() common.Phase {
 // Bulk setters
 
 func (self *State) SetOrders(orders map[common.Province]common.Adjudicator) *State {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	self.orders = make(map[common.Province]common.Adjudicator)
 	for prov, order := range orders {
 		self.SetOrder(prov, order)
@@ -225,6 +244,8 @@ func (self *State) SetOrders(orders map[common.Province]common.Adjudicator) *Sta
 }
 
 func (self *State) SetUnits(units map[common.Province]common.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	self.units = make(map[common.Province]common.Unit)
 	for prov, unit := range units {
 		if err = self.SetUnit(prov, unit); err != nil {
@@ -235,6 +256,8 @@ func (self *State) SetUnits(units map[common.Province]common.Unit) (err error) {
 }
 
 func (self *State) SetDislodgeds(dislodgeds map[common.Province]common.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	self.dislodgeds = make(map[common.Province]common.Unit)
 	for prov, unit := range dislodgeds {
 		if err = self.SetDislodged(prov, unit); err != nil {
@@ -245,6 +268,8 @@ func (self *State) SetDislodgeds(dislodgeds map[common.Province]common.Unit) (er
 }
 
 func (self *State) SetSupplyCenters(supplyCenters map[common.Province]common.Nation) *State {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	self.supplyCenters = supplyCenters
 	return self
 }
@@ -274,6 +299,8 @@ func (self *State) Load(
 // Singular setters
 
 func (self *State) SetDislodger(attacker, victim common.Province) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	self.dislodgers[attacker.Super()] = victim.Super()
 }
 
@@ -288,14 +315,20 @@ func (self *State) AddBounce(src, dst common.Province) {
 }
 
 func (self *State) SetResolution(p common.Province, err error) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	self.resolutions[p] = err
 }
 
 func (self *State) SetSC(p common.Province, n common.Nation) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	self.supplyCenters[p] = n
 }
 
 func (self *State) SetDislodged(prov common.Province, unit common.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	if found, _, ok := self.Dislodged(prov); ok {
 		err = fmt.Errorf("%v is already at %v", found, prov)
 		return
@@ -305,6 +338,8 @@ func (self *State) SetDislodged(prov common.Province, unit common.Unit) (err err
 }
 
 func (self *State) SetUnit(prov common.Province, unit common.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	if found, _, ok := self.Unit(prov); ok {
 		err = fmt.Errorf("%v is already at %v", found, prov)
 		return
@@ -314,6 +349,8 @@ func (self *State) SetUnit(prov common.Province, unit common.Unit) (err error) {
 }
 
 func (self *State) SetOrder(prov common.Province, order common.Adjudicator) (err error) {
+	self.memoizedProvSlices = map[string][]common.Province{}
+
 	if found, _, ok := self.Order(prov); ok {
 		err = fmt.Errorf("%v is already at %v", found, prov)
 		return

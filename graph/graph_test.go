@@ -7,7 +7,7 @@ import (
 )
 
 func assertPath(t *testing.T, g *Graph, src, dst common.Province, found []common.Province) {
-	if f := g.Path(src, dst, nil, false); !reflect.DeepEqual(f, found) {
+	if f := g.Path(src, dst, nil); !reflect.DeepEqual(f, found) {
 		t.Errorf("%v should have a path between %v and %v like %v but found %v", g, src, dst, found, f)
 	}
 }

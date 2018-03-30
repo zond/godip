@@ -22,6 +22,9 @@ func (self testOrder) Type() common.OrderType {
 func (self testOrder) Flags() map[common.Flag]bool {
 	return nil
 }
+func (self testOrder) Parse(parts []string) (common.Adjudicator, error) {
+	return nil, nil
+}
 func (self testOrder) At() time.Time {
 	return time.Now()
 }

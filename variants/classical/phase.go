@@ -60,13 +60,13 @@ func shortestDistance(s dip.State, src dip.Province, dst []dip.Province) (result
 					result = 0
 					found = true
 				} else {
-					if path := s.Graph().Path(srcCoast, coast, filter, false); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, filter); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true
 						}
 					}
-					if path := s.Graph().Path(srcCoast, coast, nil, false); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, nil); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true
