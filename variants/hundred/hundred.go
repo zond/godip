@@ -53,10 +53,16 @@ var HundredVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules:       "",
+	CreatedBy:   "Andy Schwarz",
+	Version:     "3",
+	Description: "A three player variant based on the Hundred Years War.",
+	Rules: "A 'build anywhere' variant (players can build in any vacant supply center they own) " +
+		"where three players compete to be the first to 9 centers. The map is fairly standard " +
+		"except London is directly connected to Calais (for all units) and Northumbria and " +
+		"Aragon each have two coasts. France starts with five units but only four centers, so " +
+		"they will have to disband unless they gain a center by the end of 1430. The variant " +
+		"replaces Spring and Fall from the Classical game with years ending in '5' and years " +
+		"ending in '0' - i.e. there is an adjustment phase at the end of years ending in '0'.",
 }
 
 func HundredBlank(phase dip.Phase) *state.State {
