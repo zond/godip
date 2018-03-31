@@ -1,0 +1,1448 @@
+PHASE 1425 Year Movement
+POSITIONS
+	England: fleet dev
+	England: army nom
+	England: army guy
+	England: fleet lon
+	England: army cal
+	England: supply dev
+	England: supply nom
+	England: supply guy
+	England: supply lon
+	England: supply cal
+	Burgundy: army fla
+	Burgundy: army lux
+	Burgundy: fleet hol
+	Burgundy: army dij
+	Burgundy: supply fla
+	Burgundy: supply lux
+	Burgundy: supply hol
+	Burgundy: supply dij
+	France: army dau
+	France: army par
+	France: army tou
+	France: army orl
+	France: army pro
+	France: supply dau
+	France: supply par
+	France: supply tou
+	France: supply orl
+ORDERS
+	guy move brt
+	lon move str
+	dev move eng
+	cal support nom
+	nom support guy move brt
+	fla move cal
+	lux move lor
+	hol move str
+	dij support fla move cal
+	par move nom
+	dau move par
+	pro move sav
+	tou move guy
+	orl support par move nom
+PHASE 1425 Year Retreat
+POSITIONS
+	England: army brt
+	England: fleet eng
+	England: fleet lon
+	England: army/dislodged nom
+	England: supply dev
+	England: supply nom
+	England: supply guy
+	England: supply lon
+	England: supply cal
+	Burgundy: fleet hol
+	Burgundy: army cal
+	Burgundy: army dij
+	Burgundy: army lor
+	Burgundy: supply fla
+	Burgundy: supply lux
+	Burgundy: supply hol
+	Burgundy: supply dij
+	France: army sav
+	France: army nom
+	France: army orl
+	France: army par
+	France: army guy
+	France: supply dau
+	France: supply par
+	France: supply tou
+	France: supply orl
+ORDERS
+	nom move anj
+	cal disband
+PHASE 1430 Year Movement
+POSITIONS
+	England: supply guy
+	England: supply dev
+	England: supply cal
+	England: supply nom
+	England: fleet eng
+	England: army anj
+	England: fleet lon
+	England: army brt
+	England: supply lon
+	Burgundy: supply lux
+	Burgundy: supply fla
+	Burgundy: fleet hol
+	Burgundy: army lor
+	Burgundy: army dij
+	Burgundy: army cal
+	Burgundy: supply hol
+	Burgundy: supply dij
+	France: supply dau
+	France: supply tou
+	France: army guy
+	France: army par
+	France: army sav
+	France: army orl
+	France: army nom
+	France: supply par
+	France: supply orl
+ORDERS
+	anj move nom
+	lon move str
+	eng support brt
+	brt support anj move nom
+	lor move can
+	hol move str
+	dij move cha
+	cal support anj move nom
+	sav move can
+	par move dij
+	nom move brt
+	guy support nom move brt
+	orl support par move nom
+PHASE 1430 Year Retreat
+POSITIONS
+	England: supply dev
+	England: supply cal
+	England: supply guy
+	England: supply nom
+	England: fleet lon
+	England: army nom
+	England: army brt
+	England: fleet eng
+	England: supply lon
+	Burgundy: supply lux
+	Burgundy: supply fla
+	Burgundy: army cha
+	Burgundy: fleet hol
+	Burgundy: army cal
+	Burgundy: army lor
+	Burgundy: supply hol
+	Burgundy: supply dij
+	France: supply dau
+	France: supply tou
+	France: army dij
+	France: army guy
+	France: army orl
+	France: army sav
+	France: army/dislodged nom
+	France: supply par
+	France: supply orl
+ORDERS
+	nom move par
+PHASE 1430 Year Adjustment
+POSITIONS
+	England: supply dev
+	England: supply nom
+	England: fleet eng
+	England: fleet lon
+	England: army nom
+	England: army brt
+	England: supply lon
+	England: supply brt
+	Burgundy: supply lux
+	Burgundy: supply fla
+	Burgundy: fleet hol
+	Burgundy: army cal
+	Burgundy: army lor
+	Burgundy: army cha
+	Burgundy: supply hol
+	Burgundy: supply cal
+	France: supply dij
+	France: supply tou
+	France: supply dau
+	France: army par
+	France: army guy
+	France: army orl
+	France: army sav
+	France: army dij
+	France: supply guy
+	France: supply par
+	France: supply orl
+ORDERS
+	build anywhere Army dau
+PHASE 1435 Year Movement
+POSITIONS
+	England: supply dev
+	England: fleet eng
+	England: fleet lon
+	England: army nom
+	England: army brt
+	England: supply lon
+	England: supply nom
+	England: supply brt
+	Burgundy: supply fla
+	Burgundy: supply lux
+	Burgundy: army cha
+	Burgundy: fleet hol
+	Burgundy: army lor
+	Burgundy: army cal
+	Burgundy: supply hol
+	Burgundy: supply cal
+	France: supply tou
+	France: army dau
+	France: army orl
+	France: army guy
+	France: army sav
+	France: army par
+	France: army dij
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply par
+	France: supply dij
+ORDERS
+	lon move str
+	eng support brt
+	nom support cal
+	brt support nom
+	hol move str
+	cal move par
+	cha move dau
+	lor move can
+	dij move lux
+	sav move can
+	guy move brt
+	par support orl
+	orl support par
+	dau support sav move can
+PHASE 1440 Year Movement
+POSITIONS
+	England: supply dev
+	England: fleet eng
+	England: fleet lon
+	England: army nom
+	England: army brt
+	England: supply lon
+	England: supply nom
+	England: supply brt
+	Burgundy: supply fla
+	Burgundy: supply lux
+	Burgundy: army lor
+	Burgundy: fleet hol
+	Burgundy: army cha
+	Burgundy: army cal
+	Burgundy: supply hol
+	Burgundy: supply cal
+	France: supply tou
+	France: supply dij
+	France: army lux
+	France: army dau
+	France: army orl
+	France: army guy
+	France: army sav
+	France: army par
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply par
+ORDERS
+	lon move str
+	eng move nom
+	brt move orl
+	nom support brt move orl
+	hol move str
+	cal move dij
+	lor support cal move dij
+	cha support cal move dij
+	dau move dij
+	guy move brt
+	sav move can
+	lux move dij
+	orl support par
+	par support orl
+PHASE 1440 Year Adjustment
+POSITIONS
+	England: supply dev
+	England: fleet eng
+	England: fleet lon
+	England: army nom
+	England: army brt
+	England: supply lon
+	England: supply nom
+	England: supply brt
+	Burgundy: supply fla
+	Burgundy: supply dij
+	Burgundy: army lor
+	Burgundy: fleet hol
+	Burgundy: army dij
+	Burgundy: army cha
+	Burgundy: supply hol
+	Burgundy: supply cal
+	France: supply tou
+	France: supply can
+	France: army lux
+	France: army dau
+	France: army orl
+	France: army guy
+	France: army par
+	France: army can
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply par
+ORDERS
+	build anywhere Fleet tou
+PHASE 1445 Year Movement
+POSITIONS
+	England: supply dev
+	England: fleet eng
+	England: fleet lon
+	England: army nom
+	England: army brt
+	England: supply lon
+	England: supply nom
+	England: supply brt
+	Burgundy: supply fla
+	Burgundy: supply cal
+	Burgundy: army cha
+	Burgundy: fleet hol
+	Burgundy: army lor
+	Burgundy: army dij
+	Burgundy: supply hol
+	Burgundy: supply dij
+	France: army lux
+	France: army dau
+	France: army orl
+	France: army guy
+	France: fleet tou
+	France: army par
+	France: army can
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply tou
+	France: supply par
+	France: supply can
+ORDERS
+	lon move str
+	brt move orl
+	eng move brt
+	nom support brt move orl
+	hol move fla
+	cha move dau
+	dij move can
+	lor support dij move can
+	tou move ara/sc
+	dau move dij
+	guy move brt
+	orl move nom
+	can support dau move dij
+	lux support dau move dij
+	par support orl move nom
+PHASE 1445 Year Retreat
+POSITIONS
+	England: supply dev
+	England: fleet str
+	England: fleet eng
+	England: army orl
+	England: army/dislodged nom
+	England: supply lon
+	England: supply nom
+	England: supply brt
+	Burgundy: supply cal
+	Burgundy: supply fla
+	Burgundy: fleet fla
+	Burgundy: army dau
+	Burgundy: army can
+	Burgundy: army lor
+	Burgundy: supply hol
+	Burgundy: supply dij
+	France: army nom
+	France: army dij
+	France: army guy
+	France: army lux
+	France: fleet ara/sc
+	France: army par
+	France: army/dislodged can
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply tou
+	France: supply par
+	France: supply can
+ORDERS
+	nom move cal
+	can move sav
+PHASE 1450 Year Movement
+POSITIONS
+	England: supply brt
+	England: supply dev
+	England: supply nom
+	England: supply lon
+	England: fleet str
+	England: fleet eng
+	England: army orl
+	England: army cal
+	Burgundy: supply hol
+	Burgundy: supply dij
+	Burgundy: supply cal
+	Burgundy: army dau
+	Burgundy: army lor
+	Burgundy: army can
+	Burgundy: fleet fla
+	Burgundy: supply fla
+	France: supply dau
+	France: supply orl
+	France: supply tou
+	France: supply can
+	France: army lux
+	France: army guy
+	France: army nom
+	France: army par
+	France: fleet ara/sc
+	France: army dij
+	France: army sav
+	France: supply lux
+	France: supply guy
+	France: supply par
+ORDERS
+	orl move nom
+	eng move brt
+	str support cal
+	cal support orl move nom
+	fla move hol
+	can support dij
+	dau support dij
+	lor support dij
+	ara/sc move cas
+	dij move can
+	guy move brt
+	nom move par
+	par move dij
+	sav support dij move can
+	lux support par move dij
+PHASE 1450 Year Retreat
+POSITIONS
+	England: supply lon
+	England: supply nom
+	England: supply brt
+	England: supply dev
+	England: fleet str
+	England: army nom
+	England: army cal
+	England: fleet eng
+	Burgundy: supply cal
+	Burgundy: supply hol
+	Burgundy: supply dij
+	Burgundy: army lor
+	Burgundy: fleet hol
+	Burgundy: army dau
+	Burgundy: army/dislodged can
+	Burgundy: supply fla
+	France: supply orl
+	France: supply tou
+	France: supply dau
+	France: supply can
+	France: army can
+	France: army guy
+	France: army lux
+	France: army sav
+	France: army dij
+	France: army par
+	France: fleet cas
+	France: supply lux
+	France: supply guy
+	France: supply par
+ORDERS
+	can move als
+PHASE 1450 Year Adjustment
+POSITIONS
+	England: supply lon
+	England: supply nom
+	England: supply brt
+	England: supply dev
+	England: fleet str
+	England: fleet eng
+	England: army nom
+	England: army cal
+	England: supply cal
+	Burgundy: supply hol
+	Burgundy: army als
+	Burgundy: army dau
+	Burgundy: fleet hol
+	Burgundy: army lor
+	Burgundy: supply dau
+	Burgundy: supply fla
+	France: supply tou
+	France: supply orl
+	France: supply can
+	France: supply cas
+	France: army lux
+	France: fleet cas
+	France: army guy
+	France: army sav
+	France: army par
+	France: army can
+	France: army dij
+	France: supply lux
+	France: supply guy
+	France: supply par
+	France: supply dij
+ORDERS
+	build anywhere Army brt
+	remove als
+	build anywhere Army orl
+PHASE 1455 Year Movement
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: fleet str
+	England: fleet eng
+	England: army cal
+	England: army nom
+	England: army brt
+	England: supply cal
+	England: supply nom
+	England: supply brt
+	Burgundy: supply fla
+	Burgundy: army dau
+	Burgundy: fleet hol
+	Burgundy: army lor
+	Burgundy: supply dau
+	Burgundy: supply hol
+	France: supply tou
+	France: army lux
+	France: army orl
+	France: army guy
+	France: fleet cas
+	France: army par
+	France: army can
+	France: army dij
+	France: army sav
+	France: supply lux
+	France: supply orl
+	France: supply guy
+	France: supply cas
+	France: supply par
+	France: supply can
+	France: supply dij
+ORDERS
+	brt move orl
+	cal move par
+	eng move brt
+	str support cal
+	nom support brt move orl
+	dau hold
+	hol hold
+	lor hold
+	cas move bis
+	can move dau
+	guy move brt
+	sav move can
+	lux move hol
+	orl support par
+	dij support par
+	par support can move dau
+PHASE 1455 Year Retreat
+POSITIONS
+	England: supply lon
+	England: supply dev
+	England: fleet str
+	England: army nom
+	England: army orl
+	England: army cal
+	England: fleet eng
+	England: supply cal
+	England: supply nom
+	England: supply brt
+	Burgundy: supply fla
+	Burgundy: fleet hol
+	Burgundy: army dau
+	Burgundy: army lor
+	Burgundy: supply dau
+	Burgundy: supply hol
+	France: supply tou
+	France: army par
+	France: army guy
+	France: army lux
+	France: army sav
+	France: army dij
+	France: fleet bis
+	France: army can
+	France: army/dislodged orl
+	France: supply lux
+	France: supply orl
+	France: supply guy
+	France: supply cas
+	France: supply par
+	France: supply can
+	France: supply dij
+ORDERS
+	orl move lim
+PHASE 1460 Year Movement
+POSITIONS
+	England: supply brt
+	England: supply dev
+	England: supply lon
+	England: fleet str
+	England: fleet eng
+	England: army nom
+	England: army orl
+	England: army cal
+	England: supply nom
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: army dau
+	Burgundy: fleet hol
+	Burgundy: army lor
+	Burgundy: supply dau
+	Burgundy: supply hol
+	France: supply orl
+	France: supply tou
+	France: supply cas
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army guy
+	France: army sav
+	France: army par
+	France: army can
+	France: army dij
+	France: supply lux
+	France: supply guy
+	France: supply par
+	France: supply can
+	France: supply dij
+ORDERS
+	orl move par
+	eng move brt
+	str support cal
+	nom support eng move brt
+	cal support orl move par
+	dau move pro
+	hol move fla
+	lor move lux
+	bis move brt
+	can move dau
+	par move orl
+	lux move lor
+	dij move par
+	lim support par move orl
+	guy support bis move brt
+	sav support can move dau
+PHASE 1460 Year Adjustment
+POSITIONS
+	England: supply lon
+	England: supply dev
+	England: supply brt
+	England: fleet str
+	England: fleet eng
+	England: army nom
+	England: army orl
+	England: army cal
+	England: supply nom
+	England: supply orl
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: army lor
+	Burgundy: fleet fla
+	Burgundy: army pro
+	Burgundy: supply hol
+	France: supply tou
+	France: supply cas
+	France: supply dau
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army guy
+	France: army sav
+	France: army par
+	France: army dij
+	France: supply lux
+	France: supply guy
+	France: supply par
+	France: supply can
+	France: supply dij
+ORDERS
+	build anywhere Army brt
+	remove fla
+PHASE 1465 Year Movement
+POSITIONS
+	England: supply lon
+	England: supply dev
+	England: fleet eng
+	England: army orl
+	England: fleet str
+	England: army nom
+	England: army brt
+	England: army cal
+	England: supply orl
+	England: supply nom
+	England: supply brt
+	England: supply cal
+	Burgundy: supply hol
+	Burgundy: supply fla
+	Burgundy: army lor
+	Burgundy: army pro
+	France: supply cas
+	France: supply tou
+	France: supply can
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army guy
+	France: army sav
+	France: army par
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply guy
+	France: supply par
+	France: supply dij
+ORDERS
+	str move fla
+	orl move par
+	eng support brt
+	nom support cal
+	brt support nom
+	cal support str move fla
+	lor move dij
+	pro support lim move tou
+	dij move cal
+	lux move lor
+	sav move can
+	bis move guy
+	guy move tou
+	par move orl
+	lim support par move orl
+	dau support sav move can
+PHASE 1465 Year Retreat
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: fleet fla
+	England: army brt
+	England: army nom
+	England: army cal
+	England: fleet eng
+	England: army/dislodged orl
+	England: supply orl
+	England: supply nom
+	England: supply brt
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: supply hol
+	Burgundy: army pro
+	Burgundy: army lor
+	France: supply cas
+	France: supply tou
+	France: supply can
+	France: army dau
+	France: army lim
+	France: army can
+	France: army tou
+	France: army orl
+	France: fleet guy
+	France: army dij
+	France: army lux
+	France: supply lux
+	France: supply dau
+	France: supply guy
+	France: supply par
+	France: supply dij
+ORDERS
+	orl move poi
+PHASE 1470 Year Movement
+POSITIONS
+	England: supply orl
+	England: supply lon
+	England: supply dev
+	England: fleet eng
+	England: army poi
+	England: fleet fla
+	England: army nom
+	England: army brt
+	England: army cal
+	England: supply nom
+	England: supply brt
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: supply hol
+	Burgundy: army lor
+	Burgundy: army pro
+	France: supply cas
+	France: supply par
+	France: army lux
+	France: army lim
+	France: army dau
+	France: army orl
+	France: army tou
+	France: fleet guy
+	France: army can
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply tou
+	France: supply guy
+	France: supply can
+	France: supply dij
+ORDERS
+	fla move hol
+	poi move orl
+	cal move par
+	eng move str
+	nom support poi move orl
+	brt support poi move orl
+	lor move lux
+	pro move lim
+	lim hold
+	guy hold
+	dau hold
+	tou hold
+	orl hold
+	can hold
+	lux hold
+	dij hold
+PHASE 1470 Year Retreat
+POSITIONS
+	England: supply lon
+	England: supply dev
+	England: supply orl
+	England: fleet str
+	England: army par
+	England: army nom
+	England: army brt
+	England: fleet hol
+	England: army orl
+	England: supply nom
+	England: supply brt
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: supply hol
+	Burgundy: army pro
+	Burgundy: army lor
+	France: supply cas
+	France: supply par
+	France: army lim
+	France: army can
+	France: army dij
+	France: army tou
+	France: army lux
+	France: fleet guy
+	France: army dau
+	France: army/dislodged orl
+	France: supply lux
+	France: supply dau
+	France: supply tou
+	France: supply guy
+	France: supply can
+	France: supply dij
+ORDERS
+	orl move anj
+PHASE 1470 Year Adjustment
+POSITIONS
+	England: supply par
+	England: supply dev
+	England: supply lon
+	England: supply hol
+	England: supply orl
+	England: army orl
+	England: fleet str
+	England: army nom
+	England: army brt
+	England: army par
+	England: fleet hol
+	England: supply nom
+	England: supply brt
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: army pro
+	Burgundy: army lor
+	Burgundy: army pro
+	France: supply cas
+	France: army anj
+	France: army lux
+	France: army lim
+	France: army dau
+	France: army tou
+	France: fleet guy
+	France: army can
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply tou
+	France: supply guy
+	France: supply can
+	France: supply dij
+ORDERS
+	build anywhere Army cal
+	build anywhere Army lon
+	remove pro
+	remove anj
+PHASE 1475 Year Movement
+POSITIONS
+	England: supply dev
+	England: army orl
+	England: fleet str
+	England: army nom
+	England: army brt
+	England: army lon
+	England: army par
+	England: fleet hol
+	England: army cal
+	England: supply orl
+	England: supply nom
+	England: supply brt
+	England: supply lon
+	England: supply par
+	England: supply hol
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: army lor
+	France: supply cas
+	France: army lux
+	France: army lim
+	France: army dau
+	France: army tou
+	France: fleet guy
+	France: army can
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply tou
+	France: supply guy
+	France: supply can
+	France: supply dij
+ORDERS
+	lon move cal
+	cal move fla
+	brt support orl
+	orl support par
+	nom support par
+	par support orl
+	hol support cal move fla
+	str support cal move fla
+	lor move lux
+	guy move bis
+	dau move orl
+	tou move guy
+	can move dau
+	lux move fla
+	lim support dau move orl
+	dij support lux move fla
+PHASE 1480 Year Movement
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: army orl
+	England: fleet str
+	England: army nom
+	England: army brt
+	England: army fla
+	England: army par
+	England: fleet hol
+	England: army cal
+	England: supply orl
+	England: supply nom
+	England: supply brt
+	England: supply par
+	England: supply hol
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: army lor
+	France: supply tou
+	France: supply cas
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army guy
+	France: army can
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply guy
+	France: supply can
+	France: supply dij
+ORDERS
+	str move eng
+	cal support par
+	brt support orl
+	orl support par
+	nom support brt
+	hol support fla
+	par support orl
+	fla support lor move lux
+	lor move dij
+	dau move orl
+	guy move brt
+	can move dau
+	lux move fla
+	dij move par
+	lim support dau move orl
+	bis support guy move brt
+PHASE 1480 Year Retreat
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: army brt
+	England: fleet hol
+	England: army nom
+	England: army par
+	England: army fla
+	England: fleet eng
+	England: army cal
+	England: army/dislodged orl
+	England: supply orl
+	England: supply nom
+	England: supply brt
+	England: supply par
+	England: supply hol
+	England: supply cal
+	Burgundy: supply fla
+	Burgundy: army lor
+	France: supply tou
+	France: supply cas
+	France: army orl
+	France: army lim
+	France: army lux
+	France: army dij
+	France: army dau
+	France: army guy
+	France: fleet bis
+	France: supply lux
+	France: supply dau
+	France: supply guy
+	France: supply can
+	France: supply dij
+ORDERS
+	orl move poi
+PHASE 1480 Year Adjustment
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: army poi
+	England: fleet eng
+	England: army nom
+	England: army brt
+	England: army fla
+	England: army par
+	England: fleet hol
+	England: army cal
+	England: supply nom
+	England: supply brt
+	England: supply fla
+	England: supply par
+	England: supply hol
+	England: supply cal
+	Burgundy: army lor
+	Burgundy: army lor
+	France: supply orl
+	France: supply cas
+	France: supply tou
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army orl
+	France: army guy
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply guy
+	France: supply can
+	France: supply dij
+ORDERS
+	remove lor
+	build anywhere Army tou
+PHASE 1485 Year Movement
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: fleet eng
+	England: army poi
+	England: army nom
+	England: army brt
+	England: army fla
+	England: army par
+	England: fleet hol
+	England: army cal
+	England: supply nom
+	England: supply brt
+	England: supply fla
+	England: supply par
+	England: supply hol
+	England: supply cal
+	France: supply can
+	France: supply cas
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army orl
+	France: army guy
+	France: army tou
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply tou
+	France: supply dij
+ORDERS
+	fla hold
+	par hold
+	eng move brs
+	cal support nom
+	brt support poi
+	poi support brt
+	nom support par
+	hol support fla
+	tou move poi
+	orl move par
+	bis support guy
+	dau support dij
+	lux support dij
+	lim support tou move poi
+	guy support tou move poi
+	dij support orl move par
+PHASE 1485 Year Retreat
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: army nom
+	England: fleet hol
+	England: army fla
+	England: fleet brs
+	England: army cal
+	England: army par
+	England: army brt
+	England: supply nom
+	England: supply brt
+	England: supply fla
+	England: supply par
+	England: supply hol
+	England: supply cal
+	France: supply cas
+	France: supply can
+	France: army dau
+	France: army dij
+	France: army orl
+	France: army poi
+	France: army lux
+	France: fleet bis
+	France: army guy
+	France: army lim
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply tou
+	France: supply dij
+ORDERS
+	poi disband
+PHASE 1490 Year Movement
+POSITIONS
+	England: supply lon
+	England: supply dev
+	England: fleet brs
+	England: army nom
+	England: army brt
+	England: army fla
+	England: army par
+	England: fleet hol
+	England: army cal
+	England: supply nom
+	England: supply brt
+	England: supply fla
+	England: supply par
+	England: supply hol
+	England: supply cal
+	France: supply cas
+	France: supply tou
+	France: supply can
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army poi
+	France: army orl
+	France: army guy
+	France: army dij
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply dij
+ORDERS
+	brt hold
+	par move dij
+	nom support brt
+	hol support fla
+	brs support brt
+	cal support par move dij
+	fla support par move dij
+	lim move orl
+	bis move brs
+	orl move nom
+	guy move brt
+	lux support dij
+	dij support lux
+	poi support guy move brt
+	dau support lim move orl
+PHASE 1490 Year Retreat
+POSITIONS
+	England: supply dev
+	England: supply lon
+	England: army cal
+	England: fleet hol
+	England: fleet brs
+	England: army dij
+	England: army fla
+	England: army nom
+	England: army/dislodged brt
+	England: supply nom
+	England: supply brt
+	England: supply fla
+	England: supply par
+	England: supply hol
+	England: supply cal
+	France: supply tou
+	France: supply can
+	France: supply cas
+	France: army lim
+	France: army dau
+	France: fleet bis
+	France: army orl
+	France: army poi
+	France: army lux
+	France: army brt
+	France: army/dislodged dij
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+	France: supply dij
+ORDERS
+	brt disband
+	dij move can
+PHASE 1490 Year Adjustment
+POSITIONS
+	England: supply dev
+	England: supply dij
+	England: supply lon
+	England: fleet brs
+	England: army nom
+	England: army fla
+	England: fleet hol
+	England: army dij
+	England: army cal
+	England: supply nom
+	England: supply fla
+	England: supply par
+	England: supply hol
+	England: supply cal
+	France: supply brt
+	France: supply can
+	France: supply tou
+	France: supply cas
+	France: army can
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army poi
+	France: army orl
+	France: army brt
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply guy
+ORDERS
+	build anywhere Army par
+	build anywhere Army lon
+PHASE 1495 Year Movement
+POSITIONS
+	England: supply dev
+	England: fleet brs
+	England: army fla
+	England: army nom
+	England: army lon
+	England: army par
+	England: fleet hol
+	England: army dij
+	England: army cal
+	England: supply fla
+	England: supply nom
+	England: supply lon
+	England: supply par
+	England: supply hol
+	England: supply dij
+	England: supply cal
+	France: supply tou
+	France: supply cas
+	France: supply guy
+	France: army lux
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army poi
+	France: army orl
+	France: army brt
+	France: army can
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply brt
+	France: supply can
+ORDERS
+	hol hold
+	lon move cal
+	cal move dij
+	dij move lux
+	brs move brt
+	par support nom
+	nom support par
+	fla support dij move lux
+	poi move brt
+	orl move par
+	brt move anj
+	lux move dij
+	lim support dau
+	bis support poi move brt
+	dau support lux move dij
+	can support lux move dij
+PHASE 1495 Year Retreat
+POSITIONS
+	England: supply dev
+	England: army cal
+	England: fleet hol
+	England: army fla
+	England: army lon
+	England: fleet brs
+	England: army nom
+	England: army par
+	England: army/dislodged dij
+	England: supply fla
+	England: supply nom
+	England: supply lon
+	England: supply par
+	England: supply hol
+	England: supply dij
+	England: supply cal
+	France: supply guy
+	France: supply cas
+	France: supply tou
+	France: army dij
+	France: fleet bis
+	France: army brt
+	France: army can
+	France: army dau
+	France: army anj
+	France: army orl
+	France: army lim
+	France: supply lux
+	France: supply dau
+	France: supply orl
+	France: supply brt
+	France: supply can
+ORDERS
+	dij move lor
+PHASE 1500 Year Movement
+POSITIONS
+	England: supply dev
+	England: supply dij
+	England: fleet brs
+	England: army lor
+	England: army fla
+	England: army nom
+	England: army lon
+	England: army par
+	England: fleet hol
+	England: army cal
+	England: supply fla
+	England: supply nom
+	England: supply lon
+	England: supply par
+	England: supply hol
+	England: supply cal
+	France: supply tou
+	France: supply guy
+	France: supply lux
+	France: supply cas
+	France: army lim
+	France: army anj
+	France: fleet bis
+	France: army dau
+	France: army orl
+	France: army brt
+	France: army can
+	France: army dij
+	France: supply dau
+	France: supply orl
+	France: supply brt
+	France: supply can
+ORDERS
+	lon move dev
+	par move dij
+	nom move brt
+	hol move str
+	lor move lux
+	fla support lor move lux
+	cal support par move dij
+	brs support nom move brt
+	anj move nom
+	dij move par
+	can move dij
+	lim support orl
+	bis support brt
+	orl support dij move par
+	dau support dij move par
+	brt support anj move nom
+PHASE 1500 Year Retreat
+POSITIONS
+	England: supply dev
+	England: supply dij
+	England: army cal
+	England: army lux
+	England: fleet brs
+	England: army dev
+	England: fleet str
+	England: army fla
+	England: army/dislodged par
+	England: supply fla
+	England: supply nom
+	England: supply lon
+	England: supply par
+	England: supply hol
+	England: supply cal
+	France: supply cas
+	France: supply lux
+	France: supply guy
+	France: supply tou
+	France: army nom
+	France: army orl
+	France: army lim
+	France: fleet bis
+	France: army dau
+	France: army brt
+	France: army par
+	France: army dij
+	France: supply dau
+	France: supply orl
+	France: supply brt
+	France: supply can
+ORDERS
+	par move cha
+	nom disband
