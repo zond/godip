@@ -27,7 +27,7 @@ var AncientMediterraneanVariant = common.Variant{
 	Start:      AncientMediterraneanStart,
 	Blank:      AncientMediterraneanBlank,
 	Phase:      classical.Phase,
-	Parser:     orders.Parser,
+	Parser:     orders.ClassicalParser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,

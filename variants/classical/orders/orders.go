@@ -6,7 +6,7 @@ import (
 	dip "github.com/zond/godip/common"
 )
 
-var Parser = orders.NewParser([]dip.Order{
+var ClassicalParser = orders.NewParser([]dip.Order{
 	BuildOrder,
 	ConvoyOrder,
 	DisbandOrder,

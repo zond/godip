@@ -32,7 +32,7 @@ var YoungstownReduxVariant = common.Variant{
 	Start:      YoungstownReduxStart,
 	Blank:      YoungstownReduxBlank,
 	Phase:      classical.Phase,
-	Parser:     orders.Parser,
+	Parser:     orders.ClassicalParser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,

@@ -24,7 +24,7 @@ var ColdWarVariant = common.Variant{
 	Start:      ColdWarStart,
 	Blank:      ColdWarBlank,
 	Phase:      classical.Phase,
-	Parser:     orders.Parser,
+	Parser:     orders.ClassicalParser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,

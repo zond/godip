@@ -20,7 +20,7 @@ var ClassicalVariant = common.Variant{
 		result = Blank(Phase(1900, cla.Fall, cla.Adjustment))
 		return
 	},
-	Parser:     orders.Parser,
+	Parser:     orders.ClassicalParser,
 	Graph:      func() dip.Graph { return start.Graph() },
 	Phase:      Phase,
 	Nations:    cla.Nations,
@@ -51,7 +51,7 @@ func Blank(phase dip.Phase) *state.State {
 }
 
 func Start() (result *state.State, err error) {
-	result = state.New(start.Graph(), &phase{1901, cla.Spring, cla.Movement, orders.Parser}, BackupRule)
+	result = state.New(start.Graph(), &phase{1901, cla.Spring, cla.Movement, orders.ClassicalParser}, BackupRule)
 	if err = result.SetUnits(start.Units()); err != nil {
 		return
 	}
