@@ -25,7 +25,7 @@ func startState(t *testing.T) *state.State {
 }
 
 func blankState(t *testing.T) *state.State {
-	startPhase := classical.Phase(1960, cla.Spring, cla.Movement)
+	startPhase := classical.ClassicalPhase(1960, cla.Spring, cla.Movement)
 	judge := ColdWarBlank(startPhase)
 	return judge
 }

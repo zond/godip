@@ -26,7 +26,7 @@ var AncientMediterraneanVariant = common.Variant{
 	Graph:      func() dip.Graph { return AncientMediterraneanGraph() },
 	Start:      AncientMediterraneanStart,
 	Blank:      AncientMediterraneanBlank,
-	Phase:      classical.Phase,
+	Phase:      classical.ClassicalPhase,
 	Parser:     orders.ClassicalParser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
@@ -63,7 +63,7 @@ func AncientMediterraneanBlank(phase dip.Phase) *state.State {
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1, cla.Spring, cla.Movement)
+	startPhase := classical.ClassicalPhase(1, cla.Spring, cla.Movement)
 	result = state.New(AncientMediterraneanGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{
 		"nea": dip.Unit{cla.Fleet, Rome},

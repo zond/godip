@@ -13,7 +13,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
+func ClassicalPhase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
 	return &phase{year, season, typ, orders.ClassicalParser}
 }
 

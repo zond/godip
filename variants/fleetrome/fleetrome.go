@@ -28,7 +28,7 @@ var FleetRomeVariant = common.Variant{
 		return
 	},
 	Blank:      classical.Blank,
-	Phase:      classical.Phase,
+	Phase:      classical.ClassicalPhase,
 	Parser:     orders.ClassicalParser,
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,

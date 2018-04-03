@@ -23,7 +23,7 @@ var ColdWarVariant = common.Variant{
 	Graph:      func() dip.Graph { return ColdWarGraph() },
 	Start:      ColdWarStart,
 	Blank:      ColdWarBlank,
-	Phase:      classical.Phase,
+	Phase:      classical.ClassicalPhase,
 	Parser:     orders.ClassicalParser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
@@ -60,7 +60,7 @@ func ColdWarBlank(phase dip.Phase) *state.State {
 }
 
 func ColdWarStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1960, cla.Spring, cla.Movement)
+	startPhase := classical.ClassicalPhase(1960, cla.Spring, cla.Movement)
 	result = state.New(ColdWarGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{
 		"len/sc": dip.Unit{cla.Fleet, USSR},

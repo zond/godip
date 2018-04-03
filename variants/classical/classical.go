@@ -17,12 +17,12 @@ var ClassicalVariant = common.Variant{
 	Start: Start,
 	Blank: Blank,
 	BlankStart: func() (result *state.State, err error) {
-		result = Blank(Phase(1900, cla.Fall, cla.Adjustment))
+		result = Blank(ClassicalPhase(1900, cla.Fall, cla.Adjustment))
 		return
 	},
 	Parser:     orders.ClassicalParser,
 	Graph:      func() dip.Graph { return start.Graph() },
-	Phase:      Phase,
+	Phase:      ClassicalPhase,
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
