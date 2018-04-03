@@ -31,8 +31,8 @@ var YoungstownReduxVariant = common.Variant{
 	Graph:      func() dip.Graph { return YoungstownReduxGraph() },
 	Start:      YoungstownReduxStart,
 	Blank:      YoungstownReduxBlank,
-	Phase:      classical.ClassicalPhase,
-	Parser:     orders.ClassicalParser,
+	Phase:      classical.Phase,
+	Parser:     orders.Parser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
@@ -67,7 +67,7 @@ func YoungstownReduxBlank(phase dip.Phase) *state.State {
 }
 
 func YoungstownReduxStart() (result *state.State, err error) {
-	startPhase := classical.ClassicalPhase(1901, cla.Spring, cla.Movement)
+	startPhase := classical.Phase(1901, cla.Spring, cla.Movement)
 	result = state.New(YoungstownReduxGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{
 		"ank":    dip.Unit{cla.Fleet, Turkey},

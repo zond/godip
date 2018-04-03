@@ -19,8 +19,8 @@ func PhaseGenerator(parser ord.Parser) func(int, dip.Season, dip.PhaseType) dip.
 	}
 }
 
-func ClassicalPhase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
-	return PhaseGenerator(orders.ClassicalParser)(year, season, typ)
+func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
+	return PhaseGenerator(orders.Parser)(year, season, typ)
 }
 
 type phase struct {
@@ -35,7 +35,7 @@ func (self *phase) String() string {
 }
 
 func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
-	return s.Options(orders.ClassicalParser.Orders(), nation)
+	return s.Options(orders.Parser.Orders(), nation)
 }
 
 func (self *phase) Winner(s dip.Validator) *dip.Nation {
