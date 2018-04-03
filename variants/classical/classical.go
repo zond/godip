@@ -51,7 +51,7 @@ func Blank(phase dip.Phase) *state.State {
 }
 
 func Start() (result *state.State, err error) {
-	result = state.New(start.Graph(), &phase{1901, cla.Spring, cla.Movement}, BackupRule)
+	result = state.New(start.Graph(), &phase{1901, cla.Spring, cla.Movement, orders.ClassicalParser}, BackupRule)
 	if err = result.SetUnits(start.Units()); err != nil {
 		return
 	}
