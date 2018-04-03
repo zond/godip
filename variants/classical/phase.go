@@ -13,6 +13,12 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
+func PhaseGenerator(parser ord.Parser) func(int, dip.Season, dip.PhaseType) dip.Phase {
+	return func(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
+		return &phase{year, season, typ, parser}
+	}
+}
+
 func ClassicalPhase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
 	return &phase{year, season, typ, orders.ClassicalParser}
 }

@@ -25,7 +25,7 @@ var PureVariant = common.Variant{
 	Graph:      func() dip.Graph { return PureGraph() },
 	Start:      PureStart,
 	Blank:      PureBlank,
-	Phase:      classical.ClassicalPhase,
+	Phase:      classical.PhaseGenerator(pureParser),
 	Parser:     pureParser,
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
