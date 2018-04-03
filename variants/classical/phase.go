@@ -9,17 +9,19 @@ import (
 	"github.com/zond/godip/variants/classical/orders"
 
 	dip "github.com/zond/godip/common"
+	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
-	return &phase{year, season, typ}
+	return &phase{year, season, typ, orders.ClassicalParser}
 }
 
 type phase struct {
 	year   int
 	season dip.Season
 	typ    dip.PhaseType
+	parser ord.Parser
 }
 
 func (self *phase) String() string {
@@ -80,13 +82,13 @@ func (self *phase) shortestDistance(s dip.State, src dip.Province, dst []dip.Pro
 					result = 0
 					found = true
 				} else {
-					if path := s.Graph().Path(srcCoast, coast, filter, false); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, filter); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true
 						}
 					}
-					if path := s.Graph().Path(srcCoast, coast, nil, false); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, nil); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true
