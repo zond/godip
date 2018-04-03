@@ -20,7 +20,7 @@ func PhaseGenerator(parser ord.Parser) func(int, dip.Season, dip.PhaseType) dip.
 }
 
 func ClassicalPhase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
-	return &phase{year, season, typ, orders.ClassicalParser}
+	return PhaseGenerator(orders.ClassicalParser)(year, season, typ)
 }
 
 type phase struct {
