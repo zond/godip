@@ -10,37 +10,43 @@ import random
 ### Data to be gathered for the variant. ###
 
 # The name of the variant
-VARIANT = 'Youngstown Redux'
+VARIANT = 'Hundred'
 # The starting units
 #START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
 #               # Fleet should be Leningrad South Coast
 #               'USSR': {'Army': ['Moscow', 'Shanghai', 'Vladivostok'], 'Fleet': ['Leningrad', 'Albania', 'Havana']}}
-START_UNITS = {'Russia': {'Army': ['Moscow', 'Omsk', 'Warsaw'], 'Fleet': ['Sevastopol', 'St. Petersburg', 'Vladivostok']},
-               'China': {'Army': ['Peking', 'Guangzhou', 'Wuhan'], 'Fleet': ['Shanghai']},
-               'Japan': {'Army': ['Kyoto'], 'Fleet': ['Tokyo', 'Osaka', 'Sapporo']},
-               'India': {'Army': ['Delhi', 'Calcutta'], 'Fleet': ['Bombay', 'Madras']},
-               'Turkey': {'Army': ['Constantinople', 'Baghdad', 'Mecca'], 'Fleet': ['Ankara']},
-               'France': {'Army': ['Paris', 'Marseilles'], 'Fleet': ['Brest', 'Saigon']},
-               'Britain': {'Fleet': ['London', 'Liverpool', 'Edinburgh', 'Aden', 'Singapore']},
-               'Italy': {'Army': ['Rome', 'Milan'], 'Fleet': ['Naples', 'Mogadishu']},
-               'Germany': {'Army': ['Berlin', 'Munich', 'Cologne'], 'Fleet': ['Tsingtao', 'Kiel']},
-               'Austria': {'Army': ['Vienna', 'Budapest', 'Trieste'], 'Fleet': ['Sarajevo']}}
+#START_UNITS = {'Russia': {'Army': ['Moscow', 'Omsk', 'Warsaw'], 'Fleet': ['Sevastopol', 'St. Petersburg', 'Vladivostok']},
+#               'China': {'Army': ['Peking', 'Guangzhou', 'Wuhan'], 'Fleet': ['Shanghai']},
+#               'Japan': {'Army': ['Kyoto'], 'Fleet': ['Tokyo', 'Osaka', 'Sapporo']},
+#               'India': {'Army': ['Delhi', 'Calcutta'], 'Fleet': ['Bombay', 'Madras']},
+#               'Turkey': {'Army': ['Constantinople', 'Baghdad', 'Mecca'], 'Fleet': ['Ankara']},
+#               'France': {'Army': ['Paris', 'Marseilles'], 'Fleet': ['Brest', 'Saigon']},
+#               'Britain': {'Fleet': ['London', 'Liverpool', 'Edinburgh', 'Aden', 'Singapore']},
+#               'Italy': {'Army': ['Rome', 'Milan'], 'Fleet': ['Naples', 'Mogadishu']},
+#               'Germany': {'Army': ['Berlin', 'Munich', 'Cologne'], 'Fleet': ['Tsingtao', 'Kiel']},
+#               'Austria': {'Army': ['Vienna', 'Budapest', 'Trieste'], 'Fleet': ['Sarajevo']}}
+START_UNITS = {'Burgundy': {'Army': ['Dijon', 'Luxembourg', 'Flanders'], 'Fleet': ['Holland']},
+               'England': {'Army': ['Calais', 'Guyenne', 'Normandy'], 'Fleet': ['London', 'Devon']},
+               'France': {'Army': ['Dauphine', 'Orleanais', 'Paris', 'Toulouse', 'Provence'], 'Fleet': []}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
-START_YEAR = 1901
+START_YEAR = 1425
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 #ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
 #ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
-ABBREVIATIONS = {'Box A bcd': 'bxa', 'Box B ace': 'bxb', 'Box C abfgh': 'bxc', 'Box D aef': 'bxd', 'Box E bdf': 'bxe', 'Box F cdegh': 'bxf', 'Box G cfh': 'bxg', 'Box H cfg': 'bxh', 'Java Sea': 'jvs', 'Arabian Sea': 'ars', 'Persian Gulf': 'psg'}
+#ABBREVIATIONS = {'Box A bcd': 'bxa', 'Box B ace': 'bxb', 'Box C abfgh': 'bxc', 'Box D aef': 'bxd', 'Box E bdf': 'bxe', 'Box F cdegh': 'bxf', 'Box G cfh': 'bxg', 'Box H cfg': 'bxh', 'Java Sea': 'jvs', 'Arabian Sea': 'ars', 'Persian Gulf': 'psg'}
+ABBREVIATIONS = {'North Sea': 'nos'}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 #CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
 #CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
-CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu'), ('Liverpool', 'Irish Sea')]
+#CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu'), ('Liverpool', 'Irish Sea')]
+CENTER_OVERRIDES = [('Lorraine', 'Dijon')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
 #REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
-REGION_OVERRIDES = [('Red Sea', 'Mecca')]#, ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
+#REGION_OVERRIDES = [('Red Sea', 'Mecca')]#, ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
+REGION_OVERRIDES = [('Lorraine', 'Dijon')]
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = True
 
@@ -48,7 +54,7 @@ BOLD_ABBREVIATIONS = True
 
 INK = '{http://www.inkscape.org/namespaces/inkscape}'
 SVG = '{http://www.w3.org/2000/svg}'
-MAP = 'youngstownredux_input.svg'
+MAP = 'hundred_input.svg'
 # Any junctions within GUTTER pixels from the edge of the page will be moved to the edge.
 GUTTER = 5
 # How curvy the edges should be made

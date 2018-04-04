@@ -37,6 +37,7 @@ var (
 	holdReg          = regexp.MustCompile("^(\\S+)\\s+hold$")
 	convoyReg        = regexp.MustCompile("^(\\S+)\\s+convoy\\s+(\\S+)\\s+move\\s+(\\S+)$")
 	buildReg         = regexp.MustCompile("^build\\s+(Army|Fleet)\\s+(\\S+)$")
+	buildAnywhereReg = regexp.MustCompile("^build\\s+anywhere\\s+(Army|Fleet)\\s+(\\S+)$")
 	removeReg        = regexp.MustCompile("^remove\\s+(\\S+)$")
 	disbandReg       = regexp.MustCompile("^(\\S+)\\s+disband$")
 
@@ -236,6 +237,8 @@ func assertGame(t *testing.T, name string, nations []dip.Nation,
 				s.SetOrder(dip.Province(match[1]), orders.Convoy(dip.Province(match[1]), dip.Province(match[2]), dip.Province(match[3])))
 			} else if match = buildReg.FindStringSubmatch(line); match != nil {
 				s.SetOrder(dip.Province(match[2]), orders.Build(dip.Province(match[2]), dip.UnitType(match[1]), time.Now()))
+			} else if match = buildAnywhereReg.FindStringSubmatch(line); match != nil {
+				s.SetOrder(dip.Province(match[2]), orders.BuildAnywhere(dip.Province(match[2]), dip.UnitType(match[1]), time.Now()))
 			} else if match = removeReg.FindStringSubmatch(line); match != nil {
 				s.SetOrder(dip.Province(match[1]), orders.Disband(dip.Province(match[1]), time.Now()))
 			} else if match = disbandReg.FindStringSubmatch(line); match != nil {

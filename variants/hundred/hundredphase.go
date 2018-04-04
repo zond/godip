@@ -1,90 +1,39 @@
-package classical
+package hundred
 
 import (
 	"bytes"
 	"fmt"
-	"sort"
 	"strings"
 
+	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 
 	dip "github.com/zond/godip/common"
-	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func PhaseGenerator(parser ord.Parser) func(int, dip.Season, dip.PhaseType) dip.Phase {
-	return func(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
-		return &phase{year, season, typ, parser}
-	}
-}
+const (
+	YearSeason dip.Season = "Year"
+)
 
 func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
-	return PhaseGenerator(orders.ClassicalParser)(year, season, typ)
+	if season != YearSeason {
+		fmt.Errorf("Warning - Hundred only supports YearSeason, but got {}", season)
+	}
+	return &phase{year, typ}
 }
 
 type phase struct {
-	year   int
-	season dip.Season
-	typ    dip.PhaseType
-	parser ord.Parser
+	year int
+	typ  dip.PhaseType
 }
 
 func (self *phase) String() string {
-	return fmt.Sprintf("%s %d, %s", self.season, self.year, self.typ)
+	return fmt.Sprintf("%s %d, %s", YearSeason, self.year, self.typ)
 }
 
 func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
-	return s.Options(orders.ClassicalParser.Orders(), nation)
-}
-
-func shortestDistance(s dip.State, src dip.Province, dst []dip.Province) (result int, err error) {
-	var unit dip.Unit
-	var ok bool
-	unit, src, ok = s.Unit(src)
-	if !ok {
-		err = fmt.Errorf("No unit at %v", src)
-		return
-	}
-	var filter dip.PathFilter
-	found := false
-	for _, destination := range dst {
-		if unit.Type == cla.Fleet {
-			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation, trace []dip.Province) bool {
-				return edgeFlags[cla.Sea] && nodeFlags[cla.Sea]
-			}
-		} else {
-			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation, trace []dip.Province) bool {
-				if p.Super() == destination.Super() {
-					return true
-				}
-				u, _, ok := s.Unit(p)
-				return (edgeFlags[cla.Land] && nodeFlags[cla.Land]) || (ok && !nodeFlags[cla.Land] && u.Nation == unit.Nation && u.Type == cla.Fleet)
-			}
-		}
-		for _, coast := range s.Graph().Coasts(destination) {
-			for _, srcCoast := range s.Graph().Coasts(src) {
-				if srcCoast == destination {
-					result = 0
-					found = true
-				} else {
-					if path := s.Graph().Path(srcCoast, coast, filter); path != nil {
-						if !found || len(path) < result {
-							result = len(path)
-							found = true
-						}
-					}
-					if path := s.Graph().Path(srcCoast, coast, nil); path != nil {
-						if !found || len(path) < result {
-							result = len(path)
-							found = true
-						}
-					}
-				}
-			}
-		}
-	}
-	return
+	return s.Options(BuildAnywhereParser.Orders(), nation)
 }
 
 type remoteUnitSlice struct {
@@ -124,30 +73,6 @@ func (self remoteUnitSlice) Less(i, j int) bool {
 	return self.distances[self.provinces[i]] > self.distances[self.provinces[j]]
 }
 
-func SortedUnits(s dip.State, n dip.Nation) (result []dip.Province, err error) {
-	provs := remoteUnitSlice{
-		distances: make(map[dip.Province]int),
-		units:     make(map[dip.Province]dip.Unit),
-	}
-	provs.provinces, _, _ = s.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
-		if u != nil && u.Nation == n {
-			if provs.distances[p], err = shortestDistance(s, p, s.Graph().SCs(n)); err != nil {
-				return false
-			}
-			provs.units[p] = *u
-			return true
-		}
-		return false
-	})
-	if err != nil {
-		return
-	}
-	sort.Sort(provs)
-	dip.Logf("Sorted units for %v is %v", n, provs)
-	result = provs.provinces
-	return
-}
-
 func (self *phase) DefaultOrder(p dip.Province) dip.Adjudicator {
 	if self.typ == cla.Movement {
 		return orders.Hold(p)
@@ -163,7 +88,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 		}
 		s.ClearDislodgers()
 		s.ClearBounces()
-		if self.season == cla.Fall {
+		if self.year%10 == 0 {
 			s.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
 				if u != nil {
 					if s.Graph().SC(p) != nil {
@@ -178,7 +103,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 			_, _, balance := cla.AdjustmentStatus(s, nationality)
 			if balance < 0 {
 				var su []dip.Province
-				if su, err = SortedUnits(s, nationality); err != nil {
+				if su, err = classical.SortedUnits(s, nationality); err != nil {
 					return
 				}
 				su = su[:-balance]
@@ -215,7 +140,7 @@ func (self *phase) Year() int {
 }
 
 func (self *phase) Season() dip.Season {
-	return self.season
+	return YearSeason
 }
 
 func (self *phase) Type() dip.PhaseType {
@@ -225,29 +150,25 @@ func (self *phase) Type() dip.PhaseType {
 func (self *phase) Next() dip.Phase {
 	if self.typ == cla.Movement {
 		return &phase{
-			year:   self.year,
-			season: self.season,
-			typ:    cla.Retreat,
+			year: self.year,
+			typ:  cla.Retreat,
 		}
 	} else if self.typ == cla.Retreat {
-		if self.season == cla.Spring {
+		if self.year%10 == 5 {
 			return &phase{
-				year:   self.year,
-				season: cla.Fall,
-				typ:    cla.Movement,
+				year: self.year + 5,
+				typ:  cla.Movement,
 			}
 		} else {
 			return &phase{
-				year:   self.year,
-				season: cla.Fall,
-				typ:    cla.Adjustment,
+				year: self.year,
+				typ:  cla.Adjustment,
 			}
 		}
 	} else {
 		return &phase{
-			year:   self.year + 1,
-			season: cla.Spring,
-			typ:    cla.Movement,
+			year: self.year + 5,
+			typ:  cla.Movement,
 		}
 	}
 	return nil
