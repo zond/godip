@@ -55,11 +55,7 @@ func (self *build) Flags() map[dip.Flag]bool {
 }
 
 func (self *build) String() string {
-	flagString := ""
-	if self.flags[cla.Anywhere] {
-		flagString = " (anywhere)"
-	}
-	return fmt.Sprintf("%v %v%v %v", self.targets[0], cla.Build, flagString, self.typ)
+	return fmt.Sprintf("%v %v %v", self.targets[0], cla.Build, self.typ)
 }
 
 func (self *build) Targets() []dip.Province {
