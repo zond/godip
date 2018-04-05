@@ -1,26 +1,26 @@
 package hundred
 
 import (
+	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
-	England  dip.Nation = "England"
-	Burgundy dip.Nation = "Burgundy"
-	France   dip.Nation = "France"
+	England  godip.Nation = "England"
+	Burgundy godip.Nation = "Burgundy"
+	France   godip.Nation = "France"
 )
 
-var Nations = []dip.Nation{England, Burgundy, France}
+var Nations = []godip.Nation{England, Burgundy, France}
 
-var BuildAnywhereParser = ord.NewParser([]dip.Order{
+var BuildAnywhereParser = ord.NewParser([]godip.Order{
 	orders.MoveOrder,
 	orders.MoveViaConvoyOrder,
 	orders.HoldOrder,
@@ -31,21 +31,21 @@ var BuildAnywhereParser = ord.NewParser([]dip.Order{
 
 var HundredVariant = common.Variant{
 	Name:       "Hundred",
-	Graph:      func() dip.Graph { return HundredGraph() },
+	Graph:      func() godip.Graph { return HundredGraph() },
 	Start:      HundredStart,
 	Blank:      HundredBlank,
 	Phase:      Phase,
 	Parser:     BuildAnywhereParser,
 	Nations:    Nations,
 	PhaseTypes: cla.PhaseTypes,
-	Seasons:    []dip.Season{YearSeason},
+	Seasons:    []godip.Season{YearSeason},
 	UnitTypes:  cla.UnitTypes,
 	SoloWinner: common.SCCountWinner(9),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/hundredmap.svg")
 	},
 	SVGVersion: "1",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
@@ -65,32 +65,32 @@ var HundredVariant = common.Variant{
 		"ending in '0' - i.e. there is an adjustment phase at the end of years ending in '0'.",
 }
 
-func HundredBlank(phase dip.Phase) *state.State {
+func HundredBlank(phase godip.Phase) *state.State {
 	return state.New(HundredGraph(), phase, classical.BackupRule)
 }
 
 func HundredStart() (result *state.State, err error) {
 	startPhase := Phase(1425, YearSeason, cla.Movement)
 	result = state.New(HundredGraph(), startPhase, classical.BackupRule)
-	if err = result.SetUnits(map[dip.Province]dip.Unit{
-		"lon": dip.Unit{cla.Fleet, England},
-		"dev": dip.Unit{cla.Fleet, England},
-		"cal": dip.Unit{cla.Army, England},
-		"guy": dip.Unit{cla.Army, England},
-		"nom": dip.Unit{cla.Army, England},
-		"hol": dip.Unit{cla.Fleet, Burgundy},
-		"dij": dip.Unit{cla.Army, Burgundy},
-		"lux": dip.Unit{cla.Army, Burgundy},
-		"fla": dip.Unit{cla.Army, Burgundy},
-		"dau": dip.Unit{cla.Army, France},
-		"orl": dip.Unit{cla.Army, France},
-		"par": dip.Unit{cla.Army, France},
-		"tou": dip.Unit{cla.Army, France},
-		"pro": dip.Unit{cla.Army, France},
+	if err = result.SetUnits(map[godip.Province]godip.Unit{
+		"lon": godip.Unit{cla.Fleet, England},
+		"dev": godip.Unit{cla.Fleet, England},
+		"cal": godip.Unit{cla.Army, England},
+		"guy": godip.Unit{cla.Army, England},
+		"nom": godip.Unit{cla.Army, England},
+		"hol": godip.Unit{cla.Fleet, Burgundy},
+		"dij": godip.Unit{cla.Army, Burgundy},
+		"lux": godip.Unit{cla.Army, Burgundy},
+		"fla": godip.Unit{cla.Army, Burgundy},
+		"dau": godip.Unit{cla.Army, France},
+		"orl": godip.Unit{cla.Army, France},
+		"par": godip.Unit{cla.Army, France},
+		"tou": godip.Unit{cla.Army, France},
+		"pro": godip.Unit{cla.Army, France},
 	}); err != nil {
 		return
 	}
-	result.SetSupplyCenters(map[dip.Province]dip.Nation{
+	result.SetSupplyCenters(map[godip.Province]godip.Nation{
 		"lon": England,
 		"dev": England,
 		"cal": England,

@@ -7,7 +7,8 @@ import (
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
+
 	cla "github.com/zond/godip/variants/classical/common"
 	ord "github.com/zond/godip/variants/classical/orders"
 )
@@ -21,7 +22,7 @@ var ClassicalVariant = common.Variant{
 		return
 	},
 	Parser:     ord.ClassicalParser,
-	Graph:      func() dip.Graph { return start.Graph() },
+	Graph:      func() godip.Graph { return start.Graph() },
 	Phase:      Phase,
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
@@ -32,7 +33,7 @@ var ClassicalVariant = common.Variant{
 		return Asset("svg/map.svg")
 	},
 	SVGVersion: "3",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")
 		},
@@ -46,7 +47,7 @@ var ClassicalVariant = common.Variant{
 	Rules:       "The first to 18 supply centers is the winner. See the Wikibooks article for how to play: https://en.wikibooks.org/wiki/Diplomacy/Rules",
 }
 
-func Blank(phase dip.Phase) *state.State {
+func Blank(phase godip.Phase) *state.State {
 	return state.New(start.Graph(), phase, BackupRule)
 }
 
@@ -59,7 +60,7 @@ func Start() (result *state.State, err error) {
 	return
 }
 
-func BackupRule(state dip.State, deps []dip.Province) (err error) {
+func BackupRule(state godip.State, deps []godip.Province) (err error) {
 	only_moves := true
 	convoys := false
 	for _, prov := range deps {
@@ -82,7 +83,7 @@ func BackupRule(state dip.State, deps []dip.Province) (err error) {
 	if convoys {
 		for _, prov := range deps {
 			if order, _, ok := state.Order(prov); ok && order.Type() == cla.Convoy {
-				state.SetResolution(prov, cla.ErrConvoyParadox)
+				state.SetResolution(prov, godip.ErrConvoyParadox)
 			}
 		}
 		return

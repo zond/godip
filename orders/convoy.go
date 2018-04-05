@@ -4,27 +4,27 @@ import (
 	"fmt"
 	"time"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var ConvoyOrder = &convoy{}
 
-func Convoy(source, from, to dip.Province) *convoy {
+func Convoy(source, from, to godip.Province) *convoy {
 	return &convoy{
-		targets: []dip.Province{source, from, to},
+		targets: []godip.Province{source, from, to},
 	}
 }
 
 type convoy struct {
-	targets []dip.Province
+	targets []godip.Province
 }
 
 func (self *convoy) String() string {
 	return fmt.Sprintf("%v %v %v", self.targets[0], cla.Convoy, self.targets[1:])
 }
 
-func (self *convoy) Flags() map[dip.Flag]bool {
+func (self *convoy) Flags() map[godip.Flag]bool {
 	return nil
 }
 
@@ -32,37 +32,37 @@ func (self *convoy) At() time.Time {
 	return time.Now()
 }
 
-func (self *convoy) Type() dip.OrderType {
+func (self *convoy) Type() godip.OrderType {
 	return cla.Convoy
 }
 
-func (self *convoy) DisplayType() dip.OrderType {
+func (self *convoy) DisplayType() godip.OrderType {
 	return cla.Convoy
 }
 
-func (self *convoy) Targets() []dip.Province {
+func (self *convoy) Targets() []godip.Province {
 	return self.targets
 }
 
-func (self *convoy) Adjudicate(r dip.Resolver) error {
+func (self *convoy) Adjudicate(r godip.Resolver) error {
 	unit, _, _ := r.Unit(self.targets[0])
-	if breaks, _, _ := r.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
+	if breaks, _, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 		return (o.Type() == cla.Move && // move
 			o.Targets()[1] == self.targets[0] && // against us
 			u.Nation != unit.Nation && // not friendly
 			r.Resolve(p) == nil)
 	}); len(breaks) > 0 {
-		return cla.ErrConvoyDislodged{breaks[0]}
+		return godip.ErrConvoyDislodged{breaks[0]}
 	}
 	return nil
 }
 
-func (self *convoy) Parse(bits []string) (dip.Adjudicator, error) {
-	var result dip.Adjudicator
+func (self *convoy) Parse(bits []string) (godip.Adjudicator, error) {
+	var result godip.Adjudicator
 	var err error
-	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+	if len(bits) > 1 && godip.OrderType(bits[1]) == self.DisplayType() {
 		if len(bits) == 4 {
-			result = Convoy(dip.Province(bits[0]), dip.Province(bits[2]), dip.Province(bits[3]))
+			result = Convoy(godip.Province(bits[0]), godip.Province(bits[2]), godip.Province(bits[3]))
 		}
 		if result == nil {
 			err = fmt.Errorf("Can't parse as %+v", bits)
@@ -71,7 +71,7 @@ func (self *convoy) Parse(bits []string) (dip.Adjudicator, error) {
 	return result, err
 }
 
-func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
+func (self *convoy) Options(v godip.Validator, nation godip.Nation, src godip.Province) (result godip.Options) {
 	if src.Super() != src {
 		return
 	}
@@ -91,8 +91,8 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 	if convoyer.Nation != nation {
 		return
 	}
-	possibleSources := []dip.Province{}
-	possibleDestinations := []dip.Province{}
+	possibleSources := []godip.Province{}
+	possibleDestinations := []godip.Province{}
 	for _, endpointProv := range v.Graph().Provinces() {
 		for _, endpoint := range v.Graph().Coasts(endpointProv) {
 			if !v.Graph().Flags(endpoint)[cla.Land] {
@@ -112,15 +112,15 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 				continue
 			}
 			if result == nil {
-				result = dip.Options{}
+				result = godip.Options{}
 			}
-			if result[dip.SrcProvince(actualSrc)] == nil {
-				result[dip.SrcProvince(actualSrc)] = dip.Options{}
+			if result[godip.SrcProvince(actualSrc)] == nil {
+				result[godip.SrcProvince(actualSrc)] = godip.Options{}
 			}
-			opt, f := result[dip.SrcProvince(actualSrc)][src]
+			opt, f := result[godip.SrcProvince(actualSrc)][src]
 			if !f {
-				opt = dip.Options{}
-				result[dip.SrcProvince(actualSrc)][src] = opt
+				opt = godip.Options{}
+				result[godip.SrcProvince(actualSrc)][src] = opt
 			}
 			opt[dst] = nil
 		}
@@ -128,43 +128,43 @@ func (self *convoy) Options(v dip.Validator, nation dip.Nation, src dip.Province
 	return
 }
 
-func (self *convoy) Validate(v dip.Validator) (dip.Nation, error) {
+func (self *convoy) Validate(v godip.Validator) (godip.Nation, error) {
 	if v.Phase().Type() != cla.Movement {
-		return "", cla.ErrInvalidPhase
+		return "", godip.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {
-		return "", cla.ErrInvalidSource
+		return "", godip.ErrInvalidSource
 	}
 	if !v.Graph().Has(self.targets[1]) {
-		return "", cla.ErrInvalidTarget
+		return "", godip.ErrInvalidTarget
 	}
 	if !v.Graph().Has(self.targets[2]) {
-		return "", cla.ErrInvalidTarget
+		return "", godip.ErrInvalidTarget
 	}
 	for _, src := range v.Graph().Coasts(self.targets[0]) {
 		if v.Graph().Flags(src)[cla.Land] && !v.Graph().Flags(src)[cla.Convoyable] {
-			return "", cla.ErrIllegalConvoyPath
+			return "", godip.ErrIllegalConvoyPath
 		}
 	}
-	var convoyer dip.Unit
+	var convoyer godip.Unit
 	var ok bool
 	convoyer, self.targets[0], ok = v.Unit(self.targets[0])
 	if !ok {
-		return "", cla.ErrMissingUnit
+		return "", godip.ErrMissingUnit
 	} else if convoyer.Type != cla.Fleet {
-		return "", cla.ErrIllegalConvoyer
+		return "", godip.ErrIllegalConvoyer
 	}
-	var convoyee dip.Unit
+	var convoyee godip.Unit
 	if convoyee, self.targets[1], ok = v.Unit(self.targets[1]); !ok {
-		return "", cla.ErrMissingConvoyee
+		return "", godip.ErrMissingConvoyee
 	} else if convoyee.Type != cla.Army {
-		return "", cla.ErrIllegalConvoyee
+		return "", godip.ErrIllegalConvoyee
 	}
 	if cla.AnyConvoyPath(v, self.targets[1], self.targets[2], false, nil) == nil {
-		return "", cla.ErrIllegalConvoyMove
+		return "", godip.ErrIllegalConvoyMove
 	}
 	return convoyer.Nation, nil
 }
 
-func (self *convoy) Execute(state dip.State) {
+func (self *convoy) Execute(state godip.State) {
 }

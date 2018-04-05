@@ -5,18 +5,19 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/variants/classical"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
+
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
-	YearSeason dip.Season = "Year"
+	YearSeason godip.Season = "Year"
 )
 
-func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 	if season != YearSeason {
 		fmt.Errorf("Warning - Hundred only supports YearSeason, but got {}", season)
 	}
@@ -25,21 +26,21 @@ func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
 
 type phase struct {
 	year int
-	typ  dip.PhaseType
+	typ  godip.PhaseType
 }
 
 func (self *phase) String() string {
 	return fmt.Sprintf("%s %d, %s", YearSeason, self.year, self.typ)
 }
 
-func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
+func (self *phase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
 	return s.Options(BuildAnywhereParser.Orders(), nation)
 }
 
 type remoteUnitSlice struct {
-	provinces []dip.Province
-	distances map[dip.Province]int
-	units     map[dip.Province]dip.Unit
+	provinces []godip.Province
+	distances map[godip.Province]int
+	units     map[godip.Province]godip.Unit
 }
 
 func (self remoteUnitSlice) String() string {
@@ -73,23 +74,23 @@ func (self remoteUnitSlice) Less(i, j int) bool {
 	return self.distances[self.provinces[i]] > self.distances[self.provinces[j]]
 }
 
-func (self *phase) DefaultOrder(p dip.Province) dip.Adjudicator {
+func (self *phase) DefaultOrder(p godip.Province) godip.Adjudicator {
 	if self.typ == cla.Movement {
 		return orders.Hold(p)
 	}
 	return nil
 }
 
-func (self *phase) PostProcess(s dip.State) (err error) {
+func (self *phase) PostProcess(s godip.State) (err error) {
 	if self.typ == cla.Retreat {
 		for prov, _ := range s.Dislodgeds() {
 			s.RemoveDislodged(prov)
-			s.SetResolution(prov, cla.ErrForcedDisband)
+			s.SetResolution(prov, godip.ErrForcedDisband)
 		}
 		s.ClearDislodgers()
 		s.ClearBounces()
 		if self.year%10 == 0 {
-			s.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
+			s.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 				if u != nil {
 					if s.Graph().SC(p) != nil {
 						s.SetSC(p.Super(), u.Nation)
@@ -102,15 +103,15 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 		for _, nationality := range s.Graph().Nations() {
 			_, _, balance := cla.AdjustmentStatus(s, nationality)
 			if balance < 0 {
-				var su []dip.Province
+				var su []godip.Province
 				if su, err = classical.SortedUnits(s, nationality); err != nil {
 					return
 				}
 				su = su[:-balance]
 				for _, prov := range su {
-					dip.Logf("Removing %v due to forced disband", prov)
+					godip.Logf("Removing %v due to forced disband", prov)
 					s.RemoveUnit(prov)
-					s.SetResolution(prov, cla.ErrForcedDisband)
+					s.SetResolution(prov, godip.ErrForcedDisband)
 				}
 			}
 		}
@@ -120,7 +121,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 			for edge, _ := range s.Graph().Edges(prov) {
 				if _, _, ok := s.Unit(edge); !ok && !s.Bounce(prov, edge) {
 					if cla.HasEdge(s, unit.Type, prov, edge) {
-						dip.Logf("%v can retreat to %v", prov, edge)
+						godip.Logf("%v can retreat to %v", prov, edge)
 						hasRetreat = true
 						break
 					}
@@ -128,7 +129,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 			}
 			if !hasRetreat {
 				s.RemoveDislodged(prov)
-				dip.Logf("Removing %v since it has no retreat", prov)
+				godip.Logf("Removing %v since it has no retreat", prov)
 			}
 		}
 	}
@@ -139,15 +140,15 @@ func (self *phase) Year() int {
 	return self.year
 }
 
-func (self *phase) Season() dip.Season {
+func (self *phase) Season() godip.Season {
 	return YearSeason
 }
 
-func (self *phase) Type() dip.PhaseType {
+func (self *phase) Type() godip.PhaseType {
 	return self.typ
 }
 
-func (self *phase) Next() dip.Phase {
+func (self *phase) Next() godip.Phase {
 	if self.typ == cla.Movement {
 		return &phase{
 			year: self.year,

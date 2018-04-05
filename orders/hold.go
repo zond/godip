@@ -4,39 +4,40 @@ import (
 	"fmt"
 	"time"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
+
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var HoldOrder = &hold{}
 
-func Hold(source dip.Province) *hold {
+func Hold(source godip.Province) *hold {
 	return &hold{
-		targets: []dip.Province{source},
+		targets: []godip.Province{source},
 	}
 }
 
 type hold struct {
-	targets []dip.Province
+	targets []godip.Province
 }
 
 func (self *hold) String() string {
 	return fmt.Sprintf("%v %v", self.targets[0], cla.Hold)
 }
 
-func (self *hold) Flags() map[dip.Flag]bool {
+func (self *hold) Flags() map[godip.Flag]bool {
 	return nil
 }
 
-func (self *hold) Type() dip.OrderType {
+func (self *hold) Type() godip.OrderType {
 	return cla.Hold
 }
 
-func (self *hold) DisplayType() dip.OrderType {
+func (self *hold) DisplayType() godip.OrderType {
 	return cla.Hold
 }
 
-func (self *hold) Targets() []dip.Province {
+func (self *hold) Targets() []godip.Province {
 	return self.targets
 }
 
@@ -44,16 +45,16 @@ func (self *hold) At() time.Time {
 	return time.Now()
 }
 
-func (self *hold) Adjudicate(r dip.Resolver) error {
+func (self *hold) Adjudicate(r godip.Resolver) error {
 	return nil
 }
 
-func (self *hold) Parse(bits []string) (dip.Adjudicator, error) {
-	var result dip.Adjudicator
+func (self *hold) Parse(bits []string) (godip.Adjudicator, error) {
+	var result godip.Adjudicator
 	var err error
-	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+	if len(bits) > 1 && godip.OrderType(bits[1]) == self.DisplayType() {
 		if len(bits) == 2 {
-			result = Hold(dip.Province(bits[0]))
+			result = Hold(godip.Province(bits[0]))
 		}
 		if result == nil {
 			err = fmt.Errorf("Can't parse as %+v", bits)
@@ -62,7 +63,7 @@ func (self *hold) Parse(bits []string) (dip.Adjudicator, error) {
 	return result, err
 }
 
-func (self *hold) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
+func (self *hold) Options(v godip.Validator, nation godip.Nation, src godip.Province) (result godip.Options) {
 	if src.Super() != src {
 		return
 	}
@@ -70,8 +71,8 @@ func (self *hold) Options(v dip.Validator, nation dip.Nation, src dip.Province) 
 		if v.Graph().Has(src) {
 			if unit, actualSrc, ok := v.Unit(src); ok {
 				if unit.Nation == nation {
-					result = dip.Options{
-						dip.SrcProvince(actualSrc): nil,
+					result = godip.Options{
+						godip.SrcProvince(actualSrc): nil,
 					}
 				}
 			}
@@ -80,21 +81,21 @@ func (self *hold) Options(v dip.Validator, nation dip.Nation, src dip.Province) 
 	return
 }
 
-func (self *hold) Validate(v dip.Validator) (dip.Nation, error) {
+func (self *hold) Validate(v godip.Validator) (godip.Nation, error) {
 	if v.Phase().Type() != cla.Movement {
-		return "", cla.ErrInvalidPhase
+		return "", godip.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {
-		return "", cla.ErrInvalidTarget
+		return "", godip.ErrInvalidTarget
 	}
 	var ok bool
-	var unit dip.Unit
+	var unit godip.Unit
 	unit, self.targets[0], ok = v.Unit(self.targets[0])
 	if !ok {
-		return "", cla.ErrMissingUnit
+		return "", godip.ErrMissingUnit
 	}
 	return unit.Nation, nil
 }
 
-func (self *hold) Execute(state dip.State) {
+func (self *hold) Execute(state godip.State) {
 }

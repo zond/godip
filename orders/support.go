@@ -4,29 +4,30 @@ import (
 	"fmt"
 	"time"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
+
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var SupportOrder = &support{}
 
-func SupportHold(prov, target dip.Province) *support {
+func SupportHold(prov, target godip.Province) *support {
 	return &support{
-		targets: []dip.Province{prov, target},
+		targets: []godip.Province{prov, target},
 	}
 }
 
-func SupportMove(prov, from, to dip.Province) *support {
+func SupportMove(prov, from, to godip.Province) *support {
 	return &support{
-		targets: []dip.Province{prov, from, to},
+		targets: []godip.Province{prov, from, to},
 	}
 }
 
 type support struct {
-	targets []dip.Province
+	targets []godip.Province
 }
 
-func (self *support) Flags() map[dip.Flag]bool {
+func (self *support) Flags() map[godip.Flag]bool {
 	return nil
 }
 
@@ -38,21 +39,21 @@ func (self *support) At() time.Time {
 	return time.Now()
 }
 
-func (self *support) Type() dip.OrderType {
+func (self *support) Type() godip.OrderType {
 	return cla.Support
 }
 
-func (self *support) DisplayType() dip.OrderType {
+func (self *support) DisplayType() godip.OrderType {
 	return cla.Support
 }
 
-func (self *support) Targets() []dip.Province {
+func (self *support) Targets() []godip.Province {
 	return self.targets
 }
 
-func (self *support) Adjudicate(r dip.Resolver) error {
+func (self *support) Adjudicate(r godip.Resolver) error {
 	unit, _, _ := r.Unit(self.targets[0])
-	if breaks, _, _ := r.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
+	if breaks, _, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 		if o != nil && // is an order
 			u != nil && // is a unit
 			o.Type() == cla.Move && // move
@@ -65,11 +66,11 @@ func (self *support) Adjudicate(r dip.Resolver) error {
 		}
 		return false
 	}); len(breaks) > 0 {
-		dip.Logf("%v: broken by: %v", self, breaks)
-		return cla.ErrSupportBroken{breaks[0]}
+		godip.Logf("%v: broken by: %v", self, breaks)
+		return godip.ErrSupportBroken{breaks[0]}
 	}
 
-	if dislodgers, _, _ := r.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
+	if dislodgers, _, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 		return o != nil && // is an order
 			u != nil && // is a unit
 			o.Type() == cla.Move && // move
@@ -77,21 +78,21 @@ func (self *support) Adjudicate(r dip.Resolver) error {
 			u.Nation != unit.Nation && // not from ourselves
 			r.Resolve(p) == nil // and it succeeded
 	}); len(dislodgers) > 0 {
-		dip.Logf("%v: dislodged by: %v", self, dislodgers)
-		return cla.ErrSupportBroken{dislodgers[0]}
+		godip.Logf("%v: dislodged by: %v", self, dislodgers)
+		return godip.ErrSupportBroken{dislodgers[0]}
 	}
 	return nil
 }
 
-func (self *support) Parse(bits []string) (dip.Adjudicator, error) {
-	var result dip.Adjudicator
+func (self *support) Parse(bits []string) (godip.Adjudicator, error) {
+	var result godip.Adjudicator
 	var err error
-	if len(bits) > 1 && dip.OrderType(bits[1]) == self.DisplayType() {
+	if len(bits) > 1 && godip.OrderType(bits[1]) == self.DisplayType() {
 		if len(bits) == 4 {
 			if bits[2] == bits[3] {
-				result = SupportHold(dip.Province(bits[0]), dip.Province(bits[2]))
+				result = SupportHold(godip.Province(bits[0]), godip.Province(bits[2]))
 			} else {
-				result = SupportMove(dip.Province(bits[0]), dip.Province(bits[2]), dip.Province(bits[3]))
+				result = SupportMove(godip.Province(bits[0]), godip.Province(bits[2]), godip.Province(bits[3]))
 			}
 		}
 		if result == nil {
@@ -101,7 +102,7 @@ func (self *support) Parse(bits []string) (dip.Adjudicator, error) {
 	return result, err
 }
 
-func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Province) (result dip.Options) {
+func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.Province) (result godip.Options) {
 	if src.Super() != src {
 		return
 	}
@@ -121,15 +122,15 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 	for _, supportable := range cla.PossibleMoves(v, src, false, false) {
 		if _, supporteeSrc, ok := v.Unit(supportable); ok {
 			if result == nil {
-				result = dip.Options{}
+				result = godip.Options{}
 			}
-			if result[dip.SrcProvince(actualSrc)] == nil {
-				result[dip.SrcProvince(actualSrc)] = dip.Options{}
+			if result[godip.SrcProvince(actualSrc)] == nil {
+				result[godip.SrcProvince(actualSrc)] = godip.Options{}
 			}
-			opt, f := result[dip.SrcProvince(actualSrc)][supporteeSrc.Super()]
+			opt, f := result[godip.SrcProvince(actualSrc)][supporteeSrc.Super()]
 			if !f {
-				opt = dip.Options{}
-				result[dip.SrcProvince(actualSrc)][supporteeSrc.Super()] = opt
+				opt = godip.Options{}
+				result[godip.SrcProvince(actualSrc)][supporteeSrc.Super()] = opt
 			}
 			opt[supporteeSrc.Super()] = nil
 		}
@@ -146,15 +147,15 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 					continue
 				}
 				if result == nil {
-					result = dip.Options{}
+					result = godip.Options{}
 				}
-				if result[dip.SrcProvince(actualSrc)] == nil {
-					result[dip.SrcProvince(actualSrc)] = dip.Options{}
+				if result[godip.SrcProvince(actualSrc)] == nil {
+					result[godip.SrcProvince(actualSrc)] = godip.Options{}
 				}
-				opt, f := result[dip.SrcProvince(actualSrc)][mvSrc.Super()]
+				opt, f := result[godip.SrcProvince(actualSrc)][mvSrc.Super()]
 				if !f {
-					opt = dip.Options{}
-					result[dip.SrcProvince(actualSrc)][mvSrc.Super()] = opt
+					opt = godip.Options{}
+					result[godip.SrcProvince(actualSrc)][mvSrc.Super()] = opt
 				}
 				opt[mvDst.Super()] = nil
 			}
@@ -167,15 +168,15 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 					continue
 				}
 				if result == nil {
-					result = dip.Options{}
+					result = godip.Options{}
 				}
-				if result[dip.SrcProvince(actualSrc)] == nil {
-					result[dip.SrcProvince(actualSrc)] = dip.Options{}
+				if result[godip.SrcProvince(actualSrc)] == nil {
+					result[godip.SrcProvince(actualSrc)] = godip.Options{}
 				}
-				opt, f := result[dip.SrcProvince(actualSrc)][mvSrc.Super()]
+				opt, f := result[godip.SrcProvince(actualSrc)][mvSrc.Super()]
 				if !f {
-					opt = dip.Options{}
-					result[dip.SrcProvince(actualSrc)][mvSrc.Super()] = opt
+					opt = godip.Options{}
+					result[godip.SrcProvince(actualSrc)][mvSrc.Super()] = opt
 				}
 				opt[mvDst.Super()] = nil
 			}
@@ -184,42 +185,42 @@ func (self *support) Options(v dip.Validator, nation dip.Nation, src dip.Provinc
 	return
 }
 
-func (self *support) Validate(v dip.Validator) (dip.Nation, error) {
+func (self *support) Validate(v godip.Validator) (godip.Nation, error) {
 	if v.Phase().Type() != cla.Movement {
-		return "", cla.ErrInvalidPhase
+		return "", godip.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {
-		return "", cla.ErrInvalidSource
+		return "", godip.ErrInvalidSource
 	}
 	if !v.Graph().Has(self.targets[1]) {
-		return "", cla.ErrInvalidTarget
+		return "", godip.ErrInvalidTarget
 	}
 	var ok bool
-	var unit, supported dip.Unit
+	var unit, supported godip.Unit
 	if unit, self.targets[0], ok = v.Unit(self.targets[0]); !ok {
-		return "", cla.ErrMissingUnit
+		return "", godip.ErrMissingUnit
 	}
 	if supported, self.targets[1], ok = v.Unit(self.targets[1]); !ok {
-		return "", cla.ErrMissingSupportUnit
+		return "", godip.ErrMissingSupportUnit
 	}
 	if len(self.targets) == 2 {
 		if err := cla.AnySupportPossible(v, unit.Type, self.targets[0], self.targets[1]); err != nil {
-			return "", cla.ErrIllegalSupportPosition
+			return "", godip.ErrIllegalSupportPosition
 		}
 	} else {
 		if !v.Graph().Has(self.targets[2]) {
-			return "", cla.ErrInvalidTarget
+			return "", godip.ErrInvalidTarget
 		}
 		if err := cla.AnySupportPossible(v, unit.Type, self.targets[0], self.targets[2]); err != nil {
-			return "", cla.ErrIllegalSupportDestination
+			return "", godip.ErrIllegalSupportDestination
 		}
 
 		if _, err := cla.AnyMovePossible(v, supported.Type, self.targets[1], self.targets[2], true, true, false); err != nil {
-			return "", cla.ErrIllegalSupportMove
+			return "", godip.ErrIllegalSupportMove
 		}
 	}
 	return unit.Nation, nil
 }
 
-func (self *support) Execute(state dip.State) {
+func (self *support) Execute(state godip.State) {
 }

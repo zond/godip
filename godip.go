@@ -9,6 +9,72 @@ import (
 	"time"
 )
 
+// Invalid is not understood
+// Illegal is understood but not allowed
+var ErrInvalidSource = fmt.Errorf("ErrInvalidSource")
+var ErrInvalidDestination = fmt.Errorf("ErrInvalidDestination")
+var ErrInvalidTarget = fmt.Errorf("ErrInvalidTarget")
+var ErrInvalidPhase = fmt.Errorf("ErrInvalidPhase")
+var ErrMissingUnit = fmt.Errorf("ErrMissingUnit")
+var ErrIllegalDestination = fmt.Errorf("ErrIllegalDestination")
+var ErrMissingConvoyPath = fmt.Errorf("ErrMissingConvoyPath")
+var ErrIllegalMove = fmt.Errorf("ErrIllegalMove")
+var ErrConvoyParadox = fmt.Errorf("ErrConvoyParadox")
+var ErrIllegalSupportPosition = fmt.Errorf("ErrIllegalSupportPosition")
+var ErrIllegalSupportDestination = fmt.Errorf("ErrIllegalSupportDestination")
+var ErrIllegalSupportDestinationNation = fmt.Errorf("ErrIllegalSupportDestinationNation")
+var ErrMissingSupportUnit = fmt.Errorf("ErrMissingSupportUnit")
+var ErrIllegalSupportMove = fmt.Errorf("ErrIllegalSupportMove")
+var ErrIllegalConvoyUnit = fmt.Errorf("ErrIllegalConvoyUnit")
+var ErrIllegalConvoyPath = fmt.Errorf("ErrIllegalConvoyPath")
+var ErrIllegalConvoyMove = fmt.Errorf("ErrIllegalConvoyMove")
+var ErrMissingConvoyee = fmt.Errorf("ErrMissingConvoyee")
+var ErrIllegalConvoyer = fmt.Errorf("ErrIllegalConvoyer")
+var ErrIllegalConvoyee = fmt.Errorf("ErrIllegalConvoyee")
+var ErrIllegalBuild = fmt.Errorf("ErrIllegalBuild")
+var ErrIllegalDisband = fmt.Errorf("ErrIllegalDisband")
+var ErrOccupiedSupplyCenter = fmt.Errorf("ErrOccupiedSupplyCenter")
+var ErrMissingSupplyCenter = fmt.Errorf("ErrMissingSupplyCenter")
+var ErrMissingSurplus = fmt.Errorf("ErrMissingSurplus")
+var ErrIllegalUnitType = fmt.Errorf("ErrIllegalUnitType")
+var ErrMissingDeficit = fmt.Errorf("ErrMissingDeficit")
+var ErrOccupiedDestination = fmt.Errorf("ErrOccupiedDestination")
+var ErrIllegalRetreat = fmt.Errorf("ErrIllegalRetreat")
+var ErrForcedDisband = fmt.Errorf("ErrForcedDisband")
+var ErrHostileSupplyCenter = fmt.Errorf("ErrHostileSupplyCenter")
+
+type ErrDoubleBuild struct {
+	Provinces []Province
+}
+
+func (self ErrDoubleBuild) Error() string {
+	return fmt.Sprintf("ErrDoubleBuild:%v", self.Provinces)
+}
+
+type ErrConvoyDislodged struct {
+	Province Province
+}
+
+func (self ErrConvoyDislodged) Error() string {
+	return fmt.Sprintf("ErrConvoyDislodged:%v", self.Province)
+}
+
+type ErrSupportBroken struct {
+	Province Province
+}
+
+func (self ErrSupportBroken) Error() string {
+	return fmt.Sprintf("ErrSupportBroken:%v", self.Province)
+}
+
+type ErrBounce struct {
+	Province Province
+}
+
+func (self ErrBounce) Error() string {
+	return fmt.Sprintf("ErrBounce:%v", self.Province)
+}
+
 var Debug = false
 var LogIndent = []string{}
 var logBuffer = new(bytes.Buffer)

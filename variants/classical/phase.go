@@ -8,25 +8,26 @@ import (
 
 	"github.com/zond/godip/orders"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
+
 	cla "github.com/zond/godip/variants/classical/common"
 	ord "github.com/zond/godip/variants/classical/orders"
 )
 
-func PhaseGenerator(parser orders.Parser) func(int, dip.Season, dip.PhaseType) dip.Phase {
-	return func(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
+func PhaseGenerator(parser orders.Parser) func(int, godip.Season, godip.PhaseType) godip.Phase {
+	return func(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 		return &phase{year, season, typ, parser}
 	}
 }
 
-func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 	return PhaseGenerator(ord.ClassicalParser)(year, season, typ)
 }
 
 type phase struct {
 	year   int
-	season dip.Season
-	typ    dip.PhaseType
+	season godip.Season
+	typ    godip.PhaseType
 	parser orders.Parser
 }
 
@@ -34,27 +35,27 @@ func (self *phase) String() string {
 	return fmt.Sprintf("%s %d, %s", self.season, self.year, self.typ)
 }
 
-func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
+func (self *phase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
 	return s.Options(ord.ClassicalParser.Orders(), nation)
 }
 
-func shortestDistance(s dip.State, src dip.Province, dst []dip.Province) (result int, err error) {
-	var unit dip.Unit
+func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (result int, err error) {
+	var unit godip.Unit
 	var ok bool
 	unit, src, ok = s.Unit(src)
 	if !ok {
 		err = fmt.Errorf("No unit at %v", src)
 		return
 	}
-	var filter dip.PathFilter
+	var filter godip.PathFilter
 	found := false
 	for _, destination := range dst {
 		if unit.Type == cla.Fleet {
-			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation, trace []dip.Province) bool {
+			filter = func(p godip.Province, edgeFlags, nodeFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) bool {
 				return edgeFlags[cla.Sea] && nodeFlags[cla.Sea]
 			}
 		} else {
-			filter = func(p dip.Province, edgeFlags, nodeFlags map[dip.Flag]bool, sc *dip.Nation, trace []dip.Province) bool {
+			filter = func(p godip.Province, edgeFlags, nodeFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) bool {
 				if p.Super() == destination.Super() {
 					return true
 				}
@@ -88,9 +89,9 @@ func shortestDistance(s dip.State, src dip.Province, dst []dip.Province) (result
 }
 
 type remoteUnitSlice struct {
-	provinces []dip.Province
-	distances map[dip.Province]int
-	units     map[dip.Province]dip.Unit
+	provinces []godip.Province
+	distances map[godip.Province]int
+	units     map[godip.Province]godip.Unit
 }
 
 func (self remoteUnitSlice) String() string {
@@ -124,12 +125,12 @@ func (self remoteUnitSlice) Less(i, j int) bool {
 	return self.distances[self.provinces[i]] > self.distances[self.provinces[j]]
 }
 
-func SortedUnits(s dip.State, n dip.Nation) (result []dip.Province, err error) {
+func SortedUnits(s godip.State, n godip.Nation) (result []godip.Province, err error) {
 	provs := remoteUnitSlice{
-		distances: make(map[dip.Province]int),
-		units:     make(map[dip.Province]dip.Unit),
+		distances: make(map[godip.Province]int),
+		units:     make(map[godip.Province]godip.Unit),
 	}
-	provs.provinces, _, _ = s.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
+	provs.provinces, _, _ = s.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 		if u != nil && u.Nation == n {
 			if provs.distances[p], err = shortestDistance(s, p, s.Graph().SCs(n)); err != nil {
 				return false
@@ -143,28 +144,28 @@ func SortedUnits(s dip.State, n dip.Nation) (result []dip.Province, err error) {
 		return
 	}
 	sort.Sort(provs)
-	dip.Logf("Sorted units for %v is %v", n, provs)
+	godip.Logf("Sorted units for %v is %v", n, provs)
 	result = provs.provinces
 	return
 }
 
-func (self *phase) DefaultOrder(p dip.Province) dip.Adjudicator {
+func (self *phase) DefaultOrder(p godip.Province) godip.Adjudicator {
 	if self.typ == cla.Movement {
 		return orders.Hold(p)
 	}
 	return nil
 }
 
-func (self *phase) PostProcess(s dip.State) (err error) {
+func (self *phase) PostProcess(s godip.State) (err error) {
 	if self.typ == cla.Retreat {
 		for prov, _ := range s.Dislodgeds() {
 			s.RemoveDislodged(prov)
-			s.SetResolution(prov, cla.ErrForcedDisband)
+			s.SetResolution(prov, godip.ErrForcedDisband)
 		}
 		s.ClearDislodgers()
 		s.ClearBounces()
 		if self.season == cla.Fall {
-			s.Find(func(p dip.Province, o dip.Order, u *dip.Unit) bool {
+			s.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 				if u != nil {
 					if s.Graph().SC(p) != nil {
 						s.SetSC(p.Super(), u.Nation)
@@ -177,15 +178,15 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 		for _, nationality := range s.Graph().Nations() {
 			_, _, balance := cla.AdjustmentStatus(s, nationality)
 			if balance < 0 {
-				var su []dip.Province
+				var su []godip.Province
 				if su, err = SortedUnits(s, nationality); err != nil {
 					return
 				}
 				su = su[:-balance]
 				for _, prov := range su {
-					dip.Logf("Removing %v due to forced disband", prov)
+					godip.Logf("Removing %v due to forced disband", prov)
 					s.RemoveUnit(prov)
-					s.SetResolution(prov, cla.ErrForcedDisband)
+					s.SetResolution(prov, godip.ErrForcedDisband)
 				}
 			}
 		}
@@ -195,7 +196,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 			for edge, _ := range s.Graph().Edges(prov) {
 				if _, _, ok := s.Unit(edge); !ok && !s.Bounce(prov, edge) {
 					if cla.HasEdge(s, unit.Type, prov, edge) {
-						dip.Logf("%v can retreat to %v", prov, edge)
+						godip.Logf("%v can retreat to %v", prov, edge)
 						hasRetreat = true
 						break
 					}
@@ -203,7 +204,7 @@ func (self *phase) PostProcess(s dip.State) (err error) {
 			}
 			if !hasRetreat {
 				s.RemoveDislodged(prov)
-				dip.Logf("Removing %v since it has no retreat", prov)
+				godip.Logf("Removing %v since it has no retreat", prov)
 			}
 		}
 	}
@@ -214,15 +215,15 @@ func (self *phase) Year() int {
 	return self.year
 }
 
-func (self *phase) Season() dip.Season {
+func (self *phase) Season() godip.Season {
 	return self.season
 }
 
-func (self *phase) Type() dip.PhaseType {
+func (self *phase) Type() godip.PhaseType {
 	return self.typ
 }
 
-func (self *phase) Next() dip.Phase {
+func (self *phase) Next() godip.Phase {
 	if self.typ == cla.Movement {
 		return &phase{
 			year:   self.year,
