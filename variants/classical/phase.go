@@ -6,28 +6,28 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/zond/godip/variants/classical/orders"
+	"github.com/zond/godip/orders"
 
 	dip "github.com/zond/godip/common"
-	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
+	ord "github.com/zond/godip/variants/classical/orders"
 )
 
-func PhaseGenerator(parser ord.Parser) func(int, dip.Season, dip.PhaseType) dip.Phase {
+func PhaseGenerator(parser orders.Parser) func(int, dip.Season, dip.PhaseType) dip.Phase {
 	return func(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
 		return &phase{year, season, typ, parser}
 	}
 }
 
 func Phase(year int, season dip.Season, typ dip.PhaseType) dip.Phase {
-	return PhaseGenerator(orders.ClassicalParser)(year, season, typ)
+	return PhaseGenerator(ord.ClassicalParser)(year, season, typ)
 }
 
 type phase struct {
 	year   int
 	season dip.Season
 	typ    dip.PhaseType
-	parser ord.Parser
+	parser orders.Parser
 }
 
 func (self *phase) String() string {
@@ -35,7 +35,7 @@ func (self *phase) String() string {
 }
 
 func (self *phase) Options(s dip.Validator, nation dip.Nation) (result dip.Options) {
-	return s.Options(orders.ClassicalParser.Orders(), nation)
+	return s.Options(ord.ClassicalParser.Orders(), nation)
 }
 
 func shortestDistance(s dip.State, src dip.Province, dst []dip.Province) (result int, err error) {

@@ -7,11 +7,11 @@ import (
 )
 
 var ClassicalParser = orders.NewParser([]dip.Order{
-	BuildOrder,
-	ConvoyOrder,
-	DisbandOrder,
-	HoldOrder,
-	MoveOrder,
-	MoveViaConvoyOrder,
-	SupportOrder,
+	orders.BuildOrder,
+	orders.ConvoyOrder,
+	orders.DisbandOrder,
+	orders.HoldOrder,
+	orders.MoveOrder,
+	orders.MoveViaConvoyOrder,
+	orders.SupportOrder,
 })

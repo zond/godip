@@ -5,7 +5,7 @@ import (
 
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
+	"github.com/zond/godip/orders"
 
 	dip "github.com/zond/godip/common"
 	cla "github.com/zond/godip/variants/classical/common"

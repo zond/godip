@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
 
 	dip "github.com/zond/godip/common"
 	cla "github.com/zond/godip/variants/classical/common"
+	ord "github.com/zond/godip/variants/classical/orders"
 )
 
 var ClassicalVariant = common.Variant{
@@ -20,7 +20,7 @@ var ClassicalVariant = common.Variant{
 		result = Blank(Phase(1900, cla.Fall, cla.Adjustment))
 		return
 	},
-	Parser:     orders.ClassicalParser,
+	Parser:     ord.ClassicalParser,
 	Graph:      func() dip.Graph { return start.Graph() },
 	Phase:      Phase,
 	Nations:    cla.Nations,
@@ -51,7 +51,7 @@ func Blank(phase dip.Phase) *state.State {
 }
 
 func Start() (result *state.State, err error) {
-	result = state.New(start.Graph(), &phase{1901, cla.Spring, cla.Movement, orders.ClassicalParser}, BackupRule)
+	result = state.New(start.Graph(), &phase{1901, cla.Spring, cla.Movement, ord.ClassicalParser}, BackupRule)
 	if err = result.SetUnits(start.Units()); err != nil {
 		return
 	}

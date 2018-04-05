@@ -3,7 +3,7 @@ package common
 import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/common"
 
 	dip "github.com/zond/godip/common"
