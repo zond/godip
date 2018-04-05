@@ -7,8 +7,6 @@ import (
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var FranceAustriaVariant = common.Variant{
@@ -56,9 +54,9 @@ var FranceAustriaVariant = common.Variant{
 	Phase:      classical.Phase,
 	Parser:     orders.ClassicalParser,
 	Nations:    []godip.Nation{godip.Austria, godip.France},
-	PhaseTypes: cla.PhaseTypes,
-	Seasons:    cla.Seasons,
-	UnitTypes:  cla.UnitTypes,
+	PhaseTypes: classical.PhaseTypes,
+	Seasons:    classical.Seasons,
+	UnitTypes:  classical.UnitTypes,
 	SoloWinner: common.SCCountWinner(18),
 	SVGMap: func() ([]byte, error) {
 		return classical.Asset("svg/map.svg")

@@ -8,11 +8,6 @@ import (
 	. "github.com/zond/godip"
 )
 
-var Nations = []Nation{Austria, England, France, Germany, Italy, Turkey, Russia}
-var PhaseTypes = []PhaseType{Movement, Retreat, Adjustment}
-var Seasons = []Season{Spring, Fall}
-var UnitTypes = []UnitType{Army, Fleet}
-
 func ConvoyDestinations(v Validator, src Province, noConvoy *Province) []Province {
 	defer v.Profile("ConvoyDestinations", time.Now())
 	potentialConvoyCoasts := []Province{}

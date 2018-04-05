@@ -7,8 +7,6 @@ import (
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
@@ -26,9 +24,9 @@ var ColdWarVariant = common.Variant{
 	Phase:      classical.Phase,
 	Parser:     orders.ClassicalParser,
 	Nations:    Nations,
-	PhaseTypes: cla.PhaseTypes,
-	Seasons:    cla.Seasons,
-	UnitTypes:  cla.UnitTypes,
+	PhaseTypes: classical.PhaseTypes,
+	Seasons:    classical.Seasons,
+	UnitTypes:  classical.UnitTypes,
 	SoloWinner: common.SCCountWinner(17),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/coldwarmap.svg")

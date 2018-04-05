@@ -9,7 +9,6 @@ import (
 	"github.com/zond/godip/variants/common"
 
 	ord "github.com/zond/godip/orders"
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var pureParser = ord.NewParser([]godip.Order{
@@ -27,9 +26,9 @@ var PureVariant = common.Variant{
 	Blank:      PureBlank,
 	Phase:      classical.PhaseGenerator(pureParser),
 	Parser:     pureParser,
-	Nations:    cla.Nations,
-	PhaseTypes: cla.PhaseTypes,
-	Seasons:    cla.Seasons,
+	Nations:    classical.Nations,
+	PhaseTypes: classical.PhaseTypes,
+	Seasons:    classical.Seasons,
 	UnitTypes:  []godip.UnitType{godip.Army},
 	SoloWinner: common.SCCountWinner(4),
 	SVGMap: func() ([]byte, error) {

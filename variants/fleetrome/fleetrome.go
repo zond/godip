@@ -7,8 +7,6 @@ import (
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var FleetRomeVariant = common.Variant{
@@ -30,10 +28,10 @@ var FleetRomeVariant = common.Variant{
 	Blank:      classical.Blank,
 	Phase:      classical.Phase,
 	Parser:     orders.ClassicalParser,
-	Nations:    cla.Nations,
-	PhaseTypes: cla.PhaseTypes,
-	Seasons:    cla.Seasons,
-	UnitTypes:  cla.UnitTypes,
+	Nations:    classical.Nations,
+	PhaseTypes: classical.PhaseTypes,
+	Seasons:    classical.Seasons,
+	UnitTypes:  classical.UnitTypes,
 	SoloWinner: common.SCCountWinner(18),
 	SVGMap: func() ([]byte, error) {
 		return classical.Asset("svg/map.svg")

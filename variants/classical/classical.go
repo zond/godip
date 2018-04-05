@@ -8,8 +8,14 @@ import (
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	ord "github.com/zond/godip/variants/classical/orders"
+)
+
+var (
+	Nations    = []godip.Nation{godip.Austria, godip.England, godip.France, godip.Germany, godip.Italy, godip.Turkey, godip.Russia}
+	PhaseTypes = []godip.PhaseType{godip.Movement, godip.Retreat, godip.Adjustment}
+	Seasons    = []godip.Season{godip.Spring, godip.Fall}
+	UnitTypes  = []godip.UnitType{godip.Army, godip.Fleet}
 )
 
 var ClassicalVariant = common.Variant{
@@ -23,10 +29,10 @@ var ClassicalVariant = common.Variant{
 	Parser:     ord.ClassicalParser,
 	Graph:      func() godip.Graph { return start.Graph() },
 	Phase:      Phase,
-	Nations:    cla.Nations,
-	PhaseTypes: cla.PhaseTypes,
-	Seasons:    cla.Seasons,
-	UnitTypes:  cla.UnitTypes,
+	Nations:    Nations,
+	PhaseTypes: PhaseTypes,
+	Seasons:    Seasons,
+	UnitTypes:  UnitTypes,
 	SoloWinner: common.SCCountWinner(18),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/map.svg")

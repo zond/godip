@@ -9,7 +9,6 @@ import (
 	"github.com/zond/godip/variants/common"
 
 	ord "github.com/zond/godip/orders"
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
@@ -37,9 +36,9 @@ var HundredVariant = common.Variant{
 	Phase:      Phase,
 	Parser:     BuildAnywhereParser,
 	Nations:    Nations,
-	PhaseTypes: cla.PhaseTypes,
+	PhaseTypes: classical.PhaseTypes,
 	Seasons:    []godip.Season{YearSeason},
-	UnitTypes:  cla.UnitTypes,
+	UnitTypes:  classical.UnitTypes,
 	SoloWinner: common.SCCountWinner(9),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/hundredmap.svg")
