@@ -17,7 +17,7 @@ var ClassicalVariant = common.Variant{
 	Start: Start,
 	Blank: Blank,
 	BlankStart: func() (result *state.State, err error) {
-		result = Blank(Phase(1900, cla.Fall, cla.Adjustment))
+		result = Blank(Phase(1900, godip.Fall, godip.Adjustment))
 		return
 	},
 	Parser:     ord.ClassicalParser,
@@ -33,10 +33,10 @@ var ClassicalVariant = common.Variant{
 	},
 	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		cla.Army: func() ([]byte, error) {
+		godip.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")
 		},
-		cla.Fleet: func() ([]byte, error) {
+		godip.Fleet: func() ([]byte, error) {
 			return Asset("svg/fleet.svg")
 		},
 	},
@@ -51,7 +51,7 @@ func Blank(phase godip.Phase) *state.State {
 }
 
 func Start() (result *state.State, err error) {
-	result = state.New(start.Graph(), &phase{1901, cla.Spring, cla.Movement, ord.ClassicalParser}, BackupRule)
+	result = state.New(start.Graph(), &phase{1901, godip.Spring, godip.Movement, ord.ClassicalParser}, BackupRule)
 	if err = result.SetUnits(start.Units()); err != nil {
 		return
 	}
@@ -64,10 +64,10 @@ func BackupRule(state godip.State, deps []godip.Province) (err error) {
 	convoys := false
 	for _, prov := range deps {
 		if order, _, ok := state.Order(prov); ok {
-			if order.Type() != cla.Move {
+			if order.Type() != godip.Move {
 				only_moves = false
 			}
-			if order.Type() == cla.Convoy {
+			if order.Type() == godip.Convoy {
 				convoys = true
 			}
 		}
@@ -81,7 +81,7 @@ func BackupRule(state godip.State, deps []godip.Province) (err error) {
 	}
 	if convoys {
 		for _, prov := range deps {
-			if order, _, ok := state.Order(prov); ok && order.Type() == cla.Convoy {
+			if order, _, ok := state.Order(prov); ok && order.Type() == godip.Convoy {
 				state.SetResolution(prov, godip.ErrConvoyParadox)
 			}
 		}

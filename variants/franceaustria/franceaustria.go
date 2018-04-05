@@ -15,11 +15,11 @@ var FranceAustriaVariant = common.Variant{
 	Name: "France vs Austria",
 	Graph: func() godip.Graph {
 		okNations := map[godip.Nation]bool{
-			cla.France:  true,
-			cla.Austria: true,
-			cla.Neutral: true,
+			godip.France:  true,
+			godip.Austria: true,
+			godip.Neutral: true,
 		}
-		neutral := cla.Neutral
+		neutral := godip.Neutral
 		result := start.Graph()
 		for _, node := range result.Nodes {
 			if node.SC != nil && !okNations[*node.SC] {
@@ -33,29 +33,29 @@ var FranceAustriaVariant = common.Variant{
 			return
 		}
 		if err = result.SetUnits(map[godip.Province]godip.Unit{
-			"bre": godip.Unit{cla.Fleet, cla.France},
-			"par": godip.Unit{cla.Army, cla.France},
-			"mar": godip.Unit{cla.Army, cla.France},
-			"tri": godip.Unit{cla.Fleet, cla.Austria},
-			"vie": godip.Unit{cla.Army, cla.Austria},
-			"bud": godip.Unit{cla.Army, cla.Austria},
+			"bre": godip.Unit{godip.Fleet, godip.France},
+			"par": godip.Unit{godip.Army, godip.France},
+			"mar": godip.Unit{godip.Army, godip.France},
+			"tri": godip.Unit{godip.Fleet, godip.Austria},
+			"vie": godip.Unit{godip.Army, godip.Austria},
+			"bud": godip.Unit{godip.Army, godip.Austria},
 		}); err != nil {
 			return
 		}
 		result.SetSupplyCenters(map[godip.Province]godip.Nation{
-			"bre": cla.France,
-			"par": cla.France,
-			"mar": cla.France,
-			"tri": cla.Austria,
-			"vie": cla.Austria,
-			"bud": cla.Austria,
+			"bre": godip.France,
+			"par": godip.France,
+			"mar": godip.France,
+			"tri": godip.Austria,
+			"vie": godip.Austria,
+			"bud": godip.Austria,
 		})
 		return
 	},
 	Blank:      classical.Blank,
 	Phase:      classical.Phase,
 	Parser:     orders.ClassicalParser,
-	Nations:    []godip.Nation{cla.Austria, cla.France},
+	Nations:    []godip.Nation{godip.Austria, godip.France},
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
 	UnitTypes:  cla.UnitTypes,
@@ -65,10 +65,10 @@ var FranceAustriaVariant = common.Variant{
 	},
 	SVGVersion: "1482957154",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		cla.Army: func() ([]byte, error) {
+		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
-		cla.Fleet: func() ([]byte, error) {
+		godip.Fleet: func() ([]byte, error) {
 			return classical.Asset("svg/fleet.svg")
 		},
 	},

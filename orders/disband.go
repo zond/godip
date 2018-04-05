@@ -24,15 +24,15 @@ type disband struct {
 }
 
 func (self *disband) String() string {
-	return fmt.Sprintf("%v %v", self.targets[0], cla.Disband)
+	return fmt.Sprintf("%v %v", self.targets[0], godip.Disband)
 }
 
 func (self *disband) Type() godip.OrderType {
-	return cla.Disband
+	return godip.Disband
 }
 
 func (self *disband) DisplayType() godip.OrderType {
-	return cla.Disband
+	return godip.Disband
 }
 
 func (self *disband) Flags() map[godip.Flag]bool {
@@ -61,7 +61,7 @@ func (self *disband) adjudicateRetreatPhase(r godip.Resolver) error {
 }
 
 func (self *disband) Adjudicate(r godip.Resolver) error {
-	if r.Phase().Type() == cla.Adjustment {
+	if r.Phase().Type() == godip.Adjustment {
 		return self.adjudicateBuildPhase(r)
 	}
 	return self.adjudicateRetreatPhase(r)
@@ -113,7 +113,7 @@ func (self *disband) Options(v godip.Validator, nation godip.Nation, src godip.P
 	if src.Super() != src {
 		return
 	}
-	if v.Phase().Type() == cla.Adjustment {
+	if v.Phase().Type() == godip.Adjustment {
 		if v.Graph().Has(src) {
 			if unit, actualSrc, ok := v.Unit(src); ok {
 				if unit.Nation == nation {
@@ -125,7 +125,7 @@ func (self *disband) Options(v godip.Validator, nation godip.Nation, src godip.P
 				}
 			}
 		}
-	} else if v.Phase().Type() == cla.Retreat {
+	} else if v.Phase().Type() == godip.Retreat {
 		if v.Graph().Has(src) {
 			if unit, actualSrc, ok := v.Dislodged(src); ok {
 				if unit.Nation == nation {
@@ -140,16 +140,16 @@ func (self *disband) Options(v godip.Validator, nation godip.Nation, src godip.P
 }
 
 func (self *disband) Validate(v godip.Validator) (godip.Nation, error) {
-	if v.Phase().Type() == cla.Adjustment {
+	if v.Phase().Type() == godip.Adjustment {
 		return self.validateBuildPhase(v)
-	} else if v.Phase().Type() == cla.Retreat {
+	} else if v.Phase().Type() == godip.Retreat {
 		return self.validateRetreatPhase(v)
 	}
 	return "", godip.ErrInvalidPhase
 }
 
 func (self *disband) Execute(state godip.State) {
-	if state.Phase().Type() == cla.Adjustment {
+	if state.Phase().Type() == godip.Adjustment {
 		state.RemoveUnit(self.targets[0])
 	} else {
 		state.RemoveDislodged(self.targets[0])

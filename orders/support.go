@@ -32,7 +32,7 @@ func (self *support) Flags() map[godip.Flag]bool {
 }
 
 func (self *support) String() string {
-	return fmt.Sprintf("%v %v %v", self.targets[0], cla.Support, self.targets[1:])
+	return fmt.Sprintf("%v %v %v", self.targets[0], godip.Support, self.targets[1:])
 }
 
 func (self *support) At() time.Time {
@@ -40,11 +40,11 @@ func (self *support) At() time.Time {
 }
 
 func (self *support) Type() godip.OrderType {
-	return cla.Support
+	return godip.Support
 }
 
 func (self *support) DisplayType() godip.OrderType {
-	return cla.Support
+	return godip.Support
 }
 
 func (self *support) Targets() []godip.Province {
@@ -56,12 +56,12 @@ func (self *support) Adjudicate(r godip.Resolver) error {
 	if breaks, _, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 		if o != nil && // is an order
 			u != nil && // is a unit
-			o.Type() == cla.Move && // move
+			o.Type() == godip.Move && // move
 			o.Targets()[1].Super() == self.targets[0].Super() && // against us
 			(len(self.targets) == 2 || o.Targets()[0].Super() != self.targets[2].Super()) && // not from something we support attacking
 			u.Nation != unit.Nation { // not from ourselves
 
-			_, err := cla.AnyMovePossible(r, u.Type, o.Targets()[0], o.Targets()[1], u.Type == cla.Army, true, true) // and legal move counting convoy success
+			_, err := cla.AnyMovePossible(r, u.Type, o.Targets()[0], o.Targets()[1], u.Type == godip.Army, true, true) // and legal move counting convoy success
 			return err == nil
 		}
 		return false
@@ -73,7 +73,7 @@ func (self *support) Adjudicate(r godip.Resolver) error {
 	if dislodgers, _, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 		return o != nil && // is an order
 			u != nil && // is a unit
-			o.Type() == cla.Move && // move
+			o.Type() == godip.Move && // move
 			o.Targets()[1].Super() == self.targets[0].Super() && // against us
 			u.Nation != unit.Nation && // not from ourselves
 			r.Resolve(p) == nil // and it succeeded
@@ -106,7 +106,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 	if src.Super() != src {
 		return
 	}
-	if v.Phase().Type() != cla.Movement {
+	if v.Phase().Type() != godip.Movement {
 		return
 	}
 	if !v.Graph().Has(src) {
@@ -138,12 +138,12 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 			if mvDst.Super() == actualSrc.Super() {
 				continue
 			}
-			for _, moveSupportable := range cla.PossibleMovesUnit(v, cla.Fleet, mvDst, false, nil) {
+			for _, moveSupportable := range cla.PossibleMovesUnit(v, godip.Fleet, mvDst, false, nil) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
 				supportee, mvSrc, ok := v.Unit(moveSupportable.Super())
-				if !ok || supportee.Type != cla.Fleet || mvSrc != moveSupportable {
+				if !ok || supportee.Type != godip.Fleet || mvSrc != moveSupportable {
 					continue
 				}
 				if result == nil {
@@ -159,12 +159,12 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 				}
 				opt[mvDst.Super()] = nil
 			}
-			for _, moveSupportable := range cla.PossibleMovesUnit(v, cla.Army, mvDst, true, &actualSrc) {
+			for _, moveSupportable := range cla.PossibleMovesUnit(v, godip.Army, mvDst, true, &actualSrc) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
 				supportee, mvSrc, ok := v.Unit(moveSupportable)
-				if !ok || supportee.Type != cla.Army {
+				if !ok || supportee.Type != godip.Army {
 					continue
 				}
 				if result == nil {
@@ -186,7 +186,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 }
 
 func (self *support) Validate(v godip.Validator) (godip.Nation, error) {
-	if v.Phase().Type() != cla.Movement {
+	if v.Phase().Type() != godip.Movement {
 		return "", godip.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {

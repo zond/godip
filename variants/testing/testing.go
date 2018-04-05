@@ -10,8 +10,6 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func AssertOrderValidity(t *testing.T, validator godip.Validator, order godip.Order, nat godip.Nation, err error) {
@@ -67,14 +65,14 @@ func AssertNoUnit(t *testing.T, j *state.State, province godip.Province) {
 
 func AssertNoOptionToMoveTo(t *testing.T, j *state.State, nat godip.Nation, src godip.Province, dst godip.Province) {
 	options := j.Phase().Options(j, nat)[src]
-	if _, ok := options[cla.Move][godip.SrcProvince(src)][dst]; ok {
+	if _, ok := options[godip.Move][godip.SrcProvince(src)][dst]; ok {
 		t.Errorf("There should be no option for %v to move %v to %v", nat, src, dst)
 	}
 }
 
 func AssertOptionToMove(t *testing.T, j *state.State, nat godip.Nation, src godip.Province, dst godip.Province) {
 	options := j.Phase().Options(j, nat)[src]
-	if _, ok := options[cla.Move][godip.SrcProvince(src)][dst]; !ok {
+	if _, ok := options[godip.Move][godip.SrcProvince(src)][dst]; !ok {
 		t.Errorf("There should be an option for %v to move %v to %v", nat, src, dst)
 	}
 }

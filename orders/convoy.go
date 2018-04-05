@@ -22,7 +22,7 @@ type convoy struct {
 }
 
 func (self *convoy) String() string {
-	return fmt.Sprintf("%v %v %v", self.targets[0], cla.Convoy, self.targets[1:])
+	return fmt.Sprintf("%v %v %v", self.targets[0], godip.Convoy, self.targets[1:])
 }
 
 func (self *convoy) Flags() map[godip.Flag]bool {
@@ -34,11 +34,11 @@ func (self *convoy) At() time.Time {
 }
 
 func (self *convoy) Type() godip.OrderType {
-	return cla.Convoy
+	return godip.Convoy
 }
 
 func (self *convoy) DisplayType() godip.OrderType {
-	return cla.Convoy
+	return godip.Convoy
 }
 
 func (self *convoy) Targets() []godip.Province {
@@ -48,7 +48,7 @@ func (self *convoy) Targets() []godip.Province {
 func (self *convoy) Adjudicate(r godip.Resolver) error {
 	unit, _, _ := r.Unit(self.targets[0])
 	if breaks, _, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
-		return (o.Type() == cla.Move && // move
+		return (o.Type() == godip.Move && // move
 			o.Targets()[1] == self.targets[0] && // against us
 			u.Nation != unit.Nation && // not friendly
 			r.Resolve(p) == nil)
@@ -76,17 +76,17 @@ func (self *convoy) Options(v godip.Validator, nation godip.Nation, src godip.Pr
 	if src.Super() != src {
 		return
 	}
-	if v.Phase().Type() != cla.Movement {
+	if v.Phase().Type() != godip.Movement {
 		return
 	}
 	if !v.Graph().Has(src) {
 		return
 	}
 	convoyer, actualSrc, ok := v.Unit(src)
-	if !ok || convoyer.Type != cla.Fleet {
+	if !ok || convoyer.Type != godip.Fleet {
 		return
 	}
-	if v.Graph().Flags(actualSrc)[cla.Land] && !v.Graph().Flags(actualSrc)[cla.Convoyable] {
+	if v.Graph().Flags(actualSrc)[godip.Land] && !v.Graph().Flags(actualSrc)[godip.Convoyable] {
 		return
 	}
 	if convoyer.Nation != nation {
@@ -96,12 +96,12 @@ func (self *convoy) Options(v godip.Validator, nation godip.Nation, src godip.Pr
 	possibleDestinations := []godip.Province{}
 	for _, endpointProv := range v.Graph().Provinces() {
 		for _, endpoint := range v.Graph().Coasts(endpointProv) {
-			if !v.Graph().Flags(endpoint)[cla.Land] {
+			if !v.Graph().Flags(endpoint)[godip.Land] {
 				continue
 			}
 			if path := cla.ConvoyParticipationPossible(v, actualSrc, endpoint); path != nil {
 				possibleDestinations = append(possibleDestinations, endpoint)
-				if endpointUnit, _, ok := v.Unit(endpoint); ok && endpointUnit.Type == cla.Army {
+				if endpointUnit, _, ok := v.Unit(endpoint); ok && endpointUnit.Type == godip.Army {
 					possibleSources = append(possibleSources, endpoint)
 				}
 			}
@@ -130,7 +130,7 @@ func (self *convoy) Options(v godip.Validator, nation godip.Nation, src godip.Pr
 }
 
 func (self *convoy) Validate(v godip.Validator) (godip.Nation, error) {
-	if v.Phase().Type() != cla.Movement {
+	if v.Phase().Type() != godip.Movement {
 		return "", godip.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {
@@ -143,7 +143,7 @@ func (self *convoy) Validate(v godip.Validator) (godip.Nation, error) {
 		return "", godip.ErrInvalidTarget
 	}
 	for _, src := range v.Graph().Coasts(self.targets[0]) {
-		if v.Graph().Flags(src)[cla.Land] && !v.Graph().Flags(src)[cla.Convoyable] {
+		if v.Graph().Flags(src)[godip.Land] && !v.Graph().Flags(src)[godip.Convoyable] {
 			return "", godip.ErrIllegalConvoyPath
 		}
 	}
@@ -152,13 +152,13 @@ func (self *convoy) Validate(v godip.Validator) (godip.Nation, error) {
 	convoyer, self.targets[0], ok = v.Unit(self.targets[0])
 	if !ok {
 		return "", godip.ErrMissingUnit
-	} else if convoyer.Type != cla.Fleet {
+	} else if convoyer.Type != godip.Fleet {
 		return "", godip.ErrIllegalConvoyer
 	}
 	var convoyee godip.Unit
 	if convoyee, self.targets[1], ok = v.Unit(self.targets[1]); !ok {
 		return "", godip.ErrMissingConvoyee
-	} else if convoyee.Type != cla.Army {
+	} else if convoyee.Type != godip.Army {
 		return "", godip.ErrIllegalConvoyee
 	}
 	if cla.AnyConvoyPath(v, self.targets[1], self.targets[2], false, nil) == nil {

@@ -38,10 +38,10 @@ var AncientMediterraneanVariant = common.Variant{
 	},
 	SVGVersion: "2",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		cla.Army: func() ([]byte, error) {
+		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
-		cla.Fleet: func() ([]byte, error) {
+		godip.Fleet: func() ([]byte, error) {
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
@@ -63,24 +63,24 @@ func AncientMediterraneanBlank(phase godip.Phase) *state.State {
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1, cla.Spring, cla.Movement)
+	startPhase := classical.Phase(1, godip.Spring, godip.Movement)
 	result = state.New(AncientMediterraneanGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"nea": godip.Unit{cla.Fleet, Rome},
-		"rom": godip.Unit{cla.Army, Rome},
-		"rav": godip.Unit{cla.Army, Rome},
-		"tha": godip.Unit{cla.Fleet, Carthage},
-		"cir": godip.Unit{cla.Army, Carthage},
-		"car": godip.Unit{cla.Army, Carthage},
-		"spa": godip.Unit{cla.Fleet, Greece},
-		"ath": godip.Unit{cla.Army, Greece},
-		"mac": godip.Unit{cla.Army, Greece},
-		"sid": godip.Unit{cla.Fleet, Persia},
-		"ant": godip.Unit{cla.Army, Persia},
-		"dam": godip.Unit{cla.Army, Persia},
-		"ale": godip.Unit{cla.Fleet, Egypt},
-		"mem": godip.Unit{cla.Army, Egypt},
-		"the": godip.Unit{cla.Army, Egypt},
+		"nea": godip.Unit{godip.Fleet, Rome},
+		"rom": godip.Unit{godip.Army, Rome},
+		"rav": godip.Unit{godip.Army, Rome},
+		"tha": godip.Unit{godip.Fleet, Carthage},
+		"cir": godip.Unit{godip.Army, Carthage},
+		"car": godip.Unit{godip.Army, Carthage},
+		"spa": godip.Unit{godip.Fleet, Greece},
+		"ath": godip.Unit{godip.Army, Greece},
+		"mac": godip.Unit{godip.Army, Greece},
+		"sid": godip.Unit{godip.Fleet, Persia},
+		"ant": godip.Unit{godip.Army, Persia},
+		"dam": godip.Unit{godip.Army, Persia},
+		"ale": godip.Unit{godip.Fleet, Egypt},
+		"mem": godip.Unit{godip.Army, Egypt},
+		"the": godip.Unit{godip.Army, Egypt},
 	}); err != nil {
 		return
 	}
@@ -107,162 +107,162 @@ func AncientMediterraneanStart() (result *state.State, err error) {
 func AncientMediterraneanGraph() *graph.Graph {
 	return graph.New().
 		// gau
-		Prov("gau").Conn("rha", cla.Land).Conn("mas", cla.Land).Conn("tar", cla.Land).Conn("lus", cla.Land).Flag(cla.Land).
+		Prov("gau").Conn("rha", godip.Land).Conn("mas", godip.Land).Conn("tar", godip.Land).Conn("lus", godip.Land).Flag(godip.Land).
 		// rha
-		Prov("rha").Conn("sam", cla.Land).Conn("vin", cla.Land).Conn("ven", cla.Land).Conn("etr", cla.Land).Conn("mas", cla.Land).Conn("gau", cla.Land).Flag(cla.Land).
+		Prov("rha").Conn("sam", godip.Land).Conn("vin", godip.Land).Conn("ven", godip.Land).Conn("etr", godip.Land).Conn("mas", godip.Land).Conn("gau", godip.Land).Flag(godip.Land).
 		// sam
-		Prov("sam").Conn("che", cla.Land).Conn("dac", cla.Land).Conn("ill", cla.Land).Conn("vin", cla.Land).Conn("rha", cla.Land).Flag(cla.Land).
+		Prov("sam").Conn("che", godip.Land).Conn("dac", godip.Land).Conn("ill", godip.Land).Conn("vin", godip.Land).Conn("rha", godip.Land).Flag(godip.Land).
 		// che
-		Prov("che").Conn("arm", cla.Land).Conn("sip", cla.Coast...).Conn("bla", cla.Sea).Conn("dac", cla.Coast...).Conn("sam", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("che").Conn("arm", godip.Land).Conn("sip", godip.Coast...).Conn("bla", godip.Sea).Conn("dac", godip.Coast...).Conn("sam", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// vin
-		Prov("vin").Conn("sam", cla.Land).Conn("ill", cla.Land).Conn("dal", cla.Land).Conn("ven", cla.Land).Conn("rha", cla.Land).Flag(cla.Land).SC(cla.Neutral).
+		Prov("vin").Conn("sam", godip.Land).Conn("ill", godip.Land).Conn("dal", godip.Land).Conn("ven", godip.Land).Conn("rha", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// dac
-		Prov("dac").Conn("che", cla.Coast...).Conn("bla", cla.Sea).Conn("byz", cla.Coast...).Conn("mac", cla.Land).Conn("ill", cla.Land).Conn("sam", cla.Land).Flag(cla.Coast...).
+		Prov("dac").Conn("che", godip.Coast...).Conn("bla", godip.Sea).Conn("byz", godip.Coast...).Conn("mac", godip.Land).Conn("ill", godip.Land).Conn("sam", godip.Land).Flag(godip.Coast...).
 		// bla
-		Prov("bla").Conn("che", cla.Sea).Conn("sip", cla.Sea).Conn("bit", cla.Sea).Conn("byz", cla.Sea).Conn("dac", cla.Sea).Flag(cla.Sea).
+		Prov("bla").Conn("che", godip.Sea).Conn("sip", godip.Sea).Conn("bit", godip.Sea).Conn("byz", godip.Sea).Conn("dac", godip.Sea).Flag(godip.Sea).
 		// sip
-		Prov("sip").Conn("che", cla.Coast...).Conn("arm", cla.Land).Conn("cap", cla.Land).Conn("gal", cla.Land).Conn("bit", cla.Coast...).Conn("bla", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sip").Conn("che", godip.Coast...).Conn("arm", godip.Land).Conn("cap", godip.Land).Conn("gal", godip.Land).Conn("bit", godip.Coast...).Conn("bla", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// arm
-		Prov("arm").Conn("che", cla.Land).Conn("dam", cla.Land).Conn("cap", cla.Land).Conn("sip", cla.Land).Flag(cla.Land).
+		Prov("arm").Conn("che", godip.Land).Conn("dam", godip.Land).Conn("cap", godip.Land).Conn("sip", godip.Land).Flag(godip.Land).
 		// mas
-		Prov("mas").Conn("gau", cla.Land).Conn("rha", cla.Land).Conn("etr", cla.Coast...).Conn("lig", cla.Sea).Conn("tar", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("mas").Conn("gau", godip.Land).Conn("rha", godip.Land).Conn("etr", godip.Coast...).Conn("lig", godip.Sea).Conn("tar", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// etr
-		Prov("etr").Conn("rha", cla.Land).Conn("ven", cla.Land).Conn("rav", cla.Land).Conn("rom", cla.Coast...).Conn("lig", cla.Sea).Conn("mas", cla.Coast...).Flag(cla.Coast...).
+		Prov("etr").Conn("rha", godip.Land).Conn("ven", godip.Land).Conn("rav", godip.Land).Conn("rom", godip.Coast...).Conn("lig", godip.Sea).Conn("mas", godip.Coast...).Flag(godip.Coast...).
 		// ven
-		Prov("ven").Conn("rha", cla.Land).Conn("vin", cla.Land).Conn("dal", cla.Coast...).Conn("adr", cla.Sea).Conn("rav", cla.Coast...).Conn("etr", cla.Land).Flag(cla.Coast...).
+		Prov("ven").Conn("rha", godip.Land).Conn("vin", godip.Land).Conn("dal", godip.Coast...).Conn("adr", godip.Sea).Conn("rav", godip.Coast...).Conn("etr", godip.Land).Flag(godip.Coast...).
 		// dal
-		Prov("dal").Conn("ill", cla.Land).Conn("epi", cla.Coast...).Conn("adr", cla.Sea).Conn("ven", cla.Coast...).Conn("vin", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("dal").Conn("ill", godip.Land).Conn("epi", godip.Coast...).Conn("adr", godip.Sea).Conn("ven", godip.Coast...).Conn("vin", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// ill
-		Prov("ill").Conn("sam", cla.Land).Conn("dac", cla.Land).Conn("mac", cla.Land).Conn("epi", cla.Land).Conn("dal", cla.Land).Conn("vin", cla.Land).Flag(cla.Land).
+		Prov("ill").Conn("sam", godip.Land).Conn("dac", godip.Land).Conn("mac", godip.Land).Conn("epi", godip.Land).Conn("dal", godip.Land).Conn("vin", godip.Land).Flag(godip.Land).
 		// lus
-		Prov("lus").Conn("gau", cla.Land).Conn("tar", cla.Land).Conn("sag", cla.Land).Flag(cla.Land).
+		Prov("lus").Conn("gau", godip.Land).Conn("tar", godip.Land).Conn("sag", godip.Land).Flag(godip.Land).
 		// tar
-		Prov("tar").Conn("gau", cla.Land).Conn("mas", cla.Coast...).Conn("lig", cla.Sea).Conn("bal", cla.Sea).Conn("sag", cla.Coast...).Conn("lus", cla.Land).Flag(cla.Coast...).
+		Prov("tar").Conn("gau", godip.Land).Conn("mas", godip.Coast...).Conn("lig", godip.Sea).Conn("bal", godip.Sea).Conn("sag", godip.Coast...).Conn("lus", godip.Land).Flag(godip.Coast...).
 		// sag
-		Prov("sag").Conn("tar", cla.Coast...).Conn("bal", cla.Sea).Conn("ber", cla.Sea).Conn("ibe", cla.Sea).Conn("mau", cla.Coast...).Conn("lus", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sag").Conn("tar", godip.Coast...).Conn("bal", godip.Sea).Conn("ber", godip.Sea).Conn("ibe", godip.Sea).Conn("mau", godip.Coast...).Conn("lus", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// bal
-		Prov("bal").Conn("lig", cla.Sea).Conn("ber", cla.Sea).Conn("sag", cla.Sea).Conn("tar", cla.Sea).Flag(cla.Archipelago...).SC(cla.Neutral).
+		Prov("bal").Conn("lig", godip.Sea).Conn("ber", godip.Sea).Conn("sag", godip.Sea).Conn("tar", godip.Sea).Flag(godip.Archipelago...).SC(godip.Neutral).
 		// rom
-		Prov("rom").Conn("rav", cla.Land).Conn("apu", cla.Land).Conn("nea", cla.Coast...).Conn("tys", cla.Sea).Conn("lig", cla.Sea).Conn("etr", cla.Coast...).Flag(cla.Coast...).SC(Rome).
+		Prov("rom").Conn("rav", godip.Land).Conn("apu", godip.Land).Conn("nea", godip.Coast...).Conn("tys", godip.Sea).Conn("lig", godip.Sea).Conn("etr", godip.Coast...).Flag(godip.Coast...).SC(Rome).
 		// rav
-		Prov("rav").Conn("ven", cla.Coast...).Conn("adr", cla.Sea).Conn("apu", cla.Coast...).Conn("rom", cla.Land).Conn("etr", cla.Land).Flag(cla.Coast...).SC(Rome).
+		Prov("rav").Conn("ven", godip.Coast...).Conn("adr", godip.Sea).Conn("apu", godip.Coast...).Conn("rom", godip.Land).Conn("etr", godip.Land).Flag(godip.Coast...).SC(Rome).
 		// apu
-		Prov("apu").Conn("adr", cla.Sea).Conn("ion", cla.Sea).Conn("nea", cla.Coast...).Conn("rom", cla.Land).Conn("rav", cla.Coast...).Flag(cla.Coast...).
+		Prov("apu").Conn("adr", godip.Sea).Conn("ion", godip.Sea).Conn("nea", godip.Coast...).Conn("rom", godip.Land).Conn("rav", godip.Coast...).Flag(godip.Coast...).
 		// nea
-		Prov("nea").Conn("apu", cla.Coast...).Conn("ion", cla.Sea).Conn("aus", cla.Sea).Conn("sic", cla.Coast...).Conn("tys", cla.Sea).Conn("rom", cla.Coast...).Flag(cla.Coast...).SC(Rome).
+		Prov("nea").Conn("apu", godip.Coast...).Conn("ion", godip.Sea).Conn("aus", godip.Sea).Conn("sic", godip.Coast...).Conn("tys", godip.Sea).Conn("rom", godip.Coast...).Flag(godip.Coast...).SC(Rome).
 		// sic
-		Prov("sic").Conn("tys", cla.Sea).Conn("nea", cla.Coast...).Conn("aus", cla.Sea).Conn("pun", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sic").Conn("tys", godip.Sea).Conn("nea", godip.Coast...).Conn("aus", godip.Sea).Conn("pun", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// epi
-		Prov("epi").Conn("ill", cla.Land).Conn("mac", cla.Land).Conn("ath", cla.Coast...).Conn("ion", cla.Sea).Conn("adr", cla.Sea).Conn("dal", cla.Coast...).Flag(cla.Coast...).
+		Prov("epi").Conn("ill", godip.Land).Conn("mac", godip.Land).Conn("ath", godip.Coast...).Conn("ion", godip.Sea).Conn("adr", godip.Sea).Conn("dal", godip.Coast...).Flag(godip.Coast...).
 		// mac
-		Prov("mac").Conn("dac", cla.Land).Conn("byz", cla.Coast...).Conn("aeg", cla.Sea).Conn("ath", cla.Coast...).Conn("epi", cla.Land).Conn("ill", cla.Land).Flag(cla.Coast...).SC(Greece).
+		Prov("mac").Conn("dac", godip.Land).Conn("byz", godip.Coast...).Conn("aeg", godip.Sea).Conn("ath", godip.Coast...).Conn("epi", godip.Land).Conn("ill", godip.Land).Flag(godip.Coast...).SC(Greece).
 		// ath
-		Prov("ath").Conn("mac", cla.Coast...).Conn("aeg", cla.Sea).Conn("spa", cla.Coast...).Conn("ion", cla.Sea).Conn("spa", cla.Coast...).Conn("epi", cla.Coast...).Flag(cla.Coast...).SC(Greece).
+		Prov("ath").Conn("mac", godip.Coast...).Conn("aeg", godip.Sea).Conn("spa", godip.Coast...).Conn("ion", godip.Sea).Conn("spa", godip.Coast...).Conn("epi", godip.Coast...).Flag(godip.Coast...).SC(Greece).
 		// spa
-		Prov("spa").Conn("ath", cla.Coast...).Conn("aeg", cla.Sea).Conn("mes", cla.Sea).Conn("ion", cla.Sea).Flag(cla.Coast...).SC(Greece).
+		Prov("spa").Conn("ath", godip.Coast...).Conn("aeg", godip.Sea).Conn("mes", godip.Sea).Conn("ion", godip.Sea).Flag(godip.Coast...).SC(Greece).
 		// byz
-		Prov("byz").Conn("bla", cla.Sea).Conn("bit", cla.Coast...).Conn("gal", cla.Land).Conn("mil", cla.Coast...).Conn("aeg", cla.Sea).Conn("mac", cla.Coast...).Conn("dac", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("byz").Conn("bla", godip.Sea).Conn("bit", godip.Coast...).Conn("gal", godip.Land).Conn("mil", godip.Coast...).Conn("aeg", godip.Sea).Conn("mac", godip.Coast...).Conn("dac", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// bit
-		Prov("bit").Conn("bla", cla.Sea).Conn("sip", cla.Coast...).Conn("gal", cla.Land).Conn("byz", cla.Coast...).Flag(cla.Coast...).
+		Prov("bit").Conn("bla", godip.Sea).Conn("sip", godip.Coast...).Conn("gal", godip.Land).Conn("byz", godip.Coast...).Flag(godip.Coast...).
 		// mil
-		Prov("mil").Conn("byz", cla.Coast...).Conn("gal", cla.Land).Conn("isa", cla.Coast...).Conn("cil", cla.Sea).Conn("min", cla.Sea).Conn("aeg", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("mil").Conn("byz", godip.Coast...).Conn("gal", godip.Land).Conn("isa", godip.Coast...).Conn("cil", godip.Sea).Conn("min", godip.Sea).Conn("aeg", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// gal
-		Prov("gal").Conn("sip", cla.Land).Conn("cap", cla.Land).Conn("isa", cla.Land).Conn("mil", cla.Land).Conn("byz", cla.Land).Conn("bit", cla.Land).Flag(cla.Land).
+		Prov("gal").Conn("sip", godip.Land).Conn("cap", godip.Land).Conn("isa", godip.Land).Conn("mil", godip.Land).Conn("byz", godip.Land).Conn("bit", godip.Land).Flag(godip.Land).
 		// isa
-		Prov("isa").Conn("gal", cla.Land).Conn("cap", cla.Coast...).Conn("cil", cla.Sea).Conn("min", cla.Sea).Conn("aeg", cla.Sea).Conn("mil", cla.Coast...).Flag(cla.Coast...).
+		Prov("isa").Conn("gal", godip.Land).Conn("cap", godip.Coast...).Conn("cil", godip.Sea).Conn("min", godip.Sea).Conn("aeg", godip.Sea).Conn("mil", godip.Coast...).Flag(godip.Coast...).
 		// cap
-		Prov("cap").Conn("sip", cla.Land).Conn("arm", cla.Land).Conn("dam", cla.Land).Conn("ant", cla.Coast...).Conn("cil", cla.Sea).Conn("isa", cla.Coast...).Conn("gal", cla.Land).Flag(cla.Coast...).
+		Prov("cap").Conn("sip", godip.Land).Conn("arm", godip.Land).Conn("dam", godip.Land).Conn("ant", godip.Coast...).Conn("cil", godip.Sea).Conn("isa", godip.Coast...).Conn("gal", godip.Land).Flag(godip.Coast...).
 		// ant
-		Prov("ant").Conn("cap", cla.Coast...).Conn("dam", cla.Land).Conn("sid", cla.Coast...).Conn("cil", cla.Sea).Flag(cla.Coast...).SC(Persia).
+		Prov("ant").Conn("cap", godip.Coast...).Conn("dam", godip.Land).Conn("sid", godip.Coast...).Conn("cil", godip.Sea).Flag(godip.Coast...).SC(Persia).
 		// dam
-		Prov("dam").Conn("arm", cla.Land).Conn("ara", cla.Land).Conn("sid", cla.Land).Conn("ant", cla.Land).Conn("cap", cla.Land).Flag(cla.Land).SC(Persia).
+		Prov("dam").Conn("arm", godip.Land).Conn("ara", godip.Land).Conn("sid", godip.Land).Conn("ant", godip.Land).Conn("cap", godip.Land).Flag(godip.Land).SC(Persia).
 		// sid
-		Prov("sid").Conn("ant", cla.Coast...).Conn("dam", cla.Land).Conn("ara", cla.Land).Conn("tye", cla.Coast...).Conn("syr", cla.Sea).Conn("cil", cla.Sea).Flag(cla.Coast...).SC(Persia).
+		Prov("sid").Conn("ant", godip.Coast...).Conn("dam", godip.Land).Conn("ara", godip.Land).Conn("tye", godip.Coast...).Conn("syr", godip.Sea).Conn("cil", godip.Sea).Flag(godip.Coast...).SC(Persia).
 		// tye
-		Prov("tye").Conn("sid", cla.Coast...).Conn("ara", cla.Land).Conn("jer", cla.Coast...).Conn("syr", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("tye").Conn("sid", godip.Coast...).Conn("ara", godip.Land).Conn("jer", godip.Coast...).Conn("syr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// ara
-		Prov("ara").Conn("dam", cla.Land).Conn("nab", cla.Land).Conn("jer", cla.Land).Conn("tye", cla.Land).Conn("sid", cla.Land).Flag(cla.Land).
+		Prov("ara").Conn("dam", godip.Land).Conn("nab", godip.Land).Conn("jer", godip.Land).Conn("tye", godip.Land).Conn("sid", godip.Land).Flag(godip.Land).
 		// jer
-		Prov("jer").Conn("tye", cla.Coast...).Conn("ara", cla.Land).Conn("nab", cla.Land).Conn("pet", cla.Land).Conn("sii", cla.Coast...).Conn("gop", cla.Sea).Conn("syr", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("jer").Conn("tye", godip.Coast...).Conn("ara", godip.Land).Conn("nab", godip.Land).Conn("pet", godip.Land).Conn("sii", godip.Coast...).Conn("gop", godip.Sea).Conn("syr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// nab
-		Prov("nab").Conn("ara", cla.Land).Conn("ree", cla.Sea).Conn("pet", cla.Coast...).Conn("jer", cla.Land).Flag(cla.Coast...).
+		Prov("nab").Conn("ara", godip.Land).Conn("ree", godip.Sea).Conn("pet", godip.Coast...).Conn("jer", godip.Land).Flag(godip.Coast...).
 		// pet
-		Prov("pet").Conn("nab", cla.Coast...).Conn("ree", cla.Sea).Conn("sii", cla.Coast...).Conn("jer", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("pet").Conn("nab", godip.Coast...).Conn("ree", godip.Sea).Conn("sii", godip.Coast...).Conn("jer", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// sii
-		Prov("sii").Conn("jer", cla.Coast...).Conn("pet", cla.Coast...).Conn("ree", cla.Sea).Conn("the", cla.Coast...).Conn("ale", cla.Coast...).Conn("gop", cla.Sea).Flag(cla.Coast...).
+		Prov("sii").Conn("jer", godip.Coast...).Conn("pet", godip.Coast...).Conn("ree", godip.Sea).Conn("the", godip.Coast...).Conn("ale", godip.Coast...).Conn("gop", godip.Sea).Flag(godip.Coast...).
 		// the
-		Prov("the").Conn("sii", cla.Coast...).Conn("ree", cla.Sea).Conn("bay", cla.Coast...).Conn("mem", cla.Coast...).Conn("ale", cla.Coast...).Conn("gop", cla.Sea).Flag(cla.Coast...).SC(Egypt).
+		Prov("the").Conn("sii", godip.Coast...).Conn("ree", godip.Sea).Conn("bay", godip.Coast...).Conn("mem", godip.Coast...).Conn("ale", godip.Coast...).Conn("gop", godip.Sea).Flag(godip.Coast...).SC(Egypt).
 		// ale
-		Prov("ale").Conn("egy", cla.Sea).Conn("gop", cla.Sea).Conn("sii", cla.Coast...).Conn("the", cla.Coast...).Conn("mem", cla.Coast...).Conn("cyr", cla.Coast...).Conn("lib", cla.Sea).Flag(cla.Coast...).SC(Egypt).
+		Prov("ale").Conn("egy", godip.Sea).Conn("gop", godip.Sea).Conn("sii", godip.Coast...).Conn("the", godip.Coast...).Conn("mem", godip.Coast...).Conn("cyr", godip.Coast...).Conn("lib", godip.Sea).Flag(godip.Coast...).SC(Egypt).
 		// mem
-		Prov("mem").Conn("ale", cla.Coast...).Conn("the", cla.Coast...).Conn("bay", cla.Coast...).Conn("mar", cla.Land).Conn("cyr", cla.Land).Flag(cla.Coast...).SC(Egypt).
+		Prov("mem").Conn("ale", godip.Coast...).Conn("the", godip.Coast...).Conn("bay", godip.Coast...).Conn("mar", godip.Land).Conn("cyr", godip.Land).Flag(godip.Coast...).SC(Egypt).
 		// bay
-		Prov("bay").Conn("mem", cla.Coast...).Conn("the", cla.Coast...).Conn("sah", cla.Land).Conn("pha", cla.Land).Conn("mar", cla.Land).Flag(cla.Coast...).
+		Prov("bay").Conn("mem", godip.Coast...).Conn("the", godip.Coast...).Conn("sah", godip.Land).Conn("pha", godip.Land).Conn("mar", godip.Land).Flag(godip.Coast...).
 		// cyr
-		Prov("cyr").Conn("lib", cla.Sea).Conn("ale", cla.Coast...).Conn("mem", cla.Land).Conn("mar", cla.Land).Conn("lep", cla.Coast...).Conn("gos", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("cyr").Conn("lib", godip.Sea).Conn("ale", godip.Coast...).Conn("mem", godip.Land).Conn("mar", godip.Land).Conn("lep", godip.Coast...).Conn("gos", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// mar
-		Prov("mar").Conn("cyr", cla.Land).Conn("mem", cla.Land).Conn("bay", cla.Land).Conn("pha", cla.Land).Conn("lep", cla.Land).Flag(cla.Land).
+		Prov("mar").Conn("cyr", godip.Land).Conn("mem", godip.Land).Conn("bay", godip.Land).Conn("pha", godip.Land).Conn("lep", godip.Land).Flag(godip.Land).
 		// lep
-		Prov("lep").Conn("gos", cla.Sea).Conn("cyr", cla.Coast...).Conn("mar", cla.Land).Conn("pha", cla.Land).Conn("num", cla.Coast...).Conn("got", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("lep").Conn("gos", godip.Sea).Conn("cyr", godip.Coast...).Conn("mar", godip.Land).Conn("pha", godip.Land).Conn("num", godip.Coast...).Conn("got", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// pha
-		Prov("pha").Conn("num", cla.Land).Conn("lep", cla.Land).Conn("mar", cla.Land).Conn("bay", cla.Land).Conn("sah", cla.Land).Conn("cir", cla.Land).Flag(cla.Land).
+		Prov("pha").Conn("num", godip.Land).Conn("lep", godip.Land).Conn("mar", godip.Land).Conn("bay", godip.Land).Conn("sah", godip.Land).Conn("cir", godip.Land).Flag(godip.Land).
 		// sah
-		Prov("sah").Conn("cir", cla.Land).Conn("pha", cla.Land).Conn("bay", cla.Land).Conn("mau", cla.Land).Flag(cla.Land).
+		Prov("sah").Conn("cir", godip.Land).Conn("pha", godip.Land).Conn("bay", godip.Land).Conn("mau", godip.Land).Flag(godip.Land).
 		// num
-		Prov("num").Conn("got", cla.Sea).Conn("lep", cla.Coast...).Conn("pha", cla.Land).Conn("cir", cla.Land).Conn("tha", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("num").Conn("got", godip.Sea).Conn("lep", godip.Coast...).Conn("pha", godip.Land).Conn("cir", godip.Land).Conn("tha", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// cir
-		Prov("cir").Conn("car", cla.Land).Conn("tha", cla.Land).Conn("num", cla.Land).Conn("pha", cla.Land).Conn("sah", cla.Land).Conn("mau", cla.Land).Flag(cla.Land).SC(Carthage).
+		Prov("cir").Conn("car", godip.Land).Conn("tha", godip.Land).Conn("num", godip.Land).Conn("pha", godip.Land).Conn("sah", godip.Land).Conn("mau", godip.Land).Flag(godip.Land).SC(Carthage).
 		// mau
-		Prov("mau").Conn("ibe", cla.Sea).Conn("ber", cla.Sea).Conn("car", cla.Coast...).Conn("cir", cla.Land).Conn("sah", cla.Land).Conn("sag", cla.Coast...).Flag(cla.Coast...).
+		Prov("mau").Conn("ibe", godip.Sea).Conn("ber", godip.Sea).Conn("car", godip.Coast...).Conn("cir", godip.Land).Conn("sah", godip.Land).Conn("sag", godip.Coast...).Flag(godip.Coast...).
 		// car
-		Prov("car").Conn("pun", cla.Sea).Conn("tha", cla.Coast...).Conn("cir", cla.Land).Conn("mau", cla.Coast...).Conn("ber", cla.Sea).Flag(cla.Coast...).SC(Carthage).
+		Prov("car").Conn("pun", godip.Sea).Conn("tha", godip.Coast...).Conn("cir", godip.Land).Conn("mau", godip.Coast...).Conn("ber", godip.Sea).Flag(godip.Coast...).SC(Carthage).
 		// tha
-		Prov("tha").Conn("car", cla.Coast...).Conn("pun", cla.Sea).Conn("got", cla.Sea).Conn("num", cla.Coast...).Conn("cir", cla.Land).Flag(cla.Coast...).SC(Carthage).
+		Prov("tha").Conn("car", godip.Coast...).Conn("pun", godip.Sea).Conn("got", godip.Sea).Conn("num", godip.Coast...).Conn("cir", godip.Land).Flag(godip.Coast...).SC(Carthage).
 		// cor
-		Prov("cor").Conn("lig", cla.Sea).Conn("tys", cla.Sea).Conn("sad", cla.Coast...).Flag(cla.Coast...).
+		Prov("cor").Conn("lig", godip.Sea).Conn("tys", godip.Sea).Conn("sad", godip.Coast...).Flag(godip.Coast...).
 		// sad
-		Prov("sad").Conn("cor", cla.Coast...).Conn("tys", cla.Sea).Conn("pun", cla.Sea).Conn("ber", cla.Sea).Conn("lig", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sad").Conn("cor", godip.Coast...).Conn("tys", godip.Sea).Conn("pun", godip.Sea).Conn("ber", godip.Sea).Conn("lig", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// cre
-		Prov("cre").Conn("aeg", cla.Sea).Conn("min", cla.Sea).Conn("egy", cla.Sea).Conn("lib", cla.Sea).Conn("mes", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("cre").Conn("aeg", godip.Sea).Conn("min", godip.Sea).Conn("egy", godip.Sea).Conn("lib", godip.Sea).Conn("mes", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// cyp
-		Prov("cyp").Conn("cil", cla.Sea).Conn("syr", cla.Sea).Conn("egy", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("cyp").Conn("cil", godip.Sea).Conn("syr", godip.Sea).Conn("egy", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// ibe
-		Prov("ibe").Conn("sag", cla.Sea).Conn("ber", cla.Sea).Conn("mau", cla.Sea).Flag(cla.Sea).
+		Prov("ibe").Conn("sag", godip.Sea).Conn("ber", godip.Sea).Conn("mau", godip.Sea).Flag(godip.Sea).
 		// ber
-		Prov("ber").Conn("lig", cla.Sea).Conn("sad", cla.Sea).Conn("pun", cla.Sea).Conn("car", cla.Sea).Conn("mau", cla.Sea).Conn("ibe", cla.Sea).Conn("sag", cla.Sea).Conn("bal", cla.Sea).Flag(cla.Sea).
+		Prov("ber").Conn("lig", godip.Sea).Conn("sad", godip.Sea).Conn("pun", godip.Sea).Conn("car", godip.Sea).Conn("mau", godip.Sea).Conn("ibe", godip.Sea).Conn("sag", godip.Sea).Conn("bal", godip.Sea).Flag(godip.Sea).
 		// lig
-		Prov("lig").Conn("etr", cla.Sea).Conn("rom", cla.Sea).Conn("tys", cla.Sea).Conn("cor", cla.Sea).Conn("sad", cla.Sea).Conn("ber", cla.Sea).Conn("bal", cla.Sea).Conn("tar", cla.Sea).Conn("mas", cla.Sea).Flag(cla.Sea).
+		Prov("lig").Conn("etr", godip.Sea).Conn("rom", godip.Sea).Conn("tys", godip.Sea).Conn("cor", godip.Sea).Conn("sad", godip.Sea).Conn("ber", godip.Sea).Conn("bal", godip.Sea).Conn("tar", godip.Sea).Conn("mas", godip.Sea).Flag(godip.Sea).
 		// tys
-		Prov("tys").Conn("rom", cla.Sea).Conn("nea", cla.Sea).Conn("aus", cla.Sea).Conn("sic", cla.Sea).Conn("pun", cla.Sea).Conn("sad", cla.Sea).Conn("cor", cla.Sea).Conn("lig", cla.Sea).Flag(cla.Sea).
+		Prov("tys").Conn("rom", godip.Sea).Conn("nea", godip.Sea).Conn("aus", godip.Sea).Conn("sic", godip.Sea).Conn("pun", godip.Sea).Conn("sad", godip.Sea).Conn("cor", godip.Sea).Conn("lig", godip.Sea).Flag(godip.Sea).
 		// pun
-		Prov("pun").Conn("tys", cla.Sea).Conn("sic", cla.Sea).Conn("aus", cla.Sea).Conn("got", cla.Sea).Conn("tha", cla.Sea).Conn("car", cla.Sea).Conn("ber", cla.Sea).Conn("sad", cla.Sea).Flag(cla.Sea).
+		Prov("pun").Conn("tys", godip.Sea).Conn("sic", godip.Sea).Conn("aus", godip.Sea).Conn("got", godip.Sea).Conn("tha", godip.Sea).Conn("car", godip.Sea).Conn("ber", godip.Sea).Conn("sad", godip.Sea).Flag(godip.Sea).
 		// adr
-		Prov("adr").Conn("dal", cla.Sea).Conn("epi", cla.Sea).Conn("ion", cla.Sea).Conn("apu", cla.Sea).Conn("rav", cla.Sea).Conn("ven", cla.Sea).Flag(cla.Sea).
+		Prov("adr").Conn("dal", godip.Sea).Conn("epi", godip.Sea).Conn("ion", godip.Sea).Conn("apu", godip.Sea).Conn("rav", godip.Sea).Conn("ven", godip.Sea).Flag(godip.Sea).
 		// ion
-		Prov("ion").Conn("adr", cla.Sea).Conn("epi", cla.Sea).Conn("ath", cla.Sea).Conn("spa", cla.Sea).Conn("mes", cla.Sea).Conn("aus", cla.Sea).Conn("nea", cla.Sea).Conn("apu", cla.Sea).Flag(cla.Sea).
+		Prov("ion").Conn("adr", godip.Sea).Conn("epi", godip.Sea).Conn("ath", godip.Sea).Conn("spa", godip.Sea).Conn("mes", godip.Sea).Conn("aus", godip.Sea).Conn("nea", godip.Sea).Conn("apu", godip.Sea).Flag(godip.Sea).
 		// aus
-		Prov("aus").Conn("ion", cla.Sea).Conn("mes", cla.Sea).Conn("lib", cla.Sea).Conn("got", cla.Sea).Conn("pun", cla.Sea).Conn("sic", cla.Sea).Conn("tys", cla.Sea).Conn("nea", cla.Sea).Flag(cla.Sea).
+		Prov("aus").Conn("ion", godip.Sea).Conn("mes", godip.Sea).Conn("lib", godip.Sea).Conn("got", godip.Sea).Conn("pun", godip.Sea).Conn("sic", godip.Sea).Conn("tys", godip.Sea).Conn("nea", godip.Sea).Flag(godip.Sea).
 		// got
-		Prov("got").Conn("aus", cla.Sea).Conn("mes", cla.Sea).Conn("lib", cla.Sea).Conn("gos", cla.Sea).Conn("lep", cla.Sea).Conn("num", cla.Sea).Conn("tha", cla.Sea).Conn("pun", cla.Sea).Flag(cla.Sea).
+		Prov("got").Conn("aus", godip.Sea).Conn("mes", godip.Sea).Conn("lib", godip.Sea).Conn("gos", godip.Sea).Conn("lep", godip.Sea).Conn("num", godip.Sea).Conn("tha", godip.Sea).Conn("pun", godip.Sea).Flag(godip.Sea).
 		// gos
-		Prov("gos").Conn("lib", cla.Sea).Conn("cyr", cla.Sea).Conn("lep", cla.Sea).Conn("got", cla.Sea).Flag(cla.Sea).
+		Prov("gos").Conn("lib", godip.Sea).Conn("cyr", godip.Sea).Conn("lep", godip.Sea).Conn("got", godip.Sea).Flag(godip.Sea).
 		// lib
-		Prov("lib").Conn("mes", cla.Sea).Conn("cre", cla.Sea).Conn("egy", cla.Sea).Conn("ale", cla.Sea).Conn("cyr", cla.Sea).Conn("gos", cla.Sea).Conn("got", cla.Sea).Conn("aus", cla.Sea).Flag(cla.Sea).
+		Prov("lib").Conn("mes", godip.Sea).Conn("cre", godip.Sea).Conn("egy", godip.Sea).Conn("ale", godip.Sea).Conn("cyr", godip.Sea).Conn("gos", godip.Sea).Conn("got", godip.Sea).Conn("aus", godip.Sea).Flag(godip.Sea).
 		// mes
-		Prov("mes").Conn("spa", cla.Sea).Conn("aeg", cla.Sea).Conn("cre", cla.Sea).Conn("lib", cla.Sea).Conn("got", cla.Sea).Conn("aus", cla.Sea).Conn("ion", cla.Sea).Flag(cla.Sea).
+		Prov("mes").Conn("spa", godip.Sea).Conn("aeg", godip.Sea).Conn("cre", godip.Sea).Conn("lib", godip.Sea).Conn("got", godip.Sea).Conn("aus", godip.Sea).Conn("ion", godip.Sea).Flag(godip.Sea).
 		// aeg
-		Prov("aeg").Conn("byz", cla.Sea).Conn("mil", cla.Sea).Conn("min", cla.Sea).Conn("cre", cla.Sea).Conn("mes", cla.Sea).Conn("spa", cla.Sea).Conn("ath", cla.Sea).Conn("mac", cla.Sea).Flag(cla.Sea).
+		Prov("aeg").Conn("byz", godip.Sea).Conn("mil", godip.Sea).Conn("min", godip.Sea).Conn("cre", godip.Sea).Conn("mes", godip.Sea).Conn("spa", godip.Sea).Conn("ath", godip.Sea).Conn("mac", godip.Sea).Flag(godip.Sea).
 		// min
-		Prov("min").Conn("mil", cla.Sea).Conn("cil", cla.Sea).Conn("egy", cla.Sea).Conn("cre", cla.Sea).Conn("aeg", cla.Sea).Flag(cla.Sea).
+		Prov("min").Conn("mil", godip.Sea).Conn("cil", godip.Sea).Conn("egy", godip.Sea).Conn("cre", godip.Sea).Conn("aeg", godip.Sea).Flag(godip.Sea).
 		// egy
-		Prov("egy").Conn("cil", cla.Sea).Conn("cyp", cla.Sea).Conn("syr", cla.Sea).Conn("gop", cla.Sea).Conn("ale", cla.Sea).Conn("lib", cla.Sea).Conn("cre", cla.Sea).Conn("min", cla.Sea).Flag(cla.Sea).
+		Prov("egy").Conn("cil", godip.Sea).Conn("cyp", godip.Sea).Conn("syr", godip.Sea).Conn("gop", godip.Sea).Conn("ale", godip.Sea).Conn("lib", godip.Sea).Conn("cre", godip.Sea).Conn("min", godip.Sea).Flag(godip.Sea).
 		// cil
-		Prov("cil").Conn("cap", cla.Sea).Conn("ant", cla.Sea).Conn("sid", cla.Sea).Conn("syr", cla.Sea).Conn("cyp", cla.Sea).Conn("egy", cla.Sea).Conn("min", cla.Sea).Conn("mil", cla.Sea).Conn("isa", cla.Sea).Flag(cla.Sea).
+		Prov("cil").Conn("cap", godip.Sea).Conn("ant", godip.Sea).Conn("sid", godip.Sea).Conn("syr", godip.Sea).Conn("cyp", godip.Sea).Conn("egy", godip.Sea).Conn("min", godip.Sea).Conn("mil", godip.Sea).Conn("isa", godip.Sea).Flag(godip.Sea).
 		// syr
-		Prov("syr").Conn("cil", cla.Sea).Conn("sid", cla.Sea).Conn("tye", cla.Sea).Conn("jer", cla.Sea).Conn("gop", cla.Sea).Conn("egy", cla.Sea).Conn("cyp", cla.Sea).Flag(cla.Sea).
+		Prov("syr").Conn("cil", godip.Sea).Conn("sid", godip.Sea).Conn("tye", godip.Sea).Conn("jer", godip.Sea).Conn("gop", godip.Sea).Conn("egy", godip.Sea).Conn("cyp", godip.Sea).Flag(godip.Sea).
 		// gop
-		Prov("gop").Conn("syr", cla.Sea).Conn("jer", cla.Sea).Conn("sii", cla.Sea).Conn("the", cla.Sea).Conn("ale", cla.Sea).Conn("egy", cla.Sea).Flag(cla.Sea).
+		Prov("gop").Conn("syr", godip.Sea).Conn("jer", godip.Sea).Conn("sii", godip.Sea).Conn("the", godip.Sea).Conn("ale", godip.Sea).Conn("egy", godip.Sea).Flag(godip.Sea).
 		// ree
-		Prov("ree").Conn("pet", cla.Sea).Conn("nab", cla.Sea).Conn("the", cla.Sea).Conn("sii", cla.Sea).Flag(cla.Sea).
+		Prov("ree").Conn("pet", godip.Sea).Conn("nab", godip.Sea).Conn("the", godip.Sea).Conn("sii", godip.Sea).Flag(godip.Sea).
 		Done()
 }

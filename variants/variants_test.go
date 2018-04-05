@@ -15,7 +15,6 @@ import (
 
 	"github.com/zond/godip"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	vrt "github.com/zond/godip/variants/common"
 )
 
@@ -61,7 +60,7 @@ func variantContainsSC(variant vrt.Variant, needle string) bool {
 			return true
 		}
 	}
-	return provincesContain(variant.Graph().SCs(cla.Neutral), needle)
+	return provincesContain(variant.Graph().SCs(godip.Neutral), needle)
 }
 
 func variantContainsProvince(variant vrt.Variant, needle string) bool {

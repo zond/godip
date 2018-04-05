@@ -5,8 +5,6 @@ import (
 	"time"
 
 	"github.com/zond/godip"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var HoldOrder = &hold{}
@@ -22,7 +20,7 @@ type hold struct {
 }
 
 func (self *hold) String() string {
-	return fmt.Sprintf("%v %v", self.targets[0], cla.Hold)
+	return fmt.Sprintf("%v %v", self.targets[0], godip.Hold)
 }
 
 func (self *hold) Flags() map[godip.Flag]bool {
@@ -30,11 +28,11 @@ func (self *hold) Flags() map[godip.Flag]bool {
 }
 
 func (self *hold) Type() godip.OrderType {
-	return cla.Hold
+	return godip.Hold
 }
 
 func (self *hold) DisplayType() godip.OrderType {
-	return cla.Hold
+	return godip.Hold
 }
 
 func (self *hold) Targets() []godip.Province {
@@ -67,7 +65,7 @@ func (self *hold) Options(v godip.Validator, nation godip.Nation, src godip.Prov
 	if src.Super() != src {
 		return
 	}
-	if v.Phase().Type() == cla.Movement {
+	if v.Phase().Type() == godip.Movement {
 		if v.Graph().Has(src) {
 			if unit, actualSrc, ok := v.Unit(src); ok {
 				if unit.Nation == nation {
@@ -82,7 +80,7 @@ func (self *hold) Options(v godip.Validator, nation godip.Nation, src godip.Prov
 }
 
 func (self *hold) Validate(v godip.Validator) (godip.Nation, error) {
-	if v.Phase().Type() != cla.Movement {
+	if v.Phase().Type() != godip.Movement {
 		return "", godip.ErrInvalidPhase
 	}
 	if !v.Graph().Has(self.targets[0]) {

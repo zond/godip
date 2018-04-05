@@ -5,8 +5,6 @@ import (
 	"fmt"
 
 	"github.com/zond/godip"
-
-	c "github.com/zond/godip/variants/classical/common"
 )
 
 func New() *Graph {
@@ -163,7 +161,7 @@ func (self *Graph) Prov(n godip.Province) *SubNode {
 func (self *Graph) Nations() (result []godip.Nation) {
 	found := map[godip.Nation]bool{}
 	for _, node := range self.Nodes {
-		if node.SC != nil && *node.SC != c.Neutral {
+		if node.SC != nil && *node.SC != godip.Neutral {
 			found[*node.SC] = true
 		}
 	}

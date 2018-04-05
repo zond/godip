@@ -13,7 +13,7 @@ var BuildOrder = &build{}
 
 var BuildAnywhereOrder = &build{
 	flags: map[godip.Flag]bool{
-		cla.Anywhere: true,
+		godip.Anywhere: true,
 	},
 }
 
@@ -31,7 +31,7 @@ func BuildAnywhere(source godip.Province, typ godip.UnitType, at time.Time) *bui
 		typ:     typ,
 		at:      at,
 		flags: map[godip.Flag]bool{
-			cla.Anywhere: true,
+			godip.Anywhere: true,
 		},
 	}
 }
@@ -44,11 +44,11 @@ type build struct {
 }
 
 func (self *build) Type() godip.OrderType {
-	return cla.Build
+	return godip.Build
 }
 
 func (self *build) DisplayType() godip.OrderType {
-	return cla.Build
+	return godip.Build
 }
 
 func (self *build) Flags() map[godip.Flag]bool {
@@ -56,7 +56,7 @@ func (self *build) Flags() map[godip.Flag]bool {
 }
 
 func (self *build) String() string {
-	return fmt.Sprintf("%v %v %v", self.targets[0], cla.Build, self.typ)
+	return fmt.Sprintf("%v %v %v", self.targets[0], godip.Build, self.typ)
 }
 
 func (self *build) Targets() []godip.Province {
@@ -94,7 +94,7 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	if len(v.Graph().Coasts(src)) > 1 && src == src.Super() {
 		return
 	}
-	if v.Phase().Type() != cla.Adjustment {
+	if v.Phase().Type() != godip.Adjustment {
 		return
 	}
 	// To avoid having build order for a coast and the main province at the same time...
@@ -114,7 +114,7 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	if nation != me {
 		return
 	}
-	if !self.flags[cla.Anywhere] {
+	if !self.flags[godip.Anywhere] {
 		owner := v.Graph().SC(src.Super())
 		if owner == nil || *owner != me {
 			return
@@ -126,30 +126,30 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	if _, _, balance := cla.AdjustmentStatus(v, me); balance < 1 {
 		return
 	}
-	if v.Graph().Flags(src)[cla.Land] || v.Graph().Flags(src.Super())[cla.Land] {
+	if v.Graph().Flags(src)[godip.Land] || v.Graph().Flags(src.Super())[godip.Land] {
 		if result == nil {
 			result = godip.Options{}
 		}
-		if result[cla.Army] == nil {
-			result[cla.Army] = godip.Options{}
+		if result[godip.Army] == nil {
+			result[godip.Army] = godip.Options{}
 		}
-		result[cla.Army][godip.SrcProvince(src.Super())] = nil
+		result[godip.Army][godip.SrcProvince(src.Super())] = nil
 	}
-	if v.Graph().Flags(src)[cla.Sea] || v.Graph().Flags(src.Super())[cla.Sea] {
+	if v.Graph().Flags(src)[godip.Sea] || v.Graph().Flags(src.Super())[godip.Sea] {
 		if result == nil {
 			result = godip.Options{}
 		}
-		if result[cla.Fleet] == nil {
-			result[cla.Fleet] = godip.Options{}
+		if result[godip.Fleet] == nil {
+			result[godip.Fleet] = godip.Options{}
 		}
-		result[cla.Fleet][godip.SrcProvince(src)] = nil
+		result[godip.Fleet][godip.SrcProvince(src)] = nil
 	}
 	return
 }
 
 func (self *build) Validate(v godip.Validator) (godip.Nation, error) {
 	// right phase type
-	if v.Phase().Type() != cla.Adjustment {
+	if v.Phase().Type() != godip.Adjustment {
 		return "", godip.ErrInvalidPhase
 	}
 	// does someone own this
@@ -158,7 +158,7 @@ func (self *build) Validate(v godip.Validator) (godip.Nation, error) {
 	if me, _, ok = v.SupplyCenter(self.targets[0]); !ok {
 		return "", godip.ErrMissingSupplyCenter
 	}
-	if !self.flags[cla.Anywhere] {
+	if !self.flags[godip.Anywhere] {
 		// is there a home sc here
 		owner := v.Graph().SC(self.targets[0].Super())
 		if owner == nil {
@@ -184,10 +184,10 @@ func (self *build) Validate(v godip.Validator) (godip.Nation, error) {
 		return "", godip.ErrMissingSurplus
 	}
 	// can i build THIS here
-	if self.typ == cla.Army && !v.Graph().Flags(self.targets[0])[cla.Land] {
+	if self.typ == godip.Army && !v.Graph().Flags(self.targets[0])[godip.Land] {
 		return "", godip.ErrIllegalUnitType
 	}
-	if self.typ == cla.Fleet && !v.Graph().Flags(self.targets[0])[cla.Sea] {
+	if self.typ == godip.Fleet && !v.Graph().Flags(self.targets[0])[godip.Sea] {
 		return "", godip.ErrIllegalUnitType
 	}
 	return me, nil

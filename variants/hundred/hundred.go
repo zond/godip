@@ -46,10 +46,10 @@ var HundredVariant = common.Variant{
 	},
 	SVGVersion: "1",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		cla.Army: func() ([]byte, error) {
+		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
-		cla.Fleet: func() ([]byte, error) {
+		godip.Fleet: func() ([]byte, error) {
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
@@ -70,23 +70,23 @@ func HundredBlank(phase godip.Phase) *state.State {
 }
 
 func HundredStart() (result *state.State, err error) {
-	startPhase := Phase(1425, YearSeason, cla.Movement)
+	startPhase := Phase(1425, YearSeason, godip.Movement)
 	result = state.New(HundredGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"lon": godip.Unit{cla.Fleet, England},
-		"dev": godip.Unit{cla.Fleet, England},
-		"cal": godip.Unit{cla.Army, England},
-		"guy": godip.Unit{cla.Army, England},
-		"nom": godip.Unit{cla.Army, England},
-		"hol": godip.Unit{cla.Fleet, Burgundy},
-		"dij": godip.Unit{cla.Army, Burgundy},
-		"lux": godip.Unit{cla.Army, Burgundy},
-		"fla": godip.Unit{cla.Army, Burgundy},
-		"dau": godip.Unit{cla.Army, France},
-		"orl": godip.Unit{cla.Army, France},
-		"par": godip.Unit{cla.Army, France},
-		"tou": godip.Unit{cla.Army, France},
-		"pro": godip.Unit{cla.Army, France},
+		"lon": godip.Unit{godip.Fleet, England},
+		"dev": godip.Unit{godip.Fleet, England},
+		"cal": godip.Unit{godip.Army, England},
+		"guy": godip.Unit{godip.Army, England},
+		"nom": godip.Unit{godip.Army, England},
+		"hol": godip.Unit{godip.Fleet, Burgundy},
+		"dij": godip.Unit{godip.Army, Burgundy},
+		"lux": godip.Unit{godip.Army, Burgundy},
+		"fla": godip.Unit{godip.Army, Burgundy},
+		"dau": godip.Unit{godip.Army, France},
+		"orl": godip.Unit{godip.Army, France},
+		"par": godip.Unit{godip.Army, France},
+		"tou": godip.Unit{godip.Army, France},
+		"pro": godip.Unit{godip.Army, France},
 	}); err != nil {
 		return
 	}
@@ -111,92 +111,92 @@ func HundredStart() (result *state.State, err error) {
 func HundredGraph() *graph.Graph {
 	return graph.New().
 		// Atlantic Sea
-		Prov("atl").Conn("med", cla.Sea).Conn("cas", cla.Sea).Conn("bis", cla.Sea).Conn("brs", cla.Sea).Conn("iri", cla.Sea).Conn("thp", cla.Sea).Flag(cla.Sea).
+		Prov("atl").Conn("med", godip.Sea).Conn("cas", godip.Sea).Conn("bis", godip.Sea).Conn("brs", godip.Sea).Conn("iri", godip.Sea).Conn("thp", godip.Sea).Flag(godip.Sea).
 		// Normandy
-		Prov("nom").Conn("str", cla.Sea).Conn("eng", cla.Sea).Conn("brt", cla.Coast...).Conn("anj", cla.Land).Conn("orl", cla.Land).Conn("par", cla.Land).Conn("cal", cla.Coast...).Flag(cla.Coast...).SC(England).
+		Prov("nom").Conn("str", godip.Sea).Conn("eng", godip.Sea).Conn("brt", godip.Coast...).Conn("anj", godip.Land).Conn("orl", godip.Land).Conn("par", godip.Land).Conn("cal", godip.Coast...).Flag(godip.Coast...).SC(England).
 		// Dauphine
-		Prov("dau").Conn("orl", cla.Land).Conn("lim", cla.Land).Conn("pro", cla.Land).Conn("sav", cla.Land).Conn("can", cla.Land).Conn("dij", cla.Land).Conn("cha", cla.Land).Conn("par", cla.Land).Flag(cla.Land).SC(France).
+		Prov("dau").Conn("orl", godip.Land).Conn("lim", godip.Land).Conn("pro", godip.Land).Conn("sav", godip.Land).Conn("can", godip.Land).Conn("dij", godip.Land).Conn("cha", godip.Land).Conn("par", godip.Land).Flag(godip.Land).SC(France).
 		// Anjou
-		Prov("anj").Conn("orl", cla.Land).Conn("nom", cla.Land).Conn("brt", cla.Land).Flag(cla.Land).
+		Prov("anj").Conn("orl", godip.Land).Conn("nom", godip.Land).Conn("brt", godip.Land).Flag(godip.Land).
 		// Guyenne
-		Prov("guy").Conn("ara", cla.Land).Conn("ara/nc", cla.Sea).Conn("tou", cla.Land).Conn("poi", cla.Land).Conn("brt", cla.Coast...).Conn("bis", cla.Sea).Flag(cla.Coast...).SC(England).
+		Prov("guy").Conn("ara", godip.Land).Conn("ara/nc", godip.Sea).Conn("tou", godip.Land).Conn("poi", godip.Land).Conn("brt", godip.Coast...).Conn("bis", godip.Sea).Flag(godip.Coast...).SC(England).
 		// Friesland
-		Prov("fri").Conn("lux", cla.Land).Conn("thw", cla.Sea).Conn("hol", cla.Coast...).Flag(cla.Coast...).
+		Prov("fri").Conn("lux", godip.Land).Conn("thw", godip.Sea).Conn("hol", godip.Coast...).Flag(godip.Coast...).
 		// North Sea
-		Prov("nos").Conn("thp", cla.Sea).Conn("iri", cla.Sea).Conn("sco", cla.Sea).Conn("not", cla.Sea).Conn("not/ec", cla.Sea).Conn("ang", cla.Sea).Conn("thw", cla.Sea).Flag(cla.Sea).
+		Prov("nos").Conn("thp", godip.Sea).Conn("iri", godip.Sea).Conn("sco", godip.Sea).Conn("not", godip.Sea).Conn("not/ec", godip.Sea).Conn("ang", godip.Sea).Conn("thw", godip.Sea).Flag(godip.Sea).
 		// The Wash
-		Prov("thw").Conn("nos", cla.Sea).Conn("ang", cla.Sea).Conn("str", cla.Sea).Conn("hol", cla.Sea).Conn("fri", cla.Sea).Flag(cla.Sea).
+		Prov("thw").Conn("nos", godip.Sea).Conn("ang", godip.Sea).Conn("str", godip.Sea).Conn("hol", godip.Sea).Conn("fri", godip.Sea).Flag(godip.Sea).
 		// Devon
-		Prov("dev").Conn("wal", cla.Coast...).Conn("brs", cla.Sea).Conn("eng", cla.Sea).Conn("lon", cla.Coast...).Conn("ang", cla.Land).Conn("not", cla.Land).Flag(cla.Coast...).SC(England).
+		Prov("dev").Conn("wal", godip.Coast...).Conn("brs", godip.Sea).Conn("eng", godip.Sea).Conn("lon", godip.Coast...).Conn("ang", godip.Land).Conn("not", godip.Land).Flag(godip.Coast...).SC(England).
 		// London
-		Prov("lon").Conn("cal", cla.Coast...).Conn("dev", cla.Coast...).Conn("eng", cla.Sea).Conn("str", cla.Sea).Conn("ang", cla.Coast...).Flag(cla.Coast...).SC(England).
+		Prov("lon").Conn("cal", godip.Coast...).Conn("dev", godip.Coast...).Conn("eng", godip.Sea).Conn("str", godip.Sea).Conn("ang", godip.Coast...).Flag(godip.Coast...).SC(England).
 		// Calais
-		Prov("cal").Conn("lon", cla.Coast...).Conn("str", cla.Sea).Conn("nom", cla.Coast...).Conn("par", cla.Land).Conn("dij", cla.Land).Conn("fla", cla.Coast...).Flag(cla.Coast...).SC(England).
+		Prov("cal").Conn("lon", godip.Coast...).Conn("str", godip.Sea).Conn("nom", godip.Coast...).Conn("par", godip.Land).Conn("dij", godip.Land).Conn("fla", godip.Coast...).Flag(godip.Coast...).SC(England).
 		// Alsace
-		Prov("als").Conn("lor", cla.Land).Conn("can", cla.Land).Flag(cla.Land).
+		Prov("als").Conn("lor", godip.Land).Conn("can", godip.Land).Flag(godip.Land).
 		// Poitou
-		Prov("poi").Conn("lim", cla.Land).Conn("orl", cla.Land).Conn("brt", cla.Land).Conn("guy", cla.Land).Conn("tou", cla.Land).Flag(cla.Land).
+		Prov("poi").Conn("lim", godip.Land).Conn("orl", godip.Land).Conn("brt", godip.Land).Conn("guy", godip.Land).Conn("tou", godip.Land).Flag(godip.Land).
 		// Biscay
-		Prov("bis").Conn("cas", cla.Sea).Conn("ara", cla.Sea).Conn("ara/nc", cla.Sea).Conn("guy", cla.Sea).Conn("brt", cla.Sea).Conn("brs", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
+		Prov("bis").Conn("cas", godip.Sea).Conn("ara", godip.Sea).Conn("ara/nc", godip.Sea).Conn("guy", godip.Sea).Conn("brt", godip.Sea).Conn("brs", godip.Sea).Conn("atl", godip.Sea).Flag(godip.Sea).
 		// Savoy
-		Prov("sav").Conn("can", cla.Land).Conn("dau", cla.Land).Conn("pro", cla.Coast...).Conn("med", cla.Sea).Flag(cla.Coast...).
+		Prov("sav").Conn("can", godip.Land).Conn("dau", godip.Land).Conn("pro", godip.Coast...).Conn("med", godip.Sea).Flag(godip.Coast...).
 		// Orleanais
-		Prov("orl").Conn("dau", cla.Land).Conn("par", cla.Land).Conn("nom", cla.Land).Conn("anj", cla.Land).Conn("brt", cla.Land).Conn("poi", cla.Land).Conn("lim", cla.Land).Flag(cla.Land).SC(France).
+		Prov("orl").Conn("dau", godip.Land).Conn("par", godip.Land).Conn("nom", godip.Land).Conn("anj", godip.Land).Conn("brt", godip.Land).Conn("poi", godip.Land).Conn("lim", godip.Land).Flag(godip.Land).SC(France).
 		// Strait of Dover
-		Prov("str").Conn("cal", cla.Sea).Conn("fla", cla.Sea).Conn("hol", cla.Sea).Conn("thw", cla.Sea).Conn("ang", cla.Sea).Conn("lon", cla.Sea).Conn("eng", cla.Sea).Conn("nom", cla.Sea).Flag(cla.Sea).
+		Prov("str").Conn("cal", godip.Sea).Conn("fla", godip.Sea).Conn("hol", godip.Sea).Conn("thw", godip.Sea).Conn("ang", godip.Sea).Conn("lon", godip.Sea).Conn("eng", godip.Sea).Conn("nom", godip.Sea).Flag(godip.Sea).
 		// Mediterranean
-		Prov("med").Conn("sav", cla.Sea).Conn("pro", cla.Sea).Conn("tou", cla.Sea).Conn("ara", cla.Sea).Conn("ara/sc", cla.Sea).Conn("cas", cla.Sea).Conn("atl", cla.Sea).Flag(cla.Sea).
+		Prov("med").Conn("sav", godip.Sea).Conn("pro", godip.Sea).Conn("tou", godip.Sea).Conn("ara", godip.Sea).Conn("ara/sc", godip.Sea).Conn("cas", godip.Sea).Conn("atl", godip.Sea).Flag(godip.Sea).
 		// Lorraine
-		Prov("lor").Conn("lux", cla.Land).Conn("dij", cla.Land).Conn("can", cla.Land).Conn("als", cla.Land).Flag(cla.Land).
+		Prov("lor").Conn("lux", godip.Land).Conn("dij", godip.Land).Conn("can", godip.Land).Conn("als", godip.Land).Flag(godip.Land).
 		// Flanders
-		Prov("fla").Conn("str", cla.Sea).Conn("cal", cla.Coast...).Conn("dij", cla.Land).Conn("lux", cla.Land).Conn("hol", cla.Coast...).Flag(cla.Coast...).SC(Burgundy).
+		Prov("fla").Conn("str", godip.Sea).Conn("cal", godip.Coast...).Conn("dij", godip.Land).Conn("lux", godip.Land).Conn("hol", godip.Coast...).Flag(godip.Coast...).SC(Burgundy).
 		// Bristol Channel
-		Prov("brs").Conn("wal", cla.Sea).Conn("iri", cla.Sea).Conn("atl", cla.Sea).Conn("bis", cla.Sea).Conn("brt", cla.Sea).Conn("eng", cla.Sea).Conn("dev", cla.Sea).Flag(cla.Sea).
+		Prov("brs").Conn("wal", godip.Sea).Conn("iri", godip.Sea).Conn("atl", godip.Sea).Conn("bis", godip.Sea).Conn("brt", godip.Sea).Conn("eng", godip.Sea).Conn("dev", godip.Sea).Flag(godip.Sea).
 		// Cantons
-		Prov("can").Conn("als", cla.Land).Conn("lor", cla.Land).Conn("dij", cla.Land).Conn("dau", cla.Land).Conn("sav", cla.Land).Flag(cla.Land).SC(cla.Neutral).
+		Prov("can").Conn("als", godip.Land).Conn("lor", godip.Land).Conn("dij", godip.Land).Conn("dau", godip.Land).Conn("sav", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Northumbria
-		Prov("not").Conn("wal", cla.Land).Conn("dev", cla.Land).Conn("ang", cla.Land).Conn("sco", cla.Land).Flag(cla.Land).
+		Prov("not").Conn("wal", godip.Land).Conn("dev", godip.Land).Conn("ang", godip.Land).Conn("sco", godip.Land).Flag(godip.Land).
 		// Northumbria (West Coast)
-		Prov("not/wc").Conn("wal", cla.Sea).Conn("sco", cla.Sea).Conn("iri", cla.Sea).Flag(cla.Sea).
+		Prov("not/wc").Conn("wal", godip.Sea).Conn("sco", godip.Sea).Conn("iri", godip.Sea).Flag(godip.Sea).
 		// Northumbria (East Coast)
-		Prov("not/ec").Conn("ang", cla.Sea).Conn("nos", cla.Sea).Conn("sco", cla.Sea).Flag(cla.Sea).
+		Prov("not/ec").Conn("ang", godip.Sea).Conn("nos", godip.Sea).Conn("sco", godip.Sea).Flag(godip.Sea).
 		// Provence
-		Prov("pro").Conn("lim", cla.Land).Conn("tou", cla.Coast...).Conn("med", cla.Sea).Conn("sav", cla.Coast...).Conn("dau", cla.Land).Flag(cla.Coast...).
+		Prov("pro").Conn("lim", godip.Land).Conn("tou", godip.Coast...).Conn("med", godip.Sea).Conn("sav", godip.Coast...).Conn("dau", godip.Land).Flag(godip.Coast...).
 		// Paris
-		Prov("par").Conn("orl", cla.Land).Conn("dau", cla.Land).Conn("cha", cla.Land).Conn("dij", cla.Land).Conn("cal", cla.Land).Conn("nom", cla.Land).Flag(cla.Land).SC(France).
+		Prov("par").Conn("orl", godip.Land).Conn("dau", godip.Land).Conn("cha", godip.Land).Conn("dij", godip.Land).Conn("cal", godip.Land).Conn("nom", godip.Land).Flag(godip.Land).SC(France).
 		// Toulouse
-		Prov("tou").Conn("med", cla.Sea).Conn("pro", cla.Coast...).Conn("lim", cla.Land).Conn("poi", cla.Land).Conn("guy", cla.Land).Conn("ara", cla.Land).Conn("ara/sc", cla.Sea).Flag(cla.Coast...).SC(France).
+		Prov("tou").Conn("med", godip.Sea).Conn("pro", godip.Coast...).Conn("lim", godip.Land).Conn("poi", godip.Land).Conn("guy", godip.Land).Conn("ara", godip.Land).Conn("ara/sc", godip.Sea).Flag(godip.Coast...).SC(France).
 		// Irish Sea
-		Prov("iri").Conn("nos", cla.Sea).Conn("thp", cla.Sea).Conn("atl", cla.Sea).Conn("brs", cla.Sea).Conn("wal", cla.Sea).Conn("not", cla.Sea).Conn("not/wc", cla.Sea).Conn("sco", cla.Sea).Flag(cla.Sea).
+		Prov("iri").Conn("nos", godip.Sea).Conn("thp", godip.Sea).Conn("atl", godip.Sea).Conn("brs", godip.Sea).Conn("wal", godip.Sea).Conn("not", godip.Sea).Conn("not/wc", godip.Sea).Conn("sco", godip.Sea).Flag(godip.Sea).
 		// Dijon
-		Prov("dij").Conn("lux", cla.Land).Conn("fla", cla.Land).Conn("cal", cla.Land).Conn("par", cla.Land).Conn("cha", cla.Land).Conn("dau", cla.Land).Conn("can", cla.Land).Conn("lor", cla.Land).Flag(cla.Land).SC(Burgundy).
+		Prov("dij").Conn("lux", godip.Land).Conn("fla", godip.Land).Conn("cal", godip.Land).Conn("par", godip.Land).Conn("cha", godip.Land).Conn("dau", godip.Land).Conn("can", godip.Land).Conn("lor", godip.Land).Flag(godip.Land).SC(Burgundy).
 		// Scotland
-		Prov("sco").Conn("nos", cla.Sea).Conn("iri", cla.Sea).Conn("not", cla.Land).Conn("not/ec", cla.Sea).Conn("not/wc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sco").Conn("nos", godip.Sea).Conn("iri", godip.Sea).Conn("not", godip.Land).Conn("not/ec", godip.Sea).Conn("not/wc", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Brittany
-		Prov("brt").Conn("bis", cla.Sea).Conn("guy", cla.Coast...).Conn("poi", cla.Land).Conn("orl", cla.Land).Conn("anj", cla.Land).Conn("nom", cla.Coast...).Conn("eng", cla.Sea).Conn("brs", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("brt").Conn("bis", godip.Sea).Conn("guy", godip.Coast...).Conn("poi", godip.Land).Conn("orl", godip.Land).Conn("anj", godip.Land).Conn("nom", godip.Coast...).Conn("eng", godip.Sea).Conn("brs", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Limousin
-		Prov("lim").Conn("poi", cla.Land).Conn("tou", cla.Land).Conn("pro", cla.Land).Conn("dau", cla.Land).Conn("orl", cla.Land).Flag(cla.Land).
+		Prov("lim").Conn("poi", godip.Land).Conn("tou", godip.Land).Conn("pro", godip.Land).Conn("dau", godip.Land).Conn("orl", godip.Land).Flag(godip.Land).
 		// Luxembourg
-		Prov("lux").Conn("fri", cla.Land).Conn("hol", cla.Land).Conn("fla", cla.Land).Conn("dij", cla.Land).Conn("lor", cla.Land).Flag(cla.Land).SC(Burgundy).
+		Prov("lux").Conn("fri", godip.Land).Conn("hol", godip.Land).Conn("fla", godip.Land).Conn("dij", godip.Land).Conn("lor", godip.Land).Flag(godip.Land).SC(Burgundy).
 		// Wales
-		Prov("wal").Conn("brs", cla.Sea).Conn("dev", cla.Coast...).Conn("not", cla.Land).Conn("not/wc", cla.Sea).Conn("iri", cla.Sea).Flag(cla.Coast...).
+		Prov("wal").Conn("brs", godip.Sea).Conn("dev", godip.Coast...).Conn("not", godip.Land).Conn("not/wc", godip.Sea).Conn("iri", godip.Sea).Flag(godip.Coast...).
 		// English Channel
-		Prov("eng").Conn("str", cla.Sea).Conn("lon", cla.Sea).Conn("dev", cla.Sea).Conn("brs", cla.Sea).Conn("brt", cla.Sea).Conn("nom", cla.Sea).Flag(cla.Sea).
+		Prov("eng").Conn("str", godip.Sea).Conn("lon", godip.Sea).Conn("dev", godip.Sea).Conn("brs", godip.Sea).Conn("brt", godip.Sea).Conn("nom", godip.Sea).Flag(godip.Sea).
 		// Anglia
-		Prov("ang").Conn("thw", cla.Sea).Conn("nos", cla.Sea).Conn("not", cla.Land).Conn("not/ec", cla.Sea).Conn("dev", cla.Land).Conn("lon", cla.Coast...).Conn("str", cla.Sea).Flag(cla.Coast...).
+		Prov("ang").Conn("thw", godip.Sea).Conn("nos", godip.Sea).Conn("not", godip.Land).Conn("not/ec", godip.Sea).Conn("dev", godip.Land).Conn("lon", godip.Coast...).Conn("str", godip.Sea).Flag(godip.Coast...).
 		// Aragon
-		Prov("ara").Conn("tou", cla.Land).Conn("guy", cla.Land).Conn("cas", cla.Land).Flag(cla.Land).
+		Prov("ara").Conn("tou", godip.Land).Conn("guy", godip.Land).Conn("cas", godip.Land).Flag(godip.Land).
 		// Aragon (North Coast)
-		Prov("ara/nc").Conn("guy", cla.Sea).Conn("bis", cla.Sea).Conn("cas", cla.Sea).Flag(cla.Sea).
+		Prov("ara/nc").Conn("guy", godip.Sea).Conn("bis", godip.Sea).Conn("cas", godip.Sea).Flag(godip.Sea).
 		// Aragon (South Coast)
-		Prov("ara/sc").Conn("med", cla.Sea).Conn("tou", cla.Sea).Conn("cas", cla.Sea).Flag(cla.Sea).
+		Prov("ara/sc").Conn("med", godip.Sea).Conn("tou", godip.Sea).Conn("cas", godip.Sea).Flag(godip.Sea).
 		// Castile
-		Prov("cas").Conn("bis", cla.Sea).Conn("atl", cla.Sea).Conn("med", cla.Sea).Conn("ara", cla.Land).Conn("ara/nc", cla.Sea).Conn("ara/sc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("cas").Conn("bis", godip.Sea).Conn("atl", godip.Sea).Conn("med", godip.Sea).Conn("ara", godip.Land).Conn("ara/nc", godip.Sea).Conn("ara/sc", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Charolais
-		Prov("cha").Conn("dau", cla.Land).Conn("dij", cla.Land).Conn("par", cla.Land).Flag(cla.Land).
+		Prov("cha").Conn("dau", godip.Land).Conn("dij", godip.Land).Conn("par", godip.Land).Flag(godip.Land).
 		// The Pale
-		Prov("thp").Conn("atl", cla.Sea).Conn("iri", cla.Sea).Conn("nos", cla.Sea).Flag(cla.Coast...).
+		Prov("thp").Conn("atl", godip.Sea).Conn("iri", godip.Sea).Conn("nos", godip.Sea).Flag(godip.Coast...).
 		// Holland
-		Prov("hol").Conn("str", cla.Sea).Conn("fla", cla.Coast...).Conn("lux", cla.Land).Conn("fri", cla.Coast...).Conn("thw", cla.Sea).Flag(cla.Coast...).SC(Burgundy).
+		Prov("hol").Conn("str", godip.Sea).Conn("fla", godip.Coast...).Conn("lux", godip.Land).Conn("fri", godip.Coast...).Conn("thw", godip.Sea).Flag(godip.Coast...).SC(Burgundy).
 		Done()
 }

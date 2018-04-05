@@ -9,6 +9,45 @@ import (
 	"time"
 )
 
+const (
+	Sea        Flag = "Sea"
+	Land       Flag = "Land"
+	Convoyable Flag = "Convoyable"
+
+	Army  UnitType = "Army"
+	Fleet UnitType = "Fleet"
+
+	England Nation = "England"
+	France  Nation = "France"
+	Germany Nation = "Germany"
+	Russia  Nation = "Russia"
+	Austria Nation = "Austria"
+	Italy   Nation = "Italy"
+	Turkey  Nation = "Turkey"
+	Neutral Nation = "Neutral"
+
+	Spring Season = "Spring"
+	Fall   Season = "Fall"
+
+	Movement   PhaseType = "Movement"
+	Retreat    PhaseType = "Retreat"
+	Adjustment PhaseType = "Adjustment"
+
+	Build         OrderType = "Build"
+	Move          OrderType = "Move"
+	MoveViaConvoy OrderType = "MoveViaConvoy"
+	Hold          OrderType = "Hold"
+	Convoy        OrderType = "Convoy"
+	Support       OrderType = "Support"
+	Disband       OrderType = "Disband"
+
+	ViaConvoy Flag = "C"
+	Anywhere  Flag = "A"
+)
+
+var Coast = []Flag{Sea, Land}
+var Archipelago = []Flag{Sea, Land, Convoyable}
+
 // Invalid is not understood
 // Illegal is understood but not allowed
 var ErrInvalidSource = fmt.Errorf("ErrInvalidSource")

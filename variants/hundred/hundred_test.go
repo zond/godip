@@ -9,7 +9,6 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	tst "github.com/zond/godip/variants/testing"
 )
 
@@ -26,7 +25,7 @@ func startState(t *testing.T) *state.State {
 }
 
 func blankState(t *testing.T) *state.State {
-	startPhase := classical.Phase(1901, cla.Spring, cla.Movement)
+	startPhase := classical.Phase(1901, godip.Spring, godip.Movement)
 	judge := HundredBlank(startPhase)
 	return judge
 }
@@ -35,12 +34,12 @@ func TestLondonCalais(t *testing.T) {
 	judge := blankState(t)
 
 	// Test the connection from London to Calais.
-	judge.SetUnit("lon", godip.Unit{cla.Army, England})
+	judge.SetUnit("lon", godip.Unit{godip.Army, England})
 	tst.AssertOrderValidity(t, judge, orders.Move("lon", "cal"), England, nil)
 
 	// Check the reverse too.
 	judge.RemoveUnit("lon")
-	judge.SetUnit("cal", godip.Unit{cla.Army, England})
+	judge.SetUnit("cal", godip.Unit{godip.Army, England})
 	tst.AssertOrderValidity(t, judge, orders.Move("cal", "lon"), England, nil)
 }
 
@@ -62,8 +61,8 @@ func TestBuildAnywhere(t *testing.T) {
 	judge.Next()
 
 	// Fall adjustment - Try to build a new Army in Scotland.
-	judge.SetOrder("sco", orders.BuildAnywhere("sco", cla.Army, time.Now()))
+	judge.SetOrder("sco", orders.BuildAnywhere("sco", godip.Army, time.Now()))
 	judge.Next()
 	// Check that it was successful.
-	tst.AssertUnit(t, judge, "sco", godip.Unit{cla.Army, England})
+	tst.AssertUnit(t, judge, "sco", godip.Unit{godip.Army, England})
 }

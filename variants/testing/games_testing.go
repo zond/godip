@@ -16,8 +16,6 @@ import (
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/common"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -87,31 +85,31 @@ func verifyPosition(t *testing.T, s *state.State, match []string, scCollector ma
 			*fails += 1
 		}
 	} else if match[2] == "army" {
-		if unit, _, ok := s.Unit(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Army {
+		if unit, _, ok := s.Unit(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == godip.Army {
 			unitCollector[godip.Province(match[3])] = unit
 		} else {
-			t.Errorf("%v: Expected to find %v %v in %v, but found %v, %v", s.Phase(), match[1], cla.Army, match[3], unit, ok)
+			t.Errorf("%v: Expected to find %v %v in %v, but found %v, %v", s.Phase(), match[1], godip.Army, match[3], unit, ok)
 			*fails += 1
 		}
 	} else if match[2] == "fleet" {
-		if unit, _, ok := s.Unit(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Fleet {
+		if unit, _, ok := s.Unit(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == godip.Fleet {
 			unitCollector[godip.Province(match[3])] = unit
 		} else {
-			t.Errorf("%v: Expected to find %v %v in %v, but found %v, %v", s.Phase(), match[1], cla.Fleet, match[3], unit, ok)
+			t.Errorf("%v: Expected to find %v %v in %v, but found %v, %v", s.Phase(), match[1], godip.Fleet, match[3], unit, ok)
 			*fails += 1
 		}
 	} else if match[2] == "fleet/dislodged" {
-		if unit, _, ok := s.Dislodged(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Fleet {
+		if unit, _, ok := s.Dislodged(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == godip.Fleet {
 			dislodgedCollector[godip.Province(match[3])] = unit
 		} else {
-			t.Errorf("%v: Expected to find %v %v dislodged in %v, but found %v, %v", s.Phase(), match[1], cla.Army, match[3], unit, ok)
+			t.Errorf("%v: Expected to find %v %v dislodged in %v, but found %v, %v", s.Phase(), match[1], godip.Army, match[3], unit, ok)
 			*fails += 1
 		}
 	} else if match[2] == "army/dislodged" {
-		if unit, _, ok := s.Dislodged(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Army {
+		if unit, _, ok := s.Dislodged(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == godip.Army {
 			dislodgedCollector[godip.Province(match[3])] = unit
 		} else {
-			t.Errorf("%v: Expected to find %v %v dislodged in %v, but found %v, %v", s.Phase(), match[1], cla.Army, match[3], unit, ok)
+			t.Errorf("%v: Expected to find %v %v dislodged in %v, but found %v, %v", s.Phase(), match[1], godip.Army, match[3], unit, ok)
 			*fails += 1
 		}
 	} else {

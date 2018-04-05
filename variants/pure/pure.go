@@ -30,14 +30,14 @@ var PureVariant = common.Variant{
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
-	UnitTypes:  []godip.UnitType{cla.Army},
+	UnitTypes:  []godip.UnitType{godip.Army},
 	SoloWinner: common.SCCountWinner(4),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/puremap.svg")
 	},
 	SVGVersion: "2",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		cla.Army: func() ([]byte, error) {
+		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
 	},
@@ -56,24 +56,24 @@ func PureStart() (result *state.State, err error) {
 		return
 	}
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"ber": godip.Unit{cla.Army, cla.Germany},
-		"lon": godip.Unit{cla.Army, cla.England},
-		"par": godip.Unit{cla.Army, cla.France},
-		"rom": godip.Unit{cla.Army, cla.Italy},
-		"con": godip.Unit{cla.Army, cla.Turkey},
-		"vie": godip.Unit{cla.Army, cla.Austria},
-		"mos": godip.Unit{cla.Army, cla.Russia},
+		"ber": godip.Unit{godip.Army, godip.Germany},
+		"lon": godip.Unit{godip.Army, godip.England},
+		"par": godip.Unit{godip.Army, godip.France},
+		"rom": godip.Unit{godip.Army, godip.Italy},
+		"con": godip.Unit{godip.Army, godip.Turkey},
+		"vie": godip.Unit{godip.Army, godip.Austria},
+		"mos": godip.Unit{godip.Army, godip.Russia},
 	}); err != nil {
 		return
 	}
 	result.SetSupplyCenters(map[godip.Province]godip.Nation{
-		"ber": cla.Germany,
-		"lon": cla.England,
-		"par": cla.France,
-		"rom": cla.Italy,
-		"con": cla.Turkey,
-		"vie": cla.Austria,
-		"mos": cla.Russia,
+		"ber": godip.Germany,
+		"lon": godip.England,
+		"par": godip.France,
+		"rom": godip.Italy,
+		"con": godip.Turkey,
+		"vie": godip.Austria,
+		"mos": godip.Russia,
 	})
 	return
 }
@@ -81,18 +81,18 @@ func PureStart() (result *state.State, err error) {
 func PureGraph() *graph.Graph {
 	return graph.New().
 		// ber
-		Prov("ber").Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Germany).
+		Prov("ber").Conn("lon", godip.Land).Conn("par", godip.Land).Conn("rom", godip.Land).Conn("con", godip.Land).Conn("vie", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).SC(godip.Germany).
 		// lon
-		Prov("lon").Conn("ber", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.England).
+		Prov("lon").Conn("ber", godip.Land).Conn("par", godip.Land).Conn("rom", godip.Land).Conn("con", godip.Land).Conn("vie", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).SC(godip.England).
 		// par
-		Prov("par").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.France).
+		Prov("par").Conn("ber", godip.Land).Conn("lon", godip.Land).Conn("rom", godip.Land).Conn("con", godip.Land).Conn("vie", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).SC(godip.France).
 		// rom
-		Prov("rom").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Italy).
+		Prov("rom").Conn("ber", godip.Land).Conn("lon", godip.Land).Conn("par", godip.Land).Conn("con", godip.Land).Conn("vie", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).SC(godip.Italy).
 		// con
-		Prov("con").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("vie", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Turkey).
+		Prov("con").Conn("ber", godip.Land).Conn("lon", godip.Land).Conn("par", godip.Land).Conn("rom", godip.Land).Conn("vie", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).SC(godip.Turkey).
 		// vie
-		Prov("vie").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("mos", cla.Land).Flag(cla.Land).SC(cla.Austria).
+		Prov("vie").Conn("ber", godip.Land).Conn("lon", godip.Land).Conn("par", godip.Land).Conn("rom", godip.Land).Conn("con", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).SC(godip.Austria).
 		// mos
-		Prov("mos").Conn("ber", cla.Land).Conn("lon", cla.Land).Conn("par", cla.Land).Conn("rom", cla.Land).Conn("con", cla.Land).Conn("vie", cla.Land).Flag(cla.Land).SC(cla.Russia).
+		Prov("mos").Conn("ber", godip.Land).Conn("lon", godip.Land).Conn("par", godip.Land).Conn("rom", godip.Land).Conn("con", godip.Land).Conn("vie", godip.Land).Flag(godip.Land).SC(godip.Russia).
 		Done()
 }

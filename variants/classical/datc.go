@@ -6,11 +6,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/classical/start"
-
-	dip "github.com/zond/godip"
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
@@ -19,36 +17,36 @@ func init() {
 	}
 }
 
-var datcPhaseTypes = map[string]dip.PhaseType{
-	"movement":   cla.Movement,
-	"adjustment": cla.Adjustment,
-	"retreat":    cla.Retreat,
+var datcPhaseTypes = map[string]godip.PhaseType{
+	"movement":   godip.Movement,
+	"adjustment": godip.Adjustment,
+	"retreat":    godip.Retreat,
 }
 
-var datcSeasons = map[string]dip.Season{
-	"spring": cla.Spring,
-	"fall":   cla.Fall,
+var datcSeasons = map[string]godip.Season{
+	"spring": godip.Spring,
+	"fall":   godip.Fall,
 }
 
-var datcNationalities = map[string]dip.Nation{
-	"england": cla.England,
-	"france":  cla.France,
-	"germany": cla.Germany,
-	"russia":  cla.Russia,
-	"austria": cla.Austria,
-	"italy":   cla.Italy,
-	"turkey":  cla.Turkey,
-	"germnay": cla.Germany,
+var datcNationalities = map[string]godip.Nation{
+	"england": godip.England,
+	"france":  godip.France,
+	"germany": godip.Germany,
+	"russia":  godip.Russia,
+	"austria": godip.Austria,
+	"italy":   godip.Italy,
+	"turkey":  godip.Turkey,
+	"germnay": godip.Germany,
 }
 
-var datcUnitTypes = map[string]dip.UnitType{
-	"a": cla.Army,
-	"f": cla.Fleet,
+var datcUnitTypes = map[string]godip.UnitType{
+	"a": godip.Army,
+	"f": godip.Fleet,
 }
 
-var datcProvinces = map[string]dip.Province{}
+var datcProvinces = map[string]godip.Province{}
 
-func DATCPhase(season string, year int, typ string) (result dip.Phase, err error) {
+func DATCPhase(season string, year int, typ string) (result godip.Phase, err error) {
 	phaseType, ok := datcPhaseTypes[strings.ToLower(typ)]
 	if !ok {
 		err = fmt.Errorf("Unknown phase type %#v", typ)
@@ -67,7 +65,7 @@ func DATCPhase(season string, year int, typ string) (result dip.Phase, err error
 	return
 }
 
-func DATCProvince(n string) (result dip.Province, err error) {
+func DATCProvince(n string) (result godip.Province, err error) {
 	var ok bool
 	result, ok = datcProvinces[strings.ToLower(n)]
 	if !ok {
@@ -77,8 +75,8 @@ func DATCProvince(n string) (result dip.Province, err error) {
 	return
 }
 
-var datcOrderTypes = map[*regexp.Regexp]func([]string) (dip.Province, dip.Adjudicator, error){
-	regexp.MustCompile("(?i)^(A|F)\\s+(\\S+)\\s*-\\s*(\\S+)(\\s+via\\s+convoy)?$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+var datcOrderTypes = map[*regexp.Regexp]func([]string) (godip.Province, godip.Adjudicator, error){
+	regexp.MustCompile("(?i)^(A|F)\\s+(\\S+)\\s*-\\s*(\\S+)(\\s+via\\s+convoy)?$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[2]); err != nil {
 			return
 		}
@@ -93,21 +91,21 @@ var datcOrderTypes = map[*regexp.Regexp]func([]string) (dip.Province, dip.Adjudi
 		}
 		return
 	},
-	regexp.MustCompile("^(?i)remove\\s+((A|F)\\s+)?(\\S+)$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+	regexp.MustCompile("^(?i)remove\\s+((A|F)\\s+)?(\\S+)$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[3]); err != nil {
 			return
 		}
 		order = orders.Disband(prov, time.Now())
 		return
 	},
-	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+disband$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+disband$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[2]); err != nil {
 			return
 		}
 		order = orders.Disband(prov, time.Now())
 		return
 	},
-	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+S(UPP\\S*)?\\s+(A|F)\\s+([^-\\s]+)$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+S(UPP\\S*)?\\s+(A|F)\\s+([^-\\s]+)$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[2]); err != nil {
 			return
 		}
@@ -118,7 +116,7 @@ var datcOrderTypes = map[*regexp.Regexp]func([]string) (dip.Province, dip.Adjudi
 		order = orders.SupportHold(prov, target)
 		return
 	},
-	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+c(onv\\S*)?\\s+(A|F)\\s+(\\S+)\\s*-\\s*(\\S+)$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+c(onv\\S*)?\\s+(A|F)\\s+(\\S+)\\s*-\\s*(\\S+)$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[2]); err != nil {
 			return
 		}
@@ -133,7 +131,7 @@ var datcOrderTypes = map[*regexp.Regexp]func([]string) (dip.Province, dip.Adjudi
 		order = orders.Convoy(prov, from, to)
 		return
 	},
-	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+S(UPP\\S*)?\\s+((A|F)\\s+)?(\\S+)\\s*-\\s*(\\S+)$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+S(UPP\\S*)?\\s+((A|F)\\s+)?(\\S+)\\s*-\\s*(\\S+)$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[2]); err != nil {
 			return
 		}
@@ -148,14 +146,14 @@ var datcOrderTypes = map[*regexp.Regexp]func([]string) (dip.Province, dip.Adjudi
 		order = orders.SupportMove(prov, from, to)
 		return
 	},
-	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+H(OLD)?$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+	regexp.MustCompile("^(?i)(A|F)\\s+(\\S+)\\s+H(OLD)?$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[2]); err != nil {
 			return
 		}
 		order = orders.Hold(prov)
 		return
 	},
-	regexp.MustCompile("^(?i)build\\s+(A|F)\\s+(\\S+)\\s*$"): func(m []string) (prov dip.Province, order dip.Adjudicator, err error) {
+	regexp.MustCompile("^(?i)build\\s+(A|F)\\s+(\\S+)\\s*$"): func(m []string) (prov godip.Province, order godip.Adjudicator, err error) {
 		if prov, err = DATCProvince(m[2]); err != nil {
 			return
 		}
@@ -168,7 +166,7 @@ var datcOrderTypes = map[*regexp.Regexp]func([]string) (dip.Province, dip.Adjudi
 	},
 }
 
-func DATCOrder(text string) (province dip.Province, order dip.Adjudicator, err error) {
+func DATCOrder(text string) (province godip.Province, order godip.Adjudicator, err error) {
 	var match []string
 	for reg, gen := range datcOrderTypes {
 		if match = reg.FindStringSubmatch(text); match != nil {
@@ -179,7 +177,7 @@ func DATCOrder(text string) (province dip.Province, order dip.Adjudicator, err e
 	return
 }
 
-func DATCNation(typ string) (result dip.Nation, err error) {
+func DATCNation(typ string) (result godip.Nation, err error) {
 	var ok bool
 	result, ok = datcNationalities[strings.ToLower(typ)]
 	if !ok {
@@ -189,7 +187,7 @@ func DATCNation(typ string) (result dip.Nation, err error) {
 	return
 }
 
-func DATCUnitType(typ string) (result dip.UnitType, err error) {
+func DATCUnitType(typ string) (result godip.UnitType, err error) {
 	var ok bool
 	result, ok = datcUnitTypes[strings.ToLower(typ)]
 	if !ok {

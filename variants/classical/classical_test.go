@@ -11,7 +11,6 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/start"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	ord "github.com/zond/godip/variants/classical/orders"
 	tst "github.com/zond/godip/variants/testing"
 )
@@ -31,14 +30,14 @@ func startState(t *testing.T) *state.State {
 func TestSupportValidation(t *testing.T) {
 	judge := startState(t)
 	// Happy paths
-	tst.AssertOrderValidity(t, judge, orders.SupportMove("bre", "par", "gas"), cla.France, nil)
-	tst.AssertOrderValidity(t, judge, orders.SupportHold("par", "bre"), cla.France, nil)
-	tst.AssertOrderValidity(t, judge, orders.SupportMove("par", "bre", "gas"), cla.France, nil)
-	judge.SetUnit("spa/sc", godip.Unit{cla.Fleet, cla.France})
-	judge.SetUnit("por", godip.Unit{cla.Fleet, cla.France})
-	judge.SetUnit("gol", godip.Unit{cla.Fleet, cla.France})
-	tst.AssertOrderValidity(t, judge, orders.SupportMove("spa/sc", "por", "mid"), cla.France, nil)
-	tst.AssertOrderValidity(t, judge, orders.SupportMove("gol", "mar", "spa"), cla.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.SupportMove("bre", "par", "gas"), godip.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.SupportHold("par", "bre"), godip.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.SupportMove("par", "bre", "gas"), godip.France, nil)
+	judge.SetUnit("spa/sc", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("por", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("gol", godip.Unit{godip.Fleet, godip.France})
+	tst.AssertOrderValidity(t, judge, orders.SupportMove("spa/sc", "por", "mid"), godip.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.SupportMove("gol", "mar", "spa"), godip.France, nil)
 	// Missing unit
 	tst.AssertOrderValidity(t, judge, orders.SupportMove("ruh", "kie", "hol"), "", godip.ErrMissingUnit)
 	// Missing supportee
@@ -47,7 +46,7 @@ func TestSupportValidation(t *testing.T) {
 	tst.AssertOrderValidity(t, judge, orders.SupportHold("bre", "par"), "", godip.ErrIllegalSupportPosition)
 	tst.AssertOrderValidity(t, judge, orders.SupportMove("mar", "spa/nc", "por"), "", godip.ErrIllegalSupportDestination)
 	judge.RemoveUnit("spa/sc")
-	judge.SetUnit("spa/nc", godip.Unit{cla.Fleet, cla.France})
+	judge.SetUnit("spa/nc", godip.Unit{godip.Fleet, godip.France})
 	tst.AssertOrderValidity(t, judge, orders.SupportMove("spa/nc", "mar", "gol"), "", godip.ErrIllegalSupportDestination)
 	// Illegal moves
 	tst.AssertOrderValidity(t, judge, orders.SupportMove("mar", "spa/nc", "bur"), "", godip.ErrIllegalSupportMove)
@@ -56,69 +55,69 @@ func TestSupportValidation(t *testing.T) {
 func TestConvoy(t *testing.T) {
 	judge := startState(t)
 
-	judge.SetUnit("bal", godip.Unit{cla.Fleet, cla.Germany})
-	tst.AssertOrderValidity(t, judge, orders.Move("ber", "lvn"), cla.Germany, nil)
+	judge.SetUnit("bal", godip.Unit{godip.Fleet, godip.Germany})
+	tst.AssertOrderValidity(t, judge, orders.Move("ber", "lvn"), godip.Germany, nil)
 
-	judge.SetUnit("tys", godip.Unit{cla.Fleet, cla.Italy})
-	judge.SetUnit("gol", godip.Unit{cla.Fleet, cla.Italy})
-	tst.AssertOrderValidity(t, judge, orders.Move("rom", "spa"), cla.Italy, nil)
+	judge.SetUnit("tys", godip.Unit{godip.Fleet, godip.Italy})
+	judge.SetUnit("gol", godip.Unit{godip.Fleet, godip.Italy})
+	tst.AssertOrderValidity(t, judge, orders.Move("rom", "spa"), godip.Italy, nil)
 }
 
 func TestConvoyValidation(t *testing.T) {
 	judge := startState(t)
-	judge.SetUnit("nth", godip.Unit{cla.Fleet, cla.France})
+	judge.SetUnit("nth", godip.Unit{godip.Fleet, godip.France})
 	judge.RemoveUnit("lon")
-	judge.SetUnit("lon", godip.Unit{cla.Army, cla.England})
-	tst.AssertOrderValidity(t, judge, orders.Convoy("nth", "lon", "nwy"), cla.France, nil)
+	judge.SetUnit("lon", godip.Unit{godip.Army, godip.England})
+	tst.AssertOrderValidity(t, judge, orders.Convoy("nth", "lon", "nwy"), godip.France, nil)
 
 	// Check that we can't convoy via Constantinople (nb. all edges are sea).
 	judge.RemoveUnit("sev")
-	judge.SetUnit("sev", godip.Unit{cla.Army, cla.Russia})
-	judge.SetUnit("bla", godip.Unit{cla.Fleet, cla.Russia})
-	judge.SetUnit("con", godip.Unit{cla.Fleet, cla.Russia})
-	judge.SetUnit("aeg", godip.Unit{cla.Fleet, cla.Russia})
+	judge.SetUnit("sev", godip.Unit{godip.Army, godip.Russia})
+	judge.SetUnit("bla", godip.Unit{godip.Fleet, godip.Russia})
+	judge.SetUnit("con", godip.Unit{godip.Fleet, godip.Russia})
+	judge.SetUnit("aeg", godip.Unit{godip.Fleet, godip.Russia})
 	tst.AssertOrderValidity(t, judge, orders.Convoy("bla", "sev", "gre"), "", godip.ErrIllegalConvoyMove)
 }
 
 func TestHoldValidation(t *testing.T) {
 	judge := startState(t)
-	tst.AssertOrderValidity(t, judge, orders.Hold("par"), cla.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Hold("par"), godip.France, nil)
 }
 
 func TestBuildValidation(t *testing.T) {
 	judge := startState(t)
 	judge.RemoveUnit("par")
-	judge.SetUnit("spa", godip.Unit{cla.Army, cla.France})
+	judge.SetUnit("spa", godip.Unit{godip.Army, godip.France})
 	judge.Next()
 	judge.Next()
 	judge.Next()
 	judge.Next()
-	tst.AssertOrderValidity(t, judge, orders.Build("par", cla.Army, time.Now()), cla.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Build("par", godip.Army, time.Now()), godip.France, nil)
 }
 
 func TestDisbandValidation(t *testing.T) {
 	judge := startState(t)
-	judge.SetUnit("pic", godip.Unit{cla.Army, cla.Germany})
-	judge.SetUnit("bur", godip.Unit{cla.Army, cla.Germany})
+	judge.SetUnit("pic", godip.Unit{godip.Army, godip.Germany})
+	judge.SetUnit("bur", godip.Unit{godip.Army, godip.Germany})
 	judge.SetOrder("bur", orders.Move("bur", "par"))
 	judge.SetOrder("pic", orders.SupportMove("pic", "bur", "par"))
 	judge.Next()
 	// Disband after dislodge
-	tst.AssertOrderValidity(t, judge, orders.Disband("par", time.Now()), cla.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Disband("par", time.Now()), godip.France, nil)
 	judge.Next()
-	judge.SetUnit("bur", godip.Unit{cla.Army, cla.France})
+	judge.SetUnit("bur", godip.Unit{godip.Army, godip.France})
 	judge.Next()
 	judge.Next()
 	// Disband after SC deficit
-	tst.AssertOrderValidity(t, judge, orders.Disband("bur", time.Now()), cla.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Disband("bur", time.Now()), godip.France, nil)
 }
 
 func TestMoveValidation(t *testing.T) {
 	judge := startState(t)
 	// Happy path fleet
-	tst.AssertOrderValidity(t, judge, orders.Move("bre", "mid"), cla.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("bre", "mid"), godip.France, nil)
 	// Happy path army
-	tst.AssertOrderValidity(t, judge, orders.Move("mun", "ruh"), cla.Germany, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("mun", "ruh"), godip.Germany, nil)
 	// Too far
 	tst.AssertOrderValidity(t, judge, orders.Move("bre", "wes"), "", godip.ErrIllegalMove)
 	// Fleet on land
@@ -134,23 +133,23 @@ func TestMoveValidation(t *testing.T) {
 	// No unit
 	tst.AssertOrderValidity(t, judge, orders.Move("spa", "por"), "", godip.ErrMissingUnit)
 	// Working convoy
-	judge.SetUnit("eng", godip.Unit{cla.Fleet, cla.England})
-	judge.SetUnit("wal", godip.Unit{cla.Army, cla.England})
-	tst.AssertOrderValidity(t, judge, orders.Move("wal", "bre"), cla.England, nil)
+	judge.SetUnit("eng", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("wal", godip.Unit{godip.Army, godip.England})
+	tst.AssertOrderValidity(t, judge, orders.Move("wal", "bre"), godip.England, nil)
 	// Missing convoy
 	tst.AssertOrderValidity(t, judge, orders.Move("wal", "gas"), "", godip.ErrMissingConvoyPath)
 
-	judge.SetUnit("pic", godip.Unit{cla.Army, cla.Germany})
-	judge.SetUnit("bur", godip.Unit{cla.Army, cla.Germany})
+	judge.SetUnit("pic", godip.Unit{godip.Army, godip.Germany})
+	judge.SetUnit("bur", godip.Unit{godip.Army, godip.Germany})
 	judge.SetOrder("bur", orders.Move("bur", "par"))
 	judge.SetOrder("pic", orders.SupportMove("pic", "bur", "par"))
 	judge.Next()
-	tst.AssertOrderValidity(t, judge, orders.Move("par", "gas"), cla.France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("par", "gas"), godip.France, nil)
 
 	judge.Next()
-	judge.SetUnit("tys", godip.Unit{cla.Fleet, cla.Italy})
-	judge.SetUnit("gol", godip.Unit{cla.Fleet, cla.Italy})
-	tst.AssertOrderValidity(t, judge, orders.Move("rom", "spa/sc"), cla.Italy, nil)
+	judge.SetUnit("tys", godip.Unit{godip.Fleet, godip.Italy})
+	judge.SetUnit("gol", godip.Unit{godip.Fleet, godip.Italy})
+	tst.AssertOrderValidity(t, judge, orders.Move("rom", "spa/sc"), godip.Italy, nil)
 }
 
 func TestMoveAdjudication(t *testing.T) {
@@ -165,8 +164,8 @@ func testDATC(t *testing.T, statePair *datc.StatePair) {
 	if statePair.Before.Phase == nil {
 		s = Blank(&phase{
 			year:   1901,
-			season: cla.Spring,
-			typ:    cla.Movement,
+			season: godip.Spring,
+			typ:    godip.Movement,
 		})
 	} else {
 		s = Blank(statePair.Before.Phase)
@@ -175,20 +174,20 @@ func testDATC(t *testing.T, statePair *datc.StatePair) {
 	s.SetDislodgeds(statePair.Before.Dislodgeds)
 	s.SetSupplyCenters(statePair.Before.SCs)
 	for prov, order := range statePair.Before.Orders {
-		if s.Phase().Type() == cla.Movement {
+		if s.Phase().Type() == godip.Movement {
 			if u, _, ok := s.Unit(prov); ok && u.Nation == order.Nation {
 				s.SetOrder(prov, order.Order)
 			}
-		} else if s.Phase().Type() == cla.Retreat {
+		} else if s.Phase().Type() == godip.Retreat {
 			if u, _, ok := s.Dislodged(prov); ok && u.Nation == order.Nation {
 				s.SetOrder(prov, order.Order)
 			}
-		} else if s.Phase().Type() == cla.Adjustment {
-			if order.Order.Type() == cla.Build {
+		} else if s.Phase().Type() == godip.Adjustment {
+			if order.Order.Type() == godip.Build {
 				if n, _, ok := s.SupplyCenter(prov); ok && n == order.Nation {
 					s.SetOrder(prov, order.Order)
 				}
-			} else if order.Order.Type() == cla.Disband {
+			} else if order.Order.Type() == godip.Disband {
 				if u, _, ok := s.Unit(prov); ok && u.Nation == order.Nation {
 					s.SetOrder(prov, order.Order)
 				}
@@ -198,12 +197,12 @@ func testDATC(t *testing.T, statePair *datc.StatePair) {
 		}
 	}
 	for _, order := range statePair.Before.FailedOrders {
-		if order.Order.Type() == cla.Move && !order.Order.Flags()[cla.ViaConvoy] {
+		if order.Order.Type() == godip.Move && !order.Order.Flags()[godip.ViaConvoy] {
 			s.AddBounce(order.Order.Targets()[0], order.Order.Targets()[1])
 		}
 	}
 	for _, order := range statePair.Before.SuccessfulOrders {
-		if order.Order.Type() == cla.Move && !order.Order.Flags()[cla.ViaConvoy] {
+		if order.Order.Type() == godip.Move && !order.Order.Flags()[godip.ViaConvoy] {
 			s.SetDislodger(order.Order.Targets()[0], order.Order.Targets()[1])
 		}
 	}
@@ -311,19 +310,19 @@ func TestConvoyOpts(t *testing.T) {
 	judge.SetOrder("mos", orders.Move("mos", "stp"))
 	judge.Next()
 	judge.Next()
-	opts := judge.Phase().Options(judge, cla.England)
+	opts := judge.Phase().Options(judge, godip.England)
 	tst.AssertOpt(t, opts, []string{"yor", "Move", "yor", "nwy"})
 	tst.AssertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "ber", "kie"})
 	tst.AssertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "con", "smy"})
 	tst.AssertOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "nwy"})
 	tst.AssertNoOpt(t, opts, []string{"nth", "Convoy", "nth", "yor", "yor"})
-	opts = judge.Phase().Options(judge, cla.Russia)
+	opts = judge.Phase().Options(judge, godip.Russia)
 	tst.AssertOpt(t, opts, []string{"bot", "Convoy", "bot", "stp", "swe"})
 	tst.AssertOpt(t, opts, []string{"stp", "Move", "stp", "swe"})
 
-	judge.SetUnit("tys", godip.Unit{cla.Fleet, cla.Italy})
-	judge.SetUnit("gol", godip.Unit{cla.Fleet, cla.Italy})
-	opts = judge.Phase().Options(judge, cla.Italy)
+	judge.SetUnit("tys", godip.Unit{godip.Fleet, godip.Italy})
+	judge.SetUnit("gol", godip.Unit{godip.Fleet, godip.Italy})
+	opts = judge.Phase().Options(judge, godip.Italy)
 	tst.AssertOpt(t, opts, []string{"rom", "Move", "rom", "spa"})
 	tst.AssertOpt(t, opts, []string{"tys", "Convoy", "tys", "rom", "spa"})
 	tst.AssertNoOpt(t, opts, []string{"rom", "Move", "rom", "spa/sc"})
@@ -339,11 +338,11 @@ func TestSupportOpts(t *testing.T) {
 	judge.SetOrder("edi", orders.Move("edi", "nth"))
 	judge.Next()
 	judge.Next()
-	opts := judge.Phase().Options(judge, cla.England)
+	opts := judge.Phase().Options(judge, godip.England)
 	tst.AssertOpt(t, opts, []string{"eng", "Support", "eng", "wal", "lon"})
 	tst.AssertOpt(t, opts, []string{"nth", "Support", "nth", "wal", "bel"})
 	tst.AssertNoOpt(t, opts, []string{"eng", "Support", "eng", "wal", "bel"})
-	opts = judge.Phase().Options(judge, cla.France)
+	opts = judge.Phase().Options(judge, godip.France)
 	tst.AssertOpt(t, opts, []string{"par", "Support", "par", "bre", "pic"})
 	tst.AssertNoOpt(t, opts, []string{"par", "Support", "par", "par", "pic"})
 	tst.AssertNoOpt(t, opts, []string{"par", "Support", "par", "pic", "par"})
@@ -351,7 +350,7 @@ func TestSupportOpts(t *testing.T) {
 
 func TestSTPOptionsAtStart(t *testing.T) {
 	judge := startState(t)
-	opts := judge.Phase().Options(judge, cla.Russia)
+	opts := judge.Phase().Options(judge, godip.Russia)
 	tst.AssertNoOpt(t, opts, []string{"stp/nc"})
 	tst.AssertNoOpt(t, opts, []string{"stp/sc"})
 	tst.AssertOpt(t, opts, []string{"stp", "Move", "stp/sc", "lvn"})
@@ -368,7 +367,7 @@ func TestSTPBuildOptions(t *testing.T) {
 	judge.SetOrder("fin", orders.Move("fin", "swe"))
 	judge.Next()
 	judge.Next()
-	opts := judge.Phase().Options(judge, cla.Russia)
+	opts := judge.Phase().Options(judge, godip.Russia)
 	tst.AssertNoOpt(t, opts, []string{"stp"})
 	tst.AssertOpt(t, opts, []string{"stp/nc", "Build", "Fleet", "stp/nc"})
 	tst.AssertOpt(t, opts, []string{"stp/sc", "Build", "Fleet", "stp/sc"})
@@ -381,7 +380,7 @@ func TestSTPBuildOptions(t *testing.T) {
 
 func TestSupportSTPOpts(t *testing.T) {
 	judge := startState(t)
-	opts := judge.Phase().Options(judge, cla.Russia)
+	opts := judge.Phase().Options(judge, godip.Russia)
 	// Check that initially Moscow can support St Petersburg South Coast to Livonia
 	tst.AssertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 	// Check that the south coast is not mentioned in the suggestion list.
@@ -389,27 +388,27 @@ func TestSupportSTPOpts(t *testing.T) {
 
 	// Swap St Petersburg to North Coast and check there's no support option to Livonia
 	judge.RemoveUnit("stp/sc")
-	judge.SetUnit("stp/nc", godip.Unit{cla.Fleet, cla.Russia})
-	opts = judge.Phase().Options(judge, cla.Russia)
+	judge.SetUnit("stp/nc", godip.Unit{godip.Fleet, godip.Russia})
+	opts = judge.Phase().Options(judge, godip.Russia)
 	tst.AssertNoOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 
 	// Swap St Petersburg to contain an army instead and check the support option is back.
 	judge.RemoveUnit("stp/nc")
-	judge.SetUnit("stp", godip.Unit{cla.Army, cla.Russia})
-	opts = judge.Phase().Options(judge, cla.Russia)
+	judge.SetUnit("stp", godip.Unit{godip.Army, godip.Russia})
+	opts = judge.Phase().Options(judge, godip.Russia)
 	tst.AssertOpt(t, opts, []string{"mos", "Support", "mos", "stp", "lvn"})
 }
 
 func TestBULOptions(t *testing.T) {
 	judge := startState(t)
-	opts := judge.Phase().Options(judge, cla.Turkey)
+	opts := judge.Phase().Options(judge, godip.Turkey)
 	tst.AssertNoOpt(t, opts, []string{"con", "Move", "con", "bul/sc"})
 	tst.AssertNoOpt(t, opts, []string{"con", "Move", "con", "bul/ec"})
 	tst.AssertOpt(t, opts, []string{"con", "Move", "con", "bul"})
 	judge.SetOrder("con", orders.Move("con", "bul"))
 	judge.Next()
 	judge.Next()
-	opts = judge.Phase().Options(judge, cla.Turkey)
+	opts = judge.Phase().Options(judge, godip.Turkey)
 	tst.AssertNoOpt(t, opts, []string{"bul/sc"})
 	tst.AssertNoOpt(t, opts, []string{"bul/ec"})
 	tst.AssertNoOpt(t, opts, []string{"bul", "Move", "bul/sc"})
@@ -421,22 +420,22 @@ func TestBULOptions(t *testing.T) {
 // Test that por M spa supported by mid works in
 // https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAgOr0mgoM/Phase/12/Map
 func TestMIDPORSPASupportOptions(t *testing.T) {
-	judge := state.New(start.Graph(), &phase{1903, cla.Fall, cla.Movement, ord.ClassicalParser}, BackupRule)
+	judge := state.New(start.Graph(), &phase{1903, godip.Fall, godip.Movement, ord.ClassicalParser}, BackupRule)
 	if err := judge.SetUnits(start.Units()); err != nil {
 		t.Fatal(err)
 	}
 	scs := start.SupplyCenters()
-	scs["por"] = cla.France
-	scs["spa"] = cla.France
-	scs["mar"] = cla.France
+	scs["por"] = godip.France
+	scs["spa"] = godip.France
+	scs["mar"] = godip.France
 	judge.SetSupplyCenters(scs)
-	judge.SetUnit("mid", godip.Unit{cla.Fleet, cla.France})
-	judge.SetUnit("por", godip.Unit{cla.Army, cla.France})
+	judge.SetUnit("mid", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("por", godip.Unit{godip.Army, godip.France})
 	judge.RemoveUnit("mar")
-	judge.SetUnit("mar", godip.Unit{cla.Army, cla.Italy})
-	judge.SetUnit("gol", godip.Unit{cla.Fleet, cla.Italy})
-	judge.SetUnit("wes", godip.Unit{cla.Fleet, cla.Italy})
-	opts := judge.Phase().Options(judge, cla.France)
+	judge.SetUnit("mar", godip.Unit{godip.Army, godip.Italy})
+	judge.SetUnit("gol", godip.Unit{godip.Fleet, godip.Italy})
+	judge.SetUnit("wes", godip.Unit{godip.Fleet, godip.Italy})
+	opts := judge.Phase().Options(judge, godip.France)
 	tst.AssertOpt(t, opts, []string{"por", "Move", "por", "spa"})
 	tst.AssertOpt(t, opts, []string{"mid", "Support", "mid", "por", "spa"})
 }

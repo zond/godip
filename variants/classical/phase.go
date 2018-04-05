@@ -49,9 +49,9 @@ func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (
 	var filter godip.PathFilter
 	found := false
 	for _, destination := range dst {
-		if unit.Type == cla.Fleet {
+		if unit.Type == godip.Fleet {
 			filter = func(p godip.Province, edgeFlags, nodeFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) bool {
-				return edgeFlags[cla.Sea] && nodeFlags[cla.Sea]
+				return edgeFlags[godip.Sea] && nodeFlags[godip.Sea]
 			}
 		} else {
 			filter = func(p godip.Province, edgeFlags, nodeFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) bool {
@@ -59,7 +59,7 @@ func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (
 					return true
 				}
 				u, _, ok := s.Unit(p)
-				return (edgeFlags[cla.Land] && nodeFlags[cla.Land]) || (ok && !nodeFlags[cla.Land] && u.Nation == unit.Nation && u.Type == cla.Fleet)
+				return (edgeFlags[godip.Land] && nodeFlags[godip.Land]) || (ok && !nodeFlags[godip.Land] && u.Nation == unit.Nation && u.Type == godip.Fleet)
 			}
 		}
 		for _, coast := range s.Graph().Coasts(destination) {
@@ -113,10 +113,10 @@ func (self remoteUnitSlice) Less(i, j int) bool {
 	if self.distances[self.provinces[i]] == self.distances[self.provinces[j]] {
 		u1 := self.units[self.provinces[i]]
 		u2 := self.units[self.provinces[j]]
-		if u1.Type == cla.Fleet && u2.Type == cla.Army {
+		if u1.Type == godip.Fleet && u2.Type == godip.Army {
 			return true
 		}
-		if u2.Type == cla.Fleet && u1.Type == cla.Army {
+		if u2.Type == godip.Fleet && u1.Type == godip.Army {
 			return false
 		}
 		return bytes.Compare([]byte(self.provinces[i]), []byte(self.provinces[j])) < 0
@@ -149,21 +149,21 @@ func SortedUnits(s godip.State, n godip.Nation) (result []godip.Province, err er
 }
 
 func (self *phase) DefaultOrder(p godip.Province) godip.Adjudicator {
-	if self.typ == cla.Movement {
+	if self.typ == godip.Movement {
 		return orders.Hold(p)
 	}
 	return nil
 }
 
 func (self *phase) PostProcess(s godip.State) (err error) {
-	if self.typ == cla.Retreat {
+	if self.typ == godip.Retreat {
 		for prov, _ := range s.Dislodgeds() {
 			s.RemoveDislodged(prov)
 			s.SetResolution(prov, godip.ErrForcedDisband)
 		}
 		s.ClearDislodgers()
 		s.ClearBounces()
-		if self.season == cla.Fall {
+		if self.season == godip.Fall {
 			s.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
 				if u != nil {
 					if s.Graph().SC(p) != nil {
@@ -173,7 +173,7 @@ func (self *phase) PostProcess(s godip.State) (err error) {
 				return false
 			})
 		}
-	} else if self.typ == cla.Adjustment {
+	} else if self.typ == godip.Adjustment {
 		for _, nationality := range s.Graph().Nations() {
 			_, _, balance := cla.AdjustmentStatus(s, nationality)
 			if balance < 0 {
@@ -189,7 +189,7 @@ func (self *phase) PostProcess(s godip.State) (err error) {
 				}
 			}
 		}
-	} else if self.typ == cla.Movement {
+	} else if self.typ == godip.Movement {
 		for prov, unit := range s.Dislodgeds() {
 			hasRetreat := false
 			for edge, _ := range s.Graph().Edges(prov) {
@@ -223,31 +223,31 @@ func (self *phase) Type() godip.PhaseType {
 }
 
 func (self *phase) Next() godip.Phase {
-	if self.typ == cla.Movement {
+	if self.typ == godip.Movement {
 		return &phase{
 			year:   self.year,
 			season: self.season,
-			typ:    cla.Retreat,
+			typ:    godip.Retreat,
 		}
-	} else if self.typ == cla.Retreat {
-		if self.season == cla.Spring {
+	} else if self.typ == godip.Retreat {
+		if self.season == godip.Spring {
 			return &phase{
 				year:   self.year,
-				season: cla.Fall,
-				typ:    cla.Movement,
+				season: godip.Fall,
+				typ:    godip.Movement,
 			}
 		} else {
 			return &phase{
 				year:   self.year,
-				season: cla.Fall,
-				typ:    cla.Adjustment,
+				season: godip.Fall,
+				typ:    godip.Adjustment,
 			}
 		}
 	} else {
 		return &phase{
 			year:   self.year + 1,
-			season: cla.Spring,
-			typ:    cla.Movement,
+			season: godip.Spring,
+			typ:    godip.Movement,
 		}
 	}
 	return nil

@@ -2,33 +2,31 @@ package start
 
 import (
 	"github.com/zond/godip"
-
-	. "github.com/zond/godip/variants/classical/common"
 )
 
 func Units() map[godip.Province]godip.Unit {
 	return map[godip.Province]godip.Unit{
-		"edi":    godip.Unit{Fleet, England},
-		"lvp":    godip.Unit{Army, England},
-		"lon":    godip.Unit{Fleet, England},
-		"bre":    godip.Unit{Fleet, France},
-		"par":    godip.Unit{Army, France},
-		"mar":    godip.Unit{Army, France},
-		"kie":    godip.Unit{Fleet, Germany},
-		"ber":    godip.Unit{Army, Germany},
-		"mun":    godip.Unit{Army, Germany},
-		"ven":    godip.Unit{Army, Italy},
-		"rom":    godip.Unit{Army, Italy},
-		"nap":    godip.Unit{Fleet, Italy},
-		"tri":    godip.Unit{Fleet, Austria},
-		"vie":    godip.Unit{Army, Austria},
-		"bud":    godip.Unit{Army, Austria},
-		"stp/sc": godip.Unit{Fleet, Russia},
-		"mos":    godip.Unit{Army, Russia},
-		"war":    godip.Unit{Army, Russia},
-		"sev":    godip.Unit{Fleet, Russia},
-		"con":    godip.Unit{Army, Turkey},
-		"smy":    godip.Unit{Army, Turkey},
-		"ank":    godip.Unit{Fleet, Turkey},
+		"edi":    godip.Unit{godip.Fleet, godip.England},
+		"lvp":    godip.Unit{godip.Army, godip.England},
+		"lon":    godip.Unit{godip.Fleet, godip.England},
+		"bre":    godip.Unit{godip.Fleet, godip.France},
+		"par":    godip.Unit{godip.Army, godip.France},
+		"mar":    godip.Unit{godip.Army, godip.France},
+		"kie":    godip.Unit{godip.Fleet, godip.Germany},
+		"ber":    godip.Unit{godip.Army, godip.Germany},
+		"mun":    godip.Unit{godip.Army, godip.Germany},
+		"ven":    godip.Unit{godip.Army, godip.Italy},
+		"rom":    godip.Unit{godip.Army, godip.Italy},
+		"nap":    godip.Unit{godip.Fleet, godip.Italy},
+		"tri":    godip.Unit{godip.Fleet, godip.Austria},
+		"vie":    godip.Unit{godip.Army, godip.Austria},
+		"bud":    godip.Unit{godip.Army, godip.Austria},
+		"stp/sc": godip.Unit{godip.Fleet, godip.Russia},
+		"mos":    godip.Unit{godip.Army, godip.Russia},
+		"war":    godip.Unit{godip.Army, godip.Russia},
+		"sev":    godip.Unit{godip.Fleet, godip.Russia},
+		"con":    godip.Unit{godip.Army, godip.Turkey},
+		"smy":    godip.Unit{godip.Army, godip.Turkey},
+		"ank":    godip.Unit{godip.Fleet, godip.Turkey},
 	}
 }

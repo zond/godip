@@ -35,10 +35,10 @@ var ColdWarVariant = common.Variant{
 	},
 	SVGVersion: "1",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		cla.Army: func() ([]byte, error) {
+		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
-		cla.Fleet: func() ([]byte, error) {
+		godip.Fleet: func() ([]byte, error) {
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
@@ -60,21 +60,21 @@ func ColdWarBlank(phase godip.Phase) *state.State {
 }
 
 func ColdWarStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1960, cla.Spring, cla.Movement)
+	startPhase := classical.Phase(1960, godip.Spring, godip.Movement)
 	result = state.New(ColdWarGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"len/sc": godip.Unit{cla.Fleet, USSR},
-		"alb":    godip.Unit{cla.Fleet, USSR},
-		"hav":    godip.Unit{cla.Fleet, USSR},
-		"mos":    godip.Unit{cla.Army, USSR},
-		"sha":    godip.Unit{cla.Army, USSR},
-		"vla":    godip.Unit{cla.Army, USSR},
-		"lon":    godip.Unit{cla.Fleet, NATO},
-		"ist":    godip.Unit{cla.Fleet, NATO},
-		"aus":    godip.Unit{cla.Fleet, NATO},
-		"nyk":    godip.Unit{cla.Army, NATO},
-		"los":    godip.Unit{cla.Army, NATO},
-		"par":    godip.Unit{cla.Army, NATO},
+		"len/sc": godip.Unit{godip.Fleet, USSR},
+		"alb":    godip.Unit{godip.Fleet, USSR},
+		"hav":    godip.Unit{godip.Fleet, USSR},
+		"mos":    godip.Unit{godip.Army, USSR},
+		"sha":    godip.Unit{godip.Army, USSR},
+		"vla":    godip.Unit{godip.Army, USSR},
+		"lon":    godip.Unit{godip.Fleet, NATO},
+		"ist":    godip.Unit{godip.Fleet, NATO},
+		"aus":    godip.Unit{godip.Fleet, NATO},
+		"nyk":    godip.Unit{godip.Army, NATO},
+		"los":    godip.Unit{godip.Army, NATO},
+		"par":    godip.Unit{godip.Army, NATO},
 	}); err != nil {
 		return
 	}
@@ -98,212 +98,212 @@ func ColdWarStart() (result *state.State, err error) {
 func ColdWarGraph() *graph.Graph {
 	return graph.New().
 		// Tunisia
-		Prov("tun").Conn("naf", cla.Coast...).Conn("lib", cla.Coast...).Conn("ion", cla.Sea).Conn("wme", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("tun").Conn("naf", godip.Coast...).Conn("lib", godip.Coast...).Conn("ion", godip.Sea).Conn("wme", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// North Vietnam
-		Prov("nvi").Conn("sai", cla.Coast...).Conn("scs", cla.Sea).Conn("sha", cla.Coast...).Conn("sea", cla.Coast...).Flag(cla.Coast...).
+		Prov("nvi").Conn("sai", godip.Coast...).Conn("scs", godip.Sea).Conn("sha", godip.Coast...).Conn("sea", godip.Coast...).Flag(godip.Coast...).
 		// Albania
-		Prov("alb").Conn("ion", cla.Sea).Conn("grc", cla.Coast...).Conn("yug", cla.Coast...).Flag(cla.Coast...).SC(USSR).
+		Prov("alb").Conn("ion", godip.Sea).Conn("grc", godip.Coast...).Conn("yug", godip.Coast...).Flag(godip.Coast...).SC(USSR).
 		// Iran
-		Prov("irn").Conn("arm", cla.Land).Conn("irq", cla.Coast...).Conn("arb", cla.Sea).Conn("pak", cla.Coast...).Conn("afg", cla.Land).Conn("ura", cla.Land).Conn("cau", cla.Land).Conn("cau", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("irn").Conn("arm", godip.Land).Conn("irq", godip.Coast...).Conn("arb", godip.Sea).Conn("pak", godip.Coast...).Conn("afg", godip.Land).Conn("ura", godip.Land).Conn("cau", godip.Land).Conn("cau", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Florida
-		Prov("flo").Conn("wat", cla.Sea).Conn("nyk", cla.Coast...).Conn("mid", cla.Land).Conn("sow", cla.Coast...).Conn("gom", cla.Sea).Conn("car", cla.Sea).Flag(cla.Coast...).
+		Prov("flo").Conn("wat", godip.Sea).Conn("nyk", godip.Coast...).Conn("mid", godip.Land).Conn("sow", godip.Coast...).Conn("gom", godip.Sea).Conn("car", godip.Sea).Flag(godip.Coast...).
 		// London
-		Prov("lon").Conn("nts", cla.Sea).Conn("nws", cla.Sea).Conn("nts", cla.Sea).Conn("eat", cla.Sea).Flag(cla.Coast...).SC(NATO).
+		Prov("lon").Conn("nts", godip.Sea).Conn("nws", godip.Sea).Conn("nts", godip.Sea).Conn("eat", godip.Sea).Flag(godip.Coast...).SC(NATO).
 		// Afghanistan
-		Prov("afg").Conn("pak", cla.Land).Conn("sib", cla.Land).Conn("ura", cla.Land).Conn("irn", cla.Land).Flag(cla.Land).
+		Prov("afg").Conn("pak", godip.Land).Conn("sib", godip.Land).Conn("ura", godip.Land).Conn("irn", godip.Land).Flag(godip.Land).
 		// Midwest
-		Prov("mid").Conn("nyk", cla.Land).Conn("tor", cla.Land).Conn("wca", cla.Land).Conn("los", cla.Land).Conn("sow", cla.Land).Conn("flo", cla.Land).Flag(cla.Land).
+		Prov("mid").Conn("nyk", godip.Land).Conn("tor", godip.Land).Conn("wca", godip.Land).Conn("los", godip.Land).Conn("sow", godip.Land).Conn("flo", godip.Land).Flag(godip.Land).
 		// Levant
-		Prov("lev").Conn("eme", cla.Sea).Conn("egy", cla.Coast...).Conn("ara", cla.Land).Conn("irq", cla.Land).Conn("arm", cla.Land).Conn("ist", cla.Coast...).Flag(cla.Coast...).
+		Prov("lev").Conn("eme", godip.Sea).Conn("egy", godip.Coast...).Conn("ara", godip.Land).Conn("irq", godip.Land).Conn("arm", godip.Land).Conn("ist", godip.Coast...).Flag(godip.Coast...).
 		// North Korea
-		Prov("nko").Conn("seo", cla.Land).Conn("vla", cla.Land).Conn("man", cla.Land).Flag(cla.Land).
+		Prov("nko").Conn("seo", godip.Land).Conn("vla", godip.Land).Conn("man", godip.Land).Flag(godip.Land).
 		// North Korea (East Coast)
-		Prov("nko/ec").Conn("seo", cla.Sea).Conn("soj", cla.Sea).Conn("vla", cla.Sea).Flag(cla.Sea).
+		Prov("nko/ec").Conn("seo", godip.Sea).Conn("soj", godip.Sea).Conn("vla", godip.Sea).Flag(godip.Sea).
 		// North Korea (West Coast)
-		Prov("nko/wc").Conn("yel", cla.Sea).Conn("seo", cla.Sea).Conn("man", cla.Sea).Flag(cla.Sea).
+		Prov("nko/wc").Conn("yel", godip.Sea).Conn("seo", godip.Sea).Conn("man", godip.Sea).Flag(godip.Sea).
 		// India
-		Prov("ind").Conn("ban", cla.Coast...).Conn("pak", cla.Coast...).Conn("arb", cla.Sea).Conn("inc", cla.Sea).Conn("bay", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("ind").Conn("ban", godip.Coast...).Conn("pak", godip.Coast...).Conn("arb", godip.Sea).Conn("inc", godip.Sea).Conn("bay", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// New York
-		Prov("nyk").Conn("que", cla.Coast...).Conn("tor", cla.Land).Conn("mid", cla.Land).Conn("flo", cla.Coast...).Conn("wat", cla.Sea).Flag(cla.Coast...).SC(NATO).
+		Prov("nyk").Conn("que", godip.Coast...).Conn("tor", godip.Land).Conn("mid", godip.Land).Conn("flo", godip.Coast...).Conn("wat", godip.Sea).Flag(godip.Coast...).SC(NATO).
 		// Venezuela
-		Prov("ven").Conn("col", cla.Land).Conn("col/nc", cla.Sea).Conn("bra", cla.Coast...).Conn("wat", cla.Sea).Conn("car", cla.Sea).Flag(cla.Coast...).
+		Prov("ven").Conn("col", godip.Land).Conn("col/nc", godip.Sea).Conn("bra", godip.Coast...).Conn("wat", godip.Sea).Conn("car", godip.Sea).Flag(godip.Coast...).
 		// Caribbean Sea
-		Prov("car").Conn("hav", cla.Sea).Conn("gom", cla.Sea).Conn("mex", cla.Sea).Conn("mex/ec", cla.Sea).Conn("cen", cla.Sea).Conn("cen/ec", cla.Sea).Conn("pan", cla.Sea).Conn("col", cla.Sea).Conn("col/nc", cla.Sea).Conn("ven", cla.Sea).Conn("wat", cla.Sea).Conn("flo", cla.Sea).Flag(cla.Sea).
+		Prov("car").Conn("hav", godip.Sea).Conn("gom", godip.Sea).Conn("mex", godip.Sea).Conn("mex/ec", godip.Sea).Conn("cen", godip.Sea).Conn("cen/ec", godip.Sea).Conn("pan", godip.Sea).Conn("col", godip.Sea).Conn("col/nc", godip.Sea).Conn("ven", godip.Sea).Conn("wat", godip.Sea).Conn("flo", godip.Sea).Flag(godip.Sea).
 		// Greenland
-		Prov("grd").Conn("arc", cla.Sea).Conn("wat", cla.Sea).Conn("nws", cla.Sea).Flag(cla.Coast...).
+		Prov("grd").Conn("arc", godip.Sea).Conn("wat", godip.Sea).Conn("nws", godip.Sea).Flag(godip.Coast...).
 		// Paris
-		Prov("par").Conn("ita", cla.Land).Conn("wge", cla.Land).Conn("spa", cla.Land).Flag(cla.Land).SC(NATO).
+		Prov("par").Conn("ita", godip.Land).Conn("wge", godip.Land).Conn("spa", godip.Land).Flag(godip.Land).SC(NATO).
 		// Paris (North Coast)
-		Prov("par/nc").Conn("wge", cla.Sea).Conn("nts", cla.Sea).Conn("eat", cla.Sea).Conn("spa", cla.Sea).Flag(cla.Sea).
+		Prov("par/nc").Conn("wge", godip.Sea).Conn("nts", godip.Sea).Conn("eat", godip.Sea).Conn("spa", godip.Sea).Flag(godip.Sea).
 		// Paris (South Coast)
-		Prov("par/sc").Conn("wme", cla.Sea).Conn("ita", cla.Sea).Conn("spa", cla.Sea).Flag(cla.Sea).
+		Prov("par/sc").Conn("wme", godip.Sea).Conn("ita", godip.Sea).Conn("spa", godip.Sea).Flag(godip.Sea).
 		// Ionian Sea
-		Prov("ion").Conn("grc", cla.Sea).Conn("alb", cla.Sea).Conn("yug", cla.Sea).Conn("ita", cla.Sea).Conn("wme", cla.Sea).Conn("tun", cla.Sea).Conn("lib", cla.Sea).Conn("eme", cla.Sea).Flag(cla.Sea).
+		Prov("ion").Conn("grc", godip.Sea).Conn("alb", godip.Sea).Conn("yug", godip.Sea).Conn("ita", godip.Sea).Conn("wme", godip.Sea).Conn("tun", godip.Sea).Conn("lib", godip.Sea).Conn("eme", godip.Sea).Flag(godip.Sea).
 		// Brazil
-		Prov("bra").Conn("wat", cla.Sea).Conn("ven", cla.Coast...).Conn("col", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("bra").Conn("wat", godip.Sea).Conn("ven", godip.Coast...).Conn("col", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Gulf of Mexico
-		Prov("gom").Conn("mex", cla.Sea).Conn("mex/ec", cla.Sea).Conn("car", cla.Sea).Conn("hav", cla.Sea).Conn("car", cla.Sea).Conn("flo", cla.Sea).Conn("sow", cla.Sea).Flag(cla.Sea).
+		Prov("gom").Conn("mex", godip.Sea).Conn("mex/ec", godip.Sea).Conn("car", godip.Sea).Conn("hav", godip.Sea).Conn("car", godip.Sea).Conn("flo", godip.Sea).Conn("sow", godip.Sea).Flag(godip.Sea).
 		// West Atlantic
-		Prov("wat").Conn("eat", cla.Sea).Conn("nws", cla.Sea).Conn("grd", cla.Sea).Conn("arc", cla.Sea).Conn("hud", cla.Sea).Conn("que", cla.Sea).Conn("nyk", cla.Sea).Conn("flo", cla.Sea).Conn("car", cla.Sea).Conn("ven", cla.Sea).Conn("bra", cla.Sea).Flag(cla.Sea).
+		Prov("wat").Conn("eat", godip.Sea).Conn("nws", godip.Sea).Conn("grd", godip.Sea).Conn("arc", godip.Sea).Conn("hud", godip.Sea).Conn("que", godip.Sea).Conn("nyk", godip.Sea).Conn("flo", godip.Sea).Conn("car", godip.Sea).Conn("ven", godip.Sea).Conn("bra", godip.Sea).Flag(godip.Sea).
 		// West China
-		Prov("wch").Conn("mon", cla.Land).Conn("sib", cla.Land).Conn("pak", cla.Land).Conn("ban", cla.Land).Conn("sha", cla.Land).Flag(cla.Land).
+		Prov("wch").Conn("mon", godip.Land).Conn("sib", godip.Land).Conn("pak", godip.Land).Conn("ban", godip.Land).Conn("sha", godip.Land).Flag(godip.Land).
 		// Havana
-		Prov("hav").Conn("car", cla.Sea).Conn("gom", cla.Sea).Flag(cla.Coast...).SC(USSR).
+		Prov("hav").Conn("car", godip.Sea).Conn("gom", godip.Sea).Flag(godip.Coast...).SC(USSR).
 		// Arabia
-		Prov("ara").Conn("egy", cla.Coast...).Conn("red", cla.Sea).Conn("arb", cla.Sea).Conn("irq", cla.Coast...).Conn("lev", cla.Land).Flag(cla.Coast...).
+		Prov("ara").Conn("egy", godip.Coast...).Conn("red", godip.Sea).Conn("arb", godip.Sea).Conn("irq", godip.Coast...).Conn("lev", godip.Land).Flag(godip.Coast...).
 		// East Germany
-		Prov("ege").Conn("wge", cla.Land).Conn("yug", cla.Land).Conn("ukr", cla.Land).Conn("mos", cla.Land).Conn("len", cla.Land).Conn("len/sc", cla.Sea).Conn("bal", cla.Sea).Conn("den", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("ege").Conn("wge", godip.Land).Conn("yug", godip.Land).Conn("ukr", godip.Land).Conn("mos", godip.Land).Conn("len", godip.Land).Conn("len/sc", godip.Sea).Conn("bal", godip.Sea).Conn("den", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Leningrad
-		Prov("len").Conn("noy", cla.Land).Conn("fin", cla.Land).Conn("ege", cla.Land).Conn("mos", cla.Land).Conn("ura", cla.Land).Flag(cla.Land).SC(USSR).
+		Prov("len").Conn("noy", godip.Land).Conn("fin", godip.Land).Conn("ege", godip.Land).Conn("mos", godip.Land).Conn("ura", godip.Land).Flag(godip.Land).SC(USSR).
 		// Leningrad (North Coast)
-		Prov("len/nc").Conn("noy", cla.Sea).Conn("ura", cla.Sea).Conn("nws", cla.Sea).Flag(cla.Sea).
+		Prov("len/nc").Conn("noy", godip.Sea).Conn("ura", godip.Sea).Conn("nws", godip.Sea).Flag(godip.Sea).
 		// Leningrad (South Coast)
-		Prov("len/sc").Conn("fin", cla.Sea).Conn("bal", cla.Sea).Conn("ege", cla.Sea).Flag(cla.Sea).
+		Prov("len/sc").Conn("fin", godip.Sea).Conn("bal", godip.Sea).Conn("ege", godip.Sea).Flag(godip.Sea).
 		// North Africa
-		Prov("naf").Conn("lib", cla.Land).Conn("tun", cla.Coast...).Conn("wme", cla.Sea).Conn("eat", cla.Sea).Flag(cla.Coast...).
+		Prov("naf").Conn("lib", godip.Land).Conn("tun", godip.Coast...).Conn("wme", godip.Sea).Conn("eat", godip.Sea).Flag(godip.Coast...).
 		// Baltic Sea
-		Prov("bal").Conn("fin", cla.Sea).Conn("swe", cla.Sea).Conn("den", cla.Sea).Conn("ege", cla.Sea).Conn("len", cla.Sea).Conn("len/sc", cla.Sea).Flag(cla.Sea).
+		Prov("bal").Conn("fin", godip.Sea).Conn("swe", godip.Sea).Conn("den", godip.Sea).Conn("ege", godip.Sea).Conn("len", godip.Sea).Conn("len/sc", godip.Sea).Flag(godip.Sea).
 		// Yugoslavia
-		Prov("yug").Conn("wge", cla.Land).Conn("ita", cla.Coast...).Conn("ion", cla.Sea).Conn("alb", cla.Coast...).Conn("grc", cla.Coast...).Conn("ukr", cla.Land).Conn("ege", cla.Land).Flag(cla.Coast...).
+		Prov("yug").Conn("wge", godip.Land).Conn("ita", godip.Coast...).Conn("ion", godip.Sea).Conn("alb", godip.Coast...).Conn("grc", godip.Coast...).Conn("ukr", godip.Land).Conn("ege", godip.Land).Flag(godip.Coast...).
 		// Toronto
-		Prov("tor").Conn("nyk", cla.Land).Conn("que", cla.Coast...).Conn("hud", cla.Sea).Conn("wca", cla.Land).Conn("wca/nc", cla.Sea).Conn("mid", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("tor").Conn("nyk", godip.Land).Conn("que", godip.Coast...).Conn("hud", godip.Sea).Conn("wca", godip.Land).Conn("wca/nc", godip.Sea).Conn("mid", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Norway
-		Prov("noy").Conn("nws", cla.Sea).Conn("nts", cla.Sea).Conn("swe", cla.Coast...).Conn("fin", cla.Coast...).Conn("len", cla.Land).Conn("len/nc", cla.Sea).Flag(cla.Coast...).
+		Prov("noy").Conn("nws", godip.Sea).Conn("nts", godip.Sea).Conn("swe", godip.Coast...).Conn("fin", godip.Coast...).Conn("len", godip.Land).Conn("len/nc", godip.Sea).Flag(godip.Coast...).
 		// Vladivostok
-		Prov("vla").Conn("man", cla.Land).Conn("nko", cla.Land).Conn("nko/ec", cla.Sea).Conn("soj", cla.Sea).Conn("ber", cla.Sea).Conn("kam", cla.Coast...).Conn("sib", cla.Land).Flag(cla.Coast...).SC(USSR).
+		Prov("vla").Conn("man", godip.Land).Conn("nko", godip.Land).Conn("nko/ec", godip.Sea).Conn("soj", godip.Sea).Conn("ber", godip.Sea).Conn("kam", godip.Coast...).Conn("sib", godip.Land).Flag(godip.Coast...).SC(USSR).
 		// East Africa
-		Prov("eaf").Conn("inc", cla.Sea).Conn("red", cla.Sea).Conn("egy", cla.Coast...).Conn("lib", cla.Land).Flag(cla.Coast...).
+		Prov("eaf").Conn("inc", godip.Sea).Conn("red", godip.Sea).Conn("egy", godip.Coast...).Conn("lib", godip.Land).Flag(godip.Coast...).
 		// Libya
-		Prov("lib").Conn("eaf", cla.Land).Conn("egy", cla.Coast...).Conn("eme", cla.Sea).Conn("ion", cla.Sea).Conn("tun", cla.Coast...).Conn("naf", cla.Land).Flag(cla.Coast...).
+		Prov("lib").Conn("eaf", godip.Land).Conn("egy", godip.Coast...).Conn("eme", godip.Sea).Conn("ion", godip.Sea).Conn("tun", godip.Coast...).Conn("naf", godip.Land).Flag(godip.Coast...).
 		// Japan
-		Prov("jap").Conn("soj", cla.Sea).Conn("yel", cla.Sea).Conn("wpa", cla.Sea).Conn("ber", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("jap").Conn("soj", godip.Sea).Conn("yel", godip.Sea).Conn("wpa", godip.Sea).Conn("ber", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Denmark
-		Prov("den").Conn("bal", cla.Sea).Conn("nts", cla.Sea).Conn("wge", cla.Coast...).Conn("ege", cla.Coast...).Conn("swe", cla.Coast...).Flag(cla.Coast...).
+		Prov("den").Conn("bal", godip.Sea).Conn("nts", godip.Sea).Conn("wge", godip.Coast...).Conn("ege", godip.Coast...).Conn("swe", godip.Coast...).Flag(godip.Coast...).
 		// Seoul
-		Prov("seo").Conn("nko", cla.Land).Conn("nko/wc", cla.Sea).Conn("nko/ec", cla.Sea).Conn("yel", cla.Sea).Conn("soj", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("seo").Conn("nko", godip.Land).Conn("nko/wc", godip.Sea).Conn("nko/ec", godip.Sea).Conn("yel", godip.Sea).Conn("soj", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Bering Sea
-		Prov("ber").Conn("epa", cla.Sea).Conn("goa", cla.Sea).Conn("ala", cla.Sea).Conn("arc", cla.Sea).Conn("kam", cla.Sea).Conn("vla", cla.Sea).Conn("soj", cla.Sea).Conn("jap", cla.Sea).Conn("wpa", cla.Sea).Flag(cla.Sea).
+		Prov("ber").Conn("epa", godip.Sea).Conn("goa", godip.Sea).Conn("ala", godip.Sea).Conn("arc", godip.Sea).Conn("kam", godip.Sea).Conn("vla", godip.Sea).Conn("soj", godip.Sea).Conn("jap", godip.Sea).Conn("wpa", godip.Sea).Flag(godip.Sea).
 		// Los Angeles
-		Prov("los").Conn("wca", cla.Land).Conn("wca/wc", cla.Sea).Conn("goa", cla.Sea).Conn("epa", cla.Sea).Conn("mex", cla.Land).Conn("mex/wc", cla.Sea).Conn("sow", cla.Land).Conn("mid", cla.Land).Flag(cla.Coast...).SC(NATO).
+		Prov("los").Conn("wca", godip.Land).Conn("wca/wc", godip.Sea).Conn("goa", godip.Sea).Conn("epa", godip.Sea).Conn("mex", godip.Land).Conn("mex/wc", godip.Sea).Conn("sow", godip.Land).Conn("mid", godip.Land).Flag(godip.Coast...).SC(NATO).
 		// Caucasus
-		Prov("cau").Conn("bla", cla.Sea).Conn("arm", cla.Coast...).Conn("irn", cla.Land).Conn("irn", cla.Land).Conn("ura", cla.Land).Conn("mos", cla.Land).Conn("ukr", cla.Coast...).Flag(cla.Coast...).
+		Prov("cau").Conn("bla", godip.Sea).Conn("arm", godip.Coast...).Conn("irn", godip.Land).Conn("irn", godip.Land).Conn("ura", godip.Land).Conn("mos", godip.Land).Conn("ukr", godip.Coast...).Flag(godip.Coast...).
 		// Armenia
-		Prov("arm").Conn("irq", cla.Land).Conn("irn", cla.Land).Conn("cau", cla.Coast...).Conn("bla", cla.Sea).Conn("ist", cla.Coast...).Conn("lev", cla.Land).Flag(cla.Coast...).
+		Prov("arm").Conn("irq", godip.Land).Conn("irn", godip.Land).Conn("cau", godip.Coast...).Conn("bla", godip.Sea).Conn("ist", godip.Coast...).Conn("lev", godip.Land).Flag(godip.Coast...).
 		// Panama
-		Prov("pan").Conn("col", cla.Land).Conn("col/nc", cla.Sea).Conn("col/wc", cla.Sea).Conn("car", cla.Sea).Conn("cen", cla.Land).Conn("cen/ec", cla.Sea).Conn("cen/wc", cla.Sea).Conn("epa", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("pan").Conn("col", godip.Land).Conn("col/nc", godip.Sea).Conn("col/wc", godip.Sea).Conn("car", godip.Sea).Conn("cen", godip.Land).Conn("cen/ec", godip.Sea).Conn("cen/wc", godip.Sea).Conn("epa", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Southwest
-		Prov("sow").Conn("mid", cla.Land).Conn("los", cla.Land).Conn("mex", cla.Land).Conn("mex/ec", cla.Sea).Conn("gom", cla.Sea).Conn("flo", cla.Coast...).Flag(cla.Coast...).
+		Prov("sow").Conn("mid", godip.Land).Conn("los", godip.Land).Conn("mex", godip.Land).Conn("mex/ec", godip.Sea).Conn("gom", godip.Sea).Conn("flo", godip.Coast...).Flag(godip.Coast...).
 		// South China Sea
-		Prov("scs").Conn("sai", cla.Sea).Conn("sea", cla.Sea).Conn("bay", cla.Sea).Conn("ins", cla.Sea).Conn("phi", cla.Sea).Conn("yel", cla.Sea).Conn("sha", cla.Sea).Conn("nvi", cla.Sea).Flag(cla.Sea).
+		Prov("scs").Conn("sai", godip.Sea).Conn("sea", godip.Sea).Conn("bay", godip.Sea).Conn("ins", godip.Sea).Conn("phi", godip.Sea).Conn("yel", godip.Sea).Conn("sha", godip.Sea).Conn("nvi", godip.Sea).Flag(godip.Sea).
 		// Istanbul
-		Prov("ist").Conn("grc", cla.Coast...).Conn("eme", cla.Sea).Conn("lev", cla.Coast...).Conn("arm", cla.Coast...).Conn("bla", cla.Sea).Conn("ukr", cla.Coast...).Flag(cla.Coast...).SC(NATO).
+		Prov("ist").Conn("grc", godip.Coast...).Conn("eme", godip.Sea).Conn("lev", godip.Coast...).Conn("arm", godip.Coast...).Conn("bla", godip.Sea).Conn("ukr", godip.Coast...).Flag(godip.Coast...).SC(NATO).
 		// Arabian Sea
-		Prov("arb").Conn("irq", cla.Sea).Conn("ara", cla.Sea).Conn("red", cla.Sea).Conn("inc", cla.Sea).Conn("ind", cla.Sea).Conn("pak", cla.Sea).Conn("irn", cla.Sea).Flag(cla.Sea).
+		Prov("arb").Conn("irq", godip.Sea).Conn("ara", godip.Sea).Conn("red", godip.Sea).Conn("inc", godip.Sea).Conn("ind", godip.Sea).Conn("pak", godip.Sea).Conn("irn", godip.Sea).Flag(godip.Sea).
 		// Finland
-		Prov("fin").Conn("bal", cla.Sea).Conn("len", cla.Land).Conn("len/sc", cla.Sea).Conn("noy", cla.Coast...).Conn("swe", cla.Coast...).Flag(cla.Coast...).
+		Prov("fin").Conn("bal", godip.Sea).Conn("len", godip.Land).Conn("len/sc", godip.Sea).Conn("noy", godip.Coast...).Conn("swe", godip.Coast...).Flag(godip.Coast...).
 		// East Mediterranean
-		Prov("eme").Conn("lev", cla.Sea).Conn("ist", cla.Sea).Conn("grc", cla.Sea).Conn("ion", cla.Sea).Conn("lib", cla.Sea).Conn("egy", cla.Sea).Flag(cla.Sea).
+		Prov("eme").Conn("lev", godip.Sea).Conn("ist", godip.Sea).Conn("grc", godip.Sea).Conn("ion", godip.Sea).Conn("lib", godip.Sea).Conn("egy", godip.Sea).Flag(godip.Sea).
 		// North Sea
-		Prov("nts").Conn("swe", cla.Sea).Conn("noy", cla.Sea).Conn("nws", cla.Sea).Conn("lon", cla.Sea).Conn("eat", cla.Sea).Conn("par", cla.Sea).Conn("par/nc", cla.Sea).Conn("wge", cla.Sea).Conn("den", cla.Sea).Flag(cla.Sea).
+		Prov("nts").Conn("swe", godip.Sea).Conn("noy", godip.Sea).Conn("nws", godip.Sea).Conn("lon", godip.Sea).Conn("eat", godip.Sea).Conn("par", godip.Sea).Conn("par/nc", godip.Sea).Conn("wge", godip.Sea).Conn("den", godip.Sea).Flag(godip.Sea).
 		// Urals
-		Prov("ura").Conn("nws", cla.Sea).Conn("len", cla.Land).Conn("len/nc", cla.Sea).Conn("mos", cla.Land).Conn("cau", cla.Land).Conn("irn", cla.Land).Conn("afg", cla.Land).Conn("sib", cla.Coast...).Conn("arc", cla.Sea).Flag(cla.Coast...).
+		Prov("ura").Conn("nws", godip.Sea).Conn("len", godip.Land).Conn("len/nc", godip.Sea).Conn("mos", godip.Land).Conn("cau", godip.Land).Conn("irn", godip.Land).Conn("afg", godip.Land).Conn("sib", godip.Coast...).Conn("arc", godip.Sea).Flag(godip.Coast...).
 		// Manchuria
-		Prov("man").Conn("vla", cla.Land).Conn("sib", cla.Land).Conn("mon", cla.Land).Conn("sha", cla.Coast...).Conn("yel", cla.Sea).Conn("nko", cla.Land).Conn("nko/wc", cla.Sea).Flag(cla.Coast...).
+		Prov("man").Conn("vla", godip.Land).Conn("sib", godip.Land).Conn("mon", godip.Land).Conn("sha", godip.Coast...).Conn("yel", godip.Sea).Conn("nko", godip.Land).Conn("nko/wc", godip.Sea).Flag(godip.Coast...).
 		// East Atlantic
-		Prov("eat").Conn("naf", cla.Sea).Conn("wme", cla.Sea).Conn("spa", cla.Sea).Conn("par", cla.Sea).Conn("par/nc", cla.Sea).Conn("nts", cla.Sea).Conn("nws", cla.Sea).Conn("wat", cla.Sea).Conn("lon", cla.Sea).Flag(cla.Sea).
+		Prov("eat").Conn("naf", godip.Sea).Conn("wme", godip.Sea).Conn("spa", godip.Sea).Conn("par", godip.Sea).Conn("par/nc", godip.Sea).Conn("nts", godip.Sea).Conn("nws", godip.Sea).Conn("wat", godip.Sea).Conn("lon", godip.Sea).Flag(godip.Sea).
 		// Alaska
-		Prov("ala").Conn("arc", cla.Sea).Conn("ber", cla.Sea).Conn("goa", cla.Sea).Conn("wca", cla.Land).Conn("wca/nc", cla.Sea).Conn("wca/wc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("ala").Conn("arc", godip.Sea).Conn("ber", godip.Sea).Conn("goa", godip.Sea).Conn("wca", godip.Land).Conn("wca/nc", godip.Sea).Conn("wca/wc", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Bay of Bengal
-		Prov("bay").Conn("ins", cla.Sea).Conn("scs", cla.Sea).Conn("sea", cla.Sea).Conn("ban", cla.Sea).Conn("ind", cla.Sea).Conn("inc", cla.Sea).Conn("inc", cla.Sea).Flag(cla.Sea).
+		Prov("bay").Conn("ins", godip.Sea).Conn("scs", godip.Sea).Conn("sea", godip.Sea).Conn("ban", godip.Sea).Conn("ind", godip.Sea).Conn("inc", godip.Sea).Conn("inc", godip.Sea).Flag(godip.Sea).
 		// Ukraine
-		Prov("ukr").Conn("cau", cla.Coast...).Conn("mos", cla.Land).Conn("ege", cla.Land).Conn("yug", cla.Land).Conn("grc", cla.Land).Conn("ist", cla.Coast...).Conn("bla", cla.Sea).Flag(cla.Coast...).
+		Prov("ukr").Conn("cau", godip.Coast...).Conn("mos", godip.Land).Conn("ege", godip.Land).Conn("yug", godip.Land).Conn("grc", godip.Land).Conn("ist", godip.Coast...).Conn("bla", godip.Sea).Flag(godip.Coast...).
 		// Saigon
-		Prov("sai").Conn("scs", cla.Sea).Conn("nvi", cla.Coast...).Conn("sea", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("sai").Conn("scs", godip.Sea).Conn("nvi", godip.Coast...).Conn("sea", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Bangladesh
-		Prov("ban").Conn("sha", cla.Land).Conn("wch", cla.Land).Conn("ind", cla.Coast...).Conn("bay", cla.Sea).Conn("sea", cla.Coast...).Flag(cla.Coast...).
+		Prov("ban").Conn("sha", godip.Land).Conn("wch", godip.Land).Conn("ind", godip.Coast...).Conn("bay", godip.Sea).Conn("sea", godip.Coast...).Flag(godip.Coast...).
 		// Sea of Japan
-		Prov("soj").Conn("nko", cla.Sea).Conn("nko/ec", cla.Sea).Conn("seo", cla.Sea).Conn("yel", cla.Sea).Conn("jap", cla.Sea).Conn("ber", cla.Sea).Conn("vla", cla.Sea).Flag(cla.Sea).
+		Prov("soj").Conn("nko", godip.Sea).Conn("nko/ec", godip.Sea).Conn("seo", godip.Sea).Conn("yel", godip.Sea).Conn("jap", godip.Sea).Conn("ber", godip.Sea).Conn("vla", godip.Sea).Flag(godip.Sea).
 		// East Pacific
-		Prov("epa").Conn("col", cla.Sea).Conn("col/wc", cla.Sea).Conn("pan", cla.Sea).Conn("cen", cla.Sea).Conn("cen/wc", cla.Sea).Conn("mex", cla.Sea).Conn("mex/wc", cla.Sea).Conn("los", cla.Sea).Conn("goa", cla.Sea).Conn("ber", cla.Sea).Conn("wpa", cla.Sea).Flag(cla.Sea).
+		Prov("epa").Conn("col", godip.Sea).Conn("col/wc", godip.Sea).Conn("pan", godip.Sea).Conn("cen", godip.Sea).Conn("cen/wc", godip.Sea).Conn("mex", godip.Sea).Conn("mex/wc", godip.Sea).Conn("los", godip.Sea).Conn("goa", godip.Sea).Conn("ber", godip.Sea).Conn("wpa", godip.Sea).Flag(godip.Sea).
 		// Spain
-		Prov("spa").Conn("wme", cla.Sea).Conn("par", cla.Land).Conn("par/nc", cla.Sea).Conn("par/sc", cla.Sea).Conn("eat", cla.Sea).Flag(cla.Coast...).
+		Prov("spa").Conn("wme", godip.Sea).Conn("par", godip.Land).Conn("par/nc", godip.Sea).Conn("par/sc", godip.Sea).Conn("eat", godip.Sea).Flag(godip.Coast...).
 		// Indian Ocean
-		Prov("inc").Conn("aus", cla.Sea).Conn("ins", cla.Sea).Conn("bay", cla.Sea).Conn("bay", cla.Sea).Conn("ind", cla.Sea).Conn("arb", cla.Sea).Conn("red", cla.Sea).Conn("eaf", cla.Sea).Flag(cla.Sea).
+		Prov("inc").Conn("aus", godip.Sea).Conn("ins", godip.Sea).Conn("bay", godip.Sea).Conn("bay", godip.Sea).Conn("ind", godip.Sea).Conn("arb", godip.Sea).Conn("red", godip.Sea).Conn("eaf", godip.Sea).Flag(godip.Sea).
 		// Norwegian Sea
-		Prov("nws").Conn("ura", cla.Sea).Conn("arc", cla.Sea).Conn("grd", cla.Sea).Conn("wat", cla.Sea).Conn("eat", cla.Sea).Conn("nts", cla.Sea).Conn("lon", cla.Sea).Conn("nts", cla.Sea).Conn("noy", cla.Sea).Conn("len", cla.Sea).Conn("len/nc", cla.Sea).Flag(cla.Sea).
+		Prov("nws").Conn("ura", godip.Sea).Conn("arc", godip.Sea).Conn("grd", godip.Sea).Conn("wat", godip.Sea).Conn("eat", godip.Sea).Conn("nts", godip.Sea).Conn("lon", godip.Sea).Conn("nts", godip.Sea).Conn("noy", godip.Sea).Conn("len", godip.Sea).Conn("len/nc", godip.Sea).Flag(godip.Sea).
 		// Hudson Bay
-		Prov("hud").Conn("arc", cla.Sea).Conn("wca", cla.Sea).Conn("wca/nc", cla.Sea).Conn("tor", cla.Sea).Conn("que", cla.Sea).Conn("wat", cla.Sea).Flag(cla.Sea).
+		Prov("hud").Conn("arc", godip.Sea).Conn("wca", godip.Sea).Conn("wca/nc", godip.Sea).Conn("tor", godip.Sea).Conn("que", godip.Sea).Conn("wat", godip.Sea).Flag(godip.Sea).
 		// Philippines
-		Prov("phi").Conn("yel", cla.Sea).Conn("scs", cla.Sea).Conn("ins", cla.Coast...).Conn("wpa", cla.Sea).Flag(cla.Coast...).
+		Prov("phi").Conn("yel", godip.Sea).Conn("scs", godip.Sea).Conn("ins", godip.Coast...).Conn("wpa", godip.Sea).Flag(godip.Coast...).
 		// Mongolia
-		Prov("mon").Conn("wch", cla.Land).Conn("sha", cla.Land).Conn("man", cla.Land).Conn("sib", cla.Land).Flag(cla.Land).
+		Prov("mon").Conn("wch", godip.Land).Conn("sha", godip.Land).Conn("man", godip.Land).Conn("sib", godip.Land).Flag(godip.Land).
 		// Yellow Sea
-		Prov("yel").Conn("wpa", cla.Sea).Conn("jap", cla.Sea).Conn("soj", cla.Sea).Conn("seo", cla.Sea).Conn("nko", cla.Sea).Conn("nko/wc", cla.Sea).Conn("man", cla.Sea).Conn("sha", cla.Sea).Conn("scs", cla.Sea).Conn("phi", cla.Sea).Flag(cla.Sea).
+		Prov("yel").Conn("wpa", godip.Sea).Conn("jap", godip.Sea).Conn("soj", godip.Sea).Conn("seo", godip.Sea).Conn("nko", godip.Sea).Conn("nko/wc", godip.Sea).Conn("man", godip.Sea).Conn("sha", godip.Sea).Conn("scs", godip.Sea).Conn("phi", godip.Sea).Flag(godip.Sea).
 		// West Germany
-		Prov("wge").Conn("ege", cla.Land).Conn("den", cla.Coast...).Conn("nts", cla.Sea).Conn("par", cla.Land).Conn("par/nc", cla.Sea).Conn("yug", cla.Land).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("wge").Conn("ege", godip.Land).Conn("den", godip.Coast...).Conn("nts", godip.Sea).Conn("par", godip.Land).Conn("par/nc", godip.Sea).Conn("yug", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Greece
-		Prov("grc").Conn("ion", cla.Sea).Conn("eme", cla.Sea).Conn("ist", cla.Coast...).Conn("ukr", cla.Land).Conn("yug", cla.Coast...).Conn("alb", cla.Coast...).Flag(cla.Coast...).
+		Prov("grc").Conn("ion", godip.Sea).Conn("eme", godip.Sea).Conn("ist", godip.Coast...).Conn("ukr", godip.Land).Conn("yug", godip.Coast...).Conn("alb", godip.Coast...).Flag(godip.Coast...).
 		// Arctic Ocean
-		Prov("arc").Conn("grd", cla.Sea).Conn("nws", cla.Sea).Conn("ura", cla.Sea).Conn("sib", cla.Sea).Conn("kam", cla.Sea).Conn("ber", cla.Sea).Conn("ala", cla.Sea).Conn("wca", cla.Sea).Conn("wca/nc", cla.Sea).Conn("hud", cla.Sea).Conn("wat", cla.Sea).Flag(cla.Sea).
+		Prov("arc").Conn("grd", godip.Sea).Conn("nws", godip.Sea).Conn("ura", godip.Sea).Conn("sib", godip.Sea).Conn("kam", godip.Sea).Conn("ber", godip.Sea).Conn("ala", godip.Sea).Conn("wca", godip.Sea).Conn("wca/nc", godip.Sea).Conn("hud", godip.Sea).Conn("wat", godip.Sea).Flag(godip.Sea).
 		// Sweden
-		Prov("swe").Conn("bal", cla.Sea).Conn("nts", cla.Sea).Conn("fin", cla.Coast...).Conn("noy", cla.Coast...).Conn("den", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("swe").Conn("bal", godip.Sea).Conn("nts", godip.Sea).Conn("fin", godip.Coast...).Conn("noy", godip.Coast...).Conn("den", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Iraq
-		Prov("irq").Conn("arb", cla.Sea).Conn("irn", cla.Coast...).Conn("arm", cla.Land).Conn("lev", cla.Land).Conn("ara", cla.Coast...).Flag(cla.Coast...).
+		Prov("irq").Conn("arb", godip.Sea).Conn("irn", godip.Coast...).Conn("arm", godip.Land).Conn("lev", godip.Land).Conn("ara", godip.Coast...).Flag(godip.Coast...).
 		// Pakistan
-		Prov("pak").Conn("arb", cla.Sea).Conn("ind", cla.Coast...).Conn("wch", cla.Land).Conn("sib", cla.Land).Conn("afg", cla.Land).Conn("irn", cla.Coast...).Flag(cla.Coast...).
+		Prov("pak").Conn("arb", godip.Sea).Conn("ind", godip.Coast...).Conn("wch", godip.Land).Conn("sib", godip.Land).Conn("afg", godip.Land).Conn("irn", godip.Coast...).Flag(godip.Coast...).
 		// Shanghai
-		Prov("sha").Conn("ban", cla.Land).Conn("nvi", cla.Coast...).Conn("scs", cla.Sea).Conn("yel", cla.Sea).Conn("man", cla.Coast...).Conn("mon", cla.Land).Conn("wch", cla.Land).Conn("sea", cla.Land).Flag(cla.Coast...).SC(USSR).
+		Prov("sha").Conn("ban", godip.Land).Conn("nvi", godip.Coast...).Conn("scs", godip.Sea).Conn("yel", godip.Sea).Conn("man", godip.Coast...).Conn("mon", godip.Land).Conn("wch", godip.Land).Conn("sea", godip.Land).Flag(godip.Coast...).SC(USSR).
 		// Mexico
-		Prov("mex").Conn("sow", cla.Land).Conn("los", cla.Land).Conn("cen", cla.Land).Flag(cla.Land).
+		Prov("mex").Conn("sow", godip.Land).Conn("los", godip.Land).Conn("cen", godip.Land).Flag(godip.Land).
 		// Mexico (East Coast)
-		Prov("mex/ec").Conn("gom", cla.Sea).Conn("sow", cla.Sea).Conn("cen/ec", cla.Sea).Conn("car", cla.Sea).Flag(cla.Sea).
+		Prov("mex/ec").Conn("gom", godip.Sea).Conn("sow", godip.Sea).Conn("cen/ec", godip.Sea).Conn("car", godip.Sea).Flag(godip.Sea).
 		// Mexico (West Coast)
-		Prov("mex/wc").Conn("los", cla.Sea).Conn("epa", cla.Sea).Conn("cen/wc", cla.Sea).Flag(cla.Sea).
+		Prov("mex/wc").Conn("los", godip.Sea).Conn("epa", godip.Sea).Conn("cen/wc", godip.Sea).Flag(godip.Sea).
 		// West Canada
-		Prov("wca").Conn("los", cla.Land).Conn("mid", cla.Land).Conn("tor", cla.Land).Conn("ala", cla.Land).Flag(cla.Land).
+		Prov("wca").Conn("los", godip.Land).Conn("mid", godip.Land).Conn("tor", godip.Land).Conn("ala", godip.Land).Flag(godip.Land).
 		// West Canada (North Coast)
-		Prov("wca/nc").Conn("tor", cla.Sea).Conn("hud", cla.Sea).Conn("arc", cla.Sea).Conn("ala", cla.Sea).Flag(cla.Sea).
+		Prov("wca/nc").Conn("tor", godip.Sea).Conn("hud", godip.Sea).Conn("arc", godip.Sea).Conn("ala", godip.Sea).Flag(godip.Sea).
 		// West Canada (West Coast)
-		Prov("wca/wc").Conn("los", cla.Sea).Conn("ala", cla.Sea).Conn("goa", cla.Sea).Flag(cla.Sea).
+		Prov("wca/wc").Conn("los", godip.Sea).Conn("ala", godip.Sea).Conn("goa", godip.Sea).Flag(godip.Sea).
 		// West Pacific
-		Prov("wpa").Conn("epa", cla.Sea).Conn("ber", cla.Sea).Conn("jap", cla.Sea).Conn("yel", cla.Sea).Conn("phi", cla.Sea).Conn("ins", cla.Sea).Conn("ins", cla.Sea).Conn("aus", cla.Sea).Flag(cla.Sea).
+		Prov("wpa").Conn("epa", godip.Sea).Conn("ber", godip.Sea).Conn("jap", godip.Sea).Conn("yel", godip.Sea).Conn("phi", godip.Sea).Conn("ins", godip.Sea).Conn("ins", godip.Sea).Conn("aus", godip.Sea).Flag(godip.Sea).
 		// Black Sea
-		Prov("bla").Conn("cau", cla.Sea).Conn("ukr", cla.Sea).Conn("ist", cla.Sea).Conn("arm", cla.Sea).Flag(cla.Sea).
+		Prov("bla").Conn("cau", godip.Sea).Conn("ukr", godip.Sea).Conn("ist", godip.Sea).Conn("arm", godip.Sea).Flag(godip.Sea).
 		// Egypt
-		Prov("egy").Conn("red", cla.Sea).Conn("ara", cla.Coast...).Conn("lev", cla.Coast...).Conn("eme", cla.Sea).Conn("lib", cla.Coast...).Conn("eaf", cla.Coast...).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("egy").Conn("red", godip.Sea).Conn("ara", godip.Coast...).Conn("lev", godip.Coast...).Conn("eme", godip.Sea).Conn("lib", godip.Coast...).Conn("eaf", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Central America
-		Prov("cen").Conn("pan", cla.Land).Conn("mex", cla.Land).Flag(cla.Land).
+		Prov("cen").Conn("pan", godip.Land).Conn("mex", godip.Land).Flag(godip.Land).
 		// Central America (East Coast)
-		Prov("cen/ec").Conn("pan", cla.Sea).Conn("car", cla.Sea).Conn("mex/ec", cla.Sea).Flag(cla.Sea).
+		Prov("cen/ec").Conn("pan", godip.Sea).Conn("car", godip.Sea).Conn("mex/ec", godip.Sea).Flag(godip.Sea).
 		// Central America (West Coast)
-		Prov("cen/wc").Conn("epa", cla.Sea).Conn("pan", cla.Sea).Conn("mex/wc", cla.Sea).Flag(cla.Sea).
+		Prov("cen/wc").Conn("epa", godip.Sea).Conn("pan", godip.Sea).Conn("mex/wc", godip.Sea).Flag(godip.Sea).
 		// Red Sea
-		Prov("red").Conn("egy", cla.Sea).Conn("eaf", cla.Sea).Conn("inc", cla.Sea).Conn("arb", cla.Sea).Conn("ara", cla.Sea).Flag(cla.Sea).
+		Prov("red").Conn("egy", godip.Sea).Conn("eaf", godip.Sea).Conn("inc", godip.Sea).Conn("arb", godip.Sea).Conn("ara", godip.Sea).Flag(godip.Sea).
 		// Australia
-		Prov("aus").Conn("wpa", cla.Sea).Conn("ins", cla.Coast...).Conn("inc", cla.Sea).Flag(cla.Coast...).SC(NATO).
+		Prov("aus").Conn("wpa", godip.Sea).Conn("ins", godip.Coast...).Conn("inc", godip.Sea).Flag(godip.Coast...).SC(NATO).
 		// Siberia
-		Prov("sib").Conn("pak", cla.Land).Conn("wch", cla.Land).Conn("mon", cla.Land).Conn("man", cla.Land).Conn("vla", cla.Land).Conn("kam", cla.Coast...).Conn("arc", cla.Sea).Conn("ura", cla.Coast...).Conn("afg", cla.Land).Flag(cla.Coast...).
+		Prov("sib").Conn("pak", godip.Land).Conn("wch", godip.Land).Conn("mon", godip.Land).Conn("man", godip.Land).Conn("vla", godip.Land).Conn("kam", godip.Coast...).Conn("arc", godip.Sea).Conn("ura", godip.Coast...).Conn("afg", godip.Land).Flag(godip.Coast...).
 		// Kamchatka
-		Prov("kam").Conn("arc", cla.Sea).Conn("sib", cla.Coast...).Conn("vla", cla.Coast...).Conn("ber", cla.Sea).Flag(cla.Coast...).
+		Prov("kam").Conn("arc", godip.Sea).Conn("sib", godip.Coast...).Conn("vla", godip.Coast...).Conn("ber", godip.Sea).Flag(godip.Coast...).
 		// Indonesia
-		Prov("ins").Conn("aus", cla.Coast...).Conn("wpa", cla.Sea).Conn("wpa", cla.Sea).Conn("phi", cla.Coast...).Conn("scs", cla.Sea).Conn("bay", cla.Sea).Conn("inc", cla.Sea).Flag(cla.Coast...).SC(cla.Neutral).
+		Prov("ins").Conn("aus", godip.Coast...).Conn("wpa", godip.Sea).Conn("wpa", godip.Sea).Conn("phi", godip.Coast...).Conn("scs", godip.Sea).Conn("bay", godip.Sea).Conn("inc", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// West Mediterranean
-		Prov("wme").Conn("spa", cla.Sea).Conn("eat", cla.Sea).Conn("naf", cla.Sea).Conn("tun", cla.Sea).Conn("ion", cla.Sea).Conn("ita", cla.Sea).Conn("par", cla.Sea).Conn("par/sc", cla.Sea).Flag(cla.Sea).
+		Prov("wme").Conn("spa", godip.Sea).Conn("eat", godip.Sea).Conn("naf", godip.Sea).Conn("tun", godip.Sea).Conn("ion", godip.Sea).Conn("ita", godip.Sea).Conn("par", godip.Sea).Conn("par/sc", godip.Sea).Flag(godip.Sea).
 		// Colombia
-		Prov("col").Conn("bra", cla.Land).Conn("ven", cla.Land).Conn("pan", cla.Land).Flag(cla.Land).
+		Prov("col").Conn("bra", godip.Land).Conn("ven", godip.Land).Conn("pan", godip.Land).Flag(godip.Land).
 		// Colombia
-		Prov("col/nc").Conn("ven", cla.Sea).Conn("car", cla.Sea).Conn("pan", cla.Sea).Flag(cla.Sea).
+		Prov("col/nc").Conn("ven", godip.Sea).Conn("car", godip.Sea).Conn("pan", godip.Sea).Flag(godip.Sea).
 		// Colombia
-		Prov("col/wc").Conn("pan", cla.Sea).Conn("epa", cla.Sea).Flag(cla.Sea).
+		Prov("col/wc").Conn("pan", godip.Sea).Conn("epa", godip.Sea).Flag(godip.Sea).
 		// Quebec
-		Prov("que").Conn("nyk", cla.Coast...).Conn("wat", cla.Sea).Conn("hud", cla.Sea).Conn("tor", cla.Coast...).Flag(cla.Coast...).
+		Prov("que").Conn("nyk", godip.Coast...).Conn("wat", godip.Sea).Conn("hud", godip.Sea).Conn("tor", godip.Coast...).Flag(godip.Coast...).
 		// South East Asia
-		Prov("sea").Conn("sai", cla.Coast...).Conn("nvi", cla.Coast...).Conn("ban", cla.Coast...).Conn("bay", cla.Sea).Conn("scs", cla.Sea).Conn("sha", cla.Land).Flag(cla.Coast...).
+		Prov("sea").Conn("sai", godip.Coast...).Conn("nvi", godip.Coast...).Conn("ban", godip.Coast...).Conn("bay", godip.Sea).Conn("scs", godip.Sea).Conn("sha", godip.Land).Flag(godip.Coast...).
 		// Italy
-		Prov("ita").Conn("par", cla.Land).Conn("par/sc", cla.Sea).Conn("wme", cla.Sea).Conn("ion", cla.Sea).Conn("yug", cla.Coast...).Flag(cla.Coast...).
+		Prov("ita").Conn("par", godip.Land).Conn("par/sc", godip.Sea).Conn("wme", godip.Sea).Conn("ion", godip.Sea).Conn("yug", godip.Coast...).Flag(godip.Coast...).
 		// Moscow
-		Prov("mos").Conn("cau", cla.Land).Conn("ura", cla.Land).Conn("len", cla.Land).Conn("ege", cla.Land).Conn("ukr", cla.Land).Flag(cla.Land).SC(USSR).
+		Prov("mos").Conn("cau", godip.Land).Conn("ura", godip.Land).Conn("len", godip.Land).Conn("ege", godip.Land).Conn("ukr", godip.Land).Flag(godip.Land).SC(USSR).
 		// Gulf of Alaska
-		Prov("goa").Conn("epa", cla.Sea).Conn("los", cla.Sea).Conn("wca", cla.Sea).Conn("wca/wc", cla.Sea).Conn("ala", cla.Sea).Conn("ber", cla.Sea).Flag(cla.Sea).
+		Prov("goa").Conn("epa", godip.Sea).Conn("los", godip.Sea).Conn("wca", godip.Sea).Conn("wca/wc", godip.Sea).Conn("ala", godip.Sea).Conn("ber", godip.Sea).Flag(godip.Sea).
 		Done()
 }

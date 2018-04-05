@@ -20,8 +20,8 @@ var FleetRomeVariant = common.Variant{
 		}
 		result.RemoveUnit(godip.Province("rom"))
 		if err = result.SetUnit(godip.Province("rom"), godip.Unit{
-			Type:   cla.Fleet,
-			Nation: cla.Italy,
+			Type:   godip.Fleet,
+			Nation: godip.Italy,
 		}); err != nil {
 			return
 		}
@@ -40,10 +40,10 @@ var FleetRomeVariant = common.Variant{
 	},
 	SVGVersion: "1482957154",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		cla.Army: func() ([]byte, error) {
+		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
-		cla.Fleet: func() ([]byte, error) {
+		godip.Fleet: func() ([]byte, error) {
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
