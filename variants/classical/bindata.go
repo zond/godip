@@ -182,9 +182,9 @@ func AssetNames() []string {
 
 // _bindata is a table, holding each asset generator, mapped to its name.
 var _bindata = map[string]func() (*asset, error){
-	"svg/army.svg": svgArmySvg,
+	"svg/army.svg":  svgArmySvg,
 	"svg/fleet.svg": svgFleetSvg,
-	"svg/map.svg": svgMapSvg,
+	"svg/map.svg":   svgMapSvg,
 }
 
 // AssetDir returns the file names below a certain
@@ -226,11 +226,12 @@ type bintree struct {
 	Func     func() (*asset, error)
 	Children map[string]*bintree
 }
+
 var _bintree = &bintree{nil, map[string]*bintree{
 	"svg": &bintree{nil, map[string]*bintree{
-		"army.svg": &bintree{svgArmySvg, map[string]*bintree{}},
+		"army.svg":  &bintree{svgArmySvg, map[string]*bintree{}},
 		"fleet.svg": &bintree{svgFleetSvg, map[string]*bintree{}},
-		"map.svg": &bintree{svgMapSvg, map[string]*bintree{}},
+		"map.svg":   &bintree{svgMapSvg, map[string]*bintree{}},
 	}},
 }}
 
@@ -280,4 +281,3 @@ func _filePath(dir, name string) string {
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
 	return filepath.Join(append([]string{dir}, strings.Split(cannonicalName, "/")...)...)
 }
-

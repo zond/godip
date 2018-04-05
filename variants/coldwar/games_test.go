@@ -3,12 +3,13 @@ package coldwar
 import (
 	"testing"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
+
 	tst "github.com/zond/godip/variants/testing"
 )
 
 func init() {
-	dip.Debug = true
+	godip.Debug = true
 }
 
 func TestGames(t *testing.T) {

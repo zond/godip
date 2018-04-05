@@ -1,20 +1,20 @@
 package franceaustria
 
 import (
+	"github.com/zond/godip"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var FranceAustriaVariant = common.Variant{
 	Name: "France vs Austria",
-	Graph: func() dip.Graph {
-		okNations := map[dip.Nation]bool{
+	Graph: func() godip.Graph {
+		okNations := map[godip.Nation]bool{
 			cla.France:  true,
 			cla.Austria: true,
 			cla.Neutral: true,
@@ -32,17 +32,17 @@ var FranceAustriaVariant = common.Variant{
 		if result, err = classical.Start(); err != nil {
 			return
 		}
-		if err = result.SetUnits(map[dip.Province]dip.Unit{
-			"bre": dip.Unit{cla.Fleet, cla.France},
-			"par": dip.Unit{cla.Army, cla.France},
-			"mar": dip.Unit{cla.Army, cla.France},
-			"tri": dip.Unit{cla.Fleet, cla.Austria},
-			"vie": dip.Unit{cla.Army, cla.Austria},
-			"bud": dip.Unit{cla.Army, cla.Austria},
+		if err = result.SetUnits(map[godip.Province]godip.Unit{
+			"bre": godip.Unit{cla.Fleet, cla.France},
+			"par": godip.Unit{cla.Army, cla.France},
+			"mar": godip.Unit{cla.Army, cla.France},
+			"tri": godip.Unit{cla.Fleet, cla.Austria},
+			"vie": godip.Unit{cla.Army, cla.Austria},
+			"bud": godip.Unit{cla.Army, cla.Austria},
 		}); err != nil {
 			return
 		}
-		result.SetSupplyCenters(map[dip.Province]dip.Nation{
+		result.SetSupplyCenters(map[godip.Province]godip.Nation{
 			"bre": cla.France,
 			"par": cla.France,
 			"mar": cla.France,
@@ -55,7 +55,7 @@ var FranceAustriaVariant = common.Variant{
 	Blank:      classical.Blank,
 	Phase:      classical.Phase,
 	Parser:     orders.ClassicalParser,
-	Nations:    []dip.Nation{cla.Austria, cla.France},
+	Nations:    []godip.Nation{cla.Austria, cla.France},
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
 	UnitTypes:  cla.UnitTypes,
@@ -64,7 +64,7 @@ var FranceAustriaVariant = common.Variant{
 		return classical.Asset("svg/map.svg")
 	},
 	SVGVersion: "1482957154",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},

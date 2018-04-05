@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/zond/godip"
+
 	cla "github.com/zond/godip/variants/classical/common"
 )
 

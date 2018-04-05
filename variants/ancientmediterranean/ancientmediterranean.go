@@ -1,29 +1,29 @@
 package ancientmediterranean
 
 import (
+	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
-	Rome     dip.Nation = "Rome"
-	Carthage dip.Nation = "Carthage"
-	Greece   dip.Nation = "Greece"
-	Persia   dip.Nation = "Persia"
-	Egypt    dip.Nation = "Egypt"
+	Rome     godip.Nation = "Rome"
+	Carthage godip.Nation = "Carthage"
+	Greece   godip.Nation = "Greece"
+	Persia   godip.Nation = "Persia"
+	Egypt    godip.Nation = "Egypt"
 )
 
-var Nations = []dip.Nation{Rome, Greece, Egypt, Persia, Carthage}
+var Nations = []godip.Nation{Rome, Greece, Egypt, Persia, Carthage}
 
 var AncientMediterraneanVariant = common.Variant{
 	Name:       "Ancient Mediterranean",
-	Graph:      func() dip.Graph { return AncientMediterraneanGraph() },
+	Graph:      func() godip.Graph { return AncientMediterraneanGraph() },
 	Start:      AncientMediterraneanStart,
 	Blank:      AncientMediterraneanBlank,
 	Phase:      classical.Phase,
@@ -37,7 +37,7 @@ var AncientMediterraneanVariant = common.Variant{
 		return Asset("svg/ancientmediterraneanmap.svg")
 	},
 	SVGVersion: "2",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
@@ -58,33 +58,33 @@ var AncientMediterraneanVariant = common.Variant{
 		"centers is the winner.",
 }
 
-func AncientMediterraneanBlank(phase dip.Phase) *state.State {
+func AncientMediterraneanBlank(phase godip.Phase) *state.State {
 	return state.New(AncientMediterraneanGraph(), phase, classical.BackupRule)
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {
 	startPhase := classical.Phase(1, cla.Spring, cla.Movement)
 	result = state.New(AncientMediterraneanGraph(), startPhase, classical.BackupRule)
-	if err = result.SetUnits(map[dip.Province]dip.Unit{
-		"nea": dip.Unit{cla.Fleet, Rome},
-		"rom": dip.Unit{cla.Army, Rome},
-		"rav": dip.Unit{cla.Army, Rome},
-		"tha": dip.Unit{cla.Fleet, Carthage},
-		"cir": dip.Unit{cla.Army, Carthage},
-		"car": dip.Unit{cla.Army, Carthage},
-		"spa": dip.Unit{cla.Fleet, Greece},
-		"ath": dip.Unit{cla.Army, Greece},
-		"mac": dip.Unit{cla.Army, Greece},
-		"sid": dip.Unit{cla.Fleet, Persia},
-		"ant": dip.Unit{cla.Army, Persia},
-		"dam": dip.Unit{cla.Army, Persia},
-		"ale": dip.Unit{cla.Fleet, Egypt},
-		"mem": dip.Unit{cla.Army, Egypt},
-		"the": dip.Unit{cla.Army, Egypt},
+	if err = result.SetUnits(map[godip.Province]godip.Unit{
+		"nea": godip.Unit{cla.Fleet, Rome},
+		"rom": godip.Unit{cla.Army, Rome},
+		"rav": godip.Unit{cla.Army, Rome},
+		"tha": godip.Unit{cla.Fleet, Carthage},
+		"cir": godip.Unit{cla.Army, Carthage},
+		"car": godip.Unit{cla.Army, Carthage},
+		"spa": godip.Unit{cla.Fleet, Greece},
+		"ath": godip.Unit{cla.Army, Greece},
+		"mac": godip.Unit{cla.Army, Greece},
+		"sid": godip.Unit{cla.Fleet, Persia},
+		"ant": godip.Unit{cla.Army, Persia},
+		"dam": godip.Unit{cla.Army, Persia},
+		"ale": godip.Unit{cla.Fleet, Egypt},
+		"mem": godip.Unit{cla.Army, Egypt},
+		"the": godip.Unit{cla.Army, Egypt},
 	}); err != nil {
 		return
 	}
-	result.SetSupplyCenters(map[dip.Province]dip.Nation{
+	result.SetSupplyCenters(map[godip.Province]godip.Nation{
 		"nea": Rome,
 		"rom": Rome,
 		"rav": Rome,

@@ -1,37 +1,36 @@
 package common
 
 import (
+	"github.com/zond/godip"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/common"
-
-	dip "github.com/zond/godip"
 )
 
 type Phase struct {
-	Season        dip.Season
+	Season        godip.Season
 	Year          int
-	Type          dip.PhaseType
-	Units         map[dip.Province]dip.Unit
-	Orders        map[dip.Nation]map[dip.Province][]string
-	SupplyCenters map[dip.Province]dip.Nation
-	Dislodgeds    map[dip.Province]dip.Unit
-	Dislodgers    map[dip.Province]dip.Province
-	Bounces       map[dip.Province]map[dip.Province]bool
-	Resolutions   map[dip.Province]string
+	Type          godip.PhaseType
+	Units         map[godip.Province]godip.Unit
+	Orders        map[godip.Nation]map[godip.Province][]string
+	SupplyCenters map[godip.Province]godip.Nation
+	Dislodgeds    map[godip.Province]godip.Unit
+	Dislodgers    map[godip.Province]godip.Province
+	Bounces       map[godip.Province]map[godip.Province]bool
+	Resolutions   map[godip.Province]string
 }
 
 func NewPhase(state *state.State) *Phase {
 	currentPhase := state.Phase()
 	p := &Phase{
-		Orders:      map[dip.Nation]map[dip.Province][]string{},
-		Resolutions: map[dip.Province]string{},
+		Orders:      map[godip.Nation]map[godip.Province][]string{},
+		Resolutions: map[godip.Province]string{},
 		Season:      currentPhase.Season(),
 		Year:        currentPhase.Year(),
 		Type:        currentPhase.Type(),
 	}
-	var resolutions map[dip.Province]error
+	var resolutions map[godip.Province]error
 	p.Units, p.SupplyCenters, p.Dislodgeds, p.Dislodgers, p.Bounces, resolutions = state.Dump()
 	for prov, err := range resolutions {
 		if err == nil {

@@ -1,18 +1,18 @@
 package pure
 
 import (
+	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-var pureParser = ord.NewParser([]dip.Order{
+var pureParser = ord.NewParser([]godip.Order{
 	orders.BuildOrder,
 	orders.DisbandOrder,
 	orders.HoldOrder,
@@ -22,7 +22,7 @@ var pureParser = ord.NewParser([]dip.Order{
 
 var PureVariant = common.Variant{
 	Name:       "Pure",
-	Graph:      func() dip.Graph { return PureGraph() },
+	Graph:      func() godip.Graph { return PureGraph() },
 	Start:      PureStart,
 	Blank:      PureBlank,
 	Phase:      classical.PhaseGenerator(pureParser),
@@ -30,13 +30,13 @@ var PureVariant = common.Variant{
 	Nations:    cla.Nations,
 	PhaseTypes: cla.PhaseTypes,
 	Seasons:    cla.Seasons,
-	UnitTypes:  []dip.UnitType{cla.Army},
+	UnitTypes:  []godip.UnitType{cla.Army},
 	SoloWinner: common.SCCountWinner(4),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/puremap.svg")
 	},
 	SVGVersion: "2",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
@@ -47,7 +47,7 @@ var PureVariant = common.Variant{
 	Rules:       "Each of the seven nations has a single supply center, and each is adjacent to all of the others. The first player to own four of these centers is the winner.",
 }
 
-func PureBlank(phase dip.Phase) *state.State {
+func PureBlank(phase godip.Phase) *state.State {
 	return state.New(PureGraph(), phase, classical.BackupRule)
 }
 
@@ -55,18 +55,18 @@ func PureStart() (result *state.State, err error) {
 	if result, err = classical.Start(); err != nil {
 		return
 	}
-	if err = result.SetUnits(map[dip.Province]dip.Unit{
-		"ber": dip.Unit{cla.Army, cla.Germany},
-		"lon": dip.Unit{cla.Army, cla.England},
-		"par": dip.Unit{cla.Army, cla.France},
-		"rom": dip.Unit{cla.Army, cla.Italy},
-		"con": dip.Unit{cla.Army, cla.Turkey},
-		"vie": dip.Unit{cla.Army, cla.Austria},
-		"mos": dip.Unit{cla.Army, cla.Russia},
+	if err = result.SetUnits(map[godip.Province]godip.Unit{
+		"ber": godip.Unit{cla.Army, cla.Germany},
+		"lon": godip.Unit{cla.Army, cla.England},
+		"par": godip.Unit{cla.Army, cla.France},
+		"rom": godip.Unit{cla.Army, cla.Italy},
+		"con": godip.Unit{cla.Army, cla.Turkey},
+		"vie": godip.Unit{cla.Army, cla.Austria},
+		"mos": godip.Unit{cla.Army, cla.Russia},
 	}); err != nil {
 		return
 	}
-	result.SetSupplyCenters(map[dip.Province]dip.Nation{
+	result.SetSupplyCenters(map[godip.Province]godip.Nation{
 		"ber": cla.Germany,
 		"lon": cla.England,
 		"par": cla.France,

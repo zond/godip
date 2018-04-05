@@ -1,34 +1,34 @@
 package youngstownredux
 
 import (
+	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
-	Turkey  dip.Nation = "Turkey"
-	Austria dip.Nation = "Austria"
-	Britain dip.Nation = "Britain"
-	China   dip.Nation = "China"
-	Japan   dip.Nation = "Japan"
-	Italy   dip.Nation = "Italy"
-	Germany dip.Nation = "Germany"
-	India   dip.Nation = "India"
-	Russia  dip.Nation = "Russia"
-	France  dip.Nation = "France"
+	Turkey  godip.Nation = "Turkey"
+	Austria godip.Nation = "Austria"
+	Britain godip.Nation = "Britain"
+	China   godip.Nation = "China"
+	Japan   godip.Nation = "Japan"
+	Italy   godip.Nation = "Italy"
+	Germany godip.Nation = "Germany"
+	India   godip.Nation = "India"
+	Russia  godip.Nation = "Russia"
+	France  godip.Nation = "France"
 )
 
-var Nations = []dip.Nation{Turkey, Austria, Britain, China, Japan, Italy, Germany, India, Russia, France}
+var Nations = []godip.Nation{Turkey, Austria, Britain, China, Japan, Italy, Germany, India, Russia, France}
 
 var YoungstownReduxVariant = common.Variant{
 	Name:       "Youngstown Redux",
-	Graph:      func() dip.Graph { return YoungstownReduxGraph() },
+	Graph:      func() godip.Graph { return YoungstownReduxGraph() },
 	Start:      YoungstownReduxStart,
 	Blank:      YoungstownReduxBlank,
 	Phase:      classical.Phase,
@@ -42,7 +42,7 @@ var YoungstownReduxVariant = common.Variant{
 		return Asset("svg/youngstownreduxmap.svg")
 	},
 	SVGVersion: "1",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
@@ -62,62 +62,62 @@ var YoungstownReduxVariant = common.Variant{
 		"A. Phillips, Ken Lowe and Jon Monsarret.",
 }
 
-func YoungstownReduxBlank(phase dip.Phase) *state.State {
+func YoungstownReduxBlank(phase godip.Phase) *state.State {
 	return state.New(YoungstownReduxGraph(), phase, classical.BackupRule)
 }
 
 func YoungstownReduxStart() (result *state.State, err error) {
 	startPhase := classical.Phase(1901, cla.Spring, cla.Movement)
 	result = state.New(YoungstownReduxGraph(), startPhase, classical.BackupRule)
-	if err = result.SetUnits(map[dip.Province]dip.Unit{
-		"ank":    dip.Unit{cla.Fleet, Turkey},
-		"con":    dip.Unit{cla.Army, Turkey},
-		"bag":    dip.Unit{cla.Army, Turkey},
-		"mec":    dip.Unit{cla.Army, Turkey},
-		"sar":    dip.Unit{cla.Fleet, Austria},
-		"vnn":    dip.Unit{cla.Army, Austria},
-		"bud":    dip.Unit{cla.Army, Austria},
-		"tes":    dip.Unit{cla.Army, Austria},
-		"lon":    dip.Unit{cla.Fleet, Britain},
-		"lie":    dip.Unit{cla.Fleet, Britain},
-		"edi":    dip.Unit{cla.Fleet, Britain},
-		"ade":    dip.Unit{cla.Fleet, Britain},
-		"sig":    dip.Unit{cla.Fleet, Britain},
-		"sha":    dip.Unit{cla.Fleet, China},
-		"pek":    dip.Unit{cla.Army, China},
-		"gua":    dip.Unit{cla.Army, China},
-		"wuh":    dip.Unit{cla.Army, China},
-		"tok":    dip.Unit{cla.Fleet, Japan},
-		"osa":    dip.Unit{cla.Fleet, Japan},
-		"sap":    dip.Unit{cla.Fleet, Japan},
-		"kyo":    dip.Unit{cla.Army, Japan},
-		"nap":    dip.Unit{cla.Fleet, Italy},
-		"mog":    dip.Unit{cla.Fleet, Italy},
-		"rom":    dip.Unit{cla.Army, Italy},
-		"mil":    dip.Unit{cla.Army, Italy},
-		"tsi":    dip.Unit{cla.Fleet, Germany},
-		"kie":    dip.Unit{cla.Fleet, Germany},
-		"ber":    dip.Unit{cla.Army, Germany},
-		"mun":    dip.Unit{cla.Army, Germany},
-		"col":    dip.Unit{cla.Army, Germany},
-		"bom":    dip.Unit{cla.Fleet, India},
-		"mad":    dip.Unit{cla.Fleet, India},
-		"del":    dip.Unit{cla.Army, India},
-		"cal":    dip.Unit{cla.Army, India},
-		"sev":    dip.Unit{cla.Fleet, Russia},
-		"stp/sc": dip.Unit{cla.Fleet, Russia},
-		"vla":    dip.Unit{cla.Fleet, Russia},
-		"mos":    dip.Unit{cla.Army, Russia},
-		"oms":    dip.Unit{cla.Army, Russia},
-		"war":    dip.Unit{cla.Army, Russia},
-		"bre":    dip.Unit{cla.Fleet, France},
-		"sai":    dip.Unit{cla.Fleet, France},
-		"par":    dip.Unit{cla.Army, France},
-		"mar":    dip.Unit{cla.Army, France},
+	if err = result.SetUnits(map[godip.Province]godip.Unit{
+		"ank":    godip.Unit{cla.Fleet, Turkey},
+		"con":    godip.Unit{cla.Army, Turkey},
+		"bag":    godip.Unit{cla.Army, Turkey},
+		"mec":    godip.Unit{cla.Army, Turkey},
+		"sar":    godip.Unit{cla.Fleet, Austria},
+		"vnn":    godip.Unit{cla.Army, Austria},
+		"bud":    godip.Unit{cla.Army, Austria},
+		"tes":    godip.Unit{cla.Army, Austria},
+		"lon":    godip.Unit{cla.Fleet, Britain},
+		"lie":    godip.Unit{cla.Fleet, Britain},
+		"edi":    godip.Unit{cla.Fleet, Britain},
+		"ade":    godip.Unit{cla.Fleet, Britain},
+		"sig":    godip.Unit{cla.Fleet, Britain},
+		"sha":    godip.Unit{cla.Fleet, China},
+		"pek":    godip.Unit{cla.Army, China},
+		"gua":    godip.Unit{cla.Army, China},
+		"wuh":    godip.Unit{cla.Army, China},
+		"tok":    godip.Unit{cla.Fleet, Japan},
+		"osa":    godip.Unit{cla.Fleet, Japan},
+		"sap":    godip.Unit{cla.Fleet, Japan},
+		"kyo":    godip.Unit{cla.Army, Japan},
+		"nap":    godip.Unit{cla.Fleet, Italy},
+		"mog":    godip.Unit{cla.Fleet, Italy},
+		"rom":    godip.Unit{cla.Army, Italy},
+		"mil":    godip.Unit{cla.Army, Italy},
+		"tsi":    godip.Unit{cla.Fleet, Germany},
+		"kie":    godip.Unit{cla.Fleet, Germany},
+		"ber":    godip.Unit{cla.Army, Germany},
+		"mun":    godip.Unit{cla.Army, Germany},
+		"col":    godip.Unit{cla.Army, Germany},
+		"bom":    godip.Unit{cla.Fleet, India},
+		"mad":    godip.Unit{cla.Fleet, India},
+		"del":    godip.Unit{cla.Army, India},
+		"cal":    godip.Unit{cla.Army, India},
+		"sev":    godip.Unit{cla.Fleet, Russia},
+		"stp/sc": godip.Unit{cla.Fleet, Russia},
+		"vla":    godip.Unit{cla.Fleet, Russia},
+		"mos":    godip.Unit{cla.Army, Russia},
+		"oms":    godip.Unit{cla.Army, Russia},
+		"war":    godip.Unit{cla.Army, Russia},
+		"bre":    godip.Unit{cla.Fleet, France},
+		"sai":    godip.Unit{cla.Fleet, France},
+		"par":    godip.Unit{cla.Army, France},
+		"mar":    godip.Unit{cla.Army, France},
 	}); err != nil {
 		return
 	}
-	result.SetSupplyCenters(map[dip.Province]dip.Nation{
+	result.SetSupplyCenters(map[godip.Province]godip.Nation{
 		"ank": Turkey,
 		"con": Turkey,
 		"bag": Turkey,

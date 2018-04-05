@@ -1,26 +1,26 @@
 package coldwar
 
 import (
+	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 const (
-	USSR dip.Nation = "USSR"
-	NATO dip.Nation = "NATO"
+	USSR godip.Nation = "USSR"
+	NATO godip.Nation = "NATO"
 )
 
-var Nations = []dip.Nation{USSR, NATO}
+var Nations = []godip.Nation{USSR, NATO}
 
 var ColdWarVariant = common.Variant{
 	Name:       "Cold War",
-	Graph:      func() dip.Graph { return ColdWarGraph() },
+	Graph:      func() godip.Graph { return ColdWarGraph() },
 	Start:      ColdWarStart,
 	Blank:      ColdWarBlank,
 	Phase:      classical.Phase,
@@ -34,7 +34,7 @@ var ColdWarVariant = common.Variant{
 		return Asset("svg/coldwarmap.svg")
 	},
 	SVGVersion: "1",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
@@ -55,30 +55,30 @@ var ColdWarVariant = common.Variant{
 		"to get to the Baltic. Fleets may only convoy if they are in all-sea provinces.",
 }
 
-func ColdWarBlank(phase dip.Phase) *state.State {
+func ColdWarBlank(phase godip.Phase) *state.State {
 	return state.New(ColdWarGraph(), phase, classical.BackupRule)
 }
 
 func ColdWarStart() (result *state.State, err error) {
 	startPhase := classical.Phase(1960, cla.Spring, cla.Movement)
 	result = state.New(ColdWarGraph(), startPhase, classical.BackupRule)
-	if err = result.SetUnits(map[dip.Province]dip.Unit{
-		"len/sc": dip.Unit{cla.Fleet, USSR},
-		"alb":    dip.Unit{cla.Fleet, USSR},
-		"hav":    dip.Unit{cla.Fleet, USSR},
-		"mos":    dip.Unit{cla.Army, USSR},
-		"sha":    dip.Unit{cla.Army, USSR},
-		"vla":    dip.Unit{cla.Army, USSR},
-		"lon":    dip.Unit{cla.Fleet, NATO},
-		"ist":    dip.Unit{cla.Fleet, NATO},
-		"aus":    dip.Unit{cla.Fleet, NATO},
-		"nyk":    dip.Unit{cla.Army, NATO},
-		"los":    dip.Unit{cla.Army, NATO},
-		"par":    dip.Unit{cla.Army, NATO},
+	if err = result.SetUnits(map[godip.Province]godip.Unit{
+		"len/sc": godip.Unit{cla.Fleet, USSR},
+		"alb":    godip.Unit{cla.Fleet, USSR},
+		"hav":    godip.Unit{cla.Fleet, USSR},
+		"mos":    godip.Unit{cla.Army, USSR},
+		"sha":    godip.Unit{cla.Army, USSR},
+		"vla":    godip.Unit{cla.Army, USSR},
+		"lon":    godip.Unit{cla.Fleet, NATO},
+		"ist":    godip.Unit{cla.Fleet, NATO},
+		"aus":    godip.Unit{cla.Fleet, NATO},
+		"nyk":    godip.Unit{cla.Army, NATO},
+		"los":    godip.Unit{cla.Army, NATO},
+		"par":    godip.Unit{cla.Army, NATO},
 	}); err != nil {
 		return
 	}
-	result.SetSupplyCenters(map[dip.Province]dip.Nation{
+	result.SetSupplyCenters(map[godip.Province]godip.Nation{
 		"len": USSR,
 		"alb": USSR,
 		"hav": USSR,

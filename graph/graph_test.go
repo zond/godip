@@ -1,9 +1,10 @@
 package graph
 
 import (
-	"github.com/zond/godip"
 	"reflect"
 	"testing"
+
+	"github.com/zond/godip"
 )
 
 func assertPath(t *testing.T, g *Graph, src, dst godip.Province, found []godip.Province) {

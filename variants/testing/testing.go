@@ -7,14 +7,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/zond/godip/state"
+	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/state"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
-func AssertOrderValidity(t *testing.T, validator dip.Validator, order dip.Order, nat dip.Nation, err error) {
+func AssertOrderValidity(t *testing.T, validator godip.Validator, order godip.Order, nat godip.Nation, err error) {
 	if gotNat, e := order.Validate(validator); e != err {
 		t.Errorf("%v should validate to %v, but got %v", order, err, e)
 	} else if gotNat != nat {
@@ -22,7 +22,7 @@ func AssertOrderValidity(t *testing.T, validator dip.Validator, order dip.Order,
 	}
 }
 
-func AssertMove(t *testing.T, j *state.State, src, dst dip.Province, success bool) {
+func AssertMove(t *testing.T, j *state.State, src, dst godip.Province, success bool) {
 	if success {
 		unit, _, ok := j.Unit(src)
 		if !ok {
@@ -52,29 +52,29 @@ func AssertMove(t *testing.T, j *state.State, src, dst dip.Province, success boo
 	}
 }
 
-func AssertUnit(t *testing.T, j *state.State, province dip.Province, unit dip.Unit) {
+func AssertUnit(t *testing.T, j *state.State, province godip.Province, unit godip.Unit) {
 	if found, _, _ := j.Unit(province); !reflect.DeepEqual(found, unit) {
 		t.Errorf("%v should be at %v now", unit, province)
 	}
 }
 
-func AssertNoUnit(t *testing.T, j *state.State, province dip.Province) {
+func AssertNoUnit(t *testing.T, j *state.State, province godip.Province) {
 	_, _, ok := j.Unit(province)
 	if ok {
 		t.Errorf("There should be no unit at %v now", province)
 	}
 }
 
-func AssertNoOptionToMoveTo(t *testing.T, j *state.State, nat dip.Nation, src dip.Province, dst dip.Province) {
+func AssertNoOptionToMoveTo(t *testing.T, j *state.State, nat godip.Nation, src godip.Province, dst godip.Province) {
 	options := j.Phase().Options(j, nat)[src]
-	if _, ok := options[cla.Move][dip.SrcProvince(src)][dst]; ok {
+	if _, ok := options[cla.Move][godip.SrcProvince(src)][dst]; ok {
 		t.Errorf("There should be no option for %v to move %v to %v", nat, src, dst)
 	}
 }
 
-func AssertOptionToMove(t *testing.T, j *state.State, nat dip.Nation, src dip.Province, dst dip.Province) {
+func AssertOptionToMove(t *testing.T, j *state.State, nat godip.Nation, src godip.Province, dst godip.Province) {
 	options := j.Phase().Options(j, nat)[src]
-	if _, ok := options[cla.Move][dip.SrcProvince(src)][dst]; !ok {
+	if _, ok := options[cla.Move][godip.SrcProvince(src)][dst]; !ok {
 		t.Errorf("There should be an option for %v to move %v to %v", nat, src, dst)
 	}
 }
@@ -97,7 +97,7 @@ func hasOptHelper(opts map[string]interface{}, order []string, originalOpts map[
 	return hasOptHelper(opts[order[0]].(map[string]interface{})["Next"].(map[string]interface{}), order[1:], originalOpts, originalOrder)
 }
 
-func hasOpt(opts dip.Options, order []string) error {
+func hasOpt(opts godip.Options, order []string) error {
 	b, err := json.MarshalIndent(opts, "  ", "  ")
 	if err != nil {
 		return err
@@ -109,7 +109,7 @@ func hasOpt(opts dip.Options, order []string) error {
 	return hasOptHelper(converted, order, converted, order)
 }
 
-func AssertOpt(t *testing.T, opts dip.Options, order []string) {
+func AssertOpt(t *testing.T, opts godip.Options, order []string) {
 	t.Run(strings.Join(order, "_"), func(t *testing.T) {
 		err := hasOpt(opts, order)
 		if err != nil {
@@ -118,7 +118,7 @@ func AssertOpt(t *testing.T, opts dip.Options, order []string) {
 	})
 }
 
-func AssertNoOpt(t *testing.T, opts dip.Options, order []string) {
+func AssertNoOpt(t *testing.T, opts godip.Options, order []string) {
 	t.Run(strings.Join(order, "_"), func(t *testing.T) {
 		err := hasOpt(opts, order)
 		if err == nil {

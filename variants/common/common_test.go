@@ -3,30 +3,29 @@ package common
 import (
 	"testing"
 
+	"github.com/zond/godip"
 	"github.com/zond/godip/state"
-
-	dip "github.com/zond/godip"
 )
 
 const (
-	Austria dip.Nation = "Austria"
-	England dip.Nation = "England"
+	Austria godip.Nation = "Austria"
+	England godip.Nation = "England"
 
-	Ankara         dip.Province = "Ankara"
-	Belgium        dip.Province = "Belgium"
-	Constantinople dip.Province = "Constantinople"
-	Denmark        dip.Province = "Denmark"
-	Edinbugh       dip.Province = "Edinburgh"
+	Ankara         godip.Province = "Ankara"
+	Belgium        godip.Province = "Belgium"
+	Constantinople godip.Province = "Constantinople"
+	Denmark        godip.Province = "Denmark"
+	Edinbugh       godip.Province = "Edinburgh"
 )
 
 func init() {
-	dip.Debug = true
+	godip.Debug = true
 }
 
 func TestSCCountWinner_NothingOwned(t *testing.T) {
 	soloFunction := SCCountWinner(2)
 	s := new(state.State)
-	s.SetSupplyCenters(make(map[dip.Province]dip.Nation))
+	s.SetSupplyCenters(make(map[godip.Province]godip.Nation))
 
 	winner := soloFunction(s)
 
@@ -38,7 +37,7 @@ func TestSCCountWinner_NothingOwned(t *testing.T) {
 func TestSCCountWinner_LeaderHasntWon(t *testing.T) {
 	soloFunction := SCCountWinner(2)
 	s := new(state.State)
-	s.SetSupplyCenters(make(map[dip.Province]dip.Nation))
+	s.SetSupplyCenters(make(map[godip.Province]godip.Nation))
 	s.SetSC(Ankara, Austria)
 
 	winner := soloFunction(s)
@@ -51,7 +50,7 @@ func TestSCCountWinner_LeaderHasntWon(t *testing.T) {
 func TestSCCountWinner_ClearWinner(t *testing.T) {
 	soloFunction := SCCountWinner(2)
 	s := new(state.State)
-	s.SetSupplyCenters(make(map[dip.Province]dip.Nation))
+	s.SetSupplyCenters(make(map[godip.Province]godip.Nation))
 	s.SetSC(Ankara, Austria)
 	s.SetSC(Belgium, Austria)
 	s.SetSC(Constantinople, England)
@@ -66,8 +65,8 @@ func TestSCCountWinner_ClearWinner(t *testing.T) {
 func TestSCCountWinner_JointLeader(t *testing.T) {
 	soloFunction := SCCountWinner(2)
 	s := new(state.State)
-	s.SetSupplyCenters(make(map[dip.Province]dip.Nation))
-	s.SetSupplyCenters(make(map[dip.Province]dip.Nation))
+	s.SetSupplyCenters(make(map[godip.Province]godip.Nation))
+	s.SetSupplyCenters(make(map[godip.Province]godip.Nation))
 	s.SetSC(Ankara, Austria)
 	s.SetSC(Belgium, Austria)
 	s.SetSC(Constantinople, England)
@@ -83,7 +82,7 @@ func TestSCCountWinner_JointLeader(t *testing.T) {
 func TestSCCountWinner_SecondPlaceHasAlsoPassedTarget(t *testing.T) {
 	soloFunction := SCCountWinner(2)
 	s := new(state.State)
-	s.SetSupplyCenters(make(map[dip.Province]dip.Nation))
+	s.SetSupplyCenters(make(map[godip.Province]godip.Nation))
 	s.SetSC(Ankara, Austria)
 	s.SetSC(Belgium, Austria)
 	s.SetSC(Constantinople, England)

@@ -13,7 +13,8 @@ import (
 	"strings"
 	"testing"
 
-	dip "github.com/zond/godip"
+	"github.com/zond/godip"
+
 	cla "github.com/zond/godip/variants/classical/common"
 	vrt "github.com/zond/godip/variants/common"
 )
@@ -45,7 +46,7 @@ func openFile(variant string, name string) *os.File {
 	return file
 }
 
-func provincesContain(provinces []dip.Province, needle string) bool {
+func provincesContain(provinces []godip.Province, needle string) bool {
 	for _, province := range provinces {
 		if needle == string(province) {
 			return true
@@ -149,7 +150,7 @@ func toStr(f float64) string {
 	return strconv.FormatFloat(f, 'f', -1, 64)
 }
 
-func addArrow(encoder *xml.Encoder, startProvince dip.Province, endProvince dip.Province, provinceCenters map[string]coordinates) {
+func addArrow(encoder *xml.Encoder, startProvince godip.Province, endProvince godip.Province, provinceCenters map[string]coordinates) {
 	start := provinceCenters[string(startProvince)]
 	end := provinceCenters[string(endProvince)]
 	middle := coordinates{(start.x + end.x) / 2, (start.y + end.y) / 2}
@@ -296,7 +297,7 @@ func TestDrawMaps(t *testing.T) {
 		encoder.Flush()
 
 		// Find all the types of edge that exist.
-		edgeTypes := make(map[dip.Flag]bool)
+		edgeTypes := make(map[godip.Flag]bool)
 		for _, start := range variant.Graph().Provinces() {
 			for _, flags := range variant.Graph().Edges(start) {
 				for flag, b := range flags {
@@ -368,7 +369,7 @@ func TestDrawMaps(t *testing.T) {
 		}
 
 		// Find all the types of province that exist.
-		provinceTypes := make(map[dip.Flag]bool)
+		provinceTypes := make(map[godip.Flag]bool)
 		for _, province := range variant.Graph().Provinces() {
 			for flag, b := range variant.Graph().Flags(province) {
 				if b {
@@ -425,7 +426,7 @@ func TestDrawMaps(t *testing.T) {
 							panic(err)
 						}
 						for province, coordinates := range provinceCenters {
-							if variant.Graph().Flags(dip.Province(province))[provinceType] {
+							if variant.Graph().Flags(godip.Province(province))[provinceType] {
 								unitFile := bytes.NewReader(unit)
 								unitDecoder := xml.NewDecoder(unitFile)
 								for {

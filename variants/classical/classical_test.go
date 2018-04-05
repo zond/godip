@@ -5,12 +5,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/zond/godip"
 	"github.com/zond/godip/datc"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/start"
-
-	"github.com/zond/godip"
 
 	cla "github.com/zond/godip/variants/classical/common"
 	ord "github.com/zond/godip/variants/classical/orders"

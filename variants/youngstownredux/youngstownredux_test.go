@@ -3,11 +3,10 @@ package youngstownredux
 import (
 	"testing"
 
+	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-
-	"github.com/zond/godip"
 
 	cla "github.com/zond/godip/variants/classical/common"
 	tst "github.com/zond/godip/variants/testing"

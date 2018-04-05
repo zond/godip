@@ -12,16 +12,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/zond/godip/state"
+	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 func init() {
-	dip.Debug = true
+	godip.Debug = true
 }
 
 var (
@@ -57,7 +57,7 @@ const (
 	inOrders
 )
 
-func verifyReversePositions(t *testing.T, s *state.State, scCollector map[dip.Province]dip.Nation, unitCollector, dislodgedCollector map[dip.Province]dip.Unit, fails *int) {
+func verifyReversePositions(t *testing.T, s *state.State, scCollector map[godip.Province]godip.Nation, unitCollector, dislodgedCollector map[godip.Province]godip.Unit, fails *int) {
 	for prov, nation1 := range s.SupplyCenters() {
 		if nation2, ok := scCollector[prov]; !ok || nation1 != nation2 {
 			t.Errorf("%v: Found %v in %v, expected %v, %v", s.Phase(), nation1, prov, nation2, ok)
@@ -78,38 +78,38 @@ func verifyReversePositions(t *testing.T, s *state.State, scCollector map[dip.Pr
 	}
 }
 
-func verifyPosition(t *testing.T, s *state.State, match []string, scCollector map[dip.Province]dip.Nation, unitCollector, dislodgedCollector map[dip.Province]dip.Unit, fails *int) {
+func verifyPosition(t *testing.T, s *state.State, match []string, scCollector map[godip.Province]godip.Nation, unitCollector, dislodgedCollector map[godip.Province]godip.Unit, fails *int) {
 	if match[2] == "supply" {
-		if nation, _, ok := s.SupplyCenter(dip.Province(match[3])); ok && nation == dip.Nation(match[1]) {
-			scCollector[dip.Province(match[3])] = nation
+		if nation, _, ok := s.SupplyCenter(godip.Province(match[3])); ok && nation == godip.Nation(match[1]) {
+			scCollector[godip.Province(match[3])] = nation
 		} else {
 			t.Errorf("%v: Expected %v to own SC in %v, but found %v, %v", s.Phase(), match[1], match[3], nation, ok)
 			*fails += 1
 		}
 	} else if match[2] == "army" {
-		if unit, _, ok := s.Unit(dip.Province(match[3])); ok && unit.Nation == dip.Nation(match[1]) && unit.Type == cla.Army {
-			unitCollector[dip.Province(match[3])] = unit
+		if unit, _, ok := s.Unit(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Army {
+			unitCollector[godip.Province(match[3])] = unit
 		} else {
 			t.Errorf("%v: Expected to find %v %v in %v, but found %v, %v", s.Phase(), match[1], cla.Army, match[3], unit, ok)
 			*fails += 1
 		}
 	} else if match[2] == "fleet" {
-		if unit, _, ok := s.Unit(dip.Province(match[3])); ok && unit.Nation == dip.Nation(match[1]) && unit.Type == cla.Fleet {
-			unitCollector[dip.Province(match[3])] = unit
+		if unit, _, ok := s.Unit(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Fleet {
+			unitCollector[godip.Province(match[3])] = unit
 		} else {
 			t.Errorf("%v: Expected to find %v %v in %v, but found %v, %v", s.Phase(), match[1], cla.Fleet, match[3], unit, ok)
 			*fails += 1
 		}
 	} else if match[2] == "fleet/dislodged" {
-		if unit, _, ok := s.Dislodged(dip.Province(match[3])); ok && unit.Nation == dip.Nation(match[1]) && unit.Type == cla.Fleet {
-			dislodgedCollector[dip.Province(match[3])] = unit
+		if unit, _, ok := s.Dislodged(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Fleet {
+			dislodgedCollector[godip.Province(match[3])] = unit
 		} else {
 			t.Errorf("%v: Expected to find %v %v dislodged in %v, but found %v, %v", s.Phase(), match[1], cla.Army, match[3], unit, ok)
 			*fails += 1
 		}
 	} else if match[2] == "army/dislodged" {
-		if unit, _, ok := s.Dislodged(dip.Province(match[3])); ok && unit.Nation == dip.Nation(match[1]) && unit.Type == cla.Army {
-			dislodgedCollector[dip.Province(match[3])] = unit
+		if unit, _, ok := s.Dislodged(godip.Province(match[3])); ok && unit.Nation == godip.Nation(match[1]) && unit.Type == cla.Army {
+			dislodgedCollector[godip.Province(match[3])] = unit
 		} else {
 			t.Errorf("%v: Expected to find %v %v dislodged in %v, but found %v, %v", s.Phase(), match[1], cla.Army, match[3], unit, ok)
 			*fails += 1
@@ -119,7 +119,7 @@ func verifyPosition(t *testing.T, s *state.State, match []string, scCollector ma
 	}
 }
 
-func setPhase(t *testing.T, sp **state.State, match []string, blankFn func(dip.Phase) *state.State) {
+func setPhase(t *testing.T, sp **state.State, match []string, blankFn func(godip.Phase) *state.State) {
 	year, err := strconv.Atoi(match[1])
 	if err != nil {
 		t.Fatalf("%v", err)
@@ -131,7 +131,7 @@ func setPhase(t *testing.T, sp **state.State, match []string, blankFn func(dip.P
 		s.Next()
 		newS := blankFn(s.Phase())
 		a, b, c, d, e, _ := s.Dump()
-		newS.Load(a, b, c, d, e, map[dip.Province]dip.Adjudicator{})
+		newS.Load(a, b, c, d, e, map[godip.Province]godip.Adjudicator{})
 		*sp = newS
 	}
 	if s.Phase().Year() > year {
@@ -139,7 +139,7 @@ func setPhase(t *testing.T, sp **state.State, match []string, blankFn func(dip.P
 	}
 }
 
-func verifyValidOrder(t *testing.T, nat dip.Nation, v dip.Validator, order []string, parse func(bits []string) (result dip.Adjudicator, err error)) {
+func verifyValidOrder(t *testing.T, nat godip.Nation, v godip.Validator, order []string, parse func(bits []string) (result godip.Adjudicator, err error)) {
 	order[0], order[1] = order[1], order[0]
 	parsed, err := parse(order)
 	if err != nil {
@@ -154,7 +154,7 @@ func verifyValidOrder(t *testing.T, nat dip.Nation, v dip.Validator, order []str
 	}
 }
 
-func verifyValidOptions(t *testing.T, nat dip.Nation, v dip.Validator, opts dip.Options, stack []string, parse func(bits []string) (result dip.Adjudicator, err error)) {
+func verifyValidOptions(t *testing.T, nat godip.Nation, v godip.Validator, opts godip.Options, stack []string, parse func(bits []string) (result godip.Adjudicator, err error)) {
 	if len(opts) == 0 {
 		verifyValidOrder(t, nat, v, stack, parse)
 	}
@@ -163,9 +163,9 @@ func verifyValidOptions(t *testing.T, nat dip.Nation, v dip.Validator, opts dip.
 	}
 }
 
-func assertGame(t *testing.T, name string, nations []dip.Nation,
-	startFn func() (*state.State, error), blankFn func(dip.Phase) *state.State,
-	parse func(bits []string) (result dip.Adjudicator, err error)) (phases, ords, positions, fails int, s *state.State) {
+func assertGame(t *testing.T, name string, nations []godip.Nation,
+	startFn func() (*state.State, error), blankFn func(godip.Phase) *state.State,
+	parse func(bits []string) (result godip.Adjudicator, err error)) (phases, ords, positions, fails int, s *state.State) {
 
 	worstOptionsCalculation = 0
 	file, err := os.Open(fmt.Sprintf("games/%v", name))
@@ -178,7 +178,7 @@ func assertGame(t *testing.T, name string, nations []dip.Nation,
 	lines := bufio.NewReader(file)
 	var match []string
 	state := inNothing
-	scCollector, unitCollector, dislodgedCollector := make(map[dip.Province]dip.Nation), make(map[dip.Province]dip.Unit), make(map[dip.Province]dip.Unit)
+	scCollector, unitCollector, dislodgedCollector := make(map[godip.Province]godip.Nation), make(map[godip.Province]godip.Unit), make(map[godip.Province]godip.Unit)
 	for line, err := lines.ReadString('\n'); err == nil; line, err = lines.ReadString('\n') {
 		line = strings.TrimSpace(line)
 		switch state {
@@ -215,8 +215,8 @@ func assertGame(t *testing.T, name string, nations []dip.Nation,
 				if fails > 0 {
 					return
 				}
-				dip.ClearLog()
-				scCollector, unitCollector, dislodgedCollector = make(map[dip.Province]dip.Nation), make(map[dip.Province]dip.Unit), make(map[dip.Province]dip.Unit)
+				godip.ClearLog()
+				scCollector, unitCollector, dislodgedCollector = make(map[godip.Province]godip.Nation), make(map[godip.Province]godip.Unit), make(map[godip.Province]godip.Unit)
 				state = inOrders
 			} else {
 				t.Fatalf("Unknown line for state inPositions: %v", line)
@@ -224,25 +224,25 @@ func assertGame(t *testing.T, name string, nations []dip.Nation,
 		case inOrders:
 			ords += 1
 			if match = moveReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.Move(dip.Province(match[1]), dip.Province(match[2])))
+				s.SetOrder(godip.Province(match[1]), orders.Move(godip.Province(match[1]), godip.Province(match[2])))
 			} else if match = moveViaConvoyReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.Move(dip.Province(match[1]), dip.Province(match[2])).ViaConvoy())
+				s.SetOrder(godip.Province(match[1]), orders.Move(godip.Province(match[1]), godip.Province(match[2])).ViaConvoy())
 			} else if match = supportMoveReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.SupportMove(dip.Province(match[1]), dip.Province(match[2]), dip.Province(match[3])))
+				s.SetOrder(godip.Province(match[1]), orders.SupportMove(godip.Province(match[1]), godip.Province(match[2]), godip.Province(match[3])))
 			} else if match = supportHoldReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.SupportHold(dip.Province(match[1]), dip.Province(match[2])))
+				s.SetOrder(godip.Province(match[1]), orders.SupportHold(godip.Province(match[1]), godip.Province(match[2])))
 			} else if match = holdReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.Hold(dip.Province(match[1])))
+				s.SetOrder(godip.Province(match[1]), orders.Hold(godip.Province(match[1])))
 			} else if match = convoyReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.Convoy(dip.Province(match[1]), dip.Province(match[2]), dip.Province(match[3])))
+				s.SetOrder(godip.Province(match[1]), orders.Convoy(godip.Province(match[1]), godip.Province(match[2]), godip.Province(match[3])))
 			} else if match = buildReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[2]), orders.Build(dip.Province(match[2]), dip.UnitType(match[1]), time.Now()))
+				s.SetOrder(godip.Province(match[2]), orders.Build(godip.Province(match[2]), godip.UnitType(match[1]), time.Now()))
 			} else if match = buildAnywhereReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[2]), orders.BuildAnywhere(dip.Province(match[2]), dip.UnitType(match[1]), time.Now()))
+				s.SetOrder(godip.Province(match[2]), orders.BuildAnywhere(godip.Province(match[2]), godip.UnitType(match[1]), time.Now()))
 			} else if match = removeReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.Disband(dip.Province(match[1]), time.Now()))
+				s.SetOrder(godip.Province(match[1]), orders.Disband(godip.Province(match[1]), time.Now()))
 			} else if match = disbandReg.FindStringSubmatch(line); match != nil {
-				s.SetOrder(dip.Province(match[1]), orders.Disband(dip.Province(match[1]), time.Now()))
+				s.SetOrder(godip.Province(match[1]), orders.Disband(godip.Province(match[1]), time.Now()))
 			} else if match = phaseReg.FindStringSubmatch(line); match != nil {
 				ords -= 1
 				phases += 1
@@ -281,7 +281,7 @@ func TestGames(t *testing.T, variant common.Variant) {
 					fmt.Printf("Spent on average %v calculating options, never more than %v.", timeSpentCalculatingOptions/time.Duration(optionsCalculated), worstOptionsCalculation)
 				}
 				if fails > 0 {
-					dip.DumpLog()
+					godip.DumpLog()
 					for prov, err := range s.Resolutions() {
 						t.Errorf("%v: %v", prov, err)
 					}

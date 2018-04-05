@@ -4,17 +4,17 @@ import (
 	"testing"
 	"time"
 
+	"github.com/zond/godip"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/orders"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 	tst "github.com/zond/godip/variants/testing"
 )
 
 func init() {
-	dip.Debug = true
+	godip.Debug = true
 }
 
 func startState(t *testing.T) *state.State {
@@ -35,12 +35,12 @@ func TestLondonCalais(t *testing.T) {
 	judge := blankState(t)
 
 	// Test the connection from London to Calais.
-	judge.SetUnit("lon", dip.Unit{cla.Army, England})
+	judge.SetUnit("lon", godip.Unit{cla.Army, England})
 	tst.AssertOrderValidity(t, judge, orders.Move("lon", "cal"), England, nil)
 
 	// Check the reverse too.
 	judge.RemoveUnit("lon")
-	judge.SetUnit("cal", dip.Unit{cla.Army, England})
+	judge.SetUnit("cal", godip.Unit{cla.Army, England})
 	tst.AssertOrderValidity(t, judge, orders.Move("cal", "lon"), England, nil)
 }
 
@@ -65,5 +65,5 @@ func TestBuildAnywhere(t *testing.T) {
 	judge.SetOrder("sco", orders.BuildAnywhere("sco", cla.Army, time.Now()))
 	judge.Next()
 	// Check that it was successful.
-	tst.AssertUnit(t, judge, "sco", dip.Unit{cla.Army, England})
+	tst.AssertUnit(t, judge, "sco", godip.Unit{cla.Army, England})
 }

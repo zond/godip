@@ -1,25 +1,25 @@
 package fleetrome
 
 import (
+	"github.com/zond/godip"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var FleetRomeVariant = common.Variant{
 	Name:  "Fleet Rome",
-	Graph: func() dip.Graph { return start.Graph() },
+	Graph: func() godip.Graph { return start.Graph() },
 	Start: func() (result *state.State, err error) {
 		if result, err = classical.Start(); err != nil {
 			return
 		}
-		result.RemoveUnit(dip.Province("rom"))
-		if err = result.SetUnit(dip.Province("rom"), dip.Unit{
+		result.RemoveUnit(godip.Province("rom"))
+		if err = result.SetUnit(godip.Province("rom"), godip.Unit{
 			Type:   cla.Fleet,
 			Nation: cla.Italy,
 		}); err != nil {
@@ -39,7 +39,7 @@ var FleetRomeVariant = common.Variant{
 		return classical.Asset("svg/map.svg")
 	},
 	SVGVersion: "1482957154",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		cla.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
