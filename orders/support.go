@@ -5,8 +5,6 @@ import (
 	"time"
 
 	"github.com/zond/godip"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var SupportOrder = &support{}
@@ -61,7 +59,7 @@ func (self *support) Adjudicate(r godip.Resolver) error {
 			(len(self.targets) == 2 || o.Targets()[0].Super() != self.targets[2].Super()) && // not from something we support attacking
 			u.Nation != unit.Nation { // not from ourselves
 
-			_, err := cla.AnyMovePossible(r, u.Type, o.Targets()[0], o.Targets()[1], u.Type == godip.Army, true, true) // and legal move counting convoy success
+			_, err := AnyMovePossible(r, u.Type, o.Targets()[0], o.Targets()[1], u.Type == godip.Army, true, true) // and legal move counting convoy success
 			return err == nil
 		}
 		return false
@@ -119,7 +117,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 	if supporter.Nation != nation {
 		return
 	}
-	for _, supportable := range cla.PossibleMoves(v, src, false, false) {
+	for _, supportable := range PossibleMoves(v, src, false, false) {
 		if _, supporteeSrc, ok := v.Unit(supportable); ok {
 			if result == nil {
 				result = godip.Options{}
@@ -138,7 +136,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 			if mvDst.Super() == actualSrc.Super() {
 				continue
 			}
-			for _, moveSupportable := range cla.PossibleMovesUnit(v, godip.Fleet, mvDst, false, nil) {
+			for _, moveSupportable := range PossibleMovesUnit(v, godip.Fleet, mvDst, false, nil) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
@@ -159,7 +157,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 				}
 				opt[mvDst.Super()] = nil
 			}
-			for _, moveSupportable := range cla.PossibleMovesUnit(v, godip.Army, mvDst, true, &actualSrc) {
+			for _, moveSupportable := range PossibleMovesUnit(v, godip.Army, mvDst, true, &actualSrc) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
@@ -204,18 +202,18 @@ func (self *support) Validate(v godip.Validator) (godip.Nation, error) {
 		return "", godip.ErrMissingSupportUnit
 	}
 	if len(self.targets) == 2 {
-		if err := cla.AnySupportPossible(v, unit.Type, self.targets[0], self.targets[1]); err != nil {
+		if err := AnySupportPossible(v, unit.Type, self.targets[0], self.targets[1]); err != nil {
 			return "", godip.ErrIllegalSupportPosition
 		}
 	} else {
 		if !v.Graph().Has(self.targets[2]) {
 			return "", godip.ErrInvalidTarget
 		}
-		if err := cla.AnySupportPossible(v, unit.Type, self.targets[0], self.targets[2]); err != nil {
+		if err := AnySupportPossible(v, unit.Type, self.targets[0], self.targets[2]); err != nil {
 			return "", godip.ErrIllegalSupportDestination
 		}
 
-		if _, err := cla.AnyMovePossible(v, supported.Type, self.targets[1], self.targets[2], true, true, false); err != nil {
+		if _, err := AnyMovePossible(v, supported.Type, self.targets[1], self.targets[2], true, true, false); err != nil {
 			return "", godip.ErrIllegalSupportMove
 		}
 	}
@@ -223,4 +221,16 @@ func (self *support) Validate(v godip.Validator) (godip.Nation, error) {
 }
 
 func (self *support) Execute(state godip.State) {
+}
+
+func AnySupportPossible(v godip.Validator, typ godip.UnitType, src, dst godip.Province) (err error) {
+	if err = movePossible(v, typ, src, dst, false, false); err == nil {
+		return
+	}
+	for _, coast := range v.Graph().Coasts(dst) {
+		if err = movePossible(v, typ, src, coast, false, false); err == nil {
+			return
+		}
+	}
+	return
 }

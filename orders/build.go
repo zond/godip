@@ -2,11 +2,10 @@ package orders
 
 import (
 	"fmt"
+	"sort"
 	"time"
 
 	"github.com/zond/godip"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var BuildOrder = &build{}
@@ -69,7 +68,7 @@ func (self *build) At() time.Time {
 
 func (self *build) Adjudicate(r godip.Resolver) error {
 	me := r.SupplyCenters()[self.targets[0].Super()]
-	builds, _, _ := cla.AdjustmentStatus(r, me)
+	builds, _, _ := AdjustmentStatus(r, me)
 	if len(builds) == 0 || self.at.After(builds[len(builds)-1].At()) {
 		return godip.ErrIllegalBuild
 	}
@@ -123,7 +122,7 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	if _, _, ok = v.Unit(src); ok {
 		return
 	}
-	if _, _, balance := cla.AdjustmentStatus(v, me); balance < 1 {
+	if _, _, balance := AdjustmentStatus(v, me); balance < 1 {
 		return
 	}
 	if v.Graph().Flags(src)[godip.Land] || v.Graph().Flags(src.Super())[godip.Land] {
@@ -180,7 +179,7 @@ func (self *build) Validate(v godip.Validator) (godip.Nation, error) {
 		}
 	}
 	// can i build
-	if _, _, balance := cla.AdjustmentStatus(v, me); balance < 1 {
+	if _, _, balance := AdjustmentStatus(v, me); balance < 1 {
 		return "", godip.ErrMissingSurplus
 	}
 	// can i build THIS here
@@ -196,4 +195,43 @@ func (self *build) Validate(v godip.Validator) (godip.Nation, error) {
 func (self *build) Execute(state godip.State) {
 	me := state.SupplyCenters()[self.targets[0].Super()]
 	state.SetUnit(self.targets[0], godip.Unit{self.typ, me})
+}
+
+func AdjustmentStatus(v godip.Validator, me godip.Nation) (builds godip.Orders, disbands godip.Orders, balance int) {
+	scs := 0
+	for prov, nat := range v.SupplyCenters() {
+		if nat == me {
+			scs += 1
+			if order, _, ok := v.Order(prov); ok && order.Type() == godip.Build {
+				builds = append(builds, order)
+			}
+		}
+	}
+
+	units := 0
+	for prov, unit := range v.Units() {
+		if unit.Nation == me {
+			units += 1
+			if order, _, ok := v.Order(prov); ok && order.Type() == godip.Disband {
+				disbands = append(disbands, order)
+			}
+		}
+	}
+
+	sort.Sort(builds)
+	sort.Sort(disbands)
+
+	balance = scs - units
+	if balance > 0 {
+		disbands = nil
+		builds = builds[:godip.Max(0, godip.Min(len(builds), balance))]
+	} else if balance < 0 {
+		builds = nil
+		disbands = disbands[:godip.Max(0, godip.Min(len(disbands), -balance))]
+	} else {
+		builds = nil
+		disbands = nil
+	}
+
+	return
 }

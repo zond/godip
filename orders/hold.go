@@ -97,3 +97,18 @@ func (self *hold) Validate(v godip.Validator) (godip.Nation, error) {
 
 func (self *hold) Execute(state godip.State) {
 }
+
+/*
+HoldSupport returns successful supports of a hold in prov.
+*/
+func HoldSupport(r godip.Resolver, prov godip.Province) int {
+	_, supports, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
+		if o != nil && u != nil && o.Type() == godip.Support && p.Super() != prov.Super() && len(o.Targets()) == 2 && o.Targets()[1].Super() == prov.Super() {
+			if err := r.Resolve(p); err == nil {
+				return true
+			}
+		}
+		return false
+	})
+	return len(supports)
+}

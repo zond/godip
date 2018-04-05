@@ -788,9 +788,7 @@ import (
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
-
-	dip "github.com/zond/godip"
-	cla "github.com/zond/godip/variants/classical/common"
+	"github.com/zond/godip"
 )
 
 const (
@@ -804,24 +802,24 @@ const (
     f.write('\tGraph:      func() dip.Graph {{ return {}Graph() }},\n'.format(VARIANT.replace(' ', '')))
     f.write('\tStart:      {}Start,\n'.format(VARIANT.replace(' ', '')))
     f.write('\tBlank:      {}Blank,\n'.format(VARIANT.replace(' ', '')))
-    f.write("""	Phase:      classical.Phase,
+    f.write("""	Phase:      godip.Phase,
 	Parser:     orders.ClassicalParser,
 	OrderTypes: orders.ClassicalParser.OrderTypes(),
 	Nations:    Nations,
-	PhaseTypes: cla.PhaseTypes,
-	Seasons:    cla.Seasons,
-	UnitTypes:  cla.UnitTypes,""")
+	PhaseTypes: classical.PhaseTypes,
+	Seasons:    classical.Seasons,
+	UnitTypes:  classical.UnitTypes,""")
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
     f.write('\n\tSoloWinner: common.SCCountWinner({}),\n'.format(scCount))
     f.write("""	SVGMap: func() ([]byte, error) {{
-		return Asset("svg/{}map.svg")
+		return classical.Asset("svg/{}map.svg")
 	}},
 	SVGVersion: "1",
 	SVGUnits: map[dip.UnitType]func() ([]byte, error){{
-		cla.Army: func() ([]byte, error) {{
+		godip.Army: func() ([]byte, error) {{
 			return classical.Asset("svg/army.svg")
 		}},
-		cla.Fleet: func() ([]byte, error) {{
+		godip.Fleet: func() ([]byte, error) {{
 			return classical.Asset("svg/fleet.svg")
 		}},
 	}},
@@ -837,7 +835,7 @@ func {0}Blank(phase dip.Phase) *state.State {{
 }}
 
 func {0}Start() (result *state.State, err error) {{
-	startPhase := classical.Phase({1}, cla.Spring, cla.Movement)
+	startPhase := classical.Phase({1}, godip.Spring, godip.Movement)
 	result = state.New({0}Graph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[dip.Province]dip.Unit{{
 """.format(VARIANT.replace(' ', ''), START_YEAR))
@@ -847,7 +845,7 @@ func {0}Start() (result *state.State, err error) {{
                 if len([province.abbreviation for province in provinces if province.name == tuple(region.split(' '))]) == 0:
                     raise Exception('Could not find region {} when setting starting units.'.format(region))
                 abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
-                f.write('\t\t"{}": dip.Unit{{cla.{}, {}}},\n'.format(abbr, unitType, nation))
+                f.write('\t\t"{}": dip.Unit{{godip.{}, {}}},\n'.format(abbr, unitType, nation))
     f.write("""	}); err != nil {
 		return
 	}
@@ -895,10 +893,10 @@ func {0}Graph() *graph.Graph {{
                         borderType = 'Coast...'
                     else:
                         borderType = 'Land'
-                f.write('Conn("{}", cla.{}).'.format(neighbour.abbreviation, borderType))
-        f.write('Flag(cla.{}).'.format(flags[province.abbreviation]))
+                f.write('Conn("{}", godip.{}).'.format(neighbour.abbreviation, borderType))
+        f.write('Flag(godip.{}).'.format(flags[province.abbreviation]))
         if province.flags.supplyCenter:
-            owner = 'cla.Neutral'
+            owner = 'godip.Neutral'
             for nation, units in START_UNITS.items():
                 for regions in units.values():
                     if province.name in map(lambda name: tuple(name.split(' ')), regions):

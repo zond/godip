@@ -9,7 +9,6 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
 
-	cla "github.com/zond/godip/variants/classical/common"
 	ord "github.com/zond/godip/variants/classical/orders"
 )
 
@@ -175,7 +174,7 @@ func (self *phase) PostProcess(s godip.State) (err error) {
 		}
 	} else if self.typ == godip.Adjustment {
 		for _, nationality := range s.Graph().Nations() {
-			_, _, balance := cla.AdjustmentStatus(s, nationality)
+			_, _, balance := orders.AdjustmentStatus(s, nationality)
 			if balance < 0 {
 				var su []godip.Province
 				if su, err = SortedUnits(s, nationality); err != nil {
@@ -194,7 +193,7 @@ func (self *phase) PostProcess(s godip.State) (err error) {
 			hasRetreat := false
 			for edge, _ := range s.Graph().Edges(prov) {
 				if _, _, ok := s.Unit(edge); !ok && !s.Bounce(prov, edge) {
-					if cla.HasEdge(s, unit.Type, prov, edge) {
+					if orders.HasEdge(s, unit.Type, prov, edge) {
 						godip.Logf("%v can retreat to %v", prov, edge)
 						hasRetreat = true
 						break

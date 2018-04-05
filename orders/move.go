@@ -5,8 +5,6 @@ import (
 	"time"
 
 	"github.com/zond/godip"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var MoveOrder = &move{}
@@ -90,11 +88,11 @@ func (self *move) adjudicateAgainstCompetition(r godip.Resolver, forbiddenSuppor
 		if forbiddenSupporter != nil {
 			forbiddenSupporters = append(forbiddenSupporters, *forbiddenSupporter)
 		}
-		attackStrength := cla.MoveSupport(r, self.targets[0], self.targets[1], forbiddenSupporters) + 1
+		attackStrength := MoveSupport(r, self.targets[0], self.targets[1], forbiddenSupporters) + 1
 		godip.Logf("'%v' vs '%v': %v", self, competingOrder, attackStrength)
-		if as := cla.MoveSupport(r, competingOrder.Targets()[0], competingOrder.Targets()[1], nil) + 1; as >= attackStrength {
-			if cla.MustConvoy(r, competingOrder.Targets()[0]) {
-				if cla.AnyConvoyPath(r, competingOrder.Targets()[0], competingOrder.Targets()[1], true, nil) != nil {
+		if as := MoveSupport(r, competingOrder.Targets()[0], competingOrder.Targets()[1], nil) + 1; as >= attackStrength {
+			if MustConvoy(r, competingOrder.Targets()[0]) {
+				if AnyConvoyPath(r, competingOrder.Targets()[0], competingOrder.Targets()[1], true, nil) != nil {
 					godip.Logf("'%v' vs '%v': %v", competingOrder, self, as)
 					r.AddBounce(self.targets[0], self.targets[1])
 					return godip.ErrBounce{competingOrder.Targets()[0]}
@@ -110,7 +108,7 @@ func (self *move) adjudicateAgainstCompetition(r godip.Resolver, forbiddenSuppor
 						o.Targets()[0].Super() == competingOrder.Targets()[1].Super() && // from their destination
 						u.Nation != competingUnits[index].Nation // not from themselves
 					if res {
-						if !cla.MustConvoy(r, o.Targets()[0]) && r.Resolve(p) == nil {
+						if !MustConvoy(r, o.Targets()[0]) && r.Resolve(p) == nil {
 							return true
 						}
 					}
@@ -136,9 +134,9 @@ func (self *move) adjudicateAgainstCompetition(r godip.Resolver, forbiddenSuppor
 func (self *move) adjudicateMovementPhase(r godip.Resolver) error {
 	unit, _, _ := r.Unit(self.targets[0])
 
-	convoyed := cla.MustConvoy(r, self.targets[0])
+	convoyed := MustConvoy(r, self.targets[0])
 	if convoyed {
-		if cla.AnyConvoyPath(r, self.targets[0], self.targets[1], true, nil) == nil {
+		if AnyConvoyPath(r, self.targets[0], self.targets[1], true, nil) == nil {
 			return godip.ErrMissingConvoyPath
 		}
 	}
@@ -151,13 +149,13 @@ func (self *move) adjudicateMovementPhase(r godip.Resolver) error {
 	// at destination
 	if victim, _, hasVictim := r.Unit(self.targets[1]); hasVictim {
 		forbiddenSupporter = &victim.Nation
-		attackStrength := cla.MoveSupport(r, self.targets[0], self.targets[1], []godip.Nation{victim.Nation}) + 1
+		attackStrength := MoveSupport(r, self.targets[0], self.targets[1], []godip.Nation{victim.Nation}) + 1
 		order, prov, _ := r.Order(self.targets[1])
 		godip.Logf("'%v' vs '%v': %v", self, order, attackStrength)
 		if order.Type() == godip.Move {
-			victimConvoyed := cla.MustConvoy(r, order.Targets()[0])
+			victimConvoyed := MustConvoy(r, order.Targets()[0])
 			if !convoyed && !victimConvoyed && order.Targets()[1].Super() == self.targets[0].Super() {
-				as := cla.MoveSupport(r, order.Targets()[0], order.Targets()[1], []godip.Nation{unit.Nation}) + 1
+				as := MoveSupport(r, order.Targets()[0], order.Targets()[1], []godip.Nation{unit.Nation}) + 1
 				godip.Logf("'%v' vs '%v': %v", order, self, as)
 				if victim.Nation == unit.Nation || as >= attackStrength {
 					return godip.ErrBounce{self.targets[1]}
@@ -178,7 +176,7 @@ func (self *move) adjudicateMovementPhase(r godip.Resolver) error {
 				}
 			}
 		} else {
-			hs := cla.HoldSupport(r, self.targets[1]) + 1
+			hs := HoldSupport(r, self.targets[1]) + 1
 			godip.Logf("'%v': %v", order, hs)
 			if victim.Nation == unit.Nation || hs >= attackStrength {
 				return godip.ErrBounce{self.targets[1]}
@@ -218,7 +216,7 @@ func (self *move) validateRetreatPhase(v godip.Validator) (godip.Nation, error) 
 		return "", godip.ErrMissingUnit
 	}
 	var err error
-	if self.targets[1], err = cla.AnyMovePossible(v, unit.Type, self.targets[0], self.targets[1], unit.Type == godip.Army, false, false); err != nil {
+	if self.targets[1], err = AnyMovePossible(v, unit.Type, self.targets[0], self.targets[1], unit.Type == godip.Army, false, false); err != nil {
 		return "", godip.ErrIllegalMove
 	}
 	if _, _, ok := v.Unit(self.targets[1]); ok {
@@ -246,7 +244,7 @@ func (self *move) validateMovementPhase(v godip.Validator) (godip.Nation, error)
 		return "", godip.ErrMissingUnit
 	}
 	var err error
-	if self.targets[1], err = cla.AnyMovePossible(v, unit.Type, self.targets[0], self.targets[1], unit.Type == godip.Army, true, false); err != nil {
+	if self.targets[1], err = AnyMovePossible(v, unit.Type, self.targets[0], self.targets[1], unit.Type == godip.Army, true, false); err != nil {
 		return "", err
 	}
 	return unit.Nation, nil
@@ -286,7 +284,7 @@ func (self *move) Options(v godip.Validator, nation godip.Nation, src godip.Prov
 			if v.Graph().Has(src) {
 				if unit, actualSrc, ok := v.Dislodged(src); ok {
 					if unit.Nation == nation {
-						for _, dst := range cla.PossibleMoves(v, src, false, true) {
+						for _, dst := range PossibleMoves(v, src, false, true) {
 							if _, _, foundUnit := v.Unit(dst); !foundUnit {
 								if !v.Bounce(src, dst) {
 									if result == nil {
@@ -308,7 +306,7 @@ func (self *move) Options(v godip.Validator, nation godip.Nation, src godip.Prov
 			if unit, actualSrc, ok := v.Unit(src); ok {
 				if unit.Nation == nation {
 					if !self.flags[godip.ViaConvoy] || unit.Type == godip.Army {
-						for _, dst := range cla.PossibleMoves(v, src, true, false) {
+						for _, dst := range PossibleMoves(v, src, true, false) {
 							if !self.flags[godip.ViaConvoy] {
 								if result == nil {
 									result = godip.Options{}
@@ -318,7 +316,7 @@ func (self *move) Options(v godip.Validator, nation godip.Nation, src godip.Prov
 								}
 								result[godip.SrcProvince(actualSrc)][dst] = nil
 							} else {
-								if cp := cla.AnyConvoyPath(v, src, dst, false, nil); len(cp) > 1 {
+								if cp := AnyConvoyPath(v, src, dst, false, nil); len(cp) > 1 {
 									if result == nil {
 										result = godip.Options{}
 									}
@@ -341,6 +339,159 @@ func (self *move) Execute(state godip.State) {
 	if state.Phase().Type() == godip.Retreat {
 		state.Retreat(self.targets[0], self.targets[1])
 	} else {
-		state.Move(self.targets[0], self.targets[1], !cla.MustConvoy(state, self.targets[0]))
+		state.Move(self.targets[0], self.targets[1], !MustConvoy(state, self.targets[0]))
 	}
+}
+
+/*
+MoveSupport returns the successful supports of movement from src to dst, discounting the nations in forbiddenSupports.
+*/
+func MoveSupport(r godip.Resolver, src, dst godip.Province, forbiddenSupports []godip.Nation) int {
+	_, supports, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
+		if o != nil && u != nil {
+			if o.Type() == godip.Support && len(o.Targets()) == 3 && o.Targets()[1].Contains(src) && o.Targets()[2].Contains(dst) {
+				for _, ban := range forbiddenSupports {
+					if ban == u.Nation {
+						return false
+					}
+				}
+				if err := r.Resolve(p); err == nil {
+					return true
+				}
+			}
+		}
+		return false
+	})
+	return len(supports)
+}
+
+func HasEdge(v godip.Validator, typ godip.UnitType, src, dst godip.Province) bool {
+	if typ == godip.Army {
+		return v.Graph().Flags(dst)[godip.Land] && v.Graph().Edges(src)[dst][godip.Land]
+	} else {
+		return v.Graph().Flags(dst)[godip.Sea] && v.Graph().Edges(src)[dst][godip.Sea]
+	}
+}
+
+func PossibleMovesUnit(v godip.Validator, unitType godip.UnitType, src godip.Province, allowConvoy bool, noConvoy *godip.Province) (result []godip.Province) {
+	defer v.Profile("PossibleMovesUnit", time.Now())
+	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesUnit(%v,%v,%v)", unitType, src, allowConvoy, noConvoy), func() []godip.Province {
+		dsts := map[godip.Province]bool{}
+		if unitType == godip.Army {
+			for dst, flags := range v.Graph().Edges(src) {
+				if flags[godip.Land] && v.Graph().Flags(dst)[godip.Land] {
+					dsts[dst] = true
+				}
+			}
+			if allowConvoy {
+				for _, coast := range v.Graph().Coasts(src) {
+					for _, prov := range ConvoyDestinations(v, coast, noConvoy) {
+						dsts[prov] = true
+					}
+				}
+			}
+		} else if unitType == godip.Fleet {
+			for dst, flags := range v.Graph().Edges(src) {
+				if flags[godip.Sea] && v.Graph().Flags(dst)[godip.Sea] {
+					dsts[dst] = true
+				}
+			}
+		} else {
+			panic(fmt.Errorf("unknown unit type %q", unitType))
+		}
+		for dst, _ := range dsts {
+			if dst.Super() == dst || !dsts[dst.Super()] {
+				result = append(result, dst)
+			}
+		}
+		return result
+	})
+}
+
+func PossibleMoves(v godip.Validator, src godip.Province, allowConvoy, dislodged bool) (result []godip.Province) {
+	defer v.Profile("PossibleMoves", time.Now())
+	var unit godip.Unit
+	var realSrc godip.Province
+	var found bool
+	if dislodged {
+		unit, realSrc, found = v.Dislodged(src)
+	} else {
+		unit, realSrc, found = v.Unit(src)
+	}
+	if found {
+		return PossibleMovesUnit(v, unit.Type, realSrc, allowConvoy, nil)
+	}
+	return nil
+}
+
+func AnyMovePossible(v godip.Validator, typ godip.UnitType, src, dst godip.Province, lax, allowConvoy, resolveConvoys bool) (dstCoast godip.Province, err error) {
+	defer v.Profile("AnyMovePossible", time.Now())
+	dstCoast = dst
+	if err = movePossible(v, typ, src, dst, allowConvoy, resolveConvoys); err == nil {
+		return
+	}
+	if lax || dst.Super() == dst {
+		var options []godip.Province
+		for _, coast := range v.Graph().Coasts(dst) {
+			if err2 := movePossible(v, typ, src, coast, allowConvoy, resolveConvoys); err2 == nil {
+				options = append(options, coast)
+			}
+		}
+		if len(options) > 0 {
+			if lax || len(options) == 1 {
+				dstCoast, err = options[0], nil
+			}
+		}
+	}
+	return
+}
+
+func movePossible(v godip.Validator, typ godip.UnitType, src, dst godip.Province, allowConvoy, resolveConvoys bool) error {
+	defer v.Profile("movePossible", time.Now())
+	if !v.Graph().Has(src) {
+		return godip.ErrInvalidSource
+	}
+	if !v.Graph().Has(dst) {
+		return godip.ErrInvalidDestination
+	}
+	if typ == godip.Army {
+		defer v.Profile("movePossible (army)", time.Now())
+		if !v.Graph().Flags(dst)[godip.Land] {
+			return godip.ErrIllegalDestination
+		}
+		if !allowConvoy {
+			flags, found := v.Graph().Edges(src)[dst]
+			if !found {
+				return godip.ErrIllegalMove
+			}
+			if !flags[godip.Land] {
+				return godip.ErrIllegalDestination
+			}
+			return nil
+		}
+		if resolveConvoys {
+			if MustConvoy(v.(godip.Resolver), src) {
+				if AnyConvoyPath(v, src, dst, true, nil) == nil {
+					return godip.ErrMissingConvoyPath
+				}
+				return nil
+			}
+		}
+		if !HasEdge(v, typ, src, dst) {
+			if cp := AnyConvoyPath(v, src, dst, false, nil); cp == nil {
+				return godip.ErrMissingConvoyPath
+			}
+			return nil
+		}
+		return nil
+	} else if typ == godip.Fleet {
+		defer v.Profile("movePossible (fleet)", time.Now())
+		if !v.Graph().Flags(dst)[godip.Sea] {
+			return godip.ErrIllegalDestination
+		}
+		if !HasEdge(v, typ, src, dst) {
+			return godip.ErrIllegalMove
+		}
+	}
+	return nil
 }

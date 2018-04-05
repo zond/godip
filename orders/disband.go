@@ -5,8 +5,6 @@ import (
 	"time"
 
 	"github.com/zond/godip"
-
-	cla "github.com/zond/godip/variants/classical/common"
 )
 
 var DisbandOrder = &disband{}
@@ -49,7 +47,7 @@ func (self *disband) At() time.Time {
 
 func (self *disband) adjudicateBuildPhase(r godip.Resolver) error {
 	unit, _, _ := r.Unit(self.targets[0])
-	_, disbands, _ := cla.AdjustmentStatus(r, unit.Nation)
+	_, disbands, _ := AdjustmentStatus(r, unit.Nation)
 	if len(disbands) == 0 || self.at.After(disbands[len(disbands)-1].At()) {
 		return godip.ErrIllegalDisband
 	}
@@ -89,7 +87,7 @@ func (self *disband) validateBuildPhase(v godip.Validator) (godip.Nation, error)
 	if unit, self.targets[0], ok = v.Unit(self.targets[0]); !ok {
 		return "", godip.ErrMissingUnit
 	}
-	if _, _, balance := cla.AdjustmentStatus(v, unit.Nation); balance > -1 {
+	if _, _, balance := AdjustmentStatus(v, unit.Nation); balance > -1 {
 		return "", godip.ErrMissingDeficit
 	}
 	return unit.Nation, nil
@@ -117,7 +115,7 @@ func (self *disband) Options(v godip.Validator, nation godip.Nation, src godip.P
 		if v.Graph().Has(src) {
 			if unit, actualSrc, ok := v.Unit(src); ok {
 				if unit.Nation == nation {
-					if _, _, balance := cla.AdjustmentStatus(v, unit.Nation); balance < 0 {
+					if _, _, balance := AdjustmentStatus(v, unit.Nation); balance < 0 {
 						result = godip.Options{
 							godip.SrcProvince(actualSrc): nil,
 						}
