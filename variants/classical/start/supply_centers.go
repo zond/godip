@@ -1,12 +1,12 @@
 package start
 
 import (
+	"github.com/zond/godip"
 	. "github.com/zond/godip/variants/classical/common"
-	"github.com/zond/godip/common"
 )
 
-func SupplyCenters() map[common.Province]common.Nation {
-	return map[common.Province]common.Nation{
+func SupplyCenters() map[godip.Province]godip.Nation {
+	return map[godip.Province]godip.Nation{
 		"edi": England,
 		"lvp": England,
 		"lon": England,

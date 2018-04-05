@@ -5,7 +5,7 @@ import (
 
 	"github.com/zond/godip/state"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 )
 
 const (

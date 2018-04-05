@@ -4,30 +4,30 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/zond/godip/common"
+	"github.com/zond/godip"
 )
 
-func New(graph common.Graph, phase common.Phase, backupRule common.BackupRule) *State {
+func New(graph godip.Graph, phase godip.Phase, backupRule godip.BackupRule) *State {
 	return &State{
 		graph:              graph,
 		phase:              phase,
 		backupRule:         backupRule,
-		orders:             make(map[common.Province]common.Adjudicator),
-		units:              make(map[common.Province]common.Unit),
-		dislodgeds:         make(map[common.Province]common.Unit),
-		supplyCenters:      make(map[common.Province]common.Nation),
-		dislodgers:         make(map[common.Province]common.Province),
-		bounces:            make(map[common.Province]map[common.Province]bool),
+		orders:             make(map[godip.Province]godip.Adjudicator),
+		units:              make(map[godip.Province]godip.Unit),
+		dislodgeds:         make(map[godip.Province]godip.Unit),
+		supplyCenters:      make(map[godip.Province]godip.Nation),
+		dislodgers:         make(map[godip.Province]godip.Province),
+		bounces:            make(map[godip.Province]map[godip.Province]bool),
 		profile:            make(map[string]time.Duration),
 		profileCounts:      make(map[string]int),
-		memoizedProvSlices: make(map[string][]common.Province),
+		memoizedProvSlices: make(map[string][]godip.Province),
 	}
 }
 
 type movement struct {
-	src            common.Province
-	dst            common.Province
-	unit           common.Unit
+	src            godip.Province
+	dst            godip.Province
+	unit           godip.Unit
 	preventRetreat bool
 }
 
@@ -39,7 +39,7 @@ func (self *movement) prepare(s *State) (err error) {
 	} else {
 		s.RemoveUnit(self.src)
 	}
-	common.Logf("Lifted %v from %v", self.unit, self.src)
+	godip.Logf("Lifted %v from %v", self.unit, self.src)
 	return
 }
 
@@ -52,30 +52,30 @@ func (self *movement) execute(s *State) (err error) {
 		if self.preventRetreat {
 			s.SetDislodger(self.src, prov)
 		}
-		common.Logf("Dislodged %v from %v", dislodged, self.dst)
+		godip.Logf("Dislodged %v from %v", dislodged, self.dst)
 	}
 	if err = s.SetUnit(self.dst, self.unit); err != nil {
 		return
 	}
-	common.Logf("Dropped %v in %v", self.unit, self.dst)
+	godip.Logf("Dropped %v in %v", self.unit, self.dst)
 	return
 }
 
 type State struct {
-	orders             map[common.Province]common.Adjudicator
-	units              map[common.Province]common.Unit
-	dislodgeds         map[common.Province]common.Unit
-	supplyCenters      map[common.Province]common.Nation
-	graph              common.Graph
-	phase              common.Phase
-	backupRule         common.BackupRule
-	resolutions        map[common.Province]error
-	dislodgers         map[common.Province]common.Province
+	orders             map[godip.Province]godip.Adjudicator
+	units              map[godip.Province]godip.Unit
+	dislodgeds         map[godip.Province]godip.Unit
+	supplyCenters      map[godip.Province]godip.Nation
+	graph              godip.Graph
+	phase              godip.Phase
+	backupRule         godip.BackupRule
+	resolutions        map[godip.Province]error
+	dislodgers         map[godip.Province]godip.Province
 	movements          []*movement
-	bounces            map[common.Province]map[common.Province]bool
+	bounces            map[godip.Province]map[godip.Province]bool
 	profile            map[string]time.Duration
 	profileCounts      map[string]int
-	memoizedProvSlices map[string][]common.Province
+	memoizedProvSlices map[string][]godip.Province
 }
 
 func (self *State) Profile(a string, t time.Time) {
@@ -83,7 +83,7 @@ func (self *State) Profile(a string, t time.Time) {
 	self.profileCounts[a] += 1
 }
 
-func (self *State) MemoizeProvSlice(key string, f func() []common.Province) []common.Province {
+func (self *State) MemoizeProvSlice(key string, f func() []godip.Province) []godip.Province {
 	old, found := self.memoizedProvSlices[key]
 	if found {
 		return old
@@ -100,18 +100,18 @@ func (self *State) GetProfile() (map[string]time.Duration, map[string]int) {
 func (self *State) resolver() *resolver {
 	return &resolver{
 		State:     self,
-		guesses:   make(map[common.Province]error),
-		resolving: make(map[common.Province]bool),
+		guesses:   make(map[godip.Province]error),
+		resolving: make(map[godip.Province]bool),
 	}
 }
 
-func (self *State) Graph() common.Graph {
+func (self *State) Graph() godip.Graph {
 	return self.graph
 }
 
-func (self *State) Options(orders []common.Order, nation common.Nation) (result common.Options) {
+func (self *State) Options(orders []godip.Order, nation godip.Nation) (result godip.Options) {
 	defer self.Profile("Options", time.Now())
-	result = common.Options{}
+	result = godip.Options{}
 	for _, prov := range self.graph.Provinces() {
 		for _, order := range orders {
 			before := time.Now()
@@ -120,7 +120,7 @@ func (self *State) Options(orders []common.Order, nation common.Nation) (result 
 			if len(opts) > 0 {
 				provOpts, found := result[prov]
 				if !found {
-					provOpts = common.Options{}
+					provOpts = godip.Options{}
 					result[prov] = provOpts
 				}
 				provOpts[order.DisplayType()] = opts
@@ -130,11 +130,11 @@ func (self *State) Options(orders []common.Order, nation common.Nation) (result 
 	return
 }
 
-func (self *State) Find(filter common.StateFilter) (provinces []common.Province, orders []common.Order, units []*common.Unit) {
-	visitedProvinces := make(map[common.Province]bool)
+func (self *State) Find(filter godip.StateFilter) (provinces []godip.Province, orders []godip.Order, units []*godip.Unit) {
+	visitedProvinces := make(map[godip.Province]bool)
 	for prov, unit := range self.units {
 		visitedProvinces[prov] = true
-		var order common.Order
+		var order godip.Order
 		var ok bool
 		if order, _, ok = self.Order(prov); !ok {
 			order = nil
@@ -162,12 +162,12 @@ func (self *State) Next() (err error) {
 	/*
 	   Sanitize orders.
 	*/
-	self.resolutions = make(map[common.Province]error)
+	self.resolutions = make(map[godip.Province]error)
 	for prov, order := range self.orders {
 		if _, err := order.Validate(self); err != nil {
 			self.resolutions[prov] = err
 			delete(self.orders, prov)
-			common.Logf("Deleted %v due to %v", prov, err)
+			godip.Logf("Deleted %v due to %v", prov, err)
 		}
 	}
 
@@ -201,7 +201,7 @@ func (self *State) Next() (err error) {
 			order.Execute(self.resolver())
 		}
 	}
-	self.orders = make(map[common.Province]common.Adjudicator)
+	self.orders = make(map[godip.Province]godip.Adjudicator)
 
 	/*
 	   Execute movements.
@@ -223,30 +223,30 @@ func (self *State) Next() (err error) {
 	}
 	self.phase = self.phase.Next()
 
-	self.memoizedProvSlices = map[string][]common.Province{}
+	self.memoizedProvSlices = map[string][]godip.Province{}
 	return
 }
 
-func (self *State) Phase() common.Phase {
+func (self *State) Phase() godip.Phase {
 	return self.phase
 }
 
 // Bulk setters
 
-func (self *State) SetOrders(orders map[common.Province]common.Adjudicator) *State {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetOrders(orders map[godip.Province]godip.Adjudicator) *State {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
-	self.orders = make(map[common.Province]common.Adjudicator)
+	self.orders = make(map[godip.Province]godip.Adjudicator)
 	for prov, order := range orders {
 		self.SetOrder(prov, order)
 	}
 	return self
 }
 
-func (self *State) SetUnits(units map[common.Province]common.Unit) (err error) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetUnits(units map[godip.Province]godip.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
-	self.units = make(map[common.Province]common.Unit)
+	self.units = make(map[godip.Province]godip.Unit)
 	for prov, unit := range units {
 		if err = self.SetUnit(prov, unit); err != nil {
 			return
@@ -255,10 +255,10 @@ func (self *State) SetUnits(units map[common.Province]common.Unit) (err error) {
 	return
 }
 
-func (self *State) SetDislodgeds(dislodgeds map[common.Province]common.Unit) (err error) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetDislodgeds(dislodgeds map[godip.Province]godip.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
-	self.dislodgeds = make(map[common.Province]common.Unit)
+	self.dislodgeds = make(map[godip.Province]godip.Unit)
 	for prov, unit := range dislodgeds {
 		if err = self.SetDislodged(prov, unit); err != nil {
 			return
@@ -267,28 +267,28 @@ func (self *State) SetDislodgeds(dislodgeds map[common.Province]common.Unit) (er
 	return
 }
 
-func (self *State) SetSupplyCenters(supplyCenters map[common.Province]common.Nation) *State {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetSupplyCenters(supplyCenters map[godip.Province]godip.Nation) *State {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	self.supplyCenters = supplyCenters
 	return self
 }
 
 func (self *State) ClearBounces() {
-	self.bounces = make(map[common.Province]map[common.Province]bool)
+	self.bounces = make(map[godip.Province]map[godip.Province]bool)
 }
 
 func (self *State) ClearDislodgers() {
-	self.dislodgers = make(map[common.Province]common.Province)
+	self.dislodgers = make(map[godip.Province]godip.Province)
 }
 
 func (self *State) Load(
-	units map[common.Province]common.Unit,
-	supplyCenters map[common.Province]common.Nation,
-	dislodgeds map[common.Province]common.Unit,
-	dislodgers map[common.Province]common.Province,
-	bounces map[common.Province]map[common.Province]bool,
-	orders map[common.Province]common.Adjudicator) *State {
+	units map[godip.Province]godip.Unit,
+	supplyCenters map[godip.Province]godip.Nation,
+	dislodgeds map[godip.Province]godip.Unit,
+	dislodgers map[godip.Province]godip.Province,
+	bounces map[godip.Province]map[godip.Province]bool,
+	orders map[godip.Province]godip.Adjudicator) *State {
 
 	self.units, self.supplyCenters, self.dislodgeds, self.dislodgers, self.bounces, self.orders =
 		units, supplyCenters, dislodgeds, dislodgers, bounces, orders
@@ -298,36 +298,36 @@ func (self *State) Load(
 
 // Singular setters
 
-func (self *State) SetDislodger(attacker, victim common.Province) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetDislodger(attacker, victim godip.Province) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	self.dislodgers[attacker.Super()] = victim.Super()
 }
 
-func (self *State) AddBounce(src, dst common.Province) {
+func (self *State) AddBounce(src, dst godip.Province) {
 	if existing, ok := self.bounces[dst.Super()]; ok {
 		existing[src.Super()] = true
 	} else {
-		self.bounces[dst.Super()] = map[common.Province]bool{
+		self.bounces[dst.Super()] = map[godip.Province]bool{
 			src.Super(): true,
 		}
 	}
 }
 
-func (self *State) SetResolution(p common.Province, err error) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetResolution(p godip.Province, err error) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	self.resolutions[p] = err
 }
 
-func (self *State) SetSC(p common.Province, n common.Nation) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetSC(p godip.Province, n godip.Nation) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	self.supplyCenters[p] = n
 }
 
-func (self *State) SetDislodged(prov common.Province, unit common.Unit) (err error) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetDislodged(prov godip.Province, unit godip.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	if found, _, ok := self.Dislodged(prov); ok {
 		err = fmt.Errorf("%v is already at %v", found, prov)
@@ -337,8 +337,8 @@ func (self *State) SetDislodged(prov common.Province, unit common.Unit) (err err
 	return
 }
 
-func (self *State) SetUnit(prov common.Province, unit common.Unit) (err error) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetUnit(prov godip.Province, unit godip.Unit) (err error) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	if found, _, ok := self.Unit(prov); ok {
 		err = fmt.Errorf("%v is already at %v", found, prov)
@@ -348,8 +348,8 @@ func (self *State) SetUnit(prov common.Province, unit common.Unit) (err error) {
 	return
 }
 
-func (self *State) SetOrder(prov common.Province, order common.Adjudicator) (err error) {
-	self.memoizedProvSlices = map[string][]common.Province{}
+func (self *State) SetOrder(prov godip.Province, order godip.Adjudicator) (err error) {
+	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	if found, _, ok := self.Order(prov); ok {
 		err = fmt.Errorf("%v is already at %v", found, prov)
@@ -359,13 +359,13 @@ func (self *State) SetOrder(prov common.Province, order common.Adjudicator) (err
 	return
 }
 
-func (self *State) RemoveUnit(prov common.Province) {
+func (self *State) RemoveUnit(prov godip.Province) {
 	if _, p, ok := self.Unit(prov); ok {
 		delete(self.units, p)
 	}
 }
 
-func (self *State) RemoveDislodged(prov common.Province) {
+func (self *State) RemoveDislodged(prov godip.Province) {
 	if _, p, ok := self.Dislodged(prov); ok {
 		delete(self.dislodgeds, p)
 	}
@@ -373,33 +373,33 @@ func (self *State) RemoveDislodged(prov common.Province) {
 
 // Bulk getters
 
-func (self *State) Resolutions() map[common.Province]error {
+func (self *State) Resolutions() map[godip.Province]error {
 	return self.resolutions
 }
 
-func (self *State) SupplyCenters() map[common.Province]common.Nation {
+func (self *State) SupplyCenters() map[godip.Province]godip.Nation {
 	return self.supplyCenters
 }
 
-func (self *State) Units() map[common.Province]common.Unit {
+func (self *State) Units() map[godip.Province]godip.Unit {
 	return self.units
 }
 
-func (self *State) Dislodgeds() map[common.Province]common.Unit {
+func (self *State) Dislodgeds() map[godip.Province]godip.Unit {
 	return self.dislodgeds
 }
 
-func (self *State) Orders() map[common.Province]common.Adjudicator {
+func (self *State) Orders() map[godip.Province]godip.Adjudicator {
 	return self.orders
 }
 
 func (self *State) Dump() (
-	units map[common.Province]common.Unit,
-	supplyCenters map[common.Province]common.Nation,
-	dislodgeds map[common.Province]common.Unit,
-	dislodgers map[common.Province]common.Province,
-	bounces map[common.Province]map[common.Province]bool,
-	resolutions map[common.Province]error) {
+	units map[godip.Province]godip.Unit,
+	supplyCenters map[godip.Province]godip.Nation,
+	dislodgeds map[godip.Province]godip.Unit,
+	dislodgers map[godip.Province]godip.Province,
+	bounces map[godip.Province]map[godip.Province]bool,
+	resolutions map[godip.Province]error) {
 
 	return self.units,
 		self.supplyCenters,
@@ -411,7 +411,7 @@ func (self *State) Dump() (
 
 // Singular getters, will search all coasts of a province
 
-func (self *State) Bounce(src, dst common.Province) bool {
+func (self *State) Bounce(src, dst godip.Province) bool {
 	if sources, ok := self.bounces[dst.Super()]; ok {
 		if dislodger, ok := self.dislodgers[dst.Super()]; ok {
 			if len(sources) == 1 && sources[dislodger.Super()] {
@@ -426,7 +426,7 @@ func (self *State) Bounce(src, dst common.Province) bool {
 	return false
 }
 
-func (self *State) Dislodged(prov common.Province) (u common.Unit, p common.Province, ok bool) {
+func (self *State) Dislodged(prov godip.Province) (u godip.Unit, p godip.Province, ok bool) {
 	if u, ok = self.dislodgeds[prov]; ok {
 		p = prov
 		return
@@ -445,7 +445,7 @@ func (self *State) Dislodged(prov common.Province) (u common.Unit, p common.Prov
 	return
 }
 
-func (self *State) Unit(prov common.Province) (u common.Unit, p common.Province, ok bool) {
+func (self *State) Unit(prov godip.Province) (u godip.Unit, p godip.Province, ok bool) {
 	if u, ok = self.units[prov]; ok {
 		p = prov
 		return
@@ -464,7 +464,7 @@ func (self *State) Unit(prov common.Province) (u common.Unit, p common.Province,
 	return
 }
 
-func (self *State) SupplyCenter(prov common.Province) (n common.Nation, p common.Province, ok bool) {
+func (self *State) SupplyCenter(prov godip.Province) (n godip.Nation, p godip.Province, ok bool) {
 	if n, ok = self.supplyCenters[prov]; ok {
 		p = prov
 		return
@@ -483,7 +483,7 @@ func (self *State) SupplyCenter(prov common.Province) (n common.Nation, p common
 	return
 }
 
-func (self *State) Order(prov common.Province) (o common.Order, p common.Province, ok bool) {
+func (self *State) Order(prov godip.Province) (o godip.Order, p godip.Province, ok bool) {
 	if o, ok = self.orders[prov]; ok {
 		p = prov
 		return
@@ -504,7 +504,7 @@ func (self *State) Order(prov common.Province) (o common.Order, p common.Provinc
 
 // Mutators
 
-func (self *State) Move(src, dst common.Province, preventRetreat bool) {
+func (self *State) Move(src, dst godip.Province, preventRetreat bool) {
 	self.movements = append(self.movements, &movement{
 		src:            src,
 		dst:            dst,
@@ -512,7 +512,7 @@ func (self *State) Move(src, dst common.Province, preventRetreat bool) {
 	})
 }
 
-func (self *State) Retreat(src, dst common.Province) (err error) {
+func (self *State) Retreat(src, dst godip.Province) (err error) {
 	if unit, prov, ok := self.Dislodged(src); !ok {
 		err = fmt.Errorf("No dislodged at %v?", src)
 		return
@@ -521,7 +521,7 @@ func (self *State) Retreat(src, dst common.Province) (err error) {
 		if err = self.SetUnit(dst, unit); err != nil {
 			return
 		}
-		common.Logf("Moving dislodged %v from %v to %v", unit, src, dst)
+		godip.Logf("Moving dislodged %v from %v to %v", unit, src, dst)
 	}
 	return
 }

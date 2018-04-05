@@ -3,7 +3,7 @@ package coldwar
 import (
 	"testing"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 	tst "github.com/zond/godip/variants/testing"
 )
 

@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 	vrt "github.com/zond/godip/variants/common"
 )

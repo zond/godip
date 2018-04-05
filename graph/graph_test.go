@@ -1,12 +1,12 @@
 package graph
 
 import (
-	"github.com/zond/godip/common"
+	"github.com/zond/godip"
 	"reflect"
 	"testing"
 )
 
-func assertPath(t *testing.T, g *Graph, src, dst common.Province, found []common.Province) {
+func assertPath(t *testing.T, g *Graph, src, dst godip.Province, found []godip.Province) {
 	if f := g.Path(src, dst, nil); !reflect.DeepEqual(f, found) {
 		t.Errorf("%v should have a path between %v and %v like %v but found %v", g, src, dst, found, f)
 	}
@@ -24,7 +24,7 @@ func TestPath(t *testing.T) {
 		Prov("h").Conn("a").Conn("c").Conn("d").Conn("g").
 		Prov("i").Conn("c").
 		Done()
-	assertPath(t, g, "a", "e", []common.Province{"f", "e"})
-	assertPath(t, g, "a", "d", []common.Province{"h", "d"})
-	assertPath(t, g, "a", "i", []common.Province{"h", "c", "i"})
+	assertPath(t, g, "a", "e", []godip.Province{"f", "e"})
+	assertPath(t, g, "a", "d", []godip.Province{"h", "d"})
+	assertPath(t, g, "a", "i", []godip.Province{"h", "c", "i"})
 }

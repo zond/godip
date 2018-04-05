@@ -2,7 +2,7 @@ package start
 
 import (
 	c "github.com/zond/godip/variants/classical/common"
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 	"github.com/zond/godip/graph"
 )
 

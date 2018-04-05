@@ -3,7 +3,7 @@ package orders
 import (
 	"fmt"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 )
 
 type Parser struct {

@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/zond/godip/common"
+	"github.com/zond/godip"
 )
 
 var clearCommentReg = regexp.MustCompile("(?m)^\\s*([^#\n\t]+?)\\s*(#.*)?$")
@@ -40,18 +40,18 @@ const (
 
 func newState() *State {
 	return &State{
-		SCs:              make(map[common.Province]common.Nation),
-		Units:            make(map[common.Province]common.Unit),
-		Dislodgeds:       make(map[common.Province]common.Unit),
-		Orders:           make(map[common.Province]NationalizedOrder),
-		FailedOrders:     make(map[common.Province]NationalizedOrder),
-		SuccessfulOrders: make(map[common.Province]NationalizedOrder),
+		SCs:              make(map[godip.Province]godip.Nation),
+		Units:            make(map[godip.Province]godip.Unit),
+		Dislodgeds:       make(map[godip.Province]godip.Unit),
+		Orders:           make(map[godip.Province]NationalizedOrder),
+		FailedOrders:     make(map[godip.Province]NationalizedOrder),
+		SuccessfulOrders: make(map[godip.Province]NationalizedOrder),
 	}
 }
 
 type NationalizedOrder struct {
-	Order  common.Adjudicator
-	Nation common.Nation
+	Order  godip.Adjudicator
+	Nation godip.Nation
 }
 
 func (self NationalizedOrder) String() string {
@@ -59,13 +59,13 @@ func (self NationalizedOrder) String() string {
 }
 
 type State struct {
-	SCs              map[common.Province]common.Nation
-	Units            map[common.Province]common.Unit
-	Dislodgeds       map[common.Province]common.Unit
-	Orders           map[common.Province]NationalizedOrder
-	FailedOrders     map[common.Province]NationalizedOrder
-	SuccessfulOrders map[common.Province]NationalizedOrder
-	Phase            common.Phase
+	SCs              map[godip.Province]godip.Nation
+	Units            map[godip.Province]godip.Unit
+	Dislodgeds       map[godip.Province]godip.Unit
+	Orders           map[godip.Province]NationalizedOrder
+	FailedOrders     map[godip.Province]NationalizedOrder
+	SuccessfulOrders map[godip.Province]NationalizedOrder
+	Phase            godip.Phase
 }
 
 func (self *State) copyFrom(o *State) {
@@ -99,15 +99,15 @@ func (self *StatePair) copyBeforeToAfter() {
 
 type StatePairHandler func(states *StatePair)
 
-type OrderParser func(text string) (common.Province, common.Adjudicator, error)
+type OrderParser func(text string) (godip.Province, godip.Adjudicator, error)
 
-type PhaseParser func(season string, year int, typ string) (common.Phase, error)
+type PhaseParser func(season string, year int, typ string) (godip.Phase, error)
 
-type NationParser func(nation string) (common.Nation, error)
+type NationParser func(nation string) (godip.Nation, error)
 
-type UnitTypeParser func(typ string) (common.UnitType, error)
+type UnitTypeParser func(typ string) (godip.UnitType, error)
 
-type ProvinceParser func(prov string) (common.Province, error)
+type ProvinceParser func(prov string) (godip.Province, error)
 
 type Parser struct {
 	Variant        string
@@ -153,11 +153,11 @@ func (self Parser) Parse(r io.Reader, handler StatePairHandler) (err error) {
 				}
 			case inPrestateSupplycenterOwners:
 				if match = stateReg.FindStringSubmatch(line); match != nil {
-					var owner common.Nation
+					var owner godip.Nation
 					if owner, err = self.NationParser(match[1]); err != nil {
 						return
 					}
-					var prov common.Province
+					var prov godip.Province
 					if prov, err = self.ProvinceParser(match[3]); err != nil {
 						return
 					}
@@ -188,19 +188,19 @@ func (self Parser) Parse(r io.Reader, handler StatePairHandler) (err error) {
 				}
 			case inPrestate:
 				if match = stateReg.FindStringSubmatch(line); match != nil {
-					var prov common.Province
+					var prov godip.Province
 					if prov, err = self.ProvinceParser(match[3]); err != nil {
 						return
 					}
-					var unit common.UnitType
+					var unit godip.UnitType
 					if unit, err = self.UnitTypeParser(match[2]); err != nil {
 						return
 					}
-					var nation common.Nation
+					var nation godip.Nation
 					if nation, err = self.NationParser(match[1]); err != nil {
 						return
 					}
-					statePair.Before.Units[prov] = common.Unit{
+					statePair.Before.Units[prov] = godip.Unit{
 						unit,
 						nation,
 					}
@@ -218,19 +218,19 @@ func (self Parser) Parse(r io.Reader, handler StatePairHandler) (err error) {
 				}
 			case inPoststate:
 				if match = stateReg.FindStringSubmatch(line); match != nil {
-					var prov common.Province
+					var prov godip.Province
 					if prov, err = self.ProvinceParser(match[3]); err != nil {
 						return
 					}
-					var unit common.UnitType
+					var unit godip.UnitType
 					if unit, err = self.UnitTypeParser(match[2]); err != nil {
 						return
 					}
-					var nation common.Nation
+					var nation godip.Nation
 					if nation, err = self.NationParser(match[1]); err != nil {
 						return
 					}
-					statePair.After.Units[prov] = common.Unit{
+					statePair.After.Units[prov] = godip.Unit{
 						unit,
 						nation,
 					}
@@ -246,19 +246,19 @@ func (self Parser) Parse(r io.Reader, handler StatePairHandler) (err error) {
 				}
 			case inPrestateDislodged:
 				if match = stateReg.FindStringSubmatch(line); match != nil {
-					var prov common.Province
+					var prov godip.Province
 					if prov, err = self.ProvinceParser(match[3]); err != nil {
 						return
 					}
-					var unit common.UnitType
+					var unit godip.UnitType
 					if unit, err = self.UnitTypeParser(match[2]); err != nil {
 						return
 					}
-					var nation common.Nation
+					var nation godip.Nation
 					if nation, err = self.NationParser(match[1]); err != nil {
 						return
 					}
-					statePair.Before.Dislodgeds[prov] = common.Unit{
+					statePair.Before.Dislodgeds[prov] = godip.Unit{
 						unit,
 						nation,
 					}
@@ -272,12 +272,12 @@ func (self Parser) Parse(r io.Reader, handler StatePairHandler) (err error) {
 				}
 			case inPrestateResults:
 				if match = preOrderReg.FindStringSubmatch(line); match != nil {
-					var prov common.Province
-					var order common.Adjudicator
+					var prov godip.Province
+					var order godip.Adjudicator
 					if prov, order, err = self.OrderParser(match[3]); err != nil {
 						return
 					}
-					var nation common.Nation
+					var nation godip.Nation
 					if nation, err = self.NationParser(match[2]); err != nil {
 						return
 					}
@@ -301,19 +301,19 @@ func (self Parser) Parse(r io.Reader, handler StatePairHandler) (err error) {
 				}
 			case inPoststateDislodged:
 				if match = stateReg.FindStringSubmatch(line); match != nil {
-					var prov common.Province
+					var prov godip.Province
 					if prov, err = self.ProvinceParser(match[3]); err != nil {
 						return
 					}
-					var unit common.UnitType
+					var unit godip.UnitType
 					if unit, err = self.UnitTypeParser(match[2]); err != nil {
 						return
 					}
-					var nation common.Nation
+					var nation godip.Nation
 					if nation, err = self.NationParser(match[1]); err != nil {
 						return
 					}
-					statePair.After.Dislodgeds[prov] = common.Unit{
+					statePair.After.Dislodgeds[prov] = godip.Unit{
 						unit,
 						nation,
 					}
@@ -327,12 +327,12 @@ func (self Parser) Parse(r io.Reader, handler StatePairHandler) (err error) {
 				}
 			case inOrders:
 				if match = ordersReg.FindStringSubmatch(line); match != nil {
-					var prov common.Province
-					var order common.Adjudicator
+					var prov godip.Province
+					var order godip.Adjudicator
 					if prov, order, err = self.OrderParser(match[2]); err != nil {
 						return
 					}
-					var nation common.Nation
+					var nation godip.Nation
 					if nation, err = self.NationParser(match[1]); err != nil {
 						return
 					}

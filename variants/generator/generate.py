@@ -789,7 +789,7 @@ import (
 	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 	cla "github.com/zond/godip/variants/classical/common"
 )
 

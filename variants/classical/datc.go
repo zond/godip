@@ -9,7 +9,7 @@ import (
 	cla "github.com/zond/godip/variants/classical/common"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/classical/start"
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 )
 
 func init() {

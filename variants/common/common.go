@@ -4,7 +4,7 @@ import (
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 )
 
 // Variant defines a dippy variant supported by godip.

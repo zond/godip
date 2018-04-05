@@ -7,7 +7,7 @@ import (
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 	ord "github.com/zond/godip/orders"
 	cla "github.com/zond/godip/variants/classical/common"
 )

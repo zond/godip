@@ -6,7 +6,7 @@ import (
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/common"
 
-	dip "github.com/zond/godip/common"
+	dip "github.com/zond/godip"
 )
 
 type Phase struct {

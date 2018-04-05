@@ -4,40 +4,40 @@ import (
 	"testing"
 	"time"
 
-	"github.com/zond/godip/common"
+	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 )
 
 type testOrder int
 
-func (self testOrder) Options(v common.Validator, nation common.Nation, src common.Province) (result common.Options) {
+func (self testOrder) Options(v godip.Validator, nation godip.Nation, src godip.Province) (result godip.Options) {
 	return nil
 }
-func (self testOrder) DisplayType() common.OrderType {
+func (self testOrder) DisplayType() godip.OrderType {
 	return ""
 }
-func (self testOrder) Type() common.OrderType {
+func (self testOrder) Type() godip.OrderType {
 	return ""
 }
-func (self testOrder) Flags() map[common.Flag]bool {
+func (self testOrder) Flags() map[godip.Flag]bool {
 	return nil
 }
-func (self testOrder) Parse(parts []string) (common.Adjudicator, error) {
+func (self testOrder) Parse(parts []string) (godip.Adjudicator, error) {
 	return nil, nil
 }
 func (self testOrder) At() time.Time {
 	return time.Now()
 }
-func (self testOrder) Targets() []common.Province {
+func (self testOrder) Targets() []godip.Province {
 	return nil
 }
-func (self testOrder) Adjudicate(common.Resolver) error {
+func (self testOrder) Adjudicate(godip.Resolver) error {
 	return nil
 }
-func (self testOrder) Validate(common.Validator) (common.Nation, error) {
+func (self testOrder) Validate(godip.Validator) (godip.Nation, error) {
 	return "", nil
 }
-func (self testOrder) Execute(common.State) {
+func (self testOrder) Execute(godip.State) {
 }
 
 /*
@@ -45,7 +45,7 @@ func (self testOrder) Execute(common.State) {
  A B
      D
 */
-func testGraph() common.Graph {
+func testGraph() godip.Graph {
 	return graph.New().
 		Prov("a").Conn("b").Conn("b/sc").Conn("b/nc").
 		Prov("b").Conn("a").Conn("c").Conn("d").
@@ -57,7 +57,7 @@ func testGraph() common.Graph {
 		Done()
 }
 
-func assertOrderLocation(t *testing.T, j *State, prov common.Province, order common.Order, ok bool) {
+func assertOrderLocation(t *testing.T, j *State, prov godip.Province, order godip.Order, ok bool) {
 	if o, _, k := j.Order(prov); o != order || k != ok {
 		t.Errorf("Wrong order, wanted %v, %v at %v but got %v, %v", order, ok, prov, o, k)
 	}
@@ -65,11 +65,11 @@ func assertOrderLocation(t *testing.T, j *State, prov common.Province, order com
 
 func TestStateLocations(t *testing.T) {
 	j := New(testGraph(), nil, nil)
-	j.SetOrders(map[common.Province]common.Adjudicator{
+	j.SetOrders(map[godip.Province]godip.Adjudicator{
 		"a":    testOrder(1),
 		"b/ec": testOrder(2),
 	})
-	j.SetOrders(map[common.Province]common.Adjudicator{
+	j.SetOrders(map[godip.Province]godip.Adjudicator{
 		"b": testOrder(2),
 	})
 	assertOrderLocation(t, j, "a", nil, false)
