@@ -8,6 +8,7 @@ import (
 	"github.com/zond/godip/variants/fleetrome"
 	"github.com/zond/godip/variants/franceaustria"
 	"github.com/zond/godip/variants/hundred"
+	"github.com/zond/godip/variants/neutralarmies"
 	"github.com/zond/godip/variants/pure"
 	"github.com/zond/godip/variants/youngstownredux"
 )
@@ -26,6 +27,7 @@ var OrderedVariants = []common.Variant{
 	fleetrome.FleetRomeVariant,
 	franceaustria.FranceAustriaVariant,
 	hundred.HundredVariant,
+	neutralarmies.NeutralArmiesVariant,
 	pure.PureVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
 	youngstownredux.YoungstownReduxVariant,
