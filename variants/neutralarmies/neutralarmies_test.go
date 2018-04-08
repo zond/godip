@@ -2,6 +2,7 @@ package neutralarmies
 
 import (
 	"testing"
+	"time"
 
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
@@ -46,9 +47,10 @@ func TestBounceWithNeutralArmy(t *testing.T) {
 
 func TestNeutralArmyRebuilt(t *testing.T) {
 	judge := startState(t)
-	// Remove the units from Portugal and Spain.
+	// Remove the units from Portugal, Spain and Marseilles.
 	judge.RemoveUnit("por")
 	judge.RemoveUnit("spa")
+	judge.RemoveUnit("mar")
 	// Give Spain to France (but leave it vacant).
 	judge.SetSC("spa", godip.France)
 
@@ -61,12 +63,15 @@ func TestNeutralArmyRebuilt(t *testing.T) {
 	// Fall retreat
 	judge.Next()
 
-	// Check that both SCs are still vacant.
+	// Check that all SCs are still vacant.
 	tst.AssertNoUnit(t, judge, "por")
 	tst.AssertNoUnit(t, judge, "spa")
+	tst.AssertNoUnit(t, judge, "mar")
 
-	// Fall adjustment - Check that only the Neutral army in Portugal is rebuilt.
+	// Fall adjustment - Add explicit order from France to rebuild Marseilles.
+	judge.SetOrder("mar", orders.Build("mar", godip.Army, time.Now()))
 	judge.Next()
 	tst.AssertUnit(t, judge, "por", godip.Unit{godip.Army, godip.Neutral})
 	tst.AssertNoUnit(t, judge, "spa")
+	tst.AssertUnit(t, judge, "mar", godip.Unit{godip.Army, godip.France})
 }

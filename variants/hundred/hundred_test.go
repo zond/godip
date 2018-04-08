@@ -66,3 +66,23 @@ func TestBuildAnywhere(t *testing.T) {
 	// Check that it was successful.
 	tst.AssertUnit(t, judge, "sco", godip.Unit{godip.Army, England})
 }
+
+func TestDisbandFrenchUnit(t *testing.T) {
+	judge := startState(t)
+	// France starts with one more unit than SC.
+
+	// Spring movement
+	judge.Next()
+	// Sprint retreat
+	judge.Next()
+	// Fall movement
+	judge.Next()
+	// Fall retreat
+	judge.Next()
+
+	// Fall adjustment - Disband Army in Provence.
+	judge.SetOrder("pro", orders.Disband("pro", time.Now()))
+	judge.Next()
+	// Check that it was successful.
+	tst.AssertNoUnit(t, judge, "pro")
+}

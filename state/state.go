@@ -7,11 +7,12 @@ import (
 	"github.com/zond/godip"
 )
 
-func New(graph godip.Graph, phase godip.Phase, backupRule godip.BackupRule) *State {
+func New(graph godip.Graph, phase godip.Phase, backupRule godip.BackupRule, neutralOrders func(State) map[godip.Province]godip.Adjudicator) *State {
 	return &State{
 		graph:              graph,
 		phase:              phase,
 		backupRule:         backupRule,
+		neutralOrders:      neutralOrders,
 		orders:             make(map[godip.Province]godip.Adjudicator),
 		units:              make(map[godip.Province]godip.Unit),
 		dislodgeds:         make(map[godip.Province]godip.Unit),
@@ -69,6 +70,7 @@ type State struct {
 	graph              godip.Graph
 	phase              godip.Phase
 	backupRule         godip.BackupRule
+	neutralOrders      func(State) map[godip.Province]godip.Adjudicator
 	resolutions        map[godip.Province]error
 	dislodgers         map[godip.Province]godip.Province
 	movements          []*movement
@@ -168,6 +170,15 @@ func (self *State) Next() (err error) {
 			self.resolutions[prov] = err
 			delete(self.orders, prov)
 			godip.Logf("Deleted %v due to %v", prov, err)
+		}
+	}
+
+	/*
+		Create orders for neutral units.
+	*/
+	if self.neutralOrders != nil {
+		for prov, order := range self.neutralOrders(*self) {
+			self.orders[prov] = order
 		}
 	}
 

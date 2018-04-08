@@ -263,6 +263,7 @@ type Graph interface {
 	Coasts(Province) []Province
 	Edges(src Province) map[Province]map[Flag]bool
 	SCs(Nation) []Province
+	AllSCs() []Province
 	Provinces() []Province
 	Nations() []Nation
 }
