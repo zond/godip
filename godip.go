@@ -178,6 +178,20 @@ func (n *Nation) String() string {
 	return string(*n)
 }
 
+type Nations []Nation
+
+func (n Nations) Len() int {
+	return len(n)
+}
+
+func (n Nations) Less(i, j int) bool {
+	return bytes.Compare([]byte(n[i]), []byte(n[j])) < 0
+}
+
+func (n Nations) Swap(i, j int) {
+	n[i], n[j] = n[j], n[i]
+}
+
 type OrderType string
 
 type PhaseType string
