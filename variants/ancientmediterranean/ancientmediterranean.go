@@ -167,7 +167,7 @@ func AncientMediterraneanGraph() *graph.Graph {
 		// gal
 		Prov("gal").Conn("sip", godip.Land).Conn("cap", godip.Land).Conn("isa", godip.Land).Conn("mil", godip.Land).Conn("byz", godip.Land).Conn("bit", godip.Land).Flag(godip.Land).
 		// isa
-		Prov("isa").Conn("gal", godip.Land).Conn("cap", godip.Coast...).Conn("cil", godip.Sea).Conn("min", godip.Sea).Conn("aeg", godip.Sea).Conn("mil", godip.Coast...).Flag(godip.Coast...).
+		Prov("isa").Conn("gal", godip.Land).Conn("cap", godip.Coast...).Conn("cil", godip.Sea).Conn("min", godip.Sea).Conn("mil", godip.Coast...).Flag(godip.Coast...).
 		// cap
 		Prov("cap").Conn("sip", godip.Land).Conn("arm", godip.Land).Conn("dam", godip.Land).Conn("ant", godip.Coast...).Conn("cil", godip.Sea).Conn("isa", godip.Coast...).Conn("gal", godip.Land).Flag(godip.Coast...).
 		// ant
