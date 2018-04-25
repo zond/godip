@@ -51,7 +51,7 @@ func (self *build) DisplayType() godip.OrderType {
 }
 
 func (self *build) Flags() map[godip.Flag]bool {
-	return nil
+	return self.flags
 }
 
 func (self *build) String() string {
@@ -80,7 +80,11 @@ func (self *build) Parse(bits []string) (godip.Adjudicator, error) {
 	var err error
 	if len(bits) > 1 && godip.OrderType(bits[1]) == self.DisplayType() {
 		if len(bits) == 3 {
-			result = Build(godip.Province(bits[0]), godip.UnitType(bits[2]), time.Now())
+			if !self.flags[godip.Anywhere] {
+				result = Build(godip.Province(bits[0]), godip.UnitType(bits[2]), time.Now())
+			} else {
+				result = BuildAnywhere(godip.Province(bits[0]), godip.UnitType(bits[2]), time.Now())
+			}
 		}
 		if result == nil {
 			err = fmt.Errorf("Can't parse as %+v", bits)
