@@ -181,5 +181,7 @@ func Graph() *graph.Graph {
 		Prov("tyr").Conn("mun", godip.Land).Conn("boh", godip.Land).Conn("vie", godip.Land).Conn("tri", godip.Land).Conn("ven", godip.Land).Conn("pie", godip.Land).Flag(godip.Land).
 		// kie
 		Prov("kie").Conn("hol", godip.Coast...).Conn("hel", godip.Sea).Conn("den", godip.Coast...).Conn("bal", godip.Sea).Conn("ber", godip.Coast...).Conn("mun", godip.Land).Conn("ruh", godip.Land).Flag(godip.Coast...).SC(godip.Germany).
+		// swi (Used for gunboat games where invalid orders are allowed).
+		Prov("swi").
 		Done()
 }
