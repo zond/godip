@@ -260,7 +260,7 @@ func Start() (result *state.State, err error) {
 	scMap := map[godip.Province]godip.Nation{}
 	for _, prov := range g.Provinces() {
 		if nat := g.SC(prov); nat != nil {
-			scMap[prov] = *nat
+			scMap[prov.Super()] = *nat
 		}
 	}
 	result.SetSupplyCenters(scMap)
