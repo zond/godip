@@ -4,14 +4,13 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
-
-	ord "github.com/zond/godip/orders"
 )
 
-var pureParser = ord.NewParser([]godip.Order{
+var pureParser = orders.NewParser([]godip.Order{
 	orders.BuildOrder,
 	orders.DisbandOrder,
 	orders.HoldOrder,
@@ -24,7 +23,7 @@ var PureVariant = common.Variant{
 	Graph:      func() godip.Graph { return PureGraph() },
 	Start:      PureStart,
 	Blank:      PureBlank,
-	Phase:      classical.PhaseGenerator(pureParser),
+	Phase:      phase.Generator(pureParser),
 	Parser:     pureParser,
 	Nations:    classical.Nations,
 	PhaseTypes: classical.PhaseTypes,

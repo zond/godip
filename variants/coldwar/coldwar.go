@@ -5,7 +5,6 @@ import (
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 )
 
@@ -21,8 +20,8 @@ var ColdWarVariant = common.Variant{
 	Graph:      func() godip.Graph { return ColdWarGraph() },
 	Start:      ColdWarStart,
 	Blank:      ColdWarBlank,
-	Phase:      classical.Phase,
-	Parser:     orders.ClassicalParser,
+	Phase:      classical.NewPhase,
+	Parser:     classical.Parser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
@@ -58,7 +57,7 @@ func ColdWarBlank(phase godip.Phase) *state.State {
 }
 
 func ColdWarStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1960, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(1960, godip.Spring, godip.Movement)
 	result = state.New(ColdWarGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"len/sc": godip.Unit{godip.Fleet, USSR},

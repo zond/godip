@@ -5,7 +5,6 @@ import (
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 )
 
@@ -24,8 +23,8 @@ var AncientMediterraneanVariant = common.Variant{
 	Graph:      func() godip.Graph { return AncientMediterraneanGraph() },
 	Start:      AncientMediterraneanStart,
 	Blank:      AncientMediterraneanBlank,
-	Phase:      classical.Phase,
-	Parser:     orders.ClassicalParser,
+	Phase:      classical.NewPhase,
+	Parser:     classical.Parser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
@@ -61,7 +60,7 @@ func AncientMediterraneanBlank(phase godip.Phase) *state.State {
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(1, godip.Spring, godip.Movement)
 	result = state.New(AncientMediterraneanGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"nea": godip.Unit{godip.Fleet, Rome},

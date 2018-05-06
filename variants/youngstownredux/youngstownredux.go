@@ -5,7 +5,6 @@ import (
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 )
 
@@ -29,8 +28,8 @@ var YoungstownReduxVariant = common.Variant{
 	Graph:      func() godip.Graph { return YoungstownReduxGraph() },
 	Start:      YoungstownReduxStart,
 	Blank:      YoungstownReduxBlank,
-	Phase:      classical.Phase,
-	Parser:     orders.ClassicalParser,
+	Phase:      classical.NewPhase,
+	Parser:     classical.Parser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
@@ -66,7 +65,7 @@ func YoungstownReduxBlank(phase godip.Phase) *state.State {
 }
 
 func YoungstownReduxStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1901, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(1901, godip.Spring, godip.Movement)
 	result = state.New(YoungstownReduxGraph(), startPhase, classical.BackupRule)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"ank":    godip.Unit{godip.Fleet, Turkey},

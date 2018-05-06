@@ -4,11 +4,11 @@ import (
 	"fmt"
 
 	"github.com/zond/godip"
+	"github.com/zond/godip/orders"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
-
-	ord "github.com/zond/godip/variants/classical/orders"
 )
 
 var (
@@ -16,19 +16,36 @@ var (
 	PhaseTypes = []godip.PhaseType{godip.Movement, godip.Retreat, godip.Adjustment}
 	Seasons    = []godip.Season{godip.Spring, godip.Fall}
 	UnitTypes  = []godip.UnitType{godip.Army, godip.Fleet}
+	Parser     = orders.NewParser([]godip.Order{
+		orders.BuildOrder,
+		orders.ConvoyOrder,
+		orders.DisbandOrder,
+		orders.HoldOrder,
+		orders.MoveOrder,
+		orders.MoveViaConvoyOrder,
+		orders.SupportOrder,
+	})
 )
+
+func init() {
+	phase.PARSER = Parser
+}
+
+func NewPhase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return phase.Generator(Parser)(year, season, typ)
+}
 
 var ClassicalVariant = common.Variant{
 	Name:  "Classical",
 	Start: Start,
 	Blank: Blank,
 	BlankStart: func() (result *state.State, err error) {
-		result = Blank(Phase(1900, godip.Fall, godip.Adjustment))
+		result = Blank(NewPhase(1900, godip.Fall, godip.Adjustment))
 		return
 	},
-	Parser:     ord.ClassicalParser,
+	Parser:     Parser,
 	Graph:      func() godip.Graph { return start.Graph() },
-	Phase:      Phase,
+	Phase:      NewPhase,
 	Nations:    Nations,
 	PhaseTypes: PhaseTypes,
 	Seasons:    Seasons,
@@ -57,7 +74,7 @@ func Blank(phase godip.Phase) *state.State {
 }
 
 func Start() (result *state.State, err error) {
-	result = state.New(start.Graph(), &phase{1901, godip.Spring, godip.Movement, ord.ClassicalParser}, BackupRule)
+	result = state.New(start.Graph(), NewPhase(1901, godip.Spring, godip.Movement), BackupRule)
 	if err = result.SetUnits(start.Units()); err != nil {
 		return
 	}

@@ -1,4 +1,4 @@
-package classical
+package phase
 
 import (
 	"bytes"
@@ -8,33 +8,29 @@ import (
 
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
-
-	ord "github.com/zond/godip/variants/classical/orders"
 )
 
-func PhaseGenerator(parser orders.Parser) func(int, godip.Season, godip.PhaseType) godip.Phase {
+func Generator(parser orders.Parser) func(int, godip.Season, godip.PhaseType) godip.Phase {
 	return func(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
-		return &phase{year, season, typ, parser}
+		return &Phase{year, season, typ, parser}
 	}
 }
 
-func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
-	return PhaseGenerator(ord.ClassicalParser)(year, season, typ)
-}
-
-type phase struct {
+type Phase struct {
 	year   int
 	season godip.Season
 	typ    godip.PhaseType
 	parser orders.Parser
 }
 
-func (self *phase) String() string {
+func (self *Phase) String() string {
 	return fmt.Sprintf("%s %d, %s", self.season, self.year, self.typ)
 }
 
-func (self *phase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
-	return s.Options(ord.ClassicalParser.Orders(), nation)
+var PARSER orders.Parser
+
+func (self *Phase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
+	return s.Options(self.parser.Orders(), nation)
 }
 
 func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (result int, err error) {
@@ -147,18 +143,18 @@ func SortedUnits(s godip.State, n godip.Nation) (result []godip.Province, err er
 	return
 }
 
-func (self *phase) DefaultOrder(p godip.Province) godip.Adjudicator {
+func (self *Phase) DefaultOrder(p godip.Province) godip.Adjudicator {
 	if self.typ == godip.Movement {
 		return orders.Hold(p)
 	}
 	return nil
 }
 
-func (self *phase) PreProcess(s godip.State) (err error) {
+func (self *Phase) PreProcess(s godip.State) (err error) {
 	return nil
 }
 
-func (self *phase) PostProcess(s godip.State) (err error) {
+func (self *Phase) PostProcess(s godip.State) (err error) {
 	if self.typ == godip.Retreat {
 		for prov, _ := range s.Dislodgeds() {
 			s.RemoveDislodged(prov)
@@ -213,44 +209,48 @@ func (self *phase) PostProcess(s godip.State) (err error) {
 	return
 }
 
-func (self *phase) Year() int {
+func (self *Phase) Year() int {
 	return self.year
 }
 
-func (self *phase) Season() godip.Season {
+func (self *Phase) Season() godip.Season {
 	return self.season
 }
 
-func (self *phase) Type() godip.PhaseType {
+func (self *Phase) Type() godip.PhaseType {
 	return self.typ
 }
 
-func (self *phase) Next() godip.Phase {
+func (self *Phase) Next() godip.Phase {
 	if self.typ == godip.Movement {
-		return &phase{
+		return &Phase{
 			year:   self.year,
 			season: self.season,
 			typ:    godip.Retreat,
+			parser: self.parser,
 		}
 	} else if self.typ == godip.Retreat {
 		if self.season == godip.Spring {
-			return &phase{
+			return &Phase{
 				year:   self.year,
 				season: godip.Fall,
 				typ:    godip.Movement,
+				parser: self.parser,
 			}
 		} else {
-			return &phase{
+			return &Phase{
 				year:   self.year,
 				season: godip.Fall,
 				typ:    godip.Adjustment,
+				parser: self.parser,
 			}
 		}
 	} else {
-		return &phase{
+		return &Phase{
 			year:   self.year + 1,
 			season: godip.Spring,
 			typ:    godip.Movement,
+			parser: self.parser,
 		}
 	}
 	return nil

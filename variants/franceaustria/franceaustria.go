@@ -4,7 +4,6 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/classical/start"
 	"github.com/zond/godip/variants/common"
 )
@@ -51,8 +50,8 @@ var FranceAustriaVariant = common.Variant{
 		return
 	},
 	Blank:      classical.Blank,
-	Phase:      classical.Phase,
-	Parser:     orders.ClassicalParser,
+	Phase:      classical.NewPhase,
+	Parser:     classical.Parser,
 	Nations:    []godip.Nation{godip.Austria, godip.France},
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,

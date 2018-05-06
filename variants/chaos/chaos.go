@@ -256,7 +256,7 @@ func Blank(phase godip.Phase) *state.State {
 
 func Start() (result *state.State, err error) {
 	g := Graph()
-	result = state.New(g, classical.Phase(1900, godip.Fall, godip.Adjustment), classical.BackupRule)
+	result = state.New(g, classical.NewPhase(1900, godip.Fall, godip.Adjustment), classical.BackupRule)
 	scMap := map[godip.Province]godip.Nation{}
 	for _, prov := range g.Provinces() {
 		if nat := g.SC(prov); nat != nil {
@@ -272,7 +272,7 @@ var ChaosVariant = common.Variant{
 	Graph:      func() godip.Graph { return Graph() },
 	Start:      Start,
 	Blank:      Blank,
-	Phase:      classical.Phase,
+	Phase:      classical.NewPhase,
 	Parser:     hundred.BuildAnywhereParser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,

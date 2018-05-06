@@ -24,7 +24,7 @@ func startState(t *testing.T) *state.State {
 }
 
 func blankState(t *testing.T) *state.State {
-	startPhase := classical.Phase(1960, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(1960, godip.Spring, godip.Movement)
 	judge := ColdWarBlank(startPhase)
 	return judge
 }

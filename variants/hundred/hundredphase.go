@@ -5,7 +5,7 @@ import (
 
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
-	"github.com/zond/godip/variants/classical"
+	"github.com/zond/godip/phase"
 )
 
 const (
@@ -16,34 +16,34 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 	if season != YearSeason {
 		fmt.Errorf("Warning - Hundred only supports YearSeason, but got {}", season)
 	}
-	return &phase{year, typ}
+	return &hundredPhase{year, typ}
 }
 
-type phase struct {
+type hundredPhase struct {
 	year int
 	typ  godip.PhaseType
 }
 
-func (self *phase) String() string {
+func (self *hundredPhase) String() string {
 	return fmt.Sprintf("%s %d, %s", YearSeason, self.year, self.typ)
 }
 
-func (self *phase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
+func (self *hundredPhase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
 	return s.Options(BuildAnywhereParser.Orders(), nation)
 }
 
-func (self *phase) DefaultOrder(p godip.Province) godip.Adjudicator {
+func (self *hundredPhase) DefaultOrder(p godip.Province) godip.Adjudicator {
 	if self.typ == godip.Movement {
 		return orders.Hold(p)
 	}
 	return nil
 }
 
-func (self *phase) PreProcess(s godip.State) (err error) {
+func (self *hundredPhase) PreProcess(s godip.State) (err error) {
 	return nil
 }
 
-func (self *phase) PostProcess(s godip.State) (err error) {
+func (self *hundredPhase) PostProcess(s godip.State) (err error) {
 	if self.typ == godip.Retreat {
 		for prov, _ := range s.Dislodgeds() {
 			s.RemoveDislodged(prov)
@@ -66,7 +66,7 @@ func (self *phase) PostProcess(s godip.State) (err error) {
 			_, _, balance := orders.AdjustmentStatus(s, nationality)
 			if balance < 0 {
 				var su []godip.Province
-				if su, err = classical.SortedUnits(s, nationality); err != nil {
+				if su, err = phase.SortedUnits(s, nationality); err != nil {
 					return
 				}
 				su = su[:-balance]
@@ -98,38 +98,38 @@ func (self *phase) PostProcess(s godip.State) (err error) {
 	return
 }
 
-func (self *phase) Year() int {
+func (self *hundredPhase) Year() int {
 	return self.year
 }
 
-func (self *phase) Season() godip.Season {
+func (self *hundredPhase) Season() godip.Season {
 	return YearSeason
 }
 
-func (self *phase) Type() godip.PhaseType {
+func (self *hundredPhase) Type() godip.PhaseType {
 	return self.typ
 }
 
-func (self *phase) Next() godip.Phase {
+func (self *hundredPhase) Next() godip.Phase {
 	if self.typ == godip.Movement {
-		return &phase{
+		return &hundredPhase{
 			year: self.year,
 			typ:  godip.Retreat,
 		}
 	} else if self.typ == godip.Retreat {
 		if self.year%10 == 5 {
-			return &phase{
+			return &hundredPhase{
 				year: self.year + 5,
 				typ:  godip.Movement,
 			}
 		} else {
-			return &phase{
+			return &hundredPhase{
 				year: self.year,
 				typ:  godip.Adjustment,
 			}
 		}
 	} else {
-		return &phase{
+		return &hundredPhase{
 			year: self.year + 5,
 			typ:  godip.Movement,
 		}
