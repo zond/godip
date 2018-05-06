@@ -1,9 +1,7 @@
 package hundred
 
 import (
-	"bytes"
 	"fmt"
-	"strings"
 
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
@@ -34,47 +32,14 @@ func (self *phase) Options(s godip.Validator, nation godip.Nation) (result godip
 	return s.Options(BuildAnywhereParser.Orders(), nation)
 }
 
-type remoteUnitSlice struct {
-	provinces []godip.Province
-	distances map[godip.Province]int
-	units     map[godip.Province]godip.Unit
-}
-
-func (self remoteUnitSlice) String() string {
-	var l []string
-	for _, prov := range self.provinces {
-		l = append(l, fmt.Sprintf("%v:%v", prov, self.distances[prov]))
-	}
-	return strings.Join(l, ", ")
-}
-
-func (self remoteUnitSlice) Len() int {
-	return len(self.provinces)
-}
-
-func (self remoteUnitSlice) Swap(i, j int) {
-	self.provinces[i], self.provinces[j] = self.provinces[j], self.provinces[i]
-}
-
-func (self remoteUnitSlice) Less(i, j int) bool {
-	if self.distances[self.provinces[i]] == self.distances[self.provinces[j]] {
-		u1 := self.units[self.provinces[i]]
-		u2 := self.units[self.provinces[j]]
-		if u1.Type == godip.Fleet && u2.Type == godip.Army {
-			return true
-		}
-		if u2.Type == godip.Fleet && u1.Type == godip.Army {
-			return false
-		}
-		return bytes.Compare([]byte(self.provinces[i]), []byte(self.provinces[j])) < 0
-	}
-	return self.distances[self.provinces[i]] > self.distances[self.provinces[j]]
-}
-
 func (self *phase) DefaultOrder(p godip.Province) godip.Adjudicator {
 	if self.typ == godip.Movement {
 		return orders.Hold(p)
 	}
+	return nil
+}
+
+func (self *phase) PreProcess(s godip.State) (err error) {
 	return nil
 }
 

@@ -154,6 +154,10 @@ func (self *phase) DefaultOrder(p godip.Province) godip.Adjudicator {
 	return nil
 }
 
+func (self *phase) PreProcess(s godip.State) (err error) {
+	return nil
+}
+
 func (self *phase) PostProcess(s godip.State) (err error) {
 	if self.typ == godip.Retreat {
 		for prov, _ := range s.Dislodgeds() {

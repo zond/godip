@@ -172,6 +172,13 @@ func (self *State) Next() (err error) {
 	}
 
 	/*
+	   Preprocess the phase.
+	*/
+	if err = self.phase.PreProcess(self.resolver()); err != nil {
+		return
+	}
+
+	/*
 		Add hold to units missing orders.
 	*/
 	for prov, _ := range self.units {
