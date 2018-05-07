@@ -326,6 +326,6 @@ var ChaosVariant = common.Variant{
 	},
 	CreatedBy:   "Unknown",
 	Version:     "",
-	Description: "The chaos variant is played by 34 players, each owning a single supply center on the standard Diplomacy map. The game starts in Winter of 1900 at the adjustment phase. Each player starts out choosing which type of unit they wish to build and progressing from there. When building units, a unit may be built at any owned supply center. To mitigate absent players, all supply centers without orders during adjustment will build armies by default.",
+	Description: "The chaos variant is played by 34 players, each owning a single supply center on the standard Diplomacy map. The game starts in Winter of 1900 at the adjustment phase. Each player starts out choosing which type of unit they wish to build and progressing from there. When building units, a unit may be built at any owned supply center. To mitigate absent players, all supply centers without orders during the first adjustment will build armies by default.",
 	Rules:       "The first to 18 supply centers is the winner.",
 }
