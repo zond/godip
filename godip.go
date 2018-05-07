@@ -385,6 +385,7 @@ type State interface {
 	SetResolution(Province, error)
 	SetSC(Province, Nation)
 	SetUnit(Province, Unit) error
+	SetOrders(map[Province]Adjudicator)
 
 	ClearDislodgers()
 	ClearBounces()

@@ -1,8 +1,12 @@
 package chaos
 
 import (
+	"time"
+
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
+	"github.com/zond/godip/orders"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
@@ -254,9 +258,9 @@ func Blank(phase godip.Phase) *state.State {
 	return state.New(Graph(), phase, classical.BackupRule)
 }
 
-func Start() (result *state.State, err error) {
+func Start() (*state.State, error) {
 	g := Graph()
-	result = state.New(g, classical.NewPhase(1900, godip.Fall, godip.Adjustment), classical.BackupRule)
+	result := state.New(g, Phase(1900, godip.Fall, godip.Adjustment), classical.BackupRule)
 	scMap := map[godip.Province]godip.Nation{}
 	for _, prov := range g.Provinces() {
 		if nat := g.SC(prov); nat != nil {
@@ -264,7 +268,34 @@ func Start() (result *state.State, err error) {
 		}
 	}
 	result.SetSupplyCenters(scMap)
-	return
+	return result, nil
+}
+
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, func(phase *phase.Phase) bool {
+	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
+})
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return &chaosPhase{newPhase(year, season, typ)}
+}
+
+type chaosPhase struct {
+	godip.Phase
+}
+
+func (self *chaosPhase) PreProcess(s godip.State) (err error) {
+	if self.Type() == godip.Adjustment {
+		ords := s.Orders()
+		for _, prov := range s.Graph().Provinces() {
+			if nat := s.Graph().SC(prov); nat != nil && prov == prov.Super() {
+				if _, _, found := s.Order(prov); !found {
+					ords[prov] = orders.BuildAnywhere(prov, godip.Army, time.Now())
+				}
+			}
+		}
+		s.SetOrders(ords)
+	}
+	return nil
 }
 
 var ChaosVariant = common.Variant{
@@ -272,7 +303,7 @@ var ChaosVariant = common.Variant{
 	Graph:      func() godip.Graph { return Graph() },
 	Start:      Start,
 	Blank:      Blank,
-	Phase:      classical.NewPhase,
+	Phase:      Phase,
 	Parser:     hundred.BuildAnywhereParser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
