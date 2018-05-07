@@ -10,27 +10,32 @@ import (
 	"github.com/zond/godip/orders"
 )
 
-func Generator(parser orders.Parser) func(int, godip.Season, godip.PhaseType) godip.Phase {
+func Generator(parser orders.Parser, adjustSCs func(*Phase) bool) func(int, godip.Season, godip.PhaseType) godip.Phase {
 	return func(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
-		return &Phase{year, season, typ, parser}
+		return &Phase{
+			Yr:        year,
+			Se:        season,
+			Ty:        typ,
+			Parser:    parser,
+			AdjustSCs: adjustSCs,
+		}
 	}
 }
 
 type Phase struct {
-	year   int
-	season godip.Season
-	typ    godip.PhaseType
-	parser orders.Parser
+	Yr        int
+	Se        godip.Season
+	Ty        godip.PhaseType
+	Parser    orders.Parser
+	AdjustSCs func(*Phase) bool
 }
 
 func (self *Phase) String() string {
-	return fmt.Sprintf("%s %d, %s", self.season, self.year, self.typ)
+	return fmt.Sprintf("%s %d, %s", self.Se, self.Yr, self.Ty)
 }
 
-var PARSER orders.Parser
-
 func (self *Phase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
-	return s.Options(self.parser.Orders(), nation)
+	return s.Options(self.Parser.Orders(), nation)
 }
 
 func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (result int, err error) {
@@ -144,7 +149,7 @@ func SortedUnits(s godip.State, n godip.Nation) (result []godip.Province, err er
 }
 
 func (self *Phase) DefaultOrder(p godip.Province) godip.Adjudicator {
-	if self.typ == godip.Movement {
+	if self.Ty == godip.Movement {
 		return orders.Hold(p)
 	}
 	return nil
@@ -155,24 +160,14 @@ func (self *Phase) PreProcess(s godip.State) (err error) {
 }
 
 func (self *Phase) PostProcess(s godip.State) (err error) {
-	if self.typ == godip.Retreat {
+	if self.Ty == godip.Retreat {
 		for prov, _ := range s.Dislodgeds() {
 			s.RemoveDislodged(prov)
 			s.SetResolution(prov, godip.ErrForcedDisband)
 		}
 		s.ClearDislodgers()
 		s.ClearBounces()
-		if self.season == godip.Fall {
-			s.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
-				if u != nil {
-					if s.Graph().SC(p) != nil {
-						s.SetSC(p.Super(), u.Nation)
-					}
-				}
-				return false
-			})
-		}
-	} else if self.typ == godip.Adjustment {
+	} else if self.Ty == godip.Adjustment {
 		for _, nationality := range s.Graph().Nations() {
 			_, _, balance := orders.AdjustmentStatus(s, nationality)
 			if balance < 0 {
@@ -188,7 +183,7 @@ func (self *Phase) PostProcess(s godip.State) (err error) {
 				}
 			}
 		}
-	} else if self.typ == godip.Movement {
+	} else if self.Ty == godip.Movement {
 		for prov, unit := range s.Dislodgeds() {
 			hasRetreat := false
 			for edge, _ := range s.Graph().Edges(prov) {
@@ -206,51 +201,66 @@ func (self *Phase) PostProcess(s godip.State) (err error) {
 			}
 		}
 	}
+	if self.AdjustSCs(self) {
+		s.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
+			if u != nil {
+				if s.Graph().SC(p) != nil {
+					godip.Logf("%v now belongs to %v", p.Super(), u.Nation)
+					s.SetSC(p.Super(), u.Nation)
+				}
+			}
+			return false
+		})
+	}
 	return
 }
 
 func (self *Phase) Year() int {
-	return self.year
+	return self.Yr
 }
 
 func (self *Phase) Season() godip.Season {
-	return self.season
+	return self.Se
 }
 
 func (self *Phase) Type() godip.PhaseType {
-	return self.typ
+	return self.Ty
 }
 
 func (self *Phase) Next() godip.Phase {
-	if self.typ == godip.Movement {
+	if self.Ty == godip.Movement {
 		return &Phase{
-			year:   self.year,
-			season: self.season,
-			typ:    godip.Retreat,
-			parser: self.parser,
+			Yr:        self.Yr,
+			Se:        self.Se,
+			Ty:        godip.Retreat,
+			Parser:    self.Parser,
+			AdjustSCs: self.AdjustSCs,
 		}
-	} else if self.typ == godip.Retreat {
-		if self.season == godip.Spring {
+	} else if self.Ty == godip.Retreat {
+		if self.Se == godip.Spring {
 			return &Phase{
-				year:   self.year,
-				season: godip.Fall,
-				typ:    godip.Movement,
-				parser: self.parser,
+				Yr:        self.Yr,
+				Se:        godip.Fall,
+				Ty:        godip.Movement,
+				Parser:    self.Parser,
+				AdjustSCs: self.AdjustSCs,
 			}
 		} else {
 			return &Phase{
-				year:   self.year,
-				season: godip.Fall,
-				typ:    godip.Adjustment,
-				parser: self.parser,
+				Yr:        self.Yr,
+				Se:        godip.Fall,
+				Ty:        godip.Adjustment,
+				Parser:    self.Parser,
+				AdjustSCs: self.AdjustSCs,
 			}
 		}
 	} else {
 		return &Phase{
-			year:   self.year + 1,
-			season: godip.Spring,
-			typ:    godip.Movement,
-			parser: self.parser,
+			Yr:        self.Yr + 1,
+			Se:        godip.Spring,
+			Ty:        godip.Movement,
+			Parser:    self.Parser,
+			AdjustSCs: self.AdjustSCs,
 		}
 	}
 	return nil
