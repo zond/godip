@@ -284,7 +284,7 @@ type chaosPhase struct {
 }
 
 func (self *chaosPhase) PreProcess(s godip.State) (err error) {
-	if self.Type() == godip.Adjustment {
+	if self.Type() == godip.Adjustment && self.Year() == 1900 {
 		ords := s.Orders()
 		for _, prov := range s.Graph().Provinces() {
 			if nat := s.Graph().SC(prov); nat != nil && prov == prov.Super() {
