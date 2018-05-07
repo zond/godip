@@ -289,7 +289,9 @@ func (self *chaosPhase) PreProcess(s godip.State) (err error) {
 		for _, prov := range s.Graph().Provinces() {
 			if nat := s.Graph().SC(prov); nat != nil && prov == prov.Super() {
 				if _, _, found := s.Order(prov); !found {
-					ords[prov] = orders.BuildAnywhere(prov, godip.Army, time.Now())
+					if _, _, found := s.Unit(prov); !found {
+						ords[prov] = orders.BuildAnywhere(prov, godip.Army, time.Now())
+					}
 				}
 			}
 		}
