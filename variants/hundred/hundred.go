@@ -26,6 +26,7 @@ var BuildAnywhereParser = ord.NewParser([]godip.Order{
 	orders.SupportOrder,
 	orders.BuildAnywhereOrder,
 	orders.DisbandOrder,
+	orders.ConvoyOrder,
 })
 
 var HundredVariant = common.Variant{

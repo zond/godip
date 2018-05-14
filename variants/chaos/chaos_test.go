@@ -281,4 +281,6 @@ func TestPORConvoyOpts(t *testing.T) {
 	opts := judge.Phase().Options(judge, Spain)
 	tst.AssertOpt(t, opts, []string{"por", "Move", "por", "bre"})
 	tst.AssertNoOpt(t, opts, []string{"por", "Move", "por", "mar"})
+	opts = judge.Phase().Options(judge, London)
+	tst.AssertOpt(t, opts, []string{"mid", "Convoy", "mid", "por", "bre"})
 }
