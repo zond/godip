@@ -375,7 +375,7 @@ func HasEdge(v godip.Validator, typ godip.UnitType, src, dst godip.Province) boo
 
 func PossibleMovesUnit(v godip.Validator, unitType godip.UnitType, src godip.Province, allowConvoy bool, noConvoy *godip.Province) (result []godip.Province) {
 	defer v.Profile("PossibleMovesUnit", time.Now())
-	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesUnit(%v,%v,%v)", unitType, src, allowConvoy, noConvoy), func() []godip.Province {
+	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesUnit(%v,%v,%v,%v)", unitType, src, allowConvoy, noConvoy), func() []godip.Province {
 		dsts := map[godip.Province]bool{}
 		if unitType == godip.Army {
 			for dst, flags := range v.Graph().Edges(src) {
