@@ -6,6 +6,7 @@ import math
 import itertools
 import collections
 import random
+from string import Template
 
 ### Data to be gathered for the variant. ###
 
@@ -779,91 +780,35 @@ def getNeighbours(province, provinces):
 
 def createGraphFile(fileName, provinces):
     """Create a *.go file for the variant."""
-    f = open(fileName, 'w')
-    f.write('package {}\n'.format(VARIANT.lower().replace(' ', '')))
-    f.write("""
-import (
-	"github.com/zond/godip/graph"
-	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
-	"github.com/zond/godip/variants/common"
-	"github.com/zond/godip"
-)
-
-const (
-""")
+    templateFile = open('variant.go.template')
+    template = Template(templateFile.read())
+    
     nationLength = max(map(len, START_UNITS.keys()))
+    nation_declarations = []
     for nation in START_UNITS.keys():
-        f.write('\t{{0:<{}}} dip.Nation = "{{0}}"\n'.format(nationLength).format(nation))
-    f.write(')\n\nvar Nations = []dip.Nation{{{}}}\n'.format(', '.join(START_UNITS.keys())))
-    f.write('\nvar {}Variant = common.Variant{{\n'.format(VARIANT.replace(' ', '')))
-    f.write('\tName:       "{}",\n'.format(VARIANT))
-    f.write('\tGraph:      func() dip.Graph {{ return {}Graph() }},\n'.format(VARIANT.replace(' ', '')))
-    f.write('\tStart:      {}Start,\n'.format(VARIANT.replace(' ', '')))
-    f.write('\tBlank:      {}Blank,\n'.format(VARIANT.replace(' ', '')))
-    f.write("""	Phase:      godip.Phase,
-	Parser:     orders.ClassicalParser,
-	OrderTypes: orders.ClassicalParser.OrderTypes(),
-	Nations:    Nations,
-	PhaseTypes: classical.PhaseTypes,
-	Seasons:    classical.Seasons,
-	UnitTypes:  classical.UnitTypes,""")
+        nation_declarations.append('\t{{0:<{}}} dip.Nation = "{{0}}"'.format(nationLength).format(nation))
+    nation_list = 'var Nations = []dip.Nation{{{}}}'.format(', '.join(START_UNITS.keys()))
+    
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
-    f.write('\n\tSoloWinner: common.SCCountWinner({}),\n'.format(scCount))
-    f.write("""	SVGMap: func() ([]byte, error) {{
-		return classical.Asset("svg/{}map.svg")
-	}},
-	SVGVersion: "1",
-	SVGUnits: map[dip.UnitType]func() ([]byte, error){{
-		godip.Army: func() ([]byte, error) {{
-			return classical.Asset("svg/army.svg")
-		}},
-		godip.Fleet: func() ([]byte, error) {{
-			return classical.Asset("svg/fleet.svg")
-		}},
-	}},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules: "",
-}}
-""".format(VARIANT.lower().replace(' ', '')))
-    f.write("""
-func {0}Blank(phase dip.Phase) *state.State {{
-	return state.New({0}Graph(), phase, classical.BackupRule)
-}}
-
-func {0}Start() (result *state.State, err error) {{
-	startPhase := classical.Phase({1}, godip.Spring, godip.Movement)
-	result = state.New({0}Graph(), startPhase, classical.BackupRule)
-	if err = result.SetUnits(map[dip.Province]dip.Unit{{
-""".format(VARIANT.replace(' ', ''), START_YEAR))
+    
+    unitsStrs = []
     for nation, units in START_UNITS.items():
         for unitType in units.keys():
             for region in units[unitType]:
                 if len([province.abbreviation for province in provinces if province.name == tuple(region.split(' '))]) == 0:
                     raise Exception('Could not find region {} when setting starting units.'.format(region))
                 abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
-                f.write('\t\t"{}": dip.Unit{{godip.{}, {}}},\n'.format(abbr, unitType, nation))
-    f.write("""	}); err != nil {
-		return
-	}
-	result.SetSupplyCenters(map[dip.Province]dip.Nation{
-""")
+                unitsStrs.append('\t\t"{}": dip.Unit{{godip.{}, {}}},'.format(abbr, unitType, nation))
+                
+    supplyCenterStrs = []
     for nation, units in START_UNITS.items():
         for unitType in units.keys():
             for region in units[unitType]:
                 province = [province for province in provinces if province.name == tuple(region.split(' '))][0]
                 if province.flags.supplyCenter:
-                    f.write('\t\t"{}": {},\n'.format(province.abbreviation, nation))
-    f.write("""	}})
-	return
-}}
-
-func {0}Graph() *graph.Graph {{
-	return graph.New().
-""".format(VARIANT.replace(' ', ''), START_YEAR))
+                    supplyCenterStrs.append('\t\t"{}": {},'.format(province.abbreviation, nation))
+    
+    graphStrs = []
     flags = {}
     for province in provinces:
         if province.flags.impassable:
@@ -877,10 +822,11 @@ func {0}Graph() *graph.Graph {{
                     flag = 'Coast...'
             flags[province.abbreviation] = flag
     for province in provinces:
+        graphStr = ''
         if province.flags.impassable:
             continue
-        f.write('\t\t// {}\n'.format(' '.join(province.name)))
-        f.write('\t\tProv("{}").'.format(province.abbreviation))
+        graphStr += '\t\t// {}\n'.format(' '.join(province.name))
+        graphStr += '\t\tProv("{}").'.format(province.abbreviation)
         for neighbour in getNeighbours(province, provinces):
             if not neighbour.flags.impassable:
                 if province.flags.sea or neighbour.flags.sea:
@@ -893,19 +839,34 @@ func {0}Graph() *graph.Graph {{
                         borderType = 'Coast...'
                     else:
                         borderType = 'Land'
-                f.write('Conn("{}", godip.{}).'.format(neighbour.abbreviation, borderType))
-        f.write('Flag(godip.{}).'.format(flags[province.abbreviation]))
+                graphStr += 'Conn("{}", godip.{}).'.format(neighbour.abbreviation, borderType)
+        graphStr += 'Flag(godip.{}).'.format(flags[province.abbreviation])
         if province.flags.supplyCenter:
             owner = 'godip.Neutral'
             for nation, units in START_UNITS.items():
                 for regions in units.values():
                     if province.name in map(lambda name: tuple(name.split(' ')), regions):
                         owner = nation
-            f.write('SC({}).'.format(owner))
-        f.write('\n')
-    f.write("""		Done()
-}
-""")
+            graphStr += 'SC({}).'.format(owner)
+        graphStrs.append(graphStr)
+    
+    parameters = {
+            'variant': VARIANT,
+            'variant_lower': VARIANT.lower().replace(' ', ''),
+            'variant_camel': VARIANT.replace(' ', ''),
+            'nation_declarations': '\n'.join(nation_declarations),
+            'nation_list': nation_list,
+            'sc_count': scCount,
+            'start_year': str(START_YEAR),
+            'units': '\n'.join(unitsStrs),
+            'supply_centers': '\n'.join(supplyCenterStrs),
+            'graph': '\n'.join(graphStrs)
+            }
+    
+    output = template.substitute(parameters)
+    templateFile.close()
+    f = open(fileName, 'w')
+    f.write(output)
     f.close()
 
 def createDebuggingMap(root, regions, edgeToDMap, corners):

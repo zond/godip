@@ -1,0 +1,71 @@
+package $variant_lower
+
+import (
+	"github.com/zond/godip/graph"
+	"github.com/zond/godip/state"
+	"github.com/zond/godip/variants/classical"
+	"github.com/zond/godip/variants/classical/orders"
+	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip"
+)
+
+const (
+$nation_declarations
+)
+
+$nation_list
+
+var $variant_camel = common.Variant{
+	Name:       "$variant",
+	Graph:      func() dip.Graph { return ${variant_camel}Graph() },
+	Start:      ${variant_camel}Start,
+	Blank:      ${variant_camel}Blank,
+	Phase:      godip.Phase,
+	Parser:     orders.ClassicalParser,
+	OrderTypes: orders.ClassicalParser.OrderTypes(),
+	Nations:    Nations,
+	PhaseTypes: classical.PhaseTypes,
+	Seasons:    classical.Seasons,
+	UnitTypes:  classical.UnitTypes,
+	SoloWinner: common.SCCountWinner($sc_count),
+	SVGMap: func() ([]byte, error) {
+		return classical.Asset("svg/${variant_lower}map.svg")
+	},
+	SVGVersion: "1",
+	SVGUnits: map[dip.UnitType]func() ([]byte, error){
+		godip.Army: func() ([]byte, error) {
+			return classical.Asset("svg/army.svg")
+		},
+		godip.Fleet: func() ([]byte, error) {
+			return classical.Asset("svg/fleet.svg")
+		},
+	},
+	CreatedBy:   "",
+	Version:     "",
+	Description: "",
+	Rules: "",
+}
+
+func ${variant_camel}Blank(phase dip.Phase) *state.State {
+	return state.New(${variant_camel}Graph(), phase, classical.BackupRule)
+}
+
+func ${variant_camel}Start() (result *state.State, err error) {
+	startPhase := classical.Phase($start_year, godip.Spring, godip.Movement)
+	result = state.New(${variant_camel}Graph(), startPhase, classical.BackupRule)
+	if err = result.SetUnits(map[dip.Province]dip.Unit{
+$units
+	}); err != nil {
+		return
+	}
+	result.SetSupplyCenters(map[dip.Province]dip.Nation{
+$supply_centers
+	})
+	return
+}
+
+func ${variant_camel}Graph() *graph.Graph {
+	return graph.New().
+$graph
+		Done()
+}
