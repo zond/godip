@@ -786,8 +786,8 @@ def createGraphFile(fileName, provinces):
     nationLength = max(map(len, START_UNITS.keys()))
     nation_declarations = []
     for nation in START_UNITS.keys():
-        nation_declarations.append('\t{{0:<{}}} dip.Nation = "{{0}}"'.format(nationLength).format(nation))
-    nation_list = 'var Nations = []dip.Nation{{{}}}'.format(', '.join(START_UNITS.keys()))
+        nation_declarations.append('\t{{0:<{}}} godip.Nation = "{{0}}"'.format(nationLength).format(nation))
+    nation_list = 'var Nations = []godip.Nation{{{}}}'.format(', '.join(START_UNITS.keys()))
     
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
     
@@ -798,7 +798,7 @@ def createGraphFile(fileName, provinces):
                 if len([province.abbreviation for province in provinces if province.name == tuple(region.split(' '))]) == 0:
                     raise Exception('Could not find region {} when setting starting units.'.format(region))
                 abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
-                unitsStrs.append('\t\t"{}": dip.Unit{{godip.{}, {}}},'.format(abbr, unitType, nation))
+                unitsStrs.append('\t\t"{}": godip.Unit{{godip.{}, {}}},'.format(abbr, unitType, nation))
                 
     supplyCenterStrs = []
     for nation, units in START_UNITS.items():
