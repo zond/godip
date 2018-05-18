@@ -100,6 +100,14 @@ class Province:
     def __repr__(self):
         return '{0}: {1}'.format(self.abbreviation, self.name)
 
+def toCamelCase(string):
+    """Remove all spaces without changing the case."""
+    return string.replace(' ', '')
+
+def toLowerAlphaNumeric(string):
+    """Convert to lower case and only keep the letters and numbers."""
+    return re.sub(r'[^a-z0-9]', '', string.lower())
+
 def getLayer(root, label):
     """Get the layer from root with the given Inkscape label."""
     return root.find('{}g[@{}label="{}"]'.format(SVG, INK, label))
@@ -470,14 +478,14 @@ def abbrFromName(name, indexes):
     """Create a potential abbreviation from a name by picking out the letters at the given indexes."""
     abbr = ''
     for i in indexes:
-        abbr += name.replace('.','')[i]
+        abbr += toLowerAlphaNumeric(name)[i]
     return abbr
 
 def findTupleFromName(name, fullNamesTuples):
     """Find the name tuple that has the same letters (in the same order) as the given name."""
-    name = name.replace(' ', '').replace('.', '').lower()
+    name = toLowerAlphaNumeric(name)
     for fullNameTuple in fullNamesTuples:
-        if ''.join(fullNameTuple).lower() == name:
+        if toLowerAlphaNumeric(''.join(fullNameTuple)) == name:
             return fullNameTuple
     raise Exception('Couldn\'t find tuple matching {0}'.format(name))
 
@@ -534,7 +542,7 @@ def inventAbbreviations(fullNamesTuples):
     the user ABBREVIATIONS override list."""
     fixedAbbrs = {}
     abbrCount = collections.Counter()
-    for name, abbr in map(lambda na: (na[0].replace(' ', '').replace('.', '').lower(), na[1]), ABBREVIATIONS.items()):
+    for name, abbr in map(lambda na: (toLowerAlphaNumeric(na[0]), na[1]), ABBREVIATIONS.items()):
         fixedAbbrs[findTupleFromName(name, fullNamesTuples)] = abbr
         abbrCount[abbr] += 1
     # Start by taking any unique first three letters.
@@ -626,7 +634,7 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
                                 e = xml.etree.ElementTree.Element('{}tspan'.format(SVG), attributes)
                                 e.text = part
                                 tspan.append(e)
-        if BOLD_ABBREVIATIONS and boldAbbr.replace(' ', '') != abbr:
+        if BOLD_ABBREVIATIONS and toCamelCase(boldAbbr) != abbr:
             print 'Failed to automatically bold the abbreviation for {0} (got "{1}" rather than "{2}")'.format(name, boldAbbr, abbr)
     root.append(namesLayer)
 
@@ -795,8 +803,8 @@ def createGraphFile(fileName, provinces):
     nationLength = max(map(len, START_UNITS.keys()))
     nation_declarations = []
     for nation in START_UNITS.keys():
-        nation_declarations.append('\t{{0:<{}}} godip.Nation = "{{0}}"'.format(nationLength).format(nation))
-    nation_list = 'var Nations = []godip.Nation{{{}}}'.format(', '.join(START_UNITS.keys()))
+        nation_declarations.append('\t{{0:<{}}} godip.Nation = "{{1}}"'.format(nationLength).format(toCamelCase(nation), nation))
+    nation_list = 'var Nations = []godip.Nation{{{}}}'.format(', '.join(map(toCamelCase, START_UNITS.keys())))
     
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
     
@@ -807,7 +815,7 @@ def createGraphFile(fileName, provinces):
                 if len([province.abbreviation for province in provinces if province.name == tuple(region.split(' '))]) == 0:
                     raise Exception('Could not find region {} when setting starting units.'.format(region))
                 abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
-                unitsStrs.append('\t\t"{}": godip.Unit{{godip.{}, {}}},'.format(abbr, unitType, nation))
+                unitsStrs.append('\t\t"{}": godip.Unit{{godip.{}, {}}},'.format(abbr, unitType, toCamelCase(nation)))
                 
     supplyCenterStrs = []
     for nation, units in START_UNITS.items():
@@ -815,7 +823,7 @@ def createGraphFile(fileName, provinces):
             for region in units[unitType]:
                 province = [province for province in provinces if province.name == tuple(region.split(' '))][0]
                 if province.flags.supplyCenter:
-                    supplyCenterStrs.append('\t\t"{}": {},'.format(province.abbreviation, nation))
+                    supplyCenterStrs.append('\t\t"{}": {},'.format(province.abbreviation, toCamelCase(nation)))
     
     graphStrs = []
     flags = {}
@@ -855,14 +863,14 @@ def createGraphFile(fileName, provinces):
             for nation, units in START_UNITS.items():
                 for regions in units.values():
                     if province.name in map(lambda name: tuple(name.split(' ')), regions):
-                        owner = nation
+                        owner = toCamelCase(nation)
             graphStr += 'SC({}).'.format(owner)
         graphStrs.append(graphStr)
     
     parameters = {
             'variant': VARIANT,
-            'variant_lower': VARIANT.lower().replace(' ', ''),
-            'variant_camel': VARIANT.replace(' ', ''),
+            'variant_lower': toLowerAlphaNumeric(VARIANT),
+            'variant_camel': toCamelCase(VARIANT),
             'nation_declarations': '\n'.join(nation_declarations),
             'nation_list': nation_list,
             'sc_count': scCount,
@@ -885,7 +893,7 @@ def createDebuggingMap(root, regions, edgeToDMap, corners):
     for i, region in enumerate(regions):
         debugNames['region{0}'.format(i)] = region
     addLayerWithRegions(root, debugNames, edgeToDMap, 'background', None, True, corners, True)
-    xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'debug.svg')
+    xml.etree.ElementTree.ElementTree(root).write(toLowerAlphaNumeric(VARIANT) + 'debug.svg')
 
 # Load data from the svg file.
 root = xml.etree.ElementTree.parse(MAP).getroot()
@@ -962,7 +970,7 @@ addNamesLayer(root, namesLayer, abbreviations, passableNames.keys())
 addLayer(root, 'units', True)
 addLayer(root, 'orders', True)
 # Create the output svg file.
-xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'map.svg')
+xml.etree.ElementTree.ElementTree(root).write(toLowerAlphaNumeric(VARIANT) + 'map.svg')
 
 # Create the output go file.
-createGraphFile(VARIANT.lower().replace(' ', '') + '.go', provinces)
+createGraphFile(toLowerAlphaNumeric(VARIANT) + '.go', provinces)
