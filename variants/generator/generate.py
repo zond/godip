@@ -29,7 +29,15 @@ VARIANT = 'Western World 901'
 #START_UNITS = {'Burgundy': {'Army': ['Dijon', 'Luxembourg', 'Flanders'], 'Fleet': ['Holland']},
 #               'England': {'Army': ['Calais', 'Guyenne', 'Normandy'], 'Fleet': ['London', 'Devon']},
 #               'France': {'Army': ['Dauphine', 'Orleanais', 'Paris', 'Toulouse', 'Provence'], 'Fleet': []}}
-START_UNITS = {'Abbasid Caliphate': {'Army': ['Ardebil']}}
+START_UNITS = {'Abbasid Caliphate': {'Army': ['Ardebil', 'Baghdad', 'Isfahan', 'Irak']},
+               'Eastern Roman Empire': {'Army': ['Cherson', 'Constantinople'], 'Fleet': ['Attalia', 'Taranto']},
+               'Kingdom of Denmark': {'Army': ['Viken'], 'Fleet': ['Jelling', 'Jorvik', 'Scania']},
+               'Tulunid Emirate': {'Army': ['Alexandria', 'Damascus'], 'Fleet': ['Barca', 'Jerusalem']},
+               'West Frankish Kingdom': {'Army': ['Aquitaine', 'Gascony', 'Narbonne'], 'Fleet': ['Paris']},
+               'East Frankish Kingdom': {'Army': ['Bavaria', 'Saxony', 'Swabia'], 'Fleet': ['Bremen']},
+               'Khaganate of Khazaria': {'Army': ['Atil', 'Balanjar', 'Sarkel', 'Tamantarka']},
+               'Kievan Rus': {'Army': ['Kiev', 'Rostov', 'Smolensk'], 'Fleet': ['Novgorod']},
+               'Umayyad Emirate': {'Army': ['Cordova', 'Salamanca'], 'Fleet': ['Cadiz', 'Valencia']}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
@@ -45,13 +53,13 @@ ABBREVIATIONS = {'Wessex': 'wsx', 'West Euxine Sea': 'wes', 'Basra': 'bsr', 'Bar
 #CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 #CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu'), ('Liverpool', 'Irish Sea')]
 #CENTER_OVERRIDES = [('Lorraine', 'Dijon')]
-CENTER_OVERRIDES = [('Jelling', 'Kattegat')]
+CENTER_OVERRIDES = [('Jelling', 'Kattegat'), ('Alexandria', 'Al-Qatta\'i')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
 #REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 #REGION_OVERRIDES = [('Red Sea', 'Mecca')]#, ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
 #REGION_OVERRIDES = [('Lorraine', 'Dijon')]
-REGION_OVERRIDES = []
+REGION_OVERRIDES = [('Alexandria', 'Al-Qatta\'i')]
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = True
 
@@ -636,6 +644,7 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
                                 tspan.append(e)
         if BOLD_ABBREVIATIONS and toCamelCase(boldAbbr) != abbr:
             print 'Failed to automatically bold the abbreviation for {0} (got "{1}" rather than "{2}")'.format(name, boldAbbr, abbr)
+            # TODO Fall back to a greedy algorithm here.
     root.append(namesLayer)
 
 def calculateCurvePoints(lastLoc, loc, nextLoc):
