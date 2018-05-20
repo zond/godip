@@ -67,7 +67,6 @@ BOLD_ABBREVIATIONS = True
 
 INK = '{http://www.inkscape.org/namespaces/inkscape}'
 SVG = '{http://www.w3.org/2000/svg}'
-MAP = 'westernworld_input.svg'
 # Any junctions within GUTTER pixels from the edge of the page will be moved to the edge.
 GUTTER = 5
 # How curvy the edges should be made
@@ -115,6 +114,8 @@ def toCamelCase(string):
 def toLowerAlphaNumeric(string):
     """Convert to lower case and only keep the letters and numbers."""
     return re.sub(r'[^a-z0-9]', '', string.lower())
+
+MAP = toLowerAlphaNumeric(VARIANT) + '_input.svg'
 
 def getLayer(root, label):
     """Get the layer from root with the given Inkscape label."""

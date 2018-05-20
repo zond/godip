@@ -9,15 +9,15 @@ import (
 )
 
 const (
-	UmayyadEmirate        godip.Nation = "Umayyad Emirate"
-	KievanRus             godip.Nation = "Kievan Rus"
-	KingdomofDenmark      godip.Nation = "Kingdom of Denmark"
-	KhaganateofKhazaria   godip.Nation = "Khaganate of Khazaria"
-	WestFrankishKingdom   godip.Nation = "West Frankish Kingdom"
-	TulunidEmirate        godip.Nation = "Tulunid Emirate"
-	AbbasidCaliphate      godip.Nation = "Abbasid Caliphate"
-	EastFrankishKingdom   godip.Nation = "East Frankish Kingdom"
-	EasternRomanEmpire    godip.Nation = "Eastern Roman Empire"
+	UmayyadEmirate      godip.Nation = "Umayyad Emirate"
+	KievanRus           godip.Nation = "Kievan Rus"
+	KingdomofDenmark    godip.Nation = "Kingdom of Denmark"
+	KhaganateofKhazaria godip.Nation = "Khaganate of Khazaria"
+	WestFrankishKingdom godip.Nation = "West Frankish Kingdom"
+	TulunidEmirate      godip.Nation = "Tulunid Emirate"
+	AbbasidCaliphate    godip.Nation = "Abbasid Caliphate"
+	EastFrankishKingdom godip.Nation = "East Frankish Kingdom"
+	EasternRomanEmpire  godip.Nation = "Eastern Roman Empire"
 )
 
 var Nations = []godip.Nation{UmayyadEmirate, KievanRus, KingdomofDenmark, KhaganateofKhazaria, WestFrankishKingdom, TulunidEmirate, AbbasidCaliphate, EastFrankishKingdom, EasternRomanEmpire}
@@ -49,7 +49,7 @@ var WesternWorld901Variant = common.Variant{
 	CreatedBy:   "",
 	Version:     "",
 	Description: "",
-	Rules: "",
+	Rules:       "",
 }
 
 func WesternWorld901Blank(phase godip.Phase) *state.State {
@@ -69,7 +69,7 @@ func WesternWorld901Start() (result *state.State, err error) {
 		"ros": godip.Unit{godip.Army, KievanRus},
 		"smo": godip.Unit{godip.Army, KievanRus},
 		"jel": godip.Unit{godip.Fleet, KingdomofDenmark},
-		"jor": godip.Unit{godip.Fleet, KingdomofDenmark},
+		"jor/ec": godip.Unit{godip.Fleet, KingdomofDenmark},
 		"sca": godip.Unit{godip.Fleet, KingdomofDenmark},
 		"vik": godip.Unit{godip.Army, KingdomofDenmark},
 		"ati": godip.Unit{godip.Army, KhaganateofKhazaria},
@@ -173,9 +173,9 @@ func WesternWorld901Graph() *graph.Graph {
 		// Libyan Sea
 		Prov("lib").Conn("sic", godip.Sea).Conn("tyr", godip.Sea).Conn("ifr", godip.Sea).Conn("tri", godip.Sea).Conn("bar", godip.Sea).Conn("egy", godip.Sea).Conn("ion", godip.Sea).Flag(godip.Sea).
 		// Bjarmaland
-		Prov("bja").Conn("saa", godip.Coast...).Conn("fin", godip.Land).Conn("chm", godip.Land).Conn("kom", godip.Coast...).Conn("whi", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("bja").Conn("saa", godip.Land).Conn("saa/nc", godip.Sea).Conn("kar", godip.Land).Conn("chm", godip.Land).Conn("kom", godip.Coast...).Conn("whi", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Rostov
-		Prov("ros").Conn("chm", godip.Land).Conn("fin", godip.Land).Conn("nov", godip.Land).Conn("kri", godip.Land).Flag(godip.Land).SC(KievanRus).
+		Prov("ros").Conn("chm", godip.Land).Conn("kar", godip.Land).Conn("nov", godip.Land).Conn("kri", godip.Land).Flag(godip.Land).SC(KievanRus).
 		// Stone Belt
 		Prov("sto").Conn("kom", godip.Land).Conn("udm", godip.Land).Conn("bas", godip.Land).Conn("kip", godip.Land).Flag(godip.Land).
 		// Kutamia
@@ -183,11 +183,15 @@ func WesternWorld901Graph() *graph.Graph {
 		// Slavonia
 		Prov("sla").Conn("mav", godip.Land).Conn("bav", godip.Land).Conn("aql", godip.Land).Conn("dal", godip.Land).Conn("ono", godip.Land).Flag(godip.Land).
 		// Wales
-		Prov("wal").Conn("wel", godip.Sea).Conn("wsx", godip.Coast...).Conn("jor", godip.Coast...).Flag(godip.Coast...).
+		Prov("wal").Conn("wel", godip.Sea).Conn("wsx", godip.Coast...).Conn("jor", godip.Land).Conn("jor/wc", godip.Sea).Flag(godip.Coast...).
 		// Lettish Sea
-		Prov("let").Conn("bor", godip.Sea).Conn("liv", godip.Sea).Conn("kar", godip.Sea).Conn("ula", godip.Sea).Conn("got", godip.Sea).Conn("sca", godip.Sea).Conn("abo", godip.Sea).Flag(godip.Sea).
+		Prov("let").Conn("bor", godip.Sea).Conn("liv", godip.Sea).Conn("fin", godip.Sea).Conn("ula", godip.Sea).Conn("got", godip.Sea).Conn("sca", godip.Sea).Conn("abo", godip.Sea).Flag(godip.Sea).
 		// Rome
-		Prov("rom").Conn("sle", godip.Coast...).Conn("spo", godip.Coast...).Conn("ill", godip.Sea).Conn("aql", godip.Coast...).Conn("lom", godip.Coast...).Conn("lig", godip.Sea).Conn("tyr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("rom").Conn("sle", godip.Land).Conn("spo", godip.Land).Conn("aql", godip.Land).Conn("lom", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		// Rome (West Coast)
+		Prov("rom/wc").Conn("sle", godip.Sea).Conn("lom", godip.Sea).Conn("lig", godip.Sea).Conn("tyr", godip.Sea).Flag(godip.Sea).
+		// Rome (East Coast)
+		Prov("rom/ec").Conn("spo", godip.Sea).Conn("ill", godip.Sea).Conn("aql", godip.Sea).Flag(godip.Sea).
 		// Sarkel
 		Prov("sak").Conn("tam", godip.Land).Conn("bnj", godip.Land).Conn("ati", godip.Land).Conn("mod", godip.Land).Conn("sev", godip.Land).Flag(godip.Land).SC(KhaganateofKhazaria).
 		// Jerusalem
@@ -215,7 +219,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Moravia
 		Prov("mav").Conn("pol", godip.Land).Conn("bav", godip.Land).Conn("sla", godip.Land).Conn("ono", godip.Land).Conn("vol", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// West Euxine Sea
-		Prov("wes").Conn("con", godip.Sea).Conn("buc", godip.Sea).Conn("eas", godip.Sea).Conn("crn", godip.Sea).Conn("pec", godip.Sea).Conn("vla", godip.Sea).Conn("thr", godip.Sea).Flag(godip.Sea).
+		Prov("wes").Conn("con", godip.Sea).Conn("buc", godip.Sea).Conn("eas", godip.Sea).Conn("crn", godip.Sea).Conn("pec", godip.Sea).Conn("pec/wc", godip.Sea).Conn("vla", godip.Sea).Conn("thr", godip.Sea).Flag(godip.Sea).
 		// Komia
 		Prov("kom").Conn("whi", godip.Sea).Conn("bja", godip.Coast...).Conn("chm", godip.Land).Conn("bul", godip.Land).Conn("udm", godip.Land).Conn("sto", godip.Land).Flag(godip.Coast...).
 		// Saxony
@@ -225,9 +229,13 @@ func WesternWorld901Graph() *graph.Graph {
 		// Azerbaijan
 		Prov("aze").Conn("sks", godip.Sea).Conn("der", godip.Coast...).Conn("kak", godip.Land).Conn("mos", godip.Land).Conn("ard", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Jorvik
-		Prov("jor").Conn("ngs", godip.Sea).Conn("ice", godip.Sea).Conn("cal", godip.Coast...).Conn("wel", godip.Sea).Conn("wal", godip.Coast...).Conn("wsx", godip.Coast...).Flag(godip.Coast...).SC(KingdomofDenmark).
+		Prov("jor").Conn("cal", godip.Land).Conn("wal", godip.Land).Conn("wsx", godip.Land).Flag(godip.Land).SC(KingdomofDenmark).
+		// Jorvik (West Coast)
+		Prov("jor/wc").Conn("cal", godip.Sea).Conn("wel", godip.Sea).Conn("wal", godip.Sea).Flag(godip.Sea).
+		// Jorvik (East Coast)
+		Prov("jor/ec").Conn("ngs", godip.Sea).Conn("ice", godip.Sea).Conn("cal", godip.Sea).Conn("wsx", godip.Sea).Flag(godip.Sea).
 		// Icelandic Sea
-		Prov("ice").Conn("oce", godip.Sea).Conn("mun", godip.Sea).Conn("dub", godip.Sea).Conn("wel", godip.Sea).Conn("cal", godip.Sea).Conn("jor", godip.Sea).Conn("ngs", godip.Sea).Conn("now", godip.Sea).Conn("saa", godip.Sea).Conn("bja", godip.Sea).Conn("whi", godip.Sea).Flag(godip.Sea).
+		Prov("ice").Conn("oce", godip.Sea).Conn("mun", godip.Sea).Conn("dub", godip.Sea).Conn("wel", godip.Sea).Conn("cal", godip.Sea).Conn("jor", godip.Sea).Conn("jor/ec", godip.Sea).Conn("ngs", godip.Sea).Conn("now", godip.Sea).Conn("saa", godip.Sea).Conn("saa/nc", godip.Sea).Conn("bja", godip.Sea).Conn("whi", godip.Sea).Flag(godip.Sea).
 		// Ifriqiya
 		Prov("ifr").Conn("tah", godip.Land).Conn("faz", godip.Land).Conn("tri", godip.Coast...).Conn("lib", godip.Sea).Conn("tyr", godip.Sea).Conn("str", godip.Sea).Conn("kut", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Gottland
@@ -243,13 +251,17 @@ func WesternWorld901Graph() *graph.Graph {
 		// Smolensk
 		Prov("smo").Conn("kri", godip.Land).Conn("nov", godip.Land).Conn("liv", godip.Land).Conn("dre", godip.Land).Conn("kie", godip.Land).Conn("vya", godip.Land).Flag(godip.Land).SC(KievanRus).
 		// Norway
-		Prov("now").Conn("kat", godip.Sea).Conn("vik", godip.Coast...).Conn("ula", godip.Land).Conn("saa", godip.Coast...).Conn("ice", godip.Sea).Conn("ngs", godip.Sea).Flag(godip.Coast...).
+		Prov("now").Conn("kat", godip.Sea).Conn("vik", godip.Coast...).Conn("ula", godip.Land).Conn("saa", godip.Land).Conn("saa/nc", godip.Sea).Conn("ice", godip.Sea).Conn("ngs", godip.Sea).Flag(godip.Coast...).
 		// Welsh Sea
-		Prov("wel").Conn("dub", godip.Sea).Conn("oce", godip.Sea).Conn("wsx", godip.Sea).Conn("wal", godip.Sea).Conn("jor", godip.Sea).Conn("cal", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
+		Prov("wel").Conn("dub", godip.Sea).Conn("oce", godip.Sea).Conn("wsx", godip.Sea).Conn("wal", godip.Sea).Conn("jor", godip.Sea).Conn("jor/wc", godip.Sea).Conn("cal", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
 		// Bavaria
 		Prov("bav").Conn("hel", godip.Land).Conn("lom", godip.Land).Conn("aql", godip.Land).Conn("sla", godip.Land).Conn("mav", godip.Land).Conn("pol", godip.Land).Conn("sax", godip.Land).Conn("swa", godip.Land).Flag(godip.Land).SC(EastFrankishKingdom).
 		// Veletia
-		Prov("vel").Conn("sgs", godip.Sea).Conn("bre", godip.Coast...).Conn("sax", godip.Land).Conn("pom", godip.Coast...).Conn("abo", godip.Sea).Conn("jel", godip.Coast...).Flag(godip.Coast...).
+		Prov("vel").Conn("bre", godip.Land).Conn("sax", godip.Land).Conn("pom", godip.Land).Conn("jel", godip.Land).Flag(godip.Land).
+		// Veletia (North Coast)
+		Prov("vel/nc").Conn("pom", godip.Sea).Conn("abo", godip.Sea).Conn("jel", godip.Sea).Flag(godip.Sea).
+		// Veletia (West Coast)
+		Prov("vel/wc").Conn("sgs", godip.Sea).Conn("bre", godip.Sea).Conn("jel", godip.Sea).Flag(godip.Sea).
 		// Al-Qatta'i
 		Prov("aqa").Conn("mec", godip.Land).Conn("ale", godip.Land).Conn("faz", godip.Land).Flag(godip.Land).
 		// Khorasan
@@ -259,13 +271,13 @@ func WesternWorld901Graph() *graph.Graph {
 		// Polonia
 		Prov("pol").Conn("mav", godip.Land).Conn("vol", godip.Land).Conn("maz", godip.Land).Conn("bor", godip.Land).Conn("pom", godip.Land).Conn("sax", godip.Land).Conn("bav", godip.Land).Flag(godip.Land).
 		// Novgorod
-		Prov("nov").Conn("ros", godip.Land).Conn("fin", godip.Coast...).Conn("kar", godip.Sea).Conn("est", godip.Coast...).Conn("liv", godip.Coast...).Conn("smo", godip.Land).Conn("kri", godip.Land).Flag(godip.Coast...).SC(KievanRus).
+		Prov("nov").Conn("ros", godip.Land).Conn("kar", godip.Coast...).Conn("fin", godip.Sea).Conn("est", godip.Coast...).Conn("liv", godip.Coast...).Conn("smo", godip.Land).Conn("kri", godip.Land).Flag(godip.Coast...).SC(KievanRus).
 		// Fazzan
 		Prov("faz").Conn("aqa", godip.Land).Conn("ale", godip.Land).Conn("tri", godip.Land).Conn("ifr", godip.Land).Conn("tah", godip.Land).Flag(godip.Land).
-		// Finnish Sea
-		Prov("fin").Conn("bja", godip.Land).Conn("saa", godip.Coast...).Conn("kar", godip.Sea).Conn("nov", godip.Coast...).Conn("ros", godip.Land).Conn("chm", godip.Land).Flag(godip.Coast...).
+		// Karelia
+		Prov("kar").Conn("bja", godip.Land).Conn("saa", godip.Land).Conn("saa/sc", godip.Sea).Conn("fin", godip.Sea).Conn("nov", godip.Coast...).Conn("ros", godip.Land).Conn("chm", godip.Land).Flag(godip.Coast...).
 		// South German Sea
-		Prov("sgs").Conn("jel", godip.Sea).Conn("ngs", godip.Sea).Conn("wsx", godip.Sea).Conn("bsa", godip.Sea).Conn("lot", godip.Sea).Conn("fri", godip.Sea).Conn("bre", godip.Sea).Conn("vel", godip.Sea).Flag(godip.Sea).
+		Prov("sgs").Conn("jel", godip.Sea).Conn("ngs", godip.Sea).Conn("wsx", godip.Sea).Conn("bsa", godip.Sea).Conn("lot", godip.Sea).Conn("fri", godip.Sea).Conn("bre", godip.Sea).Conn("vel", godip.Sea).Conn("vel/wc", godip.Sea).Flag(godip.Sea).
 		// Ocean Sea
 		Prov("oce").Conn("soa", godip.Sea).Conn("cad", godip.Sea).Conn("gal", godip.Sea).Conn("can", godip.Sea).Conn("btt", godip.Sea).Conn("bsa", godip.Sea).Conn("wsx", godip.Sea).Conn("wel", godip.Sea).Conn("dub", godip.Sea).Conn("mun", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
 		// Straits of Jebel Tarik
@@ -284,28 +296,28 @@ func WesternWorld901Graph() *graph.Graph {
 		Prov("bnj").Conn("kak", godip.Land).Conn("der", godip.Coast...).Conn("nks", godip.Sea).Conn("ati", godip.Coast...).Conn("sak", godip.Land).Conn("tam", godip.Land).Conn("abk", godip.Land).Conn("geo", godip.Land).Flag(godip.Coast...).SC(KhaganateofKhazaria).
 		// South Khazar Sea
 		Prov("sks").Conn("ard", godip.Sea).Conn("ali", godip.Sea).Conn("urg", godip.Sea).Conn("nks", godip.Sea).Conn("der", godip.Sea).Conn("aze", godip.Sea).Flag(godip.Sea).
-		// Karelia
-		Prov("kar").Conn("ula", godip.Sea).Conn("let", godip.Sea).Conn("liv", godip.Sea).Conn("est", godip.Sea).Conn("nov", godip.Sea).Conn("fin", godip.Sea).Conn("saa", godip.Sea).Flag(godip.Sea).
+		// Finnish Sea
+		Prov("fin").Conn("ula", godip.Sea).Conn("let", godip.Sea).Conn("liv", godip.Sea).Conn("est", godip.Sea).Conn("nov", godip.Sea).Conn("kar", godip.Sea).Conn("saa", godip.Sea).Conn("saa/sc", godip.Sea).Flag(godip.Sea).
 		// Sicily
 		Prov("sic").Conn("lib", godip.Sea).Conn("ion", godip.Sea).Conn("tyr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Jelling
-		Prov("jel").Conn("sgs", godip.Sea).Conn("vel", godip.Coast...).Conn("abo", godip.Sea).Conn("kat", godip.Sea).Conn("ngs", godip.Sea).Flag(godip.Coast...).SC(KingdomofDenmark).
+		Prov("jel").Conn("sgs", godip.Sea).Conn("vel", godip.Land).Conn("vel/wc", godip.Sea).Conn("vel/nc", godip.Sea).Conn("abo", godip.Sea).Conn("kat", godip.Sea).Conn("ngs", godip.Sea).Flag(godip.Coast...).SC(KingdomofDenmark).
 		// Tyrrhenian Sea
-		Prov("tyr").Conn("rom", godip.Sea).Conn("lig", godip.Sea).Conn("cos", godip.Sea).Conn("bcs", godip.Sea).Conn("sad", godip.Sea).Conn("str", godip.Sea).Conn("ifr", godip.Sea).Conn("lib", godip.Sea).Conn("sic", godip.Sea).Conn("ion", godip.Sea).Conn("tar", godip.Sea).Conn("sle", godip.Sea).Flag(godip.Sea).
+		Prov("tyr").Conn("rom", godip.Sea).Conn("rom/wc", godip.Sea).Conn("lig", godip.Sea).Conn("cos", godip.Sea).Conn("bcs", godip.Sea).Conn("sad", godip.Sea).Conn("str", godip.Sea).Conn("ifr", godip.Sea).Conn("lib", godip.Sea).Conn("sic", godip.Sea).Conn("ion", godip.Sea).Conn("tar", godip.Sea).Conn("sle", godip.Sea).Flag(godip.Sea).
 		// Kattegat
 		Prov("kat").Conn("abo", godip.Sea).Conn("sca", godip.Sea).Conn("vik", godip.Sea).Conn("now", godip.Sea).Conn("ngs", godip.Sea).Conn("jel", godip.Sea).Flag(godip.Sea).
 		// Caledonia
-		Prov("cal").Conn("jor", godip.Coast...).Conn("ice", godip.Sea).Conn("wel", godip.Sea).Flag(godip.Coast...).
+		Prov("cal").Conn("jor", godip.Land).Conn("jor/wc", godip.Sea).Conn("jor/ec", godip.Sea).Conn("ice", godip.Sea).Conn("wel", godip.Sea).Flag(godip.Coast...).
 		// Cyprus
 		Prov("cyp").Conn("sey", godip.Sea).Conn("cil", godip.Sea).Conn("egy", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Salerno
-		Prov("sle").Conn("rom", godip.Coast...).Conn("tyr", godip.Sea).Conn("tar", godip.Coast...).Conn("spo", godip.Land).Flag(godip.Coast...).
+		Prov("sle").Conn("rom", godip.Land).Conn("rom/wc", godip.Sea).Conn("tyr", godip.Sea).Conn("tar", godip.Coast...).Conn("spo", godip.Land).Flag(godip.Coast...).
 		// Gascony
 		Prov("gas").Conn("aqt", godip.Coast...).Conn("can", godip.Sea).Conn("pam", godip.Coast...).Conn("tou", godip.Land).Flag(godip.Coast...).SC(WestFrankishKingdom).
 		// Cadiz
 		Prov("cad").Conn("soa", godip.Sea).Conn("str", godip.Sea).Conn("gra", godip.Coast...).Conn("cod", godip.Land).Conn("snc", godip.Land).Conn("gal", godip.Coast...).Conn("oce", godip.Sea).Flag(godip.Coast...).SC(UmayyadEmirate).
 		// Illyrian Sea
-		Prov("ill").Conn("aql", godip.Sea).Conn("rom", godip.Sea).Conn("spo", godip.Sea).Conn("tar", godip.Sea).Conn("ion", godip.Sea).Conn("epi", godip.Sea).Conn("dal", godip.Sea).Flag(godip.Sea).
+		Prov("ill").Conn("aql", godip.Sea).Conn("rom", godip.Sea).Conn("rom/ec", godip.Sea).Conn("spo", godip.Sea).Conn("tar", godip.Sea).Conn("ion", godip.Sea).Conn("epi", godip.Sea).Conn("dal", godip.Sea).Flag(godip.Sea).
 		// Borussia
 		Prov("bor").Conn("maz", godip.Land).Conn("dre", godip.Land).Conn("liv", godip.Coast...).Conn("let", godip.Sea).Conn("abo", godip.Sea).Conn("pom", godip.Coast...).Conn("pol", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Friesland
@@ -315,7 +327,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Constantinople
 		Prov("con").Conn("epi", godip.Coast...).Conn("ion", godip.Sea).Conn("aeg", godip.Sea).Conn("att", godip.Coast...).Conn("buc", godip.Coast...).Conn("wes", godip.Sea).Conn("thr", godip.Coast...).Conn("mac", godip.Land).Flag(godip.Coast...).SC(EasternRomanEmpire).
 		// Vlacha
-		Prov("vla").Conn("kie", godip.Land).Conn("vol", godip.Land).Conn("ono", godip.Land).Conn("thr", godip.Coast...).Conn("wes", godip.Sea).Conn("pec", godip.Coast...).Flag(godip.Coast...).
+		Prov("vla").Conn("kie", godip.Land).Conn("vol", godip.Land).Conn("ono", godip.Land).Conn("thr", godip.Coast...).Conn("wes", godip.Sea).Conn("pec", godip.Land).Conn("pec/wc", godip.Sea).Flag(godip.Coast...).
 		// Jazira
 		Prov("jaz").Conn("mec", godip.Land).Conn("nef", godip.Land).Conn("bag", godip.Land).Conn("mos", godip.Land).Conn("arm", godip.Land).Conn("cap", godip.Land).Conn("dam", godip.Land).Conn("jer", godip.Land).Flag(godip.Land).
 		// Taranto
@@ -335,7 +347,11 @@ func WesternWorld901Graph() *graph.Graph {
 		// Attalia
 		Prov("att").Conn("con", godip.Coast...).Conn("aeg", godip.Sea).Conn("cil", godip.Sea).Conn("cap", godip.Coast...).Conn("buc", godip.Land).Flag(godip.Coast...).SC(EasternRomanEmpire).
 		// Pechenega
-		Prov("pec").Conn("eas", godip.Sea).Conn("tam", godip.Coast...).Conn("sev", godip.Land).Conn("kie", godip.Land).Conn("vla", godip.Coast...).Conn("wes", godip.Sea).Conn("crn", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("pec").Conn("tam", godip.Land).Conn("sev", godip.Land).Conn("kie", godip.Land).Conn("vla", godip.Land).Conn("crn", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		// Pechenega (West Coast)
+		Prov("pec/wc").Conn("vla", godip.Sea).Conn("wes", godip.Sea).Conn("crn", godip.Sea).Flag(godip.Sea).
+		// Pechenega (East Coast)
+		Prov("pec/ec").Conn("eas", godip.Sea).Conn("tam", godip.Sea).Conn("crn", godip.Sea).Flag(godip.Sea).
 		// Irak
 		Prov("ira").Conn("bag", godip.Land).Conn("nef", godip.Land).Conn("bsr", godip.Land).Conn("isf", godip.Land).Conn("ard", godip.Land).Flag(godip.Land).SC(AbbasidCaliphate).
 		// Toulouse
@@ -353,29 +369,29 @@ func WesternWorld901Graph() *graph.Graph {
 		// Armenia
 		Prov("arm").Conn("jaz", godip.Land).Conn("mos", godip.Land).Conn("kak", godip.Land).Conn("cap", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Wessex
-		Prov("wsx").Conn("oce", godip.Sea).Conn("bsa", godip.Sea).Conn("sgs", godip.Sea).Conn("ngs", godip.Sea).Conn("jor", godip.Coast...).Conn("wal", godip.Coast...).Conn("wel", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("wsx").Conn("oce", godip.Sea).Conn("bsa", godip.Sea).Conn("sgs", godip.Sea).Conn("ngs", godip.Sea).Conn("jor", godip.Land).Conn("jor/ec", godip.Sea).Conn("wal", godip.Coast...).Conn("wel", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Volhynia
 		Prov("vol").Conn("maz", godip.Land).Conn("pol", godip.Land).Conn("mav", godip.Land).Conn("ono", godip.Land).Conn("vla", godip.Land).Conn("kie", godip.Land).Conn("dre", godip.Land).Flag(godip.Land).
 		// Cordova
 		Prov("cod").Conn("tol", godip.Land).Conn("snc", godip.Land).Conn("cad", godip.Land).Conn("gra", godip.Land).Conn("val", godip.Land).Flag(godip.Land).SC(UmayyadEmirate).
 		// Aquileia
-		Prov("aql").Conn("sla", godip.Land).Conn("bav", godip.Land).Conn("lom", godip.Land).Conn("rom", godip.Coast...).Conn("ill", godip.Sea).Conn("dal", godip.Coast...).Flag(godip.Coast...).
+		Prov("aql").Conn("sla", godip.Land).Conn("bav", godip.Land).Conn("lom", godip.Land).Conn("rom", godip.Land).Conn("rom/ec", godip.Sea).Conn("ill", godip.Sea).Conn("dal", godip.Coast...).Flag(godip.Coast...).
 		// Cheremissia
-		Prov("chm").Conn("ros", godip.Land).Conn("kri", godip.Land).Conn("vya", godip.Land).Conn("bul", godip.Land).Conn("kom", godip.Land).Conn("bja", godip.Land).Conn("fin", godip.Land).Flag(godip.Land).
+		Prov("chm").Conn("ros", godip.Land).Conn("kri", godip.Land).Conn("vya", godip.Land).Conn("bul", godip.Land).Conn("kom", godip.Land).Conn("bja", godip.Land).Conn("kar", godip.Land).Flag(godip.Land).
 		// Georgia
 		Prov("geo").Conn("eas", godip.Sea).Conn("buc", godip.Coast...).Conn("cap", godip.Land).Conn("kak", godip.Land).Conn("bnj", godip.Land).Conn("abk", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Lombardy
-		Prov("lom").Conn("bav", godip.Land).Conn("hel", godip.Land).Conn("ueg", godip.Land).Conn("low", godip.Coast...).Conn("lig", godip.Sea).Conn("rom", godip.Coast...).Conn("aql", godip.Land).Flag(godip.Coast...).
+		Prov("lom").Conn("bav", godip.Land).Conn("hel", godip.Land).Conn("ueg", godip.Land).Conn("low", godip.Coast...).Conn("lig", godip.Sea).Conn("rom", godip.Land).Conn("rom/wc", godip.Sea).Conn("aql", godip.Land).Flag(godip.Coast...).
 		// Spoleto
-		Prov("spo").Conn("rom", godip.Coast...).Conn("sle", godip.Land).Conn("tar", godip.Coast...).Conn("ill", godip.Sea).Flag(godip.Coast...).
+		Prov("spo").Conn("rom", godip.Land).Conn("rom/ec", godip.Sea).Conn("sle", godip.Land).Conn("tar", godip.Coast...).Conn("ill", godip.Sea).Flag(godip.Coast...).
 		// Basra
 		Prov("bsr").Conn("sst", godip.Land).Conn("isf", godip.Land).Conn("ira", godip.Land).Conn("nef", godip.Land).Flag(godip.Land).
 		// Pomerania
-		Prov("pom").Conn("bor", godip.Coast...).Conn("abo", godip.Sea).Conn("vel", godip.Coast...).Conn("sax", godip.Land).Conn("pol", godip.Land).Flag(godip.Coast...).
+		Prov("pom").Conn("bor", godip.Coast...).Conn("abo", godip.Sea).Conn("vel", godip.Land).Conn("vel/nc", godip.Sea).Conn("sax", godip.Land).Conn("pol", godip.Land).Flag(godip.Coast...).
 		// East Euxine Sea
-		Prov("eas").Conn("geo", godip.Sea).Conn("abk", godip.Sea).Conn("tam", godip.Sea).Conn("pec", godip.Sea).Conn("crn", godip.Sea).Conn("wes", godip.Sea).Conn("buc", godip.Sea).Flag(godip.Sea).
+		Prov("eas").Conn("geo", godip.Sea).Conn("abk", godip.Sea).Conn("tam", godip.Sea).Conn("pec", godip.Sea).Conn("pec/ec", godip.Sea).Conn("crn", godip.Sea).Conn("wes", godip.Sea).Conn("buc", godip.Sea).Flag(godip.Sea).
 		// Cherson
-		Prov("crn").Conn("eas", godip.Sea).Conn("pec", godip.Coast...).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(EasternRomanEmpire).
+		Prov("crn").Conn("eas", godip.Sea).Conn("pec", godip.Land).Conn("pec/wc", godip.Sea).Conn("pec/ec", godip.Sea).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(EasternRomanEmpire).
 		// Ardebil
 		Prov("ard").Conn("bag", godip.Land).Conn("ira", godip.Land).Conn("isf", godip.Land).Conn("ali", godip.Coast...).Conn("sks", godip.Sea).Conn("aze", godip.Coast...).Conn("mos", godip.Land).Flag(godip.Coast...).SC(AbbasidCaliphate).
 		// Crete
@@ -383,7 +399,11 @@ func WesternWorld901Graph() *graph.Graph {
 		// Cilician Sea
 		Prov("cil").Conn("sey", godip.Sea).Conn("cap", godip.Sea).Conn("att", godip.Sea).Conn("aeg", godip.Sea).Conn("cre", godip.Sea).Conn("egy", godip.Sea).Conn("cyp", godip.Sea).Flag(godip.Sea).
 		// Saamiland
-		Prov("saa").Conn("bja", godip.Coast...).Conn("ice", godip.Sea).Conn("now", godip.Coast...).Conn("ula", godip.Coast...).Conn("kar", godip.Sea).Conn("fin", godip.Coast...).Flag(godip.Coast...).
+		Prov("saa").Conn("bja", godip.Land).Conn("now", godip.Land).Conn("ula", godip.Land).Conn("kar", godip.Land).Flag(godip.Land).
+		// Saamiland (North Coast)
+		Prov("saa/nc").Conn("bja", godip.Sea).Conn("ice", godip.Sea).Conn("now", godip.Sea).Flag(godip.Sea).
+		// Saamiland (South Coast)
+		Prov("saa/sc").Conn("ula", godip.Sea).Conn("fin", godip.Sea).Conn("kar", godip.Sea).Flag(godip.Sea).
 		// Epirus
 		Prov("epi").Conn("con", godip.Coast...).Conn("mac", godip.Land).Conn("dal", godip.Coast...).Conn("ill", godip.Sea).Conn("ion", godip.Sea).Flag(godip.Coast...).
 		// Bucellaria
@@ -397,7 +417,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Upper Burgundy
 		Prov("ueg").Conn("swa", godip.Land).Conn("lot", godip.Land).Conn("aut", godip.Land).Conn("low", godip.Land).Conn("lom", godip.Land).Conn("hel", godip.Land).Flag(godip.Land).
 		// Bremen
-		Prov("bre").Conn("sax", godip.Land).Conn("vel", godip.Coast...).Conn("sgs", godip.Sea).Conn("fri", godip.Coast...).Conn("fra", godip.Land).Flag(godip.Coast...).SC(EastFrankishKingdom).
+		Prov("bre").Conn("sax", godip.Land).Conn("vel", godip.Land).Conn("vel/wc", godip.Sea).Conn("sgs", godip.Sea).Conn("fri", godip.Coast...).Conn("fra", godip.Land).Flag(godip.Coast...).SC(EastFrankishKingdom).
 		// Asturias
 		Prov("ast").Conn("pam", godip.Coast...).Conn("can", godip.Sea).Conn("gal", godip.Coast...).Conn("snc", godip.Land).Conn("zar", godip.Land).Flag(godip.Coast...).
 		// Cappadocia
@@ -419,7 +439,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Onoguria
 		Prov("ono").Conn("thr", godip.Land).Conn("vla", godip.Land).Conn("vol", godip.Land).Conn("mav", godip.Land).Conn("sla", godip.Land).Conn("dal", godip.Land).Conn("mac", godip.Land).Flag(godip.Land).
 		// Uppland
-		Prov("ula").Conn("got", godip.Coast...).Conn("let", godip.Sea).Conn("kar", godip.Sea).Conn("saa", godip.Coast...).Conn("now", godip.Land).Conn("vik", godip.Land).Flag(godip.Coast...).
+		Prov("ula").Conn("got", godip.Coast...).Conn("let", godip.Sea).Conn("fin", godip.Sea).Conn("saa", godip.Land).Conn("saa/sc", godip.Sea).Conn("now", godip.Land).Conn("vik", godip.Land).Flag(godip.Coast...).
 		// Spanish March
 		Prov("spa").Conn("val", godip.Coast...).Conn("bcs", godip.Sea).Conn("lig", godip.Sea).Conn("nar", godip.Coast...).Conn("tou", godip.Land).Conn("pam", godip.Land).Conn("zar", godip.Land).Flag(godip.Coast...).
 		// Viken
@@ -433,23 +453,23 @@ func WesternWorld901Graph() *graph.Graph {
 		// Severyana
 		Prov("sev").Conn("mod", godip.Land).Conn("vya", godip.Land).Conn("kie", godip.Land).Conn("pec", godip.Land).Conn("tam", godip.Land).Conn("sak", godip.Land).Flag(godip.Land).
 		// Ligurian Sea
-		Prov("lig").Conn("rom", godip.Sea).Conn("lom", godip.Sea).Conn("low", godip.Sea).Conn("nar", godip.Sea).Conn("spa", godip.Sea).Conn("bcs", godip.Sea).Conn("cos", godip.Sea).Conn("tyr", godip.Sea).Flag(godip.Sea).
+		Prov("lig").Conn("rom", godip.Sea).Conn("rom/wc", godip.Sea).Conn("lom", godip.Sea).Conn("low", godip.Sea).Conn("nar", godip.Sea).Conn("spa", godip.Sea).Conn("bcs", godip.Sea).Conn("cos", godip.Sea).Conn("tyr", godip.Sea).Flag(godip.Sea).
 		// Livonia
-		Prov("liv").Conn("est", godip.Coast...).Conn("kar", godip.Sea).Conn("let", godip.Sea).Conn("bor", godip.Coast...).Conn("dre", godip.Land).Conn("smo", godip.Land).Conn("nov", godip.Coast...).Flag(godip.Coast...).
+		Prov("liv").Conn("est", godip.Coast...).Conn("fin", godip.Sea).Conn("let", godip.Sea).Conn("bor", godip.Coast...).Conn("dre", godip.Land).Conn("smo", godip.Land).Conn("nov", godip.Land).Flag(godip.Coast...).
 		// North German Sea
-		Prov("ngs").Conn("jor", godip.Sea).Conn("wsx", godip.Sea).Conn("sgs", godip.Sea).Conn("jel", godip.Sea).Conn("kat", godip.Sea).Conn("now", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
+		Prov("ngs").Conn("jor", godip.Sea).Conn("jor/ec", godip.Sea).Conn("wsx", godip.Sea).Conn("sgs", godip.Sea).Conn("jel", godip.Sea).Conn("kat", godip.Sea).Conn("now", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
 		// Tamantarka
-		Prov("tam").Conn("sak", godip.Land).Conn("sev", godip.Land).Conn("pec", godip.Coast...).Conn("eas", godip.Sea).Conn("abk", godip.Coast...).Conn("bnj", godip.Land).Flag(godip.Coast...).SC(KhaganateofKhazaria).
+		Prov("tam").Conn("sak", godip.Land).Conn("sev", godip.Land).Conn("pec", godip.Land).Conn("pec/ec", godip.Sea).Conn("eas", godip.Sea).Conn("abk", godip.Coast...).Conn("bnj", godip.Land).Flag(godip.Coast...).SC(KhaganateofKhazaria).
 		// Mosul
 		Prov("mos").Conn("bag", godip.Land).Conn("ard", godip.Land).Conn("aze", godip.Land).Conn("kak", godip.Land).Conn("arm", godip.Land).Conn("jaz", godip.Land).Flag(godip.Land).
 		// Mecca
 		Prov("mec").Conn("nef", godip.Land).Conn("jaz", godip.Land).Conn("jer", godip.Land).Conn("ale", godip.Land).Conn("aqa", godip.Land).Flag(godip.Land).
 		// Abodrite Sea
-		Prov("abo").Conn("sca", godip.Sea).Conn("kat", godip.Sea).Conn("jel", godip.Sea).Conn("vel", godip.Sea).Conn("pom", godip.Sea).Conn("bor", godip.Sea).Conn("let", godip.Sea).Flag(godip.Sea).
+		Prov("abo").Conn("sca", godip.Sea).Conn("kat", godip.Sea).Conn("jel", godip.Sea).Conn("vel", godip.Sea).Conn("vel/nc", godip.Sea).Conn("pom", godip.Sea).Conn("bor", godip.Sea).Conn("let", godip.Sea).Flag(godip.Sea).
 		// Tripolitania
 		Prov("tri").Conn("ifr", godip.Coast...).Conn("faz", godip.Land).Conn("ale", godip.Land).Conn("bar", godip.Coast...).Conn("lib", godip.Sea).Flag(godip.Coast...).
 		// Esteland
-		Prov("est").Conn("liv", godip.Coast...).Conn("nov", godip.Coast...).Conn("kar", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("est").Conn("liv", godip.Coast...).Conn("nov", godip.Coast...).Conn("fin", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Sijistan
 		Prov("sst").Conn("kho", godip.Land).Conn("ali", godip.Land).Conn("isf", godip.Land).Conn("bsr", godip.Land).Flag(godip.Land).
 		// Barca
