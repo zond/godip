@@ -57,9 +57,6 @@ var WesternWorld901Variant = common.Variant{
 
 func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator) {
 	ret = map[godip.Province]godip.Adjudicator{}
-	if state.Phase().Type() == godip.Movement {
-
-	}
 	switch state.Phase().Type() {
 	case godip.Movement:
 		// Strictly this is unnecessary - because hold is the default order.
