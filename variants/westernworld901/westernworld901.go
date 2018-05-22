@@ -305,7 +305,7 @@ func WesternWorld901Graph() *graph.Graph {
 		Prov("kho").Conn("kyz", godip.Land).Conn("urg", godip.Land).Conn("ali", godip.Land).Conn("sst", godip.Land).Flag(godip.Land).
 		// Pamplona
 		Prov("pam").Conn("ast", godip.Coast...).Conn("zar", godip.Land).Conn("spa", godip.Land).Conn("tou", godip.Land).Conn("gas", godip.Coast...).Conn("can", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
-		// Polonia
+		// Polania
 		Prov("pol").Conn("mav", godip.Land).Conn("vol", godip.Land).Conn("maz", godip.Land).Conn("bor", godip.Land).Conn("pom", godip.Land).Conn("sax", godip.Land).Conn("bav", godip.Land).Flag(godip.Land).
 		// Novgorod
 		Prov("nov").Conn("ros", godip.Land).Conn("kar", godip.Coast...).Conn("fin", godip.Sea).Conn("est", godip.Coast...).Conn("liv", godip.Coast...).Conn("smo", godip.Land).Conn("kri", godip.Land).Flag(godip.Coast...).SC(KievanRus).
