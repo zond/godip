@@ -66,12 +66,12 @@ var HundredVariant = common.Variant{
 }
 
 func HundredBlank(phase godip.Phase) *state.State {
-	return state.New(HundredGraph(), phase, classical.BackupRule)
+	return state.New(HundredGraph(), phase, classical.BackupRule, nil)
 }
 
 func HundredStart() (result *state.State, err error) {
 	startPhase := Phase(1425, YearSeason, godip.Movement)
-	result = state.New(HundredGraph(), startPhase, classical.BackupRule)
+	result = HundredBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"lon": godip.Unit{godip.Fleet, England},
 		"dev": godip.Unit{godip.Fleet, England},

@@ -255,12 +255,12 @@ func Graph() *graph.Graph {
 }
 
 func Blank(phase godip.Phase) *state.State {
-	return state.New(Graph(), phase, classical.BackupRule)
+	return state.New(Graph(), phase, classical.BackupRule, nil)
 }
 
 func Start() (*state.State, error) {
 	g := Graph()
-	result := state.New(g, Phase(1900, godip.Fall, godip.Adjustment), classical.BackupRule)
+	result := Blank(Phase(1900, godip.Fall, godip.Adjustment))
 	scMap := map[godip.Province]godip.Nation{}
 	for _, prov := range g.Provinces() {
 		if nat := g.SC(prov); nat != nil {

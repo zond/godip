@@ -74,6 +74,15 @@ func (self *Graph) SCs(n godip.Nation) (result []godip.Province) {
 	return
 }
 
+func (self *Graph) AllSCs() (result []godip.Province) {
+	for name, node := range self.Nodes {
+		if node.SC != nil {
+			result = append(result, name)
+		}
+	}
+	return
+}
+
 func (self *Graph) Edges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
 	result = map[godip.Province]map[godip.Flag]bool{}
 	for p, edge := range self.edges(n) {
