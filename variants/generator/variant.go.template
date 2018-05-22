@@ -50,7 +50,7 @@ func ${variant_camel}Blank(phase godip.Phase) *state.State {
 
 func ${variant_camel}Start() (result *state.State, err error) {
 	startPhase := classical.NewPhase($start_year, godip.Spring, godip.Movement)
-	result = state.New(${variant_camel}Graph(), startPhase, classical.BackupRule)
+	result = ${variant_camel}Blank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 $units
 	}); err != nil {

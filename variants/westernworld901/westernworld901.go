@@ -1,8 +1,11 @@
 package westernworld901
 
 import (
+	"time"
+
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
@@ -52,50 +55,76 @@ var WesternWorld901Variant = common.Variant{
 	Rules:       "",
 }
 
+func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator) {
+	ret = map[godip.Province]godip.Adjudicator{}
+	if state.Phase().Type() == godip.Movement {
+
+	}
+	switch state.Phase().Type() {
+	case godip.Movement:
+		// Strictly this is unnecessary - because hold is the default order.
+		for prov, unit := range state.Units() {
+			if unit.Nation == godip.Neutral {
+				ret[prov] = orders.Hold(prov)
+			}
+		}
+	case godip.Adjustment:
+		// Rebuild any missing units.
+		for _, prov := range state.Graph().SCs(godip.Neutral) {
+			if _, _, ok := state.SupplyCenter(prov); !ok {
+				if _, _, ok := state.Unit(prov); !ok {
+					ret[prov] = orders.Build(prov, godip.Army, time.Now())
+				}
+			}
+		}
+	}
+	return
+}
+
 func WesternWorld901Blank(phase godip.Phase) *state.State {
-	return state.New(WesternWorld901Graph(), phase, classical.BackupRule)
+	return state.New(WesternWorld901Graph(), phase, classical.BackupRule, NeutralOrders)
 }
 
 func WesternWorld901Start() (result *state.State, err error) {
 	startPhase := classical.NewPhase(901, godip.Spring, godip.Movement)
-	result = state.New(WesternWorld901Graph(), startPhase, classical.BackupRule)
+	result = WesternWorld901Blank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"cad": godip.Unit{godip.Fleet, UmayyadEmirate},
-		"val": godip.Unit{godip.Fleet, UmayyadEmirate},
-		"cod": godip.Unit{godip.Army, UmayyadEmirate},
-		"snc": godip.Unit{godip.Army, UmayyadEmirate},
-		"nov": godip.Unit{godip.Fleet, KievanRus},
-		"kie": godip.Unit{godip.Army, KievanRus},
-		"ros": godip.Unit{godip.Army, KievanRus},
-		"smo": godip.Unit{godip.Army, KievanRus},
-		"jel": godip.Unit{godip.Fleet, KingdomofDenmark},
+		"cad":    godip.Unit{godip.Fleet, UmayyadEmirate},
+		"val":    godip.Unit{godip.Fleet, UmayyadEmirate},
+		"cod":    godip.Unit{godip.Army, UmayyadEmirate},
+		"snc":    godip.Unit{godip.Army, UmayyadEmirate},
+		"nov":    godip.Unit{godip.Fleet, KievanRus},
+		"kie":    godip.Unit{godip.Army, KievanRus},
+		"ros":    godip.Unit{godip.Army, KievanRus},
+		"smo":    godip.Unit{godip.Army, KievanRus},
+		"jel":    godip.Unit{godip.Fleet, KingdomofDenmark},
 		"jor/ec": godip.Unit{godip.Fleet, KingdomofDenmark},
-		"sca": godip.Unit{godip.Fleet, KingdomofDenmark},
-		"vik": godip.Unit{godip.Army, KingdomofDenmark},
-		"ati": godip.Unit{godip.Army, KhaganateofKhazaria},
-		"bnj": godip.Unit{godip.Army, KhaganateofKhazaria},
-		"sak": godip.Unit{godip.Army, KhaganateofKhazaria},
-		"tam": godip.Unit{godip.Army, KhaganateofKhazaria},
-		"par": godip.Unit{godip.Fleet, WestFrankishKingdom},
-		"aqt": godip.Unit{godip.Army, WestFrankishKingdom},
-		"gas": godip.Unit{godip.Army, WestFrankishKingdom},
-		"nar": godip.Unit{godip.Army, WestFrankishKingdom},
-		"bar": godip.Unit{godip.Fleet, TulunidEmirate},
-		"jer": godip.Unit{godip.Fleet, TulunidEmirate},
-		"ale": godip.Unit{godip.Army, TulunidEmirate},
-		"dam": godip.Unit{godip.Army, TulunidEmirate},
-		"ard": godip.Unit{godip.Army, AbbasidCaliphate},
-		"bag": godip.Unit{godip.Army, AbbasidCaliphate},
-		"isf": godip.Unit{godip.Army, AbbasidCaliphate},
-		"ira": godip.Unit{godip.Army, AbbasidCaliphate},
-		"bre": godip.Unit{godip.Fleet, EastFrankishKingdom},
-		"bav": godip.Unit{godip.Army, EastFrankishKingdom},
-		"sax": godip.Unit{godip.Army, EastFrankishKingdom},
-		"swa": godip.Unit{godip.Army, EastFrankishKingdom},
-		"att": godip.Unit{godip.Fleet, EasternRomanEmpire},
-		"tar": godip.Unit{godip.Fleet, EasternRomanEmpire},
-		"crn": godip.Unit{godip.Army, EasternRomanEmpire},
-		"con": godip.Unit{godip.Army, EasternRomanEmpire},
+		"sca":    godip.Unit{godip.Fleet, KingdomofDenmark},
+		"vik":    godip.Unit{godip.Army, KingdomofDenmark},
+		"ati":    godip.Unit{godip.Army, KhaganateofKhazaria},
+		"bnj":    godip.Unit{godip.Army, KhaganateofKhazaria},
+		"sak":    godip.Unit{godip.Army, KhaganateofKhazaria},
+		"tam":    godip.Unit{godip.Army, KhaganateofKhazaria},
+		"par":    godip.Unit{godip.Fleet, WestFrankishKingdom},
+		"aqt":    godip.Unit{godip.Army, WestFrankishKingdom},
+		"gas":    godip.Unit{godip.Army, WestFrankishKingdom},
+		"nar":    godip.Unit{godip.Army, WestFrankishKingdom},
+		"bar":    godip.Unit{godip.Fleet, TulunidEmirate},
+		"jer":    godip.Unit{godip.Fleet, TulunidEmirate},
+		"ale":    godip.Unit{godip.Army, TulunidEmirate},
+		"dam":    godip.Unit{godip.Army, TulunidEmirate},
+		"ard":    godip.Unit{godip.Army, AbbasidCaliphate},
+		"bag":    godip.Unit{godip.Army, AbbasidCaliphate},
+		"isf":    godip.Unit{godip.Army, AbbasidCaliphate},
+		"ira":    godip.Unit{godip.Army, AbbasidCaliphate},
+		"bre":    godip.Unit{godip.Fleet, EastFrankishKingdom},
+		"bav":    godip.Unit{godip.Army, EastFrankishKingdom},
+		"sax":    godip.Unit{godip.Army, EastFrankishKingdom},
+		"swa":    godip.Unit{godip.Army, EastFrankishKingdom},
+		"att":    godip.Unit{godip.Fleet, EasternRomanEmpire},
+		"tar":    godip.Unit{godip.Fleet, EasternRomanEmpire},
+		"crn":    godip.Unit{godip.Army, EasternRomanEmpire},
+		"con":    godip.Unit{godip.Army, EasternRomanEmpire},
 	}); err != nil {
 		return
 	}
@@ -137,6 +166,14 @@ func WesternWorld901Start() (result *state.State, err error) {
 		"crn": EasternRomanEmpire,
 		"con": EasternRomanEmpire,
 	})
+	for _, sc := range WesternWorld901Graph().SCs(godip.Neutral) {
+		if err = result.SetUnit(godip.Province(sc), godip.Unit{
+			Type:   godip.Army,
+			Nation: godip.Neutral,
+		}); err != nil {
+			return
+		}
+	}
 	return
 }
 
