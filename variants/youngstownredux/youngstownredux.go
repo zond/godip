@@ -61,12 +61,12 @@ var YoungstownReduxVariant = common.Variant{
 }
 
 func YoungstownReduxBlank(phase godip.Phase) *state.State {
-	return state.New(YoungstownReduxGraph(), phase, classical.BackupRule)
+	return state.New(YoungstownReduxGraph(), phase, classical.BackupRule, nil)
 }
 
 func YoungstownReduxStart() (result *state.State, err error) {
 	startPhase := classical.NewPhase(1901, godip.Spring, godip.Movement)
-	result = state.New(YoungstownReduxGraph(), startPhase, classical.BackupRule)
+	result = YoungstownReduxBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"ank":    godip.Unit{godip.Fleet, Turkey},
 		"con":    godip.Unit{godip.Army, Turkey},

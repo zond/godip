@@ -67,7 +67,10 @@ func (self *build) At() time.Time {
 }
 
 func (self *build) Adjudicate(r godip.Resolver) error {
-	me := r.SupplyCenters()[self.targets[0].Super()]
+	me, _, ok := r.SupplyCenter(self.targets[0].Super())
+	if !ok {
+		me = godip.Neutral
+	}
 	builds, _, _ := AdjustmentStatus(r, me)
 	if len(builds) == 0 || self.at.After(builds[len(builds)-1].At()) {
 		return godip.ErrIllegalBuild
@@ -197,13 +200,20 @@ func (self *build) Validate(v godip.Validator) (godip.Nation, error) {
 }
 
 func (self *build) Execute(state godip.State) {
-	me := state.SupplyCenters()[self.targets[0].Super()]
+	me, ok := state.SupplyCenters()[self.targets[0].Super()]
+	if !ok {
+		me = godip.Neutral
+	}
 	state.SetUnit(self.targets[0], godip.Unit{self.typ, me})
 }
 
 func AdjustmentStatus(v godip.Validator, me godip.Nation) (builds godip.Orders, disbands godip.Orders, balance int) {
 	scs := 0
-	for prov, nat := range v.SupplyCenters() {
+	for _, prov := range v.Graph().AllSCs() {
+		nat, _, ok := v.SupplyCenter(prov)
+		if !ok {
+			nat = godip.Neutral
+		}
 		if nat == me {
 			scs += 1
 			if order, _, ok := v.Order(prov); ok && order.Type() == godip.Build {

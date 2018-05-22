@@ -68,11 +68,11 @@ var ClassicalVariant = common.Variant{
 }
 
 func Blank(phase godip.Phase) *state.State {
-	return state.New(start.Graph(), phase, BackupRule)
+	return state.New(start.Graph(), phase, BackupRule, nil)
 }
 
 func Start() (result *state.State, err error) {
-	result = state.New(start.Graph(), NewPhase(1901, godip.Spring, godip.Movement), BackupRule)
+	result = Blank(NewPhase(1901, godip.Spring, godip.Movement))
 	if err = result.SetUnits(start.Units()); err != nil {
 		return
 	}

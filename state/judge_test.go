@@ -64,7 +64,7 @@ func assertOrderLocation(t *testing.T, j *State, prov godip.Province, order godi
 }
 
 func TestStateLocations(t *testing.T) {
-	j := New(testGraph(), nil, nil)
+	j := New(testGraph(), nil, nil, nil)
 	j.SetOrders(map[godip.Province]godip.Adjudicator{
 		"a":    testOrder(1),
 		"b/ec": testOrder(2),

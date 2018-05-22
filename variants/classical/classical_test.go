@@ -419,7 +419,7 @@ func TestBULOptions(t *testing.T) {
 // Test that por M spa supported by mid works in
 // https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAgOr0mgoM/Phase/12/Map
 func TestMIDPORSPASupportOptions(t *testing.T) {
-	judge := state.New(start.Graph(), NewPhase(1903, godip.Fall, godip.Movement), BackupRule)
+	judge := Blank(NewPhase(1903, godip.Fall, godip.Movement))
 	if err := judge.SetUnits(start.Units()); err != nil {
 		t.Fatal(err)
 	}
