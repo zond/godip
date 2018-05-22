@@ -4,14 +4,13 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
-
-	ord "github.com/zond/godip/orders"
 )
 
-var pureParser = ord.NewParser([]godip.Order{
+var pureParser = orders.NewParser([]godip.Order{
 	orders.BuildOrder,
 	orders.DisbandOrder,
 	orders.HoldOrder,
@@ -20,11 +19,13 @@ var pureParser = ord.NewParser([]godip.Order{
 })
 
 var PureVariant = common.Variant{
-	Name:       "Pure",
-	Graph:      func() godip.Graph { return PureGraph() },
-	Start:      PureStart,
-	Blank:      PureBlank,
-	Phase:      classical.PhaseGenerator(pureParser),
+	Name:  "Pure",
+	Graph: func() godip.Graph { return PureGraph() },
+	Start: PureStart,
+	Blank: PureBlank,
+	Phase: phase.Generator(pureParser, func(phase *phase.Phase) bool {
+		return phase.Ty == godip.Retreat && phase.Se == godip.Fall
+	}),
 	Parser:     pureParser,
 	Nations:    classical.Nations,
 	PhaseTypes: classical.PhaseTypes,
@@ -34,7 +35,7 @@ var PureVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/puremap.svg")
 	},
-	SVGVersion: "2",
+	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")

@@ -5,7 +5,6 @@ import (
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 )
 
@@ -24,8 +23,8 @@ var AncientMediterraneanVariant = common.Variant{
 	Graph:      func() godip.Graph { return AncientMediterraneanGraph() },
 	Start:      AncientMediterraneanStart,
 	Blank:      AncientMediterraneanBlank,
-	Phase:      classical.Phase,
-	Parser:     orders.ClassicalParser,
+	Phase:      classical.NewPhase,
+	Parser:     classical.Parser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
@@ -34,7 +33,7 @@ var AncientMediterraneanVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/ancientmediterraneanmap.svg")
 	},
-	SVGVersion: "2",
+	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
@@ -61,7 +60,7 @@ func AncientMediterraneanBlank(phase godip.Phase) *state.State {
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(1, godip.Spring, godip.Movement)
 	result = AncientMediterraneanBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"nea": godip.Unit{godip.Fleet, Rome},
@@ -167,7 +166,7 @@ func AncientMediterraneanGraph() *graph.Graph {
 		// gal
 		Prov("gal").Conn("sip", godip.Land).Conn("cap", godip.Land).Conn("isa", godip.Land).Conn("mil", godip.Land).Conn("byz", godip.Land).Conn("bit", godip.Land).Flag(godip.Land).
 		// isa
-		Prov("isa").Conn("gal", godip.Land).Conn("cap", godip.Coast...).Conn("cil", godip.Sea).Conn("min", godip.Sea).Conn("aeg", godip.Sea).Conn("mil", godip.Coast...).Flag(godip.Coast...).
+		Prov("isa").Conn("gal", godip.Land).Conn("cap", godip.Coast...).Conn("cil", godip.Sea).Conn("min", godip.Sea).Conn("mil", godip.Coast...).Flag(godip.Coast...).
 		// cap
 		Prov("cap").Conn("sip", godip.Land).Conn("arm", godip.Land).Conn("dam", godip.Land).Conn("ant", godip.Coast...).Conn("cil", godip.Sea).Conn("isa", godip.Coast...).Conn("gal", godip.Land).Flag(godip.Coast...).
 		// ant

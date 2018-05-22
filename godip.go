@@ -178,6 +178,20 @@ func (n *Nation) String() string {
 	return string(*n)
 }
 
+type Nations []Nation
+
+func (n Nations) Len() int {
+	return len(n)
+}
+
+func (n Nations) Less(i, j int) bool {
+	return bytes.Compare([]byte(n[i]), []byte(n[j])) < 0
+}
+
+func (n Nations) Swap(i, j int) {
+	n[i], n[j] = n[j], n[i]
+}
+
 type OrderType string
 
 type PhaseType string
@@ -245,6 +259,7 @@ type Phase interface {
 	Season() Season
 	Type() PhaseType
 	Next() Phase
+	PreProcess(State) error
 	PostProcess(State) error
 	DefaultOrder(Province) Adjudicator
 	Options(Validator, Nation) (result Options)
@@ -302,6 +317,7 @@ func (self Options) MarshalJSON() ([]byte, error) {
 	return json.Marshal(repl)
 }
 
+// Order is a basic order, but unable to adjudicate itself.
 type Order interface {
 	Type() OrderType
 	DisplayType() OrderType
@@ -313,6 +329,7 @@ type Order interface {
 	Flags() map[Flag]bool
 }
 
+// Adjudicator is what orders turn into when adjudication has started.
 type Adjudicator interface {
 	Order
 	Adjudicate(Resolver) error
@@ -323,6 +340,7 @@ type BackupRule func(State, []Province) error
 
 type StateFilter func(n Province, o Order, u *Unit) bool
 
+// Validator is a game state able to validate orders, but not adjudicate them.
 type Validator interface {
 	Order(Province) (Order, Province, bool)
 	Unit(Province) (Unit, Province, bool)
@@ -347,6 +365,7 @@ type Validator interface {
 	MemoizeProvSlice(string, func() []Province) []Province
 }
 
+// Resolver is what validators turn into when adjudication has started.
 type Resolver interface {
 	Validator
 
@@ -354,6 +373,7 @@ type Resolver interface {
 	Resolve(Province) error
 }
 
+// State is the super-user access to the entire game state.
 type State interface {
 	Resolver
 
@@ -366,6 +386,7 @@ type State interface {
 	SetResolution(Province, error)
 	SetSC(Province, Nation)
 	SetUnit(Province, Unit) error
+	SetOrders(map[Province]Adjudicator)
 
 	ClearDislodgers()
 	ClearBounces()

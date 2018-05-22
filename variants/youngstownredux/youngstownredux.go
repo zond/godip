@@ -5,7 +5,6 @@ import (
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/classical/orders"
 	"github.com/zond/godip/variants/common"
 )
 
@@ -29,8 +28,8 @@ var YoungstownReduxVariant = common.Variant{
 	Graph:      func() godip.Graph { return YoungstownReduxGraph() },
 	Start:      YoungstownReduxStart,
 	Blank:      YoungstownReduxBlank,
-	Phase:      classical.Phase,
-	Parser:     orders.ClassicalParser,
+	Phase:      classical.NewPhase,
+	Parser:     classical.Parser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
@@ -39,7 +38,7 @@ var YoungstownReduxVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/youngstownreduxmap.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion: "2",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
@@ -54,9 +53,10 @@ var YoungstownReduxVariant = common.Variant{
 	Rules: "Rules are as per classical Diplomacy. There are eight box sea regions which are each connected " +
 		"to the other boxes in the same row and column, and allow fleets to travel 'around the world'. Six provinces " +
 		"have two coasts (Spain, St. Petersburg, Levant, Arabia, Hebei and Thailand), and all other coastal regions have a " +
-		"single coast. The winner is the first nation to 28 supply centers, or the player with the most in the case of " +
+		"single coast. Note that the frozen Arctic region is impassible and prevents fleets from reaching Omsk and Siberia. " +
+		"The winner is the first nation to 28 supply centers, or the player with the most in the case of " +
 		"multiple nations reaching 28 in the same turn. If the leading two nations both have the same number of centers " +
-		"then the game will continue for another year.  This variant is based on the Youngstown variant by Rod Walker, " +
+		"then the game will continue for another year. This variant is based on the Youngstown variant by Rod Walker, " +
 		"A. Phillips, Ken Lowe and Jon Monsarret.",
 }
 
@@ -65,7 +65,7 @@ func YoungstownReduxBlank(phase godip.Phase) *state.State {
 }
 
 func YoungstownReduxStart() (result *state.State, err error) {
-	startPhase := classical.Phase(1901, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(1901, godip.Spring, godip.Movement)
 	result = YoungstownReduxBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"ank":    godip.Unit{godip.Fleet, Turkey},

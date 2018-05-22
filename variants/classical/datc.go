@@ -57,11 +57,11 @@ func DATCPhase(season string, year int, typ string) (result godip.Phase, err err
 		err = fmt.Errorf("Unknown season %#v", season)
 		return
 	}
-	result = &phase{
-		season: phaseSeason,
-		typ:    phaseType,
-		year:   year,
-	}
+	result = NewPhase(
+		year,
+		phaseSeason,
+		phaseType,
+	)
 	return
 }
 

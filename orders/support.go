@@ -118,6 +118,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 		return
 	}
 	for _, supportable := range PossibleMoves(v, src, false, false) {
+		// Support HOLD.
 		if _, supporteeSrc, ok := v.Unit(supportable); ok {
 			if result == nil {
 				result = godip.Options{}
@@ -132,10 +133,12 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 			}
 			opt[supporteeSrc.Super()] = nil
 		}
+		// Suport MOVE.
 		for _, mvDst := range v.Graph().Coasts(supportable) {
 			if mvDst.Super() == actualSrc.Super() {
 				continue
 			}
+			// For everyone able to move to the possible destination.
 			for _, moveSupportable := range PossibleMovesUnit(v, godip.Fleet, mvDst, false, nil) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
@@ -157,6 +160,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 				}
 				opt[mvDst.Super()] = nil
 			}
+			// For everyone able to convoy to the possible destination, avoiding convoy by the supporter.
 			for _, moveSupportable := range PossibleMovesUnit(v, godip.Army, mvDst, true, &actualSrc) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue

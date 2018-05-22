@@ -168,16 +168,16 @@ func (self *convoy) Validate(v godip.Validator) (godip.Nation, error) {
 func (self *convoy) Execute(state godip.State) {
 }
 
-func ConvoyDestinations(v godip.Validator, src godip.Province, noConvoy *godip.Province) []godip.Province {
+func ConvoyDestinations(v godip.Validator, src godip.Province, noConvoy *godip.Province) (result []godip.Province) {
 	defer v.Profile("ConvoyDestinations", time.Now())
-	potentialConvoyCoasts := []godip.Province{}
-	v.Graph().Path(src, "-", func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) bool {
+	potentialConvoyCoasts := map[godip.Province]bool{}
+	v.Graph().Path(src, "-", func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
 		if !edgeFlags[godip.Sea] {
 			return false
 		}
-		if provFlags[godip.Land] {
+		if v.Graph().Flags(prov.Super())[godip.Land] {
 			if len(trace) > 0 {
-				potentialConvoyCoasts = append(potentialConvoyCoasts, prov)
+				potentialConvoyCoasts[prov] = true
 			}
 			if !provFlags[godip.Convoyable] {
 				return false
@@ -195,7 +195,11 @@ func ConvoyDestinations(v godip.Validator, src godip.Province, noConvoy *godip.P
 		}
 		return true
 	})
-	return potentialConvoyCoasts
+	result = make([]godip.Province, 0, len(potentialConvoyCoasts))
+	for prov := range potentialConvoyCoasts {
+		result = append(result, prov)
+	}
+	return result
 }
 
 // PossibleConvoyPathFilter returns a path filter for Graph that only accepts nodes that can partake in a convoy from

@@ -59,6 +59,9 @@ Once this is done then there should be one supply center symbol for each region 
 Add a new layer above this called "names". Using the Text tool (`F8`) add a name for each region. The name must be within a single text box, but can contain new lines or multiple spaces.  The name will
 be used to generate suitable abbreviations.
 
+Finally edit the saved input map using a text editor. Locate the width and height attributes of the svg element (they should be very near the top of the file - something like lines 15 and 16) and set them
+both to "100%".
+
 #### Run the generator and fix any mistakes it makes
 
 Open the generator script and set the values of the variables in the section entitled "Data to be gathered for the variant". The abbreviations, center_overrides and region_overrides should be left blank

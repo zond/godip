@@ -25,7 +25,7 @@ func startState(t *testing.T) *state.State {
 }
 
 func blankState(t *testing.T) *state.State {
-	startPhase := classical.Phase(1901, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(1901, godip.Spring, godip.Movement)
 	judge := HundredBlank(startPhase)
 	return judge
 }
@@ -65,6 +65,19 @@ func TestBuildAnywhere(t *testing.T) {
 	judge.Next()
 	// Check that it was successful.
 	tst.AssertUnit(t, judge, "sco", godip.Unit{godip.Army, England})
+}
+
+func TestConvoy(t *testing.T) {
+	judge := startState(t)
+	// Add a fleet to Biscay.
+	judge.SetUnit("bis", godip.Unit{godip.Fleet, England})
+	// Set orders to convoy the army in Guyenne to Castile.
+	judge.SetOrder("guy", orders.Move("guy", "cas").ViaConvoy())
+	judge.SetOrder("bis", orders.Convoy("bis", "guy", "cas"))
+	judge.Next()
+
+	// Check it was successful.
+	tst.AssertUnit(t, judge, "cas", godip.Unit{godip.Army, England})
 }
 
 func TestDisbandFrenchUnit(t *testing.T) {

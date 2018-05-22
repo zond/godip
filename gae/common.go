@@ -1,8 +1,7 @@
-package common
+package gae
 
 import (
 	"github.com/zond/godip"
-	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
@@ -43,7 +42,7 @@ func NewPhase(state *state.State) *Phase {
 }
 
 func (self *Phase) State(variant common.Variant) (*state.State, error) {
-	parsedOrders, err := orders.ParseAll(self.Orders)
+	parsedOrders, err := classical.Parser.ParseAll(self.Orders)
 	if err != nil {
 		return nil, err
 	}

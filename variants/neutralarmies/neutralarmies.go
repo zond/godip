@@ -43,7 +43,7 @@ func Blank(phase godip.Phase) *state.State {
 }
 
 func Start() (result *state.State, err error) {
-	result = Blank(classical.Phase(1901, godip.Spring, godip.Movement))
+	result = Blank(classical.NewPhase(1901, godip.Spring, godip.Movement))
 	if err = result.SetUnits(start.Units()); err != nil {
 		return
 	}
@@ -64,7 +64,7 @@ var NeutralArmiesVariant = common.Variant{
 	Graph:      func() godip.Graph { return start.Graph() },
 	Start:      Start,
 	Blank:      classical.Blank,
-	Phase:      classical.Phase,
+	Phase:      classical.NewPhase,
 	Parser:     hundred.BuildAnywhereParser,
 	Nations:    []godip.Nation{godip.Austria, godip.England, godip.France, godip.Germany, godip.Italy, godip.Turkey, godip.Russia},
 	PhaseTypes: classical.PhaseTypes,

@@ -1,4 +1,4 @@
-package router
+package gae
 
 import (
 	"encoding/json"
@@ -7,8 +7,6 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/zond/godip/variants"
-
-	gae "common"
 )
 
 func corsHeaders(w http.ResponseWriter) {
@@ -29,7 +27,7 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintf("Variant %q not found", variantName), 404)
 		return
 	}
-	p := &gae.Phase{}
+	p := &Phase{}
 	if err := json.NewDecoder(r.Body).Decode(p); err != nil {
 		http.Error(w, err.Error(), 400)
 		return
@@ -44,7 +42,7 @@ func resolve(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// Load the new godip phase from the state
-	nextPhase := gae.NewPhase(state)
+	nextPhase := NewPhase(state)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	if err = json.NewEncoder(w).Encode(nextPhase); err != nil {
 		http.Error(w, err.Error(), 500)
@@ -65,7 +63,7 @@ func start(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	phase := gae.NewPhase(state)
+	phase := NewPhase(state)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	if err = json.NewEncoder(w).Encode(phase); err != nil {
 		http.Error(w, err.Error(), 500)

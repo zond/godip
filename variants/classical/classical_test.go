@@ -11,7 +11,6 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical/start"
 
-	ord "github.com/zond/godip/variants/classical/orders"
 	tst "github.com/zond/godip/variants/testing"
 )
 
@@ -162,11 +161,11 @@ func TestMoveAdjudication(t *testing.T) {
 func testDATC(t *testing.T, statePair *datc.StatePair) {
 	var s *state.State
 	if statePair.Before.Phase == nil {
-		s = Blank(&phase{
-			year:   1901,
-			season: godip.Spring,
-			typ:    godip.Movement,
-		})
+		s = Blank(NewPhase(
+			1901,
+			godip.Spring,
+			godip.Movement,
+		))
 	} else {
 		s = Blank(statePair.Before.Phase)
 	}
@@ -420,7 +419,7 @@ func TestBULOptions(t *testing.T) {
 // Test that por M spa supported by mid works in
 // https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAgOr0mgoM/Phase/12/Map
 func TestMIDPORSPASupportOptions(t *testing.T) {
-	judge := Blank(&phase{1903, godip.Fall, godip.Movement, ord.ClassicalParser})
+	judge := Blank(NewPhase(1903, godip.Fall, godip.Movement))
 	if err := judge.SetUnits(start.Units()); err != nil {
 		t.Fatal(err)
 	}

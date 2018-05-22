@@ -2,6 +2,7 @@ package variants
 
 import (
 	"github.com/zond/godip/variants/ancientmediterranean"
+	"github.com/zond/godip/variants/chaos"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/coldwar"
 	"github.com/zond/godip/variants/common"
@@ -24,6 +25,7 @@ var Variants = map[string]common.Variant{}
 var OrderedVariants = []common.Variant{
 	classical.ClassicalVariant,
 	coldwar.ColdWarVariant,
+	chaos.ChaosVariant,
 	fleetrome.FleetRomeVariant,
 	franceaustria.FranceAustriaVariant,
 	hundred.HundredVariant,

@@ -183,6 +183,13 @@ func (self *State) Next() (err error) {
 	}
 
 	/*
+	   Preprocess the phase.
+	*/
+	if err = self.phase.PreProcess(self.resolver()); err != nil {
+		return
+	}
+
+	/*
 		Add hold to units missing orders.
 	*/
 	for prov, _ := range self.units {
@@ -244,14 +251,13 @@ func (self *State) Phase() godip.Phase {
 
 // Bulk setters
 
-func (self *State) SetOrders(orders map[godip.Province]godip.Adjudicator) *State {
+func (self *State) SetOrders(orders map[godip.Province]godip.Adjudicator) {
 	self.memoizedProvSlices = map[string][]godip.Province{}
 
 	self.orders = make(map[godip.Province]godip.Adjudicator)
 	for prov, order := range orders {
 		self.SetOrder(prov, order)
 	}
-	return self
 }
 
 func (self *State) SetUnits(units map[godip.Province]godip.Unit) (err error) {
