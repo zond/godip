@@ -38,15 +38,15 @@
      pagecolor="#ffffff"
      showgrid="false"
      inkscape:current-layer="layer4"
-     inkscape:cx="390.14807"
-     inkscape:cy="431.27961"
+     inkscape:cx="183.85058"
+     inkscape:cy="77.928587"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-height="1025"
+     inkscape:window-height="996"
      inkscape:window-maximized="1"
-     inkscape:window-width="1853"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
+     inkscape:window-width="1280"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:zoom="4.1415106" />
   <pattern
      height="6"
@@ -5532,7 +5532,9 @@
          y="1150.6608"
          sodipodi:role="line"><tspan
            style="font-weight:normal"
-           id="tspan1569">Sijilma</tspan><tspan
+           id="tspan1569"><tspan
+   style="font-weight:bold"
+   id="tspan2383">S</tspan>ijilma</tspan><tspan
            style="font-weight:bold"
            id="tspan1571">ss</tspan><tspan
            style="font-weight:normal"
