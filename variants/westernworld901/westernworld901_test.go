@@ -40,12 +40,12 @@ func TestBounceWithNeutralArmy(t *testing.T) {
 
 func TestNeutralArmyRebuilt(t *testing.T) {
 	judge := startState(t)
-	// Remove the units from Esteland (Neutral), Novgorod (Kievan Rus) and Bulgar (Neutral).
+	// Remove the units from Esteland (Neutral), Novgorod (Principality of Kiev) and Bulgar (Neutral).
 	judge.RemoveUnit("est")
 	judge.RemoveUnit("nov")
 	judge.RemoveUnit("bul")
-	// Give Esteland to Kievan Rus (but leave it vacant).
-	judge.SetSC("est", KievanRus)
+	// Give Esteland to Principality of Kiev (but leave it vacant).
+	judge.SetSC("est", PrincipalityofKiev)
 
 	// Spring movement
 	judge.Next()
@@ -61,10 +61,10 @@ func TestNeutralArmyRebuilt(t *testing.T) {
 	tst.AssertNoUnit(t, judge, "nov")
 	tst.AssertNoUnit(t, judge, "bul")
 
-	// Fall adjustment - Add explicit order from Kievan Rus to rebuild Novgorod.
+	// Fall adjustment - Add explicit order from Principality of Kiev to rebuild Novgorod.
 	judge.SetOrder("nov", orders.Build("nov", godip.Army, time.Now()))
 	judge.Next()
 	tst.AssertNoUnit(t, judge, "est")
-	tst.AssertUnit(t, judge, "nov", godip.Unit{godip.Army, KievanRus})
+	tst.AssertUnit(t, judge, "nov", godip.Unit{godip.Army, PrincipalityofKiev})
 	tst.AssertUnit(t, judge, "bul", godip.Unit{godip.Army, godip.Neutral})
 }

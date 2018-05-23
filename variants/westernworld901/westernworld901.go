@@ -13,7 +13,7 @@ import (
 
 const (
 	UmayyadEmirate      godip.Nation = "Umayyad Emirate"
-	KievanRus           godip.Nation = "Kievan Rus"
+	PrincipalityofKiev  godip.Nation = "Principality of Kiev"
 	KingdomofDenmark    godip.Nation = "Kingdom of Denmark"
 	KhaganateofKhazaria godip.Nation = "Khaganate of Khazaria"
 	WestFrankishKingdom godip.Nation = "West Frankish Kingdom"
@@ -23,7 +23,7 @@ const (
 	EasternRomanEmpire  godip.Nation = "Eastern Roman Empire"
 )
 
-var Nations = []godip.Nation{UmayyadEmirate, KievanRus, KingdomofDenmark, KhaganateofKhazaria, WestFrankishKingdom, TulunidEmirate, AbbasidCaliphate, EastFrankishKingdom, EasternRomanEmpire}
+var Nations = []godip.Nation{UmayyadEmirate, PrincipalityofKiev, KingdomofDenmark, KhaganateofKhazaria, WestFrankishKingdom, TulunidEmirate, AbbasidCaliphate, EastFrankishKingdom, EasternRomanEmpire}
 
 var WesternWorld901Variant = common.Variant{
 	Name:       "Western World 901",
@@ -49,8 +49,8 @@ var WesternWorld901Variant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
+	CreatedBy:   "David Cohen",
+	Version:     "4.0",
 	Description: "",
 	Rules:       "",
 }
@@ -90,10 +90,10 @@ func WesternWorld901Start() (result *state.State, err error) {
 		"val":    godip.Unit{godip.Fleet, UmayyadEmirate},
 		"cod":    godip.Unit{godip.Army, UmayyadEmirate},
 		"snc":    godip.Unit{godip.Army, UmayyadEmirate},
-		"nov":    godip.Unit{godip.Fleet, KievanRus},
-		"kie":    godip.Unit{godip.Army, KievanRus},
-		"ros":    godip.Unit{godip.Army, KievanRus},
-		"smo":    godip.Unit{godip.Army, KievanRus},
+		"nov":    godip.Unit{godip.Fleet, PrincipalityofKiev},
+		"kie":    godip.Unit{godip.Army, PrincipalityofKiev},
+		"ros":    godip.Unit{godip.Army, PrincipalityofKiev},
+		"smo":    godip.Unit{godip.Army, PrincipalityofKiev},
 		"jel":    godip.Unit{godip.Fleet, KingdomofDenmark},
 		"jor/ec": godip.Unit{godip.Fleet, KingdomofDenmark},
 		"sca":    godip.Unit{godip.Fleet, KingdomofDenmark},
@@ -130,10 +130,10 @@ func WesternWorld901Start() (result *state.State, err error) {
 		"val": UmayyadEmirate,
 		"cod": UmayyadEmirate,
 		"snc": UmayyadEmirate,
-		"nov": KievanRus,
-		"kie": KievanRus,
-		"ros": KievanRus,
-		"smo": KievanRus,
+		"nov": PrincipalityofKiev,
+		"kie": PrincipalityofKiev,
+		"ros": PrincipalityofKiev,
+		"smo": PrincipalityofKiev,
 		"jel": KingdomofDenmark,
 		"jor": KingdomofDenmark,
 		"sca": KingdomofDenmark,
@@ -209,7 +209,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Bjarmaland
 		Prov("bja").Conn("saa", godip.Land).Conn("saa/nc", godip.Sea).Conn("kar", godip.Land).Conn("chm", godip.Land).Conn("kom", godip.Coast...).Conn("whi", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Rostov
-		Prov("ros").Conn("chm", godip.Land).Conn("kar", godip.Land).Conn("nov", godip.Land).Conn("kri", godip.Land).Flag(godip.Land).SC(KievanRus).
+		Prov("ros").Conn("chm", godip.Land).Conn("kar", godip.Land).Conn("nov", godip.Land).Conn("kri", godip.Land).Flag(godip.Land).SC(PrincipalityofKiev).
 		// Stone Belt
 		Prov("sto").Conn("kom", godip.Land).Conn("udm", godip.Land).Conn("bas", godip.Land).Conn("kip", godip.Land).Flag(godip.Land).
 		// Kutamia
@@ -283,7 +283,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Vyatichia
 		Prov("vya").Conn("mod", godip.Land).Conn("bul", godip.Land).Conn("chm", godip.Land).Conn("kri", godip.Land).Conn("smo", godip.Land).Conn("kie", godip.Land).Conn("sev", godip.Land).Flag(godip.Land).
 		// Smolensk
-		Prov("smo").Conn("kri", godip.Land).Conn("nov", godip.Land).Conn("liv", godip.Land).Conn("dre", godip.Land).Conn("kie", godip.Land).Conn("vya", godip.Land).Flag(godip.Land).SC(KievanRus).
+		Prov("smo").Conn("kri", godip.Land).Conn("nov", godip.Land).Conn("liv", godip.Land).Conn("dre", godip.Land).Conn("kie", godip.Land).Conn("vya", godip.Land).Flag(godip.Land).SC(PrincipalityofKiev).
 		// Norway
 		Prov("now").Conn("kat", godip.Sea).Conn("vik", godip.Coast...).Conn("ula", godip.Land).Conn("saa", godip.Land).Conn("saa/nc", godip.Sea).Conn("ice", godip.Sea).Conn("ngs", godip.Sea).Flag(godip.Coast...).
 		// Welsh Sea
@@ -305,7 +305,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Polania
 		Prov("pol").Conn("mav", godip.Land).Conn("vol", godip.Land).Conn("maz", godip.Land).Conn("bor", godip.Land).Conn("pom", godip.Land).Conn("sax", godip.Land).Conn("bav", godip.Land).Flag(godip.Land).
 		// Novgorod
-		Prov("nov").Conn("ros", godip.Land).Conn("kar", godip.Coast...).Conn("fin", godip.Sea).Conn("est", godip.Coast...).Conn("liv", godip.Coast...).Conn("smo", godip.Land).Conn("kri", godip.Land).Flag(godip.Coast...).SC(KievanRus).
+		Prov("nov").Conn("ros", godip.Land).Conn("kar", godip.Coast...).Conn("fin", godip.Sea).Conn("est", godip.Coast...).Conn("liv", godip.Coast...).Conn("smo", godip.Land).Conn("kri", godip.Land).Flag(godip.Coast...).SC(PrincipalityofKiev).
 		// Fazzan
 		Prov("faz").Conn("aqa", godip.Land).Conn("ale", godip.Land).Conn("tri", godip.Land).Conn("ifr", godip.Land).Conn("tah", godip.Land).Flag(godip.Land).
 		// Karelia
@@ -465,7 +465,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Macedonia
 		Prov("mac").Conn("thr", godip.Land).Conn("ono", godip.Land).Conn("dal", godip.Land).Conn("epi", godip.Land).Conn("con", godip.Land).Flag(godip.Land).
 		// Kiev
-		Prov("kie").Conn("pec", godip.Land).Conn("sev", godip.Land).Conn("vya", godip.Land).Conn("smo", godip.Land).Conn("dre", godip.Land).Conn("vol", godip.Land).Conn("vla", godip.Land).Flag(godip.Land).SC(KievanRus).
+		Prov("kie").Conn("pec", godip.Land).Conn("sev", godip.Land).Conn("vya", godip.Land).Conn("smo", godip.Land).Conn("dre", godip.Land).Conn("vol", godip.Land).Conn("vla", godip.Land).Flag(godip.Land).SC(PrincipalityofKiev).
 		// Helvetia
 		Prov("hel").Conn("bav", godip.Land).Conn("swa", godip.Land).Conn("ueg", godip.Land).Conn("lom", godip.Land).Flag(godip.Land).
 		// Dregovichia
