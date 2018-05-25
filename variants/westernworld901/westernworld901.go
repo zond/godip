@@ -120,7 +120,7 @@ func WesternWorld901Start() (result *state.State, err error) {
 		"swa":    godip.Unit{godip.Army, EastFrankishKingdom},
 		"att":    godip.Unit{godip.Fleet, EasternRomanEmpire},
 		"tar":    godip.Unit{godip.Fleet, EasternRomanEmpire},
-		"crn":    godip.Unit{godip.Army, EasternRomanEmpire},
+		"crn":    godip.Unit{godip.Fleet, EasternRomanEmpire},
 		"con":    godip.Unit{godip.Army, EasternRomanEmpire},
 	}); err != nil {
 		return
