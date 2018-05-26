@@ -14,7 +14,7 @@ $nation_declarations
 
 $nation_list
 
-var $variant_camel = common.Variant{
+var ${variant_camel}Variant = common.Variant{
 	Name:       "$variant",
 	Graph:      func() godip.Graph { return ${variant_camel}Graph() },
 	Start:      ${variant_camel}Start,
@@ -49,8 +49,8 @@ func ${variant_camel}Blank(phase godip.Phase) *state.State {
 }
 
 func ${variant_camel}Start() (result *state.State, err error) {
-	startPhase := classical.Phase($start_year, godip.Spring, godip.Movement)
-	result = state.New(${variant_camel}Graph(), startPhase, classical.BackupRule)
+	startPhase := classical.NewPhase($start_year, godip.Spring, godip.Movement)
+	result = ${variant_camel}Blank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 $units
 	}); err != nil {

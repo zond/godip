@@ -11,7 +11,7 @@ from string import Template
 ### Data to be gathered for the variant. ###
 
 # The name of the variant
-VARIANT = 'Hundred'
+VARIANT = 'Western World 901'
 # The starting units
 #START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
 #               # Fleet should be Leningrad South Coast
@@ -26,28 +26,40 @@ VARIANT = 'Hundred'
 #               'Italy': {'Army': ['Rome', 'Milan'], 'Fleet': ['Naples', 'Mogadishu']},
 #               'Germany': {'Army': ['Berlin', 'Munich', 'Cologne'], 'Fleet': ['Tsingtao', 'Kiel']},
 #               'Austria': {'Army': ['Vienna', 'Budapest', 'Trieste'], 'Fleet': ['Sarajevo']}}
-START_UNITS = {'Burgundy': {'Army': ['Dijon', 'Luxembourg', 'Flanders'], 'Fleet': ['Holland']},
-               'England': {'Army': ['Calais', 'Guyenne', 'Normandy'], 'Fleet': ['London', 'Devon']},
-               'France': {'Army': ['Dauphine', 'Orleanais', 'Paris', 'Toulouse', 'Provence'], 'Fleet': []}}
+#START_UNITS = {'Burgundy': {'Army': ['Dijon', 'Luxembourg', 'Flanders'], 'Fleet': ['Holland']},
+#               'England': {'Army': ['Calais', 'Guyenne', 'Normandy'], 'Fleet': ['London', 'Devon']},
+#               'France': {'Army': ['Dauphine', 'Orleanais', 'Paris', 'Toulouse', 'Provence'], 'Fleet': []}}
+START_UNITS = {'Abbasid Caliphate': {'Army': ['Ardebil', 'Baghdad', 'Isfahan', 'Irak']},
+               'Eastern Roman Empire': {'Army': ['Cherson', 'Constantinople'], 'Fleet': ['Attalia', 'Taranto']},
+               'Kingdom of Denmark': {'Army': ['Viken'], 'Fleet': ['Jelling', 'Jorvik', 'Scania']},
+               'Tulunid Emirate': {'Army': ['Alexandria', 'Damascus'], 'Fleet': ['Barca', 'Jerusalem']},
+               'West Frankish Kingdom': {'Army': ['Aquitaine', 'Gascony', 'Narbonne'], 'Fleet': ['Paris']},
+               'East Frankish Kingdom': {'Army': ['Bavaria', 'Saxony', 'Swabia'], 'Fleet': ['Bremen']},
+               'Khaganate of Khazaria': {'Army': ['Atil', 'Balanjar', 'Sarkel', 'Tamantarka']},
+               'Kievan Rus': {'Army': ['Kiev', 'Rostov', 'Smolensk'], 'Fleet': ['Novgorod']},
+               'Umayyad Emirate': {'Army': ['Cordova', 'Salamanca'], 'Fleet': ['Cadiz', 'Valencia']}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
-START_YEAR = 1425
+START_YEAR = 901
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 #ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
 #ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
 #ABBREVIATIONS = {'Box A bcd': 'bxa', 'Box B ace': 'bxb', 'Box C abfgh': 'bxc', 'Box D aef': 'bxd', 'Box E bdf': 'bxe', 'Box F cdegh': 'bxf', 'Box G cfh': 'bxg', 'Box H cfg': 'bxh', 'Java Sea': 'jvs', 'Arabian Sea': 'ars', 'Persian Gulf': 'psg'}
-ABBREVIATIONS = {'North Sea': 'nos'}
+#ABBREVIATIONS = {'North Sea': 'nos'}
+ABBREVIATIONS = {'Wessex': 'wsx', 'West Euxine Sea': 'wes', 'Basra': 'bsr', 'Barca': 'bar', 'Al-Qatta\'i': 'aqa'}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 #CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
 #CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 #CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu'), ('Liverpool', 'Irish Sea')]
-CENTER_OVERRIDES = [('Lorraine', 'Dijon')]
+#CENTER_OVERRIDES = [('Lorraine', 'Dijon')]
+CENTER_OVERRIDES = [('Jelling', 'Kattegat'), ('Alexandria', 'Al-Qatta\'i')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
 #REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 #REGION_OVERRIDES = [('Red Sea', 'Mecca')]#, ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
-REGION_OVERRIDES = [('Lorraine', 'Dijon')]
+#REGION_OVERRIDES = [('Lorraine', 'Dijon')]
+REGION_OVERRIDES = [('Alexandria', 'Al-Qatta\'i')]
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = True
 
@@ -55,7 +67,6 @@ BOLD_ABBREVIATIONS = True
 
 INK = '{http://www.inkscape.org/namespaces/inkscape}'
 SVG = '{http://www.w3.org/2000/svg}'
-MAP = 'hundred_input.svg'
 # Any junctions within GUTTER pixels from the edge of the page will be moved to the edge.
 GUTTER = 5
 # How curvy the edges should be made
@@ -69,7 +80,8 @@ THICK = 2.225
 # The thickness of thin lines
 THIN = 1
 # A path for the supply center symbol. This should be formatted to include the absolute start location.
-CENTER_PATH = 'm {0} c 4.9401,2.5533 2.6167,9.4913 -3.1784,9.4913 -1.1467,0 -2.1967,-0.5071 -3.2688,-1.5786 -4.3606,-4.3582 0.88,-10.79 6.4472,-7.9127 z m -6.6684,-0.6788 c -5.0525,3.972 -2.4142,11.2502 4.078,11.2502 4.0998,0 6.1809,-2.0911 6.1809,-6.2105 0,-5.4556 -5.9882,-8.3973 -10.2589,-5.0397 z m 8.3437,-3.3432 c 6.6105,3.3706 6.5264,13.4768 -0.1388,16.7017 -8.795,4.2552 -17.5176,-5.4815 -12.1036,-13.511 2.8103,-4.1678 7.7839,-5.4641 12.2426,-3.1907 z m -8.8915,-1.3825 c -8.2929,3.6996 -8.0443,15.936 0.3953,19.4604 10.0229,4.1855 19.0983,-7.6593 12.5008,-16.3155 -2.6922,-3.5324 -8.7281,-5.0043 -12.8961,-3.1449 z'
+CENTER_PATH = 'm {0} c 3.29193,1.70234 1.7437,6.32808 -2.11801,6.32808 -0.76413,0 -1.46378,-0.33804 -2.17821,-1.05247 -2.90576,-2.90577 0.5864,-7.19401 4.29622,-5.27561 z m -4.44363,-0.45263 c -3.36677,2.64826 -1.60873,7.50085 2.71745,7.50085 2.73202,0 4.11878,-1.39419 4.11878,-4.14073 0,-3.63739 -3.99035,-5.59872 -6.83623,-3.36012 z m 5.56003,-2.22897 c 4.40499,2.24727 4.34893,8.98535 -0.0925,11.13548 -5.86077,2.83713 -11.67321,-3.65467 -8.06548,-9.00818 1.87267,-2.77881 5.18694,-3.64307 8.15807,-2.1273 z m -5.92503,-0.92175 c -5.5261,2.4666 -5.36048,10.62495 0.26339,12.97478 6.67892,2.79063 12.72651,-5.10665 8.33017,-10.878 -1.79403,-2.35514 -5.81613,-3.33653 -8.59356,-2.09678 z'
+#CENTER_PATH = 'm {0} c 4.9401,2.5533 2.6167,9.4913 -3.1784,9.4913 -1.1467,0 -2.1967,-0.5071 -3.2688,-1.5786 -4.3606,-4.3582 0.88,-10.79 6.4472,-7.9127 z m -6.6684,-0.6788 c -5.0525,3.972 -2.4142,11.2502 4.078,11.2502 4.0998,0 6.1809,-2.0911 6.1809,-6.2105 0,-5.4556 -5.9882,-8.3973 -10.2589,-5.0397 z m 8.3437,-3.3432 c 6.6105,3.3706 6.5264,13.4768 -0.1388,16.7017 -8.795,4.2552 -17.5176,-5.4815 -12.1036,-13.511 2.8103,-4.1678 7.7839,-5.4641 12.2426,-3.1907 z m -8.8915,-1.3825 c -8.2929,3.6996 -8.0443,15.936 0.3953,19.4604 10.0229,4.1855 19.0983,-7.6593 12.5008,-16.3155 -2.6922,-3.5324 -8.7281,-5.0043 -12.8961,-3.1449 z'
 #CENTER_PATH = 'm {0} c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z'
 #CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.161181 2.65678,1.110069 5.06242,-2.031351 3.31362,-4.327111 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
 #CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.16118 2.65678,1.11007 5.06242,-2.03135 3.31362,-4.32711 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
@@ -94,6 +106,16 @@ class Province:
         self.edges = edges
     def __repr__(self):
         return '{0}: {1}'.format(self.abbreviation, self.name)
+
+def toCamelCase(string):
+    """Remove all spaces without changing the case."""
+    return string.replace(' ', '')
+
+def toLowerAlphaNumeric(string):
+    """Convert to lower case and only keep the letters and numbers."""
+    return re.sub(r'[^a-z0-9]', '', string.lower())
+
+MAP = toLowerAlphaNumeric(VARIANT) + '_input.svg'
 
 def getLayer(root, label):
     """Get the layer from root with the given Inkscape label."""
@@ -234,7 +256,7 @@ def getEdges(root):
                 d += 'L {0} '.format(strFrom(loc))
                 start = (loc if start == None else start)
             else:
-                raise Exception('Unsupported tool: ' + bit)
+                raise Exception('Unsupported tool: ' + bit + ' in ' + edge.get('d'))
         end = loc
         forwardD = 'M'.join(d.split('L', 1))
         reversedD = 'M'.join(d.rsplit('L', 1))
@@ -465,14 +487,14 @@ def abbrFromName(name, indexes):
     """Create a potential abbreviation from a name by picking out the letters at the given indexes."""
     abbr = ''
     for i in indexes:
-        abbr += name.replace('.','')[i]
+        abbr += toLowerAlphaNumeric(name)[i]
     return abbr
 
 def findTupleFromName(name, fullNamesTuples):
     """Find the name tuple that has the same letters (in the same order) as the given name."""
-    name = name.replace(' ', '').replace('.', '').lower()
+    name = toLowerAlphaNumeric(name)
     for fullNameTuple in fullNamesTuples:
-        if ''.join(fullNameTuple).lower() == name:
+        if toLowerAlphaNumeric(''.join(fullNameTuple)) == name:
             return fullNameTuple
     raise Exception('Couldn\'t find tuple matching {0}'.format(name))
 
@@ -503,7 +525,11 @@ def abbreviationsForNames(fullNamesTuples, indexSets, abbrCount):
 
 def firstLetterAbbr(nTuple):
     """Create an abbreviation from the first letter of the first three words."""
-    return (nTuple[0][0]+nTuple[1][0]+nTuple[2][0]).lower()
+    abbr = ''
+    for word in nTuple:
+        if len(word) > 0:
+            abbr += word[0].lower()
+    return abbr
 
 def abbreviationsForNames_firstLetter(fullNamesTuples, abbrCount):
     """Try to create unique abbreviations for the given name tuples by considering the first letters of the first three words."""
@@ -525,7 +551,7 @@ def inventAbbreviations(fullNamesTuples):
     the user ABBREVIATIONS override list."""
     fixedAbbrs = {}
     abbrCount = collections.Counter()
-    for name, abbr in map(lambda na: (na[0].replace(' ', '').replace('.', '').lower(), na[1]), ABBREVIATIONS.items()):
+    for name, abbr in map(lambda na: (toLowerAlphaNumeric(na[0]), na[1]), ABBREVIATIONS.items()):
         fixedAbbrs[findTupleFromName(name, fullNamesTuples)] = abbr
         abbrCount[abbr] += 1
     # Start by taking any unique first three letters.
@@ -617,8 +643,9 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
                                 e = xml.etree.ElementTree.Element('{}tspan'.format(SVG), attributes)
                                 e.text = part
                                 tspan.append(e)
-        if BOLD_ABBREVIATIONS and boldAbbr.replace(' ', '') != abbr:
+        if BOLD_ABBREVIATIONS and toCamelCase(boldAbbr) != abbr:
             print 'Failed to automatically bold the abbreviation for {0} (got "{1}" rather than "{2}")'.format(name, boldAbbr, abbr)
+            # TODO Fall back to a greedy algorithm here.
     root.append(namesLayer)
 
 def calculateCurvePoints(lastLoc, loc, nextLoc):
@@ -786,8 +813,8 @@ def createGraphFile(fileName, provinces):
     nationLength = max(map(len, START_UNITS.keys()))
     nation_declarations = []
     for nation in START_UNITS.keys():
-        nation_declarations.append('\t{{0:<{}}} godip.Nation = "{{0}}"'.format(nationLength).format(nation))
-    nation_list = 'var Nations = []godip.Nation{{{}}}'.format(', '.join(START_UNITS.keys()))
+        nation_declarations.append('\t{{0:<{}}} godip.Nation = "{{1}}"'.format(nationLength).format(toCamelCase(nation), nation))
+    nation_list = 'var Nations = []godip.Nation{{{}}}'.format(', '.join(map(toCamelCase, START_UNITS.keys())))
     
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
     
@@ -798,7 +825,7 @@ def createGraphFile(fileName, provinces):
                 if len([province.abbreviation for province in provinces if province.name == tuple(region.split(' '))]) == 0:
                     raise Exception('Could not find region {} when setting starting units.'.format(region))
                 abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
-                unitsStrs.append('\t\t"{}": godip.Unit{{godip.{}, {}}},'.format(abbr, unitType, nation))
+                unitsStrs.append('\t\t"{}": godip.Unit{{godip.{}, {}}},'.format(abbr, unitType, toCamelCase(nation)))
                 
     supplyCenterStrs = []
     for nation, units in START_UNITS.items():
@@ -806,7 +833,7 @@ def createGraphFile(fileName, provinces):
             for region in units[unitType]:
                 province = [province for province in provinces if province.name == tuple(region.split(' '))][0]
                 if province.flags.supplyCenter:
-                    supplyCenterStrs.append('\t\t"{}": {},'.format(province.abbreviation, nation))
+                    supplyCenterStrs.append('\t\t"{}": {},'.format(province.abbreviation, toCamelCase(nation)))
     
     graphStrs = []
     flags = {}
@@ -846,14 +873,14 @@ def createGraphFile(fileName, provinces):
             for nation, units in START_UNITS.items():
                 for regions in units.values():
                     if province.name in map(lambda name: tuple(name.split(' ')), regions):
-                        owner = nation
+                        owner = toCamelCase(nation)
             graphStr += 'SC({}).'.format(owner)
         graphStrs.append(graphStr)
     
     parameters = {
             'variant': VARIANT,
-            'variant_lower': VARIANT.lower().replace(' ', ''),
-            'variant_camel': VARIANT.replace(' ', ''),
+            'variant_lower': toLowerAlphaNumeric(VARIANT),
+            'variant_camel': toCamelCase(VARIANT),
             'nation_declarations': '\n'.join(nation_declarations),
             'nation_list': nation_list,
             'sc_count': scCount,
@@ -876,7 +903,7 @@ def createDebuggingMap(root, regions, edgeToDMap, corners):
     for i, region in enumerate(regions):
         debugNames['region{0}'.format(i)] = region
     addLayerWithRegions(root, debugNames, edgeToDMap, 'background', None, True, corners, True)
-    xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'debug.svg')
+    xml.etree.ElementTree.ElementTree(root).write(toLowerAlphaNumeric(VARIANT) + 'debug.svg')
 
 # Load data from the svg file.
 root = xml.etree.ElementTree.parse(MAP).getroot()
@@ -912,6 +939,8 @@ supplyCenters = replaceOriginalIds(supplyCenters, originalIdToAbbr, abbreviation
 regionCenters = replaceOriginalIds(regionCenters, originalIdToAbbr, abbreviations)
 seaCenters = replaceOriginalIds(seaCenters, originalIdToAbbr, abbreviations)
 impassableCenters = replaceOriginalIds(impassableCenters, originalIdToAbbr, abbreviations)
+
+print('Centers by type: SCs {}, Other Land {}, Sea {}, Impassable {}'.format(len(supplyCenters), len(regionCenters), len(seaCenters), len(impassableCenters)))
 
 # Put all the data into the DTO.
 provinces = []
@@ -951,7 +980,7 @@ addNamesLayer(root, namesLayer, abbreviations, passableNames.keys())
 addLayer(root, 'units', True)
 addLayer(root, 'orders', True)
 # Create the output svg file.
-xml.etree.ElementTree.ElementTree(root).write(VARIANT.lower().replace(' ', '') + 'map.svg')
+xml.etree.ElementTree.ElementTree(root).write(toLowerAlphaNumeric(VARIANT) + 'map.svg')
 
 # Create the output go file.
-createGraphFile(VARIANT.lower().replace(' ', '') + '.go', provinces)
+createGraphFile(toLowerAlphaNumeric(VARIANT) + '.go', provinces)

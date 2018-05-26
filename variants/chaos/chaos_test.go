@@ -7,8 +7,6 @@ import (
 
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
-	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/classical"
 	tst "github.com/zond/godip/variants/testing"
 )
 
@@ -29,7 +27,7 @@ func TestDefaultBuild(t *testing.T) {
 // https://diplicity-engine.appspot.com/Game/ahJzfmRpcGxpY2l0eS1lbmdpbmVyEQsSBEdhbWUYgICAkLyDlQoM/Phase/17/Map
 func TestPORConvoyOpts(t *testing.T) {
 	g := Graph()
-	judge := state.New(g, Phase(1903, godip.Fall, godip.Movement), classical.BackupRule)
+	judge := Blank(Phase(1903, godip.Fall, godip.Movement))
 	scMap := map[godip.Province]godip.Nation{}
 	for _, prov := range g.Provinces() {
 		if nat := g.SC(prov); nat != nil {

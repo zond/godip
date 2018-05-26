@@ -56,12 +56,12 @@ var AncientMediterraneanVariant = common.Variant{
 }
 
 func AncientMediterraneanBlank(phase godip.Phase) *state.State {
-	return state.New(AncientMediterraneanGraph(), phase, classical.BackupRule)
+	return state.New(AncientMediterraneanGraph(), phase, classical.BackupRule, nil)
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {
 	startPhase := classical.NewPhase(1, godip.Spring, godip.Movement)
-	result = state.New(AncientMediterraneanGraph(), startPhase, classical.BackupRule)
+	result = AncientMediterraneanBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"nea": godip.Unit{godip.Fleet, Rome},
 		"rom": godip.Unit{godip.Army, Rome},

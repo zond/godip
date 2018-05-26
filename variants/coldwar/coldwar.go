@@ -53,12 +53,12 @@ var ColdWarVariant = common.Variant{
 }
 
 func ColdWarBlank(phase godip.Phase) *state.State {
-	return state.New(ColdWarGraph(), phase, classical.BackupRule)
+	return state.New(ColdWarGraph(), phase, classical.BackupRule, nil)
 }
 
 func ColdWarStart() (result *state.State, err error) {
 	startPhase := classical.NewPhase(1960, godip.Spring, godip.Movement)
-	result = state.New(ColdWarGraph(), startPhase, classical.BackupRule)
+	result = ColdWarBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"len/sc": godip.Unit{godip.Fleet, USSR},
 		"alb":    godip.Unit{godip.Fleet, USSR},
