@@ -9,6 +9,7 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
 )
 
 const (
@@ -31,7 +32,7 @@ var WesternWorld901Variant = common.Variant{
 	Start:      WesternWorld901Start,
 	Blank:      WesternWorld901Blank,
 	Phase:      classical.NewPhase,
-	Parser:     classical.Parser,
+	Parser:     hundred.BuildAnywhereParser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
@@ -51,8 +52,16 @@ var WesternWorld901Variant = common.Variant{
 	},
 	CreatedBy:   "David Cohen",
 	Version:     "4.0",
-	Description: "",
-	Rules:       "",
+	Description: "Nine powers compete for the Western World circa 901.",
+	Rules: "Rules are per standard Diplomacy except that nations may build " +
+		"in any vacant supply center they own. Each neutral supply center has " +
+		"a neutral army in it that will hold, or if dislodged then it will " +
+		"disband. If a neutral center is unowned in an adjustment phase then " +
+		"army will be rebuilt. Note that five regions have two coasts " +
+		"(Saamiland, Veletia, Jorvik, Rome and Pechenega) and Constantinople " +
+		"has a canal as in the standard map. There is no connection for fleets " +
+		"from the Khazar Sea to other sea regions. The winner is the first to " +
+		"own 33 of the 64 supply centers.",
 }
 
 func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator) {
