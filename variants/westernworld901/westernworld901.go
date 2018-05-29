@@ -79,7 +79,7 @@ func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator)
 		for _, prov := range state.Graph().SCs(godip.Neutral) {
 			if _, _, ok := state.SupplyCenter(prov); !ok {
 				if _, _, ok := state.Unit(prov); !ok {
-					ret[prov] = orders.Build(prov, godip.Army, time.Now())
+					ret[prov] = orders.BuildAnywhere(prov, godip.Army, time.Now())
 				}
 			}
 		}
@@ -314,7 +314,7 @@ func WesternWorld901Graph() *graph.Graph {
 		// Polania
 		Prov("pol").Conn("mav", godip.Land).Conn("vol", godip.Land).Conn("maz", godip.Land).Conn("bor", godip.Land).Conn("pom", godip.Land).Conn("sax", godip.Land).Conn("bav", godip.Land).Flag(godip.Land).
 		// Novgorod
-		Prov("nov").Conn("ros", godip.Land).Conn("kar", godip.Coast...).Conn("fin", godip.Sea).Conn("est", godip.Coast...).Conn("liv", godip.Coast...).Conn("smo", godip.Land).Conn("kri", godip.Land).Flag(godip.Coast...).SC(PrincipalityofKiev).
+		Prov("nov").Conn("ros", godip.Land).Conn("kar", godip.Coast...).Conn("fin", godip.Sea).Conn("est", godip.Coast...).Conn("liv", godip.Land).Conn("smo", godip.Land).Conn("kri", godip.Land).Flag(godip.Coast...).SC(PrincipalityofKiev).
 		// Fazzan
 		Prov("faz").Conn("aqa", godip.Land).Conn("ale", godip.Land).Conn("tri", godip.Land).Conn("ifr", godip.Land).Conn("tah", godip.Land).Flag(godip.Land).
 		// Karelia

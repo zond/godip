@@ -68,3 +68,22 @@ func TestNeutralArmyRebuilt(t *testing.T) {
 	tst.AssertUnit(t, judge, "nov", godip.Unit{godip.Army, PrincipalityofKiev})
 	tst.AssertUnit(t, judge, "bul", godip.Unit{godip.Army, godip.Neutral})
 }
+
+func TestNovgorodLivonia(t *testing.T) {
+	judge := startState(t)
+
+	// Test there's only a connect from Novgorod to Livonia for armies.
+	judge.SetUnit("nov", godip.Unit{godip.Fleet, PrincipalityofKiev})
+	tst.AssertOrderValidity(t, judge, orders.Move("nov", "liv"), "", godip.ErrIllegalMove)
+	judge.RemoveUnit("nov")
+	judge.SetUnit("nov", godip.Unit{godip.Army, PrincipalityofKiev})
+	tst.AssertOrderValidity(t, judge, orders.Move("nov", "liv"), PrincipalityofKiev, nil)
+
+	// Check the reverse too.
+	judge.RemoveUnit("nov")
+	judge.SetUnit("liv", godip.Unit{godip.Fleet, PrincipalityofKiev})
+	tst.AssertOrderValidity(t, judge, orders.Move("liv", "nov"), "", godip.ErrIllegalMove)
+	judge.RemoveUnit("liv")
+	judge.SetUnit("liv", godip.Unit{godip.Army, PrincipalityofKiev})
+	tst.AssertOrderValidity(t, judge, orders.Move("liv", "nov"), PrincipalityofKiev, nil)
+}
