@@ -26,7 +26,7 @@ var (
 	gameFileReg = regexp.MustCompile("^game_\\d+\\.txt$")
 
 	phaseReg = regexp.MustCompile("^PHASE (\\d+) (\\S+) (\\S+)$")
-	posReg   = regexp.MustCompile("^(\\S+): (fleet|army|supply|fleet/dislodged|army/dislodged) (\\S+)$")
+	posReg   = regexp.MustCompile("^(.+): (fleet|army|supply|fleet/dislodged|army/dislodged) (\\S+)$")
 
 	moveReg          = regexp.MustCompile("^(\\S+)\\s+move\\s+(\\S+)$")
 	moveViaConvoyReg = regexp.MustCompile("^(\\S+)\\s+move\\s+(\\S+)\\s+via\\s+convoy$")

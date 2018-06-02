@@ -6,6 +6,7 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
@@ -26,12 +27,20 @@ const (
 
 var Nations = []godip.Nation{UmayyadEmirate, PrincipalityofKiev, KingdomofDenmark, KhaganateofKhazaria, WestFrankishKingdom, TulunidEmirate, AbbasidCaliphate, EastFrankishKingdom, EasternRomanEmpire}
 
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, func(phase *phase.Phase) bool {
+	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
+})
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
+
 var WesternWorld901Variant = common.Variant{
 	Name:       "Western World 901",
 	Graph:      func() godip.Graph { return WesternWorld901Graph() },
 	Start:      WesternWorld901Start,
 	Blank:      WesternWorld901Blank,
-	Phase:      classical.NewPhase,
+	Phase:      newPhase,
 	Parser:     hundred.BuildAnywhereParser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
@@ -92,7 +101,7 @@ func WesternWorld901Blank(phase godip.Phase) *state.State {
 }
 
 func WesternWorld901Start() (result *state.State, err error) {
-	startPhase := classical.NewPhase(901, godip.Spring, godip.Movement)
+	startPhase := Phase(901, godip.Spring, godip.Movement)
 	result = WesternWorld901Blank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"cad":    godip.Unit{godip.Fleet, UmayyadEmirate},

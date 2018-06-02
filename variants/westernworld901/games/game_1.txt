@@ -1,0 +1,5986 @@
+PHASE 901 Spring Movement
+POSITIONS
+	Eastern Roman Empire: fleet crn
+	Principality of Kiev: army smo
+	Neutral: army geo
+	Neutral: army bas
+	Neutral: army mav
+	Neutral: army bul
+	Neutral: army est
+	Khaganate of Khazaria: army ati
+	Kingdom of Denmark: fleet jel
+	Abbasid Caliphate: army isf
+	Neutral: army dub
+	Neutral: army sad
+	Neutral: army ifr
+	West Frankish Kingdom: army gas
+	Tulunid Emirate: army ale
+	Neutral: army wsx
+	West Frankish Kingdom: army nar
+	East Frankish Kingdom: army sax
+	Khaganate of Khazaria: army bnj
+	Neutral: army rom
+	Neutral: army mau
+	West Frankish Kingdom: fleet par
+	Neutral: army lot
+	Neutral: army cos
+	Neutral: army arm
+	Abbasid Caliphate: army ira
+	Tulunid Emirate: fleet bar
+	East Frankish Kingdom: army bav
+	Eastern Roman Empire: fleet att
+	Eastern Roman Empire: fleet tar
+	Neutral: army urg
+	Neutral: army pam
+	Umayyad Emirate: army snc
+	Neutral: army bor
+	Neutral: army aze
+	Neutral: army low
+	Neutral: army cre
+	East Frankish Kingdom: fleet bre
+	Neutral: army cyp
+	Khaganate of Khazaria: army tam
+	Principality of Kiev: fleet nov
+	Neutral: army pec
+	Kingdom of Denmark: fleet sca
+	Khaganate of Khazaria: army sak
+	Neutral: army dal
+	Neutral: army maz
+	West Frankish Kingdom: army aqt
+	Principality of Kiev: army kie
+	Abbasid Caliphate: army ard
+	Neutral: army bja
+	Eastern Roman Empire: army con
+	Umayyad Emirate: army cod
+	Umayyad Emirate: fleet val
+	Kingdom of Denmark: fleet jor/ec
+	Abbasid Caliphate: army bag
+	East Frankish Kingdom: army swa
+	Kingdom of Denmark: army vik
+	Umayyad Emirate: fleet cad
+	Tulunid Emirate: fleet jer
+	Neutral: army btt
+	Neutral: army sic
+	Tulunid Emirate: army dam
+	Principality of Kiev: army ros
+	Neutral: army thr
+	Eastern Roman Empire: supply tar
+	Eastern Roman Empire: supply crn
+	Principality of Kiev: supply nov
+	Khaganate of Khazaria: supply tam
+	Tulunid Emirate: supply bar
+	Tulunid Emirate: supply ale
+	Kingdom of Denmark: supply jel
+	Kingdom of Denmark: supply jor
+	Abbasid Caliphate: supply isf
+	Abbasid Caliphate: supply ira
+	East Frankish Kingdom: supply swa
+	Eastern Roman Empire: supply con
+	Umayyad Emirate: supply cod
+	Kingdom of Denmark: supply vik
+	Khaganate of Khazaria: supply sak
+	West Frankish Kingdom: supply nar
+	Khaganate of Khazaria: supply ati
+	West Frankish Kingdom: supply gas
+	Abbasid Caliphate: supply ard
+	East Frankish Kingdom: supply bav
+	East Frankish Kingdom: supply sax
+	Principality of Kiev: supply kie
+	Kingdom of Denmark: supply sca
+	Tulunid Emirate: supply dam
+	East Frankish Kingdom: supply bre
+	Abbasid Caliphate: supply bag
+	Eastern Roman Empire: supply att
+	Umayyad Emirate: supply snc
+	Principality of Kiev: supply ros
+	West Frankish Kingdom: supply par
+	Tulunid Emirate: supply jer
+	Principality of Kiev: supply smo
+	Khaganate of Khazaria: supply bnj
+	Umayyad Emirate: supply cad
+	Umayyad Emirate: supply val
+	West Frankish Kingdom: supply aqt
+ORDERS
+	bre support jel move vel
+	sax move bav
+	bav move sla
+	swa move hel
+	isf hold
+	ard support urg move ali
+	ira move bsr
+	bag hold
+	par support lot
+	aqt move btt
+	nar move tou
+	gas support nar move tou
+	dam move cap
+	ale support jer
+	jer move sey
+	bar move tri
+	ati move udm
+	bnj support tam
+	tam support pec
+	sak support geo move bnj
+	jel move vel/nc
+	vik move got
+	sca move vik
+	jor/ec hold
+	att move cap
+	con move thr
+	crn support tam move pec
+	tar move sle
+	cod move snc
+	snc support pam move zar
+	cad move gra
+	val move bcs
+	smo hold
+	ros support bul move chm
+	nov hold
+	kie support bor move dre
+PHASE 901 Fall Movement
+POSITIONS
+	Neutral: army bas
+	Neutral: army maz
+	Neutral: army low
+	Neutral: army sad
+	Abbasid Caliphate: army ard
+	Umayyad Emirate: fleet gra
+	Neutral: army pec
+	Neutral: army arm
+	Khaganate of Khazaria: army sak
+	Eastern Roman Empire: fleet att
+	Neutral: army urg
+	Kingdom of Denmark: army got
+	Neutral: army cos
+	Neutral: army rom
+	East Frankish Kingdom: army hel
+	Principality of Kiev: fleet nov
+	Neutral: army cyp
+	Neutral: army lot
+	Umayyad Emirate: fleet bcs
+	Abbasid Caliphate: army bag
+	East Frankish Kingdom: fleet bre
+	Khaganate of Khazaria: army udm
+	West Frankish Kingdom: army tou
+	East Frankish Kingdom: army sla
+	Neutral: army btt
+	Neutral: army thr
+	Abbasid Caliphate: army isf
+	Neutral: army bja
+	Neutral: army bor
+	Tulunid Emirate: army dam
+	Tulunid Emirate: fleet tri
+	Umayyad Emirate: army cod
+	Neutral: army aze
+	Kingdom of Denmark: fleet vik
+	Neutral: army pam
+	Abbasid Caliphate: army bsr
+	Principality of Kiev: army smo
+	West Frankish Kingdom: army gas
+	Neutral: army est
+	Tulunid Emirate: army ale
+	Principality of Kiev: army ros
+	Neutral: army sic
+	Eastern Roman Empire: army con
+	Umayyad Emirate: army snc
+	Neutral: army cre
+	Neutral: army geo
+	Neutral: army ifr
+	Neutral: army dub
+	Khaganate of Khazaria: army bnj
+	Neutral: army wsx
+	Eastern Roman Empire: fleet sle
+	Tulunid Emirate: fleet sey
+	Neutral: army mav
+	East Frankish Kingdom: army bav
+	Neutral: army mau
+	Khaganate of Khazaria: army tam
+	Principality of Kiev: army kie
+	Neutral: army dal
+	Kingdom of Denmark: fleet vel/nc
+	Neutral: army bul
+	West Frankish Kingdom: army aqt
+	West Frankish Kingdom: fleet par
+	Kingdom of Denmark: fleet jor/ec
+	Eastern Roman Empire: fleet crn
+	Umayyad Emirate: supply snc
+	Khaganate of Khazaria: supply bnj
+	Principality of Kiev: supply ros
+	Principality of Kiev: supply smo
+	East Frankish Kingdom: supply swa
+	Abbasid Caliphate: supply ard
+	Principality of Kiev: supply kie
+	Eastern Roman Empire: supply con
+	Abbasid Caliphate: supply bag
+	Principality of Kiev: supply nov
+	Tulunid Emirate: supply bar
+	Kingdom of Denmark: supply jor
+	Eastern Roman Empire: supply att
+	West Frankish Kingdom: supply aqt
+	West Frankish Kingdom: supply gas
+	Eastern Roman Empire: supply crn
+	Khaganate of Khazaria: supply ati
+	Tulunid Emirate: supply dam
+	East Frankish Kingdom: supply bre
+	Tulunid Emirate: supply ale
+	Abbasid Caliphate: supply isf
+	Tulunid Emirate: supply jer
+	Khaganate of Khazaria: supply sak
+	East Frankish Kingdom: supply bav
+	Umayyad Emirate: supply cad
+	Eastern Roman Empire: supply tar
+	Umayyad Emirate: supply cod
+	East Frankish Kingdom: supply sax
+	Kingdom of Denmark: supply vik
+	West Frankish Kingdom: supply nar
+	Abbasid Caliphate: supply ira
+	Khaganate of Khazaria: supply tam
+	Umayyad Emirate: supply val
+	Kingdom of Denmark: supply sca
+	West Frankish Kingdom: supply par
+	Kingdom of Denmark: supply jel
+ORDERS
+	bav move pol
+	sla hold
+	hel move bav
+	bre support vel
+	bsr hold
+	isf move ali
+	ard move ali
+	bag move jaz
+	aqt move gas
+	tou move pam
+	gas support btt move aqt
+	par support lot
+	dam support att move cap
+	tri move ifr
+	ale move jer
+	sey support cyp
+	udm move bas
+	sak move ati
+	tam support geo move bnj
+	bnj move abk
+	got move vik
+	vik move kat
+	vel/nc hold
+	jor/ec support wsx
+	con move thr
+	att move cap
+	crn support pec
+	sle hold
+	snc support cod move cad
+	gra support cod move val
+	cod move cad
+	bcs move lig
+	nov support bja move kar
+	ros move chm
+	kie support maz move vol
+	smo hold
+PHASE 902 Spring Movement
+POSITIONS
+	Eastern Roman Empire: fleet sle
+	Neutral: army btt
+	West Frankish Kingdom: army aqt
+	Neutral: army maz
+	Neutral: army pam
+	Khaganate of Khazaria: army tam
+	Neutral: army ifr
+	Eastern Roman Empire: fleet crn
+	Umayyad Emirate: fleet lig
+	Neutral: army geo
+	Kingdom of Denmark: fleet kat
+	Abbasid Caliphate: army bsr
+	Umayyad Emirate: fleet gra
+	Neutral: army bas
+	Neutral: army aze
+	Neutral: army mau
+	Kingdom of Denmark: army vik
+	East Frankish Kingdom: army bav
+	Principality of Kiev: army chm
+	East Frankish Kingdom: fleet bre
+	Neutral: army lot
+	Principality of Kiev: fleet nov
+	Eastern Roman Empire: fleet cap
+	Neutral: army sad
+	West Frankish Kingdom: army gas
+	Neutral: army wsx
+	Khaganate of Khazaria: army udm
+	Kingdom of Denmark: fleet vel/nc
+	Tulunid Emirate: fleet tri
+	Neutral: army dal
+	Neutral: army bor
+	Principality of Kiev: army kie
+	Tulunid Emirate: army jer
+	Neutral: army urg
+	Neutral: army pec
+	Tulunid Emirate: army dam
+	Principality of Kiev: army smo
+	Abbasid Caliphate: army ard
+	Neutral: army dub
+	Neutral: army bul
+	Neutral: army arm
+	Neutral: army rom
+	Khaganate of Khazaria: army abk
+	Umayyad Emirate: army snc
+	West Frankish Kingdom: army tou
+	Neutral: army cre
+	Tulunid Emirate: fleet sey
+	Neutral: army mav
+	Neutral: army cyp
+	Neutral: army bja
+	Umayyad Emirate: army cad
+	East Frankish Kingdom: army sla
+	Kingdom of Denmark: fleet jor/ec
+	Neutral: army thr
+	East Frankish Kingdom: army pol
+	Neutral: army low
+	Khaganate of Khazaria: army ati
+	Eastern Roman Empire: army con
+	West Frankish Kingdom: fleet par
+	Neutral: army cos
+	Neutral: army est
+	Neutral: army sic
+	Abbasid Caliphate: army jaz
+	Abbasid Caliphate: army isf
+	East Frankish Kingdom: supply sax
+	Neutral: supply btt
+	Khaganate of Khazaria: supply bnj
+	Kingdom of Denmark: supply sca
+	Neutral: supply arm
+	Neutral: supply urg
+	Umayyad Emirate: supply val
+	Neutral: supply sic
+	Neutral: supply bas
+	Principality of Kiev: supply nov
+	Neutral: supply bja
+	Eastern Roman Empire: supply att
+	Umayyad Emirate: supply cod
+	Neutral: supply geo
+	Abbasid Caliphate: supply isf
+	Neutral: supply dal
+	Neutral: supply dub
+	Tulunid Emirate: supply dam
+	Neutral: supply cos
+	Principality of Kiev: supply smo
+	Umayyad Emirate: supply cad
+	Neutral: supply cyp
+	West Frankish Kingdom: supply gas
+	Neutral: supply cre
+	Khaganate of Khazaria: supply tam
+	Khaganate of Khazaria: supply sak
+	West Frankish Kingdom: supply par
+	Neutral: supply bor
+	Neutral: supply maz
+	Tulunid Emirate: supply jer
+	Tulunid Emirate: supply bar
+	Eastern Roman Empire: supply con
+	Tulunid Emirate: supply ale
+	Neutral: supply mav
+	Neutral: supply est
+	Abbasid Caliphate: supply bag
+	Neutral: supply low
+	Khaganate of Khazaria: supply ati
+	East Frankish Kingdom: supply bre
+	West Frankish Kingdom: supply aqt
+	Neutral: supply lot
+	Eastern Roman Empire: supply crn
+	West Frankish Kingdom: supply nar
+	Neutral: supply pam
+	East Frankish Kingdom: supply swa
+	Principality of Kiev: supply kie
+	Neutral: supply bul
+	Neutral: supply rom
+	Eastern Roman Empire: supply tar
+	Abbasid Caliphate: supply ard
+	Neutral: supply thr
+	Neutral: supply ifr
+	Neutral: supply wsx
+	Kingdom of Denmark: supply jor
+	Neutral: supply aze
+	Neutral: supply sad
+	Kingdom of Denmark: supply jel
+	Principality of Kiev: supply ros
+	Umayyad Emirate: supply snc
+	Abbasid Caliphate: supply ira
+	Neutral: supply mau
+	Kingdom of Denmark: supply vik
+	Neutral: supply pec
+	East Frankish Kingdom: supply bav
+ORDERS
+	bre move sgs
+	pol move bor
+	bav support bor move pol
+	sla move ono
+	ard support bsr move isf
+	jaz move mos
+	bsr move isf
+	isf move ali
+	aqt move tou
+	par move btt
+	gas move tou
+	tou support lig move spa
+	dam move cap
+	jer support jaz move mec
+	sey move cil
+	tri move lib
+	tam move abk
+	ati move bnj
+	abk move geo
+	udm move mod
+	jor/ec hold
+	vel/nc move abo
+	kat move sca
+	vik move jel
+	cap move cil
+	sle move tar
+	con move mac
+	crn move eas
+	lig move tyr
+	gra support cad
+	snc move gal
+	cad move cod
+	kie hold
+	nov move kar
+	smo support pec move kie
+	chm support udm move kom
+PHASE 902 Fall Movement
+POSITIONS
+	Neutral: army cre
+	Neutral: army aze
+	Neutral: army sic
+	Kingdom of Denmark: fleet sca
+	Neutral: army est
+	Neutral: army mav
+	Abbasid Caliphate: army isf
+	Abbasid Caliphate: army ard
+	Neutral: army thr
+	Umayyad Emirate: fleet gra
+	Neutral: army dal
+	Neutral: army sad
+	Neutral: army bor
+	Neutral: army bja
+	Neutral: army cos
+	East Frankish Kingdom: army ono
+	Neutral: army urg
+	West Frankish Kingdom: army gas
+	Neutral: army maz
+	Eastern Roman Empire: army mac
+	Umayyad Emirate: army gal
+	Khaganate of Khazaria: army mod
+	Umayyad Emirate: army cod
+	West Frankish Kingdom: fleet par
+	Tulunid Emirate: army dam
+	Neutral: army btt
+	Neutral: army low
+	Tulunid Emirate: fleet sey
+	Umayyad Emirate: fleet tyr
+	Kingdom of Denmark: army vik
+	West Frankish Kingdom: army aqt
+	Principality of Kiev: fleet kar
+	Abbasid Caliphate: army mos
+	Kingdom of Denmark: fleet jor/ec
+	Khaganate of Khazaria: army bnj
+	Neutral: army bul
+	Neutral: army pam
+	Neutral: army geo
+	Khaganate of Khazaria: army abk
+	Neutral: army arm
+	Neutral: army pec
+	Neutral: army lot
+	Eastern Roman Empire: fleet cap
+	East Frankish Kingdom: army bav
+	East Frankish Kingdom: army pol
+	Principality of Kiev: army smo
+	Principality of Kiev: army kie
+	Neutral: army cyp
+	Principality of Kiev: army chm
+	Neutral: army mau
+	Eastern Roman Empire: fleet tar
+	Neutral: army dub
+	Neutral: army rom
+	Abbasid Caliphate: army ali
+	Neutral: army ifr
+	Khaganate of Khazaria: army tam
+	East Frankish Kingdom: fleet sgs
+	Neutral: army bas
+	Neutral: army wsx
+	Kingdom of Denmark: fleet abo
+	Eastern Roman Empire: fleet eas
+	West Frankish Kingdom: army tou
+	Tulunid Emirate: fleet lib
+	Tulunid Emirate: army jer
+	Khaganate of Khazaria: supply bnj
+	Principality of Kiev: supply kie
+	Neutral: supply bul
+	Abbasid Caliphate: supply ard
+	West Frankish Kingdom: supply gas
+	Neutral: supply dal
+	Neutral: supply sic
+	Eastern Roman Empire: supply crn
+	Tulunid Emirate: supply jer
+	Neutral: supply mav
+	West Frankish Kingdom: supply aqt
+	Principality of Kiev: supply nov
+	Neutral: supply btt
+	Neutral: supply low
+	Neutral: supply cos
+	Neutral: supply urg
+	Abbasid Caliphate: supply bag
+	Neutral: supply cre
+	Neutral: supply dub
+	Neutral: supply thr
+	Neutral: supply bas
+	Umayyad Emirate: supply cod
+	Neutral: supply bor
+	Neutral: supply lot
+	Eastern Roman Empire: supply att
+	Neutral: supply mau
+	Neutral: supply rom
+	Neutral: supply arm
+	Neutral: supply pam
+	Abbasid Caliphate: supply ira
+	East Frankish Kingdom: supply swa
+	Khaganate of Khazaria: supply sak
+	Neutral: supply pec
+	Kingdom of Denmark: supply vik
+	West Frankish Kingdom: supply nar
+	Neutral: supply est
+	Neutral: supply sad
+	Kingdom of Denmark: supply jel
+	Eastern Roman Empire: supply con
+	Khaganate of Khazaria: supply tam
+	Eastern Roman Empire: supply tar
+	Neutral: supply ifr
+	East Frankish Kingdom: supply bav
+	Umayyad Emirate: supply cad
+	East Frankish Kingdom: supply bre
+	Neutral: supply wsx
+	Neutral: supply cyp
+	Umayyad Emirate: supply val
+	West Frankish Kingdom: supply par
+	Neutral: supply aze
+	Neutral: supply bja
+	Tulunid Emirate: supply bar
+	Principality of Kiev: supply ros
+	East Frankish Kingdom: supply sax
+	Kingdom of Denmark: supply sca
+	Umayyad Emirate: supply snc
+	Principality of Kiev: supply smo
+	Tulunid Emirate: supply ale
+	Neutral: supply geo
+	Kingdom of Denmark: supply jor
+	Neutral: supply maz
+	Abbasid Caliphate: supply isf
+	Khaganate of Khazaria: supply ati
+	Tulunid Emirate: supply dam
+ORDERS
+	sgs move bsa
+	ono support kie move vla
+	pol support bor
+	bav move hel
+	ali move sst
+	mos support geo move kak
+	isf move ira
+	ard support urg move ali
+	tou support low move aut
+	aqt hold
+	par support wsx move lot
+	gas hold
+	sey support lib move egy
+	lib move egy
+	dam move dam
+	jer support cyp move dam
+	bnj hold
+	abk support tam move bnj
+	tam move buc
+	mod move sak
+	vik move now
+	jor/ec move ice
+	abo support pol move pom
+	sca support bor move kat
+	mac move thr
+	eas move pec/ec
+	cap move att
+	tar move ion
+	cod support gal move cad
+	gra move val
+	gal move ast
+	tyr convoy cos move sad
+	smo move vya
+	kar move saa/sc
+	chm support bja move kom
+	kie support pec
+PHASE 903 Spring Movement
+POSITIONS
+	East Frankish Kingdom: army hel
+	Neutral: army dal
+	Principality of Kiev: army kie
+	Neutral: army wsx
+	Principality of Kiev: army chm
+	Neutral: army bas
+	Neutral: army mau
+	Eastern Roman Empire: fleet ion
+	Neutral: army arm
+	Khaganate of Khazaria: army bnj
+	Principality of Kiev: fleet saa/sc
+	Neutral: army dub
+	Umayyad Emirate: fleet val
+	Kingdom of Denmark: army now
+	Umayyad Emirate: fleet tyr
+	West Frankish Kingdom: army gas
+	Khaganate of Khazaria: army abk
+	East Frankish Kingdom: fleet bsa
+	Neutral: army est
+	Neutral: army mav
+	Neutral: army pam
+	Neutral: army lot
+	East Frankish Kingdom: army ono
+	Neutral: army geo
+	Khaganate of Khazaria: army sak
+	Neutral: army bor
+	Neutral: army bul
+	Abbasid Caliphate: army mos
+	Abbasid Caliphate: army ard
+	Neutral: army rom
+	East Frankish Kingdom: army pol
+	Neutral: army aze
+	Neutral: army btt
+	West Frankish Kingdom: army tou
+	Tulunid Emirate: fleet egy
+	Kingdom of Denmark: fleet sca
+	Eastern Roman Empire: fleet eas
+	Neutral: army pec
+	Tulunid Emirate: army dam
+	Principality of Kiev: army vya
+	Khaganate of Khazaria: army tam
+	Tulunid Emirate: fleet sey
+	Neutral: army cyp
+	Eastern Roman Empire: army mac
+	Neutral: army cos
+	Neutral: army urg
+	Eastern Roman Empire: fleet att
+	Neutral: army ifr
+	Kingdom of Denmark: fleet abo
+	Abbasid Caliphate: army sst
+	Neutral: army thr
+	Tulunid Emirate: army jer
+	Abbasid Caliphate: army ira
+	Kingdom of Denmark: fleet ice
+	Umayyad Emirate: army cod
+	West Frankish Kingdom: fleet par
+	Neutral: army maz
+	Neutral: army sad
+	Umayyad Emirate: army ast
+	West Frankish Kingdom: army aqt
+	Neutral: army cre
+	Neutral: army low
+	Neutral: army sic
+	Neutral: army bja
+	East Frankish Kingdom: supply bav
+	Neutral: supply lot
+	Neutral: supply arm
+	Kingdom of Denmark: supply jel
+	Neutral: supply est
+	Umayyad Emirate: supply val
+	Neutral: supply bul
+	East Frankish Kingdom: supply bre
+	Khaganate of Khazaria: supply bnj
+	Kingdom of Denmark: supply sca
+	Neutral: supply btt
+	Kingdom of Denmark: supply vik
+	Neutral: supply low
+	Tulunid Emirate: supply jer
+	Neutral: supply wsx
+	Neutral: supply pec
+	Eastern Roman Empire: supply att
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply nar
+	Tulunid Emirate: supply ale
+	Khaganate of Khazaria: supply ati
+	Neutral: supply geo
+	Neutral: supply cre
+	Neutral: supply cos
+	Neutral: supply thr
+	Tulunid Emirate: supply dam
+	Umayyad Emirate: supply cod
+	Neutral: supply ifr
+	Umayyad Emirate: supply snc
+	Neutral: supply dal
+	Principality of Kiev: supply nov
+	Abbasid Caliphate: supply ira
+	Neutral: supply pam
+	Neutral: supply mau
+	Khaganate of Khazaria: supply tam
+	Neutral: supply urg
+	East Frankish Kingdom: supply sax
+	Eastern Roman Empire: supply crn
+	Neutral: supply bja
+	Khaganate of Khazaria: supply sak
+	Eastern Roman Empire: supply con
+	Neutral: supply cyp
+	Tulunid Emirate: supply bar
+	Principality of Kiev: supply kie
+	Neutral: supply dub
+	Abbasid Caliphate: supply bag
+	West Frankish Kingdom: supply gas
+	West Frankish Kingdom: supply aqt
+	Principality of Kiev: supply ros
+	Neutral: supply bas
+	Abbasid Caliphate: supply isf
+	Neutral: supply mav
+	Kingdom of Denmark: supply jor
+	Umayyad Emirate: supply cad
+	Neutral: supply sad
+	Abbasid Caliphate: supply ard
+	Neutral: supply maz
+	Eastern Roman Empire: supply tar
+	Neutral: supply rom
+	West Frankish Kingdom: supply par
+	East Frankish Kingdom: supply swa
+	Neutral: supply aze
+	Neutral: supply bor
+	Neutral: supply sic
+ORDERS
+	pol support mav
+	hel move swa
+	bsa move sgs
+	ono move mac
+	mos support geo move kak
+	sst support ard move ali
+	ira move nef
+	ard move isf
+	gas move tou
+	aqt support par
+	par move btt
+	tou move pam
+	dam move cos
+	egy support sey move cyp
+	jer support rom move ale
+	sey move cap
+	bnj move tam
+	tam move crn
+	abk move abk
+	sak support kie move sev
+	now move ula
+	abo move jel
+	ice move wel
+	sca move let
+	att support rom move aeg
+	ion move sic
+	eas support tam
+	mac support mav move ono
+	val hold
+	tyr support ifr
+	cod move cad
+	ast move zar
+	vya move kri
+	chm move kri
+	kie move vya
+	saa/sc move ula
+PHASE 903 Fall Movement
+POSITIONS
+	Neutral: army bas
+	Kingdom of Denmark: fleet wel
+	Neutral: army arm
+	East Frankish Kingdom: army swa
+	Umayyad Emirate: fleet tyr
+	Tulunid Emirate: army jer
+	Neutral: army low
+	Umayyad Emirate: army cad
+	Principality of Kiev: fleet saa/sc
+	Kingdom of Denmark: fleet jel
+	Khaganate of Khazaria: army sak
+	Kingdom of Denmark: army now
+	Neutral: army lot
+	East Frankish Kingdom: army ono
+	Neutral: army mav
+	Neutral: army aze
+	Neutral: army sad
+	Neutral: army ifr
+	Eastern Roman Empire: fleet eas
+	Principality of Kiev: army chm
+	West Frankish Kingdom: army aqt
+	Khaganate of Khazaria: army bnj
+	Eastern Roman Empire: fleet ion
+	Neutral: army pec
+	East Frankish Kingdom: army pol
+	Eastern Roman Empire: army mac
+	Neutral: army urg
+	Principality of Kiev: army kie
+	Khaganate of Khazaria: army abk
+	Principality of Kiev: army vya
+	Khaganate of Khazaria: army tam
+	Neutral: army cre
+	Neutral: army cos
+	Tulunid Emirate: fleet cap
+	Neutral: army maz
+	Kingdom of Denmark: fleet let
+	Abbasid Caliphate: army sst
+	Umayyad Emirate: army zar
+	Neutral: army est
+	Neutral: army pam
+	Umayyad Emirate: fleet val
+	Abbasid Caliphate: army isf
+	Neutral: army sic
+	Neutral: army cyp
+	Neutral: army bja
+	Neutral: army geo
+	Neutral: army wsx
+	West Frankish Kingdom: army gas
+	Abbasid Caliphate: army mos
+	Neutral: army dal
+	Neutral: army bor
+	Neutral: army mau
+	Eastern Roman Empire: fleet att
+	West Frankish Kingdom: fleet par
+	Neutral: army btt
+	West Frankish Kingdom: army tou
+	Neutral: army bul
+	East Frankish Kingdom: fleet sgs
+	Neutral: army dub
+	Abbasid Caliphate: army nef
+	Neutral: army rom
+	Tulunid Emirate: army dam
+	Neutral: army thr
+	Tulunid Emirate: fleet egy
+	Neutral: supply urg
+	Neutral: supply wsx
+	Neutral: supply pam
+	Umayyad Emirate: supply val
+	Principality of Kiev: supply smo
+	Neutral: supply bor
+	Eastern Roman Empire: supply tar
+	Tulunid Emirate: supply bar
+	Neutral: supply dub
+	Kingdom of Denmark: supply sca
+	Neutral: supply pec
+	West Frankish Kingdom: supply par
+	Neutral: supply btt
+	East Frankish Kingdom: supply swa
+	Neutral: supply bul
+	Eastern Roman Empire: supply att
+	Neutral: supply dal
+	Neutral: supply mau
+	Umayyad Emirate: supply snc
+	Eastern Roman Empire: supply crn
+	Principality of Kiev: supply ros
+	Khaganate of Khazaria: supply tam
+	Khaganate of Khazaria: supply ati
+	Neutral: supply low
+	Tulunid Emirate: supply jer
+	Neutral: supply est
+	Neutral: supply ifr
+	Neutral: supply bja
+	Khaganate of Khazaria: supply sak
+	Eastern Roman Empire: supply con
+	West Frankish Kingdom: supply nar
+	Neutral: supply arm
+	Umayyad Emirate: supply cod
+	Tulunid Emirate: supply dam
+	Neutral: supply mav
+	Neutral: supply aze
+	East Frankish Kingdom: supply sax
+	Kingdom of Denmark: supply vik
+	Principality of Kiev: supply kie
+	Neutral: supply bas
+	Abbasid Caliphate: supply ard
+	Abbasid Caliphate: supply isf
+	Kingdom of Denmark: supply jel
+	Abbasid Caliphate: supply bag
+	Kingdom of Denmark: supply jor
+	Neutral: supply cyp
+	Umayyad Emirate: supply cad
+	Tulunid Emirate: supply ale
+	Neutral: supply cre
+	Neutral: supply maz
+	Neutral: supply lot
+	East Frankish Kingdom: supply bav
+	Abbasid Caliphate: supply ira
+	Neutral: supply geo
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply bre
+	Neutral: supply sad
+	Principality of Kiev: supply nov
+	Neutral: supply rom
+	West Frankish Kingdom: supply gas
+	West Frankish Kingdom: supply aqt
+	Neutral: supply cos
+	Neutral: supply sic
+	Neutral: supply thr
+ORDERS
+	ono move dal
+	pol move bor
+	swa move lot
+	sgs move wsx
+	sst move ali
+	nef move mec
+	isf support mos move ard
+	mos move arm
+	aqt support low move aut
+	tou move gas
+	par hold
+	gas hold
+	dam move jer
+	jer move sic
+	cap move cil
+	egy support att move cil
+	abk support geo move bnj
+	sak move ati
+	tam support pec move abk
+	bnj move kak
+	now hold
+	jel move kat
+	let move abo
+	wel move dub
+	eas move pec/ec
+	att move aeg
+	ion support thr move con
+	mac move ono
+	val move str
+	zar move pam
+	cad move cod
+	tyr move ifr
+	vya support pec move sev
+	kie move vol
+	chm move kri
+	saa/sc move kar
+PHASE 904 Spring Movement
+POSITIONS
+	Neutral: army pec
+	Principality of Kiev: army vya
+	Neutral: army mav
+	West Frankish Kingdom: army tou
+	Khaganate of Khazaria: army kak
+	Neutral: army bja
+	Neutral: army thr
+	Kingdom of Denmark: fleet kat
+	East Frankish Kingdom: fleet sgs
+	Umayyad Emirate: army zar
+	Eastern Roman Empire: fleet aeg
+	West Frankish Kingdom: army aqt
+	Umayyad Emirate: army cod
+	Neutral: army mau
+	Neutral: army maz
+	Abbasid Caliphate: army mec
+	Principality of Kiev: army vol
+	Neutral: army btt
+	Neutral: army bor
+	Neutral: army aze
+	Kingdom of Denmark: fleet abo
+	Neutral: army ifr
+	Eastern Roman Empire: army mac
+	Tulunid Emirate: army dam
+	Neutral: army sic
+	Neutral: army rom
+	Khaganate of Khazaria: army abk
+	Neutral: army sad
+	Neutral: army urg
+	Neutral: army cyp
+	East Frankish Kingdom: army ono
+	Abbasid Caliphate: army mos
+	Neutral: army arm
+	Neutral: army lot
+	Kingdom of Denmark: army now
+	West Frankish Kingdom: fleet par
+	Neutral: army cos
+	Khaganate of Khazaria: army tam
+	Neutral: army wsx
+	Neutral: army pam
+	East Frankish Kingdom: army swa
+	Neutral: army bas
+	Neutral: army bul
+	Abbasid Caliphate: army ali
+	Neutral: army dal
+	Khaganate of Khazaria: army ati
+	Neutral: army geo
+	Principality of Kiev: army kri
+	Neutral: army cre
+	Eastern Roman Empire: fleet eas
+	Neutral: army est
+	Abbasid Caliphate: army isf
+	East Frankish Kingdom: army pol
+	Tulunid Emirate: fleet egy
+	Eastern Roman Empire: fleet ion
+	Tulunid Emirate: army jer
+	West Frankish Kingdom: army gas
+	Neutral: army dub
+	Principality of Kiev: fleet kar
+	Tulunid Emirate: fleet cil
+	Umayyad Emirate: fleet tyr
+	Umayyad Emirate: fleet str
+	Kingdom of Denmark: fleet wel
+	Neutral: army low
+	West Frankish Kingdom: supply gas
+	West Frankish Kingdom: supply aqt
+	Neutral: supply arm
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply sax
+	Neutral: supply lot
+	Abbasid Caliphate: supply isf
+	Neutral: supply bja
+	Neutral: supply urg
+	Neutral: supply pam
+	Kingdom of Denmark: supply vik
+	Khaganate of Khazaria: supply tam
+	Neutral: supply sad
+	Umayyad Emirate: supply snc
+	Abbasid Caliphate: supply ard
+	Kingdom of Denmark: supply sca
+	East Frankish Kingdom: supply bre
+	Eastern Roman Empire: supply crn
+	Eastern Roman Empire: supply att
+	Neutral: supply wsx
+	Neutral: supply mav
+	Neutral: supply dal
+	Kingdom of Denmark: supply jor
+	Neutral: supply sic
+	Neutral: supply cyp
+	Eastern Roman Empire: supply tar
+	Neutral: supply bul
+	Umayyad Emirate: supply val
+	Principality of Kiev: supply ros
+	Neutral: supply maz
+	Neutral: supply geo
+	Neutral: supply aze
+	Principality of Kiev: supply kie
+	Neutral: supply dub
+	West Frankish Kingdom: supply par
+	Neutral: supply btt
+	Neutral: supply cre
+	Tulunid Emirate: supply jer
+	Umayyad Emirate: supply cad
+	Neutral: supply bas
+	Tulunid Emirate: supply dam
+	Neutral: supply rom
+	Principality of Kiev: supply smo
+	Khaganate of Khazaria: supply sak
+	Neutral: supply mau
+	Neutral: supply pec
+	East Frankish Kingdom: supply swa
+	Principality of Kiev: supply nov
+	Tulunid Emirate: supply bar
+	Umayyad Emirate: supply cod
+	Neutral: supply est
+	Neutral: supply low
+	Abbasid Caliphate: supply bag
+	Eastern Roman Empire: supply con
+	West Frankish Kingdom: supply nar
+	Tulunid Emirate: supply ale
+	Neutral: supply thr
+	Khaganate of Khazaria: supply ati
+	East Frankish Kingdom: supply bav
+	Kingdom of Denmark: supply jel
+	Neutral: supply ifr
+	Neutral: supply bor
+	Neutral: supply cos
+	Abbasid Caliphate: supply ira
+ORDERS
+	ono support mav move vol
+	sgs move lot
+	swa move sax
+	pol move maz
+	mos support jer move jaz
+	isf hold
+	mec support cos move jer
+	ali move urg
+	par hold
+	aqt support low move aut
+	tou move gas
+	gas move pam
+	dam support jer move jaz
+	egy move jer
+	jer move mec
+	cil hold
+	kak move mos
+	tam move pec
+	ati move bas
+	abk hold
+	wel move dub
+	kat move vik
+	abo move sca
+	now move bor
+	ion move sic
+	eas move buc
+	mac hold
+	aeg move cil
+	zar support jer move val
+	cod support mau move cad
+	str convoy cyp move ale
+	tyr move tar
+	kar move saa/sc
+	vya support bja move chm
+	vol support ono move vla
+	kri support bul move chm
+PHASE 904 Fall Movement
+POSITIONS
+	Neutral: army low
+	Neutral: army urg
+	Tulunid Emirate: fleet cil
+	Neutral: army wsx
+	Abbasid Caliphate: army ali
+	Neutral: army cyp
+	Neutral: army est
+	Kingdom of Denmark: army now
+	Principality of Kiev: fleet saa/sc
+	Principality of Kiev: army vol
+	Abbasid Caliphate: army isf
+	Tulunid Emirate: fleet egy
+	Umayyad Emirate: army zar
+	West Frankish Kingdom: army tou
+	East Frankish Kingdom: army pol
+	Neutral: army mau
+	West Frankish Kingdom: army aqt
+	Tulunid Emirate: army dam
+	East Frankish Kingdom: fleet sgs
+	Neutral: army bul
+	Eastern Roman Empire: fleet aeg
+	Abbasid Caliphate: army mos
+	Neutral: army bja
+	Neutral: army rom
+	Umayyad Emirate: army cod
+	Principality of Kiev: army vya
+	Neutral: army btt
+	Neutral: army cos
+	Abbasid Caliphate: army mec
+	Neutral: army thr
+	Neutral: army ifr
+	Neutral: army aze
+	Neutral: army lot
+	Neutral: army dal
+	Tulunid Emirate: army jer
+	Neutral: army sad
+	East Frankish Kingdom: army sax
+	Neutral: army bor
+	Eastern Roman Empire: fleet buc
+	Kingdom of Denmark: fleet wel
+	Kingdom of Denmark: fleet sca
+	Neutral: army bas
+	Khaganate of Khazaria: army abk
+	Neutral: army pam
+	Neutral: army arm
+	Neutral: army mav
+	Principality of Kiev: army kri
+	Umayyad Emirate: fleet tar
+	East Frankish Kingdom: army ono
+	Eastern Roman Empire: army mac
+	West Frankish Kingdom: fleet par
+	Neutral: army geo
+	West Frankish Kingdom: army gas
+	Khaganate of Khazaria: army kak
+	Umayyad Emirate: fleet str
+	Neutral: army dub
+	Neutral: army sic
+	Khaganate of Khazaria: army ati
+	Khaganate of Khazaria: army tam
+	Neutral: army pec
+	Neutral: army maz
+	Neutral: army cre
+	Eastern Roman Empire: fleet ion
+	Kingdom of Denmark: fleet vik
+	Neutral: supply bas
+	East Frankish Kingdom: supply sax
+	Tulunid Emirate: supply bar
+	West Frankish Kingdom: supply nar
+	Neutral: supply rom
+	Eastern Roman Empire: supply att
+	Neutral: supply pec
+	Neutral: supply bul
+	Abbasid Caliphate: supply ira
+	Principality of Kiev: supply ros
+	Umayyad Emirate: supply snc
+	Kingdom of Denmark: supply vik
+	Eastern Roman Empire: supply con
+	Neutral: supply geo
+	Neutral: supply arm
+	Tulunid Emirate: supply dam
+	Khaganate of Khazaria: supply ati
+	Tulunid Emirate: supply ale
+	Khaganate of Khazaria: supply sak
+	Khaganate of Khazaria: supply tam
+	Kingdom of Denmark: supply jel
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply low
+	Neutral: supply lot
+	Neutral: supply bor
+	East Frankish Kingdom: supply swa
+	Umayyad Emirate: supply cod
+	Neutral: supply maz
+	Eastern Roman Empire: supply crn
+	Tulunid Emirate: supply jer
+	Neutral: supply ifr
+	Abbasid Caliphate: supply ard
+	Neutral: supply dal
+	Neutral: supply sic
+	East Frankish Kingdom: supply bav
+	Umayyad Emirate: supply val
+	Principality of Kiev: supply nov
+	Eastern Roman Empire: supply tar
+	Neutral: supply mau
+	Neutral: supply cos
+	West Frankish Kingdom: supply par
+	Neutral: supply pam
+	Neutral: supply dub
+	Umayyad Emirate: supply cad
+	Neutral: supply cyp
+	Neutral: supply thr
+	Neutral: supply wsx
+	Abbasid Caliphate: supply isf
+	Principality of Kiev: supply smo
+	Neutral: supply btt
+	East Frankish Kingdom: supply bre
+	Neutral: supply urg
+	Neutral: supply aze
+	Kingdom of Denmark: supply jor
+	Abbasid Caliphate: supply bag
+	Neutral: supply mav
+	West Frankish Kingdom: supply gas
+	Kingdom of Denmark: supply sca
+	Principality of Kiev: supply kie
+	Neutral: supply bja
+	Neutral: supply cre
+	West Frankish Kingdom: supply aqt
+	Neutral: supply sad
+	Neutral: supply est
+ORDERS
+	sax move bre
+	pol move sax
+	ono move vol
+	sgs hold
+	ali move urg
+	isf move ira
+	mec move aqa
+	mos support dam move jaz
+	aqt move gas
+	gas move pam
+	par move lot
+	tou move nar
+	jer support mos move jaz
+	cil support cyp move aeg
+	egy move bar
+	dam support arm move jaz
+	ati move kip
+	abk move bnj
+	kak move arm
+	tam move bnj
+	sca move got
+	wel support sgs move wsx
+	now hold
+	vik move kat
+	aeg support egy move ion
+	ion support buc move con
+	mac move con
+	buc move geo
+	cod support str move val
+	zar support pam move spa
+	tar move spo
+	str support cre move tyr
+	saa/sc move kar
+	vol move mav
+	kri move vya
+	vya support bul move mod
+PHASE 905 Spring Movement
+POSITIONS
+	Umayyad Emirate: army zar
+	East Frankish Kingdom: army ono
+	East Frankish Kingdom: army sax
+	Neutral: army rom
+	Neutral: army wsx
+	Kingdom of Denmark: fleet kat
+	Tulunid Emirate: army jer
+	Abbasid Caliphate: army mos
+	Neutral: army dub
+	West Frankish Kingdom: army nar
+	Neutral: army sic
+	Neutral: army low
+	Neutral: army mau
+	Neutral: army ifr
+	Neutral: army cos
+	Neutral: army bor
+	Neutral: army bul
+	Khaganate of Khazaria: army abk
+	Neutral: army pec
+	East Frankish Kingdom: army bre
+	Eastern Roman Empire: fleet aeg
+	Abbasid Caliphate: army aqa
+	Abbasid Caliphate: army ali
+	Neutral: army urg
+	Neutral: army geo
+	Eastern Roman Empire: fleet buc
+	Kingdom of Denmark: fleet wel
+	Neutral: army thr
+	Abbasid Caliphate: army ira
+	Neutral: army cyp
+	Khaganate of Khazaria: army kak
+	Principality of Kiev: fleet kar
+	Principality of Kiev: army vol
+	Khaganate of Khazaria: army tam
+	Neutral: army maz
+	Tulunid Emirate: fleet bar
+	Neutral: army lot
+	West Frankish Kingdom: fleet par
+	Khaganate of Khazaria: army kip
+	Umayyad Emirate: army cod
+	Neutral: army arm
+	Eastern Roman Empire: army con
+	East Frankish Kingdom: fleet sgs
+	Neutral: army btt
+	Neutral: army sad
+	West Frankish Kingdom: army aqt
+	Neutral: army dal
+	Tulunid Emirate: fleet cil
+	Eastern Roman Empire: fleet ion
+	Tulunid Emirate: army dam
+	Neutral: army est
+	Neutral: army bja
+	Neutral: army aze
+	Neutral: army mav
+	West Frankish Kingdom: army gas
+	Neutral: army bas
+	Umayyad Emirate: fleet spo
+	Neutral: army cre
+	Principality of Kiev: army kri
+	Umayyad Emirate: fleet str
+	Kingdom of Denmark: fleet got
+	Kingdom of Denmark: army now
+	Principality of Kiev: army vya
+	Neutral: army pam
+	Neutral: supply lot
+	Neutral: supply cre
+	Umayyad Emirate: supply val
+	Principality of Kiev: supply nov
+	Neutral: supply pec
+	Principality of Kiev: supply ros
+	Khaganate of Khazaria: supply tam
+	Umayyad Emirate: supply cod
+	Neutral: supply cyp
+	Khaganate of Khazaria: supply ati
+	Neutral: supply urg
+	Neutral: supply sic
+	Kingdom of Denmark: supply vik
+	Neutral: supply bja
+	Principality of Kiev: supply kie
+	Neutral: supply ifr
+	West Frankish Kingdom: supply gas
+	East Frankish Kingdom: supply bre
+	Neutral: supply aze
+	East Frankish Kingdom: supply swa
+	Neutral: supply bas
+	Eastern Roman Empire: supply att
+	Neutral: supply btt
+	Neutral: supply bul
+	West Frankish Kingdom: supply nar
+	Neutral: supply pam
+	Neutral: supply sad
+	Neutral: supply bor
+	Kingdom of Denmark: supply jel
+	Neutral: supply low
+	Neutral: supply geo
+	Khaganate of Khazaria: supply sak
+	Eastern Roman Empire: supply tar
+	Tulunid Emirate: supply bar
+	Neutral: supply dub
+	Eastern Roman Empire: supply con
+	Neutral: supply wsx
+	Tulunid Emirate: supply jer
+	Neutral: supply mau
+	Principality of Kiev: supply smo
+	Tulunid Emirate: supply ale
+	East Frankish Kingdom: supply sax
+	Kingdom of Denmark: supply sca
+	Neutral: supply arm
+	Kingdom of Denmark: supply jor
+	Tulunid Emirate: supply dam
+	Neutral: supply dal
+	Eastern Roman Empire: supply crn
+	Abbasid Caliphate: supply bag
+	Umayyad Emirate: supply snc
+	Neutral: supply maz
+	Neutral: supply thr
+	Neutral: supply mav
+	West Frankish Kingdom: supply par
+	Abbasid Caliphate: supply ard
+	Abbasid Caliphate: supply isf
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply est
+	West Frankish Kingdom: supply aqt
+	Neutral: supply rom
+	East Frankish Kingdom: supply bav
+	Neutral: supply cos
+	Umayyad Emirate: supply cad
+	Abbasid Caliphate: supply ira
+ORDERS
+	bre move fri
+	sax move vel
+	sgs support wel move wsx
+	ono move dal
+	ira move isf
+	aqa move faz
+	mos move kak
+	ali hold
+	nar support lot move aut
+	gas move pam
+	par support bre move bsa
+	aqt hold
+	cil move egy
+	bar move lib
+	dam move cap
+	jer move ale
+	tam move pec
+	kip hold
+	kak move aze
+	abk move tam
+	now move jel
+	wel move wsx
+	got move let
+	kat move vik
+	ion move epi
+	con move cap
+	aeg move cre
+	buc support thr move con
+	spo move ill
+	cod support ifr move gra
+	zar move ast
+	str hold
+	kar move fin
+	vol support ono
+	kri support est move nov
+	vya move chm
+PHASE 905 Fall Movement
+POSITIONS
+	Neutral: army bor
+	Kingdom of Denmark: fleet wsx
+	Abbasid Caliphate: army mos
+	Neutral: army maz
+	Neutral: army dub
+	Neutral: army mau
+	Kingdom of Denmark: army now
+	Abbasid Caliphate: army isf
+	Principality of Kiev: army chm
+	Neutral: army dal
+	Neutral: army est
+	Eastern Roman Empire: fleet epi
+	Neutral: army urg
+	Khaganate of Khazaria: army tam
+	Umayyad Emirate: army cod
+	Umayyad Emirate: fleet str
+	West Frankish Kingdom: fleet par
+	West Frankish Kingdom: army aqt
+	Neutral: army pec
+	Eastern Roman Empire: fleet aeg
+	East Frankish Kingdom: fleet sgs
+	Neutral: army ifr
+	Neutral: army bul
+	Neutral: army sic
+	Principality of Kiev: army vol
+	East Frankish Kingdom: army ono
+	Tulunid Emirate: fleet egy
+	Neutral: army aze
+	Neutral: army btt
+	Neutral: army cre
+	Principality of Kiev: army kri
+	Neutral: army cyp
+	West Frankish Kingdom: army gas
+	Umayyad Emirate: army ast
+	Khaganate of Khazaria: army kak
+	Neutral: army rom
+	Neutral: army cos
+	Kingdom of Denmark: fleet let
+	Neutral: army mav
+	Tulunid Emirate: army ale
+	East Frankish Kingdom: army fri
+	Neutral: army bja
+	Umayyad Emirate: fleet ill
+	Khaganate of Khazaria: army abk
+	Neutral: army arm
+	Neutral: army low
+	Khaganate of Khazaria: army kip
+	Neutral: army pam
+	Abbasid Caliphate: army ali
+	Neutral: army geo
+	Tulunid Emirate: army cap
+	Abbasid Caliphate: army faz
+	Tulunid Emirate: fleet lib
+	Neutral: army bas
+	West Frankish Kingdom: army nar
+	Eastern Roman Empire: army con
+	Neutral: army lot
+	Kingdom of Denmark: fleet vik
+	East Frankish Kingdom: army vel
+	Neutral: army sad
+	Neutral: army thr
+	Eastern Roman Empire: fleet buc
+	Principality of Kiev: fleet fin
+	West Frankish Kingdom: supply aqt
+	Principality of Kiev: supply nov
+	Neutral: supply dal
+	Umayyad Emirate: supply cod
+	Neutral: supply low
+	West Frankish Kingdom: supply gas
+	Neutral: supply dub
+	Neutral: supply aze
+	West Frankish Kingdom: supply nar
+	Neutral: supply mau
+	Principality of Kiev: supply smo
+	Neutral: supply wsx
+	Neutral: supply bas
+	Neutral: supply cos
+	Eastern Roman Empire: supply att
+	East Frankish Kingdom: supply bre
+	Neutral: supply ifr
+	Khaganate of Khazaria: supply sak
+	Neutral: supply urg
+	Abbasid Caliphate: supply ard
+	West Frankish Kingdom: supply par
+	Neutral: supply cre
+	Eastern Roman Empire: supply crn
+	Principality of Kiev: supply ros
+	Neutral: supply btt
+	Neutral: supply bja
+	Umayyad Emirate: supply val
+	Neutral: supply rom
+	Kingdom of Denmark: supply jor
+	Umayyad Emirate: supply snc
+	Khaganate of Khazaria: supply bnj
+	Tulunid Emirate: supply ale
+	Neutral: supply arm
+	Neutral: supply mav
+	Kingdom of Denmark: supply vik
+	Khaganate of Khazaria: supply tam
+	Khaganate of Khazaria: supply ati
+	Neutral: supply bul
+	Kingdom of Denmark: supply sca
+	Neutral: supply sic
+	Umayyad Emirate: supply cad
+	Kingdom of Denmark: supply jel
+	Eastern Roman Empire: supply tar
+	Neutral: supply pec
+	Abbasid Caliphate: supply isf
+	Neutral: supply bor
+	Abbasid Caliphate: supply ira
+	East Frankish Kingdom: supply swa
+	Neutral: supply thr
+	East Frankish Kingdom: supply bav
+	Neutral: supply pam
+	Principality of Kiev: supply kie
+	Neutral: supply est
+	Abbasid Caliphate: supply bag
+	Neutral: supply lot
+	Tulunid Emirate: supply jer
+	Tulunid Emirate: supply bar
+	Neutral: supply cyp
+	Neutral: supply sad
+	Tulunid Emirate: supply dam
+	East Frankish Kingdom: supply sax
+	Neutral: supply geo
+	Eastern Roman Empire: supply con
+	Neutral: supply maz
+ORDERS
+	ono support dal move sla
+	sgs move jel
+	fri move jel
+	vel move vel
+	ali support urg
+	isf move bsr
+	mos support arm move kak
+	faz move ifr
+	gas move pam
+	par move lot
+	nar move low
+	aqt support lot move aut
+	ale move cre
+	lib move tyr
+	egy move cil
+	cap move dam
+	abk move bnj
+	kip move sto
+	tam support geo move abk
+	kak move der
+	now move vik
+	let support est move liv
+	wsx support vel move ngs
+	vik move kat
+	epi support cyp move ion
+	con move att
+	buc move geo
+	aeg move att
+	str move ifr
+	ast support gas move pam
+	ill move ion
+	cod move tol
+	vol move pol
+	kri move chm
+	fin move let
+	chm move kar
+PHASE 905 Fall Adjustment
+POSITIONS
+	Tulunid Emirate: army dam
+	Kingdom of Denmark: fleet let
+	Neutral: army urg
+	Neutral: army rom
+	Eastern Roman Empire: army con
+	Abbasid Caliphate: army faz
+	Umayyad Emirate: army tol
+	Kingdom of Denmark: fleet wsx
+	Neutral: army thr
+	Abbasid Caliphate: army mos
+	West Frankish Kingdom: army aqt
+	Principality of Kiev: army kar
+	Neutral: army arm
+	West Frankish Kingdom: army nar
+	Neutral: army btt
+	Neutral: army dub
+	Eastern Roman Empire: fleet buc
+	Neutral: army cre
+	Neutral: army cyp
+	Khaganate of Khazaria: army sto
+	Neutral: army sic
+	Neutral: army bas
+	Neutral: army cos
+	Principality of Kiev: fleet fin
+	Neutral: army mau
+	Neutral: army pec
+	Umayyad Emirate: fleet str
+	Abbasid Caliphate: army bsr
+	Khaganate of Khazaria: army tam
+	West Frankish Kingdom: fleet par
+	Neutral: army aze
+	East Frankish Kingdom: army ono
+	Umayyad Emirate: army ast
+	Neutral: army dal
+	Neutral: army bja
+	Neutral: army maz
+	Neutral: army sad
+	Principality of Kiev: army chm
+	Abbasid Caliphate: army ali
+	Neutral: army bor
+	Neutral: army low
+	Kingdom of Denmark: fleet kat
+	East Frankish Kingdom: army fri
+	East Frankish Kingdom: fleet jel
+	Khaganate of Khazaria: army bnj
+	Tulunid Emirate: fleet tyr
+	Neutral: army mav
+	Eastern Roman Empire: fleet epi
+	Neutral: army geo
+	Eastern Roman Empire: fleet aeg
+	Umayyad Emirate: fleet ion
+	Kingdom of Denmark: army vik
+	Tulunid Emirate: fleet cil
+	Principality of Kiev: army pol
+	Neutral: army est
+	Neutral: army lot
+	Khaganate of Khazaria: army der
+	Neutral: army bul
+	Tulunid Emirate: army ale
+	West Frankish Kingdom: army pam
+	East Frankish Kingdom: army vel
+	Neutral: army ifr
+	East Frankish Kingdom: supply swa
+	Abbasid Caliphate: supply ard
+	Neutral: supply aze
+	Khaganate of Khazaria: supply ati
+	West Frankish Kingdom: supply gas
+	Neutral: supply cre
+	Khaganate of Khazaria: supply sak
+	West Frankish Kingdom: supply pam
+	Abbasid Caliphate: supply bag
+	Neutral: supply bja
+	Tulunid Emirate: supply jer
+	Neutral: supply dub
+	Neutral: supply geo
+	Tulunid Emirate: supply ale
+	Umayyad Emirate: supply cad
+	East Frankish Kingdom: supply sax
+	Neutral: supply mav
+	Eastern Roman Empire: supply con
+	Tulunid Emirate: supply bar
+	Neutral: supply thr
+	Neutral: supply dal
+	Umayyad Emirate: supply snc
+	Principality of Kiev: supply smo
+	Neutral: supply lot
+	Khaganate of Khazaria: supply tam
+	Neutral: supply bas
+	Abbasid Caliphate: supply ira
+	West Frankish Kingdom: supply aqt
+	Abbasid Caliphate: supply isf
+	Tulunid Emirate: supply dam
+	Principality of Kiev: supply kie
+	Neutral: supply cyp
+	East Frankish Kingdom: supply bre
+	Neutral: supply est
+	Eastern Roman Empire: supply crn
+	Kingdom of Denmark: supply wsx
+	Neutral: supply urg
+	Khaganate of Khazaria: supply bnj
+	West Frankish Kingdom: supply par
+	Kingdom of Denmark: supply jor
+	Neutral: supply bor
+	Neutral: supply sad
+	Umayyad Emirate: supply val
+	Principality of Kiev: supply ros
+	Eastern Roman Empire: supply att
+	Neutral: supply maz
+	Kingdom of Denmark: supply sca
+	Neutral: supply mau
+	Neutral: supply pec
+	Umayyad Emirate: supply cod
+	Neutral: supply arm
+	Neutral: supply low
+	Neutral: supply ifr
+	Neutral: supply sic
+	Kingdom of Denmark: supply vik
+	Neutral: supply rom
+	Principality of Kiev: supply nov
+	Neutral: supply bul
+	East Frankish Kingdom: supply bav
+	Eastern Roman Empire: supply tar
+	West Frankish Kingdom: supply nar
+	Neutral: supply cos
+	Neutral: supply btt
+	East Frankish Kingdom: supply jel
+ORDERS
+	build anywhere Army sax
+	build anywhere Fleet gas
+PHASE 906 Spring Movement
+POSITIONS
+	Neutral: army rom
+	Neutral: army bas
+	Neutral: army mau
+	Umayyad Emirate: fleet str
+	Neutral: army bor
+	Khaganate of Khazaria: army bnj
+	Khaganate of Khazaria: army der
+	Neutral: army urg
+	Neutral: army dub
+	Neutral: army cyp
+	Neutral: army cos
+	Neutral: army pec
+	West Frankish Kingdom: fleet par
+	Kingdom of Denmark: fleet kat
+	Tulunid Emirate: army ale
+	Neutral: army cre
+	Tulunid Emirate: fleet tyr
+	Neutral: army mav
+	Neutral: army thr
+	West Frankish Kingdom: army aqt
+	Abbasid Caliphate: army mos
+	Kingdom of Denmark: fleet let
+	West Frankish Kingdom: army nar
+	Neutral: army maz
+	Neutral: army sad
+	Abbasid Caliphate: army ali
+	Neutral: army low
+	Eastern Roman Empire: fleet epi
+	Principality of Kiev: army pol
+	Neutral: army lot
+	East Frankish Kingdom: army sax
+	Kingdom of Denmark: fleet wsx
+	Neutral: army arm
+	Abbasid Caliphate: army bsr
+	Principality of Kiev: army chm
+	Tulunid Emirate: fleet cil
+	Khaganate of Khazaria: army tam
+	Neutral: army aze
+	East Frankish Kingdom: army ono
+	East Frankish Kingdom: army fri
+	Eastern Roman Empire: fleet aeg
+	Neutral: army est
+	East Frankish Kingdom: army vel
+	Neutral: army ifr
+	Umayyad Emirate: fleet ion
+	Eastern Roman Empire: army con
+	Principality of Kiev: army kar
+	Khaganate of Khazaria: army sto
+	Umayyad Emirate: army tol
+	East Frankish Kingdom: fleet jel
+	West Frankish Kingdom: army pam
+	West Frankish Kingdom: fleet gas
+	Eastern Roman Empire: fleet buc
+	Principality of Kiev: fleet fin
+	Neutral: army bja
+	Abbasid Caliphate: army faz
+	Neutral: army btt
+	Umayyad Emirate: army ast
+	Neutral: army geo
+	Neutral: army bul
+	Tulunid Emirate: army dam
+	Neutral: army sic
+	Neutral: army dal
+	Kingdom of Denmark: army vik
+	Kingdom of Denmark: supply sca
+	Kingdom of Denmark: supply vik
+	Principality of Kiev: supply nov
+	Neutral: supply lot
+	West Frankish Kingdom: supply aqt
+	Neutral: supply arm
+	Neutral: supply low
+	Neutral: supply bul
+	West Frankish Kingdom: supply nar
+	Neutral: supply aze
+	Khaganate of Khazaria: supply tam
+	Umayyad Emirate: supply val
+	East Frankish Kingdom: supply bav
+	West Frankish Kingdom: supply pam
+	Umayyad Emirate: supply cad
+	East Frankish Kingdom: supply sax
+	Principality of Kiev: supply smo
+	Abbasid Caliphate: supply ira
+	Kingdom of Denmark: supply wsx
+	Eastern Roman Empire: supply att
+	Eastern Roman Empire: supply tar
+	Neutral: supply cre
+	Neutral: supply dal
+	Neutral: supply bas
+	Neutral: supply cyp
+	Neutral: supply sad
+	Tulunid Emirate: supply jer
+	West Frankish Kingdom: supply par
+	Eastern Roman Empire: supply crn
+	Abbasid Caliphate: supply isf
+	Principality of Kiev: supply ros
+	Eastern Roman Empire: supply con
+	Umayyad Emirate: supply snc
+	Umayyad Emirate: supply cod
+	Neutral: supply sic
+	East Frankish Kingdom: supply jel
+	Neutral: supply thr
+	Tulunid Emirate: supply dam
+	Kingdom of Denmark: supply jor
+	Neutral: supply cos
+	Neutral: supply geo
+	Neutral: supply est
+	Neutral: supply urg
+	Neutral: supply bor
+	Neutral: supply pec
+	Neutral: supply ifr
+	Khaganate of Khazaria: supply ati
+	Neutral: supply bja
+	West Frankish Kingdom: supply gas
+	Abbasid Caliphate: supply bag
+	Neutral: supply dub
+	Principality of Kiev: supply kie
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply rom
+	East Frankish Kingdom: supply swa
+	Abbasid Caliphate: supply ard
+	Tulunid Emirate: supply ale
+	Khaganate of Khazaria: supply sak
+	East Frankish Kingdom: supply bre
+	Neutral: supply mau
+	Neutral: supply mav
+	Neutral: supply maz
+	Neutral: supply btt
+	Tulunid Emirate: supply bar
+ORDERS
+	vel move pom
+	jel move sgs
+	sax hold
+	fri hold
+	ono move thr
+	bsr hold
+	faz hold
+	ali support aze move ard
+	mos move ard
+	aqt support low move aut
+	pam move tou
+	gas support ast move pam
+	par move btt
+	nar support pam move tou
+	dam support cyp move cap
+	tyr move lib
+	ale move mec
+	cil move att
+	bnj support der
+	der hold
+	tam move sak
+	sto move udm
+	wsx move ngs
+	kat support vel move jel
+	let support fin move ula
+	vik move ula
+	buc support bnj move geo
+	epi move ion
+	aeg support cos move con
+	con support cre move epi
+	ion move lib
+	str hold
+	ast support pam
+	tol move zar
+	fin convoy est move nov
+	pol support ono move vol
+	chm hold
+	kar move ula
+PHASE 906 Fall Movement
+POSITIONS
+	Principality of Kiev: fleet fin
+	Neutral: army mav
+	Kingdom of Denmark: fleet kat
+	Neutral: army thr
+	Principality of Kiev: army kar
+	Neutral: army aze
+	Neutral: army btt
+	Umayyad Emirate: fleet ion
+	Neutral: army geo
+	Eastern Roman Empire: fleet aeg
+	Neutral: army bas
+	Tulunid Emirate: army dam
+	West Frankish Kingdom: army nar
+	Abbasid Caliphate: army bsr
+	Neutral: army bul
+	Eastern Roman Empire: fleet epi
+	Neutral: army cos
+	West Frankish Kingdom: army aqt
+	Tulunid Emirate: fleet tyr
+	Tulunid Emirate: fleet att
+	Neutral: army ifr
+	Kingdom of Denmark: army ula
+	Neutral: army mau
+	West Frankish Kingdom: fleet gas
+	Neutral: army arm
+	Kingdom of Denmark: fleet let
+	Principality of Kiev: army pol
+	West Frankish Kingdom: army tou
+	East Frankish Kingdom: fleet sgs
+	Neutral: army pec
+	Neutral: army rom
+	Neutral: army sic
+	Eastern Roman Empire: fleet buc
+	Khaganate of Khazaria: army udm
+	Umayyad Emirate: army ast
+	Principality of Kiev: army chm
+	Khaganate of Khazaria: army der
+	Neutral: army low
+	Neutral: army cyp
+	Neutral: army cre
+	Neutral: army lot
+	Neutral: army dub
+	Neutral: army bja
+	Eastern Roman Empire: army con
+	Neutral: army sad
+	Neutral: army urg
+	Umayyad Emirate: fleet str
+	East Frankish Kingdom: army fri
+	Abbasid Caliphate: army ali
+	Abbasid Caliphate: army faz
+	Umayyad Emirate: army zar
+	East Frankish Kingdom: army sax
+	East Frankish Kingdom: army pom
+	Neutral: army est
+	Neutral: army dal
+	Khaganate of Khazaria: army sak
+	Abbasid Caliphate: army ard
+	Khaganate of Khazaria: army bnj
+	Tulunid Emirate: army mec
+	Neutral: army maz
+	Kingdom of Denmark: fleet ngs
+	West Frankish Kingdom: fleet par
+	East Frankish Kingdom: army ono
+	Neutral: army bor
+	Neutral: supply est
+	Eastern Roman Empire: supply tar
+	Eastern Roman Empire: supply att
+	Kingdom of Denmark: supply jor
+	Neutral: supply thr
+	Khaganate of Khazaria: supply tam
+	Neutral: supply sad
+	Neutral: supply urg
+	Umayyad Emirate: supply cod
+	Abbasid Caliphate: supply ira
+	East Frankish Kingdom: supply bre
+	Neutral: supply cyp
+	West Frankish Kingdom: supply aqt
+	Neutral: supply dal
+	Neutral: supply lot
+	Neutral: supply btt
+	Neutral: supply pec
+	East Frankish Kingdom: supply sax
+	Kingdom of Denmark: supply sca
+	Principality of Kiev: supply nov
+	Umayyad Emirate: supply snc
+	Tulunid Emirate: supply bar
+	Neutral: supply mav
+	Neutral: supply mau
+	Abbasid Caliphate: supply ard
+	East Frankish Kingdom: supply swa
+	Umayyad Emirate: supply cad
+	West Frankish Kingdom: supply gas
+	Neutral: supply bul
+	Neutral: supply geo
+	East Frankish Kingdom: supply jel
+	Principality of Kiev: supply smo
+	East Frankish Kingdom: supply bav
+	Neutral: supply bor
+	Eastern Roman Empire: supply crn
+	Neutral: supply dub
+	Eastern Roman Empire: supply con
+	Neutral: supply cre
+	Tulunid Emirate: supply jer
+	Principality of Kiev: supply kie
+	Abbasid Caliphate: supply bag
+	West Frankish Kingdom: supply pam
+	Neutral: supply sic
+	Tulunid Emirate: supply dam
+	Neutral: supply cos
+	West Frankish Kingdom: supply nar
+	West Frankish Kingdom: supply par
+	Neutral: supply aze
+	Neutral: supply ifr
+	Abbasid Caliphate: supply isf
+	Kingdom of Denmark: supply vik
+	Khaganate of Khazaria: supply ati
+	Neutral: supply low
+	Tulunid Emirate: supply ale
+	Khaganate of Khazaria: supply bnj
+	Umayyad Emirate: supply val
+	Neutral: supply rom
+	Principality of Kiev: supply ros
+	Neutral: supply maz
+	Neutral: supply bja
+	Neutral: supply arm
+	Kingdom of Denmark: supply wsx
+	Khaganate of Khazaria: supply sak
+	Neutral: supply bas
+ORDERS
+	sgs hold
+	ono move dal
+	sax move fra
+	fri move sca
+	pom support est move bor
+	ali support ard
+	faz move ale
+	ard move bag
+	bsr move isf
+	gas move aqt
+	aqt move tou
+	nar support zar move spa
+	tou support low move aut
+	par support fri move bsa
+	mec support dam move jer
+	tyr support cos
+	att support sic move con
+	dam support geo move cap
+	sak move sev
+	udm move mod
+	der hold
+	bnj move tam
+	ula support lot move now
+	let support est move ula
+	ngs support fri move wsx
+	kat support est move sca
+	con move cre
+	epi move ion
+	buc hold
+	aeg move cil
+	str hold
+	zar move snc
+	ion move lib
+	ast support tou move pam
+	chm move kri
+	kar move saa
+	fin support let
+	pol hold
+PHASE 906 Fall Adjustment
+POSITIONS
+	West Frankish Kingdom: army tou
+	Khaganate of Khazaria: army sev
+	Tulunid Emirate: army mec
+	Neutral: army dub
+	Umayyad Emirate: fleet str
+	Neutral: army bul
+	West Frankish Kingdom: army nar
+	Umayyad Emirate: fleet lib
+	Neutral: army mau
+	Abbasid Caliphate: army bag
+	Tulunid Emirate: army dam
+	Neutral: army btt
+	Eastern Roman Empire: fleet ion
+	Khaganate of Khazaria: army der
+	Neutral: army aze
+	Khaganate of Khazaria: army tam
+	East Frankish Kingdom: army fra
+	Abbasid Caliphate: army ali
+	Neutral: army low
+	Tulunid Emirate: fleet att
+	Principality of Kiev: army kri
+	Neutral: army dal
+	Eastern Roman Empire: fleet buc
+	Neutral: army arm
+	Neutral: army ifr
+	Neutral: army pec
+	West Frankish Kingdom: fleet gas
+	Principality of Kiev: fleet fin
+	Umayyad Emirate: army snc
+	Tulunid Emirate: fleet tyr
+	Principality of Kiev: army saa
+	Neutral: army lot
+	Kingdom of Denmark: fleet kat
+	Neutral: army mav
+	East Frankish Kingdom: fleet sgs
+	Kingdom of Denmark: fleet ngs
+	Abbasid Caliphate: army ale
+	Eastern Roman Empire: army con
+	West Frankish Kingdom: army aqt
+	Neutral: army maz
+	Neutral: army bor
+	East Frankish Kingdom: army fri
+	Abbasid Caliphate: army isf
+	Neutral: army cre
+	Neutral: army sad
+	Eastern Roman Empire: fleet cil
+	Neutral: army thr
+	West Frankish Kingdom: fleet par
+	East Frankish Kingdom: army pom
+	Khaganate of Khazaria: army mod
+	Umayyad Emirate: army ast
+	Neutral: army rom
+	East Frankish Kingdom: army ono
+	Principality of Kiev: army pol
+	Neutral: army cyp
+	Neutral: army bas
+	Neutral: army bja
+	Neutral: army urg
+	Neutral: army geo
+	Neutral: army cos
+	Neutral: army sic
+	Kingdom of Denmark: army ula
+	Neutral: army est
+	Kingdom of Denmark: fleet let
+	Neutral: supply urg
+	Neutral: supply bul
+	Neutral: supply bor
+	Neutral: supply cre
+	Neutral: supply ifr
+	Neutral: supply sic
+	Abbasid Caliphate: supply isf
+	West Frankish Kingdom: supply par
+	Kingdom of Denmark: supply jor
+	Eastern Roman Empire: supply tar
+	Kingdom of Denmark: supply vik
+	Neutral: supply low
+	Principality of Kiev: supply kie
+	Neutral: supply maz
+	Tulunid Emirate: supply dam
+	West Frankish Kingdom: supply gas
+	West Frankish Kingdom: supply pam
+	Neutral: supply thr
+	Neutral: supply sad
+	Tulunid Emirate: supply bar
+	Neutral: supply cyp
+	Abbasid Caliphate: supply ale
+	Khaganate of Khazaria: supply bnj
+	West Frankish Kingdom: supply aqt
+	Umayyad Emirate: supply cad
+	Neutral: supply rom
+	Neutral: supply mav
+	East Frankish Kingdom: supply bav
+	Neutral: supply est
+	Abbasid Caliphate: supply ard
+	Khaganate of Khazaria: supply ati
+	Neutral: supply pec
+	Khaganate of Khazaria: supply tam
+	Neutral: supply lot
+	Neutral: supply dub
+	East Frankish Kingdom: supply jel
+	Principality of Kiev: supply smo
+	Eastern Roman Empire: supply con
+	Neutral: supply bja
+	Neutral: supply dal
+	East Frankish Kingdom: supply sax
+	Neutral: supply cos
+	Umayyad Emirate: supply snc
+	Neutral: supply aze
+	Abbasid Caliphate: supply ira
+	Principality of Kiev: supply ros
+	East Frankish Kingdom: supply swa
+	Neutral: supply geo
+	Tulunid Emirate: supply att
+	Umayyad Emirate: supply val
+	Khaganate of Khazaria: supply sak
+	Kingdom of Denmark: supply wsx
+	Eastern Roman Empire: supply crn
+	Neutral: supply mau
+	Abbasid Caliphate: supply bag
+	Neutral: supply arm
+	Kingdom of Denmark: supply sca
+	Tulunid Emirate: supply jer
+	West Frankish Kingdom: supply nar
+	Neutral: supply btt
+	Umayyad Emirate: supply cod
+	Principality of Kiev: supply nov
+	East Frankish Kingdom: supply bre
+	Neutral: supply bas
+ORDERS
+	build anywhere Army ira
+	remove cil
+PHASE 907 Spring Movement
+POSITIONS
+	Neutral: army est
+	Neutral: army btt
+	Neutral: army cre
+	Neutral: army bja
+	Principality of Kiev: army kri
+	Abbasid Caliphate: army isf
+	Khaganate of Khazaria: army tam
+	Principality of Kiev: army pol
+	Neutral: army cyp
+	Neutral: army geo
+	Khaganate of Khazaria: army sev
+	East Frankish Kingdom: army fra
+	Eastern Roman Empire: army con
+	Abbasid Caliphate: army ale
+	West Frankish Kingdom: fleet par
+	Kingdom of Denmark: fleet kat
+	Neutral: army thr
+	Neutral: army aze
+	West Frankish Kingdom: fleet gas
+	Umayyad Emirate: army snc
+	Neutral: army maz
+	Kingdom of Denmark: army ula
+	Khaganate of Khazaria: army der
+	Principality of Kiev: fleet fin
+	Neutral: army mav
+	West Frankish Kingdom: army aqt
+	Neutral: army arm
+	Neutral: army pec
+	Kingdom of Denmark: fleet ngs
+	Principality of Kiev: army saa
+	Neutral: army lot
+	Neutral: army bor
+	Kingdom of Denmark: fleet let
+	West Frankish Kingdom: army tou
+	Tulunid Emirate: army mec
+	Abbasid Caliphate: army bag
+	East Frankish Kingdom: army pom
+	Neutral: army cos
+	Abbasid Caliphate: army ira
+	Neutral: army mau
+	Neutral: army dal
+	Neutral: army sad
+	Umayyad Emirate: fleet str
+	Eastern Roman Empire: fleet buc
+	Umayyad Emirate: army ast
+	East Frankish Kingdom: army ono
+	Neutral: army urg
+	East Frankish Kingdom: army fri
+	Khaganate of Khazaria: army mod
+	Eastern Roman Empire: fleet ion
+	Neutral: army low
+	Neutral: army ifr
+	Tulunid Emirate: fleet tyr
+	East Frankish Kingdom: fleet sgs
+	Neutral: army rom
+	Neutral: army bas
+	Tulunid Emirate: army dam
+	Abbasid Caliphate: army ali
+	Tulunid Emirate: fleet att
+	Neutral: army dub
+	Neutral: army sic
+	Neutral: army bul
+	West Frankish Kingdom: army nar
+	Umayyad Emirate: fleet lib
+	Neutral: supply btt
+	Neutral: supply urg
+	Neutral: supply low
+	Neutral: supply lot
+	Neutral: supply dal
+	East Frankish Kingdom: supply swa
+	Neutral: supply arm
+	West Frankish Kingdom: supply par
+	Khaganate of Khazaria: supply ati
+	West Frankish Kingdom: supply nar
+	East Frankish Kingdom: supply bre
+	Eastern Roman Empire: supply tar
+	West Frankish Kingdom: supply gas
+	Neutral: supply mav
+	Khaganate of Khazaria: supply tam
+	Abbasid Caliphate: supply ira
+	Neutral: supply geo
+	Neutral: supply maz
+	Neutral: supply thr
+	Abbasid Caliphate: supply ale
+	Abbasid Caliphate: supply ard
+	East Frankish Kingdom: supply sax
+	Tulunid Emirate: supply jer
+	Neutral: supply ifr
+	Neutral: supply sic
+	Neutral: supply bja
+	Neutral: supply aze
+	Eastern Roman Empire: supply crn
+	Neutral: supply mau
+	Principality of Kiev: supply ros
+	Tulunid Emirate: supply att
+	Principality of Kiev: supply nov
+	Neutral: supply bor
+	Neutral: supply cre
+	Khaganate of Khazaria: supply bnj
+	Principality of Kiev: supply smo
+	Neutral: supply cos
+	West Frankish Kingdom: supply pam
+	Neutral: supply sad
+	Neutral: supply dub
+	Khaganate of Khazaria: supply sak
+	Kingdom of Denmark: supply vik
+	Tulunid Emirate: supply bar
+	Eastern Roman Empire: supply con
+	Neutral: supply bul
+	East Frankish Kingdom: supply jel
+	Kingdom of Denmark: supply wsx
+	West Frankish Kingdom: supply aqt
+	Neutral: supply pec
+	Kingdom of Denmark: supply sca
+	Neutral: supply rom
+	Principality of Kiev: supply kie
+	Umayyad Emirate: supply cad
+	Umayyad Emirate: supply cod
+	Neutral: supply est
+	Umayyad Emirate: supply snc
+	Abbasid Caliphate: supply isf
+	Kingdom of Denmark: supply jor
+	Neutral: supply cyp
+	East Frankish Kingdom: supply bav
+	Umayyad Emirate: supply val
+	Neutral: supply bas
+	Tulunid Emirate: supply dam
+	Abbasid Caliphate: supply bag
+ORDERS
+	fra hold
+	fri move vik
+	ono support con move mac
+	pom move pol
+	sgs support kat move jel
+	ali support isf move ard
+	ira move bsr
+	bag move ira
+	ale support ifr move tri
+	isf support urg move ali
+	par support fra move lot
+	gas move pam
+	aqt support low move aut
+	nar support low move aut
+	tou move pam
+	dam move cap
+	mec support ira move nef
+	tyr support cos
+	att support buc move con
+	mod move sak
+	tam move sak
+	sev move pec
+	der support arm move kak
+	kat move now
+	ngs move ice
+	let move bor
+	ula move sca
+	con move epi
+	buc support rom move con
+	ion move tar
+	lib move tri
+	str support con move bcs
+	snc move gal
+	ast move gal
+	saa move kar
+	kri hold
+	pol hold
+	fin move ula
+PHASE 907 Fall Movement
+POSITIONS
+	Neutral: army cyp
+	East Frankish Kingdom: army fra
+	Khaganate of Khazaria: army sev
+	Neutral: army urg
+	Eastern Roman Empire: army epi
+	Abbasid Caliphate: army bsr
+	Neutral: army bja
+	West Frankish Kingdom: army tou
+	Khaganate of Khazaria: army der
+	Tulunid Emirate: fleet att
+	Kingdom of Denmark: fleet now
+	Tulunid Emirate: fleet tyr
+	Neutral: army dal
+	Neutral: army maz
+	Neutral: army aze
+	Neutral: army pec
+	Neutral: army dub
+	Eastern Roman Empire: fleet buc
+	Neutral: army cre
+	Neutral: army btt
+	Khaganate of Khazaria: army mod
+	Kingdom of Denmark: fleet ice
+	Tulunid Emirate: army mec
+	Umayyad Emirate: army snc
+	Neutral: army ifr
+	Abbasid Caliphate: army isf
+	Abbasid Caliphate: army ale
+	Neutral: army bor
+	Tulunid Emirate: army cap
+	Neutral: army est
+	Principality of Kiev: army pol
+	Umayyad Emirate: army ast
+	East Frankish Kingdom: fleet sgs
+	Neutral: army cos
+	Neutral: army geo
+	Neutral: army rom
+	Neutral: army bas
+	West Frankish Kingdom: fleet par
+	Neutral: army sad
+	Abbasid Caliphate: army ali
+	Neutral: army bul
+	Neutral: army arm
+	East Frankish Kingdom: army pom
+	East Frankish Kingdom: army fri
+	Umayyad Emirate: fleet str
+	East Frankish Kingdom: army ono
+	Principality of Kiev: army kar
+	Khaganate of Khazaria: army tam
+	Neutral: army low
+	West Frankish Kingdom: fleet gas
+	Eastern Roman Empire: fleet tar
+	Neutral: army lot
+	Principality of Kiev: fleet fin
+	Neutral: army mav
+	Neutral: army sic
+	Principality of Kiev: army kri
+	Umayyad Emirate: fleet tri
+	Kingdom of Denmark: army ula
+	Kingdom of Denmark: fleet let
+	West Frankish Kingdom: army aqt
+	Neutral: army mau
+	Abbasid Caliphate: army ira
+	West Frankish Kingdom: army nar
+	Neutral: army thr
+	Tulunid Emirate: supply att
+	Neutral: supply maz
+	Umayyad Emirate: supply val
+	East Frankish Kingdom: supply swa
+	Umayyad Emirate: supply cad
+	Principality of Kiev: supply kie
+	Neutral: supply cyp
+	Neutral: supply pec
+	Khaganate of Khazaria: supply bnj
+	Kingdom of Denmark: supply wsx
+	Umayyad Emirate: supply snc
+	Neutral: supply mau
+	West Frankish Kingdom: supply aqt
+	West Frankish Kingdom: supply pam
+	Tulunid Emirate: supply dam
+	Neutral: supply sad
+	Neutral: supply mav
+	Principality of Kiev: supply nov
+	Khaganate of Khazaria: supply sak
+	Neutral: supply urg
+	Neutral: supply rom
+	Eastern Roman Empire: supply tar
+	Neutral: supply sic
+	Kingdom of Denmark: supply sca
+	Neutral: supply lot
+	Neutral: supply thr
+	Neutral: supply bas
+	Umayyad Emirate: supply cod
+	Kingdom of Denmark: supply vik
+	Khaganate of Khazaria: supply ati
+	East Frankish Kingdom: supply sax
+	Neutral: supply aze
+	Eastern Roman Empire: supply crn
+	Khaganate of Khazaria: supply tam
+	East Frankish Kingdom: supply bre
+	East Frankish Kingdom: supply bav
+	Neutral: supply bul
+	Principality of Kiev: supply smo
+	Neutral: supply bja
+	Neutral: supply dub
+	Neutral: supply arm
+	Abbasid Caliphate: supply bag
+	West Frankish Kingdom: supply par
+	East Frankish Kingdom: supply jel
+	Tulunid Emirate: supply bar
+	Abbasid Caliphate: supply ard
+	Abbasid Caliphate: supply ira
+	Tulunid Emirate: supply jer
+	Principality of Kiev: supply ros
+	Neutral: supply cre
+	Neutral: supply btt
+	West Frankish Kingdom: supply gas
+	Abbasid Caliphate: supply isf
+	Neutral: supply dal
+	Abbasid Caliphate: supply ale
+	Neutral: supply ifr
+	Neutral: supply est
+	Neutral: supply bor
+	Neutral: supply cos
+	Neutral: supply geo
+	Eastern Roman Empire: supply con
+	Kingdom of Denmark: supply jor
+	West Frankish Kingdom: supply nar
+	Neutral: supply low
+ORDERS
+	ono move vla
+	fra move lot
+	fri move vel
+	sgs convoy lot move wsx
+	pom move sax
+	ira move ard
+	ale support mec
+	isf move bsr
+	ali move kho
+	bsr move sst
+	par move lot
+	aqt move par
+	nar move low
+	tou move spa
+	gas support btt move aqt
+	tyr move ion
+	att move con
+	mec move jer
+	cap move att
+	sev move kie
+	mod support kri move vya
+	tam move sak
+	der support arm move kak
+	now support bja move ngs
+	let move abo
+	ice hold
+	ula move saa
+	buc move eas
+	epi support ono move dal
+	tar move sle
+	ast move gal
+	tri support ifr move lib
+	snc move zar
+	str support cos move sad
+	kar move kar
+	kri move nov
+	pol move bor
+	fin hold
+PHASE 907 Fall Adjustment
+POSITIONS
+	East Frankish Kingdom: army vla
+	Neutral: army cre
+	Umayyad Emirate: army gal
+	Tulunid Emirate: army jer
+	West Frankish Kingdom: fleet par
+	Kingdom of Denmark: fleet abo
+	Neutral: army rom
+	Tulunid Emirate: army att
+	East Frankish Kingdom: army sax
+	Eastern Roman Empire: fleet eas
+	Eastern Roman Empire: army epi
+	Neutral: army lot
+	Abbasid Caliphate: army sst
+	Umayyad Emirate: fleet str
+	Neutral: army geo
+	Neutral: army sad
+	Neutral: army mav
+	Khaganate of Khazaria: army der
+	Umayyad Emirate: army zar
+	Neutral: army cos
+	Neutral: army ifr
+	West Frankish Kingdom: army spa
+	Neutral: army btt
+	Eastern Roman Empire: fleet sle
+	Neutral: army low
+	Neutral: army bas
+	Neutral: army bul
+	East Frankish Kingdom: army fra
+	Neutral: army dub
+	Principality of Kiev: army nov
+	Khaganate of Khazaria: army mod
+	Umayyad Emirate: fleet tri
+	Neutral: army urg
+	Neutral: army bor
+	Abbasid Caliphate: army bsr
+	Neutral: army sic
+	Tulunid Emirate: fleet ion
+	Kingdom of Denmark: army saa
+	Neutral: army dal
+	Khaganate of Khazaria: army kie
+	Kingdom of Denmark: fleet ice
+	Neutral: army est
+	Neutral: army pec
+	East Frankish Kingdom: army fri
+	West Frankish Kingdom: fleet gas
+	Abbasid Caliphate: army ard
+	Neutral: army cyp
+	Neutral: army arm
+	East Frankish Kingdom: fleet sgs
+	Tulunid Emirate: fleet con
+	West Frankish Kingdom: army nar
+	Neutral: army mau
+	Khaganate of Khazaria: army sak
+	Abbasid Caliphate: army ale
+	Abbasid Caliphate: army kho
+	Principality of Kiev: army pol
+	Principality of Kiev: army kar
+	West Frankish Kingdom: army aqt
+	Principality of Kiev: fleet fin
+	Neutral: army thr
+	Neutral: army maz
+	Kingdom of Denmark: fleet now
+	Neutral: army aze
+	Neutral: army bja
+	Abbasid Caliphate: supply ale
+	Neutral: supply low
+	Umayyad Emirate: supply snc
+	Tulunid Emirate: supply bar
+	Neutral: supply sic
+	Principality of Kiev: supply nov
+	Kingdom of Denmark: supply jor
+	Neutral: supply bor
+	Tulunid Emirate: supply dam
+	Neutral: supply pec
+	Neutral: supply bas
+	Eastern Roman Empire: supply tar
+	Neutral: supply ifr
+	Abbasid Caliphate: supply bag
+	Neutral: supply geo
+	Neutral: supply arm
+	East Frankish Kingdom: supply swa
+	Umayyad Emirate: supply cad
+	East Frankish Kingdom: supply sax
+	Neutral: supply sad
+	Khaganate of Khazaria: supply tam
+	Kingdom of Denmark: supply sca
+	West Frankish Kingdom: supply pam
+	Neutral: supply mav
+	Tulunid Emirate: supply jer
+	Neutral: supply dub
+	Eastern Roman Empire: supply crn
+	Neutral: supply cos
+	Abbasid Caliphate: supply ira
+	Neutral: supply bul
+	Neutral: supply bja
+	Neutral: supply thr
+	West Frankish Kingdom: supply gas
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply nar
+	Neutral: supply dal
+	Neutral: supply lot
+	Tulunid Emirate: supply att
+	West Frankish Kingdom: supply aqt
+	Neutral: supply btt
+	East Frankish Kingdom: supply bav
+	Tulunid Emirate: supply con
+	Khaganate of Khazaria: supply sak
+	Khaganate of Khazaria: supply ati
+	Abbasid Caliphate: supply ard
+	Kingdom of Denmark: supply vik
+	Abbasid Caliphate: supply isf
+	Neutral: supply aze
+	East Frankish Kingdom: supply jel
+	West Frankish Kingdom: supply par
+	Neutral: supply rom
+	Umayyad Emirate: supply val
+	Neutral: supply cre
+	Neutral: supply cyp
+	Principality of Kiev: supply ros
+	Kingdom of Denmark: supply wsx
+	Neutral: supply mau
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply bre
+	Neutral: supply maz
+	Neutral: supply urg
+	Khaganate of Khazaria: supply kie
+	Umayyad Emirate: supply cod
+	Neutral: supply est
+ORDERS
+	build anywhere Army dam
+	build anywhere Army ati
+	remove eas
+	remove kar
+PHASE 908 Spring Movement
+POSITIONS
+	Neutral: army dub
+	East Frankish Kingdom: fleet sgs
+	Principality of Kiev: army pol
+	Neutral: army mav
+	Neutral: army bor
+	Neutral: army cyp
+	East Frankish Kingdom: army sax
+	Umayyad Emirate: fleet str
+	Kingdom of Denmark: fleet ice
+	West Frankish Kingdom: fleet gas
+	Neutral: army rom
+	Eastern Roman Empire: army epi
+	Khaganate of Khazaria: army mod
+	Abbasid Caliphate: army bsr
+	Tulunid Emirate: fleet con
+	Neutral: army maz
+	Neutral: army bas
+	Umayyad Emirate: fleet tri
+	Neutral: army est
+	West Frankish Kingdom: army nar
+	Abbasid Caliphate: army ale
+	Tulunid Emirate: army jer
+	Neutral: army geo
+	Neutral: army low
+	Neutral: army btt
+	Neutral: army dal
+	Abbasid Caliphate: army ard
+	East Frankish Kingdom: army vla
+	Neutral: army sad
+	West Frankish Kingdom: army spa
+	Kingdom of Denmark: fleet abo
+	Neutral: army arm
+	Khaganate of Khazaria: army sak
+	Neutral: army sic
+	Abbasid Caliphate: army kho
+	Tulunid Emirate: army dam
+	Umayyad Emirate: army zar
+	Eastern Roman Empire: fleet sle
+	Neutral: army bul
+	Neutral: army urg
+	Neutral: army pec
+	East Frankish Kingdom: army fri
+	Neutral: army bja
+	Neutral: army lot
+	Abbasid Caliphate: army sst
+	Neutral: army ifr
+	Khaganate of Khazaria: army der
+	Principality of Kiev: army nov
+	Neutral: army mau
+	Neutral: army thr
+	West Frankish Kingdom: fleet par
+	Tulunid Emirate: army att
+	Kingdom of Denmark: fleet now
+	Umayyad Emirate: army gal
+	Principality of Kiev: fleet fin
+	Tulunid Emirate: fleet ion
+	West Frankish Kingdom: army aqt
+	Neutral: army cre
+	Neutral: army cos
+	East Frankish Kingdom: army fra
+	Khaganate of Khazaria: army ati
+	Kingdom of Denmark: army saa
+	Khaganate of Khazaria: army kie
+	Neutral: army aze
+	Neutral: supply sic
+	Abbasid Caliphate: supply ira
+	Neutral: supply bul
+	East Frankish Kingdom: supply swa
+	Neutral: supply bja
+	Abbasid Caliphate: supply ard
+	Neutral: supply maz
+	Abbasid Caliphate: supply bag
+	Neutral: supply dub
+	West Frankish Kingdom: supply nar
+	Neutral: supply urg
+	Neutral: supply ifr
+	Khaganate of Khazaria: supply tam
+	Kingdom of Denmark: supply sca
+	Neutral: supply rom
+	Khaganate of Khazaria: supply kie
+	Tulunid Emirate: supply con
+	Principality of Kiev: supply ros
+	Neutral: supply bor
+	Neutral: supply lot
+	Neutral: supply aze
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply bre
+	Principality of Kiev: supply nov
+	Kingdom of Denmark: supply jor
+	Neutral: supply arm
+	Neutral: supply cos
+	Khaganate of Khazaria: supply ati
+	Khaganate of Khazaria: supply sak
+	Neutral: supply mau
+	Neutral: supply bas
+	Neutral: supply geo
+	Tulunid Emirate: supply bar
+	Neutral: supply pec
+	Umayyad Emirate: supply cad
+	Neutral: supply btt
+	Neutral: supply low
+	East Frankish Kingdom: supply bav
+	Tulunid Emirate: supply dam
+	West Frankish Kingdom: supply pam
+	Neutral: supply cyp
+	Abbasid Caliphate: supply ale
+	Umayyad Emirate: supply snc
+	Neutral: supply mav
+	Tulunid Emirate: supply jer
+	Neutral: supply dal
+	Neutral: supply cre
+	Tulunid Emirate: supply att
+	Abbasid Caliphate: supply isf
+	East Frankish Kingdom: supply jel
+	Umayyad Emirate: supply val
+	Umayyad Emirate: supply cod
+	Eastern Roman Empire: supply tar
+	Neutral: supply thr
+	Principality of Kiev: supply smo
+	Kingdom of Denmark: supply vik
+	West Frankish Kingdom: supply par
+	East Frankish Kingdom: supply sax
+	Neutral: supply sad
+	Eastern Roman Empire: supply crn
+	West Frankish Kingdom: supply gas
+	West Frankish Kingdom: supply aqt
+	Kingdom of Denmark: supply wsx
+	Neutral: supply est
+ORDERS
+	fra move lot
+	fri move bre
+	sgs support dub move ngs
+	vla support maz move vol
+	sax support mav move pol
+	sst support kho move ali
+	kho move ali
+	ale move aqa
+	bsr move nef
+	ard move aze
+	nar move tou
+	par move bsa
+	spa support aqt move tou
+	gas move can
+	aqt move btt
+	dam move jer
+	att move buc
+	con support vla move thr
+	jer move mec
+	ion hold
+	ati move bas
+	sak support mod move sev
+	der support ard move aze
+	kie support mod move vya
+	mod move ati
+	now support nov move saa
+	saa support nov move ula
+	ice hold
+	abo move pom
+	sle move tar
+	epi support dal
+	tri support epi move lib
+	zar support sad move val
+	gal move snc
+	str move bcs
+	fin hold
+	pol support abo move bor
+	nov hold
+PHASE 908 Fall Movement
+POSITIONS
+	East Frankish Kingdom: army bre
+	Umayyad Emirate: fleet bcs
+	Neutral: army pec
+	Abbasid Caliphate: army nef
+	Tulunid Emirate: fleet con
+	Principality of Kiev: army nov
+	Principality of Kiev: army pol
+	West Frankish Kingdom: army spa
+	East Frankish Kingdom: army vla
+	Umayyad Emirate: fleet tri
+	Neutral: army arm
+	Neutral: army maz
+	Neutral: army rom
+	Umayyad Emirate: army snc
+	Kingdom of Denmark: fleet now
+	Neutral: army ifr
+	Neutral: army cos
+	West Frankish Kingdom: army tou
+	Neutral: army bja
+	Tulunid Emirate: army mec
+	Neutral: army bul
+	Neutral: army bas
+	Eastern Roman Empire: fleet tar
+	Umayyad Emirate: army zar
+	Neutral: army geo
+	Abbasid Caliphate: army ali
+	Kingdom of Denmark: fleet pom
+	Neutral: army sic
+	East Frankish Kingdom: army sax
+	Neutral: army sad
+	Khaganate of Khazaria: army ati
+	Neutral: army cre
+	Khaganate of Khazaria: army mod
+	Khaganate of Khazaria: army der
+	Abbasid Caliphate: army sst
+	Kingdom of Denmark: fleet ice
+	Khaganate of Khazaria: army sak
+	Tulunid Emirate: army jer
+	Kingdom of Denmark: army saa
+	Neutral: army lot
+	Neutral: army bor
+	Neutral: army dal
+	Abbasid Caliphate: army aqa
+	Tulunid Emirate: army buc
+	Neutral: army est
+	Principality of Kiev: fleet fin
+	Abbasid Caliphate: army aze
+	Neutral: army mau
+	West Frankish Kingdom: fleet can
+	Neutral: army low
+	Neutral: army thr
+	West Frankish Kingdom: army aqt
+	East Frankish Kingdom: fleet sgs
+	East Frankish Kingdom: army fra
+	Neutral: army cyp
+	Tulunid Emirate: fleet ion
+	Neutral: army urg
+	Neutral: army dub
+	Neutral: army btt
+	West Frankish Kingdom: fleet bsa
+	Neutral: army mav
+	Khaganate of Khazaria: army kie
+	Eastern Roman Empire: army epi
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply nar
+	Tulunid Emirate: supply con
+	Neutral: supply bas
+	Umayyad Emirate: supply snc
+	Neutral: supply bor
+	Neutral: supply rom
+	Neutral: supply sic
+	Neutral: supply est
+	Khaganate of Khazaria: supply kie
+	Abbasid Caliphate: supply ira
+	Eastern Roman Empire: supply crn
+	Neutral: supply low
+	Neutral: supply mav
+	Neutral: supply ifr
+	Umayyad Emirate: supply val
+	Abbasid Caliphate: supply bag
+	Neutral: supply dal
+	Neutral: supply btt
+	Neutral: supply arm
+	West Frankish Kingdom: supply pam
+	Neutral: supply bja
+	Khaganate of Khazaria: supply sak
+	Kingdom of Denmark: supply jor
+	Tulunid Emirate: supply bar
+	East Frankish Kingdom: supply jel
+	Kingdom of Denmark: supply sca
+	Tulunid Emirate: supply att
+	East Frankish Kingdom: supply bre
+	Neutral: supply urg
+	Abbasid Caliphate: supply isf
+	Neutral: supply aze
+	Kingdom of Denmark: supply wsx
+	Umayyad Emirate: supply cod
+	Neutral: supply cyp
+	Abbasid Caliphate: supply ard
+	East Frankish Kingdom: supply swa
+	West Frankish Kingdom: supply aqt
+	East Frankish Kingdom: supply bav
+	Neutral: supply lot
+	Neutral: supply maz
+	Neutral: supply thr
+	Neutral: supply cre
+	Neutral: supply bul
+	Principality of Kiev: supply nov
+	West Frankish Kingdom: supply par
+	East Frankish Kingdom: supply sax
+	Principality of Kiev: supply ros
+	Eastern Roman Empire: supply tar
+	Tulunid Emirate: supply dam
+	Neutral: supply geo
+	Neutral: supply mau
+	Khaganate of Khazaria: supply ati
+	Abbasid Caliphate: supply ale
+	Neutral: supply sad
+	Khaganate of Khazaria: supply bnj
+	West Frankish Kingdom: supply gas
+	Neutral: supply pec
+	Neutral: supply cos
+	Kingdom of Denmark: supply vik
+	Khaganate of Khazaria: supply tam
+	Umayyad Emirate: supply cad
+	Tulunid Emirate: supply jer
+	Neutral: supply dub
+ORDERS
+	sgs hold
+	sax hold
+	bre move fri
+	vla move pec
+	fra move lot
+	sst move ali
+	ali support urg move kho
+	aze support geo move kak
+	nef hold
+	aqa move ale
+	spa move val
+	aqt move par
+	bsa support btt move par
+	can move ast
+	tou move gas
+	ion support buc move con
+	con move thr
+	buc move geo
+	jer support arm move jaz
+	mec support nef
+	sak move tam
+	mod move sak
+	kie move dre
+	der hold
+	ati support geo move bnj
+	saa move est
+	pom support lot move vel
+	now support nov move saa
+	ice move whi
+	epi move epi
+	tar move tyr
+	tri move ifr
+	zar hold
+	snc move ast
+	bcs move tyr
+	pol move sax
+	nov support saa move liv
+	fin support saa
+PHASE 908 Fall Adjustment
+POSITIONS
+	Kingdom of Denmark: army saa
+	Neutral: army cos
+	Tulunid Emirate: fleet con
+	East Frankish Kingdom: army sax
+	Neutral: army geo
+	Umayyad Emirate: fleet bcs
+	Neutral: army bja
+	Neutral: army mav
+	Neutral: army bul
+	Abbasid Caliphate: army ali
+	Khaganate of Khazaria: army dre
+	Tulunid Emirate: army buc
+	Umayyad Emirate: army snc
+	West Frankish Kingdom: army val
+	East Frankish Kingdom: army fra
+	Neutral: army est
+	Khaganate of Khazaria: army tam
+	Neutral: army arm
+	West Frankish Kingdom: fleet can
+	Khaganate of Khazaria: army sak
+	Abbasid Caliphate: army nef
+	Kingdom of Denmark: fleet now
+	Neutral: army bor
+	Neutral: army sad
+	Neutral: army btt
+	Principality of Kiev: army pol
+	Neutral: army sic
+	Abbasid Caliphate: army aze
+	Neutral: army mau
+	Neutral: army lot
+	Neutral: army cyp
+	Principality of Kiev: fleet fin
+	Khaganate of Khazaria: army ati
+	Khaganate of Khazaria: army der
+	Tulunid Emirate: army jer
+	West Frankish Kingdom: fleet bsa
+	Neutral: army ifr
+	East Frankish Kingdom: fleet sgs
+	Tulunid Emirate: army mec
+	Tulunid Emirate: fleet ion
+	Neutral: army dal
+	Neutral: army thr
+	Umayyad Emirate: fleet tri
+	Eastern Roman Empire: fleet tar
+	Neutral: army urg
+	East Frankish Kingdom: army vla
+	Umayyad Emirate: army zar
+	Kingdom of Denmark: fleet pom
+	Neutral: army bas
+	Neutral: army maz
+	Neutral: army pec
+	West Frankish Kingdom: army par
+	Neutral: army dub
+	Abbasid Caliphate: army sst
+	Neutral: army low
+	Principality of Kiev: army nov
+	Neutral: army cre
+	East Frankish Kingdom: army fri
+	Eastern Roman Empire: army epi
+	West Frankish Kingdom: army gas
+	Kingdom of Denmark: fleet whi
+	Abbasid Caliphate: army ale
+	Neutral: army rom
+	Khaganate of Khazaria: supply ati
+	Eastern Roman Empire: supply crn
+	Umayyad Emirate: supply cod
+	East Frankish Kingdom: supply bav
+	Neutral: supply ifr
+	Neutral: supply pec
+	Neutral: supply lot
+	East Frankish Kingdom: supply swa
+	East Frankish Kingdom: supply sax
+	Neutral: supply urg
+	Neutral: supply dub
+	Neutral: supply bor
+	Tulunid Emirate: supply att
+	Eastern Roman Empire: supply tar
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply val
+	Kingdom of Denmark: supply sca
+	Neutral: supply sad
+	Khaganate of Khazaria: supply bnj
+	Umayyad Emirate: supply cad
+	Umayyad Emirate: supply snc
+	Neutral: supply cre
+	Kingdom of Denmark: supply jor
+	Tulunid Emirate: supply dam
+	Neutral: supply maz
+	Neutral: supply bul
+	East Frankish Kingdom: supply jel
+	Neutral: supply geo
+	Neutral: supply rom
+	West Frankish Kingdom: supply nar
+	East Frankish Kingdom: supply bre
+	Neutral: supply dal
+	Abbasid Caliphate: supply aze
+	Tulunid Emirate: supply bar
+	Neutral: supply cyp
+	Neutral: supply sic
+	Abbasid Caliphate: supply ard
+	West Frankish Kingdom: supply par
+	West Frankish Kingdom: supply aqt
+	West Frankish Kingdom: supply gas
+	Neutral: supply mau
+	Neutral: supply bas
+	Neutral: supply bja
+	Abbasid Caliphate: supply ale
+	Kingdom of Denmark: supply vik
+	Abbasid Caliphate: supply isf
+	Neutral: supply btt
+	West Frankish Kingdom: supply pam
+	Neutral: supply cos
+	Neutral: supply low
+	Abbasid Caliphate: supply bag
+	Tulunid Emirate: supply con
+	Khaganate of Khazaria: supply sak
+	Khaganate of Khazaria: supply kie
+	Abbasid Caliphate: supply ira
+	Kingdom of Denmark: supply wsx
+	Khaganate of Khazaria: supply tam
+	Neutral: supply arm
+	Principality of Kiev: supply ros
+	Neutral: supply mav
+	Principality of Kiev: supply nov
+	Tulunid Emirate: supply jer
+	Neutral: supply thr
+	Neutral: supply est
+ORDERS
+	build anywhere Army ira
+	build anywhere Fleet aqt
+	remove tri
+PHASE 909 Spring Movement
+POSITIONS
+	Abbasid Caliphate: army aze
+	Neutral: army pec
+	Kingdom of Denmark: army saa
+	Tulunid Emirate: fleet con
+	Neutral: army sic
+	Kingdom of Denmark: fleet now
+	East Frankish Kingdom: fleet sgs
+	Eastern Roman Empire: fleet tar
+	East Frankish Kingdom: army vla
+	Neutral: army dub
+	East Frankish Kingdom: army sax
+	Neutral: army geo
+	Neutral: army lot
+	Neutral: army urg
+	Kingdom of Denmark: fleet pom
+	East Frankish Kingdom: army fra
+	Neutral: army arm
+	Principality of Kiev: fleet fin
+	West Frankish Kingdom: army par
+	Neutral: army est
+	Khaganate of Khazaria: army tam
+	Neutral: army sad
+	West Frankish Kingdom: army gas
+	Umayyad Emirate: fleet bcs
+	West Frankish Kingdom: army val
+	Umayyad Emirate: army zar
+	Khaganate of Khazaria: army ati
+	Tulunid Emirate: fleet ion
+	Neutral: army thr
+	Neutral: army mau
+	Neutral: army maz
+	Neutral: army cre
+	Abbasid Caliphate: army ali
+	Tulunid Emirate: army buc
+	Khaganate of Khazaria: army sak
+	Khaganate of Khazaria: army dre
+	Principality of Kiev: army nov
+	Kingdom of Denmark: fleet whi
+	West Frankish Kingdom: fleet aqt
+	Neutral: army cos
+	Khaganate of Khazaria: army der
+	Eastern Roman Empire: army epi
+	Neutral: army bas
+	Abbasid Caliphate: army ale
+	Neutral: army rom
+	Neutral: army mav
+	Neutral: army ifr
+	Tulunid Emirate: army mec
+	Abbasid Caliphate: army ira
+	Abbasid Caliphate: army nef
+	West Frankish Kingdom: fleet bsa
+	Neutral: army low
+	Umayyad Emirate: army snc
+	West Frankish Kingdom: fleet can
+	Neutral: army cyp
+	Neutral: army btt
+	Principality of Kiev: army pol
+	Tulunid Emirate: army jer
+	Neutral: army dal
+	Abbasid Caliphate: army sst
+	Neutral: army bja
+	Neutral: army bul
+	Neutral: army bor
+	East Frankish Kingdom: army fri
+	East Frankish Kingdom: supply jel
+	Eastern Roman Empire: supply tar
+	Neutral: supply cos
+	Neutral: supply low
+	East Frankish Kingdom: supply swa
+	Neutral: supply dal
+	East Frankish Kingdom: supply sax
+	Tulunid Emirate: supply att
+	Umayyad Emirate: supply snc
+	Kingdom of Denmark: supply jor
+	Tulunid Emirate: supply dam
+	Neutral: supply maz
+	Tulunid Emirate: supply con
+	Khaganate of Khazaria: supply ati
+	Khaganate of Khazaria: supply tam
+	Neutral: supply lot
+	Neutral: supply bul
+	Eastern Roman Empire: supply crn
+	Khaganate of Khazaria: supply bnj
+	Kingdom of Denmark: supply vik
+	Abbasid Caliphate: supply ira
+	Principality of Kiev: supply nov
+	West Frankish Kingdom: supply val
+	Neutral: supply sic
+	West Frankish Kingdom: supply aqt
+	West Frankish Kingdom: supply pam
+	Abbasid Caliphate: supply bag
+	Umayyad Emirate: supply cod
+	Neutral: supply bas
+	West Frankish Kingdom: supply par
+	Neutral: supply bja
+	Abbasid Caliphate: supply isf
+	Neutral: supply dub
+	Neutral: supply rom
+	West Frankish Kingdom: supply nar
+	Neutral: supply cyp
+	Abbasid Caliphate: supply ard
+	West Frankish Kingdom: supply gas
+	East Frankish Kingdom: supply bav
+	Neutral: supply urg
+	Principality of Kiev: supply ros
+	Neutral: supply mav
+	Neutral: supply thr
+	Neutral: supply ifr
+	Umayyad Emirate: supply cad
+	Neutral: supply arm
+	Tulunid Emirate: supply jer
+	Neutral: supply bor
+	Neutral: supply geo
+	Tulunid Emirate: supply bar
+	Neutral: supply mau
+	Abbasid Caliphate: supply ale
+	Neutral: supply est
+	Principality of Kiev: supply smo
+	East Frankish Kingdom: supply bre
+	Abbasid Caliphate: supply aze
+	Neutral: supply btt
+	Neutral: supply pec
+	Neutral: supply sad
+	Neutral: supply cre
+	Khaganate of Khazaria: supply sak
+	Khaganate of Khazaria: supply kie
+	Kingdom of Denmark: supply wsx
+	Kingdom of Denmark: supply sca
+ORDERS
+	vla support dal move ono
+	sgs move bre
+	fra move fri
+	fri move bre
+	sax move fra
+	sst move bsr
+	nef hold
+	ali move ard
+	ira move bag
+	aze move der
+	ale support ifr move tri
+	aqt support btt
+	can move gal
+	gas hold
+	val support cos move spa
+	par move par
+	bsa move wsx
+	jer support ale move mec
+	mec move ale
+	ion support val move tyr
+	buc support sic move con
+	con support dal move epi
+	tam move bnj
+	der move kak
+	ati move udm
+	sak support geo move bnj
+	dre move smo
+	now support par move ngs
+	saa move est
+	whi move bja
+	pom move abo
+	tar move sle
+	epi move tar
+	bcs support epi move tyr
+	zar move pam
+	snc support btt move gal
+	fin support now move saa
+	pol hold
+	nov support dre move liv
+PHASE 909 Fall Movement
+POSITIONS
+	Khaganate of Khazaria: army udm
+	Kingdom of Denmark: fleet abo
+	Abbasid Caliphate: army ard
+	Neutral: army cos
+	Neutral: army low
+	Principality of Kiev: army pol
+	Neutral: army bor
+	Neutral: army est
+	Neutral: army dal
+	Neutral: army cre
+	East Frankish Kingdom: army fra
+	Khaganate of Khazaria: army sak
+	West Frankish Kingdom: army par
+	Neutral: army sad
+	Eastern Roman Empire: fleet sle
+	Kingdom of Denmark: fleet whi
+	Kingdom of Denmark: fleet now
+	Abbasid Caliphate: army bsr
+	Khaganate of Khazaria: army bnj
+	Kingdom of Denmark: army saa
+	Principality of Kiev: fleet fin
+	West Frankish Kingdom: army gas
+	Tulunid Emirate: army buc
+	Abbasid Caliphate: army bag
+	Eastern Roman Empire: army epi
+	Principality of Kiev: army nov
+	East Frankish Kingdom: army vla
+	West Frankish Kingdom: fleet gal
+	Neutral: army arm
+	West Frankish Kingdom: army val
+	Abbasid Caliphate: army der
+	Umayyad Emirate: army pam
+	East Frankish Kingdom: fleet sgs
+	Tulunid Emirate: fleet ion
+	Neutral: army sic
+	Neutral: army bja
+	Abbasid Caliphate: army nef
+	Neutral: army geo
+	Neutral: army btt
+	West Frankish Kingdom: fleet aqt
+	West Frankish Kingdom: fleet wsx
+	Neutral: army lot
+	Tulunid Emirate: army jer
+	Neutral: army bul
+	Umayyad Emirate: army snc
+	Tulunid Emirate: fleet con
+	Umayyad Emirate: fleet bcs
+	Abbasid Caliphate: army ale
+	East Frankish Kingdom: army fri
+	Neutral: army dub
+	Neutral: army urg
+	Neutral: army mav
+	Neutral: army thr
+	Neutral: army rom
+	Tulunid Emirate: army mec
+	Neutral: army bas
+	East Frankish Kingdom: army sax
+	Khaganate of Khazaria: army smo
+	Neutral: army cyp
+	Khaganate of Khazaria: army kak
+	Neutral: army ifr
+	Neutral: army pec
+	Neutral: army maz
+	Neutral: army mau
+	Umayyad Emirate: supply cod
+	Abbasid Caliphate: supply ira
+	Principality of Kiev: supply ros
+	Khaganate of Khazaria: supply tam
+	Tulunid Emirate: supply att
+	Tulunid Emirate: supply jer
+	Neutral: supply dal
+	Kingdom of Denmark: supply sca
+	West Frankish Kingdom: supply nar
+	Neutral: supply btt
+	Neutral: supply ifr
+	Neutral: supply low
+	Neutral: supply mau
+	Kingdom of Denmark: supply jor
+	Kingdom of Denmark: supply wsx
+	Neutral: supply bor
+	Neutral: supply cyp
+	Neutral: supply bul
+	Eastern Roman Empire: supply crn
+	Neutral: supply pec
+	Neutral: supply rom
+	Neutral: supply lot
+	Neutral: supply bja
+	Neutral: supply cos
+	Neutral: supply bas
+	Abbasid Caliphate: supply isf
+	Khaganate of Khazaria: supply sak
+	Principality of Kiev: supply nov
+	Neutral: supply sad
+	Khaganate of Khazaria: supply kie
+	East Frankish Kingdom: supply sax
+	Neutral: supply arm
+	Neutral: supply mav
+	East Frankish Kingdom: supply bav
+	Neutral: supply est
+	West Frankish Kingdom: supply pam
+	Khaganate of Khazaria: supply ati
+	Neutral: supply urg
+	Tulunid Emirate: supply dam
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply geo
+	East Frankish Kingdom: supply bre
+	Umayyad Emirate: supply cad
+	Neutral: supply thr
+	West Frankish Kingdom: supply val
+	Abbasid Caliphate: supply bag
+	East Frankish Kingdom: supply jel
+	Principality of Kiev: supply smo
+	Eastern Roman Empire: supply tar
+	Neutral: supply sic
+	Abbasid Caliphate: supply aze
+	Tulunid Emirate: supply bar
+	Tulunid Emirate: supply con
+	Kingdom of Denmark: supply vik
+	Neutral: supply maz
+	Umayyad Emirate: supply snc
+	West Frankish Kingdom: supply par
+	East Frankish Kingdom: supply swa
+	Abbasid Caliphate: supply ale
+	Neutral: supply dub
+	West Frankish Kingdom: supply gas
+	Neutral: supply cre
+	West Frankish Kingdom: supply aqt
+	Abbasid Caliphate: supply ard
+ORDERS
+	fra support pol move sax
+	vla move vol
+	fri move vel
+	sgs move jel
+	sax support maz move pol
+	ard move bag
+	ale move bar
+	bsr move isf
+	nef support mec move jaz
+	der support sak move bnj
+	bag hold
+	aqt move gas
+	par move lot
+	gal move ast
+	gas move tou
+	wsx move bsa
+	val move tol
+	mec move jaz
+	con support cre move aeg
+	buc hold
+	jer move dam
+	ion move lib
+	udm hold
+	sak move mod
+	smo move vya
+	kak support bag move mos
+	bnj move abk
+	saa hold
+	abo hold
+	now support fri move ngs
+	whi convoy bja move kom
+	epi support thr move con
+	sle move rom/wc
+	snc hold
+	pam move tou
+	bcs move cos
+	pol move vol
+	nov move saa
+	fin move liv
+PHASE 909 Fall Adjustment
+POSITIONS
+	Principality of Kiev: fleet liv
+	Abbasid Caliphate: army bar
+	Neutral: army dal
+	East Frankish Kingdom: fleet jel
+	Neutral: army bas
+	Khaganate of Khazaria: army mod
+	West Frankish Kingdom: army par
+	Neutral: army ifr
+	Principality of Kiev: army pol
+	Neutral: army dub
+	Neutral: army mau
+	Khaganate of Khazaria: army kak
+	Abbasid Caliphate: army nef
+	Neutral: army cos
+	Neutral: army bor
+	Neutral: army geo
+	West Frankish Kingdom: fleet bsa
+	Neutral: army low
+	Abbasid Caliphate: army isf
+	Kingdom of Denmark: fleet now
+	West Frankish Kingdom: army gas
+	Tulunid Emirate: fleet con
+	Neutral: army sic
+	West Frankish Kingdom: army tol
+	Neutral: army btt
+	Abbasid Caliphate: army ard
+	East Frankish Kingdom: army vla
+	Tulunid Emirate: army dam
+	Neutral: army est
+	Tulunid Emirate: army buc
+	Kingdom of Denmark: fleet whi
+	Abbasid Caliphate: army bag
+	Kingdom of Denmark: fleet abo
+	East Frankish Kingdom: army fri
+	Umayyad Emirate: army snc
+	Neutral: army pec
+	Neutral: army maz
+	Principality of Kiev: army nov
+	East Frankish Kingdom: army fra
+	Neutral: army sad
+	Abbasid Caliphate: army der
+	Neutral: army bja
+	West Frankish Kingdom: fleet aqt
+	Tulunid Emirate: fleet lib
+	Neutral: army bul
+	Neutral: army cyp
+	Khaganate of Khazaria: army abk
+	Tulunid Emirate: army jaz
+	Umayyad Emirate: fleet bcs
+	Neutral: army urg
+	Neutral: army rom
+	West Frankish Kingdom: fleet ast
+	Kingdom of Denmark: army saa
+	Eastern Roman Empire: fleet sle
+	Umayyad Emirate: army pam
+	Neutral: army lot
+	Khaganate of Khazaria: army udm
+	Khaganate of Khazaria: army vya
+	Neutral: army arm
+	Neutral: army mav
+	Eastern Roman Empire: army epi
+	East Frankish Kingdom: army sax
+	Neutral: army cre
+	Neutral: army thr
+	Neutral: supply btt
+	Neutral: supply low
+	Neutral: supply sad
+	Neutral: supply urg
+	Tulunid Emirate: supply jer
+	Neutral: supply cyp
+	Neutral: supply est
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply bre
+	Khaganate of Khazaria: supply kie
+	Principality of Kiev: supply nov
+	Khaganate of Khazaria: supply ati
+	Eastern Roman Empire: supply crn
+	Neutral: supply bor
+	Abbasid Caliphate: supply ira
+	Neutral: supply dub
+	East Frankish Kingdom: supply jel
+	Abbasid Caliphate: supply isf
+	Eastern Roman Empire: supply tar
+	East Frankish Kingdom: supply sax
+	Tulunid Emirate: supply att
+	Neutral: supply dal
+	Neutral: supply arm
+	Neutral: supply bul
+	Neutral: supply pec
+	Khaganate of Khazaria: supply tam
+	West Frankish Kingdom: supply gas
+	Khaganate of Khazaria: supply sak
+	East Frankish Kingdom: supply swa
+	West Frankish Kingdom: supply nar
+	Umayyad Emirate: supply cod
+	Neutral: supply bas
+	Kingdom of Denmark: supply jor
+	Neutral: supply thr
+	Neutral: supply cre
+	Umayyad Emirate: supply cad
+	Abbasid Caliphate: supply bag
+	Neutral: supply sic
+	Kingdom of Denmark: supply wsx
+	Neutral: supply mav
+	Neutral: supply cos
+	Tulunid Emirate: supply dam
+	Neutral: supply bja
+	Kingdom of Denmark: supply sca
+	West Frankish Kingdom: supply val
+	Abbasid Caliphate: supply ale
+	Principality of Kiev: supply ros
+	Neutral: supply rom
+	Neutral: supply maz
+	Abbasid Caliphate: supply ard
+	Umayyad Emirate: supply snc
+	Abbasid Caliphate: supply aze
+	Umayyad Emirate: supply pam
+	Tulunid Emirate: supply con
+	Neutral: supply lot
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply aqt
+	East Frankish Kingdom: supply bav
+	West Frankish Kingdom: supply par
+	Neutral: supply ifr
+	Abbasid Caliphate: supply bar
+	Neutral: supply mau
+	Kingdom of Denmark: supply vik
+	Neutral: supply geo
+ORDERS
+	build anywhere Fleet ale
+	remove aqt
+	remove lib
+	build anywhere Army cod
+PHASE 910 Spring Movement
+POSITIONS
+	Neutral: army low
+	Abbasid Caliphate: army isf
+	Abbasid Caliphate: army der
+	Eastern Roman Empire: fleet sle
+	Neutral: army bas
+	Tulunid Emirate: fleet con
+	Eastern Roman Empire: army epi
+	Neutral: army cre
+	Neutral: army est
+	Khaganate of Khazaria: army abk
+	Khaganate of Khazaria: army udm
+	Principality of Kiev: fleet liv
+	Neutral: army cos
+	Neutral: army geo
+	Kingdom of Denmark: fleet now
+	East Frankish Kingdom: army vla
+	Neutral: army mav
+	East Frankish Kingdom: army sax
+	Neutral: army thr
+	West Frankish Kingdom: army par
+	Neutral: army bor
+	Umayyad Emirate: army cod
+	Neutral: army dal
+	Principality of Kiev: army pol
+	Umayyad Emirate: army snc
+	Tulunid Emirate: army jaz
+	Kingdom of Denmark: army saa
+	West Frankish Kingdom: fleet bsa
+	West Frankish Kingdom: army gas
+	Neutral: army maz
+	Abbasid Caliphate: army bar
+	East Frankish Kingdom: army fri
+	Umayyad Emirate: fleet bcs
+	Neutral: army urg
+	Abbasid Caliphate: fleet ale
+	Neutral: army cyp
+	East Frankish Kingdom: fleet jel
+	Neutral: army btt
+	Abbasid Caliphate: army ard
+	Neutral: army sad
+	Neutral: army bul
+	East Frankish Kingdom: army fra
+	West Frankish Kingdom: fleet ast
+	Khaganate of Khazaria: army mod
+	Abbasid Caliphate: army nef
+	Tulunid Emirate: army dam
+	Tulunid Emirate: army buc
+	Kingdom of Denmark: fleet abo
+	Neutral: army rom
+	Khaganate of Khazaria: army kak
+	Neutral: army sic
+	Kingdom of Denmark: fleet whi
+	Principality of Kiev: army nov
+	West Frankish Kingdom: army tol
+	Neutral: army ifr
+	Neutral: army dub
+	Khaganate of Khazaria: army vya
+	Neutral: army pec
+	Umayyad Emirate: army pam
+	Neutral: army arm
+	Abbasid Caliphate: army bag
+	Neutral: army mau
+	Neutral: army bja
+	Neutral: army lot
+	Kingdom of Denmark: supply jor
+	Neutral: supply est
+	Khaganate of Khazaria: supply kie
+	East Frankish Kingdom: supply sax
+	Neutral: supply cre
+	Kingdom of Denmark: supply sca
+	Tulunid Emirate: supply con
+	Neutral: supply ifr
+	Neutral: supply btt
+	Neutral: supply cyp
+	Abbasid Caliphate: supply isf
+	East Frankish Kingdom: supply bre
+	Khaganate of Khazaria: supply ati
+	Neutral: supply mav
+	Abbasid Caliphate: supply aze
+	Principality of Kiev: supply smo
+	East Frankish Kingdom: supply jel
+	Khaganate of Khazaria: supply tam
+	Neutral: supply maz
+	Principality of Kiev: supply ros
+	Neutral: supply lot
+	Eastern Roman Empire: supply crn
+	Neutral: supply thr
+	Neutral: supply sic
+	Eastern Roman Empire: supply tar
+	Neutral: supply dal
+	East Frankish Kingdom: supply swa
+	Abbasid Caliphate: supply ale
+	Neutral: supply mau
+	Neutral: supply urg
+	Tulunid Emirate: supply att
+	East Frankish Kingdom: supply bav
+	Neutral: supply arm
+	Neutral: supply cos
+	Umayyad Emirate: supply pam
+	Neutral: supply dub
+	Neutral: supply bul
+	West Frankish Kingdom: supply gas
+	Kingdom of Denmark: supply wsx
+	Neutral: supply geo
+	Neutral: supply low
+	Khaganate of Khazaria: supply bnj
+	Abbasid Caliphate: supply ira
+	Neutral: supply pec
+	Umayyad Emirate: supply snc
+	Kingdom of Denmark: supply vik
+	Tulunid Emirate: supply jer
+	Neutral: supply rom
+	Abbasid Caliphate: supply ard
+	West Frankish Kingdom: supply nar
+	Neutral: supply bas
+	Neutral: supply bja
+	West Frankish Kingdom: supply val
+	West Frankish Kingdom: supply par
+	Abbasid Caliphate: supply bar
+	Principality of Kiev: supply nov
+	Neutral: supply bor
+	Khaganate of Khazaria: supply sak
+	Umayyad Emirate: supply cod
+	Abbasid Caliphate: supply bag
+	West Frankish Kingdom: supply aqt
+	Neutral: supply sad
+	Umayyad Emirate: supply cad
+	Tulunid Emirate: supply dam
+ORDERS
+	fri move bre
+	vla support vya move kie
+	fra support fri move bre
+	sax move pol
+	jel move sgs
+	ard support arm move mos
+	bag support jaz move mos
+	bar move tri
+	isf move ali
+	der move bnj
+	nef hold
+	ale move jer
+	ast move gal
+	gas move tou
+	bsa support fri move lot
+	par support fra move lot
+	tol move val
+	dam move jer
+	buc support jaz move cap
+	jaz support ale move jer
+	con move att
+	kak move der
+	vya move chm
+	mod support bas move udm
+	udm support bja move kom
+	abk hold
+	now move kat
+	whi support bul move kom
+	saa move now
+	abo move vel/nc
+	sle support rom
+	epi move dal
+	pam support sad move spa
+	snc support cod move tol
+	bcs move val
+	cod support cos move val
+	liv support nov move est
+	nov move kri
+	pol support vla move vol
+PHASE 910 Fall Movement
+POSITIONS
+	Abbasid Caliphate: army ali
+	East Frankish Kingdom: army vla
+	West Frankish Kingdom: army par
+	Umayyad Emirate: army snc
+	Neutral: army cyp
+	Kingdom of Denmark: fleet whi
+	Abbasid Caliphate: army bnj
+	Principality of Kiev: army pol
+	Neutral: army lot
+	Khaganate of Khazaria: army udm
+	Umayyad Emirate: fleet bcs
+	Tulunid Emirate: army jaz
+	Neutral: army bor
+	Neutral: army mau
+	Tulunid Emirate: army dam
+	Neutral: army thr
+	Neutral: army bas
+	Neutral: army sic
+	East Frankish Kingdom: fleet sgs
+	Neutral: army arm
+	Neutral: army est
+	Abbasid Caliphate: army ard
+	Kingdom of Denmark: army now
+	Abbasid Caliphate: army bag
+	Neutral: army rom
+	Tulunid Emirate: fleet att
+	Neutral: army sad
+	Eastern Roman Empire: fleet sle
+	Neutral: army pec
+	West Frankish Kingdom: fleet bsa
+	Neutral: army btt
+	Umayyad Emirate: army cod
+	West Frankish Kingdom: fleet gal
+	Abbasid Caliphate: army nef
+	Neutral: army bja
+	Neutral: army ifr
+	Kingdom of Denmark: fleet vel/nc
+	Khaganate of Khazaria: army mod
+	Khaganate of Khazaria: army abk
+	Neutral: army cre
+	Neutral: army maz
+	Neutral: army urg
+	Principality of Kiev: fleet liv
+	Neutral: army low
+	East Frankish Kingdom: army fra
+	Principality of Kiev: army kri
+	East Frankish Kingdom: army bre
+	Neutral: army mav
+	West Frankish Kingdom: army tou
+	Khaganate of Khazaria: army der
+	Neutral: army geo
+	Kingdom of Denmark: fleet kat
+	Abbasid Caliphate: army tri
+	Neutral: army dal
+	West Frankish Kingdom: army tol
+	Neutral: army cos
+	Khaganate of Khazaria: army chm
+	Eastern Roman Empire: army epi
+	Abbasid Caliphate: fleet jer
+	Neutral: army bul
+	East Frankish Kingdom: army sax
+	Tulunid Emirate: army buc
+	Umayyad Emirate: army pam
+	Neutral: army dub
+	Tulunid Emirate: supply dam
+	East Frankish Kingdom: supply bre
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply aqt
+	East Frankish Kingdom: supply sax
+	Neutral: supply cre
+	Neutral: supply arm
+	Neutral: supply est
+	Neutral: supply bja
+	Umayyad Emirate: supply snc
+	West Frankish Kingdom: supply par
+	Neutral: supply lot
+	Neutral: supply thr
+	West Frankish Kingdom: supply gas
+	Neutral: supply btt
+	Neutral: supply cos
+	Tulunid Emirate: supply con
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply geo
+	Neutral: supply bor
+	Abbasid Caliphate: supply bar
+	Neutral: supply sad
+	Neutral: supply maz
+	West Frankish Kingdom: supply val
+	Khaganate of Khazaria: supply tam
+	Neutral: supply sic
+	Tulunid Emirate: supply jer
+	Abbasid Caliphate: supply bag
+	Neutral: supply low
+	Khaganate of Khazaria: supply kie
+	East Frankish Kingdom: supply jel
+	Kingdom of Denmark: supply wsx
+	Kingdom of Denmark: supply sca
+	Neutral: supply ifr
+	Umayyad Emirate: supply pam
+	Abbasid Caliphate: supply ira
+	Principality of Kiev: supply nov
+	Neutral: supply mau
+	Umayyad Emirate: supply cad
+	Neutral: supply cyp
+	Tulunid Emirate: supply att
+	East Frankish Kingdom: supply bav
+	Abbasid Caliphate: supply ale
+	Eastern Roman Empire: supply crn
+	Umayyad Emirate: supply cod
+	Eastern Roman Empire: supply tar
+	Abbasid Caliphate: supply isf
+	Principality of Kiev: supply ros
+	Neutral: supply dal
+	Neutral: supply pec
+	Abbasid Caliphate: supply aze
+	Neutral: supply dub
+	Neutral: supply rom
+	Neutral: supply bas
+	Neutral: supply bul
+	Neutral: supply urg
+	Neutral: supply mav
+	West Frankish Kingdom: supply nar
+	Khaganate of Khazaria: supply sak
+	Kingdom of Denmark: supply vik
+	East Frankish Kingdom: supply swa
+	Abbasid Caliphate: supply ard
+	Khaganate of Khazaria: supply ati
+	Kingdom of Denmark: supply jor
+ORDERS
+	sgs move jel
+	fra hold
+	sax move bav
+	bre move sax
+	vla support thr
+	nef move mec
+	tri move ale
+	bnj move ati
+	bag support dam move jaz
+	ard move isf
+	jer hold
+	ali move sst
+	bsa support sgs move wsx
+	tou support bcs move spa
+	tol support pam move zar
+	par support btt
+	gal move oce
+	jaz move jer
+	dam support nef move jaz
+	buc support thr move con
+	att support geo move cap
+	abk move geo
+	chm move bja
+	udm move bul
+	mod move bul
+	der move kak
+	kat move abo
+	now move sca
+	whi move bja
+	vel/nc move pom
+	sle move tar
+	epi move mac
+	bcs move tyr
+	snc move gal
+	pam support cos move spa
+	cod support tol move val
+	pol support vel move pom
+	liv move bor
+	kri move smo
+PHASE 910 Fall Adjustment
+POSITIONS
+	Abbasid Caliphate: army ati
+	Abbasid Caliphate: army sst
+	Neutral: army mau
+	East Frankish Kingdom: fleet jel
+	Tulunid Emirate: army dam
+	Umayyad Emirate: fleet tyr
+	Kingdom of Denmark: fleet whi
+	Kingdom of Denmark: fleet abo
+	Neutral: army cre
+	Abbasid Caliphate: fleet jer
+	Neutral: army cyp
+	West Frankish Kingdom: fleet oce
+	East Frankish Kingdom: army fra
+	Neutral: army bja
+	Principality of Kiev: army pol
+	Khaganate of Khazaria: army kak
+	Neutral: army bul
+	Umayyad Emirate: army gal
+	Neutral: army est
+	Neutral: army thr
+	West Frankish Kingdom: army par
+	Neutral: army sic
+	Neutral: army bor
+	Neutral: army dal
+	Tulunid Emirate: army jaz
+	Abbasid Caliphate: army mec
+	Abbasid Caliphate: army ale
+	Neutral: army lot
+	Umayyad Emirate: army pam
+	Khaganate of Khazaria: army udm
+	Khaganate of Khazaria: army chm
+	Neutral: army bas
+	Tulunid Emirate: fleet att
+	Principality of Kiev: fleet liv
+	Neutral: army arm
+	Khaganate of Khazaria: army mod
+	Neutral: army pec
+	East Frankish Kingdom: army bav
+	Neutral: army cos
+	Eastern Roman Empire: army mac
+	Kingdom of Denmark: army now
+	West Frankish Kingdom: army tol
+	Neutral: army sad
+	East Frankish Kingdom: army sax
+	Neutral: army geo
+	Abbasid Caliphate: army bag
+	Neutral: army mav
+	West Frankish Kingdom: fleet bsa
+	Neutral: army urg
+	Abbasid Caliphate: army isf
+	Neutral: army maz
+	Eastern Roman Empire: fleet tar
+	Tulunid Emirate: army buc
+	Khaganate of Khazaria: army abk
+	Neutral: army btt
+	Neutral: army rom
+	Neutral: army dub
+	Principality of Kiev: army smo
+	Kingdom of Denmark: fleet pom
+	Neutral: army ifr
+	Neutral: army low
+	East Frankish Kingdom: army vla
+	Umayyad Emirate: army cod
+	West Frankish Kingdom: army tou
+	Neutral: supply urg
+	West Frankish Kingdom: supply val
+	Neutral: supply pec
+	Abbasid Caliphate: supply jer
+	Neutral: supply bja
+	Neutral: supply ifr
+	Neutral: supply dal
+	Neutral: supply geo
+	West Frankish Kingdom: supply nar
+	Kingdom of Denmark: supply jor
+	Neutral: supply low
+	Kingdom of Denmark: supply wsx
+	East Frankish Kingdom: supply sax
+	Neutral: supply cos
+	Principality of Kiev: supply ros
+	East Frankish Kingdom: supply bav
+	Principality of Kiev: supply nov
+	West Frankish Kingdom: supply gas
+	Neutral: supply btt
+	Khaganate of Khazaria: supply kie
+	West Frankish Kingdom: supply aqt
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply bre
+	Tulunid Emirate: supply con
+	Abbasid Caliphate: supply ati
+	Abbasid Caliphate: supply ard
+	Abbasid Caliphate: supply ira
+	Neutral: supply lot
+	Neutral: supply mau
+	Eastern Roman Empire: supply crn
+	Neutral: supply bor
+	Khaganate of Khazaria: supply tam
+	West Frankish Kingdom: supply par
+	Neutral: supply bul
+	Neutral: supply bas
+	Principality of Kiev: supply smo
+	Khaganate of Khazaria: supply sak
+	Neutral: supply maz
+	Tulunid Emirate: supply dam
+	Kingdom of Denmark: supply sca
+	East Frankish Kingdom: supply swa
+	Neutral: supply cre
+	Neutral: supply thr
+	Neutral: supply sic
+	Umayyad Emirate: supply cod
+	Abbasid Caliphate: supply aze
+	Umayyad Emirate: supply snc
+	Abbasid Caliphate: supply bar
+	Neutral: supply est
+	Neutral: supply cyp
+	Eastern Roman Empire: supply tar
+	Neutral: supply dub
+	Abbasid Caliphate: supply bag
+	Umayyad Emirate: supply pam
+	Tulunid Emirate: supply att
+	Neutral: supply sad
+	Neutral: supply rom
+	East Frankish Kingdom: supply jel
+	Umayyad Emirate: supply cad
+	Abbasid Caliphate: supply isf
+	Kingdom of Denmark: supply vik
+	Abbasid Caliphate: supply ale
+	Neutral: supply arm
+	Neutral: supply mav
+ORDERS
+	build anywhere Fleet bar
+	remove dam
+	remove abk
+PHASE 911 Spring Movement
+POSITIONS
+	Khaganate of Khazaria: army chm
+	Neutral: army arm
+	Umayyad Emirate: army pam
+	West Frankish Kingdom: fleet oce
+	Umayyad Emirate: army gal
+	Kingdom of Denmark: fleet whi
+	West Frankish Kingdom: army par
+	West Frankish Kingdom: army tou
+	Abbasid Caliphate: army isf
+	Neutral: army mav
+	East Frankish Kingdom: army sax
+	Tulunid Emirate: army buc
+	East Frankish Kingdom: army vla
+	Khaganate of Khazaria: army udm
+	Principality of Kiev: fleet liv
+	Neutral: army geo
+	Neutral: army dal
+	East Frankish Kingdom: army bav
+	Principality of Kiev: army smo
+	East Frankish Kingdom: fleet jel
+	Neutral: army cyp
+	Neutral: army sic
+	Abbasid Caliphate: army mec
+	Abbasid Caliphate: army ale
+	Neutral: army cos
+	West Frankish Kingdom: army tol
+	Umayyad Emirate: army cod
+	Abbasid Caliphate: fleet jer
+	Kingdom of Denmark: fleet abo
+	Neutral: army maz
+	Abbasid Caliphate: fleet bar
+	Neutral: army mau
+	Neutral: army bor
+	Tulunid Emirate: army jaz
+	Umayyad Emirate: fleet tyr
+	Neutral: army thr
+	Tulunid Emirate: fleet att
+	Neutral: army sad
+	Neutral: army rom
+	Neutral: army low
+	Neutral: army cre
+	Neutral: army lot
+	Abbasid Caliphate: army bag
+	Neutral: army urg
+	Eastern Roman Empire: fleet tar
+	Neutral: army ifr
+	Khaganate of Khazaria: army kak
+	Khaganate of Khazaria: army mod
+	Neutral: army bul
+	Kingdom of Denmark: fleet pom
+	Neutral: army pec
+	East Frankish Kingdom: army fra
+	Neutral: army bja
+	Principality of Kiev: army pol
+	Neutral: army bas
+	Eastern Roman Empire: army mac
+	Kingdom of Denmark: army now
+	Neutral: army btt
+	Abbasid Caliphate: army ati
+	Neutral: army dub
+	Neutral: army est
+	West Frankish Kingdom: fleet bsa
+	Abbasid Caliphate: army sst
+	East Frankish Kingdom: supply bav
+	Neutral: supply mau
+	Umayyad Emirate: supply cad
+	Neutral: supply urg
+	Neutral: supply cos
+	Abbasid Caliphate: supply isf
+	Neutral: supply low
+	Neutral: supply bor
+	Principality of Kiev: supply nov
+	East Frankish Kingdom: supply swa
+	Neutral: supply geo
+	Principality of Kiev: supply ros
+	West Frankish Kingdom: supply aqt
+	Umayyad Emirate: supply cod
+	West Frankish Kingdom: supply val
+	Neutral: supply ifr
+	Abbasid Caliphate: supply ale
+	Neutral: supply cre
+	Kingdom of Denmark: supply vik
+	Neutral: supply bul
+	Neutral: supply cyp
+	Abbasid Caliphate: supply jer
+	Eastern Roman Empire: supply crn
+	Neutral: supply dub
+	Principality of Kiev: supply smo
+	Abbasid Caliphate: supply bar
+	Neutral: supply bja
+	Neutral: supply dal
+	Umayyad Emirate: supply snc
+	Khaganate of Khazaria: supply kie
+	Abbasid Caliphate: supply ira
+	Kingdom of Denmark: supply sca
+	Tulunid Emirate: supply att
+	West Frankish Kingdom: supply par
+	Tulunid Emirate: supply dam
+	Tulunid Emirate: supply con
+	Abbasid Caliphate: supply ati
+	Neutral: supply sic
+	Neutral: supply est
+	Umayyad Emirate: supply pam
+	Neutral: supply rom
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply bre
+	Neutral: supply maz
+	West Frankish Kingdom: supply nar
+	Neutral: supply bas
+	Abbasid Caliphate: supply aze
+	Abbasid Caliphate: supply bag
+	Neutral: supply arm
+	Neutral: supply mav
+	Neutral: supply btt
+	Khaganate of Khazaria: supply sak
+	Abbasid Caliphate: supply ard
+	Khaganate of Khazaria: supply tam
+	Eastern Roman Empire: supply tar
+	Neutral: supply sad
+	East Frankish Kingdom: supply jel
+	Kingdom of Denmark: supply wsx
+	East Frankish Kingdom: supply sax
+	Neutral: supply thr
+	West Frankish Kingdom: supply gas
+	Neutral: supply lot
+	Neutral: supply pec
+	Kingdom of Denmark: supply jor
+ORDERS
+	jel move vel/wc
+	vla hold
+	bav hold
+	sax move pom
+	fra move swa
+	isf move ard
+	ati move bas
+	mec support jer
+	ale move jer
+	jer move egy
+	bag support arm move mos
+	bar support tyr move lib
+	sst move isf
+	tou move gas
+	par support fra move lot
+	oce move wel
+	tol move snc
+	bsa move oce
+	jaz move nef
+	att move con
+	buc move cap
+	udm move kom
+	mod move vya
+	chm move ros
+	kak support buc move geo
+	pom move vel/nc
+	whi support lot move ice
+	now move ula
+	abo move sca
+	tar support rom move spo
+	mac move dal
+	pam move gas
+	cod move val
+	gal move btt
+	tyr support sad
+	liv hold
+	pol support mav move bav
+	smo hold
+PHASE 911 Fall Movement
+POSITIONS
+	Neutral: army bul
+	Tulunid Emirate: army nef
+	Neutral: army mau
+	Eastern Roman Empire: fleet tar
+	Khaganate of Khazaria: army vya
+	West Frankish Kingdom: army snc
+	Eastern Roman Empire: army mac
+	Neutral: army sad
+	West Frankish Kingdom: fleet oce
+	Kingdom of Denmark: fleet sca
+	Umayyad Emirate: fleet tyr
+	East Frankish Kingdom: army sax
+	Neutral: army pec
+	Umayyad Emirate: army pam
+	Neutral: army dal
+	Neutral: army bas
+	Abbasid Caliphate: army mec
+	Principality of Kiev: fleet liv
+	West Frankish Kingdom: fleet wel
+	Abbasid Caliphate: army isf
+	Abbasid Caliphate: army ard
+	Neutral: army low
+	Neutral: army cre
+	West Frankish Kingdom: army tou
+	Abbasid Caliphate: army bag
+	East Frankish Kingdom: army bav
+	Khaganate of Khazaria: army ros
+	West Frankish Kingdom: army par
+	Neutral: army dub
+	Neutral: army bja
+	East Frankish Kingdom: army vla
+	East Frankish Kingdom: fleet jel
+	Tulunid Emirate: fleet con
+	Neutral: army mav
+	Abbasid Caliphate: army jer
+	Neutral: army est
+	Neutral: army arm
+	Neutral: army maz
+	Neutral: army urg
+	Neutral: army btt
+	Abbasid Caliphate: fleet bar
+	Khaganate of Khazaria: army kom
+	Abbasid Caliphate: army ati
+	Abbasid Caliphate: fleet egy
+	Tulunid Emirate: army cap
+	Kingdom of Denmark: army ula
+	Khaganate of Khazaria: army kak
+	Neutral: army bor
+	Neutral: army rom
+	Principality of Kiev: army smo
+	Neutral: army cyp
+	Neutral: army sic
+	Neutral: army geo
+	East Frankish Kingdom: army swa
+	Neutral: army cos
+	Kingdom of Denmark: fleet pom
+	Neutral: army lot
+	Principality of Kiev: army pol
+	Neutral: army thr
+	Neutral: army ifr
+	Umayyad Emirate: army gal
+	Kingdom of Denmark: fleet whi
+	Umayyad Emirate: army val
+	East Frankish Kingdom: supply swa
+	Tulunid Emirate: supply con
+	Neutral: supply cyp
+	Neutral: supply urg
+	Neutral: supply cre
+	West Frankish Kingdom: supply par
+	Abbasid Caliphate: supply ati
+	Neutral: supply low
+	East Frankish Kingdom: supply jel
+	Neutral: supply cos
+	Khaganate of Khazaria: supply kie
+	Neutral: supply bja
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply sic
+	West Frankish Kingdom: supply gas
+	Neutral: supply maz
+	Khaganate of Khazaria: supply tam
+	Neutral: supply btt
+	Neutral: supply thr
+	Neutral: supply bor
+	Neutral: supply dub
+	Khaganate of Khazaria: supply sak
+	Neutral: supply sad
+	East Frankish Kingdom: supply bav
+	West Frankish Kingdom: supply aqt
+	Neutral: supply est
+	Neutral: supply ifr
+	West Frankish Kingdom: supply val
+	East Frankish Kingdom: supply sax
+	Abbasid Caliphate: supply jer
+	East Frankish Kingdom: supply bre
+	Neutral: supply mau
+	Abbasid Caliphate: supply bag
+	Neutral: supply arm
+	Principality of Kiev: supply nov
+	Abbasid Caliphate: supply ard
+	Kingdom of Denmark: supply wsx
+	Umayyad Emirate: supply cod
+	Neutral: supply dal
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply nar
+	Neutral: supply rom
+	Neutral: supply pec
+	Kingdom of Denmark: supply jor
+	Neutral: supply geo
+	Umayyad Emirate: supply snc
+	Neutral: supply bas
+	Umayyad Emirate: supply cad
+	Kingdom of Denmark: supply sca
+	Eastern Roman Empire: supply tar
+	Kingdom of Denmark: supply vik
+	Abbasid Caliphate: supply isf
+	Abbasid Caliphate: supply bar
+	Abbasid Caliphate: supply aze
+	Eastern Roman Empire: supply crn
+	Abbasid Caliphate: supply ira
+	Principality of Kiev: supply ros
+	Neutral: supply mav
+	Abbasid Caliphate: supply ale
+	Neutral: supply bul
+	Umayyad Emirate: supply pam
+	Tulunid Emirate: supply dam
+	Neutral: supply lot
+	Tulunid Emirate: supply att
+ORDERS
+	vla move pec
+	bav move hel
+	jel support sax move vel
+	sax move pom
+	swa move sax
+	ati move mod
+	jer move ale
+	isf move ira
+	egy support cos move lib
+	bar move tri
+	mec move aqa
+	ard move mos
+	bag move ard
+	tou support pam move gas
+	oce support snc move gal
+	par move aqt
+	snc move zar
+	wel move jor/wc
+	con support rom move ion
+	cap support kak
+	nef hold
+	kom move bul
+	kak support geo
+	vya move chm
+	ros support bja move kar
+	sca move kat
+	ula move got
+	whi move ice
+	pom support sax move vel
+	tar move ill
+	mac move epi
+	tyr move sic
+	val move cod
+	pam move zar
+	gal support dub move cad
+	smo hold
+	pol move sax
+	liv support maz move bor
+PHASE 911 Fall Adjustment
+POSITIONS
+	Tulunid Emirate: army nef
+	Neutral: army maz
+	Neutral: army lot
+	Kingdom of Denmark: army got
+	West Frankish Kingdom: fleet jor/wc
+	West Frankish Kingdom: army aqt
+	Neutral: army geo
+	Neutral: army pec
+	West Frankish Kingdom: army tou
+	Neutral: army bul
+	Neutral: army cre
+	Neutral: army cyp
+	Neutral: army dub
+	Kingdom of Denmark: fleet pom
+	Abbasid Caliphate: army mos
+	Neutral: army urg
+	Khaganate of Khazaria: army kak
+	Eastern Roman Empire: army epi
+	Neutral: army est
+	Abbasid Caliphate: army mod
+	Tulunid Emirate: army cap
+	Umayyad Emirate: fleet tyr
+	Khaganate of Khazaria: army ros
+	East Frankish Kingdom: army sax
+	Abbasid Caliphate: fleet tri
+	West Frankish Kingdom: fleet oce
+	Neutral: army rom
+	East Frankish Kingdom: army vla
+	East Frankish Kingdom: army hel
+	Neutral: army bor
+	Neutral: army sad
+	Neutral: army bja
+	Principality of Kiev: army smo
+	Neutral: army thr
+	Neutral: army low
+	West Frankish Kingdom: army snc
+	Neutral: army btt
+	Neutral: army sic
+	Neutral: army dal
+	Umayyad Emirate: army gal
+	Abbasid Caliphate: army aqa
+	Eastern Roman Empire: fleet ill
+	Neutral: army bas
+	Umayyad Emirate: army pam
+	Umayyad Emirate: army cod
+	Abbasid Caliphate: army ale
+	Neutral: army cos
+	Kingdom of Denmark: fleet ice
+	Principality of Kiev: army pol
+	Neutral: army arm
+	Neutral: army mau
+	Neutral: army ifr
+	Abbasid Caliphate: army ira
+	Khaganate of Khazaria: army kom
+	Kingdom of Denmark: fleet kat
+	Khaganate of Khazaria: army chm
+	Principality of Kiev: fleet liv
+	East Frankish Kingdom: fleet jel
+	Abbasid Caliphate: army ard
+	Neutral: army mav
+	Abbasid Caliphate: fleet egy
+	East Frankish Kingdom: army swa
+	Tulunid Emirate: fleet con
+	Eastern Roman Empire: supply tar
+	East Frankish Kingdom: supply sax
+	Neutral: supply lot
+	Eastern Roman Empire: supply crn
+	Abbasid Caliphate: supply bag
+	Neutral: supply bul
+	Neutral: supply maz
+	Neutral: supply ifr
+	Neutral: supply btt
+	Neutral: supply arm
+	Abbasid Caliphate: supply aze
+	Abbasid Caliphate: supply jer
+	West Frankish Kingdom: supply par
+	Neutral: supply thr
+	Neutral: supply mau
+	Khaganate of Khazaria: supply sak
+	Neutral: supply urg
+	Neutral: supply est
+	Khaganate of Khazaria: supply bnj
+	Abbasid Caliphate: supply ard
+	West Frankish Kingdom: supply jor
+	Neutral: supply sad
+	Abbasid Caliphate: supply ira
+	East Frankish Kingdom: supply jel
+	Khaganate of Khazaria: supply kie
+	Neutral: supply cos
+	Kingdom of Denmark: supply sca
+	Umayyad Emirate: supply cod
+	Tulunid Emirate: supply att
+	Neutral: supply bas
+	Neutral: supply sic
+	Neutral: supply mav
+	Neutral: supply bja
+	Principality of Kiev: supply smo
+	West Frankish Kingdom: supply snc
+	Neutral: supply dal
+	Neutral: supply rom
+	East Frankish Kingdom: supply bre
+	East Frankish Kingdom: supply bav
+	West Frankish Kingdom: supply aqt
+	Neutral: supply geo
+	Kingdom of Denmark: supply wsx
+	Abbasid Caliphate: supply ale
+	Principality of Kiev: supply nov
+	Neutral: supply dub
+	East Frankish Kingdom: supply swa
+	Neutral: supply bor
+	West Frankish Kingdom: supply nar
+	Umayyad Emirate: supply pam
+	Kingdom of Denmark: supply vik
+	Neutral: supply low
+	Neutral: supply cre
+	Neutral: supply pec
+	Khaganate of Khazaria: supply tam
+	West Frankish Kingdom: supply val
+	Abbasid Caliphate: supply bar
+	Khaganate of Khazaria: supply ros
+	Neutral: supply cyp
+	Tulunid Emirate: supply con
+	Abbasid Caliphate: supply ati
+	Abbasid Caliphate: supply isf
+	Umayyad Emirate: supply cad
+	West Frankish Kingdom: supply gas
+	Tulunid Emirate: supply dam
+ORDERS
+	build anywhere Army isf
+	build anywhere Army val
+	build anywhere Fleet bnj
+	remove kat
+	remove gal
+	remove liv
+PHASE 912 Spring Movement
+POSITIONS
+	Neutral: army rom
+	Neutral: army arm
+	Neutral: army mau
+	Neutral: army lot
+	Neutral: army pec
+	Neutral: army thr
+	Neutral: army cos
+	Abbasid Caliphate: army isf
+	West Frankish Kingdom: army val
+	Kingdom of Denmark: army got
+	West Frankish Kingdom: fleet oce
+	East Frankish Kingdom: army vla
+	Abbasid Caliphate: army aqa
+	Abbasid Caliphate: army ale
+	Neutral: army dal
+	East Frankish Kingdom: fleet jel
+	Tulunid Emirate: fleet con
+	Tulunid Emirate: army nef
+	West Frankish Kingdom: army tou
+	Neutral: army bja
+	West Frankish Kingdom: army snc
+	Neutral: army btt
+	Neutral: army cre
+	Eastern Roman Empire: fleet ill
+	Umayyad Emirate: army pam
+	Abbasid Caliphate: fleet egy
+	Neutral: army maz
+	Neutral: army cyp
+	Khaganate of Khazaria: army ros
+	Umayyad Emirate: army cod
+	Neutral: army mav
+	West Frankish Kingdom: fleet jor/wc
+	West Frankish Kingdom: army aqt
+	Neutral: army bul
+	Neutral: army sad
+	Principality of Kiev: army smo
+	East Frankish Kingdom: army sax
+	Khaganate of Khazaria: army chm
+	East Frankish Kingdom: army swa
+	Khaganate of Khazaria: fleet bnj
+	Neutral: army dub
+	Kingdom of Denmark: fleet pom
+	Abbasid Caliphate: army ira
+	Eastern Roman Empire: army epi
+	Neutral: army bor
+	Khaganate of Khazaria: army kom
+	Umayyad Emirate: fleet tyr
+	Neutral: army ifr
+	Abbasid Caliphate: army mos
+	Khaganate of Khazaria: army kak
+	Abbasid Caliphate: fleet tri
+	Neutral: army bas
+	Principality of Kiev: army pol
+	Kingdom of Denmark: fleet ice
+	Neutral: army geo
+	Neutral: army urg
+	Neutral: army est
+	Tulunid Emirate: army cap
+	Neutral: army sic
+	Abbasid Caliphate: army mod
+	East Frankish Kingdom: army hel
+	Neutral: army low
+	Abbasid Caliphate: army ard
+	Neutral: supply bul
+	West Frankish Kingdom: supply nar
+	Umayyad Emirate: supply cad
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply pec
+	West Frankish Kingdom: supply val
+	Khaganate of Khazaria: supply ros
+	West Frankish Kingdom: supply gas
+	Abbasid Caliphate: supply bag
+	Neutral: supply bas
+	Neutral: supply dal
+	Neutral: supply dub
+	Tulunid Emirate: supply con
+	Principality of Kiev: supply nov
+	Abbasid Caliphate: supply ati
+	Eastern Roman Empire: supply crn
+	Abbasid Caliphate: supply jer
+	Umayyad Emirate: supply cod
+	Abbasid Caliphate: supply aze
+	Neutral: supply sic
+	Abbasid Caliphate: supply ira
+	Kingdom of Denmark: supply sca
+	Khaganate of Khazaria: supply sak
+	Neutral: supply cyp
+	West Frankish Kingdom: supply jor
+	Tulunid Emirate: supply att
+	Principality of Kiev: supply smo
+	Umayyad Emirate: supply pam
+	Neutral: supply cre
+	East Frankish Kingdom: supply sax
+	Neutral: supply arm
+	West Frankish Kingdom: supply par
+	East Frankish Kingdom: supply jel
+	Neutral: supply cos
+	Neutral: supply btt
+	Neutral: supply thr
+	Neutral: supply mau
+	Neutral: supply low
+	Khaganate of Khazaria: supply tam
+	Abbasid Caliphate: supply bar
+	Abbasid Caliphate: supply ard
+	Neutral: supply mav
+	East Frankish Kingdom: supply bav
+	Neutral: supply geo
+	Neutral: supply bor
+	Abbasid Caliphate: supply isf
+	Neutral: supply est
+	Neutral: supply bja
+	Neutral: supply rom
+	West Frankish Kingdom: supply aqt
+	Abbasid Caliphate: supply ale
+	Kingdom of Denmark: supply vik
+	Tulunid Emirate: supply dam
+	Neutral: supply lot
+	Neutral: supply sad
+	Khaganate of Khazaria: supply kie
+	West Frankish Kingdom: supply snc
+	Kingdom of Denmark: supply wsx
+	Eastern Roman Empire: supply tar
+	Neutral: supply maz
+	Neutral: supply ifr
+	Neutral: supply urg
+	East Frankish Kingdom: supply bre
+	East Frankish Kingdom: supply swa
+ORDERS
+	sax move bav
+	vla support smo move kie
+	swa move ueg
+	hel support mav move bav
+	jel hold
+	mos support geo move kak
+	ira support ard move isf
+	ard move ali
+	egy move lib
+	tri move lib
+	mod support kom move udm
+	ale move jer
+	isf support urg move ali
+	aqa move faz
+	jor/wc move wel
+	aqt support low move aut
+	snc move zar
+	val move cod
+	oce move wel
+	tou move gas
+	nef move ira
+	con support egy move ion
+	cap move geo
+	chm move ros
+	ros hold
+	bnj support mod move ati
+	kak support arm move cap
+	kom support bja
+	got move vik
+	ice support btt move wel
+	pom support maz move bor
+	epi move dal
+	ill move spo
+	pam move spa
+	cod support dub move cad
+	tyr support epi move tar
+	pol move pom
+	smo move dre
+PHASE 912 Fall Movement
+POSITIONS
+	Abbasid Caliphate: army mos
+	Abbasid Caliphate: army ali
+	Neutral: army dal
+	Abbasid Caliphate: fleet tri
+	Neutral: army low
+	Neutral: army bor
+	Eastern Roman Empire: fleet spo
+	Neutral: army bja
+	Abbasid Caliphate: army mod
+	Neutral: army urg
+	Neutral: army dub
+	Neutral: army bul
+	Kingdom of Denmark: fleet pom
+	Umayyad Emirate: army cod
+	West Frankish Kingdom: fleet oce
+	West Frankish Kingdom: fleet jor/wc
+	Khaganate of Khazaria: army chm
+	Abbasid Caliphate: army jer
+	Umayyad Emirate: fleet tyr
+	Khaganate of Khazaria: army ros
+	East Frankish Kingdom: fleet jel
+	Neutral: army thr
+	West Frankish Kingdom: army zar
+	Neutral: army mau
+	Principality of Kiev: army pol
+	Khaganate of Khazaria: fleet bnj
+	Neutral: army rom
+	West Frankish Kingdom: army val
+	Neutral: army maz
+	Neutral: army cos
+	Neutral: army btt
+	East Frankish Kingdom: army bav
+	Neutral: army cyp
+	Principality of Kiev: army dre
+	Abbasid Caliphate: army isf
+	Abbasid Caliphate: army faz
+	Abbasid Caliphate: army ira
+	Khaganate of Khazaria: army kak
+	Neutral: army arm
+	Khaganate of Khazaria: army kom
+	West Frankish Kingdom: army gas
+	Eastern Roman Empire: army epi
+	Umayyad Emirate: army spa
+	Neutral: army geo
+	East Frankish Kingdom: army ueg
+	Tulunid Emirate: fleet con
+	Neutral: army est
+	Tulunid Emirate: army cap
+	East Frankish Kingdom: army hel
+	Abbasid Caliphate: fleet egy
+	Neutral: army mav
+	Tulunid Emirate: army nef
+	Neutral: army lot
+	Kingdom of Denmark: fleet ice
+	Neutral: army pec
+	East Frankish Kingdom: army vla
+	Neutral: army sic
+	Neutral: army cre
+	Neutral: army sad
+	Neutral: army ifr
+	West Frankish Kingdom: army aqt
+	Kingdom of Denmark: army vik
+	Neutral: army bas
+	Neutral: supply dub
+	Kingdom of Denmark: supply wsx
+	Neutral: supply urg
+	Tulunid Emirate: supply att
+	West Frankish Kingdom: supply jor
+	Neutral: supply cos
+	Umayyad Emirate: supply cad
+	Abbasid Caliphate: supply ale
+	East Frankish Kingdom: supply swa
+	Umayyad Emirate: supply pam
+	Neutral: supply mau
+	Principality of Kiev: supply smo
+	Neutral: supply dal
+	Khaganate of Khazaria: supply ros
+	Khaganate of Khazaria: supply sak
+	Neutral: supply low
+	Neutral: supply cre
+	Khaganate of Khazaria: supply kie
+	East Frankish Kingdom: supply jel
+	Umayyad Emirate: supply cod
+	Kingdom of Denmark: supply sca
+	Abbasid Caliphate: supply ati
+	Abbasid Caliphate: supply ira
+	Neutral: supply btt
+	West Frankish Kingdom: supply aqt
+	Principality of Kiev: supply nov
+	West Frankish Kingdom: supply snc
+	Tulunid Emirate: supply dam
+	Abbasid Caliphate: supply ard
+	Neutral: supply thr
+	Tulunid Emirate: supply con
+	Neutral: supply lot
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply cyp
+	Abbasid Caliphate: supply aze
+	Kingdom of Denmark: supply vik
+	Neutral: supply maz
+	Eastern Roman Empire: supply crn
+	Neutral: supply bas
+	Neutral: supply est
+	West Frankish Kingdom: supply par
+	Neutral: supply geo
+	Neutral: supply bja
+	Neutral: supply bul
+	West Frankish Kingdom: supply nar
+	Neutral: supply rom
+	Abbasid Caliphate: supply isf
+	Khaganate of Khazaria: supply tam
+	Neutral: supply ifr
+	West Frankish Kingdom: supply gas
+	Neutral: supply pec
+	Neutral: supply arm
+	Neutral: supply sad
+	Abbasid Caliphate: supply jer
+	East Frankish Kingdom: supply sax
+	Neutral: supply sic
+	East Frankish Kingdom: supply bav
+	West Frankish Kingdom: supply val
+	Neutral: supply bor
+	Neutral: supply mav
+	Abbasid Caliphate: supply bar
+	Abbasid Caliphate: supply bag
+	East Frankish Kingdom: supply bre
+	Eastern Roman Empire: supply tar
+ORDERS
+	ueg move aut
+	vla support dal move ono
+	hel support rom move lom
+	bav support pol move sax
+	jel move kat
+	ali support mos move ard
+	ira support mos move ard
+	jer move cyp
+	isf support urg move ali
+	tri move ifr
+	mos move arm
+	mod support bul move vya
+	egy move bar
+	faz hold
+	gas move tou
+	jor/wc move wal
+	zar move val
+	oce support cod move cad
+	aqt move btt
+	val hold
+	cap move geo
+	nef support arm move jaz
+	con move wes
+	bnj move nks
+	kom move chm
+	chm move ros
+	ros support bul move chm
+	kak support arm
+	pom support dre move bor
+	ice move now
+	vik support ice move now
+	epi support con
+	spo move tar
+	cod move tol
+	tyr move bcs
+	spa move pam
+	dre support pom move bor
+	pol support bav
+PHASE 912 Fall Adjustment
+POSITIONS
+	Eastern Roman Empire: army epi
+	Abbasid Caliphate: army jer
+	Neutral: army sic
+	East Frankish Kingdom: army hel
+	Neutral: army low
+	Neutral: army urg
+	Kingdom of Denmark: army vik
+	Abbasid Caliphate: fleet bar
+	East Frankish Kingdom: army vla
+	Neutral: army dal
+	Neutral: army cre
+	Abbasid Caliphate: army mod
+	Kingdom of Denmark: fleet pom
+	Principality of Kiev: army pol
+	Abbasid Caliphate: fleet tri
+	Neutral: army geo
+	Neutral: army bul
+	East Frankish Kingdom: army aut
+	West Frankish Kingdom: army zar
+	Neutral: army arm
+	Umayyad Emirate: army tol
+	Neutral: army cos
+	Kingdom of Denmark: fleet now
+	West Frankish Kingdom: fleet oce
+	West Frankish Kingdom: fleet wal
+	Tulunid Emirate: army nef
+	Khaganate of Khazaria: army kom
+	Neutral: army mau
+	Khaganate of Khazaria: fleet nks
+	Neutral: army cyp
+	Neutral: army est
+	Neutral: army btt
+	Abbasid Caliphate: army isf
+	West Frankish Kingdom: army aqt
+	Neutral: army dub
+	Umayyad Emirate: army pam
+	West Frankish Kingdom: army tou
+	Abbasid Caliphate: army mos
+	East Frankish Kingdom: fleet kat
+	Neutral: army thr
+	Neutral: army pec
+	Abbasid Caliphate: army ali
+	West Frankish Kingdom: army val
+	Neutral: army ifr
+	Khaganate of Khazaria: army ros
+	Abbasid Caliphate: army faz
+	Neutral: army bas
+	Neutral: army sad
+	Principality of Kiev: army dre
+	Neutral: army bor
+	Khaganate of Khazaria: army chm
+	Neutral: army lot
+	Tulunid Emirate: army cap
+	Neutral: army mav
+	Neutral: army rom
+	Khaganate of Khazaria: army kak
+	Tulunid Emirate: fleet wes
+	East Frankish Kingdom: army bav
+	Eastern Roman Empire: fleet tar
+	Neutral: army bja
+	Neutral: army maz
+	Abbasid Caliphate: army ira
+	Umayyad Emirate: fleet bcs
+	Neutral: supply low
+	East Frankish Kingdom: supply swa
+	Kingdom of Denmark: supply wsx
+	West Frankish Kingdom: supply snc
+	Abbasid Caliphate: supply ard
+	Abbasid Caliphate: supply isf
+	Neutral: supply urg
+	Tulunid Emirate: supply att
+	Neutral: supply sic
+	East Frankish Kingdom: supply bav
+	Neutral: supply ifr
+	West Frankish Kingdom: supply aqt
+	Neutral: supply mau
+	Abbasid Caliphate: supply jer
+	Neutral: supply bas
+	Umayyad Emirate: supply cod
+	Eastern Roman Empire: supply tar
+	Neutral: supply cos
+	Neutral: supply dal
+	Neutral: supply pec
+	West Frankish Kingdom: supply gas
+	Neutral: supply thr
+	Neutral: supply mav
+	Abbasid Caliphate: supply aze
+	West Frankish Kingdom: supply jor
+	Khaganate of Khazaria: supply sak
+	Eastern Roman Empire: supply crn
+	Neutral: supply est
+	East Frankish Kingdom: supply jel
+	Abbasid Caliphate: supply bar
+	Principality of Kiev: supply smo
+	Neutral: supply rom
+	Umayyad Emirate: supply pam
+	Neutral: supply btt
+	Kingdom of Denmark: supply sca
+	Neutral: supply geo
+	Neutral: supply sad
+	Abbasid Caliphate: supply ati
+	Khaganate of Khazaria: supply ros
+	Tulunid Emirate: supply dam
+	West Frankish Kingdom: supply par
+	Neutral: supply bul
+	East Frankish Kingdom: supply bre
+	Neutral: supply bja
+	Neutral: supply cre
+	West Frankish Kingdom: supply nar
+	Neutral: supply lot
+	Neutral: supply maz
+	Kingdom of Denmark: supply vik
+	Neutral: supply bor
+	East Frankish Kingdom: supply sax
+	Neutral: supply cyp
+	Tulunid Emirate: supply con
+	Khaganate of Khazaria: supply kie
+	Neutral: supply arm
+	West Frankish Kingdom: supply val
+	Abbasid Caliphate: supply bag
+	Abbasid Caliphate: supply ale
+	Abbasid Caliphate: supply ira
+	Umayyad Emirate: supply cad
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply dub
+	Principality of Kiev: supply nov
+	Khaganate of Khazaria: supply tam
+ORDERS
+	build anywhere Fleet gas
+PHASE 913 Spring Movement
+POSITIONS
+	Neutral: army sad
+	Neutral: army lot
+	Abbasid Caliphate: army jer
+	Kingdom of Denmark: army vik
+	Abbasid Caliphate: army mod
+	Umayyad Emirate: army tol
+	Khaganate of Khazaria: army kom
+	Neutral: army cos
+	Umayyad Emirate: army pam
+	Khaganate of Khazaria: army chm
+	East Frankish Kingdom: army vla
+	West Frankish Kingdom: army tou
+	Abbasid Caliphate: army mos
+	Principality of Kiev: army dre
+	Tulunid Emirate: army cap
+	Tulunid Emirate: fleet wes
+	Khaganate of Khazaria: fleet nks
+	Abbasid Caliphate: army ali
+	Khaganate of Khazaria: army ros
+	Neutral: army mav
+	Neutral: army rom
+	Neutral: army bja
+	Umayyad Emirate: fleet bcs
+	Neutral: army dal
+	Neutral: army cre
+	Neutral: army bul
+	East Frankish Kingdom: fleet kat
+	Neutral: army thr
+	Neutral: army sic
+	Neutral: army cyp
+	Neutral: army dub
+	West Frankish Kingdom: fleet gas
+	Neutral: army low
+	Neutral: army geo
+	West Frankish Kingdom: fleet oce
+	Tulunid Emirate: army nef
+	Eastern Roman Empire: fleet tar
+	West Frankish Kingdom: army val
+	Abbasid Caliphate: army faz
+	Neutral: army bor
+	Abbasid Caliphate: fleet bar
+	Kingdom of Denmark: fleet pom
+	Neutral: army mau
+	Abbasid Caliphate: army isf
+	West Frankish Kingdom: army aqt
+	East Frankish Kingdom: army bav
+	Abbasid Caliphate: army ira
+	East Frankish Kingdom: army hel
+	Kingdom of Denmark: fleet now
+	Neutral: army est
+	Eastern Roman Empire: army epi
+	Principality of Kiev: army pol
+	West Frankish Kingdom: army zar
+	Neutral: army arm
+	Neutral: army urg
+	East Frankish Kingdom: army aut
+	Neutral: army pec
+	Khaganate of Khazaria: army kak
+	Neutral: army maz
+	Abbasid Caliphate: fleet tri
+	West Frankish Kingdom: fleet wal
+	Neutral: army btt
+	Neutral: army ifr
+	Neutral: army bas
+	Neutral: supply sad
+	Khaganate of Khazaria: supply ros
+	Neutral: supply thr
+	Abbasid Caliphate: supply aze
+	Principality of Kiev: supply smo
+	East Frankish Kingdom: supply bre
+	Kingdom of Denmark: supply vik
+	Neutral: supply geo
+	Neutral: supply btt
+	West Frankish Kingdom: supply nar
+	East Frankish Kingdom: supply sax
+	West Frankish Kingdom: supply val
+	Umayyad Emirate: supply cod
+	West Frankish Kingdom: supply jor
+	Eastern Roman Empire: supply crn
+	Tulunid Emirate: supply dam
+	Abbasid Caliphate: supply ale
+	Umayyad Emirate: supply pam
+	Neutral: supply maz
+	Khaganate of Khazaria: supply kie
+	Neutral: supply low
+	Neutral: supply ifr
+	Eastern Roman Empire: supply tar
+	West Frankish Kingdom: supply gas
+	East Frankish Kingdom: supply jel
+	Neutral: supply mav
+	Neutral: supply bja
+	East Frankish Kingdom: supply swa
+	Kingdom of Denmark: supply wsx
+	Abbasid Caliphate: supply ard
+	East Frankish Kingdom: supply bav
+	Neutral: supply mau
+	West Frankish Kingdom: supply aqt
+	Neutral: supply cos
+	Khaganate of Khazaria: supply tam
+	West Frankish Kingdom: supply snc
+	Tulunid Emirate: supply att
+	Neutral: supply bas
+	Kingdom of Denmark: supply sca
+	Abbasid Caliphate: supply ira
+	Abbasid Caliphate: supply bag
+	Neutral: supply lot
+	Khaganate of Khazaria: supply bnj
+	Principality of Kiev: supply nov
+	Abbasid Caliphate: supply jer
+	Khaganate of Khazaria: supply sak
+	Neutral: supply est
+	Abbasid Caliphate: supply ati
+	Neutral: supply cre
+	Abbasid Caliphate: supply isf
+	West Frankish Kingdom: supply par
+	Neutral: supply cyp
+	Neutral: supply dub
+	Neutral: supply sic
+	Neutral: supply dal
+	Neutral: supply bul
+	Neutral: supply bor
+	Umayyad Emirate: supply cad
+	Neutral: supply urg
+	Abbasid Caliphate: supply bar
+	Tulunid Emirate: supply con
+	Neutral: supply arm
+	Neutral: supply pec
+	Neutral: supply rom
+ORDERS
+	kat move sca
+	vla move thr
+	hel move swa
+	bav support maz move pol
+	aut move low
+	isf move bsr
+	bar move tri
+	tri support faz move ifr
+	mos move aze
+	jer move ale
+	ira support isf move bsr
+	mod move bul
+	faz move ale
+	ali move sst
+	zar move spa
+	val move gra
+	tou support gas move pam
+	aqt hold
+	gas move pam
+	wal move jor/wc
+	oce move bsa
+	wes move pec/wc
+	nef support ira
+	cap move dam
+	ros support est move nov
+	kak move arm
+	kom move udm
+	chm move kar
+	nks move urg
+	pom move vel/nc
+	vik move vik
+	now move saa/nc
+	tar hold
+	epi move mac
+	bcs move tyr
+	pam support tol move zar
+	tol move val
+	pol move maz
+	dre move bor
+PHASE 913 Spring Retreat
+POSITIONS
+	Neutral: army low
+	Tulunid Emirate: army nef
+	Khaganate of Khazaria: army kak
+	Neutral: army ifr
+	Abbasid Caliphate: army aze
+	Neutral: army cos
+	Principality of Kiev: army dre
+	Abbasid Caliphate: army faz
+	Khaganate of Khazaria: fleet nks
+	Abbasid Caliphate: fleet bar
+	West Frankish Kingdom: army gra
+	Kingdom of Denmark: fleet saa/nc
+	Kingdom of Denmark: army vik
+	West Frankish Kingdom: fleet pam
+	Neutral: army bor
+	Neutral: army maz
+	Neutral: army cyp
+	Neutral: army dub
+	Principality of Kiev: army pol
+	Kingdom of Denmark: fleet vel/nc
+	Neutral: army bas
+	Abbasid Caliphate: army mod
+	West Frankish Kingdom: army aqt
+	Neutral: army est
+	Tulunid Emirate: army dam
+	East Frankish Kingdom: army vla
+	Neutral: army bja
+	Neutral: army lot
+	Umayyad Emirate: army val
+	Neutral: army arm
+	East Frankish Kingdom: army swa
+	Khaganate of Khazaria: army udm
+	Abbasid Caliphate: army sst
+	Abbasid Caliphate: army jer
+	West Frankish Kingdom: army spa
+	East Frankish Kingdom: army aut
+	Khaganate of Khazaria: army kar
+	Neutral: army thr
+	Neutral: army urg
+	Neutral: army pec
+	Neutral: army sad
+	Neutral: army bul
+	Neutral: army sic
+	Neutral: army geo
+	Neutral: army mau
+	Neutral: army mav
+	Neutral: army rom
+	East Frankish Kingdom: fleet sca
+	West Frankish Kingdom: fleet jor/wc
+	Neutral: army btt
+	Abbasid Caliphate: army ira
+	Eastern Roman Empire: army mac
+	Abbasid Caliphate: army bsr
+	Tulunid Emirate: fleet wes
+	Neutral: army dal
+	Eastern Roman Empire: fleet tar
+	East Frankish Kingdom: army bav
+	Umayyad Emirate: fleet tyr
+	Khaganate of Khazaria: army ros
+	Neutral: army cre
+	Abbasid Caliphate: fleet tri
+	West Frankish Kingdom: fleet bsa
+	West Frankish Kingdom: army tou
+	Umayyad Emirate: army/dislodged pam
+	West Frankish Kingdom: supply gas
+	Abbasid Caliphate: supply ard
+	Abbasid Caliphate: supply isf
+	Principality of Kiev: supply smo
+	Eastern Roman Empire: supply crn
+	Abbasid Caliphate: supply ale
+	Principality of Kiev: supply nov
+	East Frankish Kingdom: supply sax
+	Umayyad Emirate: supply cod
+	Kingdom of Denmark: supply wsx
+	Abbasid Caliphate: supply aze
+	Neutral: supply btt
+	Neutral: supply bul
+	Eastern Roman Empire: supply tar
+	Neutral: supply bja
+	East Frankish Kingdom: supply swa
+	Khaganate of Khazaria: supply tam
+	Tulunid Emirate: supply att
+	Kingdom of Denmark: supply sca
+	Abbasid Caliphate: supply ira
+	Umayyad Emirate: supply pam
+	Neutral: supply maz
+	Khaganate of Khazaria: supply sak
+	Neutral: supply cyp
+	West Frankish Kingdom: supply snc
+	Neutral: supply bas
+	Abbasid Caliphate: supply bag
+	Neutral: supply cre
+	Neutral: supply dub
+	Abbasid Caliphate: supply bar
+	Neutral: supply sad
+	Neutral: supply thr
+	Neutral: supply geo
+	Khaganate of Khazaria: supply ros
+	East Frankish Kingdom: supply bre
+	West Frankish Kingdom: supply aqt
+	Khaganate of Khazaria: supply bnj
+	Abbasid Caliphate: supply jer
+	Abbasid Caliphate: supply ati
+	Neutral: supply bor
+	Neutral: supply urg
+	Kingdom of Denmark: supply vik
+	Tulunid Emirate: supply dam
+	Neutral: supply arm
+	Neutral: supply rom
+	West Frankish Kingdom: supply nar
+	East Frankish Kingdom: supply jel
+	Neutral: supply low
+	Neutral: supply mau
+	Umayyad Emirate: supply cad
+	West Frankish Kingdom: supply val
+	Khaganate of Khazaria: supply kie
+	Neutral: supply cos
+	Tulunid Emirate: supply con
+	Neutral: supply pec
+	Neutral: supply ifr
+	East Frankish Kingdom: supply bav
+	West Frankish Kingdom: supply par
+	Neutral: supply sic
+	West Frankish Kingdom: supply jor
+	Neutral: supply est
+	Neutral: supply dal
+	Neutral: supply mav
+	Neutral: supply lot
+ORDERS
+	remove pam
+PHASE 913 Fall Movement
+POSITIONS
+	Neutral: army sad
+	West Frankish Kingdom: army tou
+	Principality of Kiev: army dre
+	Abbasid Caliphate: army faz
+	West Frankish Kingdom: army gra
+	Abbasid Caliphate: army mod
+	Khaganate of Khazaria: army udm
+	Abbasid Caliphate: army bsr
+	East Frankish Kingdom: army bav
+	Tulunid Emirate: army nef
+	Neutral: army cos
+	Neutral: army pec
+	Eastern Roman Empire: fleet tar
+	Abbasid Caliphate: army aze
+	Neutral: army est
+	Abbasid Caliphate: fleet bar
+	Neutral: army bja
+	West Frankish Kingdom: fleet bsa
+	Principality of Kiev: army pol
+	East Frankish Kingdom: army vla
+	East Frankish Kingdom: army swa
+	Neutral: army mav
+	West Frankish Kingdom: fleet pam
+	Neutral: army bor
+	East Frankish Kingdom: army aut
+	Khaganate of Khazaria: army kar
+	Neutral: army rom
+	West Frankish Kingdom: fleet jor/wc
+	Umayyad Emirate: fleet tyr
+	Neutral: army cre
+	Khaganate of Khazaria: army kak
+	Neutral: army dal
+	Neutral: army dub
+	Eastern Roman Empire: army mac
+	Tulunid Emirate: fleet wes
+	Khaganate of Khazaria: fleet nks
+	Kingdom of Denmark: fleet vel/nc
+	West Frankish Kingdom: army aqt
+	Neutral: army arm
+	Neutral: army thr
+	Abbasid Caliphate: fleet tri
+	Neutral: army maz
+	Neutral: army cyp
+	Neutral: army bul
+	Kingdom of Denmark: army vik
+	Umayyad Emirate: army val
+	Neutral: army ifr
+	Tulunid Emirate: army dam
+	East Frankish Kingdom: fleet sca
+	Neutral: army low
+	Neutral: army urg
+	West Frankish Kingdom: army spa
+	Neutral: army bas
+	Abbasid Caliphate: army sst
+	Abbasid Caliphate: army jer
+	Neutral: army sic
+	Neutral: army geo
+	Neutral: army mau
+	Neutral: army btt
+	Kingdom of Denmark: fleet saa/nc
+	Khaganate of Khazaria: army ros
+	Abbasid Caliphate: army ira
+	Neutral: army lot
+	West Frankish Kingdom: supply val
+	Tulunid Emirate: supply con
+	Umayyad Emirate: supply pam
+	Neutral: supply cre
+	Khaganate of Khazaria: supply ros
+	Abbasid Caliphate: supply ale
+	East Frankish Kingdom: supply sax
+	East Frankish Kingdom: supply bav
+	Neutral: supply ifr
+	Abbasid Caliphate: supply ard
+	Abbasid Caliphate: supply ira
+	West Frankish Kingdom: supply aqt
+	Neutral: supply cos
+	Umayyad Emirate: supply cod
+	Neutral: supply urg
+	West Frankish Kingdom: supply jor
+	East Frankish Kingdom: supply swa
+	Khaganate of Khazaria: supply tam
+	Neutral: supply mau
+	Neutral: supply est
+	Abbasid Caliphate: supply isf
+	Kingdom of Denmark: supply wsx
+	Neutral: supply bja
+	Neutral: supply mav
+	Abbasid Caliphate: supply aze
+	Neutral: supply arm
+	Neutral: supply dal
+	Khaganate of Khazaria: supply sak
+	Neutral: supply dub
+	East Frankish Kingdom: supply bre
+	Kingdom of Denmark: supply vik
+	Neutral: supply sic
+	West Frankish Kingdom: supply gas
+	Abbasid Caliphate: supply bag
+	Neutral: supply geo
+	Abbasid Caliphate: supply ati
+	Neutral: supply bor
+	Neutral: supply pec
+	Principality of Kiev: supply smo
+	Principality of Kiev: supply nov
+	Tulunid Emirate: supply att
+	West Frankish Kingdom: supply par
+	Abbasid Caliphate: supply jer
+	Tulunid Emirate: supply dam
+	Umayyad Emirate: supply cad
+	Neutral: supply thr
+	Neutral: supply rom
+	Neutral: supply low
+	Khaganate of Khazaria: supply kie
+	Neutral: supply cyp
+	Abbasid Caliphate: supply bar
+	Neutral: supply sad
+	Neutral: supply lot
+	Neutral: supply btt
+	Khaganate of Khazaria: supply bnj
+	East Frankish Kingdom: supply jel
+	Eastern Roman Empire: supply tar
+	Neutral: supply maz
+	West Frankish Kingdom: supply snc
+	Neutral: supply bas
+	West Frankish Kingdom: supply nar
+	Eastern Roman Empire: supply crn
+	Neutral: supply bul
+	Kingdom of Denmark: supply sca
+ORDERS
+	aut move aqt
+	bav support dal move sla
+	sca move let
+	swa move hel
+	vla hold
+	tri move ifr
+	mod move ati
+	aze support nks move der
+	sst support bsr
+	bar move egy
+	ira support bsr
+	bsr support nef move ira
+	faz move tah
+	jer move ale
+	jor/wc move wel
+	tou move aut
+	pam move gas
+	gra support spa move val
+	bsa move btt
+	aqt move btt
+	spa hold
+	nef hold
+	wes convoy pec move thr
+	dam support arm move cap
+	nks move bnj
+	udm support mod
+	kar support bul move chm
+	kak move arm
+	ros move nov
+	vel/nc support pol move pom
+	saa/nc move now
+	vik hold
+	mac move thr
+	tar move sle
+	val support tou move spa
+	tyr move ion
+	pol support vel move pom
+	dre move liv
+PHASE 913 Fall Adjustment
+POSITIONS
+	Neutral: army arm
+	Eastern Roman Empire: army mac
+	Neutral: army btt
+	Abbasid Caliphate: army ale
+	Neutral: army urg
+	Neutral: army cos
+	Abbasid Caliphate: fleet tri
+	Abbasid Caliphate: army sst
+	Abbasid Caliphate: army aze
+	Neutral: army mav
+	Abbasid Caliphate: fleet egy
+	Kingdom of Denmark: fleet vel/nc
+	Neutral: army sad
+	East Frankish Kingdom: army hel
+	Neutral: army ifr
+	Umayyad Emirate: army val
+	West Frankish Kingdom: fleet wel
+	Umayyad Emirate: fleet ion
+	West Frankish Kingdom: army gra
+	East Frankish Kingdom: fleet let
+	Neutral: army thr
+	Neutral: army rom
+	Neutral: army lot
+	Tulunid Emirate: fleet wes
+	Kingdom of Denmark: army vik
+	East Frankish Kingdom: army vla
+	Neutral: army low
+	Khaganate of Khazaria: army nov
+	West Frankish Kingdom: fleet bsa
+	Neutral: army pec
+	Abbasid Caliphate: army ati
+	West Frankish Kingdom: army tou
+	Tulunid Emirate: army nef
+	Neutral: army maz
+	Abbasid Caliphate: army ira
+	Neutral: army bul
+	Abbasid Caliphate: army bsr
+	Neutral: army mau
+	Neutral: army bja
+	Neutral: army cre
+	Neutral: army est
+	Neutral: army geo
+	West Frankish Kingdom: army spa
+	West Frankish Kingdom: fleet gas
+	Kingdom of Denmark: fleet now
+	Khaganate of Khazaria: army kar
+	Principality of Kiev: army liv
+	Neutral: army dub
+	Khaganate of Khazaria: army udm
+	Neutral: army bor
+	Neutral: army cyp
+	East Frankish Kingdom: army aut
+	Khaganate of Khazaria: fleet bnj
+	Abbasid Caliphate: army tah
+	Principality of Kiev: army pol
+	Neutral: army dal
+	East Frankish Kingdom: army bav
+	Neutral: army bas
+	Tulunid Emirate: army dam
+	West Frankish Kingdom: army aqt
+	Eastern Roman Empire: fleet sle
+	Neutral: army sic
+	Khaganate of Khazaria: army kak
+	Umayyad Emirate: supply val
+	Abbasid Caliphate: supply isf
+	Eastern Roman Empire: supply tar
+	Umayyad Emirate: supply pam
+	Khaganate of Khazaria: supply sak
+	Principality of Kiev: supply smo
+	Khaganate of Khazaria: supply nov
+	Neutral: supply mav
+	Abbasid Caliphate: supply ati
+	Neutral: supply maz
+	East Frankish Kingdom: supply swa
+	West Frankish Kingdom: supply par
+	Neutral: supply thr
+	Abbasid Caliphate: supply bag
+	Neutral: supply cos
+	Neutral: supply ifr
+	Tulunid Emirate: supply att
+	Khaganate of Khazaria: supply kie
+	Neutral: supply pec
+	Kingdom of Denmark: supply sca
+	Tulunid Emirate: supply dam
+	West Frankish Kingdom: supply aqt
+	West Frankish Kingdom: supply nar
+	Neutral: supply lot
+	East Frankish Kingdom: supply bav
+	Abbasid Caliphate: supply jer
+	East Frankish Kingdom: supply bre
+	Umayyad Emirate: supply cod
+	Neutral: supply cre
+	Neutral: supply low
+	Neutral: supply bja
+	Umayyad Emirate: supply cad
+	Neutral: supply bas
+	Neutral: supply mau
+	East Frankish Kingdom: supply jel
+	Abbasid Caliphate: supply aze
+	Neutral: supply bor
+	West Frankish Kingdom: supply gas
+	Kingdom of Denmark: supply wsx
+	Neutral: supply btt
+	Neutral: supply rom
+	East Frankish Kingdom: supply sax
+	Neutral: supply urg
+	West Frankish Kingdom: supply jor
+	Neutral: supply geo
+	Eastern Roman Empire: supply crn
+	Neutral: supply sad
+	Neutral: supply bul
+	Khaganate of Khazaria: supply tam
+	Neutral: supply dub
+	Kingdom of Denmark: supply vik
+	Khaganate of Khazaria: supply ros
+	Neutral: supply cyp
+	Abbasid Caliphate: supply bar
+	Khaganate of Khazaria: supply bnj
+	Abbasid Caliphate: supply ard
+	Neutral: supply dal
+	Neutral: supply arm
+	Neutral: supply est
+	Abbasid Caliphate: supply ale
+	West Frankish Kingdom: supply snc
+	Neutral: supply sic
+	Tulunid Emirate: supply con
+	Abbasid Caliphate: supply ira
+ORDERS
+	remove tou
+	build anywhere Army ros
+	build anywhere Fleet pam
+	remove pol
+PHASE 914 Spring Movement
+POSITIONS
+	Abbasid Caliphate: army aze
+	East Frankish Kingdom: army hel
+	Tulunid Emirate: fleet wes
+	Tulunid Emirate: army nef
+	Neutral: army cos
+	Abbasid Caliphate: fleet egy
+	Neutral: army maz
+	Khaganate of Khazaria: fleet bnj
+	Eastern Roman Empire: fleet sle
+	Neutral: army mav
+	Khaganate of Khazaria: army nov
+	West Frankish Kingdom: fleet bsa
+	Neutral: army bja
+	Neutral: army bor
+	Neutral: army sic
+	Abbasid Caliphate: fleet tri
+	Neutral: army urg
+	West Frankish Kingdom: fleet gas
+	Neutral: army dal
+	Neutral: army btt
+	Neutral: army dub
+	Khaganate of Khazaria: army ros
+	Neutral: army est
+	Abbasid Caliphate: army ale
+	Abbasid Caliphate: army sst
+	Neutral: army ifr
+	West Frankish Kingdom: fleet wel
+	Neutral: army pec
+	Abbasid Caliphate: army bsr
+	Principality of Kiev: army liv
+	Neutral: army arm
+	West Frankish Kingdom: army aqt
+	Neutral: army lot
+	Abbasid Caliphate: army ira
+	Neutral: army mau
+	Khaganate of Khazaria: army udm
+	Neutral: army geo
+	Khaganate of Khazaria: army kak
+	Eastern Roman Empire: army mac
+	Neutral: army bul
+	Neutral: army sad
+	East Frankish Kingdom: army bav
+	Neutral: army bas
+	Neutral: army low
+	West Frankish Kingdom: army gra
+	Kingdom of Denmark: army vik
+	West Frankish Kingdom: army spa
+	Neutral: army cyp
+	Umayyad Emirate: army val
+	Neutral: army thr
+	Kingdom of Denmark: fleet now
+	Khaganate of Khazaria: army kar
+	East Frankish Kingdom: army aut
+	Abbasid Caliphate: army tah
+	East Frankish Kingdom: fleet let
+	Neutral: army rom
+	Neutral: army cre
+	Tulunid Emirate: army dam
+	Kingdom of Denmark: fleet vel/nc
+	East Frankish Kingdom: army vla
+	Abbasid Caliphate: army ati
+	Umayyad Emirate: fleet pam
+	Umayyad Emirate: fleet ion
+	West Frankish Kingdom: supply snc
+	Neutral: supply cre
+	West Frankish Kingdom: supply gas
+	Kingdom of Denmark: supply wsx
+	Neutral: supply rom
+	Neutral: supply geo
+	Neutral: supply thr
+	East Frankish Kingdom: supply bre
+	Umayyad Emirate: supply cad
+	Khaganate of Khazaria: supply tam
+	Abbasid Caliphate: supply ira
+	East Frankish Kingdom: supply swa
+	Neutral: supply cos
+	Umayyad Emirate: supply cod
+	Khaganate of Khazaria: supply bnj
+	West Frankish Kingdom: supply nar
+	Neutral: supply mav
+	Abbasid Caliphate: supply bag
+	Neutral: supply arm
+	West Frankish Kingdom: supply aqt
+	Neutral: supply lot
+	Neutral: supply dub
+	Abbasid Caliphate: supply ard
+	Neutral: supply mau
+	Neutral: supply bor
+	East Frankish Kingdom: supply sax
+	Neutral: supply urg
+	West Frankish Kingdom: supply jor
+	Neutral: supply low
+	Neutral: supply bja
+	Neutral: supply bas
+	Abbasid Caliphate: supply bar
+	Neutral: supply est
+	Neutral: supply maz
+	West Frankish Kingdom: supply par
+	Neutral: supply pec
+	Abbasid Caliphate: supply jer
+	Khaganate of Khazaria: supply ros
+	Tulunid Emirate: supply att
+	Kingdom of Denmark: supply vik
+	Neutral: supply cyp
+	Abbasid Caliphate: supply isf
+	Umayyad Emirate: supply pam
+	Principality of Kiev: supply smo
+	Khaganate of Khazaria: supply kie
+	Tulunid Emirate: supply dam
+	Neutral: supply sad
+	Neutral: supply dal
+	Abbasid Caliphate: supply ale
+	Eastern Roman Empire: supply tar
+	Khaganate of Khazaria: supply nov
+	Abbasid Caliphate: supply ati
+	Neutral: supply ifr
+	Eastern Roman Empire: supply crn
+	Kingdom of Denmark: supply sca
+	Neutral: supply bul
+	Neutral: supply sic
+	Tulunid Emirate: supply con
+	Khaganate of Khazaria: supply sak
+	East Frankish Kingdom: supply bav
+	Neutral: supply btt
+	Umayyad Emirate: supply val
+	East Frankish Kingdom: supply jel
+	Abbasid Caliphate: supply aze
+ORDERS
+	let support vik move got
+	hel move lom
+	aut move lot
+	bav support lot move swa
+	vla move vol
+	ira move isf
+	ati move sak
+	ale support cre move jer
+	sst support urg move kho
+	tah hold
+	aze move kak
+	egy move cil
+	bsr support nef move ira
+	tri move lib
+	gra support spa move val
+	wel support bsa move wsx
+	aqt support spa move tou
+	bsa move lot
+	gas hold
+	spa move tou
+	dam move cap
+	wes support cre move con
+	nef move mec
+	kar move chm
+	bnj move nks
+	nov support bor move liv
+	udm move sto
+	kak move der
+	ros hold
+	vik support let move sca
+	vel/nc support bor move pom
+	now support wel move ice
+	mac support cyp move epi
+	sle support sic move tyr
+	pam move ast
+	ion support mac move con
+	val move spa
+	liv move smo
+PHASE 914 Fall Movement
+POSITIONS
+	Neutral: army est
+	Eastern Roman Empire: army mac
+	Abbasid Caliphate: army sak
+	Neutral: army bul
+	Neutral: army lot
+	West Frankish Kingdom: fleet gas
+	West Frankish Kingdom: army tou
+	Abbasid Caliphate: fleet cil
+	Neutral: army cyp
+	Neutral: army bor
+	Eastern Roman Empire: fleet sle
+	Umayyad Emirate: army spa
+	Neutral: army cos
+	East Frankish Kingdom: army vol
+	Khaganate of Khazaria: army nov
+	Khaganate of Khazaria: army chm
+	Principality of Kiev: army smo
+	Tulunid Emirate: army cap
+	West Frankish Kingdom: fleet bsa
+	Neutral: army mav
+	East Frankish Kingdom: army lom
+	Umayyad Emirate: fleet ion
+	Umayyad Emirate: fleet ast
+	Neutral: army dub
+	Khaganate of Khazaria: army sto
+	Tulunid Emirate: army mec
+	Tulunid Emirate: fleet wes
+	Neutral: army rom
+	Neutral: army maz
+	Khaganate of Khazaria: army der
+	West Frankish Kingdom: army gra
+	Neutral: army pec
+	Neutral: army btt
+	Neutral: army bas
+	Abbasid Caliphate: army kak
+	West Frankish Kingdom: fleet wel
+	Neutral: army mau
+	Neutral: army geo
+	Abbasid Caliphate: army tah
+	Neutral: army arm
+	Abbasid Caliphate: army bsr
+	Kingdom of Denmark: fleet now
+	Kingdom of Denmark: fleet vel/nc
+	Kingdom of Denmark: army vik
+	Khaganate of Khazaria: army ros
+	Neutral: army sic
+	Abbasid Caliphate: fleet lib
+	Abbasid Caliphate: army isf
+	East Frankish Kingdom: army bav
+	Abbasid Caliphate: army ale
+	East Frankish Kingdom: army aut
+	East Frankish Kingdom: fleet let
+	West Frankish Kingdom: army aqt
+	Neutral: army bja
+	Neutral: army cre
+	Neutral: army low
+	Neutral: army thr
+	Khaganate of Khazaria: fleet nks
+	Neutral: army sad
+	Neutral: army dal
+	Neutral: army urg
+	Neutral: army ifr
+	Abbasid Caliphate: army sst
+	Abbasid Caliphate: supply jer
+	Principality of Kiev: supply smo
+	Tulunid Emirate: supply att
+	Neutral: supply pec
+	Abbasid Caliphate: supply ard
+	Umayyad Emirate: supply cod
+	Neutral: supply urg
+	Neutral: supply geo
+	Abbasid Caliphate: supply bag
+	Khaganate of Khazaria: supply nov
+	Abbasid Caliphate: supply isf
+	Neutral: supply thr
+	Neutral: supply dub
+	East Frankish Kingdom: supply swa
+	West Frankish Kingdom: supply nar
+	Neutral: supply cre
+	Neutral: supply sic
+	Kingdom of Denmark: supply vik
+	East Frankish Kingdom: supply jel
+	East Frankish Kingdom: supply bav
+	Abbasid Caliphate: supply bar
+	Abbasid Caliphate: supply ale
+	East Frankish Kingdom: supply sax
+	Neutral: supply ifr
+	Khaganate of Khazaria: supply sak
+	Tulunid Emirate: supply dam
+	Neutral: supply est
+	West Frankish Kingdom: supply gas
+	Khaganate of Khazaria: supply tam
+	West Frankish Kingdom: supply par
+	Neutral: supply maz
+	Umayyad Emirate: supply cad
+	Khaganate of Khazaria: supply bnj
+	Neutral: supply cos
+	Neutral: supply btt
+	Neutral: supply rom
+	Umayyad Emirate: supply val
+	Neutral: supply mav
+	Neutral: supply dal
+	Neutral: supply bas
+	Neutral: supply lot
+	Kingdom of Denmark: supply sca
+	Neutral: supply sad
+	West Frankish Kingdom: supply snc
+	Neutral: supply low
+	West Frankish Kingdom: supply jor
+	Umayyad Emirate: supply pam
+	Tulunid Emirate: supply con
+	Neutral: supply arm
+	Neutral: supply cyp
+	Eastern Roman Empire: supply tar
+	Abbasid Caliphate: supply ati
+	Neutral: supply bor
+	Kingdom of Denmark: supply wsx
+	Eastern Roman Empire: supply crn
+	Khaganate of Khazaria: supply kie
+	Neutral: supply mau
+	West Frankish Kingdom: supply aqt
+	Abbasid Caliphate: supply ira
+	Neutral: supply bul
+	Khaganate of Khazaria: supply ros
+	Abbasid Caliphate: supply aze
+	East Frankish Kingdom: supply bre
+	Neutral: supply bja
+ORDERS
+	bav support bor move pol
+	lom move hel
+	aut hold
+	vol move mav
+	let move fin
+	bsr move sst
+	sst hold
+	kak move mos
+	lib move tyr
+	ale move jer
+	isf hold
+	tah support ifr
+	cil hold
+	sak move mod
+	aqt move btt
+	tou move aqt
+	gra move cod
+	gas move can
+	bsa move par
+	wel hold
+	wes move thr
+	mec support bsr move nef
+	cap support cre move att
+	nov move est
+	ros support smo move kri
+	der move der
+	sto move kom
+	nks move kip
+	chm hold
+	vel/nc move abo
+	now move vik
+	vik move got
+	mac move con
+	sle move tar
+	spa move nar
+	ast move gal
+	ion move epi
+	smo support pec move kie
