@@ -100,6 +100,34 @@ POSITIONS
 	Umayyad Emirate: supply cad
 	Umayyad Emirate: supply val
 	West Frankish Kingdom: supply aqt
+	Neutral: supply bor
+	Neutral: supply pam
+	Neutral: supply cyp
+	Neutral: supply bas
+	Neutral: supply btt
+	Neutral: supply maz
+	Neutral: supply dub
+	Neutral: supply dal
+	Neutral: supply mav
+	Neutral: supply low
+	Neutral: supply sad
+	Neutral: supply rom
+	Neutral: supply geo
+	Neutral: supply aze
+	Neutral: supply lot
+	Neutral: supply pec
+	Neutral: supply arm
+	Neutral: supply ifr
+	Neutral: supply cos
+	Neutral: supply sic
+	Neutral: supply est
+	Neutral: supply thr
+	Neutral: supply bja
+	Neutral: supply urg
+	Neutral: supply wsx
+	Neutral: supply cre
+	Neutral: supply bul
+	Neutral: supply mau
 ORDERS
 	bre support jel move vel
 	sax move bav
@@ -239,6 +267,34 @@ POSITIONS
 	Kingdom of Denmark: supply sca
 	West Frankish Kingdom: supply par
 	Kingdom of Denmark: supply jel
+	Neutral: supply bor
+	Neutral: supply pam
+	Neutral: supply cyp
+	Neutral: supply bas
+	Neutral: supply btt
+	Neutral: supply maz
+	Neutral: supply dub
+	Neutral: supply dal
+	Neutral: supply mav
+	Neutral: supply low
+	Neutral: supply sad
+	Neutral: supply rom
+	Neutral: supply geo
+	Neutral: supply aze
+	Neutral: supply lot
+	Neutral: supply pec
+	Neutral: supply arm
+	Neutral: supply ifr
+	Neutral: supply cos
+	Neutral: supply sic
+	Neutral: supply est
+	Neutral: supply thr
+	Neutral: supply bja
+	Neutral: supply urg
+	Neutral: supply wsx
+	Neutral: supply cre
+	Neutral: supply bul
+	Neutral: supply mau
 ORDERS
 	bav move pol
 	sla hold

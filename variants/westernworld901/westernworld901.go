@@ -85,8 +85,8 @@ func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator)
 		}
 	case godip.Adjustment:
 		// Rebuild any missing units.
-		for _, prov := range state.Graph().SCs(godip.Neutral) {
-			if _, _, ok := state.SupplyCenter(prov); !ok {
+		for _, prov := range state.Graph().AllSCs() {
+			if n, _, ok := state.SupplyCenter(prov); ok && n == godip.Neutral {
 				if _, _, ok := state.Unit(prov); !ok {
 					ret[prov] = orders.BuildAnywhere(prov, godip.Army, time.Now())
 				}
@@ -180,6 +180,34 @@ func WesternWorld901Start() (result *state.State, err error) {
 		"tar": EasternRomanEmpire,
 		"crn": EasternRomanEmpire,
 		"con": EasternRomanEmpire,
+		"bor": godip.Neutral,
+		"pam": godip.Neutral,
+		"cyp": godip.Neutral,
+		"bas": godip.Neutral,
+		"btt": godip.Neutral,
+		"maz": godip.Neutral,
+		"dub": godip.Neutral,
+		"dal": godip.Neutral,
+		"mav": godip.Neutral,
+		"low": godip.Neutral,
+		"sad": godip.Neutral,
+		"rom": godip.Neutral,
+		"geo": godip.Neutral,
+		"aze": godip.Neutral,
+		"lot": godip.Neutral,
+		"pec": godip.Neutral,
+		"arm": godip.Neutral,
+		"ifr": godip.Neutral,
+		"cos": godip.Neutral,
+		"sic": godip.Neutral,
+		"est": godip.Neutral,
+		"thr": godip.Neutral,
+		"bja": godip.Neutral,
+		"urg": godip.Neutral,
+		"wsx": godip.Neutral,
+		"cre": godip.Neutral,
+		"bul": godip.Neutral,
+		"mau": godip.Neutral,
 	})
 	for _, sc := range WesternWorld901Graph().SCs(godip.Neutral) {
 		if err = result.SetUnit(godip.Province(sc), godip.Unit{
