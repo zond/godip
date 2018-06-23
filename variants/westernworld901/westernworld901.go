@@ -46,7 +46,7 @@ var WesternWorld901Variant = common.Variant{
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
 	UnitTypes:  classical.UnitTypes,
-	SoloWinner: common.SCCountWinner(32),
+	SoloWinner: common.SCCountWinner(33),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/westernworld901map.svg")
 	},
