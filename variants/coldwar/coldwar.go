@@ -161,7 +161,7 @@ func ColdWarGraph() *graph.Graph {
 		// Baltic Sea
 		Prov("bal").Conn("fin", godip.Sea).Conn("swe", godip.Sea).Conn("den", godip.Sea).Conn("ege", godip.Sea).Conn("len", godip.Sea).Conn("len/sc", godip.Sea).Flag(godip.Sea).
 		// Yugoslavia
-		Prov("yug").Conn("wge", godip.Land).Conn("ita", godip.Coast...).Conn("ion", godip.Sea).Conn("alb", godip.Coast...).Conn("grc", godip.Coast...).Conn("ukr", godip.Land).Conn("ege", godip.Land).Flag(godip.Coast...).
+		Prov("yug").Conn("wge", godip.Land).Conn("ita", godip.Coast...).Conn("ion", godip.Sea).Conn("alb", godip.Coast...).Conn("grc", godip.Land).Conn("ukr", godip.Land).Conn("ege", godip.Land).Flag(godip.Coast...).
 		// Toronto
 		Prov("tor").Conn("nyk", godip.Land).Conn("que", godip.Coast...).Conn("hud", godip.Sea).Conn("wca", godip.Land).Conn("wca/nc", godip.Sea).Conn("mid", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Norway
@@ -239,7 +239,7 @@ func ColdWarGraph() *graph.Graph {
 		// West Germany
 		Prov("wge").Conn("ege", godip.Land).Conn("den", godip.Coast...).Conn("nts", godip.Sea).Conn("par", godip.Land).Conn("par/nc", godip.Sea).Conn("yug", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Greece
-		Prov("grc").Conn("ion", godip.Sea).Conn("eme", godip.Sea).Conn("ist", godip.Coast...).Conn("ukr", godip.Land).Conn("yug", godip.Coast...).Conn("alb", godip.Coast...).Flag(godip.Coast...).
+		Prov("grc").Conn("ion", godip.Sea).Conn("eme", godip.Sea).Conn("ist", godip.Coast...).Conn("ukr", godip.Land).Conn("yug", godip.Land).Conn("alb", godip.Coast...).Flag(godip.Coast...).
 		// Arctic Ocean
 		Prov("arc").Conn("grd", godip.Sea).Conn("nws", godip.Sea).Conn("ura", godip.Sea).Conn("sib", godip.Sea).Conn("kam", godip.Sea).Conn("ber", godip.Sea).Conn("ala", godip.Sea).Conn("wca", godip.Sea).Conn("wca/nc", godip.Sea).Conn("hud", godip.Sea).Conn("wat", godip.Sea).Flag(godip.Sea).
 		// Sweden
