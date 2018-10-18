@@ -158,3 +158,30 @@ func TestIstanbul(t *testing.T) {
 	// Test can sail through Istanbul
 	tst.AssertOrderValidity(t, judge, orders.Move("ist", "bla"), NATO, nil)
 }
+
+func TestGreeceYugoslavia(t *testing.T) {
+	judge := startState(t)
+
+	judge.SetUnit("yug", godip.Unit{godip.Army, USSR})
+
+	// Test can drive to Greece
+	tst.AssertOrderValidity(t, judge, orders.Move("yug", "grc"), USSR, nil)
+
+	judge.RemoveUnit("yug")
+	judge.SetUnit("yug", godip.Unit{godip.Fleet, USSR})
+
+	// Test cannot sail to Greece
+	tst.AssertOrderValidity(t, judge, orders.Move("yug", "grc"), "", godip.ErrIllegalMove)
+
+	judge.RemoveUnit("yug")
+	judge.SetUnit("grc", godip.Unit{godip.Army, USSR})
+
+	// Test can drive to Yugoslavia
+	tst.AssertOrderValidity(t, judge, orders.Move("grc", "yug"), USSR, nil)
+
+	judge.RemoveUnit("grc")
+	judge.SetUnit("grc", godip.Unit{godip.Fleet, USSR})
+
+	// Test cannot sail to Yugoslavia
+	tst.AssertOrderValidity(t, judge, orders.Move("grc", "yug"), "", godip.ErrIllegalMove)
+}
