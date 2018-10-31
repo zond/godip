@@ -14,7 +14,7 @@
    viewBox="0 0 1407.0009 1187.0008"
    width="100%"
    sodipodi:docname="map.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      pagecolor="#ffffff"
      showgrid="false"
      units="px"
-     inkscape:current-layer="province-centers"
-     inkscape:cx="807.13956"
-     inkscape:cy="340.89356"
+     inkscape:current-layer="layer4"
+     inkscape:cx="590.51446"
+     inkscape:cy="391.88119"
      inkscape:document-units="mm"
      inkscape:object-nodes="true"
      inkscape:pageopacity="0.0"
@@ -2421,13 +2421,13 @@
     <text
        id="text7589"
        style="font-size:26.66666603px"
-       x="400.71429"
-       y="1066"
+       x="404.71429"
+       y="1070"
        xml:space="preserve"><tspan
          id="tspan7587"
-         x="400.71429"
-         y="1066"
-         sodipodi:role="line">West Mediterrean</tspan></text>
+         x="404.71429"
+         y="1070"
+         sodipodi:role="line">West Mediterranean</tspan></text>
     <text
        id="text7593"
        style="font-size:26.66666603px"
