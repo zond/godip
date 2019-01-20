@@ -11,7 +11,7 @@ from string import Template
 ### Data to be gathered for the variant. ###
 
 # The name of the variant
-VARIANT = 'Western World 901'
+VARIANT = 'Twenty Twenty'
 # The starting units
 #START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
 #               # Fleet should be Leningrad South Coast
@@ -29,37 +29,64 @@ VARIANT = 'Western World 901'
 #START_UNITS = {'Burgundy': {'Army': ['Dijon', 'Luxembourg', 'Flanders'], 'Fleet': ['Holland']},
 #               'England': {'Army': ['Calais', 'Guyenne', 'Normandy'], 'Fleet': ['London', 'Devon']},
 #               'France': {'Army': ['Dauphine', 'Orleanais', 'Paris', 'Toulouse', 'Provence'], 'Fleet': []}}
-START_UNITS = {'Abbasid Caliphate': {'Army': ['Ardebil', 'Baghdad', 'Isfahan', 'Irak']},
-               'Eastern Roman Empire': {'Army': ['Cherson', 'Constantinople'], 'Fleet': ['Attalia', 'Taranto']},
-               'Kingdom of Denmark': {'Army': ['Viken'], 'Fleet': ['Jelling', 'Jorvik', 'Scania']},
-               'Tulunid Emirate': {'Army': ['Alexandria', 'Damascus'], 'Fleet': ['Barca', 'Jerusalem']},
-               'West Frankish Kingdom': {'Army': ['Aquitaine', 'Gascony', 'Narbonne'], 'Fleet': ['Paris']},
-               'East Frankish Kingdom': {'Army': ['Bavaria', 'Saxony', 'Swabia'], 'Fleet': ['Bremen']},
-               'Khaganate of Khazaria': {'Army': ['Atil', 'Balanjar', 'Sarkel', 'Tamantarka']},
-               'Kievan Rus': {'Army': ['Kiev', 'Rostov', 'Smolensk'], 'Fleet': ['Novgorod']},
-               'Umayyad Emirate': {'Army': ['Cordova', 'Salamanca'], 'Fleet': ['Cadiz', 'Valencia']}}
+#START_UNITS = {'Abbasid Caliphate': {'Army': ['Ardebil', 'Baghdad', 'Isfahan', 'Irak']},
+#               'Eastern Roman Empire': {'Army': ['Cherson', 'Constantinople'], 'Fleet': ['Attalia', 'Taranto']},
+#               'Kingdom of Denmark': {'Army': ['Viken'], 'Fleet': ['Jelling', 'Jorvik', 'Scania']},
+#               'Tulunid Emirate': {'Army': ['Alexandria', 'Damascus'], 'Fleet': ['Barca', 'Jerusalem']},
+#               'West Frankish Kingdom': {'Army': ['Aquitaine', 'Gascony', 'Narbonne'], 'Fleet': ['Paris']},
+#               'East Frankish Kingdom': {'Army': ['Bavaria', 'Saxony', 'Swabia'], 'Fleet': ['Bremen']},
+#               'Khaganate of Khazaria': {'Army': ['Atil', 'Balanjar', 'Sarkel', 'Tamantarka']},
+#               'Kievan Rus': {'Army': ['Kiev', 'Rostov', 'Smolensk'], 'Fleet': ['Novgorod']},
+#               'Umayyad Emirate': {'Army': ['Cordova', 'Salamanca'], 'Fleet': ['Cadiz', 'Valencia']}}
+START_UNITS = {'Argentina': {'Army': [], 'Fleet': ['Mendoza', 'Buenos Aires', 'Comodoro Rivadavia']},
+               'Australia': {'Army': [], 'Fleet': ['Perth', 'Brisbane', 'Sydney']}, 
+               'Brazil': {'Army': ['Macapa'], 'Fleet': ['Recife', 'Rio de Janeiro']}, 
+               'Canada': {'Army': [], 'Fleet': ['Vancouver', 'Iqaluit', 'Montreal']}, 
+               'China': {'Army': ['Yumen', 'Baotou', 'Chongqing', 'Beijing'], 'Fleet': []}, 
+               'Egypt': {'Army': ['Cairo', 'Aswan'], 'Fleet': ['Alexandria']}, 
+               'Germany': {'Army': ['Munich', 'Berlin'], 'Fleet': ['Hamburg']}, 
+               'India': {'Army': ['New Delhi'], 'Fleet': ['Mumbai', 'Bangalore']}, 
+               'Italy': {'Army': ['Milan', 'Naples'], 'Fleet': ['Rome']}, 
+               'Japan': {'Army': [], 'Fleet': ['Sapporo', 'Tokyo', 'Nagasaki']}, 
+               'Kenya': {'Army': ['Nairobi', 'Marsabit'], 'Fleet': ['Mombasa']}, 
+               'Nigeria': {'Army': ['Abula', 'Kano'], 'Fleet': ['Lagos']}, 
+               'Pakistan': {'Army': ['Islamabad', 'Lahore'], 'Fleet': ['Karachi']}, 
+               'Russia': {'Army': ['Moscow', 'Omsk', 'Irkutsk', 'Vladivostok'], 'Fleet': []}, 
+               'South Africa': {'Army': ['Pretoria'], 'Fleet': ['Cape Town', 'Durban']}, 
+               'Spain': {'Army': ['Barcelona'], 'Fleet': ['Madrid', 'Cadiz']}, 
+               'Thailand': {'Army': [], 'Fleet': ['Chiang Mai', 'Bangkok', 'Hat Yai']}, 
+               'Turkey': {'Army': ['Ankara', 'Diyarbakir'], 'Fleet': ['Istanbul']}, 
+               'UK': {'Army': [], 'Fleet': ['London', 'Dublin', 'Edinburgh']}, 
+               'USA': {'Army': ['Atlanta', 'Oklahoma', 'Anchorage'], 'Fleet': ['Washington DC']}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
-START_YEAR = 901
+START_YEAR = 2020
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 #ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
 #ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
 #ABBREVIATIONS = {'Box A bcd': 'bxa', 'Box B ace': 'bxb', 'Box C abfgh': 'bxc', 'Box D aef': 'bxd', 'Box E bdf': 'bxe', 'Box F cdegh': 'bxf', 'Box G cfh': 'bxg', 'Box H cfg': 'bxh', 'Java Sea': 'jvs', 'Arabian Sea': 'ars', 'Persian Gulf': 'psg'}
 #ABBREVIATIONS = {'North Sea': 'nos'}
-ABBREVIATIONS = {'Wessex': 'wsx', 'West Euxine Sea': 'wes', 'Basra': 'bsr', 'Barca': 'bar', 'Al-Qatta\'i': 'aqa'}
+#ABBREVIATIONS = {'Wessex': 'wsx', 'West Euxine Sea': 'wes', 'Basra': 'bsr', 'Barca': 'bar', 'Al-Qatta\'i': 'aqa'}
+#ABBREVIATIONS = {'Chilean Coast': 'chc', 'Mozambique': 'moz', 'Romania': 'rmn', 'Balearic Sea': 'bls', 'Banghazi': 'bnz', 'Chiang Mai': 'chm', 'Denmark': 'den', 'Guinea': 'gui', 'Kashi': 'ksi', 'Panama': 'pan', 'Peru': 'pru', 'Rome': 'rme', 'Seattle': 'sea', 'Mozambique Channel': 'moc', 'Denmark Strait': 'des'}
+ABBREVIATIONS = {'Democratic Republic of the Congo': 'drc', 'Central African Republic': 'car', 'Sea of Japan': 'soj', 'Bay of Bengal': 'bob'}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 #CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
 #CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 #CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu'), ('Liverpool', 'Irish Sea')]
 #CENTER_OVERRIDES = [('Lorraine', 'Dijon')]
-CENTER_OVERRIDES = [('Jelling', 'Kattegat'), ('Alexandria', 'Al-Qatta\'i')]
+#CENTER_OVERRIDES = [('Jelling', 'Kattegat'), ('Alexandria', 'Al-Qatta\'i')]
+CENTER_OVERRIDES = [('North Mid Atlantic', 'Recife'), ('XX4', 'Irkutsk'), ('Hong Kong', 'Yellow Sea'), ('Bay of Bengal', 'Bangkok'), ('Bangkok', 'Vietnam'), ('Vietnam', 'South China Sea'), ('Yemen', 'Red Sea'), ('Oman', 'Persian Gulf'), ('Arabian Sea', 'Persian Gulf'), ('Gabon', 'Central African Republic'), ('Lijiang', 'Bhutan'), ('Vladivostok', 'Sea of Japan'),
+                    ('North Mid Atlantic', 'South Mid Atlantic'), ('South Mid Atlantic', 'Western South Atlantic'), ('Romania', 'Ukraine')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
 #REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
 #REGION_OVERRIDES = [('Red Sea', 'Mecca')]#, ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
 #REGION_OVERRIDES = [('Lorraine', 'Dijon')]
-REGION_OVERRIDES = [('Alexandria', 'Al-Qatta\'i')]
+#REGION_OVERRIDES = [('Alexandria', 'Al-Qatta\'i')]
+REGION_OVERRIDES = [('Arctic Ocean', 'Iqaluit'), ('Naples', 'Ionian Sea'), ('XX4', '2 Arctic Ocean'), ('2 Arctic Ocean', 'Bering Sea'), ('Borneo', 'Bay of Bengal'), ('Yemen', 'Red Sea'), ('Oman', 'Persian Gulf'), ('Vladivostok', 'Sea of Japan')]
+# Set to true to create an output map where it's easier to check the regions and centers have the right ids.
+OVERRIDE_CHECK_MODE = False
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = True
 
@@ -80,7 +107,8 @@ THICK = 2.225
 # The thickness of thin lines
 THIN = 1
 # A path for the supply center symbol. This should be formatted to include the absolute start location.
-CENTER_PATH = 'm {0} c 3.29193,1.70234 1.7437,6.32808 -2.11801,6.32808 -0.76413,0 -1.46378,-0.33804 -2.17821,-1.05247 -2.90576,-2.90577 0.5864,-7.19401 4.29622,-5.27561 z m -4.44363,-0.45263 c -3.36677,2.64826 -1.60873,7.50085 2.71745,7.50085 2.73202,0 4.11878,-1.39419 4.11878,-4.14073 0,-3.63739 -3.99035,-5.59872 -6.83623,-3.36012 z m 5.56003,-2.22897 c 4.40499,2.24727 4.34893,8.98535 -0.0925,11.13548 -5.86077,2.83713 -11.67321,-3.65467 -8.06548,-9.00818 1.87267,-2.77881 5.18694,-3.64307 8.15807,-2.1273 z m -5.92503,-0.92175 c -5.5261,2.4666 -5.36048,10.62495 0.26339,12.97478 6.67892,2.79063 12.72651,-5.10665 8.33017,-10.878 -1.79403,-2.35514 -5.81613,-3.33653 -8.59356,-2.09678 z'
+CENTER_PATH = 'm {0} c 9.7702,5.0498 5.1753,18.7712 -6.2861,18.7712 -2.2679,0 -4.3443,-1.0027 -6.4648,-3.1221 -8.6242,-8.6194 1.7404,-21.3396 12.7509,-15.6491 z m -13.1884,-1.3427 c -9.9924,7.8556 -4.7747,22.2501 8.0652,22.2501 8.1084,0 12.2243,-4.1357 12.2243,-12.2828 0,-10.7898 -11.8432,-16.6077 -20.2895,-9.9673 z m 16.5019,-6.6118 c 13.0737,6.666 12.9073,26.6535 -0.2745,33.0315 -17.3945,8.4159 -34.6454,-10.841 -23.9379,-26.7213 5.5579,-8.2428 15.3946,-10.8066 24.2126,-6.3102 z m -17.5851,-2.7342 c -16.4013,7.3167 -15.9098,31.5171 0.7816,38.4875 19.8227,8.278 37.7715,-15.1481 24.7236,-32.2679 -5.3247,-6.986 -17.262,-9.8972 -25.5052,-6.2196 z'
+#CENTER_PATH = 'm {0} c 3.29193,1.70234 1.7437,6.32808 -2.11801,6.32808 -0.76413,0 -1.46378,-0.33804 -2.17821,-1.05247 -2.90576,-2.90577 0.5864,-7.19401 4.29622,-5.27561 z m -4.44363,-0.45263 c -3.36677,2.64826 -1.60873,7.50085 2.71745,7.50085 2.73202,0 4.11878,-1.39419 4.11878,-4.14073 0,-3.63739 -3.99035,-5.59872 -6.83623,-3.36012 z m 5.56003,-2.22897 c 4.40499,2.24727 4.34893,8.98535 -0.0925,11.13548 -5.86077,2.83713 -11.67321,-3.65467 -8.06548,-9.00818 1.87267,-2.77881 5.18694,-3.64307 8.15807,-2.1273 z m -5.92503,-0.92175 c -5.5261,2.4666 -5.36048,10.62495 0.26339,12.97478 6.67892,2.79063 12.72651,-5.10665 8.33017,-10.878 -1.79403,-2.35514 -5.81613,-3.33653 -8.59356,-2.09678 z'
 #CENTER_PATH = 'm {0} c 4.9401,2.5533 2.6167,9.4913 -3.1784,9.4913 -1.1467,0 -2.1967,-0.5071 -3.2688,-1.5786 -4.3606,-4.3582 0.88,-10.79 6.4472,-7.9127 z m -6.6684,-0.6788 c -5.0525,3.972 -2.4142,11.2502 4.078,11.2502 4.0998,0 6.1809,-2.0911 6.1809,-6.2105 0,-5.4556 -5.9882,-8.3973 -10.2589,-5.0397 z m 8.3437,-3.3432 c 6.6105,3.3706 6.5264,13.4768 -0.1388,16.7017 -8.795,4.2552 -17.5176,-5.4815 -12.1036,-13.511 2.8103,-4.1678 7.7839,-5.4641 12.2426,-3.1907 z m -8.8915,-1.3825 c -8.2929,3.6996 -8.0443,15.936 0.3953,19.4604 10.0229,4.1855 19.0983,-7.6593 12.5008,-16.3155 -2.6922,-3.5324 -8.7281,-5.0043 -12.8961,-3.1449 z'
 #CENTER_PATH = 'm {0} c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z'
 #CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.161181 2.65678,1.110069 5.06242,-2.031351 3.31362,-4.327111 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
@@ -129,6 +157,8 @@ def removeAllLayers(root):
 def addLayer(root, name, visible):
     """Add a new layer to root with the given name and visibility."""
     display = 'inline' if visible else 'none'
+    if OVERRIDE_CHECK_MODE:
+        display = 'inline; opacity: 1' if visible else 'inline; opacity: 0.5'
     'svg:style="display:none"'
     attrs = {'id': name, '{}groupmode'.format(INK): 'layer', '{}label'.format(INK): name, 'style': 'display:' + display}
     xml.etree.ElementTree.SubElement(root, '{}g'.format(SVG), attrs)
@@ -368,7 +398,11 @@ def makeRegions(junctions, edges, corners):
             links = junctionLinks[currentJunction]
             nextJunction = links[(links.index(previousJunction) + 1) % len(links)]
             previousJunction, currentJunction = currentJunction, nextJunction
-            directedEdges.remove((previousJunction, currentJunction))
+            try:
+                directedEdges.remove((previousJunction, currentJunction))
+            except:
+                print('Issue removing directed edge:', (previousJunction, currentJunction))
+                #raise
         # Don't include the region that contains all four corners
         allFourCorners = True
         for corner in corners:
@@ -433,7 +467,15 @@ def replaceOriginalIds(centers, originalIdToAbbr, abbreviations):
     keys are abbreviations used in the output."""
     output = {}
     for originalId in centers.keys():
-        output[originalIdToAbbr[originalId]] = centers[originalId]
+        try:
+            output[originalIdToAbbr[originalId]] = centers[originalId]
+        except:
+            print originalId
+            if originalId in originalIdToAbbr:
+                print originalIdToAbbr[originalId]
+            else:
+                print originalIdToAbbr.values()
+            raise
     return output
 
 def makeLocsToNames(namesLayer):
@@ -523,27 +565,54 @@ def abbreviationsForNames(fullNamesTuples, indexSets, abbrCount):
             break
     return abbrMap
 
-def firstLetterAbbr(nTuple):
+def threeWordAbbrABCCheck(nTuple):
+    """Check if the name has three or more words."""
+    return len(nTuple) >= 3
+
+def threeWordAbbrABC(nTuple):
     """Create an abbreviation from the first letter of the first three words."""
     abbr = ''
-    for word in nTuple:
-        if len(word) > 0:
-            abbr += word[0].lower()
+    if threeWordAbbrABCCheck(nTuple):
+        for word in nTuple[:3]:
+            if len(word) > 0:
+                abbr += word[0].lower()
     return abbr
 
-def abbreviationsForNames_firstLetter(fullNamesTuples, abbrCount):
+def twoWordAbbrAABCheck(nTuple):
+    """Check if an abbreviation of the form aab can be formed."""
+    return len(nTuple) >= 2 and len(nTuple[0]) >= 2
+
+def twoWordAbbrAAB(nTuple):
+    """Create an abbreviation from the first two letters of the first word and the first letter of the second."""
+    abbr = ''
+    if twoWordAbbrAABCheck(nTuple):
+        abbr = nTuple[0].lower()[:2] + nTuple[1].lower()[0]
+    return abbr
+
+def twoWordAbbrABBCheck(nTuple):
+    """Check if an abbreviation of the form abb can be formed."""
+    return len(nTuple) >= 2 and len(nTuple[1]) >= 2
+
+def twoWordAbbrABB(nTuple):
+    """Create an abbreviation from the first letter of the first word and the first two letters of the second."""
+    abbr = ''
+    if twoWordAbbrABBCheck(nTuple):
+        abbr = nTuple[0].lower()[0] + nTuple[1].lower()[:2]
+    return abbr
+
+def abbreviationsForNamesUsingFunctions(fullNamesTuples, abbrCount, checkFunction, abbrFunction):
     """Try to create unique abbreviations for the given name tuples by considering the first letters of the first three words."""
     abbrMap = {}
     for nTuple in fullNamesTuples:
-        if len(nTuple) >= 3:
-            abbrCount[firstLetterAbbr(nTuple)] += 1
+        if checkFunction(nTuple):
+            abbrCount[abbrFunction(nTuple)] += 1
     for fullNameTuple, abbr in abbrMap.items():
         if abbrCount[abbr] > 1:
             del abbrMap[fullNameTuple]
     for nTuple in fullNamesTuples:
-        if len(nTuple) >= 3:
-            if nTuple not in abbrMap.keys() and abbrCount[firstLetterAbbr(nTuple)] == 1:
-                abbrMap[nTuple] = firstLetterAbbr(nTuple)
+        if checkFunction(nTuple):
+            if nTuple not in abbrMap.keys() and abbrCount[abbrFunction(nTuple)] == 1:
+                abbrMap[nTuple] = abbrFunction(nTuple)
     return abbrMap
 
 def inventAbbreviations(fullNamesTuples):
@@ -554,12 +623,19 @@ def inventAbbreviations(fullNamesTuples):
     for name, abbr in map(lambda na: (toLowerAlphaNumeric(na[0]), na[1]), ABBREVIATIONS.items()):
         fixedAbbrs[findTupleFromName(name, fullNamesTuples)] = abbr
         abbrCount[abbr] += 1
-    # Start by taking any unique first three letters.
-    remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
-    fixedAbbrs.update(abbreviationsForNames(remainingNames, [(0, 1, 2)], abbrCount))
-    # Add any abbreviations from the first three words (if the name has three words).
-    remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
-    fixedAbbrs.update(abbreviationsForNames_firstLetter(remainingNames, abbrCount))
+    # Repeat a few times in case it helps.
+    for i in range(4):
+        # Start by taking any unique first three letters.
+        remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
+        fixedAbbrs.update(abbreviationsForNames(remainingNames, [(0, 1, 2)], abbrCount))
+        # Add any abbreviations from the first three words (if the name has three words).
+        remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
+        fixedAbbrs.update(abbreviationsForNamesUsingFunctions(remainingNames, abbrCount, threeWordAbbrABCCheck, threeWordAbbrABC))
+        # Add any abbreviations from the first two words (if the name has two words).
+        remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
+        fixedAbbrs.update(abbreviationsForNamesUsingFunctions(remainingNames, abbrCount, twoWordAbbrAABCheck, twoWordAbbrAAB))
+        remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
+        fixedAbbrs.update(abbreviationsForNamesUsingFunctions(remainingNames, abbrCount, twoWordAbbrABBCheck, twoWordAbbrABB))
     # combinations returns the indexes in lexigographical order, which is basically what we want.
     remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
     maxLength = max(map(lambda nameTuple: len(''.join(nameTuple)), remainingNames))
