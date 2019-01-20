@@ -286,7 +286,7 @@ func TwentyTwentyGraph() *graph.Graph {
 		// Ionian Sea
 		Prov("ion").Conn("nap", godip.Sea).Conn("tri", godip.Sea).Conn("bnh", godip.Sea).Conn("ems", godip.Sea).Conn("grc", godip.Sea).Conn("alb", godip.Sea).Conn("cro", godip.Sea).Conn("mil", godip.Sea).Conn("roe", godip.Sea).Flag(godip.Sea).
 		// Anchorage
-		Prov("anc").Conn("arc", godip.Sea).Conn("arc", godip.Sea).Conn("whi", godip.Coast...).Flag(godip.Coast...).SC(USA).
+		Prov("anc").Conn("arc", godip.Sea).Conn("arc", godip.Sea).Conn("whi", godip.Land).Conn("whi/nc", godip.Sea).Conn("whi/wc", godip.Sea).Flag(godip.Coast...).SC(USA).
 		// Adelaide
 		Prov("ade").Conn("syd", godip.Coast...).Conn("bri", godip.Land).Conn("bri", godip.Land).Conn("dar", godip.Land).Conn("pet", godip.Coast...).Conn("tas", godip.Sea).Flag(godip.Coast...).
 		// Chicago
@@ -468,7 +468,11 @@ func TwentyTwentyGraph() *graph.Graph {
 		// Bangladesh
 		Prov("bad").Conn("bob", godip.Sea).Conn("man", godip.Coast...).Conn("bhu", godip.Land).Conn("nep", godip.Land).Conn("kol", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Whitehorse
-		Prov("whi").Conn("yeo", godip.Coast...).Conn("arc", godip.Sea).Conn("anc", godip.Coast...).Conn("arc", godip.Sea).Conn("van", godip.Coast...).Conn("yeo", godip.Coast...).Flag(godip.Coast...).
+		Prov("whi").Conn("yeo", godip.Land).Conn("anc", godip.Land).Conn("van", godip.Land).Conn("yeo", godip.Land).Flag(godip.Land).
+		// Whitehorse (North Coast)
+		Prov("whi/nc").Conn("yeo", godip.Sea).Conn("arc", godip.Sea).Conn("anc", godip.Sea).Flag(godip.Sea).
+		// Whitehorse (West Coast)
+		Prov("whi/wc").Conn("van", godip.Sea).Conn("arc", godip.Sea).Conn("anc", godip.Sea).Flag(godip.Sea).
 		// Mid Indian Ocean
 		Prov("mio").Conn("gur", godip.Sea).Conn("bna", godip.Sea).Conn("lac", godip.Sea).Conn("wio", godip.Sea).Conn("moc", godip.Sea).Conn("ant", godip.Sea).Conn("tas", godip.Sea).Conn("eio", godip.Sea).Flag(godip.Sea).
 		// 2 South Pacific Ocean
@@ -520,7 +524,7 @@ func TwentyTwentyGraph() *graph.Graph {
 		// 2 Mid Pacific Ocean
 		Prov("2mi").Conn("2so", godip.Sea).Conn("2no", godip.Sea).Conn("bob", godip.Sea).Conn("bri", godip.Sea).Conn("syd", godip.Sea).Conn("tas", godip.Sea).Flag(godip.Sea).
 		// Arctic Ocean
-		Prov("arc").Conn("npo", godip.Sea).Conn("los", godip.Sea).Conn("min", godip.Sea).Conn("van", godip.Sea).Conn("whi", godip.Sea).Conn("anc", godip.Sea).Conn("anc", godip.Sea).Conn("whi", godip.Sea).Conn("yeo", godip.Sea).Conn("iqa", godip.Sea).Conn("grd", godip.Sea).Conn("nos", godip.Sea).Conn("now", godip.Sea).Conn("bes", godip.Sea).Flag(godip.Sea).
+		Prov("arc").Conn("npo", godip.Sea).Conn("los", godip.Sea).Conn("min", godip.Sea).Conn("van", godip.Sea).Conn("whi/nc", godip.Sea).Conn("whi/wc", godip.Sea).Conn("anc", godip.Sea).Conn("anc", godip.Sea).Conn("yeo", godip.Sea).Conn("iqa", godip.Sea).Conn("grd", godip.Sea).Conn("nos", godip.Sea).Conn("now", godip.Sea).Conn("bes", godip.Sea).Flag(godip.Sea).
 		// Peru
 		Prov("peu").Conn("bue", godip.Land).Conn("pag", godip.Land).Conn("col", godip.Coast...).Conn("pab", godip.Sea).Conn("men", godip.Coast...).Flag(godip.Coast...).
 		// Chiang Mai
@@ -540,7 +544,7 @@ func TwentyTwentyGraph() *graph.Graph {
 		// Washington DC
 		Prov("was").Conn("che", godip.Sea).Conn("ney", godip.Coast...).Conn("chg", godip.Land).Conn("atl", godip.Land).Conn("neo", godip.Coast...).Conn("bet", godip.Sea).Flag(godip.Coast...).SC(USA).
 		// Yellowknife
-		Prov("yeo").Conn("ott", godip.Land).Conn("iqa", godip.Coast...).Conn("arc", godip.Sea).Conn("whi", godip.Coast...).Conn("whi", godip.Coast...).Flag(godip.Coast...).
+		Prov("yeo").Conn("ott", godip.Land).Conn("iqa", godip.Coast...).Conn("arc", godip.Sea).Conn("whi", godip.Land).Conn("whi/nc", godip.Sea).Flag(godip.Coast...).
 		// Guinea
 		Prov("gin").Conn("sen", godip.Coast...).Conn("sma", godip.Sea).Conn("wsa", godip.Sea).Conn("esa", godip.Sea).Conn("cot", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Mexico
@@ -584,7 +588,7 @@ func TwentyTwentyGraph() *graph.Graph {
 		// Marsabit
 		Prov("mar").Conn("nai", godip.Land).Conn("mom", godip.Land).Conn("eth", godip.Land).Conn("tan", godip.Land).Flag(godip.Land).SC(Kenya).
 		// Vancouver
-		Prov("van").Conn("whi", godip.Coast...).Conn("arc", godip.Sea).Conn("min", godip.Coast...).Flag(godip.Coast...).SC(Canada).
+		Prov("van").Conn("whi", godip.Land).Conn("whi/wc", godip.Sea).Conn("arc", godip.Sea).Conn("min", godip.Coast...).Flag(godip.Coast...).SC(Canada).
 		// Bangalore
 		Prov("bna").Conn("gur", godip.Sea).Conn("hyd", godip.Coast...).Conn("mum", godip.Coast...).Conn("lac", godip.Sea).Conn("mio", godip.Sea).Flag(godip.Coast...).SC(India).
 		// Edinburgh
