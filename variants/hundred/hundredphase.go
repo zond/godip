@@ -17,7 +17,7 @@ var newPhase = phase.Generator(BuildAnywhereParser, func(phase *phase.Phase) boo
 
 func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 	if season != YearSeason {
-		fmt.Errorf("Warning - Hundred only supports YearSeason, but got {}", season)
+		fmt.Errorf("Warning - Hundred only supports YearSeason, but got %v", season)
 	}
 	return &hundredPhase{newPhase(year, season, typ)}
 }
