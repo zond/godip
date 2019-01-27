@@ -41,8 +41,9 @@ const (
 	Support       OrderType = "Support"
 	Disband       OrderType = "Disband"
 
-	ViaConvoy Flag = "C"
-	Anywhere  Flag = "A"
+	ViaConvoy     Flag = "C"
+	Anywhere      Flag = "A"
+	AnyHomeCenter Flag = "H"
 )
 
 var Coast = []Flag{Sea, Land}

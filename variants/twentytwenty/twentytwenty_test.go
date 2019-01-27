@@ -2,10 +2,14 @@ package twentytwenty
 
 import (
 	"testing"
+	"time"
 
 	"github.com/zond/godip"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
+
+	tst "github.com/zond/godip/variants/testing"
 )
 
 func init() {
@@ -24,6 +28,32 @@ func blankState(t *testing.T) *state.State {
 	startPhase := classical.NewPhase(2001, godip.Spring, godip.Movement)
 	judge := TwentyTwentyBlank(startPhase)
 	return judge
+}
+
+func assertNoWinner(t *testing.T, judge *state.State) {
+	winner := TwentyTwentyWinner(judge)
+	if winner != "" {
+		t.Errorf("Expected no winner but got %v", winner)
+	}
+}
+
+func assertWinner(t *testing.T, judge *state.State, expected godip.Nation) {
+	winner := TwentyTwentyWinner(judge)
+	if winner != expected {
+		t.Errorf("Expected %v to win but got %v", expected, winner)
+	}
+}
+
+// Wait for the given number of phases.
+func waitForPhases(judge *state.State, phases int) {
+	for phase := 0; phase < phases; phase++ {
+		judge.Next()
+	}
+}
+
+// Increase the current phase by the given number of years.
+func waitForYears(judge *state.State, years int) {
+	waitForPhases(judge, 5*years)
 }
 
 func TestNoWinnerAtStart(t *testing.T) {
@@ -145,25 +175,44 @@ func TestOneCenterLeadWinsIn2021(t *testing.T) {
 	assertWinner(t, judge, USA)
 }
 
-func assertNoWinner(t *testing.T, judge *state.State) {
-	winner := TwentyTwentyWinner(judge)
-	if winner != "" {
-		t.Errorf("Expected no winner but got %v", winner)
-	}
+func TestBuildAtHome(t *testing.T) {
+	judge := blankState(t)
+	judge.SetSC("lon", UK)
+	waitForPhases(judge, 4)
+	judge.SetOrder("lon", orders.BuildAnyHomeCenter("lon", godip.Army, time.Now()))
+	judge.Next()
+	// Check that it was successful.
+	tst.AssertUnit(t, judge, "lon", godip.Unit{godip.Army, UK})
 }
 
-func assertWinner(t *testing.T, judge *state.State, expected godip.Nation) {
-	winner := TwentyTwentyWinner(judge)
-	if winner != expected {
-		t.Errorf("Expected %v to win but got %v", expected, winner)
-	}
+func TestCantBuildInNonHomeCenter(t *testing.T) {
+	judge := blankState(t)
+	// Paris is a supply center (not a home center).
+	judge.SetSC("pai", UK)
+	waitForPhases(judge, 4)
+	judge.SetOrder("pai", orders.BuildAnyHomeCenter("pai", godip.Army, time.Now()))
+	judge.Next()
+	// Check that it was not successful.
+	tst.AssertNoUnit(t, judge, "pai")
 }
 
-// Increase the current phase by the given number of years.
-func waitForYears(judge *state.State, years int) {
-	for year := 0; year < years; year++ {
-		for phase := 0; phase < 5; phase++ {
-			judge.Next()
-		}
-	}
+func TestCantBuildInNonCenter(t *testing.T) {
+	judge := blankState(t)
+	// Lyon is not even a supply center.
+	judge.SetSC("lyo", UK)
+	waitForPhases(judge, 4)
+	judge.SetOrder("lyo", orders.BuildAnyHomeCenter("lyo", godip.Army, time.Now()))
+	judge.Next()
+	// Check that it was not successful.
+	tst.AssertNoUnit(t, judge, "lyo")
+}
+
+func TestBuildInCapturedHomeCenter(t *testing.T) {
+	judge := blankState(t)
+	judge.SetSC("mun", UK)
+	waitForPhases(judge, 4)
+	judge.SetOrder("mun", orders.BuildAnyHomeCenter("mun", godip.Army, time.Now()))
+	judge.Next()
+	// Check that it was successful.
+	tst.AssertUnit(t, judge, "mun", godip.Unit{godip.Army, UK})
 }
