@@ -115,8 +115,8 @@ var TwentyTwentyVariant = common.Variant{
 		"centers). To win a nation needs to own more supply centers than any " +
 		"opponent. In the first year they need 20 more supply centers than any " +
 		"other player, but this target is reduced by 1 each year. So to win in " +
-		"the year 2015 a player needs at least 5 more supply centers than any " +
-		"other player, and in 2019 and beyond they need a lead of a single " +
+		"the year 2015 a player needs at least 6 more supply centers than any " +
+		"other player, and in 2020 and beyond they need a lead of a single " +
 		"supply center. Alternatively, if a player manages to get to 49 centers " +
 		"(i.e. they own over half the map) then they automatically win. There " +
 		"are six bridges connecting regions for armies (and fleets). These are " +
