@@ -179,6 +179,10 @@ func TestBuildAtHome(t *testing.T) {
 	judge := blankState(t)
 	judge.SetSC("lon", UK)
 	waitForPhases(judge, 4)
+	// Check the option to build is available.
+	opts := judge.Phase().Options(judge, UK)
+	tst.AssertOpt(t, opts, []string{"lon", "Build", "Army", "lon"})
+	// Issue the order.
 	judge.SetOrder("lon", orders.BuildAnyHomeCenter("lon", godip.Army, time.Now()))
 	judge.Next()
 	// Check that it was successful.
@@ -190,6 +194,10 @@ func TestCantBuildInNonHomeCenter(t *testing.T) {
 	// Paris is a supply center (not a home center).
 	judge.SetSC("pai", UK)
 	waitForPhases(judge, 4)
+	// Check the option to build is not available.
+	opts := judge.Phase().Options(judge, UK)
+	tst.AssertNoOpt(t, opts, []string{"pai", "Build", "Army", "pai"})
+	// Issue the order anyway.
 	judge.SetOrder("pai", orders.BuildAnyHomeCenter("pai", godip.Army, time.Now()))
 	judge.Next()
 	// Check that it was not successful.
@@ -201,6 +209,10 @@ func TestCantBuildInNonCenter(t *testing.T) {
 	// Lyon is not even a supply center.
 	judge.SetSC("lyo", UK)
 	waitForPhases(judge, 4)
+	// Check the option to build is not available.
+	opts := judge.Phase().Options(judge, UK)
+	tst.AssertNoOpt(t, opts, []string{"lyo", "Build", "Army", "lyo"})
+	// Try to issue the order.
 	judge.SetOrder("lyo", orders.BuildAnyHomeCenter("lyo", godip.Army, time.Now()))
 	judge.Next()
 	// Check that it was not successful.
@@ -211,6 +223,10 @@ func TestBuildInCapturedHomeCenter(t *testing.T) {
 	judge := blankState(t)
 	judge.SetSC("mun", UK)
 	waitForPhases(judge, 4)
+	// Check the option to build is available.
+	opts := judge.Phase().Options(judge, UK)
+	tst.AssertOpt(t, opts, []string{"mun", "Build", "Army", "mun"})
+	// Issue the order.
 	judge.SetOrder("mun", orders.BuildAnyHomeCenter("mun", godip.Army, time.Now()))
 	judge.Next()
 	// Check that it was successful.

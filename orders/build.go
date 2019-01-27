@@ -144,7 +144,7 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 		if owner == nil {
 			return
 		}
-		if (!self.flags[godip.AnyHomeCenter] && *owner != me) || *owner == godip.Neutral {
+		if (self.flags[godip.AnyHomeCenter] && *owner != me) || *owner == godip.Neutral {
 			return
 		}
 	}
