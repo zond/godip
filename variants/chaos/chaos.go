@@ -271,9 +271,7 @@ func Start() (*state.State, error) {
 	return result, nil
 }
 
-var newPhase = phase.Generator(hundred.BuildAnywhereParser, func(phase *phase.Phase) bool {
-	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
-})
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
 
 func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 	return &chaosPhase{newPhase(year, season, typ)}

@@ -19,13 +19,11 @@ var pureParser = orders.NewParser([]godip.Order{
 })
 
 var PureVariant = common.Variant{
-	Name:  "Pure",
-	Graph: func() godip.Graph { return PureGraph() },
-	Start: PureStart,
-	Blank: PureBlank,
-	Phase: phase.Generator(pureParser, func(phase *phase.Phase) bool {
-		return phase.Ty == godip.Retreat && phase.Se == godip.Fall
-	}),
+	Name:       "Pure",
+	Graph:      func() godip.Graph { return PureGraph() },
+	Start:      PureStart,
+	Blank:      PureBlank,
+	Phase:      phase.Generator(pureParser, classical.AdjustSCs),
 	Parser:     pureParser,
 	Nations:    classical.Nations,
 	PhaseTypes: classical.PhaseTypes,

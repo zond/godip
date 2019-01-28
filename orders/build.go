@@ -16,6 +16,12 @@ var BuildAnywhereOrder = &build{
 	},
 }
 
+var BuildAnyHomeCenterOrder = &build{
+	flags: map[godip.Flag]bool{
+		godip.AnyHomeCenter: true,
+	},
+}
+
 func Build(source godip.Province, typ godip.UnitType, at time.Time) *build {
 	return &build{
 		targets: []godip.Province{source},
@@ -31,6 +37,17 @@ func BuildAnywhere(source godip.Province, typ godip.UnitType, at time.Time) *bui
 		at:      at,
 		flags: map[godip.Flag]bool{
 			godip.Anywhere: true,
+		},
+	}
+}
+
+func BuildAnyHomeCenter(source godip.Province, typ godip.UnitType, at time.Time) *build {
+	return &build{
+		targets: []godip.Province{source},
+		typ:     typ,
+		at:      at,
+		flags: map[godip.Flag]bool{
+			godip.AnyHomeCenter: true,
 		},
 	}
 }
@@ -83,10 +100,12 @@ func (self *build) Parse(bits []string) (godip.Adjudicator, error) {
 	var err error
 	if len(bits) > 1 && godip.OrderType(bits[1]) == self.DisplayType() {
 		if len(bits) == 3 {
-			if !self.flags[godip.Anywhere] {
-				result = Build(godip.Province(bits[0]), godip.UnitType(bits[2]), time.Now())
-			} else {
+			if self.flags[godip.Anywhere] {
 				result = BuildAnywhere(godip.Province(bits[0]), godip.UnitType(bits[2]), time.Now())
+			} else if self.flags[godip.AnyHomeCenter] {
+				result = BuildAnyHomeCenter(godip.Province(bits[0]), godip.UnitType(bits[2]), time.Now())
+			} else {
+				result = Build(godip.Province(bits[0]), godip.UnitType(bits[2]), time.Now())
 			}
 		}
 		if result == nil {
@@ -122,7 +141,7 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	}
 	if !self.flags[godip.Anywhere] {
 		owner := v.Graph().SC(src.Super())
-		if owner == nil || *owner != me {
+		if owner == nil || (!self.flags[godip.AnyHomeCenter] && *owner != me) || *owner == godip.Neutral {
 			return
 		}
 	}
@@ -169,7 +188,7 @@ func (self *build) Validate(v godip.Validator) (godip.Nation, error) {
 		owner := v.Graph().SC(self.targets[0].Super())
 		if owner == nil {
 			return "", fmt.Errorf("Should be SOME owner of %v", self.targets[0])
-		} else if *owner != me {
+		} else if (!self.flags[godip.AnyHomeCenter] && *owner != me) || *owner == godip.Neutral {
 			return "", godip.ErrHostileSupplyCenter
 		}
 	}

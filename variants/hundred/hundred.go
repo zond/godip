@@ -7,8 +7,6 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
-
-	ord "github.com/zond/godip/orders"
 )
 
 const (
@@ -19,7 +17,7 @@ const (
 
 var Nations = []godip.Nation{England, Burgundy, France}
 
-var BuildAnywhereParser = ord.NewParser([]godip.Order{
+var BuildAnywhereParser = orders.NewParser([]godip.Order{
 	orders.MoveOrder,
 	orders.MoveViaConvoyOrder,
 	orders.HoldOrder,

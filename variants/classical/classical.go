@@ -27,10 +27,12 @@ var (
 	})
 )
 
+func AdjustSCs(phase *phase.Phase) bool {
+	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
+}
+
 func NewPhase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
-	return phase.Generator(Parser, func(phase *phase.Phase) bool {
-		return phase.Ty == godip.Retreat && phase.Se == godip.Fall
-	})(year, season, typ)
+	return phase.Generator(Parser, AdjustSCs)(year, season, typ)
 }
 
 var ClassicalVariant = common.Variant{

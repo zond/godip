@@ -10,6 +10,7 @@ import (
 	"github.com/zond/godip/variants/franceaustria"
 	"github.com/zond/godip/variants/hundred"
 	"github.com/zond/godip/variants/pure"
+	"github.com/zond/godip/variants/twentytwenty"
 	"github.com/zond/godip/variants/westernworld901"
 	"github.com/zond/godip/variants/youngstownredux"
 )
@@ -31,6 +32,7 @@ var OrderedVariants = []common.Variant{
 	hundred.HundredVariant,
 	pure.PureVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
+	twentytwenty.TwentyTwentyVariant,
 	westernworld901.WesternWorld901Variant,
 	youngstownredux.YoungstownReduxVariant,
 }
