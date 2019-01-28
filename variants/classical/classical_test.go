@@ -438,3 +438,17 @@ func TestMIDPORSPASupportOptions(t *testing.T) {
 	tst.AssertOpt(t, opts, []string{"por", "Move", "por", "spa"})
 	tst.AssertOpt(t, opts, []string{"mid", "Support", "mid", "por", "spa"})
 }
+
+// Test that we can't build in a captured home center.
+func TestCantBuildInCapturedHomeCenter(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Fall, godip.Adjustment))
+	judge.SetSC("mun", godip.France)
+	// Check the option to build is not available.
+	opts := judge.Phase().Options(judge, godip.France)
+	tst.AssertNoOpt(t, opts, []string{"mun", "Build", "Army", "mun"})
+	// Issue the order anyway.
+	judge.SetOrder("mun", orders.Build("mun", godip.Army, time.Now()))
+	judge.Next()
+	// Check that it was not successful.
+	tst.AssertNoUnit(t, judge, "mun")
+}
