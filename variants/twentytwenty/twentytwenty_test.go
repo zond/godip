@@ -7,7 +7,6 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/classical"
 
 	tst "github.com/zond/godip/variants/testing"
 )
@@ -25,7 +24,7 @@ func startState(t *testing.T) *state.State {
 }
 
 func blankState(t *testing.T) *state.State {
-	startPhase := classical.NewPhase(2001, godip.Spring, godip.Movement)
+	startPhase := Phase(2001, godip.Spring, godip.Movement)
 	judge := TwentyTwentyBlank(startPhase)
 	return judge
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
@@ -88,7 +89,7 @@ var TwentyTwentyVariant = common.Variant{
 	Graph:      func() godip.Graph { return TwentyTwentyGraph() },
 	Start:      TwentyTwentyStart,
 	Blank:      TwentyTwentyBlank,
-	Phase:      classical.NewPhase,
+	Phase:      Phase,
 	Parser:     BuildAnyHomeCenterParser,
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
@@ -127,12 +128,14 @@ var TwentyTwentyVariant = common.Variant{
 		"Mecca and Shanyang.",
 }
 
+var Phase = phase.Generator(BuildAnyHomeCenterParser, classical.AdjustSCs)
+
 func TwentyTwentyBlank(phase godip.Phase) *state.State {
 	return state.New(TwentyTwentyGraph(), phase, classical.BackupRule, nil)
 }
 
 func TwentyTwentyStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(2001, godip.Spring, godip.Movement)
+	startPhase := Phase(2001, godip.Spring, godip.Movement)
 	result = TwentyTwentyBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"rec": godip.Unit{godip.Fleet, Brazil},

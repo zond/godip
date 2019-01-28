@@ -27,9 +27,7 @@ const (
 
 var Nations = []godip.Nation{UmayyadEmirate, PrincipalityofKiev, KingdomofDenmark, KhaganateofKhazaria, WestFrankishKingdom, TulunidEmirate, AbbasidCaliphate, EastFrankishKingdom, EasternRomanEmpire}
 
-var newPhase = phase.Generator(hundred.BuildAnywhereParser, func(phase *phase.Phase) bool {
-	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
-})
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
 
 func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 	return newPhase(year, season, typ)

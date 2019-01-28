@@ -141,10 +141,7 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	}
 	if !self.flags[godip.Anywhere] {
 		owner := v.Graph().SC(src.Super())
-		if owner == nil {
-			return
-		}
-		if (self.flags[godip.AnyHomeCenter] && *owner != me) || *owner == godip.Neutral {
+		if owner == nil || (!self.flags[godip.AnyHomeCenter] && *owner != me) || *owner == godip.Neutral {
 			return
 		}
 	}
