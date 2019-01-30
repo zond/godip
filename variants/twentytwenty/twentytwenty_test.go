@@ -231,3 +231,17 @@ func TestBuildInCapturedHomeCenter(t *testing.T) {
 	// Check that it was successful.
 	tst.AssertUnit(t, judge, "mun", godip.Unit{godip.Army, UK})
 }
+
+func TestStartMovesForRome(t *testing.T) {
+	judge := startState(t)
+	opts := judge.Phase().Options(judge, Italy)
+	// Check the option to move to Balearic Sea is unavailable.
+	tst.AssertNoOpt(t, opts, []string{"roe", "Move", "roe", "ble"})
+	// Check the option to move to Ionian Sea is available though.
+	tst.AssertOpt(t, opts, []string{"roe", "Move", "roe/ec", "ion"})
+	// Issue the order.
+	judge.SetOrder("roe", orders.Move("roe/ec", "ion"))
+	judge.Next()
+	// Check that it was successful.
+	tst.AssertUnit(t, judge, "ion", godip.Unit{godip.Fleet, Italy})
+}
