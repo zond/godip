@@ -25,9 +25,9 @@
      showgrid="false"
      showguides="false"
      units="px"
-     inkscape:current-layer="foreground"
-     inkscape:cx="5632.5226"
-     inkscape:cy="2092.6395"
+     inkscape:current-layer="province-centers"
+     inkscape:cx="4048.6034"
+     inkscape:cy="2658.3249"
      inkscape:document-units="mm"
      inkscape:object-nodes="true"
      inkscape:pageopacity="0.0"
@@ -2739,7 +2739,7 @@
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.25273085;stroke-opacity:1;enable-background:new"
        inkscape:connector-curvature="0" />
     <path
-       d="m 3968.7974,934.89326 c 9.7702,5.0498 5.1753,18.7712 -6.2861,18.7712 -2.2679,0 -4.3443,-1.0027 -6.4648,-3.1221 -8.6242,-8.6194 1.7404,-21.3396 12.7509,-15.6491 z m -13.1884,-1.3427 c -9.9924,7.8556 -4.7747,22.2501 8.0652,22.2501 8.1084,0 12.2243,-4.1357 12.2243,-12.2828 0,-10.7898 -11.8432,-16.6077 -20.2895,-9.9673 z m 16.5019,-6.6118 c 13.0737,6.666 12.9073,26.6535 -0.2745,33.0315 -17.3945,8.4159 -34.6454,-10.841 -23.9379,-26.7213 5.5579,-8.2428 15.3946,-10.8066 24.2126,-6.3102 z m -17.5851,-2.7342 c -16.4013,7.3167 -15.9098,31.5171 0.7816,38.4875 19.8227,8.278 37.7715,-15.1481 24.7236,-32.2679 -5.3247,-6.986 -17.262,-9.8972 -25.5052,-6.2196 z"
+       d="m 3968.7974,950.89326 c 9.7702,5.0498 5.1753,18.7712 -6.2861,18.7712 -2.2679,0 -4.3443,-1.0027 -6.4648,-3.1221 -8.6242,-8.6194 1.7404,-21.3396 12.7509,-15.6491 z m -13.1884,-1.3427 c -9.9924,7.8556 -4.7747,22.2501 8.0652,22.2501 8.1084,0 12.2243,-4.1357 12.2243,-12.2828 0,-10.7898 -11.8432,-16.6077 -20.2895,-9.9673 z m 16.5019,-6.6118 c 13.0737,6.666 12.9073,26.6535 -0.2745,33.0315 -17.3945,8.4159 -34.6454,-10.841 -23.9379,-26.7213 5.5579,-8.2428 15.3946,-10.8066 24.2126,-6.3102 z m -17.5851,-2.7342 c -16.4013,7.3167 -15.9098,31.5171 0.7816,38.4875 19.8227,8.278 37.7715,-15.1481 24.7236,-32.2679 -5.3247,-6.986 -17.262,-9.8972 -25.5052,-6.2196 z"
        id="roe/ecCenter"
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:2.25273085;stroke-opacity:1;enable-background:new"
        inkscape:connector-curvature="0" />
@@ -9015,10 +9015,8 @@
          x="3758.8374"
          y="1718.0731"
          sodipodi:role="line"><tspan
-           style="font-weight:bold"
-           id="tspan29191">Abu</tspan><tspan
-           style="font-weight:normal"
-           id="tspan29193">la</tspan></tspan></text>
+   style="font-weight:bold"
+   id="tspan29191">Abu</tspan>ja</tspan></text>
     <text
        id="text2794"
        style="font-style:normal;font-weight:normal;font-size:32.00004196px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

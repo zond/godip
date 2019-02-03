@@ -99,7 +99,7 @@ var TwentyTwentyVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/twentytwentymap.svg")
 	},
-	SVGVersion: "2",
+	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
@@ -450,7 +450,7 @@ func TwentyTwentyGraph() *graph.Graph {
 		Prov("mum").Conn("kam", godip.Coast...).Conn("ara", godip.Sea).Conn("lac", godip.Sea).Conn("bna", godip.Coast...).Conn("hyd", godip.Land).Conn("ned", godip.Land).Flag(godip.Coast...).SC(India).
 		// Belgium
 		Prov("beg").Conn("nos", godip.Sea).Conn("pai", godip.Coast...).Conn("lyo", godip.Land).Conn("ham", godip.Coast...).Conn("ska", godip.Sea).Flag(godip.Coast...).
-		// Abula
+		// Abuja
 		Prov("abu").Conn("gha", godip.Land).Conn("lag", godip.Land).Conn("kan", godip.Land).Conn("nig", godip.Land).Flag(godip.Land).SC(Nigeria).
 		// Hungary
 		Prov("hun").Conn("ukr", godip.Land).Conn("pol", godip.Land).Conn("cze", godip.Land).Conn("cro", godip.Land).Conn("ser", godip.Land).Conn("rma", godip.Land).Flag(godip.Land).SC(godip.Neutral).
