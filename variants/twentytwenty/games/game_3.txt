@@ -1,0 +1,1283 @@
+PHASE 2001 Spring Movement
+POSITIONS
+	UK: fleet dub
+	Pakistan: fleet kar
+	Russia: army vla
+	Egypt: army asw
+	Japan: fleet tok
+	Pakistan: army isl
+	Australia: fleet syd
+	Turkey: army ank
+	Russia: army irk
+	Thailand: fleet bnk
+	Germany: army ben
+	Brazil: fleet rec
+	China: army yum
+	China: army bei
+	Argentina: fleet com
+	India: fleet bna
+	USA: army okl
+	Kenya: fleet mom
+	Canada: fleet iqa
+	Japan: fleet sap
+	Egypt: army cai
+	UK: fleet edi
+	Spain: army bar
+	UK: fleet lon
+	Australia: fleet pet
+	Nigeria: army kan
+	Nigeria: army abu
+	Turkey: army diy
+	Italy: army mil
+	Thailand: fleet hat
+	Japan: fleet nag
+	USA: army anc
+	South Africa: fleet dur
+	Brazil: army mac
+	China: army cho
+	Australia: fleet bri
+	Spain: fleet mad
+	Russia: army oms
+	Canada: fleet mot
+	Pakistan: army lah
+	Kenya: army mar
+	Russia: army mos
+	Brazil: fleet rio
+	Nigeria: fleet lag
+	South Africa: fleet cap
+	South Africa: army pre
+	Thailand: army chm
+	USA: fleet was
+	USA: army atl
+	Italy: fleet roe/ec
+	Kenya: army nai
+	Germany: army mun
+	Egypt: fleet ale
+	Germany: fleet ham
+	Argentina: fleet men
+	Spain: fleet cad
+	India: fleet mum
+	China: army bao
+	India: army ned
+	Turkey: fleet ist
+	Canada: fleet van
+	Argentina: fleet bue
+	Italy: army nap
+	Australia: supply bri
+	Pakistan: supply lah
+	Brazil: supply rio
+	Pakistan: supply kar
+	Turkey: supply diy
+	Germany: supply mun
+	Germany: supply ben
+	USA: supply atl
+	Thailand: supply bnk
+	Japan: supply sap
+	Nigeria: supply abu
+	Nigeria: supply kan
+	Canada: supply mot
+	South Africa: supply cap
+	Italy: supply roe
+	Turkey: supply ist
+	Russia: supply vla
+	Brazil: supply rec
+	Canada: supply iqa
+	Russia: supply oms
+	China: supply bao
+	Argentina: supply bue
+	Argentina: supply com
+	Italy: supply nap
+	India: supply bna
+	Argentina: supply men
+	Spain: supply bar
+	Japan: supply tok
+	USA: supply anc
+	Egypt: supply ale
+	Egypt: supply asw
+	Thailand: supply hat
+	UK: supply lon
+	Spain: supply cad
+	Australia: supply syd
+	Egypt: supply cai
+	UK: supply edi
+	Brazil: supply mac
+	China: supply bei
+	Spain: supply mad
+	USA: supply okl
+	South Africa: supply dur
+	South Africa: supply pre
+	UK: supply dub
+	Japan: supply nag
+	Australia: supply pet
+	Thailand: supply chm
+	Nigeria: supply lag
+	Pakistan: supply isl
+	China: supply yum
+	Russia: supply irk
+	China: supply cho
+	Germany: supply ham
+	Italy: supply mil
+	USA: supply was
+	Kenya: supply nai
+	Kenya: supply mar
+	Turkey: supply ank
+	India: supply mum
+	India: supply ned
+	Russia: supply mos
+	Canada: supply van
+	Kenya: supply mom
+ORDERS
+	kar move kam
+	isl move tib
+	lah move isl
+	tok support sap move soj
+	nag support sap move soj
+	sap hold
+	diy move aze
+	ist move aeg
+	ank move ist
+	iqa move ott
+	van move min
+	mot support was move ney
+	bnk move scs
+	chm move hat
+	hat move npo
+	bna move hyd
+	mum move bna
+	ned move kam
+	mac move ven
+	rec move cab
+	rio move nma
+	atl move was
+	anc move vla
+	okl move los
+	was move che
+	bar hold
+	mad move cad
+	cad move ena
+	asw support cai move ale
+	cai move mec
+	ale move ems
+	mom hold
+	nai hold
+	mar support nai
+	lon move dub
+	edi move nos
+	dub hold
+	pet move tas
+	bri hold
+	syd support pet move tas
+	bue move wsa
+	com move spo
+	men move pab
+	yum move mog
+	bao move lan
+	bei move mog
+	cho move lij
+	nap move tri
+	roe/ec hold
+	mil support roe
+	dur support pre move por
+	pre move zim
+	cap move esa
+	mos support oms move stp
+	vla move yak
+	irk hold
+	oms move ros
+	kan move nig
+	abu move lag
+	lag move gha
+	ham support ben move dem
+	ben move pol
+	mun support mil move cze
+PHASE 2001 Fall Movement
+POSITIONS
+	Brazil: fleet nma
+	Italy: army mil
+	Turkey: army aze
+	South Africa: fleet esa
+	Spain: fleet ena
+	Nigeria: army nig
+	USA: army was
+	Turkey: fleet aeg
+	Australia: fleet tas
+	UK: fleet lon
+	China: army yum
+	South Africa: fleet dur
+	China: army bei
+	Argentina: fleet pab
+	Italy: army tri
+	Spain: fleet cad
+	Nigeria: fleet gha
+	USA: fleet che
+	Kenya: fleet mom
+	Egypt: army asw
+	Egypt: army mec
+	Argentina: fleet spo
+	India: fleet bna
+	Pakistan: army tib
+	China: army lan
+	China: army lij
+	Canada: fleet mot
+	India: army ned
+	Japan: fleet sap
+	Australia: fleet syd
+	Russia: army ros
+	Russia: army yak
+	UK: fleet nos
+	Canada: fleet ott
+	Japan: fleet nag
+	Russia: army irk
+	Germany: army mun
+	Germany: army pol
+	Japan: fleet tok
+	Kenya: army nai
+	Italy: fleet roe/ec
+	USA: army los
+	Spain: army bar
+	Argentina: fleet wsa
+	USA: army vla
+	Egypt: fleet ems
+	Pakistan: fleet kar
+	UK: fleet dub
+	Brazil: army ven
+	Brazil: fleet cab
+	Nigeria: army lag
+	Germany: fleet ham
+	South Africa: army zim
+	Kenya: army mar
+	Pakistan: army isl
+	Russia: army mos
+	Thailand: army hat
+	Australia: fleet bri
+	Turkey: army ist
+	Canada: fleet min
+	Thailand: fleet scs
+	Thailand: fleet npo
+	India: fleet hyd
+	Pakistan: supply lah
+	Spain: supply mad
+	Brazil: supply mac
+	Egypt: supply ale
+	China: supply cho
+	Spain: supply cad
+	Argentina: supply men
+	Thailand: supply bnk
+	Kenya: supply mar
+	Italy: supply roe
+	Russia: supply mos
+	UK: supply dub
+	Russia: supply irk
+	Spain: supply bar
+	Kenya: supply nai
+	Canada: supply van
+	India: supply mum
+	Germany: supply ham
+	India: supply bna
+	Italy: supply nap
+	South Africa: supply dur
+	Thailand: supply hat
+	Pakistan: supply isl
+	Thailand: supply chm
+	India: supply ned
+	USA: supply anc
+	USA: supply atl
+	China: supply bei
+	Germany: supply mun
+	Brazil: supply rio
+	Japan: supply sap
+	China: supply bao
+	Australia: supply pet
+	China: supply yum
+	Turkey: supply ist
+	Nigeria: supply lag
+	UK: supply lon
+	Argentina: supply bue
+	Australia: supply syd
+	Egypt: supply cai
+	Nigeria: supply abu
+	Japan: supply nag
+	Australia: supply bri
+	Canada: supply iqa
+	Pakistan: supply kar
+	UK: supply edi
+	Egypt: supply asw
+	Nigeria: supply kan
+	Canada: supply mot
+	Russia: supply oms
+	Argentina: supply com
+	Turkey: supply diy
+	Italy: supply mil
+	USA: supply was
+	Japan: supply tok
+	Turkey: supply ank
+	Kenya: supply mom
+	South Africa: supply pre
+	USA: supply okl
+	Germany: supply ben
+	South Africa: supply cap
+	Brazil: supply rec
+	Russia: supply vla
+ORDERS
+	isl move afg
+	kar move ara
+	tib support lan
+	sap hold
+	nag support hat move ecs
+	tok move soj
+	ist move ira
+	aze move ast
+	aeg support ems move grc
+	min move van
+	ott move iqa
+	mot support che move ney
+	npo move phi
+	scs support hat move phi
+	hat move ind
+	ned move hyd
+	bna move mum
+	hyd move gur
+	ven move mac
+	nma move sen
+	cab support cad move ena
+	vla support bei move she
+	was move was
+	che move wna
+	los move hat
+	bar support ena move cad
+	ena support dub
+	cad move can
+	ems support tri move bnh
+	mec move ank
+	asw move cai
+	mom move tan
+	nai move tan
+	mar move eth
+	dub support ena move des
+	lon support nos
+	nos move grd
+	tas move ade
+	syd move mpo
+	bri hold
+	pab move mpo
+	spo hold
+	wsa move sma
+	bei move cho
+	lij support yum move lan
+	lan hold
+	yum move uru
+	roe/ec hold
+	tri move nap
+	mil support mun move lyo
+	dur support spo move soo
+	zim move cot
+	esa support wsa move sco
+	mos support pol move ukr
+	yak move irk
+	ros support irk move oms
+	irk move mog
+	gha move lag
+	lag move kan
+	nig move abu
+	mun support pol move cze
+	pol move cze
+	ham move dem
+PHASE 2001 Fall Adjustment
+POSITIONS
+	Nigeria: fleet lag
+	UK: fleet dub
+	Spain: army bar
+	Italy: army mil
+	Thailand: army ind
+	Thailand: fleet phi
+	India: fleet gur
+	China: army lij
+	Thailand: fleet scs
+	South Africa: army zim
+	UK: fleet lon
+	Turkey: army ist
+	Egypt: fleet ems
+	Australia: fleet ade
+	Turkey: army ast
+	Russia: army irk
+	South Africa: fleet dur
+	Italy: fleet roe/ec
+	Pakistan: army afg
+	Pakistan: fleet ara
+	UK: fleet grd
+	Italy: army nap
+	USA: army vla
+	Kenya: army eth
+	Australia: fleet syd
+	Egypt: army cai
+	Argentina: fleet pab
+	Canada: fleet mot
+	China: army uru
+	Brazil: army mac
+	India: army hyd
+	USA: army los
+	Germany: army mun
+	India: fleet mum
+	Brazil: fleet cab
+	Canada: fleet iqa
+	Spain: fleet can
+	Egypt: army mec
+	Russia: army ros
+	Argentina: fleet sma
+	Nigeria: army kan
+	Japan: fleet sap
+	Pakistan: army tib
+	USA: fleet wna
+	Australia: fleet bri
+	Spain: fleet ena
+	USA: army was
+	Kenya: army nai
+	Nigeria: army abu
+	Russia: army mog
+	South Africa: fleet esa
+	Russia: army mos
+	Canada: fleet van
+	Japan: fleet nag
+	Brazil: fleet sen
+	China: army cho
+	Argentina: fleet spo
+	Kenya: fleet mom
+	Turkey: fleet aeg
+	Germany: fleet dem
+	Germany: army cze
+	China: army lan
+	Japan: fleet soj
+	Russia: supply oms
+	USA: supply atl
+	USA: supply vla
+	Spain: supply bar
+	UK: supply dub
+	Canada: supply van
+	Australia: supply pet
+	Nigeria: supply lag
+	Turkey: supply ank
+	Germany: supply ham
+	India: supply mum
+	USA: supply was
+	China: supply bao
+	Germany: supply ben
+	Argentina: supply com
+	UK: supply grd
+	Russia: supply mos
+	China: supply bei
+	Kenya: supply nai
+	Turkey: supply ist
+	Italy: supply nap
+	Pakistan: supply kar
+	Brazil: supply rio
+	Spain: supply mad
+	Turkey: supply diy
+	Egypt: supply ale
+	Kenya: supply mom
+	South Africa: supply pre
+	India: supply ned
+	Egypt: supply asw
+	USA: supply okl
+	Spain: supply cad
+	Italy: supply mil
+	Thailand: supply bnk
+	India: supply bna
+	Egypt: supply cai
+	Argentina: supply bue
+	Germany: supply mun
+	Russia: supply irk
+	Australia: supply bri
+	UK: supply edi
+	Canada: supply mot
+	Brazil: supply sen
+	Pakistan: supply lah
+	Brazil: supply rec
+	Japan: supply tok
+	Thailand: supply chm
+	China: supply yum
+	Nigeria: supply abu
+	Kenya: supply mar
+	Thailand: supply phi
+	Japan: supply nag
+	Australia: supply syd
+	Italy: supply roe
+	Nigeria: supply kan
+	UK: supply lon
+	Argentina: supply men
+	Pakistan: supply isl
+	Canada: supply iqa
+	Brazil: supply mac
+	South Africa: supply cap
+	Thailand: supply hat
+	USA: supply anc
+	South Africa: supply dur
+	Japan: supply sap
+	China: supply cho
+ORDERS
+	build anywhere Army hat
+	build anywhere Fleet rio
+	build anywhere Army atl
+	build anywhere Army edi
+	remove irk
+PHASE 2002 Spring Movement
+POSITIONS
+	South Africa: army zim
+	Egypt: army cai
+	Brazil: army mac
+	USA: army was
+	Brazil: fleet sen
+	China: army lan
+	USA: army atl
+	Thailand: fleet phi
+	Australia: fleet syd
+	Argentina: fleet pab
+	Kenya: army nai
+	Nigeria: army abu
+	Germany: fleet dem
+	Pakistan: army afg
+	USA: fleet wna
+	Kenya: fleet mom
+	Nigeria: fleet lag
+	India: fleet mum
+	Australia: fleet bri
+	Germany: army cze
+	Brazil: fleet rio
+	UK: army edi
+	Thailand: army ind
+	India: army hyd
+	Spain: fleet can
+	Nigeria: army kan
+	Japan: fleet soj
+	Italy: army mil
+	Thailand: fleet scs
+	Australia: fleet ade
+	China: army uru
+	China: army cho
+	Argentina: fleet spo
+	Turkey: army ist
+	Canada: fleet mot
+	Germany: army mun
+	India: fleet gur
+	UK: fleet lon
+	Canada: fleet iqa
+	Russia: army ros
+	Turkey: fleet aeg
+	Thailand: army hat
+	Egypt: fleet ems
+	Japan: fleet sap
+	Spain: fleet ena
+	UK: fleet grd
+	Brazil: fleet cab
+	Argentina: fleet sma
+	Pakistan: army tib
+	Japan: fleet nag
+	Spain: army bar
+	China: army lij
+	South Africa: fleet dur
+	Italy: fleet roe/ec
+	Pakistan: fleet ara
+	Italy: army nap
+	UK: fleet dub
+	Turkey: army ast
+	Kenya: army eth
+	Egypt: army mec
+	Russia: army mog
+	USA: army vla
+	USA: army los
+	South Africa: fleet esa
+	Russia: army mos
+	Canada: fleet van
+	USA: supply atl
+	Canada: supply van
+	Thailand: supply bnk
+	Canada: supply mot
+	Russia: supply oms
+	Egypt: supply ale
+	Thailand: supply hat
+	China: supply cho
+	China: supply bei
+	Argentina: supply com
+	Pakistan: supply kar
+	Japan: supply nag
+	South Africa: supply cap
+	Japan: supply sap
+	India: supply mum
+	Brazil: supply sen
+	Brazil: supply rec
+	Italy: supply roe
+	Kenya: supply nai
+	Nigeria: supply kan
+	India: supply bna
+	USA: supply was
+	Turkey: supply ist
+	Thailand: supply phi
+	Pakistan: supply isl
+	Nigeria: supply lag
+	China: supply yum
+	Turkey: supply diy
+	Egypt: supply asw
+	Argentina: supply men
+	Spain: supply bar
+	UK: supply dub
+	Turkey: supply ank
+	Spain: supply mad
+	USA: supply okl
+	Nigeria: supply abu
+	USA: supply vla
+	Russia: supply irk
+	Japan: supply tok
+	Brazil: supply mac
+	Australia: supply pet
+	Italy: supply mil
+	Egypt: supply cai
+	Canada: supply iqa
+	China: supply bao
+	Italy: supply nap
+	South Africa: supply pre
+	Germany: supply mun
+	UK: supply lon
+	South Africa: supply dur
+	Germany: supply ham
+	Russia: supply mos
+	Australia: supply bri
+	Australia: supply syd
+	Germany: supply ben
+	Brazil: supply rio
+	Pakistan: supply lah
+	UK: supply grd
+	India: supply ned
+	Kenya: supply mom
+	Argentina: supply bue
+	UK: supply edi
+	Thailand: supply chm
+	Kenya: supply mar
+	USA: supply anc
+	Spain: supply cad
+ORDERS
+	ara move mum
+	tib hold
+	afg move uru
+	nag move soj
+	sap move tok
+	soj move she/ec
+	ast support mos move oms
+	ist hold
+	aeg move bul/sc
+	van hold
+	mot support ena move wna
+	iqa support phi move arc
+	scs move npo
+	hat support ind
+	ind support bri move dar
+	phi move arc
+	hyd support ara move mum
+	mum move bna
+	gur move bna
+	mac support rio move bra
+	cab support can move mau
+	sen move mau
+	rio move nma
+	was move chg
+	atl move okl
+	wna hold
+	los move neo
+	vla move vla
+	bar move mor
+	can move mau
+	ena hold
+	cai move mec
+	mec hold
+	ems support ist move grc
+	eth support mec move yem
+	nai support mom
+	mom hold
+	dub support grd move des
+	grd move iqa
+	edi move lon
+	lon move nos
+	ade move tas
+	bri support syd move mpo
+	syd support spo move tas
+	spo move tas
+	sma move nma
+	pab support bri move mpo
+	cho support lan
+	lan move ksi
+	uru support afg move ksi
+	lij support tib
+	nap move tri
+	roe/ec move ion
+	mil move cro
+	dur support zim move pre
+	esa move wsa
+	zim move ang
+	ros move oms
+	mos move ros
+	mog move alm
+	kan move abu
+	abu move lag
+	lag move gha
+	mun move lyo
+	cze hold
+	dem move swe
+PHASE 2002 Fall Movement
+POSITIONS
+	South Africa: army ang
+	UK: fleet dub
+	Germany: army cze
+	Brazil: fleet rio
+	Egypt: army mec
+	China: army lij
+	Argentina: fleet pab
+	South Africa: fleet wsa
+	Italy: army cro
+	Thailand: army hat
+	Germany: army lyo
+	USA: army neo
+	Russia: army oms
+	Canada: fleet iqa
+	Pakistan: fleet ara
+	Argentina: fleet sma
+	Argentina: fleet tas
+	Pakistan: army tib
+	Pakistan: army afg
+	Australia: fleet bri
+	Japan: fleet she/ec
+	Nigeria: army lag
+	USA: army okl
+	USA: army chg
+	China: army cho
+	Russia: army alm
+	India: army hyd
+	Germany: fleet swe
+	USA: army vla
+	UK: fleet grd
+	Spain: fleet ena
+	Egypt: fleet ems
+	India: fleet mum
+	Canada: fleet mot
+	Egypt: army cai
+	Japan: fleet soj
+	Canada: fleet van
+	Australia: fleet ade
+	Kenya: army eth
+	Russia: army ros
+	Turkey: army ast
+	China: army uru
+	Japan: fleet tok
+	UK: army lon
+	Kenya: army nai
+	Australia: fleet syd
+	Brazil: fleet sen
+	Thailand: fleet npo
+	USA: fleet wna
+	Brazil: fleet cab
+	Spain: army mor
+	South Africa: fleet dur
+	Turkey: army ist
+	Turkey: fleet bul/sc
+	China: army ksi
+	Nigeria: fleet gha
+	Brazil: army mac
+	Nigeria: army abu
+	Thailand: fleet arc
+	Thailand: army ind
+	India: fleet gur
+	Kenya: fleet mom
+	Italy: army tri
+	Spain: fleet mau
+	Italy: fleet ion
+	UK: fleet nos
+	UK: supply grd
+	Nigeria: supply abu
+	Turkey: supply ank
+	Argentina: supply com
+	Japan: supply sap
+	UK: supply dub
+	India: supply mum
+	USA: supply was
+	Turkey: supply ist
+	Argentina: supply bue
+	Pakistan: supply isl
+	Thailand: supply chm
+	India: supply ned
+	Egypt: supply ale
+	Brazil: supply rec
+	USA: supply vla
+	Thailand: supply hat
+	China: supply bao
+	Kenya: supply nai
+	Brazil: supply mac
+	Russia: supply oms
+	Russia: supply irk
+	Japan: supply tok
+	Germany: supply ben
+	Spain: supply mad
+	Australia: supply bri
+	USA: supply anc
+	China: supply yum
+	India: supply bna
+	Germany: supply ham
+	Australia: supply syd
+	South Africa: supply dur
+	Russia: supply mos
+	Spain: supply cad
+	Japan: supply nag
+	Germany: supply mun
+	Turkey: supply diy
+	South Africa: supply cap
+	China: supply bei
+	UK: supply edi
+	South Africa: supply pre
+	Argentina: supply men
+	Pakistan: supply kar
+	USA: supply okl
+	China: supply cho
+	Egypt: supply asw
+	Thailand: supply bnk
+	Spain: supply bar
+	Australia: supply pet
+	Brazil: supply rio
+	Egypt: supply cai
+	Nigeria: supply kan
+	Italy: supply nap
+	UK: supply lon
+	Thailand: supply phi
+	Kenya: supply mom
+	Italy: supply mil
+	Canada: supply iqa
+	Pakistan: supply lah
+	Canada: supply mot
+	Kenya: supply mar
+	Nigeria: supply lag
+	Brazil: supply sen
+	Italy: supply roe
+	USA: supply atl
+	Canada: supply van
+ORDERS
+	tib move lij
+	afg move mas
+	ara move kar
+	soj support vla move she
+	tok move bes
+	she/ec move kor
+	bul/sc move aeg
+	ast support afg move alm
+	ist move bul
+	iqa move lab
+	van support nos move arc
+	mot support wna move gos
+	hat support ind
+	arc support iqa
+	ind move now
+	npo move phi
+	mum move lac
+	hyd move kol
+	gur support tas move mio
+	mac support cab move rec
+	cab move sen
+	sen move gin
+	rio move sao
+	chg move los
+	neo support okl move atl
+	wna move des
+	okl support npo move los
+	vla support lon move anc
+	ena move can
+	mor move bar
+	mau move mor
+	mec support ems move cai
+	cai move tri
+	ems move ion
+	eth move yem
+	nai move mom
+	mom move eth
+	grd move arc
+	nos move grd
+	lon move mau
+	dub move des
+	syd move mpo
+	ade move tas
+	bri move syd
+	sma support cab move nma
+	tas support npo move mpo
+	pab hold
+	uru move ksi
+	lij move tib
+	ksi move lan
+	cho move lan
+	cro move cro
+	ion move roe/ec
+	tri support abu move nig
+	wsa move bue
+	dur support mom move moc
+	ang move zam
+	alm move ast
+	ros support ast move aze
+	oms move mos
+	abu move lag
+	lag hold
+	gha move gog
+	lyo support ion move mil
+	swe move fin/sc
+	cze hold
+PHASE 2002 Fall Adjustment
+POSITIONS
+	Egypt: army cai
+	South Africa: fleet dur
+	China: army ksi
+	Spain: fleet can
+	Kenya: army yem
+	Brazil: fleet sao
+	Nigeria: army lag
+	UK: fleet dub
+	India: army kol
+	USA: fleet wna
+	Egypt: army mec
+	India: fleet gur
+	Thailand: army hat
+	China: army uru
+	USA: army neo
+	South Africa: army zam
+	Pakistan: army mas
+	Brazil: fleet sen
+	Nigeria: fleet gog
+	Japan: fleet kor
+	China: army lij
+	Canada: fleet lab
+	USA: army okl
+	Brazil: army mac
+	Canada: fleet mot
+	UK: fleet nos
+	Pakistan: fleet kar
+	Nigeria: army abu
+	Russia: army ros
+	Canada: fleet van
+	Kenya: fleet eth
+	Spain: fleet mor
+	Thailand: fleet arc
+	India: fleet lac
+	Italy: fleet roe/ec
+	USA: army vla
+	Egypt: fleet ion
+	Italy: army cro
+	Australia: fleet syd
+	Thailand: fleet phi
+	Turkey: army ast
+	Argentina: fleet tas
+	Russia: army mos
+	Spain: army bar
+	Thailand: army ind
+	Turkey: fleet aeg
+	Russia: army alm
+	Italy: army tri
+	UK: army lon
+	South Africa: fleet bue
+	Germany: army cze
+	Argentina: fleet sma
+	Kenya: army mom
+	Australia: fleet ade
+	Japan: fleet bes
+	Argentina: fleet pab
+	China: army cho
+	Turkey: army bul
+	Japan: fleet soj
+	Brazil: fleet gin
+	UK: fleet grd
+	Pakistan: army tib
+	Australia: fleet mpo
+	Germany: fleet fin/sc
+	Germany: army lyo
+	USA: army los
+	Kenya: supply yem
+	Russia: supply mos
+	Russia: supply irk
+	Italy: supply mil
+	Brazil: supply gin
+	USA: supply okl
+	Brazil: supply sen
+	Pakistan: supply lah
+	Italy: supply nap
+	Thailand: supply phi
+	South Africa: supply bue
+	China: supply cho
+	Turkey: supply ank
+	India: supply bna
+	Australia: supply bri
+	Canada: supply mot
+	South Africa: supply pre
+	Australia: supply syd
+	Spain: supply cad
+	Italy: supply roe
+	Kenya: supply nai
+	USA: supply atl
+	Russia: supply oms
+	Spain: supply bar
+	Pakistan: supply kar
+	Egypt: supply cai
+	Brazil: supply mac
+	Nigeria: supply lag
+	Kenya: supply mar
+	Thailand: supply chm
+	China: supply bei
+	Germany: supply mun
+	Turkey: supply diy
+	UK: supply lon
+	China: supply bao
+	China: supply yum
+	Nigeria: supply kan
+	Thailand: supply hat
+	Germany: supply ham
+	Argentina: supply com
+	UK: supply grd
+	Germany: supply fin
+	Spain: supply mad
+	Brazil: supply rec
+	India: supply ned
+	USA: supply was
+	Pakistan: supply isl
+	UK: supply dub
+	USA: supply anc
+	Thailand: supply bnk
+	Canada: supply iqa
+	Japan: supply sap
+	Japan: supply nag
+	India: supply mum
+	South Africa: supply dur
+	Kenya: supply mom
+	South Africa: supply cap
+	Nigeria: supply abu
+	Russia: supply alm
+	Turkey: supply ist
+	Egypt: supply asw
+	Australia: supply pet
+	Canada: supply van
+	Argentina: supply men
+	South Africa: supply zam
+	USA: supply vla
+	Brazil: supply rio
+	Japan: supply tok
+	Egypt: supply ale
+	Germany: supply ben
+	UK: supply edi
+ORDERS
+	build anywhere Fleet rio
+	build anywhere Army nai
+	remove pab
+	build anywhere Army cap
+	build anywhere Army oms
+	build anywhere Army ben
+PHASE 2003 Spring Movement
+POSITIONS
+	Thailand: army hat
+	UK: fleet nos
+	Russia: army ros
+	Argentina: fleet tas
+	Russia: army mos
+	Germany: army cze
+	Japan: fleet soj
+	Germany: army lyo
+	South Africa: fleet dur
+	Brazil: fleet sao
+	Brazil: fleet sen
+	Turkey: army bul
+	Kenya: army yem
+	South Africa: army cap
+	China: army ksi
+	Nigeria: army lag
+	Japan: fleet kor
+	Nigeria: army abu
+	Thailand: army ind
+	Russia: army alm
+	Japan: fleet bes
+	Kenya: army nai
+	Russia: army oms
+	India: fleet gur
+	Australia: fleet ade
+	Pakistan: army tib
+	Germany: fleet fin/sc
+	China: army uru
+	Nigeria: fleet gog
+	Turkey: army ast
+	Argentina: fleet sma
+	Australia: fleet mpo
+	Brazil: army mac
+	Turkey: fleet aeg
+	South Africa: fleet bue
+	Brazil: fleet gin
+	Germany: army ben
+	Pakistan: fleet kar
+	India: fleet lac
+	Egypt: army cai
+	Australia: fleet syd
+	Thailand: fleet phi
+	Italy: army tri
+	UK: army lon
+	USA: army los
+	Canada: fleet mot
+	Italy: army cro
+	South Africa: army zam
+	Canada: fleet lab
+	Kenya: fleet eth
+	Italy: fleet roe/ec
+	USA: army vla
+	USA: army neo
+	UK: fleet dub
+	Pakistan: army mas
+	China: army lij
+	Spain: fleet mor
+	Brazil: fleet rio
+	Spain: fleet can
+	India: army kol
+	USA: fleet wna
+	Egypt: army mec
+	USA: army okl
+	Canada: fleet van
+	Thailand: fleet arc
+	Spain: army bar
+	UK: fleet grd
+	Egypt: fleet ion
+	Kenya: army mom
+	China: army cho
+	USA: supply was
+	Pakistan: supply isl
+	Pakistan: supply lah
+	Thailand: supply hat
+	USA: supply anc
+	South Africa: supply dur
+	Kenya: supply mom
+	USA: supply okl
+	Canada: supply mot
+	Thailand: supply chm
+	China: supply bao
+	UK: supply grd
+	Turkey: supply ist
+	South Africa: supply zam
+	Egypt: supply ale
+	Kenya: supply yem
+	Pakistan: supply kar
+	Kenya: supply mar
+	Brazil: supply rec
+	Canada: supply van
+	Italy: supply mil
+	Spain: supply bar
+	China: supply bei
+	Germany: supply mun
+	Spain: supply mad
+	Nigeria: supply abu
+	China: supply cho
+	Nigeria: supply kan
+	Argentina: supply com
+	Italy: supply nap
+	India: supply ned
+	Australia: supply pet
+	Thailand: supply phi
+	Nigeria: supply lag
+	India: supply mum
+	UK: supply edi
+	Russia: supply irk
+	Spain: supply cad
+	China: supply yum
+	Thailand: supply bnk
+	South Africa: supply pre
+	USA: supply atl
+	Australia: supply syd
+	South Africa: supply bue
+	Brazil: supply sen
+	Italy: supply roe
+	Brazil: supply mac
+	Turkey: supply diy
+	Germany: supply fin
+	UK: supply dub
+	Japan: supply sap
+	Japan: supply nag
+	Australia: supply bri
+	Argentina: supply men
+	South Africa: supply cap
+	Egypt: supply asw
+	Kenya: supply nai
+	Egypt: supply cai
+	UK: supply lon
+	Canada: supply iqa
+	Japan: supply tok
+	Turkey: supply ank
+	Russia: supply oms
+	Germany: supply ham
+	Russia: supply alm
+	USA: supply vla
+	Brazil: supply rio
+	Russia: supply mos
+	India: supply bna
+	Germany: supply ben
+	Brazil: supply gin
+ORDERS
+	mas move kar
+	kar support tib move kam
+	tib move lan
+	bes move fin/nc
+	soj move bes
+	kor support vla move ecs
+	aeg move grc
+	ast support ros
+	bul move bul
+	mot move gos
+	lab move mot
+	van move whi/wc
+	hat support ind
+	ind move dar
+	phi support bes move ecs
+	arc support van move whi
+	kol support gur move hyd
+	gur move bna
+	lac support tas move mio
+	sen hold
+	sao move pag
+	gin move esa
+	rio move sao
+	mac move bra
+	okl move los
+	vla move iqa
+	neo support lon move los
+	los move min
+	wna move des
+	mor hold
+	bar support can move cad
+	can move mau
+	ion hold
+	cai support yem move mec
+	mec hold
+	eth support nai move mom
+	mom move mar
+	yem support cai move mec
+	nai move mar
+	lon move lon
+	nos move des
+	dub support grd move des
+	grd move des
+	syd move mpo
+	ade hold
+	mpo move tas
+	tas support gur move mio
+	sma hold
+	ksi move uru
+	cho move bao
+	lij support uru move lan
+	uru support mas move afg
+	cro move mil
+	roe/ec move mil/ec
+	tri move nap
+	dur move moc
+	bue support sao move pag
+	zam support mom move tan
+	cap move por
+	oms move ros
+	alm move afg
+	mos move bea
+	ros support ast move aze
+	lag move cot
+	abu hold
+	gog support gin move esa
+	fin/sc move bat
+	ben support lyo move mun
+	lyo hold
+	cze move mil
