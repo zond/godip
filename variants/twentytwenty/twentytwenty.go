@@ -99,7 +99,7 @@ var TwentyTwentyVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/twentytwentymap.svg")
 	},
-	SVGVersion: "4",
+	SVGVersion: "5",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
