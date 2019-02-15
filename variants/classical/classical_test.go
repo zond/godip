@@ -347,6 +347,38 @@ func TestSupportOpts(t *testing.T) {
 	tst.AssertNoOpt(t, opts, []string{"par", "Support", "par", "pic", "par"})
 }
 
+func TestRetreatOpts(t *testing.T) {
+	judge := startState(t)
+	judge.SetOrder("nap", orders.Move("nap", "ion"))
+	judge.SetOrder("mun", orders.Move("mun", "tyr"))
+	judge.SetOrder("tri", orders.Move("tri", "adr"))
+	judge.SetOrder("bud", orders.Move("bud", "ser"))
+	judge.SetOrder("vie", orders.Move("vie", "tri"))
+	judge.Next()
+	judge.Next()
+	// Venice invades Trieste supported by Tyrolia.
+	judge.SetOrder("ven", orders.Move("ven", "tri"))
+	judge.SetOrder("tyr", orders.SupportMove("tyr", "ven", "tri"))
+	// Serbia and Ionian Sea bounce in Albania.
+	judge.SetOrder("ser", orders.Move("ser", "alb"))
+	judge.SetOrder("ion", orders.Move("ion", "alb"))
+	judge.Next()
+
+	// Check the options for the displaced unit in Trieste.
+	opts := judge.Phase().Options(judge, godip.Austria)
+	tst.AssertOpt(t, opts, []string{"tri", "Move", "tri", "vie"})
+	tst.AssertOpt(t, opts, []string{"tri", "Move", "tri", "bud"})
+	// Can't retreat to where the attack came from.
+	tst.AssertNoOpt(t, opts, []string{"tri", "Move", "tri", "ven"})
+	// Can't retreat to an occupied region.
+	tst.AssertNoOpt(t, opts, []string{"tri", "Move", "tri", "tyr"})
+	tst.AssertNoOpt(t, opts, []string{"tri", "Move", "tri", "ser"})
+	// There was a bounce in Albania.
+	tst.AssertNoOpt(t, opts, []string{"tri", "Move", "tri", "alb"})
+	// Can't retreat via convoy.
+	tst.AssertNoOpt(t, opts, []string{"tri", "Move", "tri", "apu"})
+}
+
 func TestSTPOptionsAtStart(t *testing.T) {
 	judge := startState(t)
 	opts := judge.Phase().Options(judge, godip.Russia)
