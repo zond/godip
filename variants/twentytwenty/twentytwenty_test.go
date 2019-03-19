@@ -32,14 +32,16 @@ func blankState(t *testing.T) *state.State {
 func assertNoWinner(t *testing.T, judge *state.State) {
 	winner := TwentyTwentyWinner(judge)
 	if winner != "" {
-		t.Errorf("Expected no winner but got %v", winner)
+		phase := judge.Phase()
+		t.Errorf("Expected no winner in %v %v %v but got %v", phase.Year(), phase.Season(), phase.Type(), winner)
 	}
 }
 
 func assertWinner(t *testing.T, judge *state.State, expected godip.Nation) {
 	winner := TwentyTwentyWinner(judge)
 	if winner != expected {
-		t.Errorf("Expected %v to win but got %v", expected, winner)
+		phase := judge.Phase()
+		t.Errorf("Expected %v to win in %v %v %v but got %v", phase.Year(), phase.Season(), phase.Type(), expected, winner)
 	}
 }
 
@@ -61,6 +63,13 @@ func TestNoWinnerAtStart(t *testing.T) {
 	assertNoWinner(t, judge)
 }
 
+func TestNoWinnerIfNoOneMovesInFirstYear(t *testing.T) {
+	judge := startState(t)
+	waitForPhases(judge, 4)
+
+	assertNoWinner(t, judge)
+}
+
 func TestTwentyLeadAtStartWins(t *testing.T) {
 	judge := startState(t)
 	// USA and e.g. Russia start with 4 SCs each, so USA needs 20 more to win in the first year.
@@ -69,6 +78,7 @@ func TestTwentyLeadAtStartWins(t *testing.T) {
 		"cha", "car", "drc", "ang", "zam", "pai", "now", "swe", "fin", "hun"} {
 		judge.SetSC(province, USA)
 	}
+	waitForPhases(judge, 4)
 
 	assertWinner(t, judge, "USA")
 }
@@ -81,6 +91,7 @@ func TestNineteenLeadAtStartDoesntWin(t *testing.T) {
 		"cha", "car", "drc", "ang", "zam", "pai", "now", "swe", "fin"} {
 		judge.SetSC(province, USA)
 	}
+	waitForPhases(judge, 4)
 
 	assertNoWinner(t, judge)
 }
@@ -95,6 +106,7 @@ func TestNineteenLeadInSecondYearWins(t *testing.T) {
 		"cha", "car", "drc", "ang", "zam", "pai", "now", "swe", "fin"} {
 		judge.SetSC(province, USA)
 	}
+	waitForPhases(judge, 4)
 
 	assertWinner(t, judge, "USA")
 }
@@ -118,6 +130,7 @@ func TestMoreThanHalfWins(t *testing.T) {
 		"fin", "ben", "col", "pre", "nap", "mot", "irk", "bnk"} {
 		judge.SetSC(province, Russia)
 	}
+	waitForPhases(judge, 4)
 
 	assertWinner(t, judge, "USA")
 }
@@ -141,25 +154,34 @@ func TestLessThanHalfDoesntWin(t *testing.T) {
 		"fin", "ben", "col", "pre", "nap", "mot", "irk"} {
 		judge.SetSC(province, Russia)
 	}
+	waitForPhases(judge, 4)
 
 	assertNoWinner(t, judge)
 }
 
 func TestOneCenterLeadWinsIn2020(t *testing.T) {
 	judge := startState(t)
+	// USA gets Greenland in Adjustment 2001.
+	waitForPhases(judge, 4)
 	judge.SetSC("grd", USA)
 
 	// No winning in 2019 with a lead of one.
 	waitForYears(judge, 18)
 	assertNoWinner(t, judge)
 
-	// USA wins in 2020 with a lead of one.
-	waitForYears(judge, 1)
+	// No winner in 2020 before Adjustment.
+	for i := 1; i <= 4; i++ {
+		waitForPhases(judge, 1)
+		assertNoWinner(t, judge)
+	}
+	// USA wins in Adjustment 2020 with a lead of one.
+	waitForPhases(judge, 1)
 	assertWinner(t, judge, USA)
 }
 
 func TestOneCenterLeadWinsIn2021(t *testing.T) {
 	judge := startState(t)
+	waitForPhases(judge, 4)
 
 	// No winner if tied in 2020
 	waitForYears(judge, 19)

@@ -37,6 +37,10 @@ var Nations = []godip.Nation{Brazil, Canada, Australia, Italy, USA, Kenya, Egypt
 
 // A function that declares a solo winner if a nation has over 49 SCs, or they lead by at least max(2020-year, 1) SCs.
 func TwentyTwentyWinner(s *state.State) godip.Nation {
+	// It's only possible to win in the Adjustment phase.
+	if s.Phase().Type() != godip.Adjustment {
+		return ""
+	}
 	// Create a map from nation to count of owned SCs.
 	scCount := map[godip.Nation]int{}
 	for _, nat := range s.SupplyCenters() {
@@ -119,7 +123,8 @@ var TwentyTwentyVariant = common.Variant{
 		"the year 2015 a player needs at least 6 more supply centers than any " +
 		"other player, and in 2020 and beyond they need a lead of a single " +
 		"supply center. Alternatively, if a player manages to get to 49 centers " +
-		"(i.e. they own over half the map) then they automatically win. There " +
+		"(i.e. they own over half the map) then they automatically win. The " +
+		"game can only be won in the adjustment phase at the end of a year. There " +
 		"are six bridges connecting regions for armies (and fleets). These are " +
 		"Anchorage-Vladivostok, New Orleans-Cuba, Cuba-Dominican Republic, " +
 		"Ethiopia-Yemen, Korea-Nagisaki and Indonesia-Darwin. Thirteen regions " +
