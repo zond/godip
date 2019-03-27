@@ -1,0 +1,1284 @@
+PHASE 0 Spring Movement
+POSITIONS
+	Britons: fleet sbr
+	Britons: army cym
+	Britons: supply sbr
+	Britons: supply cym
+	Romans: army ges
+	Romans: fleet men
+	Romans: supply ges
+	Romans: supply men
+	Frysians: army ams
+	Frysians: fleet fri
+	Frysians: supply ams
+	Frysians: supply fri
+	Norse: army got
+	Norse: fleet sor
+	Norse: supply got
+	Norse: supply sor
+ORDERS
+	cym move nbr
+	sbr move lns
+	ges move gei
+	men move lns
+	ams move gei
+	fri move bat
+	got hold
+	sor move ska
+PHASE 0 Fall Movement
+POSITIONS
+	Britons: army nbr
+	Britons: fleet sbr
+	Britons: supply sbr
+	Britons: supply cym
+	Romans: army ges
+	Romans: fleet men
+	Romans: supply ges
+	Romans: supply men
+	Frysians: army ams
+	Frysians: fleet bat
+	Frysians: supply ams
+	Frysians: supply fri
+	Norse: fleet ska
+	Norse: army got
+	Norse: supply got
+	Norse: supply sor
+ORDERS
+	nbr move ala
+	sbr move wns
+	ges move mag
+	men move lns
+	ams hold
+	bat support men move lns
+	got move lim
+	ska convoy got move lim
+PHASE 0 Fall Adjustment
+POSITIONS
+	Britons: supply ala
+	Britons: fleet wns
+	Britons: army ala
+	Britons: supply sbr
+	Britons: supply cym
+	Romans: supply mag
+	Romans: fleet lns
+	Romans: army mag
+	Romans: supply ges
+	Romans: supply men
+	Frysians: army ams
+	Frysians: fleet bat
+	Frysians: supply ams
+	Frysians: supply fri
+	Norse: supply lim
+	Norse: army lim
+	Norse: fleet ska
+	Norse: supply got
+	Norse: supply sor
+ORDERS
+	build Fleet sbr
+	build Fleet men
+	build Army fri
+	build Fleet sor
+PHASE 1 Spring Movement
+POSITIONS
+	Britons: supply cym
+	Britons: fleet wns
+	Britons: fleet sbr
+	Britons: army ala
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply ges
+	Romans: fleet lns
+	Romans: fleet men
+	Romans: army mag
+	Romans: supply men
+	Romans: supply mag
+	Frysians: army ams
+	Frysians: fleet bat
+	Frysians: supply ams
+	Frysians: supply fri
+	Norse: supply got
+	Norse: army lim
+	Norse: fleet ska
+	Norse: fleet sor
+	Norse: supply lim
+	Norse: supply sor
+ORDERS
+	sbr move lns
+	ala move nbr
+	wns move cns
+	mag hold
+	men move cha
+	lns support men move cha
+	fri move ams
+	ams move sea
+	bat move fri
+	sor move ens
+	lim move jut
+	ska move sea
+PHASE 1 Fall Movement
+POSITIONS
+	Britons: supply cym
+	Britons: fleet cns
+	Britons: army nbr
+	Britons: fleet sbr
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply ges
+	Romans: fleet lns
+	Romans: army mag
+	Romans: fleet cha
+	Romans: supply men
+	Romans: supply mag
+	Frysians: fleet fri
+	Frysians: army ams
+	Frysians: supply ams
+	Frysians: supply fri
+	Norse: supply got
+	Norse: fleet ska
+	Norse: fleet ens
+	Norse: army jut
+	Norse: supply lim
+	Norse: supply sor
+ORDERS
+	sbr hold
+	cns move iro
+	nbr support sbr
+	mag hold
+	lns move wns
+	cha support bat move lns
+	ams hold
+	bat move lns
+	fri support bat
+	ens move ams
+	ska move ens
+	jut support ens move ams
+PHASE 1 Fall Retreat
+POSITIONS
+	Britons: supply cym
+	Britons: army nbr
+	Britons: fleet iro
+	Britons: fleet sbr
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply ges
+	Romans: fleet cha
+	Romans: army mag
+	Romans: fleet wns
+	Romans: supply men
+	Romans: supply mag
+	Frysians: fleet fri
+	Frysians: army/dislodged ams
+	Frysians: supply ams
+	Frysians: supply fri
+	Norse: supply got
+	Norse: fleet ams
+	Norse: fleet ens
+	Norse: army jut
+	Norse: supply lim
+	Norse: supply sor
+ORDERS
+	ams move sea
+PHASE 1 Fall Adjustment
+POSITIONS
+	Britons: supply cym
+	Britons: supply iro
+	Britons: fleet iro
+	Britons: army nbr
+	Britons: fleet sbr
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply ges
+	Romans: fleet cha
+	Romans: army mag
+	Romans: fleet wns
+	Romans: supply men
+	Romans: supply mag
+	Frysians: fleet fri
+	Frysians: army sea
+	Frysians: supply fri
+	Norse: supply ams
+	Norse: supply got
+	Norse: fleet ams
+	Norse: fleet ens
+	Norse: army jut
+	Norse: supply lim
+	Norse: supply sor
+ORDERS
+	build Army cym
+	remove sea
+	build Fleet got
+PHASE 2 Spring Movement
+POSITIONS
+	Britons: supply ala
+	Britons: fleet iro
+	Britons: fleet sbr
+	Britons: army cym
+	Britons: army nbr
+	Britons: supply iro
+	Britons: supply sbr
+	Britons: supply cym
+	Romans: supply men
+	Romans: supply ges
+	Romans: fleet wns
+	Romans: army mag
+	Romans: fleet cha
+	Romans: supply mag
+	Frysians: fleet fri
+	Frysians: supply fri
+	Norse: supply lim
+	Norse: supply sor
+	Norse: fleet ams
+	Norse: fleet ens
+	Norse: army jut
+	Norse: fleet got
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	iro hold
+	cym move sbr
+	sbr move wns
+	nbr move ala
+	cha move sbr
+	wns move ala
+	mag support fri move ams
+	fri hold
+	lns support fri
+	got move ska
+	jut move fri
+	ams support jut move fri
+	ens convoy jut move fri
+PHASE 2 Fall Movement
+POSITIONS
+	Britons: supply ala
+	Britons: fleet iro
+	Britons: fleet sbr
+	Britons: army cym
+	Britons: army nbr
+	Britons: supply iro
+	Britons: supply sbr
+	Britons: supply cym
+	Romans: supply men
+	Romans: supply ges
+	Romans: fleet wns
+	Romans: army mag
+	Romans: fleet cha
+	Romans: supply mag
+	Frysians: supply fri
+	Norse: supply lim
+	Norse: supply sor
+	Norse: army fri
+	Norse: fleet ska
+	Norse: fleet ams
+	Norse: fleet ens
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	cym move sbr
+	sbr move wns
+	nbr move ala
+	iro move woo
+	cha move sbr
+	mag move ams
+	wns support cha move sbr
+	lns support fri
+	fri support mag move ams
+	ska move ens
+	jut move sea
+	ens move fri
+	ams support ens move fri
+PHASE 2 Fall Retreat
+POSITIONS
+	Britons: supply ala
+	Britons: fleet woo
+	Britons: army cym
+	Britons: army ala
+	Britons: fleet/dislodged sbr
+	Britons: supply iro
+	Britons: supply sbr
+	Britons: supply cym
+	Romans: supply men
+	Romans: supply ges
+	Romans: fleet sbr
+	Romans: fleet wns
+	Romans: army mag
+	Romans: supply mag
+	Frysians: supply fri
+	Norse: supply sor
+	Norse: supply lim
+	Norse: army fri
+	Norse: fleet ens
+	Norse: fleet ams
+	Norse: fleet ska
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	sbr move nbr
+PHASE 2 Fall Adjustment
+POSITIONS
+	Romans: supply men
+	Romans: supply ges
+	Romans: supply sbr
+	Romans: army mag
+	Romans: fleet sbr
+	Romans: fleet wns
+	Romans: supply mag
+	Britons: supply woo
+	Britons: supply ala
+	Britons: fleet nbr
+	Britons: fleet woo
+	Britons: army cym
+	Britons: army ala
+	Britons: supply iro
+	Britons: supply cym
+	Norse: supply sor
+	Norse: supply lim
+	Norse: supply fri
+	Norse: army fri
+	Norse: fleet ska
+	Norse: fleet ams
+	Norse: fleet ens
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	build Fleet men
+PHASE 3 Spring Movement
+POSITIONS
+	Britons: supply iro
+	Britons: fleet nbr
+	Britons: fleet woo
+	Britons: army cym
+	Britons: army ala
+	Britons: supply woo
+	Britons: supply cym
+	Britons: supply ala
+	Romans: supply ges
+	Romans: fleet sbr
+	Romans: fleet men
+	Romans: army mag
+	Romans: fleet wns
+	Romans: supply sbr
+	Romans: supply men
+	Romans: supply mag
+	Norse: supply lim
+	Norse: supply sor
+	Norse: supply got
+	Norse: supply fri
+	Norse: army fri
+	Norse: fleet ska
+	Norse: fleet ams
+	Norse: fleet ens
+	Norse: supply ams
+ORDERS
+	cym move sbr
+	ala move nbr
+	woo move gra
+	nbr support cym move sbr
+	men move cha
+	mag move ams
+	wns support sbr
+	sbr support men move cha
+	fri hold
+	lns support fri
+	ska move lim
+	ams move fri
+	sea move mag
+	ens support ams move fri
+PHASE 3 Fall Movement
+POSITIONS
+	Britons: supply iro
+	Britons: fleet gra
+	Britons: army ala
+	Britons: army cym
+	Britons: fleet nbr
+	Britons: supply woo
+	Britons: supply cym
+	Britons: supply ala
+	Romans: supply ges
+	Romans: fleet cha
+	Romans: fleet sbr
+	Romans: army mag
+	Romans: fleet wns
+	Romans: supply sbr
+	Romans: supply men
+	Romans: supply mag
+	Norse: supply lim
+	Norse: supply got
+	Norse: supply sor
+	Norse: supply fri
+	Norse: army fri
+	Norse: fleet ams
+	Norse: fleet ens
+	Norse: fleet lim
+	Norse: supply ams
+ORDERS
+	nbr hold
+	gra hold
+	cym move ali
+	ala support nbr
+	mag move ams
+	wns move nbr
+	cha support sbr
+	sbr support wns move nbr
+	lns support fri
+	fri support mag move ams
+	lim move ens
+	ams move fri
+	sea move mag
+	ens move cns
+PHASE 3 Fall Retreat
+POSITIONS
+	Britons: supply iro
+	Britons: fleet nbr
+	Britons: army ali
+	Britons: army ala
+	Britons: fleet gra
+	Britons: supply woo
+	Britons: supply cym
+	Britons: supply ala
+	Romans: supply ges
+	Romans: army mag
+	Romans: fleet cha
+	Romans: fleet sbr
+	Romans: fleet wns
+	Romans: supply sbr
+	Romans: supply men
+	Romans: supply mag
+	Norse: supply sor
+	Norse: supply got
+	Norse: supply lim
+	Norse: supply fri
+	Norse: army fri
+	Norse: fleet ens
+	Norse: fleet cns
+	Norse: fleet ams
+	Norse: supply ams
+ORDERS
+	ams move jut/wc
+PHASE 3 Fall Adjustment
+POSITIONS
+	Britons: supply gra
+	Britons: supply iro
+	Britons: fleet gra
+	Britons: army ali
+	Britons: army ala
+	Britons: fleet nbr
+	Britons: supply woo
+	Britons: supply cym
+	Britons: supply ala
+	Romans: supply ges
+	Romans: army mag
+	Romans: fleet cha
+	Romans: fleet sbr
+	Romans: fleet wns
+	Romans: supply sbr
+	Romans: supply men
+	Romans: supply mag
+	Norse: supply lim
+	Norse: supply fri
+	Norse: supply got
+	Norse: supply sor
+	Norse: fleet ams
+	Norse: army fri
+	Norse: fleet cns
+	Norse: fleet ens
+	Norse: supply ams
+ORDERS
+	build Army cym
+PHASE 4 Spring Movement
+POSITIONS
+	Britons: supply woo
+	Britons: supply iro
+	Britons: fleet gra
+	Britons: army ali
+	Britons: fleet nbr
+	Britons: army cym
+	Britons: army ala
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply ala
+	Romans: supply men
+	Romans: supply ges
+	Romans: supply mag
+	Romans: army mag
+	Romans: fleet wns
+	Romans: fleet sbr
+	Romans: fleet cha
+	Romans: supply sbr
+	Norse: supply sor
+	Norse: supply got
+	Norse: supply ams
+	Norse: supply lim
+	Norse: supply fri
+	Norse: fleet ams
+	Norse: army fri
+	Norse: fleet cns
+	Norse: fleet ens
+ORDERS
+	cym move sbr
+	gra move woo
+	ala support nbr
+	ali support cym move sbr
+	nbr support cym move sbr
+	ams move mag
+	cha support sbr
+	sbr support wns
+	wns support sbr
+	fri hold
+	lns support fri
+	ens move fri
+	jut/wc move ams
+	cns move lns
+	mag support jut move ams
+PHASE 4 Spring Retreat
+POSITIONS
+	Romans: supply mag
+	Romans: supply ges
+	Romans: supply men
+	Romans: fleet wns
+	Romans: army mag
+	Romans: fleet cha
+	Romans: fleet sbr
+	Romans: supply sbr
+	Britons: supply woo
+	Britons: supply iro
+	Britons: army ali
+	Britons: army cym
+	Britons: fleet woo
+	Britons: fleet nbr
+	Britons: army ala
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply ala
+	Norse: supply fri
+	Norse: supply ams
+	Norse: supply got
+	Norse: supply lim
+	Norse: supply sor
+	Norse: fleet ams
+	Norse: fleet lns
+	Norse: army fri
+	Norse: fleet ens
+ORDERS
+	ams move gei
+PHASE 4 Fall Movement
+POSITIONS
+	Britons: supply woo
+	Britons: supply iro
+	Britons: fleet nbr
+	Britons: army ali
+	Britons: fleet woo
+	Britons: army cym
+	Britons: army ala
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply ala
+	Romans: supply ges
+	Romans: supply men
+	Romans: supply mag
+	Romans: army mag
+	Romans: fleet cha
+	Romans: fleet sbr
+	Romans: fleet wns
+	Romans: supply sbr
+	Norse: supply fri
+	Norse: supply ams
+	Norse: supply sor
+	Norse: supply got
+	Norse: supply lim
+	Norse: army fri
+	Norse: fleet lns
+	Norse: fleet ams
+	Norse: fleet ens
+ORDERS
+	cym move sbr
+	woo move iro
+	ala support nbr
+	ali support cym move sbr
+	nbr support cym move sbr
+	gei move ges
+	wns move uns
+	cha support sbr
+	sbr support wns
+	lns support fri
+	fri support gei move ams
+	ens hold
+	ams hold
+	mag hold
+	cns hold
+PHASE 4 Fall Retreat
+POSITIONS
+	Romans: supply mag
+	Romans: supply ges
+	Romans: supply men
+	Romans: army mag
+	Romans: fleet cha
+	Romans: fleet uns
+	Romans: fleet/dislodged sbr
+	Romans: supply sbr
+	Britons: supply iro
+	Britons: supply woo
+	Britons: army sbr
+	Britons: fleet nbr
+	Britons: army ala
+	Britons: fleet iro
+	Britons: army ali
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply ala
+	Norse: supply got
+	Norse: supply lim
+	Norse: supply ams
+	Norse: supply sor
+	Norse: supply fri
+	Norse: army fri
+	Norse: fleet lns
+	Norse: fleet ams
+	Norse: fleet ens
+ORDERS
+	sbr move wns
+PHASE 4 Fall Adjustment
+POSITIONS
+	Romans: supply mag
+	Romans: supply men
+	Romans: supply ges
+	Romans: army mag
+	Romans: fleet wns
+	Romans: fleet cha
+	Romans: fleet uns
+	Romans: fleet cha
+	Britons: supply sbr
+	Britons: supply woo
+	Britons: supply iro
+	Britons: fleet nbr
+	Britons: fleet iro
+	Britons: army ali
+	Britons: army sbr
+	Britons: army ala
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply ala
+	Norse: supply fri
+	Norse: supply ams
+	Norse: supply got
+	Norse: supply lim
+	Norse: supply sor
+	Norse: army fri
+	Norse: fleet lns
+	Norse: fleet ams
+	Norse: fleet ens
+ORDERS
+	remove cha
+	remove wns
+	build Army got
+PHASE 5 Spring Movement
+POSITIONS
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply woo
+	Britons: fleet iro
+	Britons: fleet nbr
+	Britons: army sbr
+	Britons: army ali
+	Britons: army ala
+	Britons: supply iro
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply men
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: army mag
+	Romans: fleet uns
+	Romans: supply ges
+	Norse: supply fri
+	Norse: supply sor
+	Norse: supply lim
+	Norse: fleet lns
+	Norse: army fri
+	Norse: fleet ams
+	Norse: army got
+	Norse: fleet ens
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	ala hold
+	sbr move cym
+	nbr move sbr
+	iro move woo
+	ali support nbr move sbr
+	ges hold
+	uns move ens
+	fri hold
+	lns move bat
+	mag hold
+	got move sea
+	ens move fri
+	cns move lns
+	ams support ens move fri
+PHASE 5 Spring Retreat
+POSITIONS
+	Britons: supply woo
+	Britons: supply gra
+	Britons: supply cym
+	Britons: army ala
+	Britons: fleet woo
+	Britons: fleet sbr
+	Britons: army ali
+	Britons: army cym
+	Britons: supply iro
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply men
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: army mag
+	Romans: fleet uns
+	Romans: supply ges
+	Norse: supply sor
+	Norse: supply fri
+	Norse: supply lim
+	Norse: fleet ens
+	Norse: army fri
+	Norse: fleet bat
+	Norse: fleet ams
+	Norse: army sea
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	fri move gei
+PHASE 5 Fall Movement
+POSITIONS
+	Britons: supply cym
+	Britons: supply woo
+	Britons: supply gra
+	Britons: army ala
+	Britons: fleet woo
+	Britons: fleet sbr
+	Britons: army cym
+	Britons: army ali
+	Britons: supply iro
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply mag
+	Romans: supply men
+	Romans: army mag
+	Romans: fleet uns
+	Romans: fleet wns
+	Romans: supply ges
+	Norse: supply sor
+	Norse: supply lim
+	Norse: supply fri
+	Norse: army fri
+	Norse: fleet ens
+	Norse: fleet bat
+	Norse: fleet ams
+	Norse: army sea
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	cym hold
+	ali hold
+	woo hold
+	sbr move cha
+	ala move nbr
+	ens move sor
+	ges support gei
+	gei move mag
+	bat move fri
+	fri hold
+	mag move ges
+	sea support mag
+	ams support fri
+	lns support fri
+PHASE 5 Fall Adjustment
+POSITIONS
+	Britons: supply woo
+	Britons: supply gra
+	Britons: supply cym
+	Britons: fleet cha
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: army cym
+	Britons: army ali
+	Britons: supply iro
+	Britons: supply sbr
+	Britons: supply ala
+	Romans: supply men
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: fleet uns
+	Romans: army ges
+	Romans: supply ges
+	Norse: supply fri
+	Norse: supply lim
+	Norse: supply sor
+	Norse: fleet bat
+	Norse: army fri
+	Norse: fleet sor
+	Norse: fleet ams
+	Norse: army sea
+	Norse: supply ams
+	Norse: supply got
+ORDERS
+	build Fleet sbr
+	build Army men
+	remove bat
+PHASE 6 Spring Movement
+POSITIONS
+	Britons: supply ala
+	Britons: supply gra
+	Britons: supply iro
+	Britons: fleet sbr
+	Britons: army ali
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: army cym
+	Britons: fleet cha
+	Britons: supply sbr
+	Britons: supply woo
+	Britons: supply cym
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: fleet uns
+	Romans: army ges
+	Romans: supply ges
+	Romans: supply men
+	Norse: supply sor
+	Norse: supply lim
+	Norse: supply got
+	Norse: fleet sor
+	Norse: fleet bat
+	Norse: army fri
+	Norse: fleet ams
+	Norse: army sea
+	Norse: supply fri
+	Norse: supply ams
+ORDERS
+	sbr hold
+	nbr hold
+	woo hold
+	cym move ali
+	ali move wbe
+	cha convoy ali move wbe
+	men hold
+	sor move ska
+	ges support gei move mag
+	gei move mag
+	mag hold
+	sea move got
+	ams move ens
+	lns move bat
+	fri support lns move bat
+PHASE 6 Spring Retreat
+POSITIONS
+	Britons: supply gra
+	Britons: supply ala
+	Britons: supply iro
+	Britons: fleet cha
+	Britons: army ali
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: fleet sbr
+	Britons: army wbe
+	Britons: supply sbr
+	Britons: supply woo
+	Britons: supply cym
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: fleet uns
+	Romans: army ges
+	Romans: supply ges
+	Romans: supply men
+	Norse: supply sor
+	Norse: supply got
+	Norse: supply lim
+	Norse: fleet bat
+	Norse: fleet ens
+	Norse: fleet ska
+	Norse: army got
+	Norse: army fri
+	Norse: supply fri
+	Norse: supply ams
+ORDERS
+	mag move ams
+PHASE 6 Fall Movement
+POSITIONS
+	Britons: supply iro
+	Britons: supply gra
+	Britons: supply ala
+	Britons: army ali
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: fleet sbr
+	Britons: fleet cha
+	Britons: army wbe
+	Britons: supply sbr
+	Britons: supply woo
+	Britons: supply cym
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: fleet uns
+	Romans: army ges
+	Romans: supply ges
+	Romans: supply men
+	Norse: supply lim
+	Norse: supply got
+	Norse: supply sor
+	Norse: fleet ska
+	Norse: army fri
+	Norse: fleet bat
+	Norse: army got
+	Norse: fleet ens
+	Norse: supply fri
+	Norse: supply ams
+ORDERS
+	nbr hold
+	woo hold
+	sbr move lns
+	ali move sbr
+	wbe move men
+	cha support wbe move men
+	men hold
+	ges hold
+	ska hold
+	mag hold
+	got hold
+	bat hold
+	fri move ams
+	ens move sor
+	ams move sea
+PHASE 6 Fall Retreat
+POSITIONS
+	Romans: supply mag
+	Romans: army ges
+	Romans: fleet wns
+	Romans: fleet uns
+	Romans: supply ges
+	Romans: supply men
+	Britons: supply ala
+	Britons: supply gra
+	Britons: supply iro
+	Britons: fleet cha
+	Britons: army nbr
+	Britons: army sbr
+	Britons: fleet lns
+	Britons: army men
+	Britons: fleet woo
+	Britons: supply sbr
+	Britons: supply woo
+	Britons: supply cym
+	Norse: supply got
+	Norse: supply sor
+	Norse: supply lim
+	Norse: army got
+	Norse: fleet bat
+	Norse: fleet sor
+	Norse: fleet ska
+	Norse: army ams
+	Norse: supply fri
+	Norse: supply ams
+ORDERS
+	men move gei
+PHASE 6 Fall Adjustment
+POSITIONS
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: fleet uns
+	Romans: army ges
+	Romans: supply ges
+	Britons: supply iro
+	Britons: supply ala
+	Britons: supply gra
+	Britons: supply men
+	Britons: fleet lns
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: army men
+	Britons: army sbr
+	Britons: fleet cha
+	Britons: supply sbr
+	Britons: supply woo
+	Britons: supply cym
+	Norse: supply got
+	Norse: supply sor
+	Norse: supply lim
+	Norse: army ams
+	Norse: fleet ska
+	Norse: fleet bat
+	Norse: army got
+	Norse: fleet sor
+	Norse: supply fri
+	Norse: supply ams
+ORDERS
+	remove ska
+	remove gei
+PHASE 7 Spring Movement
+POSITIONS
+	Britons: supply gra
+	Britons: supply ala
+	Britons: supply cym
+	Britons: supply iro
+	Britons: fleet lns
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: army men
+	Britons: army sbr
+	Britons: fleet cha
+	Britons: supply woo
+	Britons: supply men
+	Britons: supply sbr
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: army ges
+	Romans: supply ges
+	Norse: supply fri
+	Norse: supply lim
+	Norse: army ams
+	Norse: fleet ska
+	Norse: fleet bat
+	Norse: army got
+	Norse: fleet sor
+	Norse: supply ams
+	Norse: supply got
+	Norse: supply sor
+ORDERS
+	lns hold
+	nbr hold
+	woo hold
+	sbr move wbe
+	men move gei
+	cha convoy sbr move wbe
+	ges move gei
+	mag move gei
+	bat hold
+	got move sea
+	ams move fri
+	sor move ens
+	sea move ams
+PHASE 7 Fall Movement
+POSITIONS
+	Britons: supply cym
+	Britons: supply ala
+	Britons: supply iro
+	Britons: supply gra
+	Britons: fleet lns
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: army men
+	Britons: fleet cha
+	Britons: army wbe
+	Britons: supply woo
+	Britons: supply men
+	Britons: supply sbr
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: army ges
+	Romans: supply ges
+	Norse: supply fri
+	Norse: supply lim
+	Norse: fleet ska
+	Norse: army fri
+	Norse: fleet bat
+	Norse: fleet ens
+	Norse: army sea
+	Norse: supply ams
+	Norse: supply got
+	Norse: supply sor
+ORDERS
+	lns hold
+	cha hold
+	nbr hold
+	woo hold
+	wbe move ebe
+	men move gei
+	ges support mag move gei
+	mag support ges
+	sea move mag
+	fri support bat
+	ens support ams
+	bat support fri
+	ams support sea move mag
+PHASE 7 Fall Retreat
+POSITIONS
+	Britons: supply gra
+	Britons: supply ala
+	Britons: supply iro
+	Britons: supply cym
+	Britons: fleet cha
+	Britons: army ebe
+	Britons: army nbr
+	Britons: fleet woo
+	Britons: army gei
+	Britons: fleet lns
+	Britons: supply woo
+	Britons: supply men
+	Britons: supply sbr
+	Romans: supply mag
+	Romans: fleet wns
+	Romans: army ges
+	Romans: supply ges
+	Norse: supply lim
+	Norse: supply fri
+	Norse: fleet ska
+	Norse: army mag
+	Norse: fleet ens
+	Norse: fleet bat
+	Norse: army fri
+	Norse: supply ams
+	Norse: supply got
+	Norse: supply sor
+ORDERS
+	mag disband
+PHASE 7 Fall Adjustment
+POSITIONS
+	Britons: supply iro
+	Britons: supply cym
+	Britons: supply ala
+	Britons: supply gra
+	Britons: fleet lns
+	Britons: army ebe
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: army gei
+	Britons: fleet cha
+	Britons: supply woo
+	Britons: supply men
+	Britons: supply sbr
+	Romans: fleet wns
+	Romans: army ges
+	Romans: supply ges
+	Norse: supply fri
+	Norse: supply lim
+	Norse: supply mag
+	Norse: fleet ska
+	Norse: army fri
+	Norse: fleet bat
+	Norse: fleet ens
+	Norse: army mag
+	Norse: supply ams
+	Norse: supply got
+	Norse: supply sor
+ORDERS
+	build Fleet sbr
+	build Army sor
+	build Army got
+PHASE 8 Spring Movement
+POSITIONS
+	Britons: supply men
+	Britons: supply iro
+	Britons: supply cym
+	Britons: supply ala
+	Britons: supply gra
+	Britons: fleet lns
+	Britons: army ebe
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: army gei
+	Britons: fleet sbr
+	Britons: fleet cha
+	Britons: supply woo
+	Britons: supply sbr
+	Romans: army ges
+	Romans: supply ges
+	Norse: supply lim
+	Norse: army fri
+	Norse: fleet ska
+	Norse: army mag
+	Norse: fleet bat
+	Norse: fleet ens
+	Norse: army sor
+	Norse: supply mag
+	Norse: supply got
+	Norse: supply ams
+	Norse: supply fri
+	Norse: supply sor
+ORDERS
+	lns hold
+	nbr hold
+	woo hold
+	gei move ges
+	sbr support lns
+	cha support lns
+	ebe support gei move ges
+	ges move ebe
+	got hold
+	sor hold
+	fri hold
+	ens hold
+	ams hold
+	bat hold
+	mag move ges
+PHASE 8 Spring Retreat
+POSITIONS
+	Romans: supply ges
+	Britons: supply iro
+	Britons: supply men
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply ala
+	Britons: army ges
+	Britons: fleet lns
+	Britons: fleet cha
+	Britons: army ebe
+	Britons: fleet sbr
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: supply woo
+	Britons: supply sbr
+	Norse: supply lim
+	Norse: army sor
+	Norse: fleet ens
+	Norse: army mag
+	Norse: fleet ska
+	Norse: fleet bat
+	Norse: army fri
+	Norse: supply mag
+	Norse: supply got
+	Norse: supply ams
+	Norse: supply fri
+	Norse: supply sor
+ORDERS
+	ges disband
+PHASE 8 Fall Movement
+POSITIONS
+	Britons: supply ala
+	Britons: supply gra
+	Britons: supply cym
+	Britons: supply iro
+	Britons: supply men
+	Britons: fleet lns
+	Britons: army ebe
+	Britons: army ges
+	Britons: fleet woo
+	Britons: army nbr
+	Britons: fleet sbr
+	Britons: fleet cha
+	Britons: supply woo
+	Britons: supply sbr
+	Romans: supply ges
+	Norse: supply lim
+	Norse: fleet ska
+	Norse: army fri
+	Norse: army mag
+	Norse: fleet bat
+	Norse: fleet ens
+	Norse: army sor
+	Norse: supply mag
+	Norse: supply got
+	Norse: supply ams
+	Norse: supply fri
+	Norse: supply sor
+ORDERS
+	sbr hold
+	lns hold
+	ebe hold
+	ges hold
+	cha hold
+	nbr hold
+	woo hold
+	got hold
+	sor hold
+	mag hold
+	fri hold
+	ens hold
+	ams hold
+	bat hold
