@@ -114,7 +114,7 @@ var TwentyTwentyVariant = common.Variant{
 	},
 	CreatedBy:   "TTTPPP",
 	Version:     "1",
-	Description: "Twenty nations complete to conquer the world by the year 2020.",
+	Description: "Twenty nations compete to conquer the world by the year 2020.",
 	Rules: "The rules are mostly standard. Nations may build in any captured " +
 		"home centers (note - they may not build in captured neutral supply " +
 		"centers). To win a nation needs to own more supply centers than any " +
