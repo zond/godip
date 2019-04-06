@@ -56,6 +56,7 @@ PHASE 0 Fall Adjustment
 POSITIONS
 	Romans: supply sbr
 	Romans: army bat
+	Romans: supply bat
 	Romans: fleet sbr
 	Romans: supply ges
 	Romans: supply men
@@ -85,6 +86,7 @@ POSITIONS
 	Britons: supply ala
 	Romans: supply ges
 	Romans: army bat
+	Romans: supply bat
 	Romans: fleet men
 	Romans: fleet sbr
 	Romans: supply men
@@ -124,6 +126,7 @@ POSITIONS
 	Romans: fleet sbr
 	Romans: army men
 	Romans: supply men
+	Romans: supply bat
 	Romans: supply sbr
 	Frysians: supply fri
 	Frysians: army ams
@@ -147,6 +150,7 @@ POSITIONS
 	Britons: supply ala
 	Romans: supply ges
 	Romans: army men
+	Romans: supply bat
 	Romans: fleet sbr
 	Romans: fleet cha
 	Romans: supply men
@@ -179,6 +183,7 @@ PHASE 1 Fall Adjustment
 POSITIONS
 	Romans: supply ges
 	Romans: fleet cha
+	Romans: supply bat
 	Romans: fleet sbr
 	Romans: army ali
 	Romans: supply men
@@ -210,10 +215,12 @@ POSITIONS
 	Britons: army nbr
 	Britons: fleet wns
 	Romans: supply ges
+	Romans: supply bat
 	Romans: fleet cha
 	Romans: fleet sbr
 	Romans: army ali
 	Romans: supply men
+	Romans: fleet men
 	Romans: supply sbr
 	Frysians: supply mag
 	Frysians: fleet lns
@@ -250,6 +257,8 @@ POSITIONS
 	Romans: army ali
 	Romans: fleet nbr
 	Romans: fleet cha
+	Romans: supply bat
+	Romans: fleet lns
 	Romans: supply men
 	Romans: supply sbr
 	Frysians: supply mag
@@ -285,6 +294,8 @@ POSITIONS
 	Britons: fleet wns
 	Romans: supply cym
 	Romans: supply ges
+	Romans: supply bat
+	Romans: fleet cha
 	Romans: fleet lns
 	Romans: fleet nbr
 	Romans: army cym
@@ -316,6 +327,8 @@ POSITIONS
 	Romans: supply men
 	Romans: supply ges
 	Romans: fleet lns
+	Romans: supply bat
+	Romans: fleet cha
 	Romans: army cym
 	Romans: fleet nbr
 	Romans: supply cym
@@ -352,12 +365,14 @@ PHASE 3 Spring Retreat
 POSITIONS
 	Britons: supply ala
 	Britons: fleet wns
-	Britons: army sbr
+	Britons: army/dislodged sbr
 	Britons: supply sbr
 	Romans: supply men
 	Romans: supply ges
 	Romans: fleet ala
-	Romans: army cym
+	Romans: army sbr
+	Romans: supply bat
+	Romans: fleet cha
 	Romans: fleet lns
 	Romans: supply cym
 	Frysians: supply mag
@@ -380,12 +395,14 @@ ORDERS
 PHASE 3 Fall Movement
 POSITIONS
 	Britons: supply ala
-	Britons: army sbr
+	Britons: army nbr
 	Britons: fleet wns
 	Britons: supply sbr
 	Romans: supply men
 	Romans: supply ges
-	Romans: army cym
+	Romans: supply bat
+	Romans: army sbr
+	Romans: fleet cha
 	Romans: fleet lns
 	Romans: fleet ala
 	Romans: supply cym
@@ -420,10 +437,10 @@ ORDERS
 	gra hold
 PHASE 3 Fall Adjustment
 POSITIONS
-	Britons: army sbr
+	Britons: army nbr
 	Britons: fleet wns
 	Britons: fleet wns
-	Britons: supply sbr
+	Romans: supply sbr
 	Romans: supply ges
 	Romans: supply men
 	Romans: supply ala
@@ -431,8 +448,10 @@ POSITIONS
 	Romans: fleet cns
 	Romans: army cym
 	Romans: supply cym
+	Romans: fleet sbr
 	Frysians: supply got
 	Frysians: supply woo
+	Frysians: supply bat
 	Frysians: supply iro
 	Frysians: supply mag
 	Frysians: fleet iro
@@ -462,14 +481,15 @@ POSITIONS
 	Romans: supply ala
 	Romans: supply men
 	Romans: supply cym
-	Britons: supply sbr
-	Britons: army sbr
+	Romans: supply sbr
+	Romans: fleet sbr
 	Frysians: supply lim
 	Frysians: supply sor
 	Frysians: supply mag
 	Frysians: supply got
 	Frysians: fleet iro
 	Frysians: army bat
+	Frysians: supply bat
 	Frysians: fleet woo
 	Frysians: army fri
 	Frysians: fleet ams
@@ -498,21 +518,23 @@ ORDERS
 PHASE 4 Fall Movement
 POSITIONS
 	Romans: supply ges
-	Romans: army cym
+	Romans: army sbr
 	Romans: fleet cns
 	Romans: army ebe
 	Romans: fleet uns
+	Romans: fleet lns
 	Romans: supply ala
 	Romans: supply men
 	Romans: supply cym
-	Britons: supply sbr
-	Britons: army sbr
+	Romans: supply sbr
+	Romans: army sbr
 	Frysians: supply mag
 	Frysians: supply sor
 	Frysians: supply got
 	Frysians: supply lim
 	Frysians: fleet iro
 	Frysians: army bat
+	Frysians: supply bat
 	Frysians: army mag
 	Frysians: fleet woo
 	Frysians: army gei
@@ -540,10 +562,10 @@ ORDERS
 	gra move iro
 PHASE 4 Fall Retreat
 POSITIONS
-	Britons: supply sbr
-	Britons: army sbr
+	Romans: supply sbr
+	Romans: army fri
 	Romans: supply ges
-	Romans: army cym
+	Romans: fleet lns
 	Romans: army ebe
 	Romans: fleet cns
 	Romans: fleet uns
@@ -557,6 +579,7 @@ POSITIONS
 	Frysians: fleet gra
 	Frysians: fleet ens
 	Frysians: army bat
+	Frysians: supply bat
 	Frysians: army sor
 	Frysians: army gei
 	Frysians: army ges
