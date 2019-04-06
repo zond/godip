@@ -150,7 +150,7 @@ func NorthSeaWarsGraph() *graph.Graph {
 		// East North Sea
 		Prov("ens").Conn("sor", godip.Sea).Conn("uns", godip.Sea).Conn("cns", godip.Sea).Conn("lns", godip.Sea).Conn("fri", godip.Sea).Conn("ams", godip.Sea).Conn("jut", godip.Sea).Conn("jut/wc", godip.Sea).Conn("lim", godip.Sea).Conn("ska", godip.Sea).Flag(godip.Sea).
 		// Batavia
-		Prov("bat").Conn("lns", godip.Sea).Conn("men", godip.Coast...).Conn("gei", godip.Land).Conn("fri", godip.Coast...).Flag(godip.Coast...).
+		Prov("bat").Conn("lns", godip.Sea).Conn("men", godip.Coast...).Conn("gei", godip.Land).Conn("fri", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Gotaland
 		Prov("got").Conn("ost", godip.Coast...).Conn("ska", godip.Sea).Conn("sea", godip.Coast...).Flag(godip.Coast...).SC(Norse).
 		// Wood
