@@ -71,6 +71,19 @@ func TestConvoyToResource(t *testing.T) {
 	tst.AssertOpt(t, opts, []string{"ams", "MoveViaConvoy", "ams", "gra"})
 }
 
+func TestSupportCentralNorthSea(t *testing.T) {
+	judge := blankState(t)
+
+	// Test resource connections from Central North Sea.
+	judge.SetUnit("cns", godip.Unit{godip.Fleet, Norse})
+	judge.SetUnit("gra", godip.Unit{godip.Fleet, Norse})
+	tst.AssertOrderValidity(t, judge, orders.SupportMove("cns", "gra", "woo"), Norse, nil)
+	tst.AssertOrderValidity(t, judge, orders.SupportMove("gra", "cns", "woo"), Norse, nil)
+	opts := judge.Phase().Options(judge, Norse)
+	tst.AssertOpt(t, opts, []string{"cns", "Support", "gra", "woo"})
+	tst.AssertOpt(t, opts, []string{"gra", "Support", "cns", "woo"})
+}
+
 func TestSealandArmy(t *testing.T) {
 	judge := blankState(t)
 
