@@ -80,8 +80,20 @@ func TestSupportCentralNorthSea(t *testing.T) {
 	tst.AssertOrderValidity(t, judge, orders.SupportMove("cns", "gra", "woo"), Norse, nil)
 	tst.AssertOrderValidity(t, judge, orders.SupportMove("gra", "cns", "woo"), Norse, nil)
 	opts := judge.Phase().Options(judge, Norse)
-	tst.AssertOpt(t, opts, []string{"cns", "Support", "gra", "woo"})
-	tst.AssertOpt(t, opts, []string{"gra", "Support", "cns", "woo"})
+	tst.AssertOpt(t, opts, []string{"cns", "Support", "cns", "gra", "woo"})
+	tst.AssertOpt(t, opts, []string{"gra", "Support", "gra", "cns", "woo"})
+}
+
+func TestSupportConvoyCentralNorthSea(t *testing.T) {
+	judge := blankState(t)
+	judge.SetUnit("ens", godip.Unit{godip.Fleet, Frysians})
+	judge.SetUnit("cns", godip.Unit{godip.Fleet, Frysians})
+	judge.SetUnit("gra", godip.Unit{godip.Fleet, Frysians})
+	judge.SetUnit("ams", godip.Unit{godip.Army, Frysians})
+
+	tst.AssertOrderValidity(t, judge, orders.SupportMove("gra", "ams", "woo"), Frysians, nil)
+	//opts := judge.Phase().Options(judge, Frysians)
+	//tst.AssertOpt(t, opts, []string{"gra", "Support", "gra", "ams", "woo"})
 }
 
 func TestSealandArmy(t *testing.T) {
