@@ -91,11 +91,29 @@ func (self *Graph) Edges(n godip.Province) (result map[godip.Province]map[godip.
 	return
 }
 
+func (self *Graph) ReverseEdges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
+	result = map[godip.Province]map[godip.Flag]bool{}
+	for p, edge := range self.reverseEdges(n) {
+		result[p] = edge.Flags
+	}
+	return
+}
+
 func (self *Graph) edges(n godip.Province) (result map[godip.Province]*edge) {
 	p, c := n.Split()
 	if node, ok := self.Nodes[p]; ok {
 		if sub, ok := node.Subs[c]; ok {
 			result = sub.Edges
+		}
+	}
+	return
+}
+
+func (self *Graph) reverseEdges(n godip.Province) (result map[godip.Province]*edge) {
+	p, c := n.Split()
+	if node, ok := self.Nodes[p]; ok {
+		if sub, ok := node.Subs[c]; ok {
+			result = sub.ReverseEdges
 		}
 	}
 	return
@@ -218,10 +236,11 @@ func (self *Node) String() string {
 func (self *Node) sub(n godip.Province) *SubNode {
 	if self.Subs[n] == nil {
 		self.Subs[n] = &SubNode{
-			Name:  n,
-			Edges: make(map[godip.Province]*edge),
-			node:  self,
-			Flags: make(map[godip.Flag]bool),
+			Name:         n,
+			Edges:        make(map[godip.Province]*edge),
+			ReverseEdges: make(map[godip.Province]*edge),
+			node:         self,
+			Flags:        make(map[godip.Flag]bool),
 		}
 	}
 	return self.Subs[n]
@@ -234,9 +253,10 @@ type edge struct {
 }
 
 type SubNode struct {
-	Name  godip.Province
-	Edges map[godip.Province]*edge
-	Flags map[godip.Flag]bool
+	Name         godip.Province
+	Edges        map[godip.Province]*edge
+	ReverseEdges map[godip.Province]*edge
+	Flags        map[godip.Flag]bool
 
 	node *Node
 }
@@ -281,6 +301,10 @@ func (self *SubNode) Conn(n godip.Province, flags ...godip.Flag) *SubNode {
 	}
 	self.Edges[target.getName()] = &edge{
 		sub:   target,
+		Flags: flagMap,
+	}
+	target.ReverseEdges[self.getName()] = &edge{
+		sub:   self,
 		Flags: flagMap,
 	}
 	return self
