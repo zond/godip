@@ -121,7 +121,7 @@ func ColdWarGraph() *graph.Graph {
 		// India
 		Prov("ind").Conn("ban", godip.Coast...).Conn("pak", godip.Coast...).Conn("arb", godip.Sea).Conn("inc", godip.Sea).Conn("bay", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// New York
-		Prov("nyk").Conn("que", godip.Coast...).Conn("tor", godip.Land).Conn("mid", godip.Land).Conn("flo", godip.Coast...).Conn("wat", godip.Sea).Flag(godip.Coast...).SC(NATO).
+		Prov("nyk").Conn("que", godip.Coast...).Conn("mid", godip.Land).Conn("flo", godip.Coast...).Conn("wat", godip.Sea).Flag(godip.Coast...).SC(NATO).
 		// Venezuela
 		Prov("ven").Conn("col", godip.Land).Conn("col/nc", godip.Sea).Conn("bra", godip.Coast...).Conn("wat", godip.Sea).Conn("car", godip.Sea).Flag(godip.Coast...).
 		// Caribbean Sea
@@ -163,7 +163,7 @@ func ColdWarGraph() *graph.Graph {
 		// Yugoslavia
 		Prov("yug").Conn("wge", godip.Land).Conn("ita", godip.Coast...).Conn("ion", godip.Sea).Conn("alb", godip.Coast...).Conn("grc", godip.Land).Conn("ukr", godip.Land).Conn("ege", godip.Land).Flag(godip.Coast...).
 		// Toronto
-		Prov("tor").Conn("nyk", godip.Land).Conn("que", godip.Coast...).Conn("hud", godip.Sea).Conn("wca", godip.Land).Conn("wca/nc", godip.Sea).Conn("mid", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("tor").Conn("que", godip.Coast...).Conn("hud", godip.Sea).Conn("wca", godip.Land).Conn("wca/nc", godip.Sea).Conn("mid", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Norway
 		Prov("noy").Conn("nws", godip.Sea).Conn("nts", godip.Sea).Conn("swe", godip.Coast...).Conn("fin", godip.Coast...).Conn("len", godip.Land).Conn("len/nc", godip.Sea).Flag(godip.Coast...).
 		// Vladivostok

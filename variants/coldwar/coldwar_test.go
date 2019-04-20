@@ -185,3 +185,15 @@ func TestGreeceYugoslavia(t *testing.T) {
 	// Test cannot sail to Yugoslavia
 	tst.AssertOrderValidity(t, judge, orders.Move("grc", "yug"), "", godip.ErrIllegalMove)
 }
+
+func TestNewYorkToronto(t *testing.T) {
+	judge := startState(t)
+
+	// Test Great Lake prevents movement.
+	tst.AssertOrderValidity(t, judge, orders.Move("nyk", "tor"), "", godip.ErrMissingConvoyPath)
+    
+	// ...and back again.
+	judge.RemoveUnit("nyk")
+	judge.SetUnit("tor", godip.Unit{godip.Army, NATO})
+	tst.AssertOrderValidity(t, judge, orders.Move("tor", "nyk"), "", godip.ErrMissingConvoyPath)
+}
