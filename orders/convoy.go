@@ -202,6 +202,40 @@ func ConvoyDestinations(v godip.Validator, src godip.Province, noConvoy *godip.P
 	return result
 }
 
+func ConvoySources(v godip.Validator, dst godip.Province, noConvoy *godip.Province) (result []godip.Province) {
+	defer v.Profile("ConvoyDestinations", time.Now())
+	potentialConvoyCoasts := map[godip.Province]bool{}
+	v.Graph().ReversePath("-", dst, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
+		if !edgeFlags[godip.Sea] {
+			return false
+		}
+		if v.Graph().Flags(prov.Super())[godip.Land] {
+			if len(trace) > 0 {
+				potentialConvoyCoasts[prov] = true
+			}
+			if !provFlags[godip.Convoyable] {
+				return false
+			}
+		}
+		if noConvoy != nil && *noConvoy == prov {
+			return false
+		}
+		unit, _, found := v.Unit(prov)
+		if !found {
+			return false
+		}
+		if unit.Type != godip.Fleet {
+			return false
+		}
+		return true
+	})
+	result = make([]godip.Province, 0, len(potentialConvoyCoasts))
+	for prov := range potentialConvoyCoasts {
+		result = append(result, prov)
+	}
+	return result
+}
+
 // PossibleConvoyPathFilter returns a path filter for Graph that only accepts nodes that can partake in a convoy from
 // src to dst. If resolveConvoys, then the convoys have to be successful. If dstOk then the dst is acceptable as convoying
 // node.

@@ -92,8 +92,8 @@ func TestSupportConvoyCentralNorthSea(t *testing.T) {
 	judge.SetUnit("ams", godip.Unit{godip.Army, Frysians})
 
 	tst.AssertOrderValidity(t, judge, orders.SupportMove("gra", "ams", "woo"), Frysians, nil)
-	//opts := judge.Phase().Options(judge, Frysians)
-	//tst.AssertOpt(t, opts, []string{"gra", "Support", "gra", "ams", "woo"})
+	opts := judge.Phase().Options(judge, Frysians)
+	tst.AssertOpt(t, opts, []string{"gra", "Support", "gra", "ams", "woo"})
 }
 
 func TestSealandArmy(t *testing.T) {
