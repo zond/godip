@@ -275,8 +275,7 @@ type Graph interface {
 	Flags(Province) map[Flag]bool
 	AllFlags(Province) map[Flag]bool
 	SC(Province) *Nation
-	Path(src, dst Province, filter PathFilter) []Province
-	ReversePath(src, dst Province, filter PathFilter) []Province
+	Path(src, dst Province, reverse bool, filter PathFilter) []Province
 	Coasts(Province) []Province
 	Edges(src Province) map[Province]map[Flag]bool
 	ReverseEdges(src Province) map[Province]map[Flag]bool

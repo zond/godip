@@ -161,26 +161,23 @@ func (self *Graph) pathHelper(target godip.Province, reverse bool, queue []pathS
 	return nil
 }
 
-func (self *Graph) Path(src, dst godip.Province, filter godip.PathFilter) []godip.Province {
+// Path returns a list of provinces that go from first to last.  When reverse is
+// set to true then all edges are traversed backwards (i.e. to find a root that a
+// unit at last could use to get to first). The filter can be used to specify the
+// type of provinces that the path can go through, but it can also be used as a
+// callback function to allow extracting information about all potential matching
+// paths (nb. last can be set to "" to use this callback with all reachable
+// provinces from first).
+func (self *Graph) Path(first, last godip.Province, reverse bool, filter godip.PathFilter) []godip.Province {
 	queue := []pathStep{
-		pathStep{
-			path: nil,
-			src:  "",
-			dst:  src,
-		},
+		pathStep{path: nil, src: "", dst: first},
 	}
-	return self.pathHelper(dst, false, queue, map[[2]godip.Province]bool{}, filter)
-}
-
-func (self *Graph) ReversePath(src, dst godip.Province, filter godip.PathFilter) []godip.Province {
-	queue := []pathStep{
-		pathStep{
-			path: nil,
-			src:  dst,
-			dst:  "",
-		},
+	if reverse {
+		queue = []pathStep{
+			pathStep{path: nil, src: first, dst: ""},
+		}
 	}
-	return self.pathHelper(src, true, queue, map[[2]godip.Province]bool{}, filter)
+	return self.pathHelper(last, reverse, queue, map[[2]godip.Province]bool{}, filter)
 }
 
 func (self *Graph) Coasts(prov godip.Province) (result []godip.Province) {

@@ -68,13 +68,13 @@ func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (
 					result = 0
 					found = true
 				} else {
-					if path := s.Graph().Path(srcCoast, coast, filter); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, false, filter); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true
 						}
 					}
-					if path := s.Graph().Path(srcCoast, coast, nil); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, false, nil); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true

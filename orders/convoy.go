@@ -171,7 +171,7 @@ func (self *convoy) Execute(state godip.State) {
 func ConvoyDestinations(v godip.Validator, src godip.Province, noConvoy *godip.Province) (result []godip.Province) {
 	defer v.Profile("ConvoyDestinations", time.Now())
 	potentialConvoyCoasts := map[godip.Province]bool{}
-	v.Graph().Path(src, "-", func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
+	v.Graph().Path(src, "-", false, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
 		if !edgeFlags[godip.Sea] {
 			return false
 		}
@@ -205,7 +205,7 @@ func ConvoyDestinations(v godip.Validator, src godip.Province, noConvoy *godip.P
 func ConvoySources(v godip.Validator, dst godip.Province, noConvoy *godip.Province) (result []godip.Province) {
 	defer v.Profile("ConvoyDestinations", time.Now())
 	potentialConvoyCoasts := map[godip.Province]bool{}
-	v.Graph().ReversePath("-", dst, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
+	v.Graph().Path(dst, "-", true, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
 		if !edgeFlags[godip.Sea] {
 			return false
 		}
@@ -266,14 +266,14 @@ func PossibleConvoyPathFilter(v godip.Validator, src, dst godip.Province, resolv
 // could send an army to endpoint.
 func ConvoyParticipationPossible(v godip.Validator, participant, endpoint godip.Province) []godip.Province {
 	defer v.Profile("ConvoyParticipationPossible", time.Now())
-	return v.Graph().Path(participant, endpoint, PossibleConvoyPathFilter(v, participant, endpoint, false, true))
+	return v.Graph().Path(participant, endpoint, false, PossibleConvoyPathFilter(v, participant, endpoint, false, true))
 }
 
 func ConvoyPathPossibleVia(v godip.Validator, via, src, dst godip.Province, resolveConvoys bool) []godip.Province {
 	defer v.Profile("ConvoyPathPossibleVia", time.Now())
-	if part1 := v.Graph().Path(src, via, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false)); part1 != nil {
+	if part1 := v.Graph().Path(src, via, false, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, false)); part1 != nil {
 		t2 := time.Now()
-		if part2 := v.Graph().Path(via, dst, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true)); part2 != nil {
+		if part2 := v.Graph().Path(via, dst, false, PossibleConvoyPathFilter(v, src, dst, resolveConvoys, true)); part2 != nil {
 			return append(part1, part2...)
 		}
 		v.Profile("ConvoyPathPossbleVia { [ check second half ] }", t2)
