@@ -139,7 +139,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 				continue
 			}
 			// For everyone able to move to the possible destination.
-			for _, moveSupportable := range PossibleMovesToUnit(v, godip.Fleet, mvDst, false, nil) {
+			for _, moveSupportable := range PossibleMovesUnit(v, godip.Fleet, mvDst, true, false, nil) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
@@ -161,7 +161,7 @@ func (self *support) Options(v godip.Validator, nation godip.Nation, src godip.P
 				opt[mvDst.Super()] = nil
 			}
 			// For everyone able to convoy to the possible destination, avoiding convoy by the supporter.
-			for _, moveSupportable := range PossibleMovesToUnit(v, godip.Army, mvDst, true, &actualSrc) {
+			for _, moveSupportable := range PossibleMovesUnit(v, godip.Army, mvDst, true, true, &actualSrc) {
 				if moveSupportable.Super() == actualSrc.Super() {
 					continue
 				}
@@ -239,50 +239,11 @@ func AnySupportPossible(v godip.Validator, typ godip.UnitType, src, dst godip.Pr
 	return
 }
 
-func PossibleMovesToUnit(v godip.Validator, unitType godip.UnitType, dst godip.Province, allowConvoy bool, noConvoy *godip.Province) (result []godip.Province) {
-	defer v.Profile("PossibleMovesToUnit", time.Now())
-	noConvoyStr := ""
-	if noConvoy != nil {
-		noConvoyStr = string(*noConvoy)
-	}
-	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesToUnit(%v,%v,%v,%v)", unitType, dst, allowConvoy, noConvoyStr), func() []godip.Province {
-		srcs := map[godip.Province]bool{}
-		if unitType == godip.Army {
-			for src, flags := range v.Graph().ReverseEdges(dst) {
-				if flags[godip.Land] && v.Graph().Flags(src)[godip.Land] {
-					srcs[src] = true
-				}
-			}
-			if allowConvoy {
-				for _, coast := range v.Graph().Coasts(dst) {
-					for _, prov := range ConvoyEndPoints(v, coast, true, noConvoy) {
-						srcs[prov] = true
-					}
-				}
-			}
-		} else if unitType == godip.Fleet {
-			for src, flags := range v.Graph().ReverseEdges(dst) {
-				if flags[godip.Sea] && v.Graph().Flags(src)[godip.Sea] {
-					srcs[src] = true
-				}
-			}
-		} else {
-			panic(fmt.Errorf("unknown unit type %q", unitType))
-		}
-		for src, _ := range srcs {
-			if src.Super() == src || !srcs[src.Super()] {
-				result = append(result, src)
-			}
-		}
-		return result
-	})
-}
-
 func PossibleMovesTo(v godip.Validator, dst godip.Province, allowConvoy bool) (result []godip.Province) {
 	defer v.Profile("PossibleMovesTo", time.Now())
 	unit, realDst, found := v.Unit(dst)
 	if found {
-		return PossibleMovesToUnit(v, unit.Type, realDst, allowConvoy, nil)
+		return PossibleMovesUnit(v, unit.Type, realDst, true, allowConvoy, nil)
 	}
 	return nil
 }
