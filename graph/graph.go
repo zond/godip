@@ -85,7 +85,7 @@ func (self *Graph) AllSCs() (result []godip.Province) {
 
 func (self *Graph) Edges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
 	result = map[godip.Province]map[godip.Flag]bool{}
-	for p, edge := range self.edges(n) {
+	for p, edge := range self.edges(n, false) {
 		result[p] = edge.Flags
 	}
 	return
@@ -93,27 +93,23 @@ func (self *Graph) Edges(n godip.Province) (result map[godip.Province]map[godip.
 
 func (self *Graph) ReverseEdges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
 	result = map[godip.Province]map[godip.Flag]bool{}
-	for p, edge := range self.reverseEdges(n) {
+	for p, edge := range self.edges(n, true) {
 		result[p] = edge.Flags
 	}
 	return
 }
 
-func (self *Graph) edges(n godip.Province) (result map[godip.Province]*edge) {
+// When reverse is true then the returned edges will lead to the province n; when
+// false then they will lead away from it.
+func (self *Graph) edges(n godip.Province, reverse bool) (result map[godip.Province]*edge) {
 	p, c := n.Split()
 	if node, ok := self.Nodes[p]; ok {
 		if sub, ok := node.Subs[c]; ok {
-			result = sub.Edges
-		}
-	}
-	return
-}
-
-func (self *Graph) reverseEdges(n godip.Province) (result map[godip.Province]*edge) {
-	p, c := n.Split()
-	if node, ok := self.Nodes[p]; ok {
-		if sub, ok := node.Subs[c]; ok {
-			result = sub.ReverseEdges
+			if reverse {
+				result = sub.ReverseEdges
+			} else {
+				result = sub.Edges
+			}
 		}
 	}
 	return
@@ -133,7 +129,7 @@ func (self *Graph) pathHelper(dst godip.Province, queue []pathStep, seen map[[2]
 			continue
 		}
 		seen[key] = true
-		for name, edge := range self.edges(step.dst) {
+		for name, edge := range self.edges(step.dst, false) {
 			if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
 				thisPath := append(append([]godip.Province{}, step.path...), name)
 				if name == dst {
@@ -161,7 +157,7 @@ func (self *Graph) reversePathHelper(src godip.Province, queue []pathStep, seen 
 			continue
 		}
 		seen[key] = true
-		for name, edge := range self.reverseEdges(step.src) {
+		for name, edge := range self.edges(step.src, true) {
 			if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
 				thisPath := append(append([]godip.Province{}, step.path...), name)
 				if name == src {
