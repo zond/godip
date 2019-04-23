@@ -121,7 +121,15 @@ type pathStep struct {
 	dst  godip.Province
 }
 
-func (self *Graph) pathHelper(dst godip.Province, queue []pathStep, seen map[[2]godip.Province]bool, filter godip.PathFilter) []godip.Province {
+// pathHelper returns a path to or from a target province satisfying the given
+// pathFilter and starting with the given path steps. When reverse is true then the
+// paths will lead to the province; when false they will lead away from it. By
+// seeding this with a step from nowhere ("") to a starting point then this method
+// can be used to obtain a path between two points. The filter can be used to
+// specify the type of provinces that the path can go through, but it can also be
+// used as a callback function to allow extracting information about all potential
+// matching paths.
+func (self *Graph) pathHelper(target godip.Province, reverse bool, queue []pathStep, seen map[[2]godip.Province]bool, filter godip.PathFilter) []godip.Province {
 	var newQueue []pathStep
 	for _, step := range queue {
 		key := [2]godip.Province{step.src, step.dst}
@@ -129,50 +137,26 @@ func (self *Graph) pathHelper(dst godip.Province, queue []pathStep, seen map[[2]
 			continue
 		}
 		seen[key] = true
-		for name, edge := range self.edges(step.dst, false) {
+		stepTarget := step.dst
+		if reverse {
+			stepTarget = step.src
+		}
+		for name, edge := range self.edges(stepTarget, reverse) {
 			if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
 				thisPath := append(append([]godip.Province{}, step.path...), name)
-				if name == dst {
+				if name == target {
 					return thisPath
 				}
-				newQueue = append(newQueue, pathStep{
-					path: thisPath,
-					src:  step.dst,
-					dst:  name,
-				})
+				step := pathStep{path: thisPath, src: step.dst, dst: name}
+				if reverse {
+					step = pathStep{path: thisPath, src: name, dst: step.src}
+				}
+				newQueue = append(newQueue, step)
 			}
 		}
 	}
 	if len(newQueue) > 0 {
-		return self.pathHelper(dst, newQueue, seen, filter)
-	}
-	return nil
-}
-
-func (self *Graph) reversePathHelper(src godip.Province, queue []pathStep, seen map[[2]godip.Province]bool, filter godip.PathFilter) []godip.Province {
-	var newQueue []pathStep
-	for _, step := range queue {
-		key := [2]godip.Province{step.src, step.dst}
-		if seen[key] {
-			continue
-		}
-		seen[key] = true
-		for name, edge := range self.edges(step.src, true) {
-			if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
-				thisPath := append(append([]godip.Province{}, step.path...), name)
-				if name == src {
-					return thisPath
-				}
-				newQueue = append(newQueue, pathStep{
-					path: thisPath,
-					src:  name,
-					dst:  step.src,
-				})
-			}
-		}
-	}
-	if len(newQueue) > 0 {
-		return self.reversePathHelper(src, newQueue, seen, filter)
+		return self.pathHelper(target, reverse, newQueue, seen, filter)
 	}
 	return nil
 }
@@ -185,7 +169,7 @@ func (self *Graph) Path(src, dst godip.Province, filter godip.PathFilter) []godi
 			dst:  src,
 		},
 	}
-	return self.pathHelper(dst, queue, map[[2]godip.Province]bool{}, filter)
+	return self.pathHelper(dst, false, queue, map[[2]godip.Province]bool{}, filter)
 }
 
 func (self *Graph) ReversePath(src, dst godip.Province, filter godip.PathFilter) []godip.Province {
@@ -196,7 +180,7 @@ func (self *Graph) ReversePath(src, dst godip.Province, filter godip.PathFilter)
 			dst:  "",
 		},
 	}
-	return self.reversePathHelper(src, queue, map[[2]godip.Province]bool{}, filter)
+	return self.pathHelper(src, true, queue, map[[2]godip.Province]bool{}, filter)
 }
 
 func (self *Graph) Coasts(prov godip.Province) (result []godip.Province) {
