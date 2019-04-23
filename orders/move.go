@@ -389,7 +389,7 @@ func PossibleMovesUnit(v godip.Validator, unitType godip.UnitType, src godip.Pro
 			}
 			if allowConvoy {
 				for _, coast := range v.Graph().Coasts(src) {
-					for _, prov := range ConvoyDestinations(v, coast, noConvoy) {
+					for _, prov := range ConvoyEndPoints(v, coast, false, noConvoy) {
 						dsts[prov] = true
 					}
 				}

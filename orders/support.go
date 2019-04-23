@@ -255,7 +255,7 @@ func PossibleMovesToUnit(v godip.Validator, unitType godip.UnitType, dst godip.P
 			}
 			if allowConvoy {
 				for _, coast := range v.Graph().Coasts(dst) {
-					for _, prov := range ConvoySources(v, coast, noConvoy) {
+					for _, prov := range ConvoyEndPoints(v, coast, true, noConvoy) {
 						srcs[prov] = true
 					}
 				}

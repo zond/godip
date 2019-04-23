@@ -168,44 +168,14 @@ func (self *convoy) Validate(v godip.Validator) (godip.Nation, error) {
 func (self *convoy) Execute(state godip.State) {
 }
 
-func ConvoyDestinations(v godip.Validator, src godip.Province, noConvoy *godip.Province) (result []godip.Province) {
-	defer v.Profile("ConvoyDestinations", time.Now())
+// ConvoyEndPoints returns all possible end points for a convoy route starting at
+// startPoint. If reverse is false then the route will be for a unit moving from
+// startPoint; if it's true then the route will be for a unit moving to startPoint
+// instead. If noConvoy is set then the route cannot pass through it.
+func ConvoyEndPoints(v godip.Validator, startPoint godip.Province, reverse bool, noConvoy *godip.Province) (result []godip.Province) {
+	defer v.Profile("ConvoyEndPoints", time.Now())
 	potentialConvoyCoasts := map[godip.Province]bool{}
-	v.Graph().Path(src, "-", false, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
-		if !edgeFlags[godip.Sea] {
-			return false
-		}
-		if v.Graph().Flags(prov.Super())[godip.Land] {
-			if len(trace) > 0 {
-				potentialConvoyCoasts[prov] = true
-			}
-			if !provFlags[godip.Convoyable] {
-				return false
-			}
-		}
-		if noConvoy != nil && *noConvoy == prov {
-			return false
-		}
-		unit, _, found := v.Unit(prov)
-		if !found {
-			return false
-		}
-		if unit.Type != godip.Fleet {
-			return false
-		}
-		return true
-	})
-	result = make([]godip.Province, 0, len(potentialConvoyCoasts))
-	for prov := range potentialConvoyCoasts {
-		result = append(result, prov)
-	}
-	return result
-}
-
-func ConvoySources(v godip.Validator, dst godip.Province, noConvoy *godip.Province) (result []godip.Province) {
-	defer v.Profile("ConvoyDestinations", time.Now())
-	potentialConvoyCoasts := map[godip.Province]bool{}
-	v.Graph().Path(dst, "-", true, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
+	v.Graph().Path(startPoint, "-", reverse, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
 		if !edgeFlags[godip.Sea] {
 			return false
 		}
