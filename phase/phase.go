@@ -68,13 +68,13 @@ func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (
 					result = 0
 					found = true
 				} else {
-					if path := s.Graph().Path(srcCoast, coast, filter); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, false, filter); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true
 						}
 					}
-					if path := s.Graph().Path(srcCoast, coast, nil); path != nil {
+					if path := s.Graph().Path(srcCoast, coast, false, nil); path != nil {
 						if !found || len(path) < result {
 							result = len(path)
 							found = true
@@ -186,7 +186,7 @@ func (self *Phase) PostProcess(s godip.State) (err error) {
 	} else if self.Ty == godip.Movement {
 		for prov, unit := range s.Dislodgeds() {
 			hasRetreat := false
-			for edge, _ := range s.Graph().Edges(prov) {
+			for edge, _ := range s.Graph().Edges(prov, false) {
 				if _, _, ok := s.Unit(edge); !ok && !s.Bounce(prov, edge) {
 					if orders.HasEdge(s, unit.Type, prov, edge) {
 						godip.Logf("%v can retreat to %v", prov, edge)

@@ -83,37 +83,27 @@ func (self *Graph) AllSCs() (result []godip.Province) {
 	return
 }
 
-func (self *Graph) Edges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
+// Edges returns the edges leading away from the specified province, or if reverse
+// is set to true then it instead returns the edges leading to it.
+func (self *Graph) Edges(n godip.Province, reverse bool) (result map[godip.Province]map[godip.Flag]bool) {
 	result = map[godip.Province]map[godip.Flag]bool{}
-	for p, edge := range self.edges(n) {
+	for p, edge := range self.edges(n, reverse) {
 		result[p] = edge.Flags
 	}
 	return
 }
 
-func (self *Graph) ReverseEdges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
-	result = map[godip.Province]map[godip.Flag]bool{}
-	for p, edge := range self.reverseEdges(n) {
-		result[p] = edge.Flags
-	}
-	return
-}
-
-func (self *Graph) edges(n godip.Province) (result map[godip.Province]*edge) {
+// When reverse is true then the returned edges will lead to the province n; when
+// false then they will lead away from it.
+func (self *Graph) edges(n godip.Province, reverse bool) (result map[godip.Province]*edge) {
 	p, c := n.Split()
 	if node, ok := self.Nodes[p]; ok {
 		if sub, ok := node.Subs[c]; ok {
-			result = sub.Edges
-		}
-	}
-	return
-}
-
-func (self *Graph) reverseEdges(n godip.Province) (result map[godip.Province]*edge) {
-	p, c := n.Split()
-	if node, ok := self.Nodes[p]; ok {
-		if sub, ok := node.Subs[c]; ok {
-			result = sub.ReverseEdges
+			if reverse {
+				result = sub.ReverseEdges
+			} else {
+				result = sub.Edges
+			}
 		}
 	}
 	return
@@ -125,7 +115,15 @@ type pathStep struct {
 	dst  godip.Province
 }
 
-func (self *Graph) pathHelper(dst godip.Province, queue []pathStep, seen map[[2]godip.Province]bool, filter godip.PathFilter) []godip.Province {
+// pathHelper returns a path to or from a target province satisfying the given
+// pathFilter and starting with the given path steps. When reverse is true then the
+// paths will lead to the province; when false they will lead away from it. By
+// seeding this with a step from nowhere ("") to a starting point then this method
+// can be used to obtain a path between two points. The filter can be used to
+// specify the type of provinces that the path can go through, but it can also be
+// used as a callback function to allow extracting information about all potential
+// matching paths.
+func (self *Graph) pathHelper(target godip.Province, reverse bool, queue []pathStep, seen map[[2]godip.Province]bool, filter godip.PathFilter) []godip.Province {
 	var newQueue []pathStep
 	for _, step := range queue {
 		key := [2]godip.Province{step.src, step.dst}
@@ -133,74 +131,47 @@ func (self *Graph) pathHelper(dst godip.Province, queue []pathStep, seen map[[2]
 			continue
 		}
 		seen[key] = true
-		for name, edge := range self.edges(step.dst) {
+		stepTarget := step.dst
+		if reverse {
+			stepTarget = step.src
+		}
+		for name, edge := range self.edges(stepTarget, reverse) {
 			if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
 				thisPath := append(append([]godip.Province{}, step.path...), name)
-				if name == dst {
+				if name == target {
 					return thisPath
 				}
-				newQueue = append(newQueue, pathStep{
-					path: thisPath,
-					src:  step.dst,
-					dst:  name,
-				})
+				step := pathStep{path: thisPath, src: step.dst, dst: name}
+				if reverse {
+					step = pathStep{path: thisPath, src: name, dst: step.src}
+				}
+				newQueue = append(newQueue, step)
 			}
 		}
 	}
 	if len(newQueue) > 0 {
-		return self.pathHelper(dst, newQueue, seen, filter)
+		return self.pathHelper(target, reverse, newQueue, seen, filter)
 	}
 	return nil
 }
 
-func (self *Graph) reversePathHelper(src godip.Province, queue []pathStep, seen map[[2]godip.Province]bool, filter godip.PathFilter) []godip.Province {
-	var newQueue []pathStep
-	for _, step := range queue {
-		key := [2]godip.Province{step.src, step.dst}
-		if seen[key] {
-			continue
-		}
-		seen[key] = true
-		for name, edge := range self.reverseEdges(step.src) {
-			if filter == nil || filter(name, edge.Flags, edge.sub.Flags, edge.sub.node.SC, step.path) {
-				thisPath := append(append([]godip.Province{}, step.path...), name)
-				if name == src {
-					return thisPath
-				}
-				newQueue = append(newQueue, pathStep{
-					path: thisPath,
-					src:  name,
-					dst:  step.src,
-				})
-			}
+// Path returns a list of provinces that go from first to last.  When reverse is
+// set to true then all edges are traversed backwards (i.e. to find a root that a
+// unit at last could use to get to first). The filter can be used to specify the
+// type of provinces that the path can go through, but it can also be used as a
+// callback function to allow extracting information about all potential matching
+// paths (nb. last can be set to "" to use this callback with all reachable
+// provinces from first).
+func (self *Graph) Path(first, last godip.Province, reverse bool, filter godip.PathFilter) []godip.Province {
+	queue := []pathStep{
+		pathStep{path: nil, src: "", dst: first},
+	}
+	if reverse {
+		queue = []pathStep{
+			pathStep{path: nil, src: first, dst: ""},
 		}
 	}
-	if len(newQueue) > 0 {
-		return self.reversePathHelper(src, newQueue, seen, filter)
-	}
-	return nil
-}
-
-func (self *Graph) Path(src, dst godip.Province, filter godip.PathFilter) []godip.Province {
-	queue := []pathStep{
-		pathStep{
-			path: nil,
-			src:  "",
-			dst:  src,
-		},
-	}
-	return self.pathHelper(dst, queue, map[[2]godip.Province]bool{}, filter)
-}
-
-func (self *Graph) ReversePath(src, dst godip.Province, filter godip.PathFilter) []godip.Province {
-	queue := []pathStep{
-		pathStep{
-			path: nil,
-			src:  dst,
-			dst:  "",
-		},
-	}
-	return self.reversePathHelper(src, queue, map[[2]godip.Province]bool{}, filter)
+	return self.pathHelper(last, reverse, queue, map[[2]godip.Province]bool{}, filter)
 }
 
 func (self *Graph) Coasts(prov godip.Province) (result []godip.Province) {

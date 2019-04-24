@@ -367,45 +367,50 @@ func MoveSupport(r godip.Resolver, src, dst godip.Province, forbiddenSupports []
 
 func HasEdge(v godip.Validator, typ godip.UnitType, src, dst godip.Province) bool {
 	if typ == godip.Army {
-		return v.Graph().Flags(dst)[godip.Land] && v.Graph().Edges(src)[dst][godip.Land]
+		return v.Graph().Flags(dst)[godip.Land] && v.Graph().Edges(src, false)[dst][godip.Land]
 	} else {
-		return v.Graph().Flags(dst)[godip.Sea] && v.Graph().Edges(src)[dst][godip.Sea]
+		return v.Graph().Flags(dst)[godip.Sea] && v.Graph().Edges(src, false)[dst][godip.Sea]
 	}
 }
 
-func PossibleMovesUnit(v godip.Validator, unitType godip.UnitType, src godip.Province, allowConvoy bool, noConvoy *godip.Province) (result []godip.Province) {
+// PossibleMovesUnit returns the possible provinces that a unit can move to or
+// from. If reverse is false then the unit must be in start, and if true then the
+// potential units must be able to move to start. Setting allowConvoy allows convoy
+// routes to be considered, and these must avoid the province noConvoy (if given).
+func PossibleMovesUnit(v godip.Validator, unitType godip.UnitType, start godip.Province, reverse bool, allowConvoy bool, noConvoy *godip.Province) (result []godip.Province) {
 	defer v.Profile("PossibleMovesUnit", time.Now())
 	noConvoyStr := ""
 	if noConvoy != nil {
 		noConvoyStr = string(*noConvoy)
 	}
-	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesUnit(%v,%v,%v,%v)", unitType, src, allowConvoy, noConvoyStr), func() []godip.Province {
-		dsts := map[godip.Province]bool{}
+	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesUnit(%v,%v,%v,%v,%v)", unitType, start, reverse, allowConvoy, noConvoyStr), func() []godip.Province {
+		neighbours := v.Graph().Edges(start, reverse)
+		ends := map[godip.Province]bool{}
 		if unitType == godip.Army {
-			for dst, flags := range v.Graph().Edges(src) {
-				if flags[godip.Land] && v.Graph().Flags(dst)[godip.Land] {
-					dsts[dst] = true
+			for end, flags := range neighbours {
+				if flags[godip.Land] && v.Graph().Flags(end)[godip.Land] {
+					ends[end] = true
 				}
 			}
 			if allowConvoy {
-				for _, coast := range v.Graph().Coasts(src) {
-					for _, prov := range ConvoyDestinations(v, coast, noConvoy) {
-						dsts[prov] = true
+				for _, coast := range v.Graph().Coasts(start) {
+					for _, end := range ConvoyEndPoints(v, coast, reverse, noConvoy) {
+						ends[end] = true
 					}
 				}
 			}
 		} else if unitType == godip.Fleet {
-			for dst, flags := range v.Graph().Edges(src) {
-				if flags[godip.Sea] && v.Graph().Flags(dst)[godip.Sea] {
-					dsts[dst] = true
+			for end, flags := range neighbours {
+				if flags[godip.Sea] && v.Graph().Flags(end)[godip.Sea] {
+					ends[end] = true
 				}
 			}
 		} else {
 			panic(fmt.Errorf("unknown unit type %q", unitType))
 		}
-		for dst, _ := range dsts {
-			if dst.Super() == dst || !dsts[dst.Super()] {
-				result = append(result, dst)
+		for end, _ := range ends {
+			if end.Super() == end || !ends[end.Super()] {
+				result = append(result, end)
 			}
 		}
 		return result
@@ -423,7 +428,7 @@ func PossibleMoves(v godip.Validator, src godip.Province, allowConvoy, dislodged
 		unit, realSrc, found = v.Unit(src)
 	}
 	if found {
-		return PossibleMovesUnit(v, unit.Type, realSrc, allowConvoy, nil)
+		return PossibleMovesUnit(v, unit.Type, realSrc, false, allowConvoy, nil)
 	}
 	return nil
 }
@@ -464,7 +469,7 @@ func movePossible(v godip.Validator, typ godip.UnitType, src, dst godip.Province
 			return godip.ErrIllegalDestination
 		}
 		if !allowConvoy {
-			flags, found := v.Graph().Edges(src)[dst]
+			flags, found := v.Graph().Edges(src, false)[dst]
 			if !found {
 				return godip.ErrIllegalMove
 			}
