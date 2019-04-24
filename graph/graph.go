@@ -83,17 +83,11 @@ func (self *Graph) AllSCs() (result []godip.Province) {
 	return
 }
 
-func (self *Graph) Edges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
+// Edges returns the edges leading away from the specified province, or if reverse
+// is set to true then it instead returns the edges leading to it.
+func (self *Graph) Edges(n godip.Province, reverse bool) (result map[godip.Province]map[godip.Flag]bool) {
 	result = map[godip.Province]map[godip.Flag]bool{}
-	for p, edge := range self.edges(n, false) {
-		result[p] = edge.Flags
-	}
-	return
-}
-
-func (self *Graph) ReverseEdges(n godip.Province) (result map[godip.Province]map[godip.Flag]bool) {
-	result = map[godip.Province]map[godip.Flag]bool{}
-	for p, edge := range self.edges(n, true) {
+	for p, edge := range self.edges(n, reverse) {
 		result[p] = edge.Flags
 	}
 	return

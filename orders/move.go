@@ -367,9 +367,9 @@ func MoveSupport(r godip.Resolver, src, dst godip.Province, forbiddenSupports []
 
 func HasEdge(v godip.Validator, typ godip.UnitType, src, dst godip.Province) bool {
 	if typ == godip.Army {
-		return v.Graph().Flags(dst)[godip.Land] && v.Graph().Edges(src)[dst][godip.Land]
+		return v.Graph().Flags(dst)[godip.Land] && v.Graph().Edges(src, false)[dst][godip.Land]
 	} else {
-		return v.Graph().Flags(dst)[godip.Sea] && v.Graph().Edges(src)[dst][godip.Sea]
+		return v.Graph().Flags(dst)[godip.Sea] && v.Graph().Edges(src, false)[dst][godip.Sea]
 	}
 }
 
@@ -384,10 +384,7 @@ func PossibleMovesUnit(v godip.Validator, unitType godip.UnitType, start godip.P
 		noConvoyStr = string(*noConvoy)
 	}
 	return v.MemoizeProvSlice(fmt.Sprintf("PossibleMovesUnit(%v,%v,%v,%v,%v)", unitType, start, reverse, allowConvoy, noConvoyStr), func() []godip.Province {
-		neighbours := v.Graph().Edges(start)
-		if reverse {
-			neighbours = v.Graph().ReverseEdges(start)
-		}
+		neighbours := v.Graph().Edges(start, reverse)
 		ends := map[godip.Province]bool{}
 		if unitType == godip.Army {
 			for end, flags := range neighbours {
@@ -472,7 +469,7 @@ func movePossible(v godip.Validator, typ godip.UnitType, src, dst godip.Province
 			return godip.ErrIllegalDestination
 		}
 		if !allowConvoy {
-			flags, found := v.Graph().Edges(src)[dst]
+			flags, found := v.Graph().Edges(src, false)[dst]
 			if !found {
 				return godip.ErrIllegalMove
 			}
