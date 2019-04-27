@@ -298,7 +298,7 @@ func TestDrawMaps(t *testing.T) {
 		// Find all the types of edge that exist.
 		edgeTypes := make(map[godip.Flag]bool)
 		for _, start := range variant.Graph().Provinces() {
-			for _, flags := range variant.Graph().Edges(start) {
+			for _, flags := range variant.Graph().Edges(start, false) {
 				for flag, b := range flags {
 					if b {
 						edgeTypes[flag] = true
@@ -356,7 +356,7 @@ func TestDrawMaps(t *testing.T) {
 				if outputOrders {
 					// TODO Draw arrows for all orders here.
 					for _, start := range variant.Graph().Provinces() {
-						for end, flags := range variant.Graph().Edges(start) {
+						for end, flags := range variant.Graph().Edges(start, false) {
 							if flags[edgeType] {
 								addArrow(encoder, start, end, provinceCenters)
 							}

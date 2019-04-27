@@ -1,0 +1,176 @@
+PHASE 1901 Spring Movement
+POSITIONS
+	Austria: army vie
+	England: army lon
+	France: army par
+	Germany: army ber
+	Italy: army rom
+	Russia: army mos
+	Turkey: army con
+	Austria: supply vie
+	England: supply lon
+	France: supply par
+	Germany: supply ber
+	Italy: supply rom
+	Russia: supply mos
+	Turkey: supply con
+ORDERS
+	vie move lon
+	par support vie move lon
+	ber move rom
+	mos support ber move rom
+PHASE 1901 Spring Retreat
+POSITIONS
+	Austria: army lon
+	England: army/dislodged lon
+	France: army par
+	Germany: army rom
+	Italy: army/dislodged rom
+	Russia: army mos
+	Turkey: army con
+	Austria: supply vie
+	England: supply lon
+	France: supply par
+	Germany: supply ber
+	Italy: supply rom
+	Russia: supply mos
+	Turkey: supply con
+ORDERS
+	remove lon
+	remove rom
+PHASE 1901 Fall Movement
+POSITIONS
+	Austria: army lon
+	France: army par
+	Germany: army rom
+	Russia: army mos
+	Turkey: army con
+	Austria: supply vie
+	England: supply lon
+	France: supply par
+	Germany: supply ber
+	Italy: supply rom
+	Russia: supply mos
+	Turkey: supply con
+ORDERS
+	lon support par move con
+	par move con
+PHASE 1901 Fall Retreat
+POSITIONS
+	Austria: army lon
+	France: army con
+	Germany: army rom
+	Russia: army mos
+	Turkey: army/dislodged con
+	Austria: supply vie
+	England: supply lon
+	France: supply par
+	Germany: supply ber
+	Italy: supply rom
+	Russia: supply mos
+	Turkey: supply con
+ORDERS
+	remove con
+PHASE 1901 Fall Adjustment
+POSITIONS
+	Austria: army lon
+	France: army con
+	Germany: army rom
+	Russia: army mos
+	Austria: supply vie
+	Austria: supply lon
+	France: supply par
+	Germany: supply ber
+	Germany: supply rom
+	Russia: supply mos
+	France: supply con
+ORDERS
+	build Army vie
+	build Army par
+	build Army ber
+PHASE 1902 Spring Movement
+POSITIONS
+	Austria: army vie
+	Austria: army lon
+	France: army par
+	Germany: army ber
+	Germany: army rom
+	Russia: army mos
+	France: army con
+	Austria: supply vie
+	Austria: supply lon
+	France: supply par
+	Germany: supply ber
+	Germany: supply rom
+	Russia: supply mos
+	France: supply con
+ORDERS
+	vie move par
+	lon move ber
+	rom support vie move par
+	mos support lon move ber
+PHASE 1902 Spring Retreat
+POSITIONS
+	Austria: army par
+	Austria: army ber
+	France: army/dislodged par
+	Germany: army/dislodged ber
+	Germany: army rom
+	Russia: army mos
+	France: army con
+	Austria: supply vie
+	Austria: supply lon
+	France: supply par
+	Germany: supply ber
+	Germany: supply rom
+	Russia: supply mos
+	France: supply con
+ORDERS
+	remove par
+	remove ber
+PHASE 1902 Fall Movement
+POSITIONS
+	Austria: army par
+	Austria: army ber
+	Germany: army rom
+	Russia: army mos
+	France: army con
+	Austria: supply vie
+	Austria: supply lon
+	France: supply par
+	Germany: supply ber
+	Germany: supply rom
+	Russia: supply mos
+	France: supply con
+ORDERS
+	par move rom
+	ber support par move rom
+PHASE 1902 Fall Retreat
+POSITIONS
+	Austria: army rom
+	Austria: army ber
+	Germany: army/dislodged rom
+	Russia: army mos
+	France: army con
+	Austria: supply vie
+	Austria: supply lon
+	France: supply par
+	Germany: supply ber
+	Germany: supply rom
+	Russia: supply mos
+	France: supply con
+ORDERS
+	remove rom
+PHASE 1902 Fall Adjustment
+POSITIONS
+	Austria: army rom
+	Austria: army ber
+	Russia: army mos
+	France: army con
+	Austria: supply vie
+	Austria: supply lon
+	France: supply par
+	Austria: supply ber
+	Austria: supply rom
+	Russia: supply mos
+	France: supply con

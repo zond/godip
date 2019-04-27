@@ -191,9 +191,39 @@ func TestNewYorkToronto(t *testing.T) {
 
 	// Test Great Lake prevents movement.
 	tst.AssertOrderValidity(t, judge, orders.Move("nyk", "tor"), "", godip.ErrMissingConvoyPath)
-    
+
 	// ...and back again.
 	judge.RemoveUnit("nyk")
 	judge.SetUnit("tor", godip.Unit{godip.Army, NATO})
 	tst.AssertOrderValidity(t, judge, orders.Move("tor", "nyk"), "", godip.ErrMissingConvoyPath)
+}
+
+func TestNoConvoyOptionWhileOnCoast(t *testing.T) {
+	judge := blankState(t)
+
+	// Test a fleet on a coast has no option to convoy.
+	judge.SetUnit("par/nc", godip.Unit{godip.Fleet, NATO})
+	judge.SetUnit("wge", godip.Unit{godip.Army, NATO})
+	opts := judge.Phase().Options(judge, NATO)
+	tst.AssertNoOpt(t, opts, []string{"par", "Convoy", "par/nc", "wge", "spa"})
+}
+
+func TestNoContinueConvoyOptionWhileOnCoast(t *testing.T) {
+	judge := blankState(t)
+
+	// Test that they can't be at the end of the convoy route.
+	judge.SetUnit("par/nc", godip.Unit{godip.Fleet, NATO})
+	judge.SetUnit("swe", godip.Unit{godip.Army, NATO})
+	judge.SetUnit("nts", godip.Unit{godip.Fleet, NATO})
+	opts := judge.Phase().Options(judge, NATO)
+	tst.AssertNoOpt(t, opts, []string{"par", "Convoy", "par/nc", "swe", "spa"})
+	tst.AssertNoOpt(t, opts, []string{"par", "Convoy", "par/nc", "swe", "par"})
+	tst.AssertNoOpt(t, opts, []string{"nts", "Convoy", "nts", "swe", "spa"})
+
+	// Test that they can't be at the start of the convoy route.
+	judge.RemoveUnit("swe")
+	judge.SetUnit("spa", godip.Unit{godip.Army, NATO})
+	opts = judge.Phase().Options(judge, NATO)
+	tst.AssertNoOpt(t, opts, []string{"par", "Convoy", "par/nc", "spa", "swe"})
+	//tst.AssertOpt(t, opts, []string{"nts", "Convoy", "nts", "spa", "swe"})
 }

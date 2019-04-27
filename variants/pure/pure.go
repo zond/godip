@@ -50,9 +50,8 @@ func PureBlank(phase godip.Phase) *state.State {
 }
 
 func PureStart() (result *state.State, err error) {
-	if result, err = classical.Start(); err != nil {
-		return
-	}
+	startPhase := classical.NewPhase(1901, godip.Spring, godip.Movement)
+	result = PureBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"ber": godip.Unit{godip.Army, godip.Germany},
 		"lon": godip.Unit{godip.Army, godip.England},

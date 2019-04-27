@@ -125,7 +125,7 @@ func setPhase(t *testing.T, sp **state.State, match []string, blankFn func(godip
 	season := match[2]
 	typ := match[3]
 	s := *sp
-	for (s.Phase().Year() <= year && (string(s.Phase().Season()) != season || string(s.Phase().Type()) != typ)) || s.Phase().Year() != year {
+	for (string(s.Phase().Season()) != season || string(s.Phase().Type()) != typ) || s.Phase().Year() != year {
 		s.Next()
 		newS := blankFn(s.Phase())
 		a, b, c, d, e, _ := s.Dump()
@@ -138,7 +138,11 @@ func setPhase(t *testing.T, sp **state.State, match []string, blankFn func(godip
 }
 
 func verifyValidOrder(t *testing.T, nat godip.Nation, v godip.Validator, order []string, parse func(bits []string) (result godip.Adjudicator, err error)) {
-	order[0], order[1] = order[1], order[0]
+	if order[0] == "Build" {
+		order[0], order[1], order[2] = order[2], order[0], order[1]
+	} else {
+		order[0], order[1] = order[1], order[0]
+	}
 	parsed, err := parse(order)
 	if err != nil {
 		t.Errorf("got unparseable order %+v: %v", order, err)
