@@ -387,15 +387,17 @@ func PossibleMovesUnit(v godip.Validator, unitType godip.UnitType, start godip.P
 		neighbours := v.Graph().Edges(start, reverse)
 		ends := map[godip.Province]bool{}
 		if unitType == godip.Army {
-			for end, flags := range neighbours {
-				if flags[godip.Land] && v.Graph().Flags(end)[godip.Land] {
-					ends[end] = true
-				}
-			}
-			if allowConvoy {
-				for _, coast := range v.Graph().Coasts(start) {
-					for _, end := range ConvoyEndPoints(v, coast, reverse, noConvoy) {
+			if v.Graph().Flags(start)[godip.Land] {
+				for end, flags := range neighbours {
+					if flags[godip.Land] && v.Graph().Flags(end)[godip.Land] {
 						ends[end] = true
+					}
+				}
+				if allowConvoy {
+					for _, coast := range v.Graph().Coasts(start) {
+						for _, end := range ConvoyEndPoints(v, coast, reverse, noConvoy) {
+							ends[end] = true
+						}
 					}
 				}
 			}

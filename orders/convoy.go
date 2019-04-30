@@ -84,7 +84,7 @@ func (self *convoy) Options(v godip.Validator, nation godip.Nation, src godip.Pr
 	if !ok || convoyer.Type != godip.Fleet {
 		return
 	}
-	if v.Graph().Flags(actualSrc)[godip.Land] && !v.Graph().Flags(actualSrc)[godip.Convoyable] {
+	if v.Graph().Flags(actualSrc.Super())[godip.Land] && !v.Graph().Flags(actualSrc.Super())[godip.Convoyable] {
 		return
 	}
 	if convoyer.Nation != nation {
@@ -180,7 +180,7 @@ func ConvoyEndPoints(v godip.Validator, startPoint godip.Province, reverse bool,
 			return false
 		}
 		if v.Graph().Flags(prov.Super())[godip.Land] {
-			if len(trace) > 0 {
+			if len(trace) > 0 && prov.Super() != startPoint.Super() {
 				potentialConvoyCoasts[prov] = true
 			}
 			if !provFlags[godip.Convoyable] {
@@ -211,10 +211,11 @@ func ConvoyEndPoints(v godip.Validator, startPoint godip.Province, reverse bool,
 // node.
 func PossibleConvoyPathFilter(v godip.Validator, src, dst godip.Province, resolveConvoys, dstOk bool) godip.PathFilter {
 	return func(name godip.Province, edgeFlags, nodeFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) bool {
-		if dstOk && name.Contains(dst) && nodeFlags[godip.Land] {
+		superFlags := v.Graph().Flags(name.Super())
+		if dstOk && name.Contains(dst) && superFlags[godip.Land] {
 			return true
 		}
-		if (nodeFlags[godip.Land] || !nodeFlags[godip.Sea]) && !nodeFlags[godip.Convoyable] {
+		if (superFlags[godip.Land] || !superFlags[godip.Sea]) && !superFlags[godip.Convoyable] {
 			return false
 		}
 		if u, _, ok := v.Unit(name); ok && u.Type == godip.Fleet {

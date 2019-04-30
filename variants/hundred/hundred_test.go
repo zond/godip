@@ -80,6 +80,30 @@ func TestConvoy(t *testing.T) {
 	tst.AssertUnit(t, judge, "cas", godip.Unit{godip.Army, England})
 }
 
+func TestNoConvoyToSelfOptions(t *testing.T) {
+	judge := startState(t)
+	// Add a fleet to Biscay.
+	judge.SetUnit("bis", godip.Unit{godip.Fleet, England})
+	// Check no option to convoy the army in Guyenne to itself.
+	opts := judge.Phase().Options(judge, England)
+	tst.AssertNoOpt(t, opts, []string{"guy", "Move", "guy", "guy"})
+}
+
+func TestNoConvoyToSelfWithCoastsOptions(t *testing.T) {
+	judge := startState(t)
+	// Add an army to Aragon and fleets to Biscay, Altantic and Mediterranean.
+	judge.SetUnit("ara", godip.Unit{godip.Army, England})
+	judge.SetUnit("bis", godip.Unit{godip.Fleet, England})
+	judge.SetUnit("atl", godip.Unit{godip.Fleet, England})
+	judge.SetUnit("med", godip.Unit{godip.Fleet, England})
+
+	// Check no option to convoy the army in Aragon to itself.
+	opts := judge.Phase().Options(judge, England)
+	tst.AssertNoOpt(t, opts, []string{"ara", "Move", "ara", "ara"})
+	tst.AssertNoOpt(t, opts, []string{"ara", "Move", "ara", "ara/nc"})
+	tst.AssertNoOpt(t, opts, []string{"ara", "Move", "ara", "ara/sc"})
+}
+
 func TestDisbandFrenchUnit(t *testing.T) {
 	judge := startState(t)
 	// France starts with one more unit than SC.

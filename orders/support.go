@@ -238,12 +238,3 @@ func AnySupportPossible(v godip.Validator, typ godip.UnitType, src, dst godip.Pr
 	}
 	return
 }
-
-func PossibleMovesTo(v godip.Validator, dst godip.Province, allowConvoy bool) (result []godip.Province) {
-	defer v.Profile("PossibleMovesTo", time.Now())
-	unit, realDst, found := v.Unit(dst)
-	if found {
-		return PossibleMovesUnit(v, unit.Type, realDst, true, allowConvoy, nil)
-	}
-	return nil
-}
