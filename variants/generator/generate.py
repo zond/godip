@@ -1,4 +1,5 @@
 #!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 
 import xml.etree.ElementTree
 import re
@@ -11,7 +12,8 @@ from string import Template
 ### Data to be gathered for the variant. ###
 
 # The name of the variant
-VARIANT = 'North Sea Wars'
+VARIANT = 'Vietnam War 1 12'
+#VARIANT = 'Britain 1100'
 # The starting units
 #START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
 #               # Fleet should be Leningrad South Coast
@@ -58,14 +60,16 @@ VARIANT = 'North Sea Wars'
 #               'Turkey': {'Army': ['Ankara', 'Diyarbakir'], 'Fleet': ['Istanbul']}, 
 #               'UK': {'Army': [], 'Fleet': ['London', 'Dublin', 'Edinburgh']}, 
 #               'USA': {'Army': ['Atlanta', 'Oklahoma', 'Anchorage'], 'Fleet': ['Washington DC']}}
-START_UNITS = {'Britons': {'Army': ['Cymru'], 'Fleet': ['South Britanny']},
-               'Romans': {'Army': ['Germania Superior'], 'Fleet': ['Menapia']},
-               'Frysians': {'Army': ['Amsivaria'], 'Fleet': ['Frisia']},
-               'Norse': {'Army': ['Gotaland'], 'Fleet': ['Sorland']}}
+#START_UNITS = {'Britons': {'Army': ['Cymru'], 'Fleet': ['South Britanny']},
+#               'Romans': {'Army': ['Germania Superior'], 'Fleet': ['Menapia']},
+#               'Frysians': {'Army': ['Amsivaria'], 'Fleet': ['Frisia']},
+#               'Norse': {'Army': ['Gotaland'], 'Fleet': ['Sorland']}}
+#START_UNITS = {'Kingdom of France': {'Army': ['Amiens'], 'Fleet': ['Caen', 'Dieppe']}, 'Kingdoms of Wales': {'Army': ['Pembroke', 'Rhyl'], 'Fleet': ['Caernarvon']}, 'Kingdom of England': {'Army': ['Liverpool'], 'Fleet': ['Portsmouth', 'London']}, 'Kingdom of Alba': {'Army': ['Aberdeen', 'Inverness'], 'Fleet': ['Arran']}, 'Kingdoms of Éire': {'Army': ['Donegal'], 'Fleet': ['Dublin', 'Cork']}, 'Kingdom of the Northern Isles': {'Army': ['Wick'], 'Fleet': ['Arran', 'Hebrides']}}
+START_UNITS = {'North Vietnam': {'Army': ['Thai Nguyen', 'Thanh'], 'Fleet': ['Hanoi']}, 'South Vietnam': {'Army': ['Saigon'], 'Fleet': ['Sa Mau', 'East Coast']}, 'Laos': {'Army': ['Nam Ha', 'Pakxe', 'Wientian']}, 'Thailand': {'Army': ['Bangkok', 'Loei'], 'Fleet': ['Pattaya']}, 'Cambodia': {'Army': ['Angkor Wat', 'Mekong'], 'Fleet': ['Preah']}}
 # The nations in the variant
 NATIONS = START_UNITS.keys()
 # The first year of the game
-START_YEAR = 0
+START_YEAR = 1955
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 #ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
 #ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
@@ -74,7 +78,8 @@ START_YEAR = 0
 #ABBREVIATIONS = {'Wessex': 'wsx', 'West Euxine Sea': 'wes', 'Basra': 'bsr', 'Barca': 'bar', 'Al-Qatta\'i': 'aqa'}
 #ABBREVIATIONS = {'Chilean Coast': 'chc', 'Mozambique': 'moz', 'Romania': 'rmn', 'Balearic Sea': 'bls', 'Banghazi': 'bnz', 'Chiang Mai': 'chm', 'Denmark': 'den', 'Guinea': 'gui', 'Kashi': 'ksi', 'Panama': 'pan', 'Peru': 'pru', 'Rome': 'rme', 'Seattle': 'sea', 'Mozambique Channel': 'moc', 'Denmark Strait': 'des'}
 #ABBREVIATIONS = {'Democratic Republic of the Congo': 'drc', 'Central African Republic': 'car', 'Sea of Japan': 'soj', 'Bay of Bengal': 'bob'}
-ABBREVIATIONS = {'Upper North Sea': 'uns', 'Lower North Sea': 'lns', 'South Britanny': 'sbr', 'North Britanny': 'nbr', 'West Belgica':'wbe', 'East Belgica': 'ebe', 'West North Sea': 'wns', 'East North Sea': 'ens', 'Central North Sea': 'cns'}
+#ABBREVIATIONS = {'Upper North Sea': 'uns', 'Lower North Sea': 'lns', 'South Britanny': 'sbr', 'North Britanny': 'nbr', 'West Belgica':'wbe', 'East Belgica': 'ebe', 'West North Sea': 'wns', 'East North Sea': 'ens', 'Central North Sea': 'cns'}
+ABBREVIATIONS = {}
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 #CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
 #CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
@@ -83,7 +88,8 @@ ABBREVIATIONS = {'Upper North Sea': 'uns', 'Lower North Sea': 'lns', 'South Brit
 #CENTER_OVERRIDES = [('Jelling', 'Kattegat'), ('Alexandria', 'Al-Qatta\'i')]
 #CENTER_OVERRIDES = [('North Mid Atlantic', 'Recife'), ('XX4', 'Irkutsk'), ('Hong Kong', 'Yellow Sea'), ('Bay of Bengal', 'Bangkok'), ('Bangkok', 'Vietnam'), ('Vietnam', 'South China Sea'), ('Yemen', 'Red Sea'), ('Oman', 'Persian Gulf'), ('Arabian Sea', 'Persian Gulf'), ('Gabon', 'Central African Republic'), ('Lijiang', 'Bhutan'), ('Vladivostok', 'Sea of Japan'),
 #                    ('North Mid Atlantic', 'South Mid Atlantic'), ('South Mid Atlantic', 'Western South Atlantic'), ('Romania', 'Ukraine')]
-CENTER_OVERRIDES = [('XX1', 'East North Sea'), ('Channel', 'Albion')]
+#CENTER_OVERRIDES = [('XX1', 'East North Sea'), ('Channel', 'Albion')]
+CENTER_OVERRIDES = [('Thai Nguyen', 'XX3'), ('Nan', 'XX4')]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 #REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
 #REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
@@ -91,7 +97,8 @@ CENTER_OVERRIDES = [('XX1', 'East North Sea'), ('Channel', 'Albion')]
 #REGION_OVERRIDES = [('Lorraine', 'Dijon')]
 #REGION_OVERRIDES = [('Alexandria', 'Al-Qatta\'i')]
 #REGION_OVERRIDES = [('Arctic Ocean', 'Iqaluit'), ('Naples', 'Ionian Sea'), ('XX4', '2 Arctic Ocean'), ('2 Arctic Ocean', 'Bering Sea'), ('Borneo', 'Bay of Bengal'), ('Yemen', 'Red Sea'), ('Oman', 'Persian Gulf'), ('Vladivostok', 'Sea of Japan')]
-REGION_OVERRIDES = [('XX1', 'East North Sea'), ('Channel', 'Albion')]
+#REGION_OVERRIDES = [('XX1', 'East North Sea'), ('Channel', 'Albion')]
+REGION_OVERRIDES = []
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
 # Whether to highlight the region abbreviation in bold or not.
@@ -492,6 +499,10 @@ def makeLocsToNames(namesLayer):
     """Create a map from coordinates to names of provinces."""
     locsToNames = {}
     for text in namesLayer.findall('{}text'.format(SVG)):
+        name = []
+        for tspan in text.findall('.//{}tspan'.format(SVG)):
+            if tspan.text != None:
+                name += re.split(r' +', tspan.text)
         transform = text.get('transform')
         x, y = float(text.get('x')), float(text.get('y'))
         if transform != None:
@@ -499,12 +510,8 @@ def makeLocsToNames(namesLayer):
                 angle = math.radians(float(transform.split('(')[1].split(')')[0]))
                 x, y = x * math.cos(angle) - y * math.sin(angle), x * math.sin(angle) + y * math.cos(angle)
             else:
-                print('Unsupported text transformation: ' + transform)
+                print('Unsupported text transformation: ' + transform + ' used for ' + ' '.join(name))
         loc = (x, y)
-        name = []
-        for tspan in text.findall('.//{}tspan'.format(SVG)):
-            if tspan.text != None:
-                name += re.split(r' +', tspan.text)
         locsToNames[loc] = tuple(name)
     return locsToNames
 
