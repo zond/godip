@@ -19,7 +19,7 @@ const (
 var Nations = []godip.Nation{NorthVietnam, Thailand, SouthVietnam, Cambodia, Laos}
 
 var VietnamWar112Variant = common.Variant{
-	Name:       "Vietnam War 1.12",
+	Name:       "Vietnam War",
 	Graph:      func() godip.Graph { return VietnamWar112Graph() },
 	Start:      VietnamWar112Start,
 	Blank:      VietnamWar112Blank,
@@ -42,10 +42,15 @@ var VietnamWar112Variant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules:       "",
+	CreatedBy:   "ThePolice",
+	Version:     "1.12",
+	Description: "Indochina Peninsula at the beginning of Vietnam War in 1955.",
+	Rules: "Rules are the same as classical Diplomacy, but with a different" +
+		"map. The winner is the first to fifteen provinces which is slightly " +
+		"more than half. All provinces connected to Mekong river are coastal " +
+		"those are: Xuyen, Mekong, Pakxe and Ubon. That means Laos is able to " +
+		"build fleets in Pakxe. Xuyen has two coasts, as does Mekong (south " +
+		"coast and the river).",
 }
 
 func VietnamWar112Blank(phase godip.Phase) *state.State {
