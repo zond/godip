@@ -29,7 +29,7 @@ var VietnamWar112Variant = common.Variant{
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
 	UnitTypes:  classical.UnitTypes,
-	SoloWinner: common.SCCountWinner(13),
+	SoloWinner: common.SCCountWinner(15),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/vietnamwar112map.svg")
 	},
