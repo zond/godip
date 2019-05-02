@@ -1,4 +1,4 @@
-package vietnamwar112
+package vietnamwar
 
 import (
 	"github.com/zond/godip"
@@ -18,11 +18,11 @@ const (
 
 var Nations = []godip.Nation{NorthVietnam, Thailand, SouthVietnam, Cambodia, Laos}
 
-var VietnamWar112Variant = common.Variant{
+var VietnamWarVariant = common.Variant{
 	Name:       "Vietnam War",
-	Graph:      func() godip.Graph { return VietnamWar112Graph() },
-	Start:      VietnamWar112Start,
-	Blank:      VietnamWar112Blank,
+	Graph:      func() godip.Graph { return VietnamWarGraph() },
+	Start:      VietnamWarStart,
+	Blank:      VietnamWarBlank,
 	Phase:      classical.NewPhase,
 	Parser:     classical.Parser,
 	Nations:    Nations,
@@ -31,7 +31,7 @@ var VietnamWar112Variant = common.Variant{
 	UnitTypes:  classical.UnitTypes,
 	SoloWinner: common.SCCountWinner(15),
 	SVGMap: func() ([]byte, error) {
-		return Asset("svg/vietnamwar112map.svg")
+		return Asset("svg/vietnamwarmap.svg")
 	},
 	SVGVersion: "1",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
@@ -53,13 +53,13 @@ var VietnamWar112Variant = common.Variant{
 		"coast and the river).",
 }
 
-func VietnamWar112Blank(phase godip.Phase) *state.State {
-	return state.New(VietnamWar112Graph(), phase, classical.BackupRule, nil)
+func VietnamWarBlank(phase godip.Phase) *state.State {
+	return state.New(VietnamWarGraph(), phase, classical.BackupRule, nil)
 }
 
-func VietnamWar112Start() (result *state.State, err error) {
+func VietnamWarStart() (result *state.State, err error) {
 	startPhase := classical.NewPhase(1955, godip.Spring, godip.Movement)
-	result = VietnamWar112Blank(startPhase)
+	result = VietnamWarBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"han": godip.Unit{godip.Fleet, NorthVietnam},
 		"thn": godip.Unit{godip.Army, NorthVietnam},
@@ -99,7 +99,7 @@ func VietnamWar112Start() (result *state.State, err error) {
 	return
 }
 
-func VietnamWar112Graph() *graph.Graph {
+func VietnamWarGraph() *graph.Graph {
 	return graph.New().
 		// Khao Luang
 		Prov("kha").Conn("soa", godip.Sea).Conn("cgo", godip.Sea).Conn("noa", godip.Sea).Conn("sy", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
