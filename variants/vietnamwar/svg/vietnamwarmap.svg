@@ -47,9 +47,9 @@
      objecttolerance="10"
      pagecolor="#ffffff"
      showgrid="false"
-     inkscape:current-layer="provinces"
-     inkscape:cx="701.27402"
-     inkscape:cy="890.53197"
+     inkscape:current-layer="background"
+     inkscape:cx="589.12277"
+     inkscape:cy="686.61213"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-height="1016"
@@ -57,7 +57,7 @@
      inkscape:window-width="1853"
      inkscape:window-x="67"
      inkscape:window-y="27"
-     inkscape:zoom="1"
+     inkscape:zoom="0.5"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -202,7 +202,7 @@
        inkscape:connector-curvature="0" />
     <path
        d="m 743.57349,1373.2599 c 0,0 3.28735,-15.03 3.4513,-22.545 0.15351,-7.0345 2.38513,-14.069 -2.49909,-21.1035 -2.47423,-3.5636 -13.05083,-6.6529 -19.57625,-10.6906 -8.77986,-5.4326 -26.33956,-17.7204 -26.33956,-17.7204 0,0 -14.74685,9.3593 -18.35849,14.0389 -2.4751,3.207 0.69837,6.414 0.0983,9.621 -0.44704,2.3889 -2.82041,4.7778 -3.23974,7.1667 -0.66057,3.7633 0.4382,7.5266 0,11.29 -0.11814,1.0144 -1.56726,2.0289 -1.66895,3.0434 -1.30548,13.0244 -2.00803,26.0487 -2.55251,39.0731 -0.2736,6.5449 -0.49936,13.0899 0.0983,19.6348 0.0896,0.9817 1.85438,1.9634 1.96347,2.9452 0.2836,2.5525 0.43285,5.105 -0.78539,7.6575 -0.8434,1.7671 -4.05744,3.5343 -5.39957,5.3014 -0.62135,0.8181 -0.83447,1.6362 -0.49085,2.4544 0.34362,0.8181 1.70168,2.2795 2.55251,2.4543 1.53801,0.316 4.61401,-0.9818 4.61401,-0.9818 0,0 10.86457,0.5864 16.29684,-2.0616 3.69788,-1.8025 7.81416,-7.5266 11.09363,-11.2899 0.71294,-0.8182 0.18948,-1.6363 0.88357,-2.4544 5.71985,-6.7412 12.239,-14.6257 18.35849,-20.2238 1.1781,-1.0777 2.35617,0.8856 3.53427,0.1963 1.89802,-1.1105 4.45731,-3.7306 5.69407,-5.5959 0.75943,-1.1453 0.1963,-3.3544 0.29452,-3.436 3.99241,-3.3217 11.97722,-6.7741 11.97722,-6.7741 z"
-       id="sam"
+       id="cam"
        style="vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.99999994"
        inkscape:connector-curvature="0" />
     <path
@@ -539,7 +539,7 @@
        inkscape:connector-curvature="0" />
     <path
        d="m 696.58281,1383.3282 c 2.94104,1.5199 1.55788,5.6498 -1.89224,5.6498 -0.6827,0 -1.30773,-0.3019 -1.94602,-0.9397 -2.5961,-2.5943 0.52388,-6.4228 3.83826,-4.7101 z m -3.96997,-0.4041 c -3.00793,2.3644 -1.43729,6.6968 2.42778,6.6968 2.4408,0 3.67978,-1.2448 3.67978,-3.6968 0,-3.2476 -3.56507,-4.9986 -6.10756,-3 z m 4.9674,-1.99 c 3.93545,2.0063 3.88538,8.0221 -0.0826,9.9418 -5.23611,2.533 -10.42899,-3.2629 -7.20583,-8.0426 1.67307,-2.4809 4.63412,-3.2526 7.28851,-1.8992 z m -5.29346,-0.823 c -4.93713,2.2022 -4.78919,9.4861 0.23536,11.584 5.96705,2.4915 11.37001,-4.5593 7.44234,-9.712 -1.60285,-2.1027 -5.19623,-2.9789 -7.67762,-1.872 z"
-       id="samCenter"
+       id="camCenter"
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:0.49999997;stroke-opacity:1;enable-background:new"
        inkscape:connector-curvature="0" />
     <path
@@ -1992,7 +1992,7 @@
          y="1341.4413"
          sodipodi:role="line"><tspan
            style="font-weight:bold;stroke-width:0.99999994"
-           id="tspan451">Sa</tspan></tspan><tspan
+           id="tspan451">Ca</tspan></tspan><tspan
          id="tspan6658"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.43185616px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;stroke-width:0.99999994"
          x="707.53882"
