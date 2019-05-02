@@ -102,7 +102,7 @@ func VietnamWarStart() (result *state.State, err error) {
 func VietnamWarGraph() *graph.Graph {
 	return graph.New().
 		// Khao Luang
-		Prov("kha").Conn("soa", godip.Sea).Conn("cgo", godip.Sea).Conn("noa", godip.Sea).Conn("sy", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("kha").Conn("soa", godip.Sea).Conn("cgo", godip.Sea).Conn("noa", godip.Sea).Conn("syk", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Tonle Sap
 		Prov("ton").Conn("pre", godip.Coast...).Conn("meo", godip.Land).Conn("kul", godip.Land).Conn("ang", godip.Land).Conn("pat", godip.Coast...).Conn("stc", godip.Sea).Conn("cgo", godip.Sea).Flag(godip.Coast...).
 		// North Vietnam
@@ -116,49 +116,49 @@ func VietnamWarGraph() *graph.Graph {
 		// Nan
 		Prov("nan").Conn("chi", godip.Land).Conn("phr", godip.Land).Conn("nah", godip.Land).Flag(godip.Land).
 		// Nak
-		Prov("nak").Conn("ph", godip.Land).Conn("udo", godip.Land).Conn("ubo", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("nak").Conn("phh", godip.Land).Conn("udo", godip.Land).Conn("ubo", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Phonsavan
 		Prov("phs").Conn("lua", godip.Land).Conn("wie", godip.Land).Conn("thh", godip.Land).Conn("nol", godip.Land).Flag(godip.Land).
 		// Pakxe
-		Prov("pak").Conn("kul", godip.Land).Conn("meo", godip.Land).Conn("meo/river", godip.Sea).Conn("vir", godip.Land).Conn("att", godip.Land).Conn("ph", godip.Land).Conn("ubo", godip.Coast...).Flag(godip.Coast...).SC(Laos).
+		Prov("pak").Conn("kul", godip.Land).Conn("meo", godip.Land).Conn("meo/river", godip.Sea).Conn("vir", godip.Land).Conn("att", godip.Land).Conn("phh", godip.Land).Conn("ubo", godip.Coast...).Flag(godip.Coast...).SC(Laos).
 		// North Gulf of Thailand
-		Prov("noa").Conn("kha", godip.Sea).Conn("cgo", godip.Sea).Conn("stc", godip.Sea).Conn("pat", godip.Sea).Conn("ban", godip.Sea).Conn("sy", godip.Sea).Flag(godip.Sea).
+		Prov("noa").Conn("kha", godip.Sea).Conn("cgo", godip.Sea).Conn("stc", godip.Sea).Conn("pat", godip.Sea).Conn("ban", godip.Sea).Conn("syk", godip.Sea).Flag(godip.Sea).
 		// Buri Ram
 		Prov("bur").Conn("kul", godip.Land).Conn("ubo", godip.Land).Conn("loe", godip.Land).Conn("ban", godip.Land).Conn("pat", godip.Land).Conn("ang", godip.Land).Flag(godip.Land).
 		// Chiang Mai
-		Prov("chi").Conn("phr", godip.Land).Conn("nan", godip.Land).Conn("sy", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("chi").Conn("phr", godip.Land).Conn("nan", godip.Land).Conn("syk", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Kulen Prum
 		Prov("kul").Conn("meo", godip.Land).Conn("pak", godip.Land).Conn("ubo", godip.Land).Conn("bur", godip.Land).Conn("ang", godip.Land).Conn("ton", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Angkor Wat
 		Prov("ang").Conn("bur", godip.Land).Conn("pat", godip.Land).Conn("ton", godip.Land).Conn("kul", godip.Land).Flag(godip.Land).SC(Cambodia).
 		// Hajnan
-		Prov("haj").Conn("sc", godip.Sea).Conn("non", godip.Sea).Conn("son", godip.Sea).Conn("coa", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("haj").Conn("scs", godip.Sea).Conn("non", godip.Sea).Conn("son", godip.Sea).Conn("coa", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// South  China Sea
-		Prov("sc").Conn("non", godip.Sea).Conn("haj", godip.Sea).Conn("coa", godip.Sea).Conn("pac", godip.Sea).Flag(godip.Sea).
+		Prov("scs").Conn("non", godip.Sea).Conn("haj", godip.Sea).Conn("coa", godip.Sea).Conn("pac", godip.Sea).Flag(godip.Sea).
 		// Vinh
-		Prov("vin").Conn("att", godip.Land).Conn("hue", godip.Coast...).Conn("son", godip.Sea).Conn("thh", godip.Coast...).Conn("nk", godip.Land).Conn("ph", godip.Land).Flag(godip.Coast...).
+		Prov("vin").Conn("att", godip.Land).Conn("hue", godip.Coast...).Conn("son", godip.Sea).Conn("thh", godip.Coast...).Conn("nkd", godip.Land).Conn("phh", godip.Land).Flag(godip.Coast...).
 		// Saigon
 		Prov("sag").Conn("med", godip.Sea).Conn("pha", godip.Coast...).Conn("tay", godip.Land).Conn("xuy", godip.Land).Conn("xuy/ec", godip.Sea).Flag(godip.Coast...).SC(SouthVietnam).
 		// Ubon
-		Prov("ubo").Conn("bur", godip.Land).Conn("kul", godip.Land).Conn("pak", godip.Coast...).Conn("ph", godip.Land).Conn("nak", godip.Land).Conn("udo", godip.Land).Conn("loe", godip.Land).Flag(godip.Coast...).
+		Prov("ubo").Conn("bur", godip.Land).Conn("kul", godip.Land).Conn("pak", godip.Coast...).Conn("phh", godip.Land).Conn("nak", godip.Land).Conn("udo", godip.Land).Conn("loe", godip.Land).Flag(godip.Coast...).
 		// Luang
 		Prov("lua").Conn("phs", godip.Land).Conn("nol", godip.Land).Conn("nah", godip.Land).Conn("wie", godip.Land).Flag(godip.Land).
 		// Udon
-		Prov("udo").Conn("loe", godip.Land).Conn("ubo", godip.Land).Conn("nak", godip.Land).Conn("ph", godip.Land).Conn("nk", godip.Land).Conn("wie", godip.Land).Flag(godip.Land).
+		Prov("udo").Conn("loe", godip.Land).Conn("ubo", godip.Land).Conn("nak", godip.Land).Conn("phh", godip.Land).Conn("nkd", godip.Land).Conn("wie", godip.Land).Flag(godip.Land).
 		// Phan
 		Prov("pha").Conn("cev", godip.Land).Conn("ple", godip.Land).Conn("tay", godip.Land).Conn("sag", godip.Coast...).Conn("med", godip.Sea).Conn("coa", godip.Sea).Conn("eas", godip.Coast...).Flag(godip.Coast...).
 		// Pacific Ocean
-		Prov("pac").Conn("sc", godip.Sea).Conn("coa", godip.Sea).Conn("med", godip.Sea).Conn("soa", godip.Sea).Flag(godip.Sea).
+		Prov("pac").Conn("scs", godip.Sea).Conn("coa", godip.Sea).Conn("med", godip.Sea).Conn("soa", godip.Sea).Flag(godip.Sea).
 		// Thanh
 		Prov("thh").Conn("han", godip.Coast...).Conn("nol", godip.Land).Conn("phs", godip.Land).Conn("vin", godip.Coast...).Conn("son", godip.Sea).Conn("non", godip.Sea).Flag(godip.Coast...).SC(NorthVietnam).
 		// North Gulf of Tonkin
-		Prov("non").Conn("thh", godip.Sea).Conn("son", godip.Sea).Conn("haj", godip.Sea).Conn("sc", godip.Sea).Conn("thn", godip.Sea).Conn("han", godip.Sea).Flag(godip.Sea).
+		Prov("non").Conn("thh", godip.Sea).Conn("son", godip.Sea).Conn("haj", godip.Sea).Conn("scs", godip.Sea).Conn("thn", godip.Sea).Conn("han", godip.Sea).Flag(godip.Sea).
 		// Sa Mau
 		Prov("sam").Conn("xuy", godip.Land).Conn("xuy/wc", godip.Sea).Conn("xuy/ec", godip.Sea).Conn("soa", godip.Sea).Conn("med", godip.Sea).Flag(godip.Coast...).SC(SouthVietnam).
-		// Sai  Yok
-		Prov("sy").Conn("phr", godip.Land).Conn("chi", godip.Land).Conn("kha", godip.Coast...).Conn("noa", godip.Sea).Conn("ban", godip.Coast...).Flag(godip.Coast...).
+		// Sai Yok
+		Prov("syk").Conn("phr", godip.Land).Conn("chi", godip.Land).Conn("kha", godip.Coast...).Conn("noa", godip.Sea).Conn("ban", godip.Coast...).Flag(godip.Coast...).
 		// Wientian
-		Prov("wie").Conn("lua", godip.Land).Conn("udo", godip.Land).Conn("nk", godip.Land).Conn("phs", godip.Land).Flag(godip.Land).SC(Laos).
+		Prov("wie").Conn("lua", godip.Land).Conn("udo", godip.Land).Conn("nkd", godip.Land).Conn("phs", godip.Land).Flag(godip.Land).SC(Laos).
 		// South Gulf of  Thailand
 		Prov("soa").Conn("pac", godip.Sea).Conn("med", godip.Sea).Conn("sam", godip.Sea).Conn("xuy", godip.Sea).Conn("xuy/wc", godip.Sea).Conn("cgo", godip.Sea).Conn("kha", godip.Sea).Flag(godip.Sea).
 		// Hue
@@ -166,7 +166,7 @@ func VietnamWarGraph() *graph.Graph {
 		// Tay Ninh
 		Prov("tay").Conn("pha", godip.Land).Conn("ple", godip.Land).Conn("phn", godip.Land).Conn("meo", godip.Land).Conn("xuy", godip.Land).Conn("sag", godip.Land).Flag(godip.Land).
 		// Coast of Vietnam
-		Prov("coa").Conn("med", godip.Sea).Conn("pac", godip.Sea).Conn("sc", godip.Sea).Conn("haj", godip.Sea).Conn("son", godip.Sea).Conn("hue", godip.Sea).Conn("eas", godip.Sea).Conn("pha", godip.Sea).Flag(godip.Sea).
+		Prov("coa").Conn("med", godip.Sea).Conn("pac", godip.Sea).Conn("scs", godip.Sea).Conn("haj", godip.Sea).Conn("son", godip.Sea).Conn("hue", godip.Sea).Conn("eas", godip.Sea).Conn("pha", godip.Sea).Flag(godip.Sea).
 		// Mekong
 		Prov("meo").Conn("kul", godip.Land).Conn("ton", godip.Land).Conn("pre", godip.Land).Conn("xuy", godip.Land).Conn("tay", godip.Land).Conn("phn", godip.Land).Conn("vir", godip.Land).Conn("pak", godip.Land).Flag(godip.Land).SC(Cambodia).
 		// Mekong (West Coast)
@@ -178,7 +178,7 @@ func VietnamWarGraph() *graph.Graph {
 		// North Laos
 		Prov("nol").Conn("nov", godip.Land).Conn("lua", godip.Land).Conn("phs", godip.Land).Conn("thh", godip.Land).Conn("han", godip.Land).Conn("thn", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Bangkok
-		Prov("ban").Conn("noa", godip.Sea).Conn("pat", godip.Coast...).Conn("bur", godip.Land).Conn("loe", godip.Land).Conn("phr", godip.Land).Conn("sy", godip.Coast...).Flag(godip.Coast...).SC(Thailand).
+		Prov("ban").Conn("noa", godip.Sea).Conn("pat", godip.Coast...).Conn("bur", godip.Land).Conn("loe", godip.Land).Conn("phr", godip.Land).Conn("syk", godip.Coast...).Flag(godip.Coast...).SC(Thailand).
 		// Virachey
 		Prov("vir").Conn("pak", godip.Land).Conn("meo", godip.Land).Conn("phn", godip.Land).Conn("ple", godip.Land).Conn("att", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Hanoi
@@ -186,9 +186,9 @@ func VietnamWarGraph() *graph.Graph {
 		// Thai Nguyen
 		Prov("thn").Conn("nov", godip.Land).Conn("nol", godip.Land).Conn("han", godip.Coast...).Conn("non", godip.Sea).Flag(godip.Coast...).SC(NorthVietnam).
 		// Phrae
-		Prov("phr").Conn("sy", godip.Land).Conn("ban", godip.Land).Conn("loe", godip.Land).Conn("nan", godip.Land).Conn("chi", godip.Land).Flag(godip.Land).
-		// Phou  Hin
-		Prov("ph").Conn("vin", godip.Land).Conn("nk", godip.Land).Conn("udo", godip.Land).Conn("nak", godip.Land).Conn("ubo", godip.Land).Conn("pak", godip.Land).Conn("att", godip.Land).Flag(godip.Land).
+		Prov("phr").Conn("syk", godip.Land).Conn("ban", godip.Land).Conn("loe", godip.Land).Conn("nan", godip.Land).Conn("chi", godip.Land).Flag(godip.Land).
+		// Phou Hin
+		Prov("phh").Conn("vin", godip.Land).Conn("nkd", godip.Land).Conn("udo", godip.Land).Conn("nak", godip.Land).Conn("ubo", godip.Land).Conn("pak", godip.Land).Conn("att", godip.Land).Flag(godip.Land).
 		// Nam Ha
 		Prov("nah").Conn("lua", godip.Land).Conn("nan", godip.Land).Flag(godip.Land).SC(Laos).
 		// Preah
@@ -198,11 +198,11 @@ func VietnamWarGraph() *graph.Graph {
 		// South Thailand Coast
 		Prov("stc").Conn("noa", godip.Sea).Conn("cgo", godip.Sea).Conn("ton", godip.Sea).Conn("pat", godip.Sea).Flag(godip.Sea).
 		// Attapu
-		Prov("att").Conn("hue", godip.Land).Conn("vin", godip.Land).Conn("ph", godip.Land).Conn("pak", godip.Land).Conn("vir", godip.Land).Conn("ple", godip.Land).Conn("cev", godip.Land).Conn("eas", godip.Land).Flag(godip.Land).
+		Prov("att").Conn("hue", godip.Land).Conn("vin", godip.Land).Conn("phh", godip.Land).Conn("pak", godip.Land).Conn("vir", godip.Land).Conn("ple", godip.Land).Conn("cev", godip.Land).Conn("eas", godip.Land).Flag(godip.Land).
 		// East Coast
 		Prov("eas").Conn("att", godip.Land).Conn("cev", godip.Land).Conn("pha", godip.Coast...).Conn("coa", godip.Sea).Conn("hue", godip.Coast...).Flag(godip.Coast...).SC(SouthVietnam).
-		// Nam  Kading
-		Prov("nk").Conn("wie", godip.Land).Conn("udo", godip.Land).Conn("ph", godip.Land).Conn("vin", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		// Nam Kading
+		Prov("nkd").Conn("wie", godip.Land).Conn("udo", godip.Land).Conn("phh", godip.Land).Conn("vin", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// South Gulf of Tonkin
 		Prov("son").Conn("vin", godip.Sea).Conn("hue", godip.Sea).Conn("coa", godip.Sea).Conn("haj", godip.Sea).Conn("non", godip.Sea).Conn("thh", godip.Sea).Flag(godip.Sea).
 		// Xuyen
