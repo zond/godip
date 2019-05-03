@@ -7,98 +7,13 @@ import math
 import itertools
 import collections
 import random
+import os
+import yaml
 from string import Template
 
-### Data to be gathered for the variant. ###
-
 # The name of the variant
-VARIANT = 'Vietnam War 1 12'
-#VARIANT = 'Britain 1100'
-# The starting units
-#START_UNITS = {'NATO': {'Army': ['New York', 'Los Angeles', 'Paris'], 'Fleet': ['London', 'Istanbul', 'Australia']},
-#               # Fleet should be Leningrad South Coast
-#               'USSR': {'Army': ['Moscow', 'Shanghai', 'Vladivostok'], 'Fleet': ['Leningrad', 'Albania', 'Havana']}}
-#START_UNITS = {'Russia': {'Army': ['Moscow', 'Omsk', 'Warsaw'], 'Fleet': ['Sevastopol', 'St. Petersburg', 'Vladivostok']},
-#               'China': {'Army': ['Peking', 'Guangzhou', 'Wuhan'], 'Fleet': ['Shanghai']},
-#               'Japan': {'Army': ['Kyoto'], 'Fleet': ['Tokyo', 'Osaka', 'Sapporo']},
-#               'India': {'Army': ['Delhi', 'Calcutta'], 'Fleet': ['Bombay', 'Madras']},
-#               'Turkey': {'Army': ['Constantinople', 'Baghdad', 'Mecca'], 'Fleet': ['Ankara']},
-#               'France': {'Army': ['Paris', 'Marseilles'], 'Fleet': ['Brest', 'Saigon']},
-#               'Britain': {'Fleet': ['London', 'Liverpool', 'Edinburgh', 'Aden', 'Singapore']},
-#               'Italy': {'Army': ['Rome', 'Milan'], 'Fleet': ['Naples', 'Mogadishu']},
-#               'Germany': {'Army': ['Berlin', 'Munich', 'Cologne'], 'Fleet': ['Tsingtao', 'Kiel']},
-#               'Austria': {'Army': ['Vienna', 'Budapest', 'Trieste'], 'Fleet': ['Sarajevo']}}
-#START_UNITS = {'Burgundy': {'Army': ['Dijon', 'Luxembourg', 'Flanders'], 'Fleet': ['Holland']},
-#               'England': {'Army': ['Calais', 'Guyenne', 'Normandy'], 'Fleet': ['London', 'Devon']},
-#               'France': {'Army': ['Dauphine', 'Orleanais', 'Paris', 'Toulouse', 'Provence'], 'Fleet': []}}
-#START_UNITS = {'Abbasid Caliphate': {'Army': ['Ardebil', 'Baghdad', 'Isfahan', 'Irak']},
-#               'Eastern Roman Empire': {'Army': ['Cherson', 'Constantinople'], 'Fleet': ['Attalia', 'Taranto']},
-#               'Kingdom of Denmark': {'Army': ['Viken'], 'Fleet': ['Jelling', 'Jorvik', 'Scania']},
-#               'Tulunid Emirate': {'Army': ['Alexandria', 'Damascus'], 'Fleet': ['Barca', 'Jerusalem']},
-#               'West Frankish Kingdom': {'Army': ['Aquitaine', 'Gascony', 'Narbonne'], 'Fleet': ['Paris']},
-#               'East Frankish Kingdom': {'Army': ['Bavaria', 'Saxony', 'Swabia'], 'Fleet': ['Bremen']},
-#               'Khaganate of Khazaria': {'Army': ['Atil', 'Balanjar', 'Sarkel', 'Tamantarka']},
-#               'Kievan Rus': {'Army': ['Kiev', 'Rostov', 'Smolensk'], 'Fleet': ['Novgorod']},
-#               'Umayyad Emirate': {'Army': ['Cordova', 'Salamanca'], 'Fleet': ['Cadiz', 'Valencia']}}
-#START_UNITS = {'Argentina': {'Army': [], 'Fleet': ['Mendoza', 'Buenos Aires', 'Comodoro Rivadavia']},
-#               'Australia': {'Army': [], 'Fleet': ['Perth', 'Brisbane', 'Sydney']}, 
-#               'Brazil': {'Army': ['Macapa'], 'Fleet': ['Recife', 'Rio de Janeiro']}, 
-#               'Canada': {'Army': [], 'Fleet': ['Vancouver', 'Iqaluit', 'Montreal']}, 
-#               'China': {'Army': ['Yumen', 'Baotou', 'Chongqing', 'Beijing'], 'Fleet': []}, 
-#               'Egypt': {'Army': ['Cairo', 'Aswan'], 'Fleet': ['Alexandria']}, 
-#               'Germany': {'Army': ['Munich', 'Berlin'], 'Fleet': ['Hamburg']}, 
-#               'India': {'Army': ['New Delhi'], 'Fleet': ['Mumbai', 'Bangalore']}, 
-#               'Italy': {'Army': ['Milan', 'Naples'], 'Fleet': ['Rome']}, 
-#               'Japan': {'Army': [], 'Fleet': ['Sapporo', 'Tokyo', 'Nagasaki']}, 
-#               'Kenya': {'Army': ['Nairobi', 'Marsabit'], 'Fleet': ['Mombasa']}, 
-#               'Nigeria': {'Army': ['Abula', 'Kano'], 'Fleet': ['Lagos']}, 
-#               'Pakistan': {'Army': ['Islamabad', 'Lahore'], 'Fleet': ['Karachi']}, 
-#               'Russia': {'Army': ['Moscow', 'Omsk', 'Irkutsk', 'Vladivostok'], 'Fleet': []}, 
-#               'South Africa': {'Army': ['Pretoria'], 'Fleet': ['Cape Town', 'Durban']}, 
-#               'Spain': {'Army': ['Barcelona'], 'Fleet': ['Madrid', 'Cadiz']}, 
-#               'Thailand': {'Army': [], 'Fleet': ['Chiang Mai', 'Bangkok', 'Hat Yai']}, 
-#               'Turkey': {'Army': ['Ankara', 'Diyarbakir'], 'Fleet': ['Istanbul']}, 
-#               'UK': {'Army': [], 'Fleet': ['London', 'Dublin', 'Edinburgh']}, 
-#               'USA': {'Army': ['Atlanta', 'Oklahoma', 'Anchorage'], 'Fleet': ['Washington DC']}}
-#START_UNITS = {'Britons': {'Army': ['Cymru'], 'Fleet': ['South Britanny']},
-#               'Romans': {'Army': ['Germania Superior'], 'Fleet': ['Menapia']},
-#               'Frysians': {'Army': ['Amsivaria'], 'Fleet': ['Frisia']},
-#               'Norse': {'Army': ['Gotaland'], 'Fleet': ['Sorland']}}
-#START_UNITS = {'Kingdom of France': {'Army': ['Amiens'], 'Fleet': ['Caen', 'Dieppe']}, 'Kingdoms of Wales': {'Army': ['Pembroke', 'Rhyl'], 'Fleet': ['Caernarvon']}, 'Kingdom of England': {'Army': ['Liverpool'], 'Fleet': ['Portsmouth', 'London']}, 'Kingdom of Alba': {'Army': ['Aberdeen', 'Inverness'], 'Fleet': ['Arran']}, 'Kingdoms of Éire': {'Army': ['Donegal'], 'Fleet': ['Dublin', 'Cork']}, 'Kingdom of the Northern Isles': {'Army': ['Wick'], 'Fleet': ['Arran', 'Hebrides']}}
-START_UNITS = {'North Vietnam': {'Army': ['Thai Nguyen', 'Thanh'], 'Fleet': ['Hanoi']}, 'South Vietnam': {'Army': ['Saigon'], 'Fleet': ['Sa Mau', 'East Coast']}, 'Laos': {'Army': ['Nam Ha', 'Pakxe', 'Wientian']}, 'Thailand': {'Army': ['Bangkok', 'Loei'], 'Fleet': ['Pattaya']}, 'Cambodia': {'Army': ['Angkor Wat', 'Mekong'], 'Fleet': ['Preah']}}
-# The nations in the variant
-NATIONS = START_UNITS.keys()
-# The first year of the game
-START_YEAR = 1955
-# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
-#ABBREVIATIONS = {'Iran': 'irn', 'Iraq': 'irq', 'Japan': 'jap', 'Arabia': 'ara', 'India': 'ind', 'Sea of Japan': 'soj'}
-#ABBREVIATIONS = {'North Atlantic': 'nat', 'Norwegian Sea': 'nrg', 'St Petersburg': 'stp', 'North Africa': 'naf', 'Liverpool': 'lvp', 'North Sea': 'nth', 'Norway': 'nwy', 'Livonia': 'lvn', 'Gulf of Bothnia': 'bot', 'Gulf of Lyon': 'gol', 'Tyrolia': 'tyr', 'Tyrrhenian Sea': 'tys'}
-#ABBREVIATIONS = {'Box A bcd': 'bxa', 'Box B ace': 'bxb', 'Box C abfgh': 'bxc', 'Box D aef': 'bxd', 'Box E bdf': 'bxe', 'Box F cdegh': 'bxf', 'Box G cfh': 'bxg', 'Box H cfg': 'bxh', 'Java Sea': 'jvs', 'Arabian Sea': 'ars', 'Persian Gulf': 'psg'}
-#ABBREVIATIONS = {'North Sea': 'nos'}
-#ABBREVIATIONS = {'Wessex': 'wsx', 'West Euxine Sea': 'wes', 'Basra': 'bsr', 'Barca': 'bar', 'Al-Qatta\'i': 'aqa'}
-#ABBREVIATIONS = {'Chilean Coast': 'chc', 'Mozambique': 'moz', 'Romania': 'rmn', 'Balearic Sea': 'bls', 'Banghazi': 'bnz', 'Chiang Mai': 'chm', 'Denmark': 'den', 'Guinea': 'gui', 'Kashi': 'ksi', 'Panama': 'pan', 'Peru': 'pru', 'Rome': 'rme', 'Seattle': 'sea', 'Mozambique Channel': 'moc', 'Denmark Strait': 'des'}
-#ABBREVIATIONS = {'Democratic Republic of the Congo': 'drc', 'Central African Republic': 'car', 'Sea of Japan': 'soj', 'Bay of Bengal': 'bob'}
-#ABBREVIATIONS = {'Upper North Sea': 'uns', 'Lower North Sea': 'lns', 'South Britanny': 'sbr', 'North Britanny': 'nbr', 'West Belgica':'wbe', 'East Belgica': 'ebe', 'West North Sea': 'wns', 'East North Sea': 'ens', 'Central North Sea': 'cns'}
-ABBREVIATIONS = {}
-# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
-#CENTER_OVERRIDES = [('Caribbean Sea', 'Havana'), ('West Atlantic', 'Brazil'), ('Black Sea', 'Istanbul'), ('Indian Ocean', 'Arabian Sea'), ('Caribbean Sea', 'Colombia'), ('Caribbean Sea', 'Venezuala'), ('Finland', 'Leningrad')]
-#CENTER_OVERRIDES = [('Sweden', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
-#CENTER_OVERRIDES = [('Kamchatka', 'North Pacific Ocean'), ('Awdal', 'Gulf of Aden'), ('Hebei', 'Tsingtao'), ('Red Sea', 'Mecca'), ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu'), ('Liverpool', 'Irish Sea')]
-#CENTER_OVERRIDES = [('Lorraine', 'Dijon')]
-#CENTER_OVERRIDES = [('Jelling', 'Kattegat'), ('Alexandria', 'Al-Qatta\'i')]
-#CENTER_OVERRIDES = [('North Mid Atlantic', 'Recife'), ('XX4', 'Irkutsk'), ('Hong Kong', 'Yellow Sea'), ('Bay of Bengal', 'Bangkok'), ('Bangkok', 'Vietnam'), ('Vietnam', 'South China Sea'), ('Yemen', 'Red Sea'), ('Oman', 'Persian Gulf'), ('Arabian Sea', 'Persian Gulf'), ('Gabon', 'Central African Republic'), ('Lijiang', 'Bhutan'), ('Vladivostok', 'Sea of Japan'),
-#                    ('North Mid Atlantic', 'South Mid Atlantic'), ('South Mid Atlantic', 'Western South Atlantic'), ('Romania', 'Ukraine')]
-#CENTER_OVERRIDES = [('XX1', 'East North Sea'), ('Channel', 'Albion')]
-CENTER_OVERRIDES = [('Thai Nguyen', 'XX3'), ('Nan', 'XX4')]
-# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
-#REGION_OVERRIDES = [('West Atlantic', 'Brazil'), ('South China Sea', 'Saigon'), ('Black Sea', 'Istanbul')]
-#REGION_OVERRIDES = [('Finland', 'Gulf of Bothnia'), ('Mid Atlantic', 'Portugal')]
-#REGION_OVERRIDES = [('Red Sea', 'Mecca')]#, ('Galicia', 'Vienna'), ('Awdal', 'Mogadishu')]
-#REGION_OVERRIDES = [('Lorraine', 'Dijon')]
-#REGION_OVERRIDES = [('Alexandria', 'Al-Qatta\'i')]
-#REGION_OVERRIDES = [('Arctic Ocean', 'Iqaluit'), ('Naples', 'Ionian Sea'), ('XX4', '2 Arctic Ocean'), ('2 Arctic Ocean', 'Bering Sea'), ('Borneo', 'Bay of Bengal'), ('Yemen', 'Red Sea'), ('Oman', 'Persian Gulf'), ('Vladivostok', 'Sea of Japan')]
-#REGION_OVERRIDES = [('XX1', 'East North Sea'), ('Channel', 'Albion')]
-REGION_OVERRIDES = []
+VARIANT = 'Britain 1100'
+
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
 # Whether to highlight the region abbreviation in bold or not.
@@ -124,13 +39,6 @@ THICK = 1.1125
 THIN = 0.5
 # A path for the supply center symbol. This should be formatted to include the absolute start location.
 CENTER_PATH = 'm {0} c 1.46376,0.75644 0.77536,2.81188 -0.94177,2.81188 -0.33978,0 -0.65086,-0.15021 -0.96854,-0.46769 -1.29208,-1.29116 0.26074,-3.19663 1.91031,-2.34419 z m -1.97586,-0.20114 c -1.49705,1.17676 -0.71534,3.33302 1.20831,3.33302 1.21479,0 1.83143,-0.61952 1.83143,-1.83993 0,-1.61631 -1.77434,-2.4878 -3.03974,-1.49309 z m 2.47228,-0.99043 c 1.95868,0.99856 1.93376,3.99263 -0.0411,4.94804 -2.60602,1.26069 -5.19052,-1.62395 -3.58635,-4.00278 0.83269,-1.23477 2.30641,-1.61882 3.6275,-0.94526 z m -2.63456,-0.40959 c -2.45722,1.09603 -2.38359,4.72122 0.11714,5.76535 2.96981,1.24003 5.65887,-2.26914 3.70406,-4.83365 -0.79774,-1.04651 -2.58617,-1.4826 -3.82116,-0.9317 z'
-#CENTER_PATH = 'm {0} c 9.7702,5.0498 5.1753,18.7712 -6.2861,18.7712 -2.2679,0 -4.3443,-1.0027 -6.4648,-3.1221 -8.6242,-8.6194 1.7404,-21.3396 12.7509,-15.6491 z m -13.1884,-1.3427 c -9.9924,7.8556 -4.7747,22.2501 8.0652,22.2501 8.1084,0 12.2243,-4.1357 12.2243,-12.2828 0,-10.7898 -11.8432,-16.6077 -20.2895,-9.9673 z m 16.5019,-6.6118 c 13.0737,6.666 12.9073,26.6535 -0.2745,33.0315 -17.3945,8.4159 -34.6454,-10.841 -23.9379,-26.7213 5.5579,-8.2428 15.3946,-10.8066 24.2126,-6.3102 z m -17.5851,-2.7342 c -16.4013,7.3167 -15.9098,31.5171 0.7816,38.4875 19.8227,8.278 37.7715,-15.1481 24.7236,-32.2679 -5.3247,-6.986 -17.262,-9.8972 -25.5052,-6.2196 z'
-#CENTER_PATH = 'm {0} c 3.29193,1.70234 1.7437,6.32808 -2.11801,6.32808 -0.76413,0 -1.46378,-0.33804 -2.17821,-1.05247 -2.90576,-2.90577 0.5864,-7.19401 4.29622,-5.27561 z m -4.44363,-0.45263 c -3.36677,2.64826 -1.60873,7.50085 2.71745,7.50085 2.73202,0 4.11878,-1.39419 4.11878,-4.14073 0,-3.63739 -3.99035,-5.59872 -6.83623,-3.36012 z m 5.56003,-2.22897 c 4.40499,2.24727 4.34893,8.98535 -0.0925,11.13548 -5.86077,2.83713 -11.67321,-3.65467 -8.06548,-9.00818 1.87267,-2.77881 5.18694,-3.64307 8.15807,-2.1273 z m -5.92503,-0.92175 c -5.5261,2.4666 -5.36048,10.62495 0.26339,12.97478 6.67892,2.79063 12.72651,-5.10665 8.33017,-10.878 -1.79403,-2.35514 -5.81613,-3.33653 -8.59356,-2.09678 z'
-#CENTER_PATH = 'm {0} c 4.9401,2.5533 2.6167,9.4913 -3.1784,9.4913 -1.1467,0 -2.1967,-0.5071 -3.2688,-1.5786 -4.3606,-4.3582 0.88,-10.79 6.4472,-7.9127 z m -6.6684,-0.6788 c -5.0525,3.972 -2.4142,11.2502 4.078,11.2502 4.0998,0 6.1809,-2.0911 6.1809,-6.2105 0,-5.4556 -5.9882,-8.3973 -10.2589,-5.0397 z m 8.3437,-3.3432 c 6.6105,3.3706 6.5264,13.4768 -0.1388,16.7017 -8.795,4.2552 -17.5176,-5.4815 -12.1036,-13.511 2.8103,-4.1678 7.7839,-5.4641 12.2426,-3.1907 z m -8.8915,-1.3825 c -8.2929,3.6996 -8.0443,15.936 0.3953,19.4604 10.0229,4.1855 19.0983,-7.6593 12.5008,-16.3155 -2.6922,-3.5324 -8.7281,-5.0043 -12.8961,-3.1449 z'
-#CENTER_PATH = 'm {0} c 4.88873,-2.52807 2.58951,-9.39762 -3.14536,-9.39762 -1.13481,0 -2.17382,0.50204 -3.23479,1.56302 -4.31527,4.31523 0.87083,10.68356 6.38015,7.8346 z m -6.59908,0.67219 c -4.99986,-3.93285 -2.38906,-11.13924 4.0356,-11.13924 4.05721,0 6.11664,2.07045 6.11664,6.14924 0,5.40176 -5.92591,8.31446 -10.15224,4.99 z m 8.257,3.31016 c 6.5417,-3.33731 6.45845,-13.34383 -0.13743,-16.5369 -8.7036,-4.21333 -17.33545,5.4274 -11.97776,13.37771 2.78105,4.12675 7.70298,5.4102 12.11528,3.15919 z m -8.79902,1.36888 c -8.20665,-3.66309 -7.96067,-15.77877 0.39112,-19.2684 9.91863,-4.14426 18.8997,7.5837 12.37085,16.15454 -2.66427,3.49755 -8.63734,4.95493 -12.76197,3.11386 z'
-#CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.161181 2.65678,1.110069 5.06242,-2.031351 3.31362,-4.327111 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
-#CENTER_PATH = 'm {0} c 1.30948,0.67717 0.69362,2.51722 -0.84251,2.51722 -0.30396,0 -0.58227,-0.13447 -0.86646,-0.41866 -1.15587,-1.15587 0.23326,-2.86167 1.70897,-2.09856 z m -1.76761,-0.18005 c -1.33925,1.05344 -0.63993,2.98373 1.08096,2.98373 1.08676,0 1.63839,-0.55459 1.63839,-1.64712 0,-1.4469 -1.5873,-2.22709 -2.71935,-1.33661 z m 2.2117,-0.88665 c 1.75224,0.89393 1.72994,3.57424 -0.0368,4.42953 -2.33133,1.12857 -4.64343,-1.45377 -3.20833,-3.58332 0.74492,-1.10537 2.06329,-1.44916 3.24516,-0.84621 z m -2.35689,-0.36666 c -2.1982,0.98118 -2.13232,4.22645 0.10477,5.16118 2.65678,1.11007 5.06242,-2.03135 3.31362,-4.32711 -0.71364,-0.93684 -2.31357,-1.32722 -3.41839,-0.83407 z'
-#d="m {0} c 4.94922,2.55935 2.62155,9.5139 -3.18428,9.5139 -1.14885,0 -2.20071,-0.50825 -3.27481,-1.58236 -4.36866,-4.36863 0.88161,-10.81575 6.45909,-7.93154 z m -6.68073,-0.68051 c -5.06172,3.98151 -2.41862,11.27707 4.08553,11.27707 4.10742,0 6.19233,-2.09607 6.19233,-6.22533 0,-5.4686 -5.99924,-8.41734 -10.27786,-5.05174 z m 8.35917,-3.35112 c 6.62264,3.37861 6.53836,13.50894 -0.13913,16.74152 -8.8113,4.26546 -17.54995,-5.49456 -12.12597,-13.54324 2.81546,-4.17781 7.79829,-5.47714 12.26519,-3.19828 z m -8.9079,-1.38582 c -8.30819,3.70842 -8.05917,15.97401 0.39596,19.50682 10.04136,4.19554 19.13356,-7.67754 12.52392,-16.35443 -2.69723,-3.54082 -8.74421,-5.01624 -12.91988,-3.15239 z"
 
 class Flags:
     """A class to hold boolean attributes of a province."""
@@ -161,6 +69,24 @@ def toLowerAlphaNumeric(string):
     return re.sub(r'[^a-z0-9]', '', string.lower())
 
 MAP = toLowerAlphaNumeric(VARIANT) + '_input.svg'
+configFile = toLowerAlphaNumeric(VARIANT) + '.yml'
+
+if not os.path.isfile(configFile):
+    print('Missing config file: ', configFile)
+with open(configFile, 'r') as y:
+    config = yaml.safe_load(y)
+    # The first year of the game
+    START_YEAR = config['START_YEAR']
+    # The starting units
+    START_UNITS = config['START_UNITS']
+    # The nations in the variant
+    NATIONS = START_UNITS.keys()
+    # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+    ABBREVIATIONS = config['ABBREVIATIONS']
+    # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+    CENTER_OVERRIDES = config['CENTER_OVERRIDES']
+    # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+    REGION_OVERRIDES = config['REGION_OVERRIDES']
 
 def getLayer(root, label):
     """Get the layer from root with the given Inkscape label."""
@@ -495,14 +421,21 @@ def replaceOriginalIds(centers, originalIdToAbbr, abbreviations):
             raise
     return output
 
+def nameFromTextElement(text):
+    """Get a name tuple from a text element."""
+    name = []
+    for tspan in text.findall('.//{}tspan'.format(SVG)):
+        if tspan.text != None:
+            name += re.split(r' +', tspan.text)
+    name = map(lambda bit: bit.strip(), name)
+    name = filter(lambda bit: bit != '', name)
+    return name
+
 def makeLocsToNames(namesLayer):
     """Create a map from coordinates to names of provinces."""
     locsToNames = {}
     for text in namesLayer.findall('{}text'.format(SVG)):
-        name = []
-        for tspan in text.findall('.//{}tspan'.format(SVG)):
-            if tspan.text != None:
-                name += re.split(r' +', tspan.text)
+        name = nameFromTextElement(text)
         transform = text.get('transform')
         x, y = float(text.get('x')), float(text.get('y'))
         if transform != None:
@@ -512,7 +445,8 @@ def makeLocsToNames(namesLayer):
             else:
                 print('Unsupported text transformation: ' + transform + ' used for ' + ' '.join(name))
         loc = (x, y)
-        locsToNames[loc] = tuple(name)
+        if ''.join(name).strip() != '':
+            locsToNames[loc] = tuple(name)
     return locsToNames
 
 def guessRegionFullNames(regions, namesLayer):
@@ -698,10 +632,9 @@ def performOverrides(provinces):
 def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
     """Add the names layer to root and try to highlight the abbreviation in bold (if BOLD_ABBREVIATIONS is set)."""
     for text in namesLayer.findall('{}text'.format(SVG)):
-        name = []
-        for tspan in text.findall('.//{}tspan'.format(SVG)):
-            if tspan.text != None:
-                name += re.split(r' +', tspan.text)
+        name = nameFromTextElement(text)
+        if ''.join(name) == '':
+            continue
         abbr = fullNameToAbbr[tuple(name)]
         if abbr not in passableCenterAbbrs:
             namesLayer.remove(text)
@@ -910,8 +843,8 @@ def createGraphFile(fileName, provinces):
     nationLength = max(map(len, START_UNITS.keys()))
     nation_declarations = []
     for nation in START_UNITS.keys():
-        nation_declarations.append('\t{{0:<{}}} godip.Nation = "{{1}}"'.format(nationLength).format(toCamelCase(nation), nation))
-    nation_list = 'var Nations = []godip.Nation{{{}}}'.format(', '.join(map(toCamelCase, START_UNITS.keys())))
+        nation_declarations.append(u'\t{{0:<{}}} godip.Nation = "{{1}}"'.format(nationLength).format(toCamelCase(nation), nation))
+    nation_list = u'var Nations = []godip.Nation{{{}}}'.format(u', '.join(map(toCamelCase, START_UNITS.keys())))
     
     scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
     
@@ -922,7 +855,7 @@ def createGraphFile(fileName, provinces):
                 if len([province.abbreviation for province in provinces if province.name == tuple(region.split(' '))]) == 0:
                     raise Exception('Could not find region {} when setting starting units.'.format(region))
                 abbr = [province.abbreviation for province in provinces if province.name == tuple(region.split(' '))][0]
-                unitsStrs.append('\t\t"{}": godip.Unit{{godip.{}, {}}},'.format(abbr, unitType, toCamelCase(nation)))
+                unitsStrs.append(u'\t\t"{}": godip.Unit{{godip.{}, {}}},'.format(abbr, unitType, toCamelCase(nation)))
                 
     supplyCenterStrs = []
     for nation, units in START_UNITS.items():
@@ -930,7 +863,7 @@ def createGraphFile(fileName, provinces):
             for region in units[unitType]:
                 province = [province for province in provinces if province.name == tuple(region.split(' '))][0]
                 if province.flags.supplyCenter:
-                    supplyCenterStrs.append('\t\t"{}": {},'.format(province.abbreviation, toCamelCase(nation)))
+                    supplyCenterStrs.append(u'\t\t"{}": {},'.format(province.abbreviation, toCamelCase(nation)))
     
     graphStrs = []
     flags = {}
@@ -971,7 +904,7 @@ def createGraphFile(fileName, provinces):
                 for regions in units.values():
                     if province.name in map(lambda name: tuple(name.split(' ')), regions):
                         owner = toCamelCase(nation)
-            graphStr += 'SC({}).'.format(owner)
+            graphStr += u'SC({}).'.format(owner)
         graphStrs.append(graphStr)
     
     parameters = {
@@ -990,7 +923,7 @@ def createGraphFile(fileName, provinces):
     output = template.substitute(parameters)
     templateFile.close()
     f = open(fileName, 'w')
-    f.write(output)
+    f.write(output.encode('utf8'))
     f.close()
 
 def createDebuggingMap(root, regions, edgeToDMap, corners):

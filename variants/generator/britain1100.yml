@@ -1,0 +1,32 @@
+# The first year of the game
+START_YEAR: 1100
+# The starting units
+START_UNITS:
+  Kingdom of France:
+    Army: ['Amiens']
+    Fleet: ['Caen', 'Dieppe']
+  Kingdoms of Wales:
+    Army: ['Pembroke', 'Rhyl']
+    Fleet: ['Caernarvon']
+  Kingdom of England:
+    Army: ['Liverpool']
+    Fleet: ['Portsmouth', 'London']
+  Kingdom of Alba:
+    Army: ['Aberdeen', 'Inverness']
+    Fleet: ['Arran']
+  Kingdoms of Éire:
+    Army: ['Donegal']
+    Fleet: ['Dublin', 'Cork']
+  Kingdom of the Northern Isles:
+    Army: ['Wick']
+    Fleet: ['Arran', 'Hebrides']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  'Man': 'man'
+  'Caen': 'can'
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+]
