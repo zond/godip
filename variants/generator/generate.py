@@ -32,13 +32,14 @@ SEA_COLOR = '#c6efed'
 # The background colour of the land
 LAND_COLOR = '#ffffff'
 # The thickness of thick lines
-#THICK = 2.225
-THICK = 1.1125
+THICK = 2.225
+#THICK = 1.1125
 # The thickness of thin lines
-#THIN = 1
-THIN = 0.5
-# A path for the supply center symbol. This should be formatted to include the absolute start location.
-CENTER_PATH = 'm {0} c 1.46376,0.75644 0.77536,2.81188 -0.94177,2.81188 -0.33978,0 -0.65086,-0.15021 -0.96854,-0.46769 -1.29208,-1.29116 0.26074,-3.19663 1.91031,-2.34419 z m -1.97586,-0.20114 c -1.49705,1.17676 -0.71534,3.33302 1.20831,3.33302 1.21479,0 1.83143,-0.61952 1.83143,-1.83993 0,-1.61631 -1.77434,-2.4878 -3.03974,-1.49309 z m 2.47228,-0.99043 c 1.95868,0.99856 1.93376,3.99263 -0.0411,4.94804 -2.60602,1.26069 -5.19052,-1.62395 -3.58635,-4.00278 0.83269,-1.23477 2.30641,-1.61882 3.6275,-0.94526 z m -2.63456,-0.40959 c -2.45722,1.09603 -2.38359,4.72122 0.11714,5.76535 2.96981,1.24003 5.65887,-2.26914 3.70406,-4.83365 -0.79774,-1.04651 -2.58617,-1.4826 -3.82116,-0.9317 z'
+THIN = 1
+#THIN = 0.5
+
+#CENTER_PATH = 'm {0} c 1.46376,0.75644 0.77536,2.81188 -0.94177,2.81188 -0.33978,0 -0.65086,-0.15021 -0.96854,-0.46769 -1.29208,-1.29116 0.26074,-3.19663 1.91031,-2.34419 z m -1.97586,-0.20114 c -1.49705,1.17676 -0.71534,3.33302 1.20831,3.33302 1.21479,0 1.83143,-0.61952 1.83143,-1.83993 0,-1.61631 -1.77434,-2.4878 -3.03974,-1.49309 z m 2.47228,-0.99043 c 1.95868,0.99856 1.93376,3.99263 -0.0411,4.94804 -2.60602,1.26069 -5.19052,-1.62395 -3.58635,-4.00278 0.83269,-1.23477 2.30641,-1.61882 3.6275,-0.94526 z m -2.63456,-0.40959 c -2.45722,1.09603 -2.38359,4.72122 0.11714,5.76535 2.96981,1.24003 5.65887,-2.26914 3.70406,-4.83365 -0.79774,-1.04651 -2.58617,-1.4826 -3.82116,-0.9317 z'
+
 
 class Flags:
     """A class to hold boolean attributes of a province."""
@@ -123,6 +124,15 @@ def subLocs(locA, locB):
 def strFrom(loc):
     """Convert a coordinate pair into a string suitable for use in a path."""
     return ','.join(map(lambda x: str(x), loc))
+
+def getCentersPath(root):
+    """Use the supply-centers layer to get an SC path with the right radius."""
+    layer = getLayer(root, 'supply-centers')
+    for path in layer.findall('{}path'.format(SVG)):
+        scPath = path.get('d').split(' ')
+        bits = scPath[:1] + ['{0}'] + scPath[2:]
+        return ' '.join(bits)
+    raise Exception('Couldn\'t find a SC in the supply-centers layer.')
 
 def reverseMapLookup(inputMap, value):
     """Determine the key which has the given value in the map. This returns the first such
@@ -941,6 +951,9 @@ corners = getCorners(root)
 junctions = getJunctions(root, corners)
 oldEdgeToDMap = getEdges(root)
 edgeToDMap = findDesiredEdges(junctions, oldEdgeToDMap)
+
+# A path for the supply center symbol. This should be formatted to include the absolute start location.
+CENTER_PATH = getCentersPath(root)
 
 namesLayer = getLayer(root, 'names')
 regions = makeRegions(junctions, edgeToDMap.keys(), corners)
