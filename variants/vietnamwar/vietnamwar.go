@@ -45,9 +45,9 @@ var VietnamWarVariant = common.Variant{
 	CreatedBy:   "ThePolice",
 	Version:     "1.12",
 	Description: "Indochina Peninsula at the beginning of Vietnam War in 1955.",
-	Rules: "Rules are the same as classical Diplomacy, but with a different" +
+	Rules: "Rules are the same as classical Diplomacy, but with a different " +
 		"map. The winner is the first to fifteen provinces which is slightly " +
-		"more than half. All provinces connected to Mekong river are coastal " +
+		"more than half. All provinces connected to Mekong river are coastal; " +
 		"those are: Xuyen, Mekong, Pakxe and Ubon. That means Laos is able to " +
 		"build fleets in Pakxe. Xuyen has two coasts, as does Mekong (south " +
 		"coast and the river).",
