@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'Britain 1100'
+VARIANT = 'Canton'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -79,7 +79,7 @@ with open(configFile, 'r') as y:
     # The first year of the game
     START_YEAR = config['START_YEAR']
     # The starting units
-    START_UNITS = config['START_UNITS']
+    START_UNITS = {} if config['START_UNITS'] == None else config['START_UNITS']
     # The nations in the variant
     NATIONS = START_UNITS.keys()
     # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
