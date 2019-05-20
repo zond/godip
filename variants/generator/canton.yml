@@ -28,7 +28,21 @@ ABBREVIATIONS:
   'Java Sea': 'jse'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
+  ["XX2", "Bulgaria"],
+  ["Constantinople", "Mediterranean Sea"],
+  ["Maritime Province", "Sea of Japan"],
+  ["Borneo", "Java Sea"],
+  ["Bulgaria", "Rumania"],
+  ["Rumania", "Sevastopol"],
+  ["Siam", "Cambodia"]
 ]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 REGION_OVERRIDES: [
+  ["Bulgaria", "Rumania"],
+  ["Rumania", "Sevastopol"],
+  ["Sevastopol", "XX2"],
+  ["Arabia", "Red Sea"],
+  ["Borneo", "Java Sea"],
+  ["Siam", "Cambodia"],
+  ["Constantinople", "Mediterranean Sea"]
 ]
