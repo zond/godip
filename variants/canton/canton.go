@@ -44,10 +44,10 @@ var CantonVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules: "",
+	CreatedBy: "Paul Webb",
+	Version: "3",
+	Description: "Canton is a seven-player Diplomacy variant set in Asia at the beginning of the 20th century.  The \"Great Powers\" are Britain, China, France, Holland, Japan, Russia, and Turkey.  Return to this era and determine the fate of Asia.",
+	Rules: "Canton follows the same general principles of Classic Diplomacy. Units can only be built on home (starting) home supply centers. Constantinople (Con) and Egypt (Egy) work as canals (same as Kiel in Classic). Four provinces have dual coasts: Damascus (South/West), Bulgaria (South/East), Siam (West/East) and Canton (South/East). Provinces without names are impassable.",
 }
 
 func CantonBlank(phase godip.Phase) *state.State {

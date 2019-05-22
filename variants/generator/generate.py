@@ -856,7 +856,7 @@ def createGraphFile(fileName, provinces):
         nation_declarations.append(u'\t{{0:<{}}} godip.Nation = "{{1}}"'.format(nationLength).format(toCamelCase(nation), nation))
     nation_list = u'var Nations = []godip.Nation{{{}}}'.format(u', '.join(map(toCamelCase, START_UNITS.keys())))
     
-    scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
+    scCount = int(round((len([province for province in provinces if province.flags.supplyCenter]) + 1) / 2.0))
     
     unitsStrs = []
     for nation, units in START_UNITS.items():
