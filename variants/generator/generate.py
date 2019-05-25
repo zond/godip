@@ -599,16 +599,17 @@ def inventAbbreviations(fullNamesTuples):
         fixedAbbrs.update(abbreviationsForNamesUsingFunctions(remainingNames, abbrCount, twoWordAbbrABBCheck, twoWordAbbrABB))
     # combinations returns the indexes in lexigographical order, which is basically what we want.
     remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
-    try:
-        maxLength = max(map(lambda nameTuple: len(''.join(nameTuple)), remainingNames))
-    except:
-        print 'Failed to abbreviate these: {0}. Had {1} and made {2}'.format(remainingNames, fullNamesTuples, fixedAbbrs)
-        raise
-    fixedAbbrs.update(abbreviationsForNames(remainingNames, list(itertools.combinations(range(maxLength), 3)), abbrCount))
-    if len(fixedAbbrs) != len(fullNamesTuples):
-        print fixedAbbrs
-        print 'Managed to abbreviate {0} regions.'.format(len(fixedAbbrs))
-        raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNamesTuples).difference(set(fixedAbbrs.keys()))))
+    if len(remainingNames) > 0:
+        try:
+            maxLength = max(map(lambda nameTuple: len(''.join(nameTuple)), remainingNames))
+        except:
+            print 'Failed to abbreviate these: {0}. Had {1} and made {2}'.format(remainingNames, fullNamesTuples, fixedAbbrs)
+            raise
+        fixedAbbrs.update(abbreviationsForNames(remainingNames, list(itertools.combinations(range(maxLength), 3)), abbrCount))
+        if len(fixedAbbrs) != len(fullNamesTuples):
+            print fixedAbbrs
+            print 'Managed to abbreviate {0} regions.'.format(len(fixedAbbrs))
+            raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNamesTuples).difference(set(fixedAbbrs.keys()))))
     return fixedAbbrs
 
 def makeFullNameToAbbr(regionFullNames, regionNames):

@@ -26,6 +26,15 @@ START_UNITS:
 ABBREVIATIONS:
   'Assam': 'asm'
   'Java Sea': 'jse'
+  'Hong Kong': 'hko'
+  'West Indian Ocean': 'wio'
+  'Central Pacific Ocean': 'cpo'
+  'Bay of Bengal': 'bob'
+  'Philippine Sea': 'pse'
+  'Philippines': 'phi'
+  'Persian Gulf': 'pgu'
+  'Arabian Sea': 'ase'
+  'Arabia': 'ara'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
   ["XX2", "Bulgaria"],
