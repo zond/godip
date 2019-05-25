@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'Britain 1100'
+VARIANT = 'Canton'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -79,7 +79,7 @@ with open(configFile, 'r') as y:
     # The first year of the game
     START_YEAR = config['START_YEAR']
     # The starting units
-    START_UNITS = config['START_UNITS']
+    START_UNITS = {} if config['START_UNITS'] == None else config['START_UNITS']
     # The nations in the variant
     NATIONS = START_UNITS.keys()
     # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
@@ -599,16 +599,17 @@ def inventAbbreviations(fullNamesTuples):
         fixedAbbrs.update(abbreviationsForNamesUsingFunctions(remainingNames, abbrCount, twoWordAbbrABBCheck, twoWordAbbrABB))
     # combinations returns the indexes in lexigographical order, which is basically what we want.
     remainingNames = set(fullNamesTuples).difference(set(fixedAbbrs.keys()))
-    try:
-        maxLength = max(map(lambda nameTuple: len(''.join(nameTuple)), remainingNames))
-    except:
-        print 'Failed to abbreviate these: {0}. Had {1} and made {2}'.format(remainingNames, fullNamesTuples, fixedAbbrs)
-        raise
-    fixedAbbrs.update(abbreviationsForNames(remainingNames, list(itertools.combinations(range(maxLength), 3)), abbrCount))
-    if len(fixedAbbrs) != len(fullNamesTuples):
-        print fixedAbbrs
-        print 'Managed to abbreviate {0} regions.'.format(len(fixedAbbrs))
-        raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNamesTuples).difference(set(fixedAbbrs.keys()))))
+    if len(remainingNames) > 0:
+        try:
+            maxLength = max(map(lambda nameTuple: len(''.join(nameTuple)), remainingNames))
+        except:
+            print 'Failed to abbreviate these: {0}. Had {1} and made {2}'.format(remainingNames, fullNamesTuples, fixedAbbrs)
+            raise
+        fixedAbbrs.update(abbreviationsForNames(remainingNames, list(itertools.combinations(range(maxLength), 3)), abbrCount))
+        if len(fixedAbbrs) != len(fullNamesTuples):
+            print fixedAbbrs
+            print 'Managed to abbreviate {0} regions.'.format(len(fixedAbbrs))
+            raise Exception('Could not determine abbreviation for these names: {0}. Please add a suitable abbreviation to the ABBREVIATIONS config option.'.format(set(fullNamesTuples).difference(set(fixedAbbrs.keys()))))
     return fixedAbbrs
 
 def makeFullNameToAbbr(regionFullNames, regionNames):
@@ -856,7 +857,7 @@ def createGraphFile(fileName, provinces):
         nation_declarations.append(u'\t{{0:<{}}} godip.Nation = "{{1}}"'.format(nationLength).format(toCamelCase(nation), nation))
     nation_list = u'var Nations = []godip.Nation{{{}}}'.format(u', '.join(map(toCamelCase, START_UNITS.keys())))
     
-    scCount = int(round(len([province for province in provinces if province.flags.supplyCenter]) / 2.0))
+    scCount = int(round((len([province for province in provinces if province.flags.supplyCenter]) + 1) / 2.0))
     
     unitsStrs = []
     for nation, units in START_UNITS.items():

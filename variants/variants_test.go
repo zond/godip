@@ -193,7 +193,11 @@ func TestDrawMaps(t *testing.T) {
 		fmt.Println("Skipping test to draw debug maps. Please use the environment variable DRAW_MAPS=true to enable.")
 		return
 	}
+	variantName, singleVariant := os.LookupEnv("MAP")
 	for _, variant := range OrderedVariants {
+		if singleVariant && variant.Name != variantName {
+			continue
+		}
 		// Output what the empty map looks like
 		b, err := variant.SVGMap()
 		if err != nil {
