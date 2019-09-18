@@ -48,7 +48,7 @@ var Europe1939Variant = common.Variant{
 	CreatedBy:   "Mikalis Kamaritis",
 	Version:     "I",
 	Description: "",
-	Rules: "",
+	Rules:       "",
 }
 
 func Europe1939Blank(phase godip.Phase) *state.State {
@@ -262,7 +262,7 @@ func Europe1939Graph() *graph.Graph {
 		// Upper Caspian Sea
 		Prov("upp").Conn("tur", godip.Sea).Conn("kaz", godip.Sea).Conn("sta", godip.Sea).Conn("cau", godip.Sea).Conn("low", godip.Sea).Flag(godip.Sea).
 		// Liverpool
-		Prov("liv").Conn("nao", godip.Sea).Conn("iri", godip.Sea).Conn("wal", godip.Coast...).Conn("lon", godip.Land).Conn("yor", godip.Land).Conn("edi", godip.Land).Conn("cly", godip.Coast...).Flag(godip.Coast...).
+		Prov("liv").Conn("nao", godip.Sea).Conn("iri", godip.Sea).Conn("wal", godip.Coast...).Conn("lon", godip.Land).Conn("yor", godip.Land).Conn("edi", godip.Land).Conn("cly", godip.Coast...).Conn("noi", godip.Coast...).Flag(godip.Coast...).
 		// Nizhniy Novgorod
 		Prov("niz").Conn("mos", godip.Land).Conn("sta", godip.Land).Conn("kaz", godip.Land).Conn("sib", godip.Land).Conn("ark", godip.Land).Conn("len", godip.Land).Flag(godip.Land).
 		// Denmark
@@ -286,7 +286,7 @@ func Europe1939Graph() *graph.Graph {
 		// Holland
 		Prov("hol").Conn("col", godip.Land).Conn("kie", godip.Coast...).Conn("hel", godip.Sea).Conn("not", godip.Sea).Conn("bel", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Sicily
-		Prov("sic").Conn("tys", godip.Sea).Conn("mal", godip.Sea).Conn("tys", godip.Sea).Flag(godip.Coast...).
+		Prov("sic").Conn("tys", godip.Sea).Conn("mal", godip.Sea).Conn("tys", godip.Sea).Conn("nap", godip.Coast...).Flag(godip.Coast...).
 		// Istanbul
 		Prov("ist").Conn("izm", godip.Coast...).Conn("ank", godip.Coast...).Conn("wbs", godip.Sea).Conn("bul", godip.Coast...).Conn("gre", godip.Coast...).Conn("aeg", godip.Sea).Flag(godip.Coast...).SC(Turkey).
 		// Western Mediterranean
@@ -332,7 +332,7 @@ func Europe1939Graph() *graph.Graph {
 		// North Atlantic Ocean
 		Prov("nao").Conn("mid", godip.Sea).Conn("noi", godip.Sea).Conn("iri", godip.Sea).Conn("liv", godip.Sea).Conn("cly", godip.Sea).Conn("noe", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
 		// Northern Ireland
-		Prov("noi").Conn("nao", godip.Sea).Conn("mid", godip.Sea).Conn("ire", godip.Coast...).Conn("iri", godip.Sea).Flag(godip.Coast...).SC(Britain).
+		Prov("noi").Conn("nao", godip.Sea).Conn("mid", godip.Sea).Conn("ire", godip.Coast...).Conn("iri", godip.Sea).Conn("liv", godip.Coast...).Flag(godip.Coast...).SC(Britain).
 		// Tehran
 		Prov("teh").Conn("kho", godip.Land).Conn("tur", godip.Coast...).Conn("low", godip.Sea).Conn("cau", godip.Coast...).Conn("arm", godip.Land).Conn("khu", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Malta Sea
@@ -408,7 +408,7 @@ func Europe1939Graph() *graph.Graph {
 		// Siberia
 		Prov("sib").Conn("ark", godip.Land).Conn("niz", godip.Land).Conn("kaz", godip.Land).Flag(godip.Land).
 		// Napels
-		Prov("nap").Conn("ion", godip.Sea).Conn("apu", godip.Coast...).Conn("rom", godip.Coast...).Conn("tys", godip.Sea).Conn("mal", godip.Sea).Flag(godip.Coast...).SC(Italy).
+		Prov("nap").Conn("ion", godip.Sea).Conn("apu", godip.Coast...).Conn("rom", godip.Coast...).Conn("tys", godip.Sea).Conn("mal", godip.Sea).Conn("sic", godip.Coast...).Flag(godip.Coast...).SC(Italy).
 		// Gulf of Lyon
 		Prov("gol").Conn("auv", godip.Sea).Conn("bac", godip.Sea).Conn("and", godip.Sea).Conn("gov", godip.Sea).Conn("wem", godip.Sea).Conn("lig", godip.Sea).Flag(godip.Sea).
 		// Irish Sea
