@@ -1,0 +1,37 @@
+# The first year of the game
+START_YEAR: 1939
+# The starting units
+START_UNITS:
+  Britain:
+    Army: ['Baghdad']
+    Fleet: ['Edinburgh', 'Northern Ireland', 'London', 'Cairo']
+  France:
+    Army: ['Brest', 'Paris', 'Lyon', 'Marseilles']
+    Fleet: ['Algiers']
+  Germany:
+    Army: ['Cologne', 'Berlin', 'Munich', 'Vienna']
+    Fleet: ['Kiel']
+  Spain:
+    Army: ['Madrid', 'Barcelona']
+    Fleet: ['Seville', 'Tangiers']
+  Italy:
+    Army: ['Rome', 'Milan', 'Albania']
+    Fleet: ['Napels', 'Tripoli']
+  Poland:
+    Army: ['Warsaw', 'Krakow', 'Wroclaw']
+    Fleet: ['Danzig']
+  USSR:
+    Army: ['Arkhangelsk', 'Moscow', 'Stalingrad']
+    Fleet: ['Leningrad', 'Sevastopol']
+  Turkey:
+    Army: ['Istanbul', 'Adana']
+    Fleet: ['Izmir', 'Ankara']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  XX1: XX1
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+]
