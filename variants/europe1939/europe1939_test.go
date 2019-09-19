@@ -77,3 +77,24 @@ func TestSerbianArmy(t *testing.T) {
 	judge.Next()
 	tst.AssertNoUnit(t, judge, godip.Province("ser"))
 }
+
+func TestAfricanSeaRoute(t *testing.T) {
+	judge := blankState(t)
+
+	// Test the connection from South Atlantic Ocean.
+	judge.SetUnit("sao", godip.Unit{godip.Fleet, France})
+	tst.AssertOrderValidity(t, judge, orders.Move("sao", "red"), France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("sao", "per"), France, nil)
+	judge.RemoveUnit("sao")
+
+	// Test the connection from Red Sea.
+	judge.SetUnit("red", godip.Unit{godip.Fleet, France})
+	tst.AssertOrderValidity(t, judge, orders.Move("red", "sao"), France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("red", "per"), France, nil)
+	judge.RemoveUnit("red")
+
+	// Test the connection from Persian Gulf.
+	judge.SetUnit("per", godip.Unit{godip.Fleet, France})
+	tst.AssertOrderValidity(t, judge, orders.Move("per", "red"), France, nil)
+	tst.AssertOrderValidity(t, judge, orders.Move("per", "sao"), France, nil)
+}

@@ -170,7 +170,7 @@ func Europe1939Graph() *graph.Graph {
 		// Yorkshire
 		Prov("yor").Conn("edi", godip.Coast...).Conn("liv", godip.Land).Conn("lon", godip.Coast...).Conn("not", godip.Sea).Flag(godip.Coast...).
 		// Red Sea
-		Prov("red").Conn("hed", godip.Sea).Conn("cai", godip.Sea).Flag(godip.Sea).
+		Prov("red").Conn("hed", godip.Sea).Conn("cai", godip.Sea).Conn("sao", godip.Sea).Conn("per", godip.Sea).Flag(godip.Sea).
 		// Rostov
 		Prov("ros").Conn("cau", godip.Coast...).Conn("sta", godip.Land).Conn("sea", godip.Coast...).Conn("ebs", godip.Sea).Flag(godip.Coast...).
 		// East Black Sea
@@ -322,13 +322,13 @@ func Europe1939Graph() *graph.Graph {
 		// Mid Atlantic Ocean
 		Prov("mid").Conn("azo", godip.Sea).Conn("coa", godip.Sea).Conn("iri", godip.Sea).Conn("ire", godip.Sea).Conn("noi", godip.Sea).Conn("nao", godip.Sea).Flag(godip.Sea).
 		// Persian Gulf
-		Prov("per").Conn("khu", godip.Sea).Conn("bag", godip.Sea).Conn("raf", godip.Sea).Flag(godip.Sea).
+		Prov("per").Conn("khu", godip.Sea).Conn("bag", godip.Sea).Conn("raf", godip.Sea).Conn("sao", godip.Sea).Conn("red", godip.Sea).Flag(godip.Sea).
 		// Algiers
 		Prov("alg").Conn("tun", godip.Coast...).Conn("wem", godip.Sea).Conn("gov", godip.Sea).Conn("soa", godip.Coast...).Conn("ora", godip.Land).Flag(godip.Coast...).SC(France).
 		// Gulf of Valencia
 		Prov("gov").Conn("str", godip.Sea).Conn("mor", godip.Sea).Conn("soa", godip.Sea).Conn("alg", godip.Sea).Conn("wem", godip.Sea).Conn("gol", godip.Sea).Conn("and", godip.Sea).Flag(godip.Sea).
 		// South Atlantic Ocean
-		Prov("sao").Conn("atl", godip.Sea).Conn("mor", godip.Sea).Conn("tan", godip.Sea).Conn("str", godip.Sea).Conn("sei", godip.Sea).Conn("por", godip.Sea).Conn("coa", godip.Sea).Conn("azo", godip.Sea).Flag(godip.Sea).
+		Prov("sao").Conn("atl", godip.Sea).Conn("mor", godip.Sea).Conn("tan", godip.Sea).Conn("str", godip.Sea).Conn("sei", godip.Sea).Conn("por", godip.Sea).Conn("coa", godip.Sea).Conn("azo", godip.Sea).Conn("red", godip.Sea).Conn("per", godip.Sea).Flag(godip.Sea).
 		// North Atlantic Ocean
 		Prov("nao").Conn("mid", godip.Sea).Conn("noi", godip.Sea).Conn("iri", godip.Sea).Conn("liv", godip.Sea).Conn("cly", godip.Sea).Conn("noe", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
 		// Northern Ireland
