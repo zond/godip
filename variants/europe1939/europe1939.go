@@ -47,8 +47,13 @@ var Europe1939Variant = common.Variant{
 	},
 	CreatedBy:   "Mikalis Kamaritis",
 	Version:     "I",
-	Description: "",
-	Rules:       "",
+	Description: "Eight nations poised for battle at the start of World War II.",
+	Rules: "Standard rules apply with a few additions. There is a sea route around Africa that means " +
+		"the South Atlantic Ocean, the Red Sea and the Persian Gulf are adjacent. There are two " +
+		"bridges connecting Liverpool with Northern Ireland and Napels with Sicily. These can be " +
+		"used by fleets or armies. At the start of the game the neutral nation of Yugoslavia is " +
+		"represented by an army in Serbia. This will disband when dislodged and will not be " +
+		"rebuilt. There are 55 supply centers and the winner is the first to 28.",
 }
 
 func Europe1939Blank(phase godip.Phase) *state.State {
@@ -228,7 +233,7 @@ func Europe1939Graph() *graph.Graph {
 		// Baltic Sea
 		Prov("bal").Conn("lit", godip.Sea).Conn("lat", godip.Sea).Conn("gob", godip.Sea).Conn("swe", godip.Sea).Conn("den", godip.Sea).Conn("kie", godip.Sea).Conn("ber", godip.Sea).Conn("pru", godip.Sea).Conn("dan", godip.Sea).Conn("eap", godip.Sea).Flag(godip.Sea).
 		// Atlas
-		Prov("atl").Conn("ora", godip.Land).Conn("soa", godip.Land).Conn("mor", godip.Coast...).Conn("sao", godip.Sea).Flag(godip.Coast...).
+		Prov("atl").Conn("soa", godip.Land).Conn("ora", godip.Land).Conn("mor", godip.Land).Conn("mor/wc", godip.Sea).Conn("sao", godip.Sea).Flag(godip.Coast...).
 		// Barents Sea
 		Prov("bas").Conn("noe", godip.Sea).Conn("nar", godip.Sea).Conn("ark", godip.Sea).Flag(godip.Sea).
 		// Piedmont
@@ -244,7 +249,11 @@ func Europe1939Graph() *graph.Graph {
 		// Gulf of Sirte
 		Prov("gos").Conn("tri", godip.Sea).Conn("tob", godip.Sea).Conn("egy", godip.Sea).Conn("cre", godip.Sea).Conn("ion", godip.Sea).Conn("mal", godip.Sea).Flag(godip.Sea).
 		// Morocco
-		Prov("mor").Conn("tan", godip.Coast...).Conn("sao", godip.Sea).Conn("atl", godip.Coast...).Conn("soa", godip.Coast...).Conn("gov", godip.Sea).Conn("str", godip.Sea).Flag(godip.Coast...).
+		Prov("mor").Conn("tan", godip.Land).Conn("atl", godip.Land).Conn("ora", godip.Land).Flag(godip.Land).
+		// Morocco (West Coast)
+		Prov("mor/wc").Conn("tan", godip.Sea).Conn("sao", godip.Sea).Conn("atl", godip.Sea).Flag(godip.Sea).
+		// Morocco (East Coast)
+		Prov("mor/ec").Conn("tan", godip.Sea).Conn("ora", godip.Sea).Conn("gov", godip.Sea).Conn("str", godip.Sea).Flag(godip.Sea).
 		// Serbia
 		Prov("ser").Conn("cro", godip.Land).Conn("bos", godip.Land).Conn("mon", godip.Land).Conn("mac", godip.Land).Conn("bul", godip.Land).Conn("rum", godip.Land).Conn("tra", godip.Land).Conn("hun", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Belgium
@@ -296,7 +305,7 @@ func Europe1939Graph() *graph.Graph {
 		// Tyrrhenian Sea
 		Prov("tys").Conn("sic", godip.Sea).Conn("sic", godip.Sea).Conn("mal", godip.Sea).Conn("nap", godip.Sea).Conn("rom", godip.Sea).Conn("lig", godip.Sea).Conn("wem", godip.Sea).Conn("tun", godip.Sea).Conn("mal", godip.Sea).Flag(godip.Sea).
 		// Fezzan
-		Prov("fez").Conn("cyr", godip.Land).Conn("tob", godip.Land).Conn("tri", godip.Land).Conn("tun", godip.Land).Conn("ora", godip.Land).Flag(godip.Land).
+		Prov("fez").Conn("cyr", godip.Land).Conn("tob", godip.Land).Conn("tri", godip.Land).Conn("tun", godip.Land).Conn("soa", godip.Land).Flag(godip.Land).
 		// Seville
 		Prov("sei").Conn("str", godip.Sea).Conn("and", godip.Coast...).Conn("mad", godip.Land).Conn("por", godip.Coast...).Conn("sao", godip.Sea).Flag(godip.Coast...).SC(Spain).
 		// Narvik
@@ -324,11 +333,11 @@ func Europe1939Graph() *graph.Graph {
 		// Persian Gulf
 		Prov("per").Conn("khu", godip.Sea).Conn("bag", godip.Sea).Conn("raf", godip.Sea).Conn("sao", godip.Sea).Conn("red", godip.Sea).Flag(godip.Sea).
 		// Algiers
-		Prov("alg").Conn("tun", godip.Coast...).Conn("wem", godip.Sea).Conn("gov", godip.Sea).Conn("soa", godip.Coast...).Conn("ora", godip.Land).Flag(godip.Coast...).SC(France).
+		Prov("alg").Conn("tun", godip.Coast...).Conn("wem", godip.Sea).Conn("gov", godip.Sea).Conn("ora", godip.Coast...).Conn("soa", godip.Land).Flag(godip.Coast...).SC(France).
 		// Gulf of Valencia
-		Prov("gov").Conn("str", godip.Sea).Conn("mor", godip.Sea).Conn("soa", godip.Sea).Conn("alg", godip.Sea).Conn("wem", godip.Sea).Conn("gol", godip.Sea).Conn("and", godip.Sea).Flag(godip.Sea).
+		Prov("gov").Conn("str", godip.Sea).Conn("mor", godip.Sea).Conn("mor/ec", godip.Sea).Conn("ora", godip.Sea).Conn("alg", godip.Sea).Conn("wem", godip.Sea).Conn("gol", godip.Sea).Conn("and", godip.Sea).Flag(godip.Sea).
 		// South Atlantic Ocean
-		Prov("sao").Conn("atl", godip.Sea).Conn("mor", godip.Sea).Conn("tan", godip.Sea).Conn("str", godip.Sea).Conn("sei", godip.Sea).Conn("por", godip.Sea).Conn("coa", godip.Sea).Conn("azo", godip.Sea).Conn("red", godip.Sea).Conn("per", godip.Sea).Flag(godip.Sea).
+		Prov("sao").Conn("atl", godip.Sea).Conn("mor", godip.Sea).Conn("mor/wc", godip.Sea).Conn("tan", godip.Sea).Conn("str", godip.Sea).Conn("sei", godip.Sea).Conn("por", godip.Sea).Conn("coa", godip.Sea).Conn("azo", godip.Sea).Conn("red", godip.Sea).Conn("per", godip.Sea).Flag(godip.Sea).
 		// North Atlantic Ocean
 		Prov("nao").Conn("mid", godip.Sea).Conn("noi", godip.Sea).Conn("iri", godip.Sea).Conn("liv", godip.Sea).Conn("cly", godip.Sea).Conn("noe", godip.Sea).Conn("ice", godip.Sea).Flag(godip.Sea).
 		// Northern Ireland
@@ -346,7 +355,7 @@ func Europe1939Graph() *graph.Graph {
 		// Lithuania
 		Prov("lit").Conn("bal", godip.Sea).Conn("eap", godip.Coast...).Conn("lub", godip.Land).Conn("lat", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Tangiers
-		Prov("tan").Conn("mor", godip.Coast...).Conn("str", godip.Sea).Conn("sao", godip.Sea).Flag(godip.Coast...).SC(Spain).
+		Prov("tan").Conn("mor", godip.Land).Conn("mor/wc", godip.Sea).Conn("mor/ec", godip.Sea).Conn("str", godip.Sea).Conn("sao", godip.Sea).Flag(godip.Coast...).SC(Spain).
 		// Egyptian Sea
 		Prov("egy").Conn("eam", godip.Sea).Conn("cre", godip.Sea).Conn("gos", godip.Sea).Conn("tob", godip.Sea).Conn("ela", godip.Sea).Conn("cai", godip.Sea).Conn("pal", godip.Sea).Flag(godip.Sea).
 		// Tripoli
@@ -388,9 +397,9 @@ func Europe1939Graph() *graph.Graph {
 		// Alsace
 		Prov("als").Conn("col", godip.Land).Conn("bel", godip.Land).Conn("bur", godip.Land).Conn("swi", godip.Land).Conn("mun", godip.Land).Flag(godip.Land).
 		// Tunisia
-		Prov("tun").Conn("mal", godip.Sea).Conn("tys", godip.Sea).Conn("wem", godip.Sea).Conn("alg", godip.Coast...).Conn("ora", godip.Land).Conn("fez", godip.Land).Conn("tri", godip.Coast...).Flag(godip.Coast...).
+		Prov("tun").Conn("mal", godip.Sea).Conn("tys", godip.Sea).Conn("wem", godip.Sea).Conn("alg", godip.Coast...).Conn("soa", godip.Land).Conn("fez", godip.Land).Conn("tri", godip.Coast...).Flag(godip.Coast...).
 		// Southern Algeria
-		Prov("soa").Conn("atl", godip.Land).Conn("ora", godip.Land).Conn("alg", godip.Coast...).Conn("gov", godip.Sea).Conn("mor", godip.Coast...).Flag(godip.Coast...).
+		Prov("ora").Conn("atl", godip.Land).Conn("soa", godip.Land).Conn("alg", godip.Coast...).Conn("gov", godip.Sea).Conn("mor", godip.Land).Conn("mor/ec", godip.Sea).Flag(godip.Coast...).
 		// Barcelona
 		Prov("bac").Conn("gol", godip.Sea).Conn("auv", godip.Coast...).Conn("nav", godip.Land).Conn("mad", godip.Land).Conn("and", godip.Coast...).Flag(godip.Coast...).SC(Spain).
 		// Turkmenistan
@@ -434,13 +443,13 @@ func Europe1939Graph() *graph.Graph {
 		// Azores
 		Prov("azo").Conn("sao", godip.Sea).Conn("coa", godip.Sea).Conn("mid", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Oran
-		Prov("ora").Conn("fez", godip.Land).Conn("tun", godip.Land).Conn("alg", godip.Land).Conn("soa", godip.Land).Conn("atl", godip.Land).Flag(godip.Land).
+		Prov("soa").Conn("fez", godip.Land).Conn("tun", godip.Land).Conn("alg", godip.Land).Conn("ora", godip.Land).Conn("atl", godip.Land).Flag(godip.Land).
 		// Kiel
 		Prov("kie").Conn("col", godip.Land).Conn("mun", godip.Land).Conn("ber", godip.Coast...).Conn("bal", godip.Sea).Conn("den", godip.Coast...).Conn("hel", godip.Sea).Conn("hol", godip.Coast...).Flag(godip.Coast...).SC(Germany).
 		// Moscow
 		Prov("mos").Conn("len", godip.Land).Conn("bie", godip.Land).Conn("ukr", godip.Land).Conn("sea", godip.Land).Conn("sta", godip.Land).Conn("niz", godip.Land).Flag(godip.Land).SC(USSR).
 		// Straights of Gibraltar
-		Prov("str").Conn("gov", godip.Sea).Conn("and", godip.Sea).Conn("sei", godip.Sea).Conn("sao", godip.Sea).Conn("tan", godip.Sea).Conn("mor", godip.Sea).Flag(godip.Sea).
+		Prov("str").Conn("gov", godip.Sea).Conn("and", godip.Sea).Conn("sei", godip.Sea).Conn("sao", godip.Sea).Conn("tan", godip.Sea).Conn("mor", godip.Sea).Conn("mor/ec", godip.Sea).Flag(godip.Sea).
 		// Picardy
 		Prov("pic").Conn("bre", godip.Coast...).Conn("par", godip.Land).Conn("bur", godip.Land).Conn("bel", godip.Coast...).Conn("eng", godip.Sea).Flag(godip.Coast...).
 		// Munich
