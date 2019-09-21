@@ -224,7 +224,7 @@ func Europe1939Graph() *graph.Graph {
 		// Eastern Mediterranean
 		Prov("eam").Conn("syr", godip.Sea).Conn("ada", godip.Sea).Conn("izm", godip.Sea).Conn("aeg", godip.Sea).Conn("cre", godip.Sea).Conn("egy", godip.Sea).Conn("pal", godip.Sea).Flag(godip.Sea).
 		// Leningrad
-		Prov("len").Conn("mos", godip.Land).Conn("niz", godip.Land).Conn("ark", godip.Land).Conn("fin", godip.Coast...).Conn("gob", godip.Sea).Conn("est", godip.Coast...).Conn("lat", godip.Coast...).Conn("bie", godip.Land).Flag(godip.Coast...).SC(USSR).
+		Prov("len").Conn("mos", godip.Land).Conn("niz", godip.Land).Conn("ark", godip.Land).Conn("fin", godip.Coast...).Conn("gob", godip.Sea).Conn("est", godip.Coast...).Conn("lat", godip.Land).Conn("bie", godip.Land).Flag(godip.Coast...).SC(USSR).
 		// Baltic Sea
 		Prov("bal").Conn("lit", godip.Sea).Conn("lat", godip.Sea).Conn("gob", godip.Sea).Conn("swe", godip.Sea).Conn("den", godip.Sea).Conn("kie", godip.Sea).Conn("ber", godip.Sea).Conn("pru", godip.Sea).Conn("dan", godip.Sea).Conn("eap", godip.Sea).Flag(godip.Sea).
 		// Atlas
@@ -254,7 +254,7 @@ func Europe1939Graph() *graph.Graph {
 		// Belgium
 		Prov("bel").Conn("hol", godip.Coast...).Conn("not", godip.Sea).Conn("eng", godip.Sea).Conn("pic", godip.Coast...).Conn("bur", godip.Land).Conn("als", godip.Land).Conn("col", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Latvia
-		Prov("lat").Conn("gob", godip.Sea).Conn("bal", godip.Sea).Conn("lit", godip.Coast...).Conn("lub", godip.Land).Conn("bie", godip.Land).Conn("len", godip.Coast...).Conn("est", godip.Coast...).Flag(godip.Coast...).
+		Prov("lat").Conn("gob", godip.Sea).Conn("bal", godip.Sea).Conn("lit", godip.Coast...).Conn("lub", godip.Land).Conn("bie", godip.Land).Conn("len", godip.Land).Conn("est", godip.Coast...).Flag(godip.Coast...).
 		// Hungary
 		Prov("hun").Conn("tra", godip.Land).Conn("sla", godip.Land).Conn("vie", godip.Land).Conn("sle", godip.Land).Conn("cro", godip.Land).Conn("ser", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Slovakia
