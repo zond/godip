@@ -101,6 +101,7 @@ func Europe1939Start() (result *state.State, err error) {
 		"tan": godip.Unit{godip.Fleet, Spain},
 		"mad": godip.Unit{godip.Army, Spain},
 		"bac": godip.Unit{godip.Army, Spain},
+		"ser": godip.Unit{godip.Army, godip.Neutral},
 	}); err != nil {
 		return
 	}
@@ -143,12 +144,6 @@ func Europe1939Start() (result *state.State, err error) {
 		"mad": Spain,
 		"bac": Spain,
 	})
-	if err = result.SetUnit(godip.Province("ser"), godip.Unit{
-		Type:   godip.Army,
-		Nation: godip.Neutral,
-	}); err != nil {
-		return
-	}
 	return
 }
 
