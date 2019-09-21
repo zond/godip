@@ -501,6 +501,14 @@ def findTupleFromName(name, fullNamesTuples):
             return fullNameTuple
     raise Exception('Couldn\'t find tuple matching {0}'.format(name))
 
+nameToColorMap = {}
+def colorForName(name):
+    """Come up with a random color for the given name."""
+    global nameToColorMap
+    if name not in nameToColorMap.keys():
+        nameToColorMap[name] = '#' + ''.join(random.sample('0123456789abcdef', 6))
+    return nameToColorMap[name]
+
 def abbreviationsForNames(fullNamesTuples, indexSets, abbrCount):
     """Try to create unique abbreviations for the given name tuples by considering the letters at the given indexes."""
     abbrMap = {}
@@ -650,6 +658,10 @@ def addNamesLayer(root, namesLayer, fullNameToAbbr, passableCenterAbbrs):
         if abbr not in passableCenterAbbrs:
             namesLayer.remove(text)
             continue
+        elif OVERRIDE_CHECK_MODE:
+            style = text.get('style')
+            style = re.sub(r'fill:[^;]*;', 'fill:{};'.format(colorForName(abbr)), style)
+            text.set('style', style)
         boldAbbr = ''
         i = 0
         for tspan in text.findall('.//{}tspan'.format(SVG)):
@@ -760,7 +772,7 @@ def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible
                     d += '{0} {1} {2} '.format(strFrom(locA), strFrom(loc), strFrom(locB))
             lastR = r
         d += ' z'
-        regionColor = color if color is not None else '#' + ''.join(random.sample('0123456789abcdef', 6))
+        regionColor = color if color is not None else colorForName(name)
         style = 'fill:{0};fill-opacity:1;vector-effect:none;fill-rule:evenodd'.format(regionColor)
         if edgesOnly:
             style += ';stroke:#000000;stroke-width:2px'
@@ -823,7 +835,8 @@ def addCenterPath(layer, province):
     """Add a supply center marker to a given layer."""
     centerId = '{0}Center'.format(province.abbreviation)
     d = CENTER_PATH.format(strFrom(province.center))
-    xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': centerId, 'd': d, 'style': 'display:inline;fill:none;stroke:#9f9f9f;stroke-width:{0};stroke-opacity:1;enable-background:new'.format(THIN)})
+    centerColor = (colorForName(province.abbreviation) if OVERRIDE_CHECK_MODE else '#9f9f9f')
+    xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': centerId, 'd': d, 'style': 'display:inline;fill:none;stroke:{0};stroke-width:{1};stroke-opacity:1;enable-background:new'.format(centerColor, THIN)})
 
 def addCenterLayer(root, layerName, visible, provinces):
     """Add a layer of supply centers for all the given provinces."""
@@ -1015,7 +1028,7 @@ passableNames = {}
 for province in provinces:
     if not province.flags.impassable:
         passableNames[province.abbreviation] = province.edges
-addLayerWithRegions(root, passableNames, edgeToDMap, 'provinces', '#000000', False)
+addLayerWithRegions(root, passableNames, edgeToDMap, 'provinces', (None if OVERRIDE_CHECK_MODE else '#000000'), False)
 addCenterLayer(root, 'supply-centers', True, [province for province in provinces if province.flags.supplyCenter])
 addCenterLayer(root, 'province-centers', False, [province for province in provinces if province.flags.province or province.flags.sea])
 addLayer(root, 'highlights', True)
