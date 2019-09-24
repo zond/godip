@@ -143,6 +143,7 @@ func Europe1939Start() (result *state.State, err error) {
 		"tan": Spain,
 		"mad": Spain,
 		"bac": Spain,
+		"ser": godip.Neutral,
 	})
 	return
 }

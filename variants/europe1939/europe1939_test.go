@@ -58,10 +58,12 @@ func TestNapelsSicily(t *testing.T) {
 func TestSerbianArmy(t *testing.T) {
 	judge := startState(t)
 
-	// Check a neutral army starts in Serbia.
+	// Check a neutral army starts in Serbia and that it's owned.
 	tst.AssertUnit(t, judge, godip.Province("ser"), godip.Unit{godip.Army, godip.Neutral})
-	// Check no neutral army starts in e.g. Croatia.
+	tst.AssertOwner(t, judge, "ser", godip.Neutral)
+	// Check no neutral army starts in e.g. Croatia. and that it's not "owned".
 	tst.AssertNoUnit(t, judge, godip.Province("cro"))
+	tst.AssertNoOwner(t, judge, "cro")
 
 	// Try dislodging neutral army and check it is not rebuilt.
 	judge.SetUnit("rum", godip.Unit{godip.Army, USSR})
@@ -76,6 +78,21 @@ func TestSerbianArmy(t *testing.T) {
 	judge.Next()
 	judge.Next()
 	tst.AssertNoUnit(t, judge, godip.Province("ser"))
+	// The SC should still be owned by Neutral though.
+	tst.AssertOwner(t, judge, "ser", godip.Neutral)
+}
+
+func TestSerbianArmyDoesntDisbandByItself(t *testing.T) {
+	judge := startState(t)
+
+	// Check the neutral army in Serbia doesn't disband by itself after a year.
+	judge.Next()
+	judge.Next()
+	judge.Next()
+	judge.Next()
+	judge.Next()
+	tst.AssertUnit(t, judge, godip.Province("ser"), godip.Unit{godip.Army, godip.Neutral})
+	tst.AssertOwner(t, judge, "ser", godip.Neutral)
 }
 
 func TestAfricanSeaRoute(t *testing.T) {

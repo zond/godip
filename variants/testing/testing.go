@@ -128,3 +128,20 @@ func AssertNoOpt(t *testing.T, opts godip.Options, order []string) {
 		}
 	})
 }
+
+func AssertOwner(t *testing.T, j *state.State, supplyCenter string, owner godip.Nation) {
+	nation, _, ok := j.SupplyCenter(godip.Province(supplyCenter))
+	if !ok {
+		t.Errorf("Province %s was not owned", supplyCenter)
+	}
+	if nation != owner {
+		t.Errorf("Province %s was owned by %s, but expected %s", supplyCenter, nation, owner)
+	}
+}
+
+func AssertNoOwner(t *testing.T, j *state.State, supplyCenter string) {
+	nation, _, ok := j.SupplyCenter(godip.Province(supplyCenter))
+	if ok {
+		t.Errorf("Province %s was owned by %s, but expected no owner", supplyCenter, nation)
+	}
+}
