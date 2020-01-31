@@ -198,6 +198,17 @@ func TestNewYorkToronto(t *testing.T) {
 	tst.AssertOrderValidity(t, judge, orders.Move("tor", "nyk"), "", godip.ErrMissingConvoyPath)
 }
 
+func TestNorwayFinland(t *testing.T) {
+	judge := startState(t)
+
+	// Test no fleet movement between Norway and Finland.
+	judge.SetUnit("noy", godip.Unit{godip.Fleet, NATO})
+	tst.AssertOrderValidity(t, judge, orders.Move("noy", "fin"), "", godip.ErrIllegalMove)
+	judge.RemoveUnit("noy")
+	judge.SetUnit("fin", godip.Unit{godip.Fleet, NATO})
+	tst.AssertOrderValidity(t, judge, orders.Move("fin", "noy"), "", godip.ErrIllegalMove)
+}
+
 func TestNoConvoyOptionWhileOnCoast(t *testing.T) {
 	judge := blankState(t)
 

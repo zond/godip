@@ -165,7 +165,7 @@ func ColdWarGraph() *graph.Graph {
 		// Toronto
 		Prov("tor").Conn("que", godip.Coast...).Conn("hud", godip.Sea).Conn("wca", godip.Land).Conn("wca/nc", godip.Sea).Conn("mid", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Norway
-		Prov("noy").Conn("nws", godip.Sea).Conn("nts", godip.Sea).Conn("swe", godip.Coast...).Conn("fin", godip.Coast...).Conn("len", godip.Land).Conn("len/nc", godip.Sea).Flag(godip.Coast...).
+		Prov("noy").Conn("nws", godip.Sea).Conn("nts", godip.Sea).Conn("swe", godip.Coast...).Conn("fin", godip.Land).Conn("len", godip.Land).Conn("len/nc", godip.Sea).Flag(godip.Coast...).
 		// Vladivostok
 		Prov("vla").Conn("man", godip.Land).Conn("nko", godip.Land).Conn("nko/ec", godip.Sea).Conn("soj", godip.Sea).Conn("ber", godip.Sea).Conn("kam", godip.Coast...).Conn("sib", godip.Land).Flag(godip.Coast...).SC(USSR).
 		// East Africa
@@ -197,7 +197,7 @@ func ColdWarGraph() *graph.Graph {
 		// Arabian Sea
 		Prov("arb").Conn("irq", godip.Sea).Conn("ara", godip.Sea).Conn("red", godip.Sea).Conn("inc", godip.Sea).Conn("ind", godip.Sea).Conn("pak", godip.Sea).Conn("irn", godip.Sea).Flag(godip.Sea).
 		// Finland
-		Prov("fin").Conn("bal", godip.Sea).Conn("len", godip.Land).Conn("len/sc", godip.Sea).Conn("noy", godip.Coast...).Conn("swe", godip.Coast...).Flag(godip.Coast...).
+		Prov("fin").Conn("bal", godip.Sea).Conn("len", godip.Land).Conn("len/sc", godip.Sea).Conn("noy", godip.Land).Conn("swe", godip.Coast...).Flag(godip.Coast...).
 		// East Mediterranean
 		Prov("eme").Conn("lev", godip.Sea).Conn("ist", godip.Sea).Conn("grc", godip.Sea).Conn("ion", godip.Sea).Conn("lib", godip.Sea).Conn("egy", godip.Sea).Flag(godip.Sea).
 		// North Sea
