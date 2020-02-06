@@ -1,4 +1,4 @@
-package gae
+package main
 
 import (
 	"encoding/json"
@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/zond/godip/variants"
+	"google.golang.org/appengine"
 )
 
 func corsHeaders(w http.ResponseWriter) {
@@ -80,7 +81,7 @@ func listVariants(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func init() {
+func main() {
 	r := mux.NewRouter()
 	r.Methods("OPTIONS").HandlerFunc(preflight)
 	variants := r.Path("/{variant}").Subrouter()
@@ -88,4 +89,5 @@ func init() {
 	variants.Methods("GET").HandlerFunc(start)
 	r.Path("/").HandlerFunc(listVariants)
 	http.Handle("/", r)
+	appengine.Main()
 }

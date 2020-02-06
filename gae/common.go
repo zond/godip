@@ -1,4 +1,4 @@
-package gae
+package main
 
 import (
 	"github.com/zond/godip"
