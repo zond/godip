@@ -1,0 +1,53 @@
+# The first year of the game
+START_YEAR: 1800
+# The starting units
+START_UNITS:
+  Austria:
+    Army: ['Vienna', 'Venice', 'Budapest']
+    Fleet: []
+  Britain:
+    Army: ['Hanover']
+    Fleet: ['Edinburgh', 'London', 'Gibraltar']
+  Denmark:
+    Army: []
+    Fleet: ['Copenhagen', 'Christiania']
+  France:
+    Army: ['Paris', 'Brest', 'Lyon']
+    Fleet: ['Marseilles']
+  Prussia:
+    Army: ['Berlin', 'Konigsberg', 'Breslau']
+    Fleet: []
+  Sicily:
+    Army: ['Napels']
+    Fleet: ['Palermo']
+  Spain:
+    Army: []
+    Fleet: ['Madrid', 'Valencia']
+  Russia:
+    Army: ['Moscow', 'Kiev']
+    Fleet: ['St. Petersburg', 'Sevastopol']
+  Turkey:
+    Army: ['Constantinople']
+    Fleet: ['Angora']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  XX1: XX1
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+  ['Tripolitania', 'Central Mediterranean'],
+  ['Apulia', 'Adriatic Sea'],
+  ['Atlantic', 'Portugal'],
+  ['Copenhagen', 'Skagerrak'],
+  ['Finland', 'Gulf of Bothnia'],
+  ['Sweden', 'Gulf of Bothnia'],
+  ['Sweden', 'Finland'],
+  ['Celtic Sea', 'Ireland'],
+  ['Sevastopol', 'Ukraine']
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+  ['Tripolitania', 'Central Mediterranean'],
+  ['Celtic Sea', 'Ireland'],
+  ['Sweden', 'Finland'],
+  ['Sweden', 'Gulf of Bothnia']
+]
