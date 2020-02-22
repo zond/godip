@@ -9,18 +9,18 @@ import (
 )
 
 const (
-	Turkey  godip.Nation = "Turkey"
-	Denmark godip.Nation = "Denmark"
-	Sicily  godip.Nation = "Sicily"
-	Prussia godip.Nation = "Prussia"
-	Austria godip.Nation = "Austria"
-	France  godip.Nation = "France"
-	Britain godip.Nation = "Britain"
-	Russia  godip.Nation = "Russia"
-	Spain   godip.Nation = "Spain"
+	OttomanEmpire godip.Nation = "Ottoman Empire"
+	Denmark       godip.Nation = "Denmark"
+	Sicily        godip.Nation = "Sicily"
+	Prussia       godip.Nation = "Prussia"
+	Austria       godip.Nation = "Austria"
+	France        godip.Nation = "France"
+	Britain       godip.Nation = "Britain"
+	Russia        godip.Nation = "Russia"
+	Spain         godip.Nation = "Spain"
 )
 
-var Nations = []godip.Nation{Turkey, Denmark, Sicily, Prussia, Austria, France, Britain, Russia, Spain}
+var Nations = []godip.Nation{OttomanEmpire, Denmark, Sicily, Prussia, Austria, France, Britain, Russia, Spain}
 
 var EmpiresAndCoalitionsVariant = common.Variant{
 	Name:       "1800: Empires And Coalitions",
@@ -48,8 +48,16 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 	},
 	CreatedBy:   "VaeVictis",
 	Version:     "1",
-	Description: "",
-	Rules:       "",
+	Description: "Major and minor powers battle for control of Europe during the Napoleonic Wars.",
+	Rules: "The four smallest nations are minor powers and start with only two units. They each have " +
+		"an extra center which can be built in once captured. These centers are Sweden (Denmark), " +
+		"Papal States (Sicily), Portugal (Spain) and Egypt (Ottoman Empire). The British fleet from " +
+		"Liverpool starts in Gibraltar, but note that Gibratar is not a supply center. Armies can " +
+		"move between Gibraltar and Andalusia, but may not move direcly between Gibraltar and " +
+		"Morocco. Fleets in Gibraltar are considered to be at sea, and so can take part in convoys. " +
+		"There are three bridges marked on the map, which connect regions (for both armies and " +
+		"fleets). Four regions have dual coasts; these are St. Petersburg, Schleswig, Andalusia and " +
+		"Papal States. The winner is the first nation to own 23 of the 44 centers.",
 }
 
 func EmpiresAndCoalitionsBlank(phase godip.Phase) *state.State {
@@ -60,8 +68,8 @@ func EmpiresAndCoalitionsStart() (result *state.State, err error) {
 	startPhase := classical.NewPhase(1800, godip.Spring, godip.Movement)
 	result = EmpiresAndCoalitionsBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"ang":    godip.Unit{godip.Fleet, Turkey},
-		"con":    godip.Unit{godip.Army, Turkey},
+		"ang":    godip.Unit{godip.Fleet, OttomanEmpire},
+		"con":    godip.Unit{godip.Army, OttomanEmpire},
 		"cop":    godip.Unit{godip.Fleet, Denmark},
 		"chr":    godip.Unit{godip.Fleet, Denmark},
 		"pal":    godip.Unit{godip.Fleet, Sicily},
@@ -90,8 +98,8 @@ func EmpiresAndCoalitionsStart() (result *state.State, err error) {
 		return
 	}
 	result.SetSupplyCenters(map[godip.Province]godip.Nation{
-		"ang": Turkey,
-		"con": Turkey,
+		"ang": OttomanEmpire,
+		"con": OttomanEmpire,
 		"cop": Denmark,
 		"chr": Denmark,
 		"pal": Sicily,
@@ -151,7 +159,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		// Bosnia
 		Prov("bos").Conn("tra", godip.Land).Conn("bud", godip.Land).Conn("cro", godip.Coast...).Conn("adr", godip.Sea).Conn("ion", godip.Sea).Conn("gre", godip.Coast...).Conn("con", godip.Land).Conn("waa", godip.Land).Flag(godip.Coast...).
 		// Angora
-		Prov("ang").Conn("arm", godip.Coast...).Conn("bla", godip.Sea).Conn("con", godip.Coast...).Conn("aeg", godip.Sea).Conn("eas", godip.Sea).Conn("syr", godip.Coast...).Flag(godip.Coast...).SC(Turkey).
+		Prov("ang").Conn("arm", godip.Coast...).Conn("bla", godip.Sea).Conn("con", godip.Coast...).Conn("aeg", godip.Sea).Conn("eas", godip.Sea).Conn("syr", godip.Coast...).Flag(godip.Coast...).SC(OttomanEmpire).
 		// Tyrol
 		Prov("tyo").Conn("cis", godip.Land).Conn("ven", godip.Land).Conn("vie", godip.Land).Conn("bav", godip.Land).Conn("rhi", godip.Land).Conn("hel", godip.Land).Flag(godip.Land).
 		// Paris
@@ -159,7 +167,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		// Ionian Sea
 		Prov("ion").Conn("cen", godip.Sea).Conn("eas", godip.Sea).Conn("aeg", godip.Sea).Conn("gre", godip.Sea).Conn("bos", godip.Sea).Conn("adr", godip.Sea).Conn("apu", godip.Sea).Conn("nap", godip.Sea).Conn("tys", godip.Sea).Conn("pal", godip.Sea).Flag(godip.Sea).
 		// Portugal
-		Prov("por").Conn("mad", godip.Coast...).Conn("atl", godip.Sea).Conn("and", godip.Land).Conn("and/wc", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("por").Conn("mad", godip.Coast...).Conn("atl", godip.Sea).Conn("and", godip.Land).Conn("and/wc", godip.Sea).Flag(godip.Coast...).SC(Spain).
 		// Skagerrak
 		Prov("ska").Conn("now", godip.Sea).Conn("not", godip.Sea).Conn("sch", godip.Sea).Conn("sch/wc", godip.Sea).Conn("cop", godip.Sea).Conn("swe", godip.Sea).Conn("chr", godip.Sea).Flag(godip.Sea).
 		// Saxony
@@ -247,7 +255,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		// North Atlantic
 		Prov("noa").Conn("atl", godip.Sea).Conn("cel", godip.Sea).Conn("ire", godip.Sea).Conn("cel", godip.Sea).Conn("edi", godip.Sea).Conn("not", godip.Sea).Conn("now", godip.Sea).Conn("ice", godip.Sea).Conn("arc", godip.Sea).Flag(godip.Sea).
 		// Constantinople
-		Prov("con").Conn("bla", godip.Sea).Conn("waa", godip.Coast...).Conn("bos", godip.Land).Conn("gre", godip.Coast...).Conn("aeg", godip.Sea).Conn("ang", godip.Coast...).Flag(godip.Coast...).SC(Turkey).
+		Prov("con").Conn("bla", godip.Sea).Conn("waa", godip.Coast...).Conn("bos", godip.Land).Conn("gre", godip.Coast...).Conn("aeg", godip.Sea).Conn("ang", godip.Coast...).Flag(godip.Coast...).SC(OttomanEmpire).
 		// Marseilles
 		Prov("mar").Conn("pie", godip.Coast...).Conn("lyo", godip.Land).Conn("gas", godip.Land).Conn("cat", godip.Coast...).Conn("gol", godip.Sea).Flag(godip.Coast...).SC(France).
 		// York
@@ -255,7 +263,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		// Ukraine
 		Prov("ukr").Conn("mos", godip.Land).Conn("kie", godip.Land).Conn("gal", godip.Land).Conn("mol", godip.Land).Conn("sev", godip.Land).Flag(godip.Land).
 		// Papal States
-		Prov("pap").Conn("apu", godip.Land).Conn("cis", godip.Land).Conn("pie", godip.Land).Conn("nap", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("pap").Conn("apu", godip.Land).Conn("cis", godip.Land).Conn("pie", godip.Land).Conn("nap", godip.Land).Flag(godip.Land).SC(Sicily).
 		// Papal States (West Coast)
 		Prov("pap/wc").Conn("pie", godip.Sea).Conn("tys", godip.Sea).Conn("nap", godip.Sea).Flag(godip.Sea).
 		// Papal States (East Coast)
@@ -281,7 +289,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		// Finnmark
 		Prov("fim").Conn("fil", godip.Land).Conn("stp", godip.Land).Conn("stp/nc", godip.Sea).Conn("bar", godip.Sea).Conn("now", godip.Sea).Conn("chr", godip.Coast...).Conn("swe", godip.Land).Flag(godip.Coast...).
 		// Sweden
-		Prov("swe").Conn("cop", godip.Coast...).Conn("bai", godip.Sea).Conn("gob", godip.Sea).Conn("fil", godip.Coast...).Conn("fim", godip.Land).Conn("chr", godip.Coast...).Conn("ska", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("swe").Conn("cop", godip.Coast...).Conn("bai", godip.Sea).Conn("gob", godip.Sea).Conn("fil", godip.Coast...).Conn("fim", godip.Land).Conn("chr", godip.Coast...).Conn("ska", godip.Sea).Flag(godip.Coast...).SC(Denmark).
 		// Croatia
 		Prov("cro").Conn("adr", godip.Sea).Conn("bos", godip.Coast...).Conn("bud", godip.Land).Conn("vie", godip.Coast...).Flag(godip.Coast...).
 		// Bohemia
@@ -289,7 +297,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		// Black Sea
 		Prov("bla").Conn("waa", godip.Sea).Conn("con", godip.Sea).Conn("ang", godip.Sea).Conn("arm", godip.Sea).Conn("sev", godip.Sea).Conn("mol", godip.Sea).Flag(godip.Sea).
 		// Egypt
-		Prov("egy").Conn("syr", godip.Coast...).Conn("eas", godip.Sea).Conn("tri", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("egy").Conn("syr", godip.Coast...).Conn("eas", godip.Sea).Conn("tri", godip.Coast...).Flag(godip.Coast...).SC(OttomanEmpire).
 		// Barents Sea
 		Prov("bar").Conn("now", godip.Sea).Conn("fim", godip.Sea).Conn("stp", godip.Sea).Conn("stp/nc", godip.Sea).Flag(godip.Sea).
 		// Kiev

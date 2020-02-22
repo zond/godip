@@ -45,18 +45,6 @@ func assertWinner(t *testing.T, judge *state.State, expected godip.Nation) {
 	}
 }
 
-// Wait for the given number of phases.
-func waitForPhases(judge *state.State, phases int) {
-	for phase := 0; phase < phases; phase++ {
-		judge.Next()
-	}
-}
-
-// Increase the current phase by the given number of years.
-func waitForYears(judge *state.State, years int) {
-	waitForPhases(judge, 5*years)
-}
-
 func TestNoWinnerAtStart(t *testing.T) {
 	judge := startState(t)
 
@@ -65,7 +53,7 @@ func TestNoWinnerAtStart(t *testing.T) {
 
 func TestNoWinnerIfNoOneMovesInFirstYear(t *testing.T) {
 	judge := startState(t)
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 
 	assertNoWinner(t, judge)
 }
@@ -78,7 +66,7 @@ func TestTwentyLeadAtStartWins(t *testing.T) {
 		"cha", "car", "drc", "ang", "zam", "pai", "now", "swe", "fin", "hun"} {
 		judge.SetSC(province, USA)
 	}
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 
 	assertWinner(t, judge, "USA")
 }
@@ -91,7 +79,7 @@ func TestNineteenLeadAtStartDoesntWin(t *testing.T) {
 		"cha", "car", "drc", "ang", "zam", "pai", "now", "swe", "fin"} {
 		judge.SetSC(province, USA)
 	}
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 
 	assertNoWinner(t, judge)
 }
@@ -99,14 +87,14 @@ func TestNineteenLeadAtStartDoesntWin(t *testing.T) {
 func TestNineteenLeadInSecondYearWins(t *testing.T) {
 	judge := startState(t)
 	// Set year to 2002.
-	waitForYears(judge, 1)
+	tst.WaitForYears(judge, 1)
 	// If USA has a lead of 19 SCs in 2002 then they do win.
 	for _, province := range []godip.Province{
 		"grd", "mex", "pan", "col", "dom", "alg", "mau", "sen", "gin", "cot",
 		"cha", "car", "drc", "ang", "zam", "pai", "now", "swe", "fin"} {
 		judge.SetSC(province, USA)
 	}
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 
 	assertWinner(t, judge, "USA")
 }
@@ -130,7 +118,7 @@ func TestMoreThanHalfWins(t *testing.T) {
 		"fin", "ben", "col", "pre", "nap", "mot", "irk", "bnk"} {
 		judge.SetSC(province, Russia)
 	}
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 
 	assertWinner(t, judge, "USA")
 }
@@ -154,7 +142,7 @@ func TestLessThanHalfDoesntWin(t *testing.T) {
 		"fin", "ben", "col", "pre", "nap", "mot", "irk"} {
 		judge.SetSC(province, Russia)
 	}
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 
 	assertNoWinner(t, judge)
 }
@@ -162,33 +150,33 @@ func TestLessThanHalfDoesntWin(t *testing.T) {
 func TestOneCenterLeadWinsIn2020(t *testing.T) {
 	judge := startState(t)
 	// USA gets Greenland in Adjustment 2001.
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 	judge.SetSC("grd", USA)
 
 	// No winning in 2019 with a lead of one.
-	waitForYears(judge, 18)
+	tst.WaitForYears(judge, 18)
 	assertNoWinner(t, judge)
 
 	// No winner in 2020 before Adjustment.
 	for i := 1; i <= 4; i++ {
-		waitForPhases(judge, 1)
+		tst.WaitForPhases(judge, 1)
 		assertNoWinner(t, judge)
 	}
 	// USA wins in Adjustment 2020 with a lead of one.
-	waitForPhases(judge, 1)
+	tst.WaitForPhases(judge, 1)
 	assertWinner(t, judge, USA)
 }
 
 func TestOneCenterLeadWinsIn2021(t *testing.T) {
 	judge := startState(t)
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 
 	// No winner if tied in 2020
-	waitForYears(judge, 19)
+	tst.WaitForYears(judge, 19)
 	assertNoWinner(t, judge)
 
 	// Still no winner if tied in 2021
-	waitForYears(judge, 1)
+	tst.WaitForYears(judge, 1)
 	assertNoWinner(t, judge)
 
 	// Winner with lead of one in 2021
@@ -199,7 +187,7 @@ func TestOneCenterLeadWinsIn2021(t *testing.T) {
 func TestBuildAtHome(t *testing.T) {
 	judge := blankState(t)
 	judge.SetSC("lon", UK)
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 	// Check the option to build is available.
 	opts := judge.Phase().Options(judge, UK)
 	tst.AssertOpt(t, opts, []string{"lon", "Build", "Army", "lon"})
@@ -214,7 +202,7 @@ func TestCantBuildInNonHomeCenter(t *testing.T) {
 	judge := blankState(t)
 	// Paris is a supply center (not a home center).
 	judge.SetSC("pai", UK)
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 	// Check the option to build is not available.
 	opts := judge.Phase().Options(judge, UK)
 	tst.AssertNoOpt(t, opts, []string{"pai", "Build", "Army", "pai"})
@@ -229,7 +217,7 @@ func TestCantBuildInNonCenter(t *testing.T) {
 	judge := blankState(t)
 	// Lyon is not even a supply center.
 	judge.SetSC("lyo", UK)
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 	// Check the option to build is not available.
 	opts := judge.Phase().Options(judge, UK)
 	tst.AssertNoOpt(t, opts, []string{"lyo", "Build", "Army", "lyo"})
@@ -243,7 +231,7 @@ func TestCantBuildInNonCenter(t *testing.T) {
 func TestBuildInCapturedHomeCenter(t *testing.T) {
 	judge := blankState(t)
 	judge.SetSC("mun", UK)
-	waitForPhases(judge, 4)
+	tst.WaitForPhases(judge, 4)
 	// Check the option to build is available.
 	opts := judge.Phase().Options(judge, UK)
 	tst.AssertOpt(t, opts, []string{"mun", "Build", "Army", "mun"})

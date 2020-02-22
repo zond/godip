@@ -145,3 +145,15 @@ func AssertNoOwner(t *testing.T, j *state.State, supplyCenter string) {
 		t.Errorf("Province %s was owned by %s, but expected no owner", supplyCenter, nation)
 	}
 }
+
+// Wait for the given number of phases.
+func WaitForPhases(judge *state.State, phases int) {
+	for phase := 0; phase < phases; phase++ {
+		judge.Next()
+	}
+}
+
+// Increase the current phase by the given number of years.
+func WaitForYears(judge *state.State, years int) {
+	WaitForPhases(judge, 5*years)
+}
