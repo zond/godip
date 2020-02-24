@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'Europe 1939'
+VARIANT = '1800: Empires And Coalitions'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -24,7 +24,7 @@ BOLD_ABBREVIATIONS = True
 INK = '{http://www.inkscape.org/namespaces/inkscape}'
 SVG = '{http://www.w3.org/2000/svg}'
 # Any junctions within GUTTER pixels from the edge of the page will be moved to the edge.
-GUTTER = 5
+GUTTER = 10
 # How curvy the edges should be made
 CURVE_WEIGHT = 0.5
 # The background colour of sea regions
@@ -354,7 +354,7 @@ def makeRegions(junctions, edges, corners):
             try:
                 directedEdges.remove((previousJunction, currentJunction))
             except:
-                print('Issue removing directed edge:', (previousJunction, currentJunction))
+                print('Issue removing directed edge:', (previousJunction, currentJunction), region)
                 #raise
         # Don't include the region that contains all four corners
         allFourCorners = True

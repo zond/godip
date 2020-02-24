@@ -1,0 +1,4115 @@
+PHASE 1800 Spring Movement
+POSITIONS
+	France: fleet mar
+	Denmark: fleet cop
+	Sicily: fleet pal
+	Spain: fleet mad
+	Ottoman Empire: fleet ang
+	Austria: army vie
+	Russia: fleet sev
+	France: army lyo
+	Britain: fleet edi
+	France: army par
+	Russia: army mos
+	Austria: army bud
+	Spain: fleet val
+	Britain: fleet lon
+	Russia: army kie
+	Russia: fleet stp/sc
+	Denmark: fleet chr
+	Prussia: army ber
+	Prussia: army brl
+	Britain: army han
+	Ottoman Empire: army con
+	Sicily: army nap
+	Britain: fleet gib
+	Austria: army ven
+	France: army brt
+	Prussia: army kon
+	Denmark: supply chr
+	Prussia: supply kon
+	Prussia: supply brl
+	France: supply mar
+	France: supply brt
+	France: supply lyo
+	Spain: supply mad
+	Ottoman Empire: supply ang
+	Denmark: supply cop
+	Prussia: supply ber
+	Russia: supply sev
+	Ottoman Empire: supply con
+	Sicily: supply pal
+	Sicily: supply nap
+	Austria: supply ven
+	Britain: supply lie
+	Russia: supply stp
+	Spain: supply val
+	Austria: supply vie
+	Austria: supply bud
+	France: supply par
+	Britain: supply edi
+	Britain: supply lon
+	Britain: supply han
+	Russia: supply mos
+	Russia: supply kie
+ORDERS
+	edi move lie
+	han move sch
+	gib move and/ec
+	lon move not
+	mad move nav
+	val support gib move and
+	sev move bla
+	mos move sev
+	kie move gal
+	stp/sc move lio
+	cop support han move sch
+	chr hold
+	lyo move brt
+	brt support par move lyo
+	mar move pie
+	par move lyo
+	ven move cis
+	bud move boh
+	vie move tyo
+	pal move nap
+	nap hold
+	ang move syr
+	con move gre
+	brl move sax
+	ber hold
+	kon support kie move pol
+PHASE 1800 Fall Movement
+POSITIONS
+	Britain: fleet lie
+	France: army par
+	Britain: army sch
+	Austria: army boh
+	Prussia: army kon
+	Denmark: fleet chr
+	France: fleet pie
+	Russia: army sev
+	Spain: fleet val
+	France: army brt
+	Ottoman Empire: army gre
+	Denmark: fleet cop
+	Prussia: army ber
+	Sicily: fleet pal
+	Spain: fleet nav
+	Russia: fleet bla
+	Austria: army tyo
+	France: army lyo
+	Britain: fleet not
+	Austria: army cis
+	Russia: army gal
+	Prussia: army sax
+	Sicily: army nap
+	Russia: fleet lio
+	Ottoman Empire: fleet syr
+	Britain: fleet and/ec
+	Britain: supply lie
+	Spain: supply mad
+	Russia: supply stp
+	Prussia: supply brl
+	Denmark: supply chr
+	Prussia: supply ber
+	Sicily: supply pal
+	Britain: supply han
+	France: supply mar
+	Ottoman Empire: supply con
+	Ottoman Empire: supply ang
+	France: supply par
+	Spain: supply val
+	Britain: supply edi
+	Prussia: supply kon
+	Russia: supply sev
+	Austria: supply ven
+	Russia: supply kie
+	Sicily: supply nap
+	Britain: supply lon
+	Denmark: supply cop
+	Austria: supply bud
+	France: supply brt
+	Austria: supply vie
+	Russia: supply mos
+	France: supply lyo
+ORDERS
+	and/ec move gib
+	sch support ber move mec
+	lie support not move edi
+	not move bat
+	nav support brt move gas
+	val support and
+	lio move bai
+	gal hold
+	sev move con
+	bla move con
+	chr move swe
+	cop move swe
+	lyo move gas
+	par move brt
+	brt hold
+	pie move gol
+	boh support ber move sax
+	tyo move hel
+	cis support nap move pap
+	pal move ion
+	nap support pie move pap
+	gre support bla move con
+	syr move egy
+	sax move bav
+	kon move lio
+	ber move sax
+PHASE 1800 Fall Adjustment
+POSITIONS
+	Austria: army boh
+	Denmark: fleet cop
+	Britain: fleet lie
+	Russia: fleet con
+	Spain: fleet nav
+	Britain: army sch
+	Russia: army sev
+	France: army gas
+	Prussia: army lio
+	France: army par
+	Ottoman Empire: army gre
+	Denmark: fleet chr
+	Austria: army hel
+	Ottoman Empire: fleet egy
+	Prussia: army bav
+	Sicily: fleet ion
+	Sicily: army nap
+	France: fleet gol
+	France: army brt
+	Britain: fleet bat
+	Russia: army gal
+	Spain: fleet val
+	Russia: fleet bai
+	Britain: fleet gib
+	Austria: army cis
+	Prussia: army sax
+	Spain: supply mad
+	Ottoman Empire: supply ang
+	France: supply par
+	France: supply brt
+	Austria: supply cis
+	Britain: supply edi
+	Austria: supply ven
+	France: supply mar
+	Denmark: supply chr
+	Russia: supply sev
+	Prussia: supply kon
+	Austria: supply bud
+	Britain: supply lon
+	Prussia: supply sax
+	Britain: supply bat
+	Denmark: supply cop
+	Russia: supply mos
+	Spain: supply val
+	Prussia: supply brl
+	Sicily: supply nap
+	Russia: supply stp
+	Russia: supply con
+	Austria: supply vie
+	Britain: supply lie
+	Britain: supply han
+	Sicily: supply pal
+	Ottoman Empire: supply egy
+	Prussia: supply bav
+	Russia: supply kie
+	Prussia: supply ber
+	France: supply lyo
+	Austria: supply hel
+ORDERS
+	build Army lon
+	build Army stp
+	build Army vie
+	build Army brl
+PHASE 1801 Spring Movement
+POSITIONS
+	Prussia: army sax
+	Russia: army sev
+	Ottoman Empire: army gre
+	Denmark: fleet chr
+	Ottoman Empire: fleet egy
+	Sicily: fleet ion
+	Austria: army boh
+	Spain: fleet val
+	Spain: fleet nav
+	Prussia: army lio
+	Russia: fleet con
+	France: fleet gol
+	Russia: fleet bai
+	Prussia: army brl
+	Britain: fleet gib
+	Austria: army vie
+	France: army par
+	Austria: army hel
+	Prussia: army bav
+	Sicily: army nap
+	Britain: fleet bat
+	Denmark: fleet cop
+	France: army gas
+	France: army brt
+	Russia: army gal
+	Austria: army cis
+	Britain: army lon
+	Britain: fleet lie
+	Britain: army sch
+	Russia: army stp
+	Spain: supply val
+	France: supply brt
+	Sicily: supply pal
+	Denmark: supply chr
+	Prussia: supply brl
+	Russia: supply kie
+	Austria: supply hel
+	Austria: supply ven
+	Britain: supply lon
+	Britain: supply bat
+	Ottoman Empire: supply egy
+	Spain: supply mad
+	France: supply mar
+	Austria: supply bud
+	Prussia: supply ber
+	France: supply lyo
+	Austria: supply cis
+	Prussia: supply sax
+	Britain: supply lie
+	Russia: supply sev
+	Russia: supply mos
+	Sicily: supply nap
+	Russia: supply stp
+	Britain: supply han
+	Prussia: supply bav
+	Ottoman Empire: supply ang
+	France: supply par
+	Britain: supply edi
+	Prussia: supply kon
+	Denmark: supply cop
+	Russia: supply con
+	Austria: supply vie
+ORDERS
+	lon support lie move wae
+	sch support cop
+	gib support val move wem
+	bat move wet
+	lie move wae
+	nav move gas
+	val support gol move cat
+	bai support sax move ber
+	sev move arm
+	stp move lio
+	con move gre
+	gal move tra
+	chr hold
+	cop move ska
+	par support bat move bel
+	brt move lyo
+	gas support gol move cat
+	gol move bae
+	cis support bav move tyo
+	vie move boh
+	boh move gal
+	hel support gas move lyo
+	ion move adr
+	nap move pap
+	egy support ion move eas
+	gre support con
+	bav move boh
+	sax move brl
+	brl support bai move kon
+	lio support sev move mos
+PHASE 1801 Fall Movement
+POSITIONS
+	Sicily: fleet adr
+	Ottoman Empire: fleet egy
+	Russia: fleet bai
+	Austria: army gal
+	France: army lyo
+	Austria: army hel
+	Spain: fleet val
+	France: army gas
+	Prussia: army brl
+	Britain: army lon
+	Spain: fleet nav
+	Britain: fleet gib
+	Britain: fleet wet
+	France: army par
+	Prussia: army sax
+	Ottoman Empire: army gre
+	Prussia: army lio
+	Britain: fleet wae
+	Russia: army stp
+	Prussia: army bav
+	Denmark: fleet ska
+	Russia: army arm
+	Russia: fleet con
+	Austria: army cis
+	Russia: army tra
+	Denmark: fleet chr
+	Britain: army sch
+	Sicily: army pap
+	France: fleet bae
+	Austria: army vie
+	Spain: supply mad
+	Prussia: supply ber
+	Britain: supply edi
+	France: supply brt
+	Prussia: supply brl
+	Prussia: supply sax
+	Britain: supply bat
+	Ottoman Empire: supply ang
+	Denmark: supply chr
+	France: supply mar
+	Denmark: supply cop
+	Sicily: supply pal
+	Austria: supply hel
+	Prussia: supply kon
+	Britain: supply lon
+	Britain: supply han
+	Sicily: supply nap
+	Spain: supply val
+	France: supply lyo
+	Ottoman Empire: supply egy
+	Russia: supply sev
+	Austria: supply bud
+	Russia: supply mos
+	France: supply par
+	Austria: supply cis
+	Austria: supply ven
+	Russia: supply con
+	Britain: supply lie
+	Prussia: supply bav
+	Russia: supply kie
+	Russia: supply stp
+	Austria: supply vie
+ORDERS
+	wae support lon
+	gib move and/wc
+	sch move swe
+	wet support ska move not
+	lon move yor
+	nav support gib move atl
+	val move and/ec
+	con move gre
+	bai move gob
+	arm move ang
+	tra move bos
+	stp move fil
+	chr move fim
+	ska move cop
+	gas move brt
+	bae move tys
+	par move bel
+	lyo move lor
+	vie support tra move bud
+	cis support hel move pie
+	gal hold
+	hel move rhi
+	pap move cis
+	adr move cis
+	gre move con
+	egy move syr
+	sax support lio move ber
+	bav support hel move rhi
+	lio support bai move kon
+	brl move boh
+PHASE 1801 Fall Adjustment
+POSITIONS
+	Austria: army gal
+	Austria: army cis
+	France: army bel
+	Russia: army ang
+	Austria: army vie
+	Austria: army rhi
+	Russia: army fil
+	France: army brt
+	Britain: fleet wet
+	Denmark: fleet fim
+	Prussia: army bav
+	Spain: fleet val
+	Britain: fleet wae
+	France: army lor
+	Britain: fleet gib
+	France: fleet tys
+	Britain: army yor
+	Ottoman Empire: fleet syr
+	Russia: army bos
+	Ottoman Empire: army gre
+	Britain: army sch
+	Sicily: fleet adr
+	Prussia: army lio
+	Prussia: army boh
+	Russia: fleet gob
+	Denmark: fleet cop
+	Sicily: army pap
+	Prussia: army sax
+	Spain: fleet nav
+	Russia: fleet con
+	Austria: supply vie
+	Prussia: supply ber
+	Russia: supply kie
+	Spain: supply mad
+	Ottoman Empire: supply egy
+	Russia: supply fil
+	Russia: supply ang
+	France: supply brt
+	Sicily: supply nap
+	Sicily: supply pap
+	Britain: supply han
+	Prussia: supply brl
+	Britain: supply edi
+	Prussia: supply kon
+	Prussia: supply sax
+	Britain: supply wet
+	Britain: supply lie
+	Britain: supply bat
+	Russia: supply sev
+	Austria: supply bud
+	France: supply mar
+	Austria: supply ven
+	Austria: supply hel
+	Britain: supply lon
+	Denmark: supply chr
+	Austria: supply cis
+	Prussia: supply bav
+	Sicily: supply pal
+	France: supply lyo
+	Russia: supply stp
+	Russia: supply mos
+	France: supply par
+	Spain: supply val
+	Denmark: supply cop
+	Russia: supply con
+ORDERS
+	build Fleet lon
+	build Fleet stp/sc
+	build Army bud
+	build Fleet pal
+	remove gre
+	build Fleet kon
+PHASE 1802 Spring Movement
+POSITIONS
+	Britain: army yor
+	Ottoman Empire: fleet syr
+	Austria: army gal
+	Russia: army ang
+	Britain: fleet wae
+	Britain: fleet gib
+	France: fleet tys
+	Austria: army vie
+	Prussia: fleet kon
+	Russia: fleet gob
+	Denmark: fleet cop
+	Denmark: fleet fim
+	Russia: fleet con
+	Britain: fleet lon
+	France: army lor
+	Austria: army bud
+	Spain: fleet val
+	Prussia: army sax
+	Sicily: army pap
+	Spain: fleet nav
+	Sicily: fleet pal
+	France: army bel
+	France: army brt
+	Russia: army bos
+	Prussia: army lio
+	Prussia: army boh
+	Austria: army rhi
+	Prussia: army bav
+	Sicily: fleet adr
+	Russia: fleet stp/sc
+	Austria: army cis
+	Russia: army fil
+	Britain: fleet wet
+	Britain: army sch
+	Spain: supply mad
+	Ottoman Empire: supply egy
+	Britain: supply han
+	Prussia: supply sax
+	Britain: supply bat
+	Prussia: supply bav
+	Russia: supply mos
+	Russia: supply kie
+	Austria: supply bud
+	Russia: supply stp
+	Prussia: supply ber
+	Sicily: supply nap
+	Sicily: supply pap
+	Britain: supply wet
+	Austria: supply ven
+	France: supply mar
+	Britain: supply lon
+	Sicily: supply pal
+	Britain: supply edi
+	Russia: supply sev
+	Austria: supply hel
+	Russia: supply fil
+	Russia: supply ang
+	France: supply brt
+	Britain: supply lie
+	Austria: supply cis
+	Austria: supply vie
+	Prussia: supply brl
+	Prussia: supply kon
+	Denmark: supply chr
+	Spain: supply val
+	France: supply lyo
+	France: supply par
+	Denmark: supply cop
+	Russia: supply con
+ORDERS
+	sch move mec
+	wet move not
+	wae move cel
+	gib support val move wem
+	yor move lon
+	lon move eng
+	val support tys move bae
+	nav move gas
+	stp/sc move gob
+	fil move fim
+	ang move arm
+	con move ang
+	gob hold
+	bos move cis
+	fim move stp/nc
+	cop move swe
+	brt move lyo
+	tys support gib move wem
+	lor hold
+	bel hold
+	vie support bud
+	cis move pap
+	gal move tra
+	bud move gal
+	rhi support wet
+	adr support bos
+	pap move apu
+	pal hold
+	syr hold
+	sax support bav
+	boh support pap move vie
+	lio move kie
+	kon move bai
+	bav hold
+PHASE 1802 Fall Movement
+POSITIONS
+	Britain: army lon
+	Russia: army bos
+	Spain: fleet val
+	Russia: army fil
+	Britain: army mec
+	France: army bel
+	Britain: fleet not
+	Sicily: fleet pal
+	Britain: fleet cel
+	Prussia: army boh
+	Denmark: fleet fim
+	Russia: fleet stp/sc
+	France: fleet tys
+	Sicily: army apu
+	Britain: fleet gib
+	Russia: fleet ang
+	Spain: fleet gas
+	Ottoman Empire: fleet syr
+	Prussia: army bav
+	France: army lyo
+	Prussia: army kie
+	Austria: army rhi
+	Britain: fleet eng
+	Russia: army arm
+	Austria: army gal
+	Austria: army vie
+	Prussia: army sax
+	Denmark: fleet swe
+	France: army lor
+	Prussia: fleet bai
+	Russia: fleet gob
+	Austria: army tra
+	Sicily: fleet adr
+	Austria: army pap
+	Sicily: supply pap
+	Britain: supply lon
+	Russia: supply kie
+	Austria: supply bud
+	France: supply brt
+	Spain: supply mad
+	Austria: supply hel
+	Britain: supply han
+	Austria: supply cis
+	Britain: supply bat
+	Sicily: supply nap
+	Russia: supply mos
+	Spain: supply val
+	Sicily: supply pal
+	Ottoman Empire: supply egy
+	Britain: supply edi
+	Prussia: supply ber
+	Britain: supply wet
+	Prussia: supply kon
+	Britain: supply lie
+	France: supply mar
+	Austria: supply vie
+	Russia: supply ang
+	Prussia: supply sax
+	Prussia: supply bav
+	Russia: supply fil
+	Russia: supply con
+	France: supply lyo
+	Austria: supply ven
+	Denmark: supply chr
+	France: supply par
+	Russia: supply sev
+	Prussia: supply brl
+	Russia: supply stp
+	Denmark: supply cop
+ORDERS
+	cel move eng
+	not move yor
+	gib move and/ec
+	lon hold
+	mec move stp
+	eng move brt
+	gas move bay
+	val hold
+	stp/sc move lio
+	ang support arm
+	fil move swe
+	gob move fil
+	bos move bud
+	arm move sev
+	swe move fil
+	fim move stp/nc
+	tys move bae
+	bel support not move wet
+	lyo move brt
+	lor move wet
+	rhi move tyo
+	pap support apu
+	vie support sax move bav
+	gal move tra
+	tra support kie move gal
+	pal move cen
+	apu support vie move pap
+	adr move bos
+	syr move ang
+	bav move vie
+	sax hold
+	kie hold
+	boh hold
+	bai move ber
+PHASE 1802 Fall Adjustment
+POSITIONS
+	Austria: army gal
+	Prussia: army sax
+	Prussia: fleet ber
+	Britain: fleet eng
+	Russia: army sev
+	Britain: fleet yor
+	Austria: army vie
+	Prussia: army kie
+	Britain: fleet cel
+	Ottoman Empire: fleet syr
+	France: fleet bae
+	Spain: fleet val
+	Sicily: fleet cen
+	Austria: army pap
+	Austria: army tra
+	Spain: fleet bay
+	Denmark: fleet swe
+	Russia: fleet lio
+	Russia: fleet ang
+	Britain: army lon
+	Denmark: fleet stp/nc
+	Austria: army tyo
+	France: army lyo
+	Russia: army bud
+	Sicily: army apu
+	France: army wet
+	Britain: army mec
+	Russia: fleet gob
+	Prussia: army boh
+	Prussia: army bav
+	Britain: fleet and/ec
+	Russia: army fil
+	Sicily: fleet bos
+	France: army bel
+	Prussia: supply sax
+	Sicily: supply pal
+	Ottoman Empire: supply egy
+	Austria: supply hel
+	Sicily: supply nap
+	Britain: supply mec
+	Russia: supply con
+	Britain: supply lon
+	Austria: supply vie
+	Spain: supply val
+	Denmark: supply swe
+	Austria: supply pap
+	Russia: supply bud
+	Prussia: supply bav
+	France: supply brt
+	Spain: supply mad
+	Britain: supply edi
+	Britain: supply han
+	Prussia: supply kon
+	Britain: supply lie
+	Britain: supply bat
+	France: supply par
+	Prussia: supply ber
+	Russia: supply sev
+	France: supply lyo
+	Prussia: supply kie
+	Austria: supply ven
+	France: supply mar
+	Denmark: supply cop
+	Prussia: supply brl
+	Russia: supply ang
+	Russia: supply fil
+	Austria: supply cis
+	Russia: supply mos
+	France: supply wet
+	Denmark: supply chr
+	Denmark: supply stp
+ORDERS
+	build Army chr
+	build Fleet mar
+	remove cen
+	build Army brl
+PHASE 1803 Spring Movement
+POSITIONS
+	Prussia: army sax
+	Prussia: fleet ber
+	Denmark: fleet stp/nc
+	Ottoman Empire: fleet syr
+	Russia: fleet ang
+	Russia: army bud
+	Britain: fleet yor
+	Prussia: army kie
+	Prussia: army brl
+	Britain: fleet and/ec
+	Russia: army sev
+	Prussia: army boh
+	Austria: army pap
+	France: army lyo
+	Russia: fleet gob
+	Prussia: army bav
+	Russia: army fil
+	Sicily: fleet bos
+	Sicily: army apu
+	Denmark: army chr
+	Austria: army gal
+	Britain: fleet eng
+	Austria: army vie
+	Spain: fleet bay
+	Denmark: fleet swe
+	Britain: army lon
+	Austria: army tra
+	Russia: fleet lio
+	France: army wet
+	Britain: army mec
+	France: fleet mar
+	Britain: fleet cel
+	France: fleet bae
+	Spain: fleet val
+	Austria: army tyo
+	France: army bel
+	Britain: supply lie
+	Austria: supply hel
+	Britain: supply mec
+	Denmark: supply stp
+	Russia: supply con
+	Russia: supply bud
+	Russia: supply mos
+	France: supply brt
+	Britain: supply han
+	Prussia: supply kie
+	France: supply mar
+	Sicily: supply nap
+	Spain: supply mad
+	France: supply par
+	France: supply lyo
+	France: supply wet
+	Prussia: supply sax
+	Denmark: supply swe
+	Prussia: supply brl
+	Russia: supply ang
+	Prussia: supply kon
+	Russia: supply sev
+	Spain: supply val
+	Prussia: supply bav
+	Britain: supply bat
+	Russia: supply fil
+	Austria: supply cis
+	Denmark: supply chr
+	Britain: supply lon
+	Austria: supply vie
+	Austria: supply pap
+	Britain: supply edi
+	Prussia: supply ber
+	Austria: supply ven
+	Denmark: supply cop
+	Sicily: supply pal
+	Ottoman Empire: supply egy
+ORDERS
+	lon support eng move wae
+	yor move edi
+	cel move edi
+	eng move brt
+	and/ec move wem
+	mec move bra
+	bay move eng
+	val support bae move cat
+	bud move boh
+	sev move mos
+	lio move bai
+	fil support swe
+	ang move aeg
+	gob move stp/sc
+	chr hold
+	swe move bai
+	stp/nc support fil move fim
+	lyo support mar
+	mar move pie
+	wet support mec move han
+	bel move edi
+	bae move tys
+	tra hold
+	pap move apu
+	gal move mol
+	vie support sax move bav
+	tyo move bav
+	bos move gre
+	apu move nap
+	syr move egy
+	kie support fil move lio
+	ber support gob move bai
+	brl move kon
+	bav move sax
+	sax support mec move bra
+	boh move bud
+PHASE 1803 Fall Movement
+POSITIONS
+	Ottoman Empire: fleet egy
+	Russia: army mos
+	Sicily: fleet gre
+	France: fleet pie
+	Austria: army tyo
+	Britain: fleet yor
+	Britain: army lon
+	Austria: army vie
+	Austria: army apu
+	France: army bel
+	Prussia: army kon
+	Britain: fleet brt
+	Prussia: army sax
+	France: army wet
+	Prussia: army boh
+	Denmark: army chr
+	Russia: fleet gob
+	Russia: army fil
+	Denmark: fleet stp/nc
+	Austria: army tra
+	France: fleet tys
+	Prussia: army bav
+	Spain: fleet eng
+	Prussia: army kie
+	Britain: army bra
+	Sicily: army nap
+	Russia: fleet lio
+	Prussia: fleet ber
+	Spain: fleet val
+	Russia: army bud
+	Austria: army mol
+	Britain: fleet wem
+	Russia: fleet aeg
+	France: army lyo
+	Denmark: fleet swe
+	Britain: fleet cel
+	Austria: supply pap
+	Britain: supply edi
+	Austria: supply hel
+	Denmark: supply stp
+	France: supply par
+	Denmark: supply swe
+	Russia: supply mos
+	France: supply lyo
+	Russia: supply bud
+	Prussia: supply bav
+	Sicily: supply pal
+	Sicily: supply nap
+	Russia: supply sev
+	France: supply wet
+	Prussia: supply kon
+	Austria: supply vie
+	Austria: supply cis
+	Britain: supply bat
+	Denmark: supply cop
+	Prussia: supply kie
+	Prussia: supply sax
+	Spain: supply mad
+	Spain: supply val
+	Britain: supply lie
+	Prussia: supply ber
+	Prussia: supply brl
+	Russia: supply ang
+	Britain: supply lon
+	France: supply mar
+	Austria: supply ven
+	Ottoman Empire: supply egy
+	Russia: supply fil
+	Britain: supply han
+	Russia: supply con
+	Britain: supply mec
+	France: supply brt
+	Denmark: supply chr
+ORDERS
+	cel move wae
+	wem move mor
+	lon support bel move wae
+	bra move ber
+	yor move not
+	brt move bay
+	eng support yor move lon
+	val move wem
+	lio move gob
+	gob move fil
+	aeg move eas
+	fil support chr move fim
+	mos hold
+	bud move boh
+	swe support gob move bai
+	stp/nc move fim
+	chr support gob move swe
+	lyo move pie
+	tys support lyo move pie
+	bel support bra move wet
+	pie move pap/wc
+	wet move han
+	mol move sev
+	apu move pap
+	tra move gal
+	tyo move ven
+	vie move bud
+	gre support aeg move ion
+	nap support pie move pap
+	egy move syr
+	kon support fil move lio
+	boh move brl
+	sax move bra
+	ber move mec
+	bav move rhi
+	kie move gal
+PHASE 1803 Fall Adjustment
+POSITIONS
+	France: fleet tys
+	Prussia: army bra
+	Russia: army mos
+	Britain: army lon
+	Austria: army sev
+	France: army bel
+	Prussia: army brl
+	Denmark: army chr
+	Prussia: army kie
+	Russia: army fil
+	Britain: fleet bay
+	Spain: fleet wem
+	Sicily: army nap
+	Russia: fleet eas
+	Austria: army apu
+	France: army han
+	Prussia: fleet mec
+	Ottoman Empire: fleet syr
+	Russia: army boh
+	Russia: fleet lio
+	Prussia: army kon
+	Sicily: fleet gre
+	Russia: fleet gob
+	Prussia: army rhi
+	France: fleet pap/wc
+	Britain: fleet not
+	Spain: fleet eng
+	Denmark: fleet fim
+	Austria: army bud
+	Britain: fleet mor
+	France: army pie
+	Denmark: fleet swe
+	Austria: army ven
+	Britain: fleet wae
+	Austria: army tra
+	Britain: army ber
+	France: supply brt
+	France: supply par
+	Russia: supply ang
+	Sicily: supply nap
+	Russia: supply mos
+	Spain: supply mad
+	Britain: supply edi
+	Denmark: supply swe
+	Austria: supply cis
+	Prussia: supply kie
+	France: supply pap
+	Prussia: supply mec
+	Russia: supply fil
+	Spain: supply val
+	Ottoman Empire: supply egy
+	Britain: supply lie
+	Denmark: supply chr
+	Sicily: supply pal
+	Austria: supply sev
+	Prussia: supply brl
+	Denmark: supply cop
+	Austria: supply bud
+	France: supply pie
+	France: supply wet
+	Denmark: supply stp
+	Britain: supply lon
+	Britain: supply bat
+	Prussia: supply bav
+	Prussia: supply sax
+	Austria: supply ven
+	France: supply han
+	France: supply mar
+	Prussia: supply kon
+	France: supply lyo
+	Austria: supply vie
+	Russia: supply con
+	Austria: supply hel
+	Britain: supply ber
+ORDERS
+	remove bay
+	remove mos
+	build Fleet cop
+	build Army mar
+	build Army vie
+PHASE 1804 Spring Movement
+POSITIONS
+	Prussia: army bra
+	Prussia: army kie
+	Sicily: army nap
+	Denmark: fleet fim
+	Denmark: fleet cop
+	Prussia: army brl
+	Austria: army vie
+	Prussia: army kon
+	Austria: army bud
+	France: army pie
+	Prussia: fleet mec
+	Russia: fleet gob
+	France: army mar
+	Austria: army tra
+	France: fleet tys
+	Britain: army lon
+	Ottoman Empire: fleet syr
+	France: fleet pap/wc
+	Britain: fleet not
+	Spain: fleet eng
+	Sicily: fleet gre
+	Britain: fleet mor
+	France: army bel
+	Russia: army fil
+	Austria: army apu
+	Russia: fleet lio
+	Denmark: army chr
+	France: army han
+	Russia: army boh
+	Prussia: army rhi
+	Britain: fleet wae
+	Austria: army sev
+	Spain: fleet wem
+	Denmark: fleet swe
+	Austria: army ven
+	Britain: army ber
+	France: supply par
+	Prussia: supply kie
+	Denmark: supply cop
+	Austria: supply bud
+	Britain: supply bat
+	Spain: supply val
+	Denmark: supply stp
+	Russia: supply mos
+	Russia: supply con
+	Denmark: supply chr
+	France: supply han
+	France: supply mar
+	Prussia: supply kon
+	Prussia: supply mec
+	France: supply wet
+	Britain: supply lon
+	France: supply brt
+	Russia: supply ang
+	Sicily: supply nap
+	Spain: supply mad
+	Austria: supply cis
+	France: supply lyo
+	Britain: supply edi
+	France: supply pap
+	Britain: supply ber
+	Austria: supply ven
+	Austria: supply vie
+	Denmark: supply swe
+	Russia: supply fil
+	Britain: supply lie
+	Prussia: supply bav
+	Prussia: supply sax
+	Austria: supply hel
+	Ottoman Empire: supply egy
+	Sicily: supply pal
+	Austria: supply sev
+	Prussia: supply brl
+	France: supply pie
+ORDERS
+	ber move kon
+	wae move lie
+	not move bat
+	mor move alg
+	lon move wet
+	eng hold
+	wem support tys move tun
+	boh move gal
+	lio support brl move kon
+	fil move stp
+	gob support kon move lio
+	fim support not move now
+	cop move ska
+	swe support mec move bai
+	chr hold
+	bel move bat
+	tys convoy nap move val
+	han support not move sch
+	pap/wc support wem move tys
+	mar move cat
+	pie move alg
+	vie move bud
+	sev move ukr
+	ven support boh move vie
+	bud move tra
+	apu support tys move nap
+	tra hold
+	gre move bos
+	nap move alg
+	syr hold
+	mec hold
+	bra support bel move han
+	rhi support brl move sax
+	kon move ber
+	brl move kon
+	kie support fil move lio
+PHASE 1804 Fall Movement
+POSITIONS
+	Denmark: fleet swe
+	Spain: fleet wem
+	Austria: army apu
+	Britain: fleet lie
+	Russia: army gal
+	Austria: army vie
+	France: fleet pap/wc
+	Ottoman Empire: fleet syr
+	Sicily: fleet bos
+	Prussia: army bra
+	Spain: fleet eng
+	Britain: fleet alg
+	Denmark: army chr
+	Prussia: army kon
+	France: fleet tys
+	Sicily: army nap
+	Britain: army lon
+	Prussia: army rhi
+	Austria: army ven
+	Denmark: fleet ska
+	France: army pie
+	Britain: army ber
+	Austria: army ukr
+	Prussia: fleet mec
+	Prussia: army kie
+	France: army cat
+	Russia: fleet gob
+	Russia: fleet lio
+	France: army bel
+	Russia: army stp
+	Britain: fleet not
+	Austria: army tra
+	France: army han
+	Prussia: army brl
+	Denmark: fleet fim
+	Austria: army bud
+	Denmark: supply swe
+	Austria: supply bud
+	France: supply par
+	Prussia: supply mec
+	Prussia: supply kon
+	Britain: supply ber
+	Russia: supply ang
+	Britain: supply edi
+	Britain: supply bat
+	France: supply mar
+	Austria: supply hel
+	Prussia: supply brl
+	Britain: supply lon
+	Britain: supply lie
+	Denmark: supply stp
+	France: supply han
+	France: supply pap
+	Russia: supply con
+	France: supply pie
+	Denmark: supply cop
+	Prussia: supply sax
+	Spain: supply mad
+	Austria: supply vie
+	Prussia: supply bav
+	Prussia: supply kie
+	Spain: supply val
+	France: supply brt
+	Ottoman Empire: supply egy
+	Sicily: supply pal
+	Austria: supply sev
+	Denmark: supply chr
+	France: supply lyo
+	Russia: supply fil
+	Russia: supply mos
+	Sicily: supply nap
+	Austria: supply cis
+	France: supply wet
+	Austria: supply ven
+ORDERS
+	lie support lon move wae
+	lon move bel
+	alg support pie move mor
+	not move wet
+	ber support lio move kon
+	wem move val
+	eng support lie move cel
+	lio move gob
+	gal hold
+	stp move ura
+	gob move fil
+	swe support han move cop
+	ska move cop
+	chr move han
+	fim move stp/nc
+	pap/wc hold
+	tys move bae
+	pie move gib
+	han support chr move sch
+	bel move yor
+	cat support nap move val
+	ven move tyo
+	vie move cro
+	tra move bud
+	apu hold
+	ukr move kie
+	bud move bos
+	nap move pap
+	bos move ion
+	syr move eas
+	rhi move sax
+	brl support kon
+	kie move mos
+	kon move ber
+	mec move bai
+	bra move mec
+PHASE 1804 Fall Adjustment
+POSITIONS
+	Denmark: fleet swe
+	Spain: fleet val
+	Prussia: army kon
+	Prussia: army mec
+	France: army pie
+	France: army cat
+	Prussia: army mos
+	Russia: army ura
+	Russia: army gal
+	Austria: army kie
+	Denmark: army chr
+	France: fleet bae
+	Prussia: fleet bai
+	Britain: fleet alg
+	Denmark: fleet stp/nc
+	Prussia: army brl
+	Sicily: army nap
+	Austria: army tyo
+	Britain: army ber
+	Britain: fleet wet
+	Austria: army cro
+	Sicily: fleet ion
+	Spain: fleet eng
+	Austria: army apu
+	France: fleet pap/wc
+	France: army han
+	Britain: army lon
+	Denmark: fleet cop
+	France: army bel
+	Britain: fleet lie
+	Ottoman Empire: fleet eas
+	Prussia: army sax
+	Russia: fleet fil
+	Russia: fleet gob
+	Austria: army bud
+	Austria: army bos
+	Austria: supply vie
+	Austria: supply bud
+	Denmark: supply chr
+	Sicily: supply pal
+	Austria: supply ven
+	Britain: supply edi
+	Austria: supply hel
+	Russia: supply con
+	Austria: supply sev
+	Spain: supply mad
+	France: supply mar
+	Britain: supply bat
+	Britain: supply alg
+	France: supply lyo
+	Sicily: supply nap
+	Russia: supply fil
+	Prussia: supply brl
+	Britain: supply lon
+	France: supply han
+	Denmark: supply cop
+	Austria: supply kie
+	Prussia: supply sax
+	Prussia: supply mos
+	France: supply brt
+	Britain: supply lie
+	France: supply par
+	Ottoman Empire: supply egy
+	France: supply pap
+	Britain: supply ber
+	Russia: supply ang
+	Prussia: supply bav
+	Denmark: supply swe
+	Austria: supply cis
+	Spain: supply val
+	France: supply pie
+	Prussia: supply mec
+	Denmark: supply stp
+	Britain: supply wet
+	Prussia: supply kon
+ORDERS
+	build Army edi
+	remove gob
+	build Army mar
+	build Fleet ven
+PHASE 1805 Spring Movement
+POSITIONS
+	Austria: army apu
+	Austria: army bos
+	Austria: fleet ven
+	Russia: army gal
+	Sicily: army nap
+	Austria: army cro
+	Spain: fleet eng
+	Britain: army lon
+	Spain: fleet val
+	Prussia: army mos
+	Russia: army ura
+	Denmark: fleet stp/nc
+	France: fleet pap/wc
+	France: army bel
+	Britain: fleet lie
+	Prussia: army kon
+	Prussia: army mec
+	Prussia: fleet bai
+	Austria: army bud
+	Austria: army kie
+	Denmark: fleet cop
+	Prussia: army sax
+	Russia: fleet fil
+	France: army mar
+	France: army pie
+	France: army cat
+	Prussia: army brl
+	Britain: fleet wet
+	France: army han
+	Britain: army edi
+	France: fleet bae
+	Britain: fleet alg
+	Austria: army tyo
+	Sicily: fleet ion
+	Denmark: fleet swe
+	Denmark: army chr
+	Britain: army ber
+	Ottoman Empire: fleet eas
+	Russia: supply fil
+	Prussia: supply sax
+	France: supply pie
+	Austria: supply vie
+	Sicily: supply pal
+	Spain: supply mad
+	Britain: supply alg
+	Britain: supply lon
+	Prussia: supply mos
+	France: supply par
+	Russia: supply ang
+	Britain: supply edi
+	Prussia: supply brl
+	Britain: supply ber
+	Britain: supply wet
+	Austria: supply ven
+	Britain: supply bat
+	France: supply lyo
+	Denmark: supply cop
+	Austria: supply kie
+	Britain: supply lie
+	Ottoman Empire: supply egy
+	Prussia: supply bav
+	Denmark: supply swe
+	Denmark: supply stp
+	Denmark: supply chr
+	Austria: supply cis
+	Austria: supply bud
+	Sicily: supply nap
+	Spain: supply val
+	Prussia: supply mec
+	Austria: supply hel
+	Russia: supply con
+	Austria: supply sev
+	France: supply mar
+	France: supply han
+	France: supply brt
+	Prussia: supply kon
+	France: supply pap
+ORDERS
+	wet move han
+	lie move cel
+	edi hold
+	alg hold
+	lon move wae
+	ber hold
+	val move wem
+	eng move bay
+	fil move swe
+	gal move tra
+	ura move stp
+	chr move fim
+	swe move fil
+	stp/nc move bar
+	cop move bai
+	pie support mar
+	bae move val
+	han move wet
+	cat move mar
+	bel hold
+	mar move lyo
+	pap/wc move nap
+	ven move adr
+	apu move egy
+	kie support brl move pol
+	bud move gal
+	cro move bos
+	tyo move rhi
+	bos support ion move gre
+	ion move cen
+	nap support pie move pap
+	eas move cen
+	bai support chr move swe
+	mec move swe
+	kon support ber move lio
+	sax move ber
+	brl move pol
+	mos support ura move sev
+PHASE 1805 Fall Movement
+POSITIONS
+	France: army bel
+	Ottoman Empire: fleet eas
+	Denmark: fleet bar
+	Prussia: army mos
+	Denmark: army fim
+	France: army pie
+	Austria: fleet adr
+	Sicily: fleet ion
+	Austria: army apu
+	Denmark: fleet swe
+	Russia: army tra
+	Prussia: army mec
+	Austria: army rhi
+	Russia: army stp
+	Austria: army kie
+	Britain: fleet wet
+	Prussia: army kon
+	Austria: army bos
+	France: army lyo
+	Russia: fleet fil
+	Britain: army wae
+	Sicily: army nap
+	Prussia: fleet bai
+	Britain: fleet cel
+	Prussia: army sax
+	Britain: fleet alg
+	Spain: fleet wem
+	Prussia: army pol
+	Austria: army cro
+	Spain: fleet bay
+	France: fleet pap/wc
+	Austria: army gal
+	France: fleet val
+	Britain: army edi
+	Britain: army ber
+	France: army han
+	Denmark: fleet cop
+	France: army mar
+	Spain: supply val
+	France: supply brt
+	France: supply par
+	Russia: supply con
+	France: supply pie
+	Spain: supply mad
+	Prussia: supply brl
+	Prussia: supply sax
+	Austria: supply cis
+	Austria: supply kie
+	Russia: supply fil
+	France: supply mar
+	France: supply han
+	Austria: supply hel
+	Britain: supply wet
+	Britain: supply lie
+	Prussia: supply bav
+	Prussia: supply kon
+	Britain: supply lon
+	Austria: supply ven
+	Denmark: supply swe
+	Prussia: supply mos
+	Austria: supply bud
+	Austria: supply sev
+	Ottoman Empire: supply egy
+	Prussia: supply mec
+	Britain: supply alg
+	Sicily: supply pal
+	Russia: supply ang
+	Britain: supply edi
+	France: supply lyo
+	Denmark: supply cop
+	Sicily: supply nap
+	Britain: supply bat
+	Denmark: supply chr
+	France: supply pap
+	Austria: supply vie
+	Denmark: supply stp
+	Britain: supply ber
+ORDERS
+	cel support bay move eng
+	edi move lie
+	wae move brt
+	wet support han
+	alg hold
+	ber support kon move brl
+	bay move cel
+	wem move tys
+	stp move fil
+	tra move bud
+	fil support cop move swe
+	swe move ska
+	bar support mos move stp
+	cop move sch/wc
+	fim support ber move swe
+	lyo move mar
+	pie move hel
+	bel move brt
+	pap/wc move pie
+	mar support bay move gas
+	val support alg move wem
+	han support rhi move wet
+	cro move ven
+	apu move ang
+	rhi move sax
+	kie move pol
+	gal support tra move mol
+	adr hold
+	bos move pal
+	ion support eas
+	nap support bos move pap
+	eas support ion move cen
+	sax support wet
+	mec support cop move sch
+	mos support ber move lio
+	bai move sch/ec
+	pol support kie move gal
+	kon move ber
+PHASE 1805 Fall Adjustment
+POSITIONS
+	Austria: army apu
+	Sicily: army nap
+	France: fleet pie
+	Prussia: army mec
+	Britain: army lie
+	Denmark: fleet sch/wc
+	Prussia: army sax
+	Denmark: army fim
+	Britain: fleet alg
+	Austria: army kie
+	Spain: fleet tys
+	France: army mar
+	Austria: army bos
+	Prussia: army mos
+	Austria: army rhi
+	Austria: army cro
+	France: army hel
+	Austria: army gal
+	France: fleet val
+	Russia: army stp
+	Denmark: fleet ska
+	Britain: fleet wet
+	Russia: army bud
+	Denmark: fleet bar
+	Austria: fleet adr
+	France: army han
+	Britain: army ber
+	Spain: fleet bay
+	France: army brt
+	Britain: army wae
+	Russia: fleet fil
+	Prussia: army pol
+	Prussia: fleet bai
+	Britain: fleet cel
+	Prussia: army kon
+	Sicily: fleet ion
+	Ottoman Empire: fleet eas
+	France: army lyo
+	Britain: supply wet
+	Sicily: supply nap
+	Russia: supply bud
+	Denmark: supply swe
+	Britain: supply ber
+	Britain: supply bat
+	Britain: supply edi
+	Denmark: supply chr
+	Ottoman Empire: supply egy
+	Spain: supply mad
+	France: supply mar
+	Austria: supply sev
+	Russia: supply ang
+	Denmark: supply cop
+	Russia: supply stp
+	Austria: supply cis
+	Prussia: supply kon
+	Austria: supply vie
+	France: supply pap
+	Prussia: supply sax
+	France: supply val
+	Austria: supply kie
+	Austria: supply ven
+	Britain: supply lon
+	Russia: supply con
+	Prussia: supply brl
+	Sicily: supply pal
+	Prussia: supply mec
+	France: supply brt
+	France: supply lyo
+	Russia: supply fil
+	Britain: supply lie
+	Prussia: supply bav
+	France: supply par
+	France: supply hel
+	Prussia: supply mos
+	Britain: supply alg
+	France: supply pie
+	France: supply han
+ORDERS
+	build Fleet edi
+	remove bay
+	remove ska
+	build Army par
+	remove bos
+PHASE 1806 Spring Movement
+POSITIONS
+	Britain: fleet wet
+	France: army par
+	Russia: fleet fil
+	Britain: fleet edi
+	Britain: army wae
+	Britain: army ber
+	France: army brt
+	Prussia: army pol
+	Prussia: army sax
+	Denmark: army fim
+	France: army mar
+	Austria: army gal
+	France: fleet val
+	France: fleet pie
+	Britain: army lie
+	Austria: army kie
+	Prussia: army kon
+	Austria: fleet adr
+	Prussia: fleet bai
+	Britain: fleet cel
+	Ottoman Empire: fleet eas
+	Denmark: fleet sch/wc
+	Britain: fleet alg
+	Spain: fleet tys
+	Austria: army cro
+	Denmark: fleet bar
+	Prussia: army mec
+	Prussia: army mos
+	Russia: army stp
+	France: army han
+	France: army lyo
+	Sicily: army nap
+	Austria: army rhi
+	France: army hel
+	Russia: army bud
+	Sicily: fleet ion
+	Britain: supply bat
+	Austria: supply cis
+	France: supply par
+	France: supply hel
+	Russia: supply bud
+	Russia: supply ang
+	France: supply val
+	Prussia: supply mec
+	Prussia: supply sax
+	Austria: supply kie
+	Prussia: supply brl
+	Denmark: supply swe
+	Denmark: supply chr
+	Spain: supply mad
+	Austria: supply vie
+	Russia: supply con
+	Britain: supply alg
+	France: supply pie
+	Britain: supply wet
+	France: supply mar
+	Russia: supply stp
+	Britain: supply lon
+	France: supply pap
+	Sicily: supply pal
+	Prussia: supply mos
+	Sicily: supply nap
+	Britain: supply edi
+	Ottoman Empire: supply egy
+	Denmark: supply cop
+	Russia: supply fil
+	Britain: supply lie
+	Prussia: supply bav
+	France: supply han
+	Austria: supply sev
+	Austria: supply ven
+	France: supply brt
+	France: supply lyo
+	Britain: supply ber
+	Prussia: supply kon
+ORDERS
+	lie move ire
+	wae move ire
+	edi move cel
+	ber move brl
+	cel hold
+	wet move not
+	alg move wem
+	tys support nap
+	stp support pol move lio
+	bud move vie
+	fil support ber move swe
+	fim support mec move swe
+	bar support fil move stp
+	sch/wc move han
+	mar support tys move pie
+	val move and/ec
+	hel move tyo
+	par move lyo
+	lyo move pie
+	han support kon move sch
+	pie hold
+	brt move lyo
+	kie support bud move gal
+	rhi move lor
+	gal move tra
+	cro support adr move vie
+	adr move ion
+	nap move egy
+	ion move eas
+	eas move cen
+	pol move kon
+	mos move ukr
+	sax move brl
+	kon support bai move ber
+	bai support fim move swe
+	mec move lio
+PHASE 1806 Fall Movement
+POSITIONS
+	Austria: army kie
+	Britain: fleet not
+	Denmark: fleet bar
+	France: army mar
+	France: fleet pie
+	Russia: army vie
+	Britain: fleet wem
+	Prussia: army mec
+	France: fleet and/ec
+	Sicily: fleet eas
+	Prussia: army sax
+	Spain: fleet tys
+	Austria: fleet ion
+	Britain: army lie
+	Denmark: army fim
+	Austria: army lor
+	France: army par
+	Prussia: army kon
+	Prussia: army ukr
+	Britain: fleet edi
+	Austria: army cro
+	France: army lyo
+	France: army tyo
+	Ottoman Empire: fleet cen
+	Austria: army tra
+	Prussia: fleet bai
+	France: army han
+	Russia: fleet fil
+	Prussia: army pol
+	Sicily: army nap
+	Denmark: fleet sch/wc
+	Britain: army ber
+	Russia: army stp
+	Britain: fleet cel
+	France: army brt
+	Britain: army wae
+	Prussia: supply sax
+	France: supply pie
+	Britain: supply wet
+	Britain: supply edi
+	France: supply brt
+	Prussia: supply brl
+	Austria: supply cis
+	France: supply lyo
+	Denmark: supply chr
+	Russia: supply con
+	Prussia: supply mos
+	Austria: supply ven
+	France: supply val
+	Austria: supply vie
+	Denmark: supply swe
+	France: supply pap
+	France: supply par
+	Austria: supply sev
+	Ottoman Empire: supply egy
+	Prussia: supply kon
+	Prussia: supply mec
+	Denmark: supply cop
+	France: supply mar
+	Prussia: supply bav
+	Britain: supply bat
+	France: supply han
+	Russia: supply bud
+	Britain: supply lon
+	Sicily: supply pal
+	France: supply hel
+	Austria: supply kie
+	Britain: supply lie
+	Spain: supply mad
+	Russia: supply stp
+	Sicily: supply nap
+	Russia: supply fil
+	Britain: supply alg
+	Russia: supply ang
+	Britain: supply ber
+ORDERS
+	wem move and/ec
+	not move yor
+	edi move yor
+	wae move edi
+	lie move edi
+	ber move cop
+	cel move wae
+	tys move pap/wc
+	fil move swe
+	stp move fim
+	vie support cro
+	fim support bar move stp
+	sch/wc support han
+	bar convoy stp move fim
+	par move lyo
+	mar support pie
+	lyo move hel
+	and/ec hold
+	han move edi
+	brt move lyo
+	tyo move hel
+	pie move pap/wc
+	ion move eas
+	lor move hel
+	tra move bos
+	cro move vie
+	kie move lio
+	eas convoy nap move pie
+	nap hold
+	cen move ion
+	kon move swe
+	pol support vie move boh
+	sax move ber
+	mec support han move sch
+	ukr move gal
+	bai support ber move mec
+PHASE 1806 Fall Adjustment
+POSITIONS
+	Britain: fleet wem
+	Austria: army lio
+	Ottoman Empire: fleet cen
+	France: army par
+	France: army mar
+	France: army brt
+	Prussia: army pol
+	France: fleet and/ec
+	Denmark: army fim
+	Denmark: fleet sch/wc
+	France: army tyo
+	Sicily: fleet eas
+	Britain: fleet cel
+	Austria: army bos
+	Prussia: army sax
+	Britain: fleet not
+	Britain: army ber
+	Russia: fleet swe
+	Austria: army lor
+	Prussia: army gal
+	Spain: fleet tys
+	Prussia: army kon
+	Britain: army wae
+	Britain: fleet edi
+	Britain: army lie
+	Austria: fleet ion
+	Denmark: fleet bar
+	France: army lyo
+	France: army han
+	Prussia: army mec
+	Russia: army stp
+	France: fleet pie
+	Russia: army vie
+	Sicily: army nap
+	Prussia: fleet bai
+	Austria: army cro
+	France: supply val
+	Prussia: supply sax
+	Britain: supply lie
+	Russia: supply swe
+	Spain: supply mad
+	France: supply par
+	Russia: supply con
+	Sicily: supply pal
+	France: supply mar
+	Britain: supply alg
+	Denmark: supply chr
+	France: supply hel
+	Russia: supply fil
+	Britain: supply ber
+	Ottoman Empire: supply egy
+	Sicily: supply nap
+	Prussia: supply mos
+	Britain: supply edi
+	Denmark: supply cop
+	Austria: supply sev
+	Russia: supply bud
+	Austria: supply kie
+	Russia: supply vie
+	France: supply han
+	Austria: supply ven
+	Russia: supply ang
+	Britain: supply lon
+	Prussia: supply bav
+	France: supply pie
+	Austria: supply cis
+	Prussia: supply mec
+	France: supply lyo
+	Britain: supply bat
+	France: supply brt
+	France: supply pap
+	Britain: supply wet
+	Prussia: supply kon
+	Prussia: supply brl
+	Russia: supply stp
+ORDERS
+	remove bar
+	remove lor
+PHASE 1807 Spring Movement
+POSITIONS
+	Denmark: army fim
+	Russia: fleet swe
+	Prussia: army mec
+	Ottoman Empire: fleet cen
+	France: army mar
+	Britain: army ber
+	France: fleet and/ec
+	Austria: army bos
+	Britain: fleet edi
+	Austria: fleet ion
+	France: army han
+	Austria: army cro
+	Britain: fleet wem
+	Prussia: army pol
+	France: army brt
+	Prussia: army gal
+	Britain: army wae
+	France: army par
+	Britain: fleet not
+	Britain: army lie
+	Prussia: fleet bai
+	France: army tyo
+	Prussia: army sax
+	Prussia: army kon
+	France: army lyo
+	Sicily: army nap
+	Austria: army lio
+	Denmark: fleet sch/wc
+	Spain: fleet tys
+	Russia: army stp
+	France: fleet pie
+	Russia: army vie
+	Sicily: fleet eas
+	Britain: fleet cel
+	Austria: supply sev
+	France: supply pie
+	Russia: supply swe
+	France: supply par
+	France: supply mar
+	Denmark: supply chr
+	Prussia: supply mec
+	Prussia: supply sax
+	Ottoman Empire: supply egy
+	France: supply han
+	Austria: supply cis
+	France: supply pap
+	Prussia: supply brl
+	France: supply hel
+	Prussia: supply mos
+	Denmark: supply cop
+	Russia: supply vie
+	Russia: supply ang
+	Britain: supply bat
+	Britain: supply wet
+	Britain: supply lie
+	Britain: supply alg
+	Austria: supply kie
+	France: supply brt
+	Prussia: supply kon
+	Spain: supply mad
+	Russia: supply con
+	Sicily: supply pal
+	Russia: supply fil
+	Sicily: supply nap
+	Russia: supply bud
+	Austria: supply ven
+	Britain: supply lon
+	France: supply val
+	Britain: supply ber
+	Britain: supply edi
+	Prussia: supply bav
+	France: supply lyo
+	Russia: supply stp
+ORDERS
+	wem move alg
+	wae move lie
+	not move han
+	cel support wae move lie
+	lie move ire
+	edi hold
+	ber support sax move brl
+	tys support cen
+	vie support cro move bud
+	swe move cop
+	stp support mec move lio
+	sch/wc support ber move cop
+	fim move chr
+	and/ec move val
+	lyo hold
+	tyo support sax move rhi
+	pie support tys move pap
+	brt support par
+	han move sch
+	mar support bos move pie
+	par support lyo
+	ion support pie move tys
+	lio move kon
+	cro move bud
+	bos support gal move bud
+	eas convoy nap move ang
+	nap move pal
+	cen move eas
+	kon move mec
+	sax support not move wet
+	pol support vie move boh
+	gal move kie
+	bai support fim move swe
+	mec move ber
+PHASE 1807 Fall Movement
+POSITIONS
+	Russia: army stp
+	Britain: army wae
+	Britain: fleet not
+	France: army par
+	Prussia: army kon
+	Denmark: army chr
+	Britain: fleet edi
+	Prussia: army sax
+	France: army han
+	France: army lyo
+	Prussia: army pol
+	France: fleet pie
+	France: army tyo
+	France: fleet val
+	Prussia: army mec
+	Austria: fleet ion
+	France: army mar
+	Denmark: fleet sch/wc
+	Russia: fleet cop
+	Sicily: fleet eas
+	Britain: fleet alg
+	France: army brt
+	Britain: army lie
+	Prussia: army kie
+	Russia: army vie
+	Austria: army bud
+	Austria: army bos
+	Britain: army ber
+	Ottoman Empire: fleet cen
+	Britain: fleet cel
+	Spain: fleet tys
+	Prussia: fleet bai
+	Sicily: army pal
+	Austria: army lio
+	Britain: supply edi
+	Denmark: supply chr
+	Britain: supply bat
+	France: supply pap
+	France: supply val
+	France: supply pie
+	France: supply mar
+	Austria: supply sev
+	Russia: supply vie
+	Russia: supply ang
+	Spain: supply mad
+	Prussia: supply brl
+	France: supply lyo
+	Ottoman Empire: supply egy
+	Prussia: supply mos
+	Sicily: supply pal
+	Britain: supply ber
+	France: supply par
+	Austria: supply ven
+	Russia: supply stp
+	France: supply hel
+	Prussia: supply bav
+	Russia: supply bud
+	Britain: supply wet
+	Britain: supply lon
+	Prussia: supply mec
+	Prussia: supply kon
+	Russia: supply swe
+	France: supply han
+	Britain: supply lie
+	Austria: supply cis
+	Sicily: supply nap
+	France: supply brt
+	Russia: supply con
+	Prussia: supply sax
+	Russia: supply fil
+	Austria: supply kie
+	Denmark: supply cop
+	Britain: supply alg
+ORDERS
+	cel move lie
+	wae move yor
+	not move edi
+	lie hold
+	alg support tys move wem
+	edi support cel move lie
+	ber support bai move kon
+	tys support cen move pal
+	cop support ber move sch
+	vie move bud
+	stp move ura
+	chr move swe
+	sch/wc move cop
+	par move bel
+	han support kon move sch
+	pie move pap/wc
+	tyo support sax move rhi
+	brt support par move bel
+	lyo move gas
+	mar move lyo
+	val move wem
+	ion move nap
+	bos hold
+	bud move gal
+	lio move cop
+	eas move ion
+	pal move ang
+	cen move ion
+	kon move ber
+	mec move cop
+	bai convoy lio move cop
+	pol move gal
+	sax move bav
+	kie support bud move gal
+PHASE 1807 Fall Adjustment
+POSITIONS
+	Prussia: army kie
+	Denmark: fleet sch/wc
+	Britain: army yor
+	Russia: fleet cop
+	France: army lyo
+	Austria: army gal
+	Austria: army bos
+	France: fleet pap/wc
+	Britain: army ber
+	Austria: fleet nap
+	Prussia: army mec
+	Prussia: army kon
+	France: fleet wem
+	Britain: fleet alg
+	Austria: army lio
+	Russia: army bud
+	Denmark: army swe
+	Prussia: army bav
+	Britain: fleet cel
+	Prussia: fleet bai
+	Russia: army ura
+	France: army bel
+	Prussia: army pol
+	France: army gas
+	Sicily: fleet eas
+	Spain: fleet tys
+	Sicily: army pal
+	Britain: army lie
+	Ottoman Empire: fleet cen
+	France: army han
+	France: army tyo
+	France: army brt
+	Britain: fleet not
+	Britain: fleet edi
+	Ottoman Empire: supply egy
+	Sicily: supply pal
+	France: supply pap
+	France: supply mar
+	Russia: supply cop
+	Britain: supply bat
+	France: supply brt
+	Prussia: supply kie
+	Russia: supply fil
+	Britain: supply alg
+	Prussia: supply mos
+	Britain: supply lon
+	Prussia: supply mec
+	France: supply val
+	Russia: supply bud
+	Russia: supply vie
+	Prussia: supply brl
+	Prussia: supply bav
+	Britain: supply wet
+	France: supply hel
+	Austria: supply cis
+	Austria: supply sev
+	France: supply lyo
+	Britain: supply edi
+	France: supply par
+	Russia: supply ang
+	Prussia: supply sax
+	Russia: supply stp
+	Britain: supply ber
+	Austria: supply ven
+	Prussia: supply kon
+	France: supply pie
+	Spain: supply mad
+	Denmark: supply chr
+	Britain: supply lie
+	Russia: supply con
+	Denmark: supply swe
+	France: supply han
+	Austria: supply nap
+ORDERS
+	build Fleet stp/sc
+	build Fleet mar
+	remove eas
+	build Army brl
+PHASE 1808 Spring Movement
+POSITIONS
+	Britain: army yor
+	Austria: army gal
+	Austria: army lio
+	Russia: army bud
+	France: army tyo
+	Britain: fleet edi
+	France: fleet mar
+	Britain: fleet not
+	Russia: fleet stp/sc
+	Prussia: army brl
+	Denmark: army swe
+	Britain: fleet cel
+	France: fleet pap/wc
+	Britain: army ber
+	Prussia: army mec
+	Russia: army ura
+	Sicily: army pal
+	Denmark: fleet sch/wc
+	Austria: army bos
+	France: fleet wem
+	Prussia: army bav
+	Russia: fleet cop
+	Britain: fleet alg
+	France: army bel
+	France: army gas
+	France: army han
+	Britain: army lie
+	Prussia: army kie
+	France: army lyo
+	Austria: fleet nap
+	Prussia: army kon
+	Prussia: fleet bai
+	Prussia: army pol
+	Spain: fleet tys
+	Ottoman Empire: fleet cen
+	France: army brt
+	Prussia: supply brl
+	France: supply par
+	Prussia: supply mec
+	Russia: supply vie
+	France: supply pap
+	France: supply hel
+	Russia: supply ang
+	France: supply han
+	Ottoman Empire: supply egy
+	Sicily: supply pal
+	Britain: supply alg
+	Britain: supply ber
+	Prussia: supply kie
+	Russia: supply fil
+	Prussia: supply sax
+	Russia: supply stp
+	France: supply pie
+	Austria: supply nap
+	Russia: supply cop
+	Britain: supply wet
+	France: supply lyo
+	Austria: supply ven
+	Denmark: supply chr
+	Britain: supply lie
+	Britain: supply bat
+	France: supply val
+	Russia: supply bud
+	Britain: supply edi
+	Spain: supply mad
+	Russia: supply con
+	France: supply mar
+	Prussia: supply mos
+	Britain: supply lon
+	Austria: supply sev
+	Austria: supply cis
+	Prussia: supply kon
+	Denmark: supply swe
+	France: supply brt
+	Prussia: supply bav
+ORDERS
+	alg move wem
+	not move noa
+	cel move wae
+	yor support lie move wae
+	edi hold
+	ber move cop
+	lie move ire
+	tys convoy pal move pap
+	cop move swe
+	ura move stp
+	bud support bos
+	stp/sc support kie move lio
+	swe move mec
+	sch/wc move not
+	mar support gas move cat
+	bel move brt
+	wem move tys
+	han move edi
+	pap/wc move pie
+	tyo move bav
+	brt move par
+	gas move brt
+	lyo support gas move brt
+	lio move mec
+	nap move pap/wc
+	gal hold
+	bos move bud
+	pal hold
+	cen move tun
+	mec hold
+	pol move kon
+	brl support lio move ber
+	kie move mos
+	bai support kon
+	bav move tyo
+	kon support gal move pol
+PHASE 1808 Fall Movement
+POSITIONS
+	Denmark: army swe
+	France: army bel
+	Prussia: army brl
+	Britain: fleet edi
+	France: army par
+	Austria: army bos
+	France: fleet pie
+	France: army han
+	Russia: army ura
+	Britain: army yor
+	Austria: army lio
+	Prussia: army mos
+	Britain: army lie
+	Britain: fleet alg
+	France: army lyo
+	Prussia: fleet bai
+	Russia: army bud
+	Spain: fleet tys
+	France: army brt
+	Prussia: army bav
+	France: fleet wem
+	France: army tyo
+	Ottoman Empire: fleet tun
+	Denmark: fleet not
+	Prussia: army mec
+	Prussia: army kon
+	France: fleet mar
+	Austria: army gal
+	Austria: fleet pap/wc
+	Prussia: army pol
+	Russia: fleet cop
+	Britain: fleet noa
+	Sicily: army pal
+	Britain: fleet wae
+	Russia: fleet stp/sc
+	Britain: army ber
+	Britain: supply alg
+	France: supply val
+	Denmark: supply swe
+	Prussia: supply kon
+	Prussia: supply mec
+	Britain: supply edi
+	France: supply mar
+	France: supply pie
+	France: supply pap
+	France: supply han
+	Prussia: supply bav
+	Russia: supply con
+	Russia: supply stp
+	Russia: supply cop
+	Prussia: supply brl
+	Prussia: supply sax
+	Sicily: supply pal
+	Austria: supply ven
+	Britain: supply bat
+	Spain: supply mad
+	France: supply par
+	Russia: supply ang
+	Russia: supply fil
+	Austria: supply nap
+	Ottoman Empire: supply egy
+	France: supply brt
+	Denmark: supply chr
+	Austria: supply sev
+	Britain: supply lon
+	Prussia: supply kie
+	Austria: supply cis
+	Britain: supply ber
+	France: supply lyo
+	France: supply hel
+	Russia: supply vie
+	Britain: supply wet
+	Britain: supply lie
+	Russia: supply bud
+	Prussia: supply mos
+ORDERS
+	wae move lie
+	lie support bel move yor
+	ber move swe
+	yor move bat
+	edi move cel
+	noa move atl
+	alg support tun move wem
+	tys support tun move cen
+	ura move stp
+	cop support swe
+	bud hold
+	stp/sc move lio
+	swe move fim
+	not move bat
+	han move bel
+	lyo hold
+	wem move alg
+	mar support tys move pie
+	par support lyo
+	pie move pap/wc
+	tyo move cis
+	bel support brt
+	brt support lyo
+	pap/wc hold
+	bos move tra
+	lio support mec move kon
+	gal move boh
+	pal move alg
+	tun support pie move tys
+	pol move brl
+	kon move lio
+	brl support ber move sax
+	mos support mec move lio
+	bai move mec
+	bav support gal move boh
+	mec move sch
+PHASE 1808 Fall Adjustment
+POSITIONS
+	Ottoman Empire: fleet tun
+	France: army lyo
+	France: army brt
+	France: army han
+	Britain: fleet atl
+	Russia: fleet cop
+	Denmark: army fim
+	Denmark: fleet bat
+	Britain: army yor
+	Prussia: army kon
+	Spain: fleet tys
+	Britain: army ber
+	Britain: fleet cel
+	France: army par
+	France: fleet mar
+	Britain: fleet alg
+	Prussia: fleet mec
+	Austria: army lio
+	Britain: fleet wae
+	Prussia: army pol
+	Russia: army ura
+	Russia: army bud
+	France: army cis
+	France: fleet wem
+	Austria: army boh
+	Austria: army tra
+	Prussia: army bav
+	Prussia: army sch
+	Austria: fleet pap/wc
+	France: army bel
+	Prussia: army mos
+	Sicily: army pal
+	Prussia: army brl
+	Britain: army lie
+	France: fleet pie
+	Russia: fleet stp/sc
+	Sicily: supply pal
+	France: supply lyo
+	Britain: supply wet
+	Prussia: supply mos
+	Britain: supply alg
+	Austria: supply nap
+	France: supply val
+	Russia: supply stp
+	Spain: supply mad
+	Prussia: supply sax
+	Russia: supply cop
+	Britain: supply lon
+	France: supply par
+	Austria: supply sev
+	Denmark: supply bat
+	France: supply brt
+	Russia: supply fil
+	Denmark: supply chr
+	Britain: supply edi
+	Austria: supply ven
+	France: supply han
+	Russia: supply ang
+	Prussia: supply kie
+	Ottoman Empire: supply egy
+	Russia: supply bud
+	Britain: supply ber
+	Denmark: supply swe
+	Russia: supply con
+	France: supply pie
+	France: supply mar
+	Austria: supply pap
+	France: supply cis
+	France: supply hel
+	Prussia: supply kon
+	Russia: supply vie
+	Prussia: supply brl
+	Prussia: supply mec
+	Prussia: supply bav
+	Britain: supply lie
+ORDERS
+	remove alg
+	build Fleet swe
+PHASE 1809 Spring Movement
+POSITIONS
+	Russia: fleet cop
+	Prussia: fleet mec
+	Britain: fleet wae
+	Prussia: army brl
+	Russia: fleet stp/sc
+	Denmark: fleet bat
+	Spain: fleet tys
+	France: fleet mar
+	Prussia: army pol
+	Prussia: army bav
+	France: fleet pie
+	Britain: fleet atl
+	Austria: army boh
+	Austria: army tra
+	Austria: fleet pap/wc
+	France: army bel
+	Sicily: army pal
+	France: army han
+	Prussia: army kon
+	Britain: fleet cel
+	France: army cis
+	Britain: army yor
+	France: fleet wem
+	Prussia: army mos
+	Ottoman Empire: fleet tun
+	France: army brt
+	Britain: army ber
+	Russia: army bud
+	Denmark: fleet swe
+	France: army lyo
+	Denmark: army fim
+	France: army par
+	Russia: army ura
+	Austria: army lio
+	Prussia: army sch
+	Britain: army lie
+	France: supply brt
+	Russia: supply fil
+	Prussia: supply kie
+	France: supply pie
+	France: supply hel
+	Russia: supply vie
+	France: supply lyo
+	France: supply han
+	Austria: supply ven
+	Britain: supply alg
+	Austria: supply nap
+	Prussia: supply sax
+	Russia: supply ang
+	Russia: supply con
+	France: supply cis
+	Prussia: supply brl
+	Britain: supply wet
+	Russia: supply cop
+	Britain: supply lon
+	Ottoman Empire: supply egy
+	Russia: supply bud
+	Austria: supply pap
+	Prussia: supply kon
+	Spain: supply mad
+	Prussia: supply mos
+	France: supply val
+	Denmark: supply swe
+	Prussia: supply bav
+	Britain: supply lie
+	Sicily: supply pal
+	Britain: supply edi
+	Britain: supply ber
+	Denmark: supply chr
+	France: supply par
+	Denmark: supply bat
+	Prussia: supply mec
+	Russia: supply stp
+	France: supply mar
+	Austria: supply sev
+ORDERS
+	atl move gib
+	cel move atl
+	ber move sax
+	yor move wae
+	lie move and
+	wae move lon
+	tys move bae
+	ura support fim move stp
+	stp/sc support mos move lio
+	cop support swe move bai
+	bud support tra
+	swe move ska
+	fim move fil
+	bat move wet
+	wem move val
+	lyo hold
+	han support sch
+	mar move pie
+	bel move wet
+	pie move gol
+	cis move pie
+	par support brt move lyo
+	brt support bat move bel
+	lio support ura move stp
+	boh move pol
+	tra move bud
+	pap/wc hold
+	pal move alg
+	tun move cen
+	kon move brl
+	mec hold
+	brl move boh
+	pol support mos move kie
+	bav support bud move boh
+	sch support han
+	mos move ura
+PHASE 1809 Fall Movement
+POSITIONS
+	Denmark: fleet bat
+	Britain: army wae
+	Spain: fleet bae
+	Denmark: fleet ska
+	France: fleet gol
+	Britain: army lie
+	Britain: fleet lon
+	Prussia: army pol
+	France: army cis
+	Prussia: fleet mec
+	Russia: army bud
+	Austria: army tra
+	Denmark: army fil
+	Prussia: army sch
+	Prussia: army kon
+	Austria: army lio
+	Ottoman Empire: fleet cen
+	Austria: fleet pap/wc
+	France: fleet val
+	Britain: army sax
+	Russia: fleet stp/sc
+	France: army bel
+	Prussia: army mos
+	Russia: fleet cop
+	Austria: army boh
+	Prussia: army bav
+	France: fleet mar
+	Britain: fleet atl
+	France: army lyo
+	France: army par
+	Russia: army ura
+	France: army brt
+	Prussia: army brl
+	Britain: fleet gib
+	Sicily: army pal
+	France: army han
+	Denmark: supply swe
+	France: supply lyo
+	Prussia: supply mec
+	France: supply hel
+	Prussia: supply bav
+	Denmark: supply bat
+	Sicily: supply pal
+	Russia: supply stp
+	Prussia: supply sax
+	Britain: supply wet
+	Ottoman Empire: supply egy
+	Prussia: supply brl
+	Prussia: supply mos
+	France: supply brt
+	Prussia: supply kie
+	Austria: supply sev
+	Russia: supply fil
+	France: supply val
+	Britain: supply ber
+	Russia: supply con
+	France: supply han
+	Russia: supply ang
+	Spain: supply mad
+	Britain: supply lon
+	France: supply pie
+	Britain: supply lie
+	Prussia: supply kon
+	France: supply mar
+	Russia: supply vie
+	Russia: supply cop
+	Britain: supply alg
+	France: supply cis
+	Britain: supply edi
+	France: supply par
+	Austria: supply pap
+	Austria: supply ven
+	Austria: supply nap
+	Russia: supply bud
+	Denmark: supply chr
+ORDERS
+	lon hold
+	sax support pol move brl
+	lie move wae
+	gib move and/ec
+	wae support lon
+	atl move and/wc
+	bae hold
+	ura support mos move stp
+	bud move gal
+	cop move bai
+	stp/sc support fil
+	ska move now
+	fil support cop move swe
+	bat hold
+	mar move cat
+	par move lor
+	han move sch
+	gol move mar
+	val support bae move wem
+	lyo support bel move lor
+	cis move tyo
+	bel move lor
+	brt support bat move bel
+	pap/wc move pie
+	boh support bav move vie
+	lio hold
+	tra move gal
+	pal move tri
+	cen move ion
+	mos move stp
+	kon move pol
+	bav hold
+	mec hold
+	sch move chr
+	pol move lio
+	brl support lio move kon
+PHASE 1809 Fall Adjustment
+POSITIONS
+	Denmark: army fil
+	France: army han
+	Britain: army sax
+	Britain: fleet lon
+	Spain: fleet bae
+	Britain: fleet atl
+	France: fleet val
+	Russia: fleet bai
+	Austria: army boh
+	France: army brt
+	Austria: fleet pie
+	Prussia: fleet mec
+	Prussia: army sch
+	France: fleet mar
+	Russia: fleet stp/sc
+	Britain: fleet gib
+	Russia: army bud
+	Prussia: army mos
+	Prussia: army bav
+	France: army tyo
+	Prussia: army brl
+	Russia: army ura
+	France: army lyo
+	Denmark: fleet bat
+	Austria: army lio
+	France: army par
+	Denmark: fleet now
+	Britain: army wae
+	Prussia: army kon
+	France: fleet cat
+	Austria: army tra
+	Prussia: army pol
+	France: army lor
+	Britain: army lie
+	Ottoman Empire: fleet ion
+	Sicily: army pal
+	Prussia: supply bav
+	Prussia: supply mos
+	France: supply lyo
+	France: supply hel
+	Russia: supply ang
+	France: supply mar
+	Russia: supply stp
+	Austria: supply ven
+	Russia: supply con
+	Austria: supply nap
+	Denmark: supply chr
+	France: supply cis
+	Prussia: supply kon
+	Russia: supply vie
+	Britain: supply wet
+	Spain: supply mad
+	Denmark: supply fil
+	France: supply val
+	Austria: supply pap
+	Britain: supply lie
+	Britain: supply sax
+	Denmark: supply swe
+	Austria: supply pie
+	Denmark: supply bat
+	France: supply han
+	France: supply par
+	Sicily: supply pal
+	Britain: supply alg
+	Britain: supply edi
+	Britain: supply lon
+	Austria: supply sev
+	Russia: supply cop
+	Britain: supply ber
+	France: supply brt
+	Russia: supply bud
+	Ottoman Empire: supply egy
+	Prussia: supply brl
+	Prussia: supply mec
+	Prussia: supply kie
+ORDERS
+	build Army edi
+	build Fleet swe
+	remove lor
+	build Army ven
+	remove kon
+PHASE 1810 Spring Movement
+POSITIONS
+	France: fleet val
+	Austria: army boh
+	Prussia: army brl
+	Denmark: fleet bat
+	Britain: fleet lon
+	Russia: army bud
+	France: army tyo
+	Britain: army sax
+	Prussia: fleet mec
+	France: fleet mar
+	Russia: fleet stp/sc
+	Russia: army ura
+	France: army lyo
+	Austria: army ven
+	Denmark: army fil
+	Prussia: army sch
+	Sicily: army pal
+	Britain: fleet atl
+	Prussia: army mos
+	Austria: army lio
+	Britain: army wae
+	Prussia: army bav
+	France: fleet cat
+	Prussia: army pol
+	Ottoman Empire: fleet ion
+	France: army han
+	Spain: fleet bae
+	Russia: fleet bai
+	Britain: fleet gib
+	France: army par
+	Denmark: fleet swe
+	Britain: army edi
+	France: army brt
+	Austria: fleet pie
+	Denmark: fleet now
+	Austria: army tra
+	Britain: army lie
+	Russia: supply vie
+	Denmark: supply swe
+	Austria: supply pie
+	Prussia: supply kie
+	Denmark: supply chr
+	Russia: supply stp
+	Austria: supply ven
+	Britain: supply wet
+	Denmark: supply bat
+	Sicily: supply pal
+	Britain: supply alg
+	Britain: supply edi
+	Prussia: supply mos
+	Austria: supply sev
+	Britain: supply ber
+	Britain: supply lon
+	Britain: supply lie
+	France: supply val
+	Prussia: supply kon
+	Denmark: supply fil
+	Austria: supply nap
+	Prussia: supply mec
+	France: supply han
+	Austria: supply pap
+	Britain: supply sax
+	Russia: supply bud
+	Ottoman Empire: supply egy
+	Prussia: supply brl
+	Spain: supply mad
+	France: supply lyo
+	France: supply hel
+	France: supply mar
+	France: supply cis
+	France: supply par
+	Prussia: supply bav
+	Russia: supply con
+	Russia: supply cop
+	France: supply brt
+	Russia: supply ang
+ORDERS
+	wae hold
+	lon move yor
+	lie move edi
+	edi move yor
+	sax move brl
+	gib move and/ec
+	atl move noa
+	bae support gib move wem
+	stp/sc move gob
+	bud move tra
+	bai hold
+	ura support mos move sev
+	swe support mec move bai
+	bat move not
+	fil move fim
+	now support lon move not
+	han move bra
+	mar hold
+	lyo support tyo move hel
+	tyo hold
+	brt hold
+	par move lor
+	val support bae
+	cat move gol
+	ven move cis
+	pie move tys
+	boh hold
+	lio hold
+	tra move gal
+	pal move gre
+	ion support bae move tys
+	mec move ber
+	bav move rhi
+	pol support stp move lio
+	sch support bai move cop
+	mos move lio
+	brl move kon
+PHASE 1810 Fall Movement
+POSITIONS
+	Sicily: army pal
+	Austria: army cis
+	France: army lyo
+	France: army bra
+	Denmark: fleet swe
+	Austria: army gal
+	Britain: fleet lon
+	France: army tyo
+	Britain: army edi
+	Prussia: army sch
+	Russia: fleet bai
+	Ottoman Empire: fleet ion
+	France: fleet gol
+	Austria: fleet tys
+	Russia: army tra
+	Britain: fleet and/ec
+	Denmark: fleet not
+	Britain: army lie
+	Denmark: army fim
+	Britain: army brl
+	Prussia: army mos
+	Russia: fleet gob
+	France: fleet val
+	Spain: fleet bae
+	Britain: fleet noa
+	Prussia: army pol
+	France: fleet mar
+	Prussia: army rhi
+	France: army brt
+	Denmark: fleet now
+	Austria: army boh
+	Britain: army wae
+	Prussia: fleet ber
+	Prussia: army kon
+	France: army lor
+	Austria: army lio
+	Russia: army ura
+	Prussia: supply kon
+	France: supply mar
+	Britain: supply alg
+	Russia: supply vie
+	Britain: supply sax
+	Ottoman Empire: supply egy
+	France: supply par
+	Russia: supply ang
+	France: supply hel
+	France: supply lyo
+	France: supply brt
+	Austria: supply pie
+	Russia: supply cop
+	France: supply cis
+	Britain: supply edi
+	Russia: supply con
+	Austria: supply pap
+	Prussia: supply mec
+	Russia: supply bud
+	Austria: supply sev
+	Prussia: supply brl
+	Denmark: supply swe
+	Prussia: supply bav
+	France: supply val
+	Austria: supply nap
+	Denmark: supply chr
+	Denmark: supply bat
+	France: supply han
+	Russia: supply stp
+	Sicily: supply pal
+	Prussia: supply kie
+	Denmark: supply fil
+	Britain: supply wet
+	Spain: supply mad
+	Prussia: supply mos
+	Britain: supply ber
+	Britain: supply lon
+	Britain: supply lie
+	Austria: supply ven
+ORDERS
+	and/ec move wem
+	edi support noa move ire
+	brl move boh
+	wae move lon
+	lon support sch move yor
+	lie support not move edi
+	noa convoy fim move edi
+	bae move val
+	gob support pol move lio
+	tra move mol
+	ura move stp
+	bai support swe
+	not support brt move bel
+	fim move wet
+	swe move gob
+	now move fim
+	tyo hold
+	brt move lyo
+	val support pal move cat
+	mar support cis move pie
+	lor move bel
+	gol support ion move tys
+	bra support brl move ber
+	lyo move pie
+	cis hold
+	lio move ber
+	boh move pol
+	tys support and move wem
+	gal move mol
+	pal support tys move nap
+	ion move eas
+	pol support brl move kon
+	mos support bai move lio
+	sch support swe move cop
+	kon move fil
+	ber hold
+	rhi move tyo
+PHASE 1811 Spring Movement
+POSITIONS
+	France: fleet mar
+	France: army bra
+	Prussia: army sch
+	Austria: army cis
+	Russia: fleet bai
+	Denmark: fleet now
+	Russia: fleet gob
+	France: army tyo
+	Denmark: fleet swe
+	Prussia: fleet ber
+	Sicily: army pal
+	Britain: army brl
+	Britain: army lie
+	Denmark: fleet not
+	Prussia: army mos
+	Britain: fleet noa
+	France: fleet val
+	France: army pie
+	Prussia: army rhi
+	Austria: army gal
+	Britain: army wae
+	Austria: army boh
+	France: fleet gol
+	France: army lyo
+	Prussia: army pol
+	Spain: fleet bae
+	France: army bel
+	Britain: army edi
+	Ottoman Empire: fleet eas
+	Prussia: army kon
+	Russia: army tra
+	Austria: army lio
+	Britain: fleet lon
+	Britain: fleet wem
+	Austria: fleet tys
+	Russia: army stp
+	Denmark: army fim
+	Prussia: supply kon
+	Britain: supply alg
+	Spain: supply mad
+	Prussia: supply ber
+	Russia: supply bud
+	Britain: supply lie
+	France: supply hel
+	Austria: supply ven
+	Denmark: supply chr
+	Russia: supply vie
+	France: supply han
+	Prussia: supply mec
+	France: supply brt
+	Prussia: supply kie
+	Britain: supply edi
+	Denmark: supply swe
+	Prussia: supply mos
+	Britain: supply brl
+	France: supply mar
+	Austria: supply pap
+	Russia: supply ang
+	France: supply lyo
+	Britain: supply wet
+	Russia: supply con
+	Austria: supply cis
+	Russia: supply cop
+	Britain: supply sax
+	Sicily: supply pal
+	Austria: supply sev
+	Austria: supply nap
+	Britain: supply lon
+	Denmark: supply bat
+	Ottoman Empire: supply egy
+	Denmark: supply fil
+	Russia: supply stp
+	Prussia: supply bav
+	France: supply pie
+	France: supply val
+	France: supply par
+ORDERS
+	noa move arc
+	brl hold
+	wae move lon
+	lie move edi
+	wem move bae
+	edi move wet
+	lon move eng
+	bae hold
+	bai move mec
+	gob move swe
+	stp move kon
+	tra move waa
+	not move bat
+	now move noa
+	swe support bel move chr
+	fim move stp
+	pie move pap
+	mar support cis move pie
+	bel hold
+	tyo move cis
+	lyo move par
+	val move cat
+	gol support bae move tys
+	bra move han
+	cis support mar move pie
+	lio move sch
+	tys move pie
+	gal move pol
+	boh move gal
+	pal move pie
+	eas support tys move cen
+	sch move fim
+	ber move mec
+	kon support stp move lio
+	rhi move wet
+	pol move lio
+	mos hold
+PHASE 1811 Fall Movement
+POSITIONS
+	Britain: fleet arc
+	Britain: army brl
+	Prussia: army kon
+	Austria: army lio
+	Russia: army waa
+	Prussia: fleet ber
+	Britain: army edi
+	France: army han
+	Britain: fleet eng
+	Austria: army gal
+	Denmark: fleet noa
+	Britain: fleet wem
+	Austria: army cis
+	Russia: fleet bai
+	Russia: army stp
+	France: fleet mar
+	Spain: fleet bae
+	Prussia: army mos
+	Ottoman Empire: fleet eas
+	Russia: fleet gob
+	France: army bel
+	Austria: army boh
+	France: fleet gol
+	Britain: army lon
+	Denmark: army fim
+	France: army pap
+	Sicily: army pal
+	Britain: army lie
+	France: army par
+	France: army tyo
+	Denmark: fleet swe
+	Prussia: army wet
+	Austria: fleet pie
+	Prussia: army pol
+	Denmark: fleet bat
+	France: fleet cat
+	Prussia: army sch
+	Austria: supply nap
+	Austria: supply pap
+	Denmark: supply swe
+	Russia: supply stp
+	Russia: supply ang
+	Ottoman Empire: supply egy
+	Spain: supply mad
+	Denmark: supply bat
+	Prussia: supply mec
+	France: supply brt
+	Russia: supply bud
+	Prussia: supply mos
+	Austria: supply ven
+	Russia: supply con
+	France: supply hel
+	Sicily: supply pal
+	Denmark: supply chr
+	Britain: supply edi
+	Prussia: supply kie
+	Britain: supply lon
+	Britain: supply lie
+	Britain: supply alg
+	Britain: supply sax
+	France: supply han
+	France: supply mar
+	Prussia: supply ber
+	Denmark: supply fil
+	Austria: supply cis
+	Britain: supply brl
+	France: supply pie
+	Russia: supply vie
+	Prussia: supply kon
+	France: supply lyo
+	Austria: supply sev
+	Russia: supply cop
+	Prussia: supply bav
+	France: supply par
+	Britain: supply wet
+	France: supply val
+ORDERS
+	eng move cel
+	arc convoy edi move ire
+	lie move yor
+	edi move ire
+	lon move bel
+	brl move kon
+	wem support gol move tys
+	bae support gol move cat
+	stp support sch move fil
+	waa move con
+	bai support ber move mec
+	gob support swe move bai
+	bat move bel
+	swe support bai move gob
+	fim support mos move stp
+	noa move ire
+	tyo move ven
+	bel move wae
+	cat move bae
+	mar move pie
+	par move bel
+	gol move tys
+	han move sch
+	pap support pie
+	cis move pap
+	pie move tys
+	gal hold
+	lio move cop
+	boh support tyo move bav
+	pal support pap move nap
+	eas move ang
+	mos move lio
+	pol support stp move lio
+	sch move han
+	wet support han move bra
+	kon move sch
+	ber move bai
+PHASE 1811 Fall Adjustment
+POSITIONS
+	Austria: army lio
+	Prussia: army mos
+	France: fleet tys
+	Russia: army stp
+	Prussia: army kon
+	Russia: fleet bai
+	Denmark: fleet ire
+	Britain: fleet wem
+	Prussia: fleet ber
+	France: fleet mar
+	Spain: fleet bae
+	Britain: army edi
+	Denmark: fleet bat
+	Russia: army con
+	Britain: army yor
+	Prussia: army sch
+	Britain: fleet arc
+	France: army ven
+	Britain: army lon
+	Sicily: army pal
+	France: army par
+	Austria: fleet pie
+	Britain: army brl
+	Austria: army boh
+	Prussia: army wet
+	France: army bel
+	Ottoman Empire: fleet ang
+	Denmark: army fim
+	Denmark: fleet swe
+	Austria: army gal
+	Austria: army cis
+	Russia: fleet gob
+	France: army han
+	France: army pap
+	Prussia: army pol
+	France: fleet cat
+	Britain: fleet cel
+	Britain: supply alg
+	France: supply val
+	France: supply brt
+	Russia: supply con
+	Russia: supply bud
+	Austria: supply sev
+	Ottoman Empire: supply ang
+	Denmark: supply bat
+	Prussia: supply ber
+	Spain: supply mad
+	Prussia: supply wet
+	Britain: supply brl
+	France: supply hel
+	Britain: supply sax
+	Prussia: supply bav
+	France: supply par
+	Prussia: supply kon
+	France: supply han
+	Ottoman Empire: supply egy
+	Russia: supply cop
+	Austria: supply pie
+	Britain: supply edi
+	Britain: supply lie
+	Russia: supply stp
+	France: supply lyo
+	Prussia: supply mec
+	Denmark: supply chr
+	Denmark: supply swe
+	Austria: supply nap
+	Austria: supply cis
+	France: supply mar
+	France: supply pap
+	France: supply ven
+	Britain: supply lon
+	Denmark: supply fil
+	Prussia: supply kie
+	Russia: supply vie
+	Sicily: supply pal
+	Prussia: supply mos
+ORDERS
+	remove wem
+	build Fleet brt
+	remove pie
+	build Army egy
+PHASE 1812 Spring Movement
+POSITIONS
+	Prussia: army mos
+	Prussia: fleet ber
+	Britain: fleet arc
+	Sicily: army pal
+	France: army bel
+	Ottoman Empire: fleet ang
+	Austria: army gal
+	Spain: fleet bae
+	Britain: army yor
+	Britain: army lon
+	Austria: army cis
+	France: fleet cat
+	Britain: fleet cel
+	Ottoman Empire: army egy
+	Denmark: army fim
+	Austria: army lio
+	Russia: army stp
+	Russia: army con
+	Prussia: army sch
+	France: army par
+	Britain: army brl
+	Prussia: army wet
+	Denmark: fleet swe
+	France: army han
+	Prussia: army kon
+	Russia: fleet bai
+	Britain: army edi
+	France: army ven
+	France: army pap
+	France: fleet tys
+	Denmark: fleet bat
+	Prussia: army pol
+	France: fleet brt
+	Denmark: fleet ire
+	France: fleet mar
+	Austria: army boh
+	Russia: fleet gob
+	Ottoman Empire: supply ang
+	France: supply lyo
+	Sicily: supply pal
+	France: supply pap
+	Russia: supply con
+	Britain: supply brl
+	Russia: supply cop
+	Austria: supply nap
+	Denmark: supply fil
+	Britain: supply alg
+	Prussia: supply bav
+	Denmark: supply swe
+	France: supply val
+	Prussia: supply mec
+	Prussia: supply kon
+	France: supply han
+	Austria: supply cis
+	Russia: supply vie
+	France: supply brt
+	Denmark: supply bat
+	France: supply par
+	Britain: supply edi
+	France: supply ven
+	Prussia: supply kie
+	Russia: supply bud
+	Spain: supply mad
+	Austria: supply pie
+	Russia: supply stp
+	Denmark: supply chr
+	France: supply mar
+	Britain: supply lon
+	Prussia: supply mos
+	Prussia: supply ber
+	Ottoman Empire: supply egy
+	Britain: supply lie
+	Britain: supply sax
+	Austria: supply sev
+	Prussia: supply wet
+	France: supply hel
+ORDERS
+	brl support stp move kon
+	cel support arc move noa
+	arc move noa
+	edi move wae
+	yor move edi
+	lon move wae
+	bae move cat
+	gob support bai
+	con move gre
+	bai move sch/ec
+	stp move fil
+	swe support fim move fil
+	bat support brt move bel
+	fim move fil
+	ire move noa
+	mar move gol
+	han move mec
+	pap move nap
+	par move lor
+	bel move lor
+	cat move bae
+	brt move bel
+	ven support boh move vie
+	tys hold
+	gal move boh
+	cis move ven
+	lio move cop
+	boh support kon move brl
+	pal move cat
+	egy move tri
+	ang move aeg
+	pol move gal
+	ber move kon
+	mos support gob move lio
+	sch move swe
+	wet move bra
+	kon move fil
+PHASE 1812 Fall Movement
+POSITIONS
+	France: fleet cat
+	Prussia: fleet ber
+	Denmark: fleet bat
+	Ottoman Empire: fleet aeg
+	Austria: army boh
+	France: army bel
+	Britain: army edi
+	Austria: army cis
+	Britain: fleet noa
+	Britain: army brl
+	Russia: fleet bai
+	Britain: army wae
+	Prussia: army bra
+	Ottoman Empire: army tri
+	Prussia: army mos
+	Austria: army lio
+	France: fleet gol
+	Russia: army stp
+	France: army par
+	France: fleet brt
+	France: army mec
+	France: army nap
+	Sicily: army pal
+	Prussia: army kon
+	France: fleet tys
+	Prussia: army pol
+	Denmark: army fil
+	Russia: fleet gob
+	Britain: army yor
+	Britain: fleet cel
+	Russia: army gre
+	Austria: army gal
+	France: army ven
+	Spain: fleet bae
+	Denmark: fleet ire
+	Denmark: fleet swe
+	Prussia: army sch
+	France: supply ven
+	Sicily: supply pal
+	France: supply pap
+	Prussia: supply kon
+	Austria: supply sev
+	Prussia: supply ber
+	Prussia: supply wet
+	Britain: supply alg
+	Prussia: supply mec
+	Russia: supply vie
+	France: supply brt
+	Britain: supply lie
+	Britain: supply brl
+	Spain: supply mad
+	Ottoman Empire: supply egy
+	France: supply par
+	Britain: supply lon
+	Austria: supply pie
+	Britain: supply edi
+	Denmark: supply bat
+	Austria: supply cis
+	Denmark: supply chr
+	France: supply lyo
+	Denmark: supply fil
+	France: supply mar
+	Prussia: supply bav
+	Russia: supply con
+	Ottoman Empire: supply ang
+	Russia: supply cop
+	Austria: supply nap
+	Britain: supply sax
+	France: supply han
+	Russia: supply bud
+	Prussia: supply kie
+	Russia: supply stp
+	Prussia: supply mos
+	France: supply hel
+	Denmark: supply swe
+	France: supply val
+ORDERS
+	edi move lie
+	wae move yor
+	brl support bra move ber
+	noa move ire
+	yor move lon
+	cel support ire
+	bae move wem
+	gre move ang
+	bai move sch/ec
+	stp support lio move fil
+	gob move bai
+	swe move cop
+	fil move stp
+	ire move edi
+	bat move bel
+	ven move cis
+	mec hold
+	bel support brt
+	cat move mar
+	nap support tys move pap
+	tys support gol move bae
+	brt move bay
+	par move lyo
+	gol convoy pal move cat
+	cis move tyo
+	gal move kie
+	lio move ber
+	boh support brl move pol
+	pal support nap
+	aeg convoy gre move con
+	tri move egy
+	pol move gal
+	mos move ura
+	kon move lio
+	ber support brl move kon
+	bra move sax
+	sch support stp move cop
+PHASE 1812 Fall Adjustment
+POSITIONS
+	France: army bel
+	Russia: fleet gob
+	Britain: army brl
+	France: army cis
+	Prussia: fleet ber
+	Denmark: army fil
+	France: army lyo
+	Prussia: army gal
+	Spain: fleet wem
+	France: army mec
+	Britain: army yor
+	Austria: army lio
+	Denmark: fleet cop
+	Prussia: army ura
+	Austria: army boh
+	Russia: fleet bai
+	France: fleet bay
+	Denmark: fleet bat
+	Ottoman Empire: army egy
+	Prussia: army kon
+	Russia: army stp
+	Ottoman Empire: fleet aeg
+	Prussia: army sax
+	Denmark: fleet edi
+	Sicily: army pal
+	Britain: fleet cel
+	France: fleet tys
+	Britain: army lon
+	Britain: army lie
+	Austria: army kie
+	Britain: fleet ire
+	France: fleet mar
+	France: army nap
+	Austria: army tyo
+	Russia: army gre
+	France: fleet gol
+	Prussia: army sch
+	Spain: supply mad
+	France: supply han
+	France: supply cis
+	Austria: supply pie
+	Prussia: supply mos
+	France: supply par
+	Ottoman Empire: supply ang
+	Russia: supply stp
+	Russia: supply vie
+	Britain: supply brl
+	Denmark: supply swe
+	Russia: supply bud
+	Prussia: supply wet
+	Britain: supply lie
+	France: supply val
+	France: supply brt
+	Denmark: supply edi
+	Ottoman Empire: supply egy
+	France: supply lyo
+	France: supply nap
+	Prussia: supply ber
+	Austria: supply kie
+	France: supply mec
+	Prussia: supply bav
+	Denmark: supply fil
+	Britain: supply lon
+	France: supply mar
+	France: supply hel
+	Russia: supply con
+	Prussia: supply sax
+	Britain: supply alg
+	Denmark: supply cop
+	France: supply pap
+	Sicily: supply pal
+	Prussia: supply kon
+	Denmark: supply bat
+	France: supply ven
+	Denmark: supply chr
+	Austria: supply sev
+ORDERS
+	remove lie
+	build Fleet swe
+	build Fleet brt
+	remove boh
+PHASE 1813 Spring Movement
+POSITIONS
+	France: army bel
+	Denmark: fleet edi
+	Sicily: army pal
+	France: fleet mar
+	Denmark: fleet swe
+	Austria: army lio
+	Denmark: fleet cop
+	Russia: fleet bai
+	Britain: fleet ire
+	France: army nap
+	Britain: army yor
+	Prussia: army ura
+	Russia: army stp
+	Ottoman Empire: fleet aeg
+	France: army lyo
+	Ottoman Empire: army egy
+	Russia: army gre
+	Denmark: fleet bat
+	Prussia: army kon
+	France: fleet tys
+	France: army cis
+	Spain: fleet wem
+	France: army mec
+	Prussia: army sch
+	France: fleet brt
+	Russia: fleet gob
+	Prussia: fleet ber
+	Denmark: army fil
+	France: fleet bay
+	Britain: fleet cel
+	Prussia: army gal
+	Prussia: army sax
+	Britain: army lon
+	Austria: army kie
+	Austria: army tyo
+	France: fleet gol
+	Britain: supply alg
+	Denmark: supply cop
+	Sicily: supply pal
+	France: supply lyo
+	France: supply hel
+	France: supply ven
+	Austria: supply sev
+	France: supply han
+	France: supply par
+	Britain: supply lie
+	Prussia: supply ber
+	Prussia: supply kon
+	Denmark: supply bat
+	France: supply val
+	France: supply brt
+	Ottoman Empire: supply egy
+	Russia: supply vie
+	Austria: supply kie
+	Britain: supply lon
+	Prussia: supply mos
+	Britain: supply brl
+	Denmark: supply fil
+	Russia: supply bud
+	France: supply mec
+	Russia: supply con
+	Spain: supply mad
+	Austria: supply pie
+	Ottoman Empire: supply ang
+	France: supply nap
+	Denmark: supply chr
+	France: supply cis
+	Russia: supply stp
+	Prussia: supply wet
+	France: supply mar
+	Prussia: supply sax
+	France: supply pap
+	Denmark: supply swe
+	Denmark: supply edi
+	Prussia: supply bav
+ORDERS
+	cel move noa
+	lon move wae
+	yor move lie
+	ire move cel
+	wem hold
+	gre move ang
+	bai move lio
+	stp move kon
+	gob move bai
+	bat support brt move bel
+	edi hold
+	fil move kon
+	cop move sch/ec
+	swe support kon move fil
+	bay move eng
+	lyo support nap move mar
+	tys move tun
+	bel move bat
+	gol move tys
+	cis move hel
+	brt move bay
+	mec move kon
+	mar move gol
+	nap move alg
+	kie move pol
+	tyo move vie
+	lio move cop
+	pal move pap
+	egy move tri
+	aeg move con
+	kon hold
+	sax move ber
+	gal move bud
+	sch move cop
+	ber support cop move bai
+	ura move mos
+PHASE 1813 Fall Movement
+POSITIONS
+	Britain: army wae
+	Prussia: army sax
+	France: army mec
+	Britain: army lie
+	Britain: fleet noa
+	Sicily: army pal
+	France: army bel
+	Britain: fleet cel
+	Russia: army gre
+	Denmark: fleet edi
+	France: fleet bay
+	Denmark: fleet cop
+	Spain: fleet wem
+	Denmark: army fil
+	France: army hel
+	France: fleet tys
+	Austria: army vie
+	Prussia: army mos
+	Denmark: fleet swe
+	France: army nap
+	Russia: fleet bai
+	Austria: army pol
+	France: army lyo
+	Russia: army stp
+	Ottoman Empire: fleet con
+	Austria: army lio
+	Prussia: army kon
+	Ottoman Empire: army tri
+	France: fleet gol
+	Denmark: fleet bat
+	Prussia: army sch
+	France: fleet eng
+	Prussia: army bud
+	France: fleet tun
+	Prussia: fleet ber
+	Russia: fleet gob
+	Prussia: supply sax
+	Prussia: supply ber
+	France: supply par
+	Russia: supply con
+	France: supply lyo
+	Austria: supply sev
+	Russia: supply bud
+	France: supply mec
+	Russia: supply stp
+	Spain: supply mad
+	Russia: supply vie
+	France: supply han
+	France: supply hel
+	France: supply val
+	Ottoman Empire: supply egy
+	Britain: supply alg
+	Denmark: supply cop
+	Denmark: supply edi
+	Denmark: supply fil
+	Denmark: supply bat
+	Prussia: supply wet
+	Austria: supply pie
+	France: supply mar
+	Ottoman Empire: supply ang
+	Sicily: supply pal
+	France: supply cis
+	Prussia: supply kon
+	Britain: supply brl
+	France: supply brt
+	Austria: supply kie
+	France: supply pap
+	France: supply ven
+	Britain: supply lon
+	Prussia: supply mos
+	Denmark: supply swe
+	Denmark: supply chr
+	Prussia: supply bav
+	France: supply nap
+	Britain: supply lie
+ORDERS
+	cel move lie
+	noa move atl
+	wae move ice
+	lie move bel
+	wem support tun
+	gre move con
+	gob support ber move bai
+	stp support kon move lio
+	bai hold
+	cop move ska
+	fil hold
+	bat hold
+	swe move cop
+	edi support bel move ire
+	bel move ice
+	gol move cat
+	tun move tys
+	mec move kon
+	lyo move gas
+	bay move cel
+	tys support hel move pie
+	nap support pal move pap
+	hel move tyo
+	eng move not
+	pol move gal
+	vie move boh
+	lio move mec
+	pal support tys move nap
+	con support gre
+	tri move egy
+	sax move ber
+	kon move cop
+	ber move mec
+	mos move kie
+	bud move boh
+	sch move swe
+PHASE 1813 Fall Adjustment
+POSITIONS
+	Ottoman Empire: fleet con
+	Prussia: army sax
+	Austria: army gal
+	Denmark: fleet ska
+	France: fleet cat
+	Britain: army lie
+	France: fleet not
+	Prussia: fleet ber
+	Russia: army stp
+	Prussia: army kie
+	Austria: army lio
+	Britain: fleet atl
+	France: army tyo
+	Britain: army wae
+	France: army nap
+	Sicily: army pal
+	Russia: army gre
+	Spain: fleet wem
+	Austria: army vie
+	Denmark: army fil
+	Prussia: army kon
+	Prussia: army sch
+	Prussia: army bud
+	Ottoman Empire: army egy
+	France: army bel
+	Denmark: fleet bat
+	Britain: fleet cel
+	France: fleet tys
+	Russia: fleet gob
+	Russia: fleet bai
+	Denmark: fleet cop
+	Denmark: fleet edi
+	France: army mec
+	France: fleet bay
+	France: army gas
+	France: fleet tun
+	Denmark: supply bat
+	Russia: supply stp
+	France: supply han
+	France: supply brt
+	Prussia: supply bud
+	Prussia: supply wet
+	Prussia: supply ber
+	Prussia: supply kon
+	France: supply lyo
+	France: supply ven
+	Spain: supply mad
+	France: supply par
+	France: supply val
+	Sicily: supply pal
+	Prussia: supply mos
+	France: supply cis
+	Prussia: supply sax
+	Britain: supply alg
+	Ottoman Empire: supply con
+	Austria: supply sev
+	Denmark: supply edi
+	Ottoman Empire: supply egy
+	France: supply mar
+	Denmark: supply cop
+	Britain: supply lie
+	France: supply mec
+	France: supply pap
+	Prussia: supply bav
+	Britain: supply brl
+	France: supply hel
+	Denmark: supply chr
+	Denmark: supply swe
+	France: supply nap
+	Austria: supply vie
+	Austria: supply pie
+	Prussia: supply kie
+	Ottoman Empire: supply ang
+	Britain: supply lon
+	Denmark: supply fil
+ORDERS
+	remove gre
+	build Army chr
+	build Army brt
+	build Fleet ang
