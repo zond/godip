@@ -37,7 +37,7 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/empiresandcoalitionsmap.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion: "2",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
@@ -314,7 +314,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		Prov("edi").Conn("not", godip.Sea).Conn("noa", godip.Sea).Conn("cel", godip.Sea).Conn("lie", godip.Coast...).Conn("ire", godip.Coast...).Conn("yor", godip.Coast...).Flag(godip.Coast...).SC(Britain).
 		// Bay of Biscay
 		Prov("bay").Conn("eng", godip.Sea).Conn("cel", godip.Sea).Conn("atl", godip.Sea).Conn("nav", godip.Sea).Conn("gas", godip.Sea).Conn("brt", godip.Sea).Flag(godip.Sea).
-		// Napels
+		// Naples
 		Prov("nap").Conn("ion", godip.Sea).Conn("apu", godip.Coast...).Conn("pal", godip.Coast...).Conn("pap", godip.Land).Conn("pap/wc", godip.Sea).Conn("tys", godip.Sea).Flag(godip.Coast...).SC(Sicily).
 		// Gulf of Lyon
 		Prov("gol").Conn("cat", godip.Sea).Conn("bae", godip.Sea).Conn("tys", godip.Sea).Conn("pie", godip.Sea).Conn("mar", godip.Sea).Flag(godip.Sea).
