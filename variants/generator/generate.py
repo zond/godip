@@ -28,9 +28,9 @@ GUTTER = 10
 # How curvy the edges should be made
 CURVE_WEIGHT = 0.5
 # The background colour of sea regions
-SEA_COLOR = '#c6efed'
+SEA_COLOR = '#d4d0ad'
 # The background colour of the land
-LAND_COLOR = '#ffffff'
+LAND_COLOR = '#f4d7b5'
 # The thickness of thick lines
 THICK = 2.225
 #THICK = 1.1125
@@ -734,6 +734,14 @@ def addPattern(root):
     stripes = root.find('{0}pattern[@id="stripes"]'.format(SVG))
     xml.etree.ElementTree.SubElement(stripes, '{}path'.format(SVG), {'id': 'stripePath', 'd': 'M -1,2 l 6,0', 'stroke': '#ff0000', 'stroke-width': '1'})
 
+def addBlurFilter(root):
+    """Add the Gaussian blur filter that's used for the shadow effect along the coast."""
+    xml.etree.ElementTree.SubElement(root, '{}defs'.format(SVG), {'id': 'defs'})
+    defs = root.find('{0}defs[@id="defs"]'.format(SVG))
+    xml.etree.ElementTree.SubElement(defs, '{}filter'.format(SVG), {'id': 'blur', 'style': 'color-interpolation-filters:sRGB', 'x':'-10', 'y':'-10', 'width': '20', 'height': '20'})
+    blur = defs.find('{0}filter[@id="blur"]'.format(SVG))
+    xml.etree.ElementTree.SubElement(blur, '{}feGaussianBlur'.format(SVG), {'id': 'feBlur', 'stdDeviation': '2.5'})
+
 def addRectToLayer(layer, corners, fill):
     """Draw a rectangle using the given corners and fill in the specified color."""
     fillStyle = 'fill:{};fill-opacity:1;'.format(SEA_COLOR) if fill else 'fill:none;'
@@ -777,6 +785,39 @@ def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible
         if edgesOnly:
             style += ';stroke:#000000;stroke-width:2px'
         xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': name, 'd': d, 'style': style})
+
+def addShadowsToBackground(root, edgeThickness, edgeToNames):
+    layer = getLayer(root, 'background')
+    edgeIds = set()
+    for edge, biedge in edgeToDMap.items():
+        thickness = edgeThickness[edge]
+        if thickness != THICK:
+            continue
+        edgePath = biedge[0]
+        toolParts = getToolParts(edgePath)
+        tool, inst = toolParts[0].split(' ', 1)
+        loc = locFrom(inst)
+        d = 'M {} C '.format(strFrom(loc))
+        for i, toolPart in enumerate(toolParts):
+            tool, inst = toolPart.split(' ', 1)
+            loc = locFrom(inst)
+            if i == 0:
+                d += '{0} '.format(strFrom(loc))
+            elif i == len(toolParts) - 1:
+                d += '{0} {1} '.format(strFrom(loc), strFrom(loc))
+            else:
+                lastLoc = locFrom(toolParts[i-1].split(' ', 1)[1])
+                nextLoc = locFrom(toolParts[i+1].split(' ', 1)[1])
+                locA, locB = calculateCurvePoints(lastLoc, loc, nextLoc)
+                d += '{0} {1} {2} '.format(strFrom(locA), strFrom(loc), strFrom(locB))
+        edgeId = 's_'+'_'.join(edgeToNames[edge])
+        n = 2
+        while edgeId in edgeIds:
+            edgeId = 's_'+'_'.join(edgeToNames[edge]) + '_{0}'.format(n)
+            n += 1
+        edgeIds.add(edgeId)
+        shadow = xml.etree.ElementTree.Element('{}path'.format(SVG), {'id': edgeId, 'd': d, 'style': 'fill:none;vector-effect:none;fill-rule:evenodd;stroke:#000100;stroke-width:{};stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#blur)'.format(thickness)})
+        layer.insert(1, shadow)
 
 def getEdgeThickness(edges, provinces):
     """Create a map giving the desired thickness of each edge.  Coastal edges are thick,
@@ -1017,6 +1058,8 @@ seaLayer = getLayer(root, 'sea')
 removeAllLayers(root)
 # Add the pattern layer for when provinces are selectable.
 addPattern(root)
+# Add the blur definition which will be used for the shadow layer.
+addBlurFilter(root)
 # Add all the layers to the output.
 backgroundRegionNames = {}
 for province in provinces:
@@ -1024,6 +1067,7 @@ for province in provinces:
         backgroundRegionNames[province.abbreviation + '_background'] = province.edges
 addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', LAND_COLOR, True, corners)
 edgeThickness, edgeToNames = getEdgeThickness(edgeToDMap.keys(), provinces)
+addShadowsToBackground(root, edgeThickness, edgeToNames)
 passableNames = {}
 for province in provinces:
     if not province.flags.impassable:
