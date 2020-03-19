@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = '1800: Empires And Coalitions'
+VARIANT = 'Empires And Coalitions'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -736,7 +736,7 @@ def addPattern(root):
 
 def addRectToLayer(layer, corners, fill):
     """Draw a rectangle using the given corners and fill in the specified color."""
-    fillStyle = 'fill:{};fill-opacity:1;'.format(LAND_COLOR) if fill else 'fill:none;'
+    fillStyle = 'fill:{};fill-opacity:1;'.format(SEA_COLOR) if fill else 'fill:none;'
     style= fillStyle + 'display:inline;stroke:#000000;stroke-width:{};stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'.format(THICK)
     width = '{}'.format(corners[2][0] - corners[0][0])
     height = '{}'.format(corners[2][1] - corners[0][1])
@@ -1020,9 +1020,9 @@ addPattern(root)
 # Add all the layers to the output.
 backgroundRegionNames = {}
 for province in provinces:
-    if province.flags.sea:
+    if not province.flags.sea:
         backgroundRegionNames[province.abbreviation + '_background'] = province.edges
-addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', SEA_COLOR, True, corners)
+addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', LAND_COLOR, True, corners)
 edgeThickness, edgeToNames = getEdgeThickness(edgeToDMap.keys(), provinces)
 passableNames = {}
 for province in provinces:
