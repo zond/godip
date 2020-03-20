@@ -250,7 +250,7 @@ func EmpiresAndCoalitionsGraph() *graph.Graph {
 		Prov("not").Conn("lon", godip.Sea).Conn("eng", godip.Sea).Conn("bel", godip.Sea).Conn("bat", godip.Sea).Conn("wet", godip.Sea).Conn("han", godip.Sea).Conn("sch", godip.Sea).Conn("sch/wc", godip.Sea).Conn("ska", godip.Sea).Conn("now", godip.Sea).Conn("noa", godip.Sea).Conn("edi", godip.Sea).Conn("yor", godip.Sea).Flag(godip.Sea).
 		// Urals
 		Prov("ura").Conn("stp", godip.Land).Conn("mos", godip.Land).Conn("sev", godip.Land).Flag(godip.Land).
-		// Galacia
+		// Galicia
 		Prov("gal").Conn("bud", godip.Land).Conn("tra", godip.Land).Conn("mol", godip.Land).Conn("ukr", godip.Land).Conn("kie", godip.Land).Conn("pol", godip.Land).Conn("boh", godip.Land).Flag(godip.Land).
 		// North Atlantic
 		Prov("noa").Conn("atl", godip.Sea).Conn("cel", godip.Sea).Conn("ire", godip.Sea).Conn("cel", godip.Sea).Conn("edi", godip.Sea).Conn("not", godip.Sea).Conn("now", godip.Sea).Conn("ice", godip.Sea).Conn("arc", godip.Sea).Flag(godip.Sea).

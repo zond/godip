@@ -27,9 +27,9 @@
      pagecolor="#ffffff"
      showgrid="false"
      units="px"
-     inkscape:current-layer="background"
-     inkscape:cx="630.55891"
-     inkscape:cy="448.34559"
+     inkscape:current-layer="layer8"
+     inkscape:cx="606.30807"
+     inkscape:cy="728.00486"
      inkscape:document-units="mm"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
@@ -38,7 +38,7 @@
      inkscape:window-width="1853"
      inkscape:window-x="67"
      inkscape:window-y="27"
-     inkscape:zoom="1.4" />
+     inkscape:zoom="0.49497475" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -2752,7 +2752,7 @@
        sodipodi:nodetypes="csscscc" />
     <path
        style="display:inline;opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000100;stroke-width:2.22614169;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 1043.4386,1159.6752 c 0.6333,-3.9927 7.1981,-6.1542 11.8698,-6.4814 6.9265,2.0115 15.6142,8.7264 24.0606,8.8257 11.1693,-3.9761 37.037,-0.01 51.3292,-3.5854 2.3224,1.0303 4.6928,3.6231 4.0101,5.7918 -0.7502,2.3833 -4.3321,3.7731 -7.539,3.5854 -11.7488,-1.8878 -23.1126,2.6046 -35.2888,4.1371 -11.8752,-0.537 -23.5783,-5.9818 -34.6472,-7.3088 -2.2802,0.116 -4.197,2.5336 -6.4161,2.0686 -3.5678,-0.7476 -7.8747,-3.9049 -7.3786,-7.033 z"
+       d="m 1043.4386,1158.8361 c 0.6333,-3.9927 7.1981,-6.1542 11.8698,-6.4814 6.9265,2.0115 15.6142,8.7264 24.0606,8.8257 11.1693,-3.9761 37.037,-0.01 51.3292,-3.5854 2.3224,1.0303 4.6928,3.6231 4.0101,5.7918 -0.7502,2.3833 -4.3321,3.7731 -7.539,3.5854 -11.7488,-1.8878 -23.1126,2.6046 -35.2888,4.1371 -11.8752,-0.537 -23.5783,-5.9818 -34.6472,-7.3088 -2.2802,0.116 -4.197,2.5336 -6.4161,2.0686 -3.5678,-0.7476 -7.8747,-3.9049 -7.3786,-7.033 z"
        id="path1625"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccc" />
@@ -3333,7 +3333,7 @@
            style="font-weight:bold;stroke-width:0.26458332px"
            id="tspan22819">Gal</tspan><tspan
            style="font-weight:normal;stroke-width:0.26458332px"
-           id="tspan22821">acia</tspan></tspan></text>
+           id="tspan22821">icia</tspan></tspan></text>
     <text
        id="text5391"
        style="font-style:normal;font-weight:normal;font-size:24.73889542px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
