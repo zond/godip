@@ -7,10 +7,10 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1000"
-   height="1000"
+   width="100%"
+   height="100%"
    version="1.0"
-   viewBox="0 0 4997.55 5000"
+   viewBox="0 0 5000 5000"
    id="svg3483"
    sodipodi:docname="germany.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -39,9 +39,9 @@
      inkscape:window-height="1016"
      id="namedview3485"
      showgrid="false"
-     inkscape:zoom="0.49073211"
-     inkscape:cx="522.45243"
-     inkscape:cy="556.0771"
+     inkscape:zoom="0.125"
+     inkscape:cx="1731.7042"
+     inkscape:cy="3092.9378"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -6834,33 +6834,33 @@
   </defs>
   <g
      id="g2907"
-     transform="matrix(1.0794731,0,0,1.7300668,2.7319584,-5.0995283)"
-     style="stroke-width:0.73174989">
+     transform="matrix(1.0397286,0,0,1.7300668,2.6313719,-5.0995283)"
+     style="stroke-width:0.74560463">
     <rect
        id="red_background"
        x="-1.22545"
        y="1.85915e-05"
-       width="5000"
+       width="4808.9473"
        height="3000"
-       style="fill:#ffffff;stroke-width:0.73174989" />
+       style="fill:#ffffff;stroke-width:0.74560463" />
     <path
-       d="M -1.22545,-0.00183105 V 457.17266 H 2105.8032 V -0.00183105 Z"
+       d="M -2.5308258,-0.00183105 V 457.17266 H 2193.4367 V -0.00183105 Z"
        id="path2903"
        inkscape:connector-curvature="0"
-       style="stroke-width:0.73174989" />
+       style="stroke-width:0.74560463" />
     <path
-       d="M -1.22545,932.01584 V 1365.6332 H 2112.4775 V 932.01584 Z"
+       d="M -2.5308257,932.01584 V 1365.6332 H 2192.7826 V 932.01584 Z"
        id="path2905"
        inkscape:connector-curvature="0"
-       style="fill:#dd0000;stroke-width:0.73174989" />
+       style="fill:#dd0000;stroke-width:0.74560457" />
   </g>
   <g
      id="g2915"
      transform="translate(400,1100)">
     <rect
-       x="-397.47964"
-       y="1253.5699"
-       width="5396.2534"
+       x="-400"
+       y="1253.5701"
+       width="5000"
        height="492.86499"
        id="rect2909"
        style="stroke-width:1" />
@@ -6887,16 +6887,16 @@
      id="rect2923"
      style="fill:#ffffff;stroke-width:1" />
   <rect
-     x="1.4084789"
+     x="0"
      y="2377.95"
-     width="5397.3657"
+     width="5000"
      height="444.10699"
      id="rect2917"
      style="fill:#ffffff;stroke-width:1" />
   <rect
-     x="1.4084789"
+     x="0"
      y="2437.99"
-     width="5397.3657"
+     width="5000"
      height="324.01401"
      id="rect2919"
      style="stroke-width:1" />
@@ -7458,7 +7458,7 @@
          style="fill:url(#SVGID_72_)" />
       <polygon
          transform="matrix(0.281047,0,0,0.281047,99.1673,55.9673)"
-         points="434.83,406.97 435.25,406.46 440.48,412.68 440.06,413.19 "
+         points="435.25,406.46 440.48,412.68 440.06,413.19 434.83,406.97 "
          id="polygon3149"
          style="fill:url(#SVGID_73_);stroke:#af8048" />
       <path
@@ -7597,7 +7597,7 @@
       </g>
       <polygon
          transform="matrix(0.281047,0,0,0.281047,99.1673,55.9673)"
-         points="576.16,211.18 576.92,204.46 580.54,200.09 589.24,197.75 598.08,196.18 599.29,196.18 608.14,197.75 616.82,200.09 620.45,204.47 621.21,211.18 617.43,217.91 615.61,219.86 581.75,219.86 579.94,217.91 "
+         points="576.92,204.46 580.54,200.09 589.24,197.75 598.08,196.18 599.29,196.18 608.14,197.75 616.82,200.09 620.45,204.47 621.21,211.18 617.43,217.91 615.61,219.86 581.75,219.86 579.94,217.91 576.16,211.18 "
          id="polygon3209"
          style="fill:url(#SVGID_88_);stroke:#1a171b;stroke-width:0.2" />
       <path
@@ -7610,7 +7610,7 @@
          style="stroke:#af8048">
         <polygon
            transform="matrix(0.281047,0,0,0.281047,99.1673,55.9673)"
-           points="598.61,213.84 602.47,216.5 605.18,216.58 608.74,214.23 611.46,216.89 615.01,217.43 617.89,216.27 620.3,214.86 617.36,219.94 615.08,226.89 601.11,225.48 583.95,226.81 581,220.17 577.37,215.25 582.97,217.51 586.82,216.26 588.48,213.84 591.28,216.42 595.58,216.27 "
+           points="602.47,216.5 605.18,216.58 608.74,214.23 611.46,216.89 615.01,217.43 617.89,216.27 620.3,214.86 617.36,219.94 615.08,226.89 601.11,225.48 583.95,226.81 581,220.17 577.37,215.25 582.97,217.51 586.82,216.26 588.48,213.84 591.28,216.42 595.58,216.27 598.61,213.84 "
            id="polygon3213"
            style="fill:url(#SVGID_89_)" />
         <path
@@ -7938,12 +7938,12 @@
          style="fill:#af8048" />
       <polygon
          transform="matrix(0.281047,0,0,0.281047,99.1673,55.9673)"
-         points="581.75,221.66 581.79,221.07 586.23,222.09 586.68,224.29 583.62,226.14 "
+         points="581.79,221.07 586.23,222.09 586.68,224.29 583.62,226.14 581.75,221.66 "
          id="polygon3343"
          style="fill:url(#SVGID_142_);stroke:#af8048" />
       <polygon
          transform="matrix(0.281047,0,0,0.281047,99.1673,55.9673)"
-         points="616.47,221.66 616.43,221.07 612,222.09 611.53,224.29 614.61,226.14 "
+         points="616.43,221.07 612,222.09 611.53,224.29 614.61,226.14 616.47,221.66 "
          id="polygon3345"
          style="fill:url(#SVGID_143_);stroke:#af8048" />
       <polyline

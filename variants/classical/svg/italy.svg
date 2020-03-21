@@ -8,12 +8,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="1500"
-   width="1500"
+   height="100%"
+   width="100%"
    version="1.1"
    id="svg831"
    sodipodi:docname="italy.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   viewBox="0 0 1500 1500">
   <metadata
      id="metadata837">
     <rdf:RDF>
@@ -22,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -42,31 +43,31 @@
      id="namedview833"
      showgrid="false"
      inkscape:zoom="0.46266667"
-     inkscape:cx="447.38357"
-     inkscape:cy="839.33593"
+     inkscape:cx="819.14149"
+     inkscape:cy="512.96706"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg831" />
   <g
      id="g8"
-     style="stroke-width:405.14663696"
-     transform="matrix(1,0,0,1.5230548,0,-1.5273777)">
+     style="stroke-width:408.24829102"
+     transform="matrix(1,0,0,1.5,0,-1)">
     <path
-       d="M 0,0 H 1500 V 1000 H 0 Z"
+       d="M 0,0.66666667 H 1500 V 1000.6667 H 0 Z"
        id="path2"
        inkscape:connector-curvature="0"
-       style="fill:#009246;stroke-width:405.14663696" />
+       style="fill:#009246;stroke-width:408.24829102" />
     <path
-       d="M 500,0 H 1500 V 1000 H 500 Z"
+       d="M 500,0.66666667 H 1500 V 1000.6667 H 500 Z"
        id="path4"
        inkscape:connector-curvature="0"
-       style="fill:#ffffff;stroke-width:405.14663696" />
+       style="fill:#ffffff;stroke-width:408.24829102" />
     <path
-       d="m 1000,0 h 500 v 1000 h -500 z"
+       d="m 1000,0.66666667 h 500 V 1000.6667 h -500 z"
        id="path6"
        inkscape:connector-curvature="0"
-       style="fill:#ce2b37;stroke-width:405.14663696" />
+       style="fill:#ce2b37;stroke-width:408.24829102" />
   </g>
   <g
      stroke-miterlimit="3"

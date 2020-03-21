@@ -7,12 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="720"
-   height="720"
+   width="100%"
+   height="100%"
    version="1.1"
    id="svg19"
    sodipodi:docname="england.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   viewBox="0 0 720 720">
   <metadata
      id="metadata25">
     <rdf:RDF>
@@ -40,9 +41,9 @@
      inkscape:window-height="1016"
      id="namedview21"
      showgrid="false"
-     inkscape:zoom="0.48194444"
-     inkscape:cx="133.83285"
-     inkscape:cy="180"
+     inkscape:zoom="0.68157236"
+     inkscape:cx="-93.957185"
+     inkscape:cy="152.47543"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -56,10 +57,10 @@
   </clipPath>
   <rect
      width="720"
-     height="719.05066"
+     height="720"
      id="rect5"
      x="0"
-     y="0.94935673"
+     y="-1"
      style="fill:#ffffff;stroke-width:1.41328084" />
   <rect
      width="360"
@@ -91,7 +92,7 @@
      inkscape:connector-curvature="0"
      style="stroke:#c8102e;stroke-width:44.09436417" />
   <path
-     d="M 0,360.47468 H 720 M 360,0.94935674 V 720"
+     d="M 0,359 H 720 M 360,-1 v 720"
      id="path17"
      inkscape:connector-curvature="0"
      style="stroke:#c8102e;stroke-width:67.83748627" />
