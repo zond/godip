@@ -60,15 +60,8 @@ var FranceAustriaVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return classical.Asset("svg/map.svg")
 	},
-	SVGVersion: "1",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "1",
+	SVGUnits:    classical.SVGUnits,
 	CreatedBy:   "",
 	Version:     "",
 	Description: "A two player variant on the classical map.",

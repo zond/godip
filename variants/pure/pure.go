@@ -39,6 +39,7 @@ var PureVariant = common.Variant{
 			return classical.Asset("svg/army.svg")
 		},
 	},
+	SVGFlags:    classical.SVGFlags,
 	CreatedBy:   "Danny Loeb",
 	Version:     "vb10",
 	Description: "A very minimal version of classical Diplomacy where each country is a single province.",
