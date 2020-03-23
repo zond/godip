@@ -41,9 +41,9 @@
      inkscape:window-height="1016"
      id="namedview21"
      showgrid="false"
-     inkscape:zoom="1.3631447"
-     inkscape:cx="276.87178"
-     inkscape:cy="432.14203"
+     inkscape:zoom="0.96388886"
+     inkscape:cx="310.09129"
+     inkscape:cy="353.02883"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -79,8 +79,8 @@
      clip-path="url(#c)"
      id="path11"
      inkscape:connector-curvature="0"
-     style="stroke:#c8102e;stroke-width:20.37682915"
-     transform="matrix(1.0207586,0,0,2.0388597,-3.0284301,-2.9722083)" />
+     style="fill:none;fill-opacity:1;stroke:#c8102e;stroke-width:20.57380104;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(1.0109868,0,0,2.0193047,0.02541532,-0.1652619)" />
   <path
      d="M 0,156 H 360 M 168,0 v 360"
      id="path13"
