@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,9 +41,9 @@
      inkscape:window-height="1016"
      id="namedview21"
      showgrid="false"
-     inkscape:zoom="0.68157236"
-     inkscape:cx="-93.957185"
-     inkscape:cy="152.47543"
+     inkscape:zoom="1.3631447"
+     inkscape:cx="276.87178"
+     inkscape:cy="432.14203"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -64,13 +64,13 @@
      style="fill:#ffffff;stroke-width:1.41328084" />
   <rect
      width="360"
-     height="359.52533"
+     height="360"
      id="rect7"
      x="0"
-     y="0.94935673"
-     style="fill:#012169;stroke-width:1.41328084" />
+     y="1.7498779e-08"
+     style="fill:#012169;stroke-width:1.41328096" />
   <path
-     d="M 0,0.94935674 336,312.53797 m -336,0 L 336,0.94935674"
+     d="M -7.3612245,-5.918016 343.36122,319.40533 m -350.7224445,0 L 343.36122,-5.918016"
      id="path9"
      inkscape:connector-curvature="0"
      style="stroke:#ffffff;stroke-width:44.09436417" />
@@ -79,20 +79,20 @@
      clip-path="url(#c)"
      id="path11"
      inkscape:connector-curvature="0"
-     style="stroke:#c8102e;stroke-width:20.79999924"
-     transform="matrix(1,0,0,1.9973629,0,0.94935674)" />
+     style="stroke:#c8102e;stroke-width:20.37682915"
+     transform="matrix(1.0207586,0,0,2.0388597,-3.0284301,-2.9722083)" />
   <path
-     d="M 0,156.74366 H 360 M 168,0.94935674 V 360.47468"
+     d="M 0,156 H 360 M 168,0 v 360"
      id="path13"
      inkscape:connector-curvature="0"
-     style="stroke:#ffffff;stroke-width:73.49060822" />
+     style="stroke:#ffffff;stroke-width:73.491;stroke-miterlimit:4;stroke-dasharray:none" />
   <path
-     d="M 0,156.74366 H 360 M 168,0.94935674 V 360.47468"
+     d="M 0,156 H 360 M 168,0 v 360"
      id="path15"
      inkscape:connector-curvature="0"
      style="stroke:#c8102e;stroke-width:44.09436417" />
   <path
-     d="M 0,359 H 720 M 360,-1 v 720"
+     d="M 0,360 H 720 M 360,0 v 720"
      id="path17"
      inkscape:connector-curvature="0"
      style="stroke:#c8102e;stroke-width:67.83748627" />

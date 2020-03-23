@@ -16,7 +16,8 @@
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="turkey.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   version="1.0">
+   version="1.0"
+   viewBox="0 0 1000 1000">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -30,8 +31,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.55"
-     inkscape:cx="126.68368"
-     inkscape:cy="301.84506"
+     inkscape:cx="-106.0436"
+     inkscape:cy="600.02688"
      inkscape:document-units="px"
      inkscape:current-layer="svg2"
      showborder="true"
@@ -55,16 +56,16 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <rect
-     style="fill:#e30a17;fill-opacity:1;stroke-width:1"
-     y="0.18182158"
+     style="fill:#e30a17;fill-opacity:1;stroke-width:0.99999994"
+     y="0"
      x="-5.8593751e-06"
      width="1000"
-     height="1003.6364"
+     height="1000"
      id="rect2400" />
   <g
      style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1"

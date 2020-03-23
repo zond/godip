@@ -12,7 +12,8 @@
    height="100%"
    id="svg8"
    sodipodi:docname="france.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   viewBox="0 0 900 900">
   <metadata
      id="metadata14">
     <rdf:RDF>
@@ -41,7 +42,7 @@
      id="namedview10"
      showgrid="false"
      inkscape:zoom="0.38555556"
-     inkscape:cx="167.29107"
+     inkscape:cx="31.123925"
      inkscape:cy="300"
      inkscape:window-x="67"
      inkscape:window-y="27"
@@ -49,23 +50,23 @@
      inkscape:current-layer="svg8" />
   <rect
      width="900"
-     height="900.86456"
+     height="900"
      id="rect2"
      x="0"
-     y="-0.86456001"
+     y="-1"
      style="fill:#ed2939;stroke-width:1" />
   <rect
      width="600"
-     height="900.86456"
+     height="900"
      id="rect4"
      x="0"
-     y="-0.86456001"
+     y="-1"
      style="fill:#ffffff;stroke-width:1" />
   <rect
      width="300"
-     height="900.86456"
+     height="900"
      id="rect6"
      x="0"
-     y="-0.86456001"
+     y="-1"
      style="fill:#002395;stroke-width:1" />
 </svg>
