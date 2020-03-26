@@ -85,7 +85,7 @@ var ClassicalVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/map.svg")
 	},
-	SVGVersion:  "6",
+	SVGVersion:  "7",
 	SVGUnits:    SVGUnits,
 	SVGFlags:    SVGFlags,
 	CreatedBy:   "Allan B. Calhamer",
