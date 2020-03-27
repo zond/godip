@@ -106,6 +106,12 @@ To remove these attributes from the svg use one of the [methods on this page](ht
 
 To prepare the svg file for use by go, the tool [go-bindata](https://github.com/jteeuwen/go-bindata) can be used. For example the command `go-bindata -pkg variants ./svg` will convert all assets in the svg directory into a script in the package "variants".
 
+#### Map style
+
+The Classical map is based on an [original work by trampolinebears](https://www.reddit.com/r/diplomacy/comments/8gx4ao/diplomacy_map/).
+
+![Godip Classical Map](variants/classical/svg/map.svg)
+
 ### Algorithm
 
 Heavily inspired by [The Math of Adjudication](http://www.diplom.org/Zine/S2009M/Kruijswijk/DipMath_Chp1.htm) by Lucas Kruijswijk.
