@@ -16,7 +16,38 @@ var (
 	PhaseTypes = []godip.PhaseType{godip.Movement, godip.Retreat, godip.Adjustment}
 	Seasons    = []godip.Season{godip.Spring, godip.Fall}
 	UnitTypes  = []godip.UnitType{godip.Army, godip.Fleet}
-	Parser     = orders.NewParser([]godip.Order{
+	SVGUnits   = map[godip.UnitType]func() ([]byte, error){
+		godip.Army: func() ([]byte, error) {
+			return Asset("svg/army.svg")
+		},
+		godip.Fleet: func() ([]byte, error) {
+			return Asset("svg/fleet.svg")
+		},
+	}
+	SVGFlags = map[godip.Nation]func() ([]byte, error){
+		godip.Austria: func() ([]byte, error) {
+			return Asset("svg/austria.svg")
+		},
+		godip.England: func() ([]byte, error) {
+			return Asset("svg/england.svg")
+		},
+		godip.France: func() ([]byte, error) {
+			return Asset("svg/france.svg")
+		},
+		godip.Germany: func() ([]byte, error) {
+			return Asset("svg/germany.svg")
+		},
+		godip.Italy: func() ([]byte, error) {
+			return Asset("svg/italy.svg")
+		},
+		godip.Russia: func() ([]byte, error) {
+			return Asset("svg/russia.svg")
+		},
+		godip.Turkey: func() ([]byte, error) {
+			return Asset("svg/turkey.svg")
+		},
+	}
+	Parser = orders.NewParser([]godip.Order{
 		orders.BuildOrder,
 		orders.ConvoyOrder,
 		orders.DisbandOrder,
@@ -54,15 +85,9 @@ var ClassicalVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/map.svg")
 	},
-	SVGVersion: "5",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "8",
+	SVGUnits:    SVGUnits,
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "Allan B. Calhamer",
 	Version:     "",
 	Description: "The original game of Diplomacy.",

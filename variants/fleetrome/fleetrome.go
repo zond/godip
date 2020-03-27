@@ -35,15 +35,9 @@ var FleetRomeVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return classical.Asset("svg/map.svg")
 	},
-	SVGVersion: "1",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "1",
+	SVGUnits:    classical.SVGUnits,
+	SVGFlags:    classical.SVGFlags,
 	CreatedBy:   "Richard Sharp",
 	Version:     "",
 	Description: "Classical Diplomacy, but Italy starts with a fleet in Rome.",

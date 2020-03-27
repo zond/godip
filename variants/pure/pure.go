@@ -33,12 +33,13 @@ var PureVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/puremap.svg")
 	},
-	SVGVersion: "3",
+	SVGVersion: "4",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
 		},
 	},
+	SVGFlags:    classical.SVGFlags,
 	CreatedBy:   "Danny Loeb",
 	Version:     "vb10",
 	Description: "A very minimal version of classical Diplomacy where each country is a single province.",
