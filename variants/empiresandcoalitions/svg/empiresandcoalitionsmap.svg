@@ -15,7 +15,24 @@
    sodipodi:docname="empiresandcoalitionsmap.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <defs
-     id="defs2" />
+     id="defs2">
+    <pattern
+       id="impassableStripes-3"
+       patternUnits="userSpaceOnUse"
+       width="16"
+       height="16"
+       patternTransform="rotate(35)">
+      <line
+         x1="0"
+         y="0"
+         x2="0"
+         y2="16"
+         stroke="#000000"
+         stroke-opacity="0.1"
+         stroke-width="18"
+         id="impassableStripesLine-6" />
+    </pattern>
+  </defs>
   <sodipodi:namedview
      bordercolor="#666666"
      borderopacity="1.0"
@@ -28,8 +45,8 @@
      showgrid="false"
      units="px"
      inkscape:current-layer="background"
-     inkscape:cx="739.72463"
-     inkscape:cy="655.74451"
+     inkscape:cx="777.10027"
+     inkscape:cy="700.19122"
      inkscape:document-units="mm"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
@@ -92,6 +109,13 @@
      inkscape:groupmode="layer"
      inkscape:label="background"
      transform="translate(1.1124981,1.1124981)">
+    <rect
+       height="1391.7021"
+       id="bg_rect-7"
+       style="display:inline;fill:#f4d7b5;fill-rule:evenodd;stroke:none;stroke-width:1;fill-opacity:1"
+       width="1669.7083"
+       x="1.8796776e-06"
+       y="1.8896778e-06" />
     <rect
        height="1391.7021"
        id="bg_rect"
