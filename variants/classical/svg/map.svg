@@ -148,7 +148,7 @@
          id="impassableStripesLine" />
     </pattern>
     <pattern
-       patternTransform="translate(-411.41243,-459.25258)"
+       patternTransform="matrix(1.000657,0,0,1.001476,-1.0006724,-1.0014925)"
        id="pattern1827"
        xlink:href="#pattern-4-3"
        inkscape:collect="always" />
@@ -181,13 +181,13 @@
      inkscape:window-height="1016"
      id="namedview12"
      showgrid="false"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="691.11852"
-     inkscape:cy="756.12675"
+     inkscape:zoom="0.5"
+     inkscape:cx="678.73009"
+     inkscape:cy="855.42602"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="background" />
+     inkscape:current-layer="layer1" />
   <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
   <title
      id="title2">background</title>
@@ -1556,14 +1556,14 @@
      inkscape:groupmode="layer"
      id="layer1"
      inkscape:label="noise"
-     style="display:none">
+     style="display:inline">
     <rect
        id="Noise"
-       x="-410.41241"
-       y="-458.25256"
-       width="1522"
-       height="1355"
-       style="display:inline;fill:url(#pattern1827);fill-opacity:0.05;fill-rule:evenodd;stroke:#000000;stroke-width:2" />
+       x="0"
+       y="0"
+       width="1523"
+       height="1357"
+       style="display:inline;fill:url(#pattern1827);fill-opacity:0.05;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988" />
   </g>
   <g
      inkscape:groupmode="layer"

@@ -732,14 +732,23 @@ def calculateCurvePoints(lastLoc, loc, nextLoc):
             locB = ((yB - offset) / gradient, yB)
     return locA, locB
 
-def addPattern(root):
+def addStripesPattern(root):
     """Add the pattern that's used for indicating provinces that can be clicked on by the player."""
-    '''<pattern xmlns="http://www.w3.org/2000/svg" id="stripes" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45 2 2)">
-    <path xmlns="http://www.w3.org/2000/svg" d="M -1,2 l 6,0" stroke="#ff0000" stroke-width="1" id="path4424"></path>
+    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
+      <line x1="0" y="0" x2="0" y2="16" stroke="#ff0000" stroke-opacity="0.56" stroke-width="18" id="line13" />
     </pattern>'''
-    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(45 2 2)'})
+    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
     stripes = root.find('{0}pattern[@id="stripes"]'.format(SVG))
-    xml.etree.ElementTree.SubElement(stripes, '{}path'.format(SVG), {'id': 'stripePath', 'd': 'M -1,2 l 6,0', 'stroke': '#ff0000', 'stroke-width': '1'})
+    xml.etree.ElementTree.SubElement(stripes, '{}line'.format(SVG), {'id': 'stripePath', 'x1': '0', 'y':'0', 'x2': '0', 'y2': '16', 'stroke': '#ff0000', 'stroke-opacity': '0.56', 'stroke-width': '18'})
+
+def addImpassablePattern(root):
+    """Add the pattern that's used for indicating regions are impassable."""
+    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
+      <line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="line13" />
+    </pattern>'''
+    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'impassableStripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
+    impassableStripes = root.find('{0}pattern[@id="impassableStripes"]'.format(SVG))
+    xml.etree.ElementTree.SubElement(impassableStripes, '{}line'.format(SVG), {'id': 'impassableStripePath', 'x1': '0', 'y':'0', 'x2': '0', 'y2': '16', 'stroke': '#000000', 'stroke-opacity': '0.1', 'stroke-width': '18'})
 
 def addBlurFilter(root):
     """Add the Gaussian blur filter that's used for the shadow effect along the coast."""
@@ -748,6 +757,12 @@ def addBlurFilter(root):
     xml.etree.ElementTree.SubElement(defs, '{}filter'.format(SVG), {'id': 'blur', 'style': 'color-interpolation-filters:sRGB', 'x':'-10', 'y':'-10', 'width': '20', 'height': '20'})
     blur = defs.find('{0}filter[@id="blur"]'.format(SVG))
     xml.etree.ElementTree.SubElement(blur, '{}feGaussianBlur'.format(SVG), {'id': 'feBlur', 'stdDeviation': '2.5'})
+
+def addPatterns(root):
+    """Add the common patterns that will be used by map features."""
+    addStripesPattern(root)
+    addImpassablePattern(root)
+    addBlurFilter(root)
 
 def addRectToLayer(layer, corners, fill):
     """Draw a rectangle using the given corners and fill in the specified color."""
@@ -1066,10 +1081,7 @@ pcLayer = getLayer(root, 'province-centers')
 seaLayer = getLayer(root, 'sea')
 # Remove all layers from the root, ready to construct the output svg.
 removeAllLayers(root)
-# Add the pattern layer for when provinces are selectable.
-addPattern(root)
-# Add the blur definition which will be used for the shadow layer.
-addBlurFilter(root)
+addPatterns(root)
 # Add all the layers to the output.
 backgroundRegionNames = {}
 for province in provinces:
