@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = '1800: Empires And Coalitions'
+VARIANT = 'Empires And Coalitions'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -28,9 +28,9 @@ GUTTER = 10
 # How curvy the edges should be made
 CURVE_WEIGHT = 0.5
 # The background colour of sea regions
-SEA_COLOR = '#c6efed'
+SEA_COLOR = '#d4d0ad'
 # The background colour of the land
-LAND_COLOR = '#ffffff'
+LAND_COLOR = '#f4d7b5'
 # The thickness of thick lines
 THICK = 2.225
 #THICK = 1.1125
@@ -39,7 +39,8 @@ THIN = 1
 #THIN = 0.5
 
 #CENTER_PATH = 'm {0} c 1.46376,0.75644 0.77536,2.81188 -0.94177,2.81188 -0.33978,0 -0.65086,-0.15021 -0.96854,-0.46769 -1.29208,-1.29116 0.26074,-3.19663 1.91031,-2.34419 z m -1.97586,-0.20114 c -1.49705,1.17676 -0.71534,3.33302 1.20831,3.33302 1.21479,0 1.83143,-0.61952 1.83143,-1.83993 0,-1.61631 -1.77434,-2.4878 -3.03974,-1.49309 z m 2.47228,-0.99043 c 1.95868,0.99856 1.93376,3.99263 -0.0411,4.94804 -2.60602,1.26069 -5.19052,-1.62395 -3.58635,-4.00278 0.83269,-1.23477 2.30641,-1.61882 3.6275,-0.94526 z m -2.63456,-0.40959 c -2.45722,1.09603 -2.38359,4.72122 0.11714,5.76535 2.96981,1.24003 5.65887,-2.26914 3.70406,-4.83365 -0.79774,-1.04651 -2.58617,-1.4826 -3.82116,-0.9317 z'
-
+IMPASSABLE_PATTERN = '<pattern id="impassable" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)"><line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="impassableLine" /></pattern>'
+IMPASSABLE_STYLE = 'fill:url(#impassable);fill-rule:evenodd;stroke:#000000;stroke-width:1'
 
 class Flags:
     """A class to hold boolean attributes of a province."""
@@ -452,6 +453,12 @@ def makeLocsToNames(namesLayer):
             if re.match(r'^rotate\([^\(\)\,]*\)$', transform):
                 angle = math.radians(float(transform.split('(')[1].split(')')[0]))
                 x, y = x * math.cos(angle) - y * math.sin(angle), x * math.sin(angle) + y * math.cos(angle)
+            elif re.match(r'^matrix\([^\(\)]*\)$', transform):
+                args = map(float, transform.split('(')[1].split(')')[0].split(','))
+                x, y = args[0] * x + args[2] * y + args[4], args[1] * x + args[3] * y + args[5]
+            elif re.match(r'^scale\([^\(\)]*\)$', transform):
+                args = map(float, transform.split('(')[1].split(')')[0].split(','))
+                x, y = args[0] * x, args[1] * y
             else:
                 print('Unsupported text transformation: ' + transform + ' used for ' + ' '.join(name))
         loc = (x, y)
@@ -725,18 +732,41 @@ def calculateCurvePoints(lastLoc, loc, nextLoc):
             locB = ((yB - offset) / gradient, yB)
     return locA, locB
 
-def addPattern(root):
+def addStripesPattern(root):
     """Add the pattern that's used for indicating provinces that can be clicked on by the player."""
-    '''<pattern xmlns="http://www.w3.org/2000/svg" id="stripes" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45 2 2)">
-    <path xmlns="http://www.w3.org/2000/svg" d="M -1,2 l 6,0" stroke="#ff0000" stroke-width="1" id="path4424"></path>
+    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
+      <line x1="0" y="0" x2="0" y2="16" stroke="#ff0000" stroke-opacity="0.56" stroke-width="18" id="line13" />
     </pattern>'''
-    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(45 2 2)'})
+    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
     stripes = root.find('{0}pattern[@id="stripes"]'.format(SVG))
-    xml.etree.ElementTree.SubElement(stripes, '{}path'.format(SVG), {'id': 'stripePath', 'd': 'M -1,2 l 6,0', 'stroke': '#ff0000', 'stroke-width': '1'})
+    xml.etree.ElementTree.SubElement(stripes, '{}line'.format(SVG), {'id': 'stripePath', 'x1': '0', 'y':'0', 'x2': '0', 'y2': '16', 'stroke': '#ff0000', 'stroke-opacity': '0.56', 'stroke-width': '18'})
+
+def addImpassablePattern(root):
+    """Add the pattern that's used for indicating regions are impassable."""
+    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
+      <line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="line13" />
+    </pattern>'''
+    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'impassableStripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
+    impassableStripes = root.find('{0}pattern[@id="impassableStripes"]'.format(SVG))
+    xml.etree.ElementTree.SubElement(impassableStripes, '{}line'.format(SVG), {'id': 'impassableStripePath', 'x1': '0', 'y':'0', 'x2': '0', 'y2': '16', 'stroke': '#000000', 'stroke-opacity': '0.1', 'stroke-width': '18'})
+
+def addBlurFilter(root):
+    """Add the Gaussian blur filter that's used for the shadow effect along the coast."""
+    xml.etree.ElementTree.SubElement(root, '{}defs'.format(SVG), {'id': 'defs'})
+    defs = root.find('{0}defs[@id="defs"]'.format(SVG))
+    xml.etree.ElementTree.SubElement(defs, '{}filter'.format(SVG), {'id': 'blur', 'style': 'color-interpolation-filters:sRGB', 'x':'-10', 'y':'-10', 'width': '20', 'height': '20'})
+    blur = defs.find('{0}filter[@id="blur"]'.format(SVG))
+    xml.etree.ElementTree.SubElement(blur, '{}feGaussianBlur'.format(SVG), {'id': 'feBlur', 'stdDeviation': '2.5'})
+
+def addPatterns(root):
+    """Add the common patterns that will be used by map features."""
+    addStripesPattern(root)
+    addImpassablePattern(root)
+    addBlurFilter(root)
 
 def addRectToLayer(layer, corners, fill):
     """Draw a rectangle using the given corners and fill in the specified color."""
-    fillStyle = 'fill:{};fill-opacity:1;'.format(LAND_COLOR) if fill else 'fill:none;'
+    fillStyle = 'fill:{};fill-opacity:1;'.format(SEA_COLOR) if fill else 'fill:none;'
     style= fillStyle + 'display:inline;stroke:#000000;stroke-width:{};stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1'.format(THICK)
     width = '{}'.format(corners[2][0] - corners[0][0])
     height = '{}'.format(corners[2][1] - corners[0][1])
@@ -778,10 +808,43 @@ def addLayerWithRegions(root, regionNames, edgeToDMap, layerName, color, visible
             style += ';stroke:#000000;stroke-width:2px'
         xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': name, 'd': d, 'style': style})
 
-def getEdgeThickness(edges, provinces):
-    """Create a map giving the desired thickness of each edge.  Coastal edges are thick,
-    as are edges involving impassable areas. All other edges are thin."""
-    edgeThickness = {}
+def addShadowsToBackground(root, edgeStyle, edgeToNames):
+    layer = getLayer(root, 'background')
+    edgeIds = set()
+    for edge, biedge in edgeToDMap.items():
+        thickness = float(re.search(r'stroke-width:([^;]*)', edgeStyle[edge]).group(1))
+        if thickness != THICK:
+            continue
+        edgePath = biedge[0]
+        toolParts = getToolParts(edgePath)
+        tool, inst = toolParts[0].split(' ', 1)
+        loc = locFrom(inst)
+        d = 'M {} C '.format(strFrom(loc))
+        for i, toolPart in enumerate(toolParts):
+            tool, inst = toolPart.split(' ', 1)
+            loc = locFrom(inst)
+            if i == 0:
+                d += '{0} '.format(strFrom(loc))
+            elif i == len(toolParts) - 1:
+                d += '{0} {1} '.format(strFrom(loc), strFrom(loc))
+            else:
+                lastLoc = locFrom(toolParts[i-1].split(' ', 1)[1])
+                nextLoc = locFrom(toolParts[i+1].split(' ', 1)[1])
+                locA, locB = calculateCurvePoints(lastLoc, loc, nextLoc)
+                d += '{0} {1} {2} '.format(strFrom(locA), strFrom(loc), strFrom(locB))
+        edgeId = 's_'+'_'.join(edgeToNames[edge])
+        n = 2
+        while edgeId in edgeIds:
+            edgeId = 's_'+'_'.join(edgeToNames[edge]) + '_{0}'.format(n)
+            n += 1
+        edgeIds.add(edgeId)
+        shadow = xml.etree.ElementTree.Element('{}path'.format(SVG), {'id': edgeId, 'd': d, 'style': 'fill:none;vector-effect:none;fill-rule:evenodd;stroke:#000100;stroke-width:{};stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#blur)'.format(thickness)})
+        layer.insert(1, shadow)
+
+def getEdgeStyle(edges, provinces):
+    """Create a map giving the desired style of each edge.  Coastal edges are thick, as are
+    edges involving impassable areas. All other edges are thin. Sea-sea edges are dashed."""
+    edgeStyle = {}
     edgeToNames = {}
     for edge in edges:
         touches = set()
@@ -796,10 +859,14 @@ def getEdgeThickness(edges, provinces):
                     touches.add('impassible')
                 abbreviations.append(province.abbreviation)
         edgeToNames[edge] = abbreviations
-        edgeThickness[edge] = THICK if len(touches) > 1 else THIN
-    return edgeThickness, edgeToNames
+        if touches == set(['sea']):
+            edgeStyle[edge] = 'fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:{};stroke-dasharray:4'.format(THIN)
+        else:
+            thickness = THICK if len(touches) > 1 else THIN
+            edgeStyle[edge] = 'fill:none;fill-rule:evenodd;stroke:#000100;stroke-width:{};stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none'.format(thickness)
+    return edgeStyle, edgeToNames
 
-def addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners):
+def addForeground(root, edgeToDMap, edgeStyle, edgeToNames, corners):
     """Create the foreground layer, consisting of all the edges and a map border."""
     layer = addLayer(root, 'foreground', True)
     edgeIds = set()
@@ -821,14 +888,13 @@ def addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners):
                 nextLoc = locFrom(toolParts[i+1].split(' ', 1)[1])
                 locA, locB = calculateCurvePoints(lastLoc, loc, nextLoc)
                 d += '{0} {1} {2} '.format(strFrom(locA), strFrom(loc), strFrom(locB))
-        thickness = edgeThickness[edge]
         edgeId = 'e_'+'_'.join(edgeToNames[edge])
         n = 2
         while edgeId in edgeIds:
             edgeId = 'e_'+'_'.join(edgeToNames[edge]) + '_{0}'.format(n)
             n += 1
         edgeIds.add(edgeId)
-        xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': edgeId, 'd': d, 'style': 'fill:none;vector-effect:none;fill-rule:evenodd;stroke:#000100;stroke-width:{};stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1'.format(thickness)})
+        xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': edgeId, 'd': d, 'style': edgeStyle[edge]})
     addRectToLayer(layer, corners, False)
 
 def addCenterPath(layer, province):
@@ -1015,15 +1081,15 @@ pcLayer = getLayer(root, 'province-centers')
 seaLayer = getLayer(root, 'sea')
 # Remove all layers from the root, ready to construct the output svg.
 removeAllLayers(root)
-# Add the pattern layer for when provinces are selectable.
-addPattern(root)
+addPatterns(root)
 # Add all the layers to the output.
 backgroundRegionNames = {}
 for province in provinces:
-    if province.flags.sea:
+    if not province.flags.sea:
         backgroundRegionNames[province.abbreviation + '_background'] = province.edges
-addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', SEA_COLOR, True, corners)
-edgeThickness, edgeToNames = getEdgeThickness(edgeToDMap.keys(), provinces)
+addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', LAND_COLOR, True, corners)
+edgeStyle, edgeToNames = getEdgeStyle(edgeToDMap.keys(), provinces)
+addShadowsToBackground(root, edgeStyle, edgeToNames)
 passableNames = {}
 for province in provinces:
     if not province.flags.impassable:
@@ -1032,7 +1098,7 @@ addLayerWithRegions(root, passableNames, edgeToDMap, 'provinces', (None if OVERR
 addCenterLayer(root, 'supply-centers', True, [province for province in provinces if province.flags.supplyCenter])
 addCenterLayer(root, 'province-centers', False, [province for province in provinces if province.flags.province or province.flags.sea])
 addLayer(root, 'highlights', True)
-addForeground(root, edgeToDMap, edgeThickness, edgeToNames, corners)
+addForeground(root, edgeToDMap, edgeStyle, edgeToNames, corners)
 addNamesLayer(root, namesLayer, abbreviations, passableNames.keys())
 addLayer(root, 'units', True)
 addLayer(root, 'orders', True)

@@ -36,7 +36,7 @@ var Europe1939Variant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/europe1939map.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
