@@ -90,7 +90,7 @@ var ClassicalVariant = common.Variant{
 	SVGFlags:    SVGFlags,
 	CreatedBy:   "Allan B. Calhamer",
 	Version:     "",
-	Description: "The original game of Diplomacy.",
+	Description: "The original game of Diplomacy. Map created based on original by reddit.com/u/trampolinebears.",
 	Rules:       "The first to 18 supply centers is the winner. See the Wikibooks article for how to play: https://en.wikibooks.org/wiki/Diplomacy/Rules",
 }
 
