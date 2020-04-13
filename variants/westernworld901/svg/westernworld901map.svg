@@ -49,8 +49,18 @@
      inkscape:window-y="27"
      inkscape:zoom="0.51768883" />
   <defs id="defs">
-    <pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
-      <line x1="0" y="0" x2="0" y2="16" stroke="#ff0000" stroke-opacity="0.56" stroke-width="18" id="stripesLine" />
+    <pattern
+       id="stripes"
+       patternUnits="userSpaceOnUse"
+       x="0" 
+       y="0" 
+       width="24"
+       height="24"
+       >
+        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="0" y="0" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="12" y="12" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="12" y="0" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="0" y="12" width="6" height="6"></rect>
     </pattern>
     <pattern id="impassableStripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
       <line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="impassableStripesLine" />
