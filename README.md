@@ -1,3 +1,6 @@
+![Test godip](https://github.com/zond/godip/workflows/Test%20godip/badge.svg)
+[![GoDoc](https://godoc.org/github.com/zond/godip?status.svg)](https://godoc.org/github.com/zond/godip)
+
 godip
 =====
 
