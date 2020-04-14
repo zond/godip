@@ -222,13 +222,17 @@ func TestDrawMaps(t *testing.T) {
 					// Ensure the provinces layer is visible.
 					if id == "provinces" {
 						startElement.Attr = removeAttr(startElement.Attr, "style")
-					} else if variantContainsSC(variant, id) {
+					} else if variantContainsProvince(variant, id) {
+						fillWith := `opacity:0`
+						if variantContainsSC(variant, id) {
+							fillWith = `fill:#ff0000`
+						}
 						// Colour each supply center province red.
 						var styleAttr = findAttr(startElement.Attr, "style")
 						if styleAttr != nil {
 							var style = styleAttr.Value
 							var re = regexp.MustCompile(`fill:[^;]+`)
-							newStyle := re.ReplaceAllString(style, `fill:#ff0000`)
+							newStyle := re.ReplaceAllString(style, fillWith)
 							styleAttr.Value = newStyle
 							startElement.Attr = setAttr(startElement.Attr, "style", newStyle)
 						}
@@ -269,7 +273,7 @@ func TestDrawMaps(t *testing.T) {
 						if styleAttr != nil {
 							style := styleAttr.Value
 							re := regexp.MustCompile(`fill:[^;]+`)
-							newStyle := re.ReplaceAllString(style, `fill:#ffffff`)
+							newStyle := re.ReplaceAllString(style, `opacity:0`)
 							styleAttr.Value = newStyle
 							startElement.Attr = setAttr(startElement.Attr, "style", newStyle)
 						}
@@ -407,7 +411,7 @@ func TestDrawMaps(t *testing.T) {
 								if styleAttr != nil {
 									style := styleAttr.Value
 									re := regexp.MustCompile(`fill:[^;]+`)
-									newStyle := re.ReplaceAllString(style, `fill:#ffffff`)
+									newStyle := re.ReplaceAllString(style, `opacity:0`)
 									styleAttr.Value = newStyle
 									startElement.Attr = setAttr(startElement.Attr, "style", newStyle)
 								}
@@ -494,13 +498,17 @@ func TestDrawMaps(t *testing.T) {
 						// Ensure the provinces layer is visible.
 						if id == "provinces" {
 							startElement.Attr = removeAttr(startElement.Attr, "style")
-						} else if provincesContain(variant.Graph().SCs(nation), id) {
+						} else if variantContainsProvince(variant, id) {
+							fillWith := `opacity:0`
+							if provincesContain(variant.Graph().SCs(nation), id) {
+								fillWith = `fill:#ff0000`
+							}
 							// Colour each home center province red.
 							var styleAttr = findAttr(startElement.Attr, "style")
 							if styleAttr != nil {
 								var style = styleAttr.Value
 								var re = regexp.MustCompile(`fill:[^;]+`)
-								newStyle := re.ReplaceAllString(style, `fill:#ff0000`)
+								newStyle := re.ReplaceAllString(style, fillWith)
 								styleAttr.Value = newStyle
 								startElement.Attr = setAttr(startElement.Attr, "style", newStyle)
 							}
