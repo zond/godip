@@ -21,7 +21,7 @@ type Variant struct {
 	// Parser for orders in the variant.
 	Parser orders.Parser `json:"-"`
 	// Graph is the graph for this variant.
-	Graph func() godip.Graph `json:"-" skip:"yes"`
+	Graph func() godip.Graph `json:"-"`
 	// Nations are the nations playing this variant.
 	Nations []godip.Nation
 	// PhaseTypes are the phase types the phases of this variant have.
