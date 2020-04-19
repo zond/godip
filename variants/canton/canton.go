@@ -35,7 +35,7 @@ var CantonVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/cantonmap.svg")
 	},
-	SVGVersion: "6",
+	SVGVersion: "7",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
