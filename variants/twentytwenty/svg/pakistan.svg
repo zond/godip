@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100%"
+   height="100%"
+   viewBox="-75 -40 120 120"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="pakistan.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata20">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Flag of Pakistan</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1016"
+     id="namedview16"
+     showgrid="false"
+     inkscape:snap-page="true"
+     inkscape:zoom="0.77111111"
+     inkscape:cx="250.7497"
+     inkscape:cy="518.28436"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <title
+     id="title2">Flag of Pakistan</title>
+  <rect
+     x="-75"
+     y="-40"
+     width="120"
+     height="120"
+     id="rect4"
+     style="fill:#ffffff;stroke-width:1.22474492" />
+  <rect
+     x="-45"
+     y="-40"
+     width="90"
+     height="120"
+     id="rect6"
+     style="fill:#01411c;stroke-width:1.22474492" />
+  <g
+     id="g830"
+     transform="translate(0,-18.27346)">
+    <circle
+       style="fill:#ffffff"
+       cy="40"
+       cx="0"
+       id="circle8"
+       r="24" />
+    <circle
+       style="fill:#01411c"
+       id="circle10"
+       transform="rotate(-41.63354)"
+       cy="29.896374"
+       cx="-18.366581"
+       r="22" />
+    <polygon
+       style="fill:#ffffff"
+       id="polygon12"
+       transform="matrix(1.4267854e-5,-6.2434211e-6,6.2434211e-6,1.4267854e-5,11.958549,29.370178)"
+       points="488533,-158734 -301930,415571 0,-513674 301930,415571 -488533,-158734 " />
+  </g>
+</svg>

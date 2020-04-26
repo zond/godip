@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100%"
+   height="100%"
+   viewBox="0 0 25 25"
+   version="1.1"
+   id="svg17"
+   sodipodi:docname="china.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata21">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1016"
+     id="namedview19"
+     showgrid="false"
+     inkscape:snap-page="true"
+     inkscape:zoom="0.77111111"
+     inkscape:cx="181.77701"
+     inkscape:cy="360.10928"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg17" />
+  <defs
+     id="defs3">
+    <path
+       id="s"
+       d="M 0,-1 0.587785,0.809017 -0.951057,-0.309017 H 0.951057 L -0.587785,0.809017 Z"
+       inkscape:connector-curvature="0"
+       style="fill:#ffde00" />
+  </defs>
+  <rect
+     width="25"
+     height="25"
+     id="rect5"
+     x="0"
+     y="0"
+     style="fill:#de2910;stroke-width:1.0206207" />
+  <use
+     xlink:href="#s"
+     transform="matrix(3,0,0,3,5.6666667,5.6666667)"
+     id="use7"
+     x="0"
+     y="0"
+     width="100%"
+     height="100%" />
+  <use
+     xlink:href="#s"
+     transform="rotate(23.036243,-1.2096167,27.505131)"
+     id="use9"
+     x="0"
+     y="0"
+     width="100%"
+     height="100%" />
+  <use
+     xlink:href="#s"
+     transform="rotate(45.869898,0.81894579,17.300957)"
+     id="use11"
+     x="0"
+     y="0"
+     width="100%"
+     height="100%" />
+  <use
+     xlink:href="#s"
+     transform="rotate(69.945396,0.85320995,12.887449)"
+     id="use13"
+     x="0"
+     y="0"
+     width="100%"
+     height="100%" />
+  <use
+     xlink:href="#s"
+     transform="rotate(20.659808,-21.184103,34.093952)"
+     id="use15"
+     x="0"
+     y="0"
+     width="100%"
+     height="100%" />
+</svg>
