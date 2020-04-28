@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'Empires And Coalitions'
+VARIANT = 'Hellas'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -41,6 +41,9 @@ THIN = 1
 #CENTER_PATH = 'm {0} c 1.46376,0.75644 0.77536,2.81188 -0.94177,2.81188 -0.33978,0 -0.65086,-0.15021 -0.96854,-0.46769 -1.29208,-1.29116 0.26074,-3.19663 1.91031,-2.34419 z m -1.97586,-0.20114 c -1.49705,1.17676 -0.71534,3.33302 1.20831,3.33302 1.21479,0 1.83143,-0.61952 1.83143,-1.83993 0,-1.61631 -1.77434,-2.4878 -3.03974,-1.49309 z m 2.47228,-0.99043 c 1.95868,0.99856 1.93376,3.99263 -0.0411,4.94804 -2.60602,1.26069 -5.19052,-1.62395 -3.58635,-4.00278 0.83269,-1.23477 2.30641,-1.61882 3.6275,-0.94526 z m -2.63456,-0.40959 c -2.45722,1.09603 -2.38359,4.72122 0.11714,5.76535 2.96981,1.24003 5.65887,-2.26914 3.70406,-4.83365 -0.79774,-1.04651 -2.58617,-1.4826 -3.82116,-0.9317 z'
 IMPASSABLE_PATTERN = '<pattern id="impassable" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)"><line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="impassableLine" /></pattern>'
 IMPASSABLE_STYLE = 'fill:url(#impassable);fill-rule:evenodd;stroke:#000000;stroke-width:1'
+
+# Globals
+reportedErrors = set()
 
 class Flags:
     """A class to hold boolean attributes of a province."""
@@ -92,7 +95,10 @@ with open(configFile, 'r') as y:
 
 def getLayer(root, label):
     """Get the layer from root with the given Inkscape label."""
-    return root.find('{}g[@{}label="{}"]'.format(SVG, INK, label))
+    layer = root.find('{}g[@{}label="{}"]'.format(SVG, INK, label))
+    if layer == None:
+        print('Input svg has no layer called: {}'.format(label))
+    return layer
 
 def removeAllLayers(root):
     """Remove all layers from root."""
@@ -112,6 +118,8 @@ def addLayer(root, name, visible):
 def locFrom(locString):
     """Convert a coordinate string (e.g. from a path) into a coordinate pair."""
     loc = locString.split(',')
+    if len(loc) != 2:
+        print('Could not get parts from loc: {}'.format(loc))
     return (float(loc[0]), float(loc[1]))
 
 def addLocs(locA, locB):
@@ -207,24 +215,52 @@ def getEdges(root):
         loc = (0,0)
         start = None
         toolStart = None
-        for bit in d.split(' '):
+        for bit in d.strip().split(' '):
             # Check if this is a supported tool
-            if bit in ['M', 'm', 'c', 'V', 'v', 'H', 'h', 'l', 'L']:
+            if bit in ['M', 'm', 'c', 'C', 'V', 'v', 'H', 'h', 'l', 'L', 'z', 'Z']:
                 tool = bit
                 toolStart = loc
+                # Needed in case the x and y coordinates are space separated.
+                xCoord = None
                 if tool == 'c':
                     # Coordinates for the c tool come in threes
                     cIgnoreCount = 0
-            elif re.match(r'[0-9\.,\-]', bit):
+                elif tool in ['z', 'Z']:
+                    # No need to close the path, so ignore.
+                    continue
+            elif re.match(r'[0-9\.,\-]+', bit):
                 # Apply the tool to the numbers
                 if tool == 'M' or tool == 'L':
-                    loc = locFrom(bit)
+                    if ',' in bit:
+                        loc = locFrom(bit)
+                    elif xCoord == None:
+                        xCoord = float(bit)
+                        # Assume the y coordinate is in the next bit.
+                        continue
+                    else:
+                        yCoord = float(bit)
+                        loc = (xCoord, yCoord)
+                        xCoord = None
                 elif tool == 'm' or tool == 'l':
                     loc = addLocs(loc, locFrom(bit))
                 elif tool == 'c':
                     cIgnoreCount = (cIgnoreCount + 1) % 3
-                    if cIgnoreCount == 0:
-                        loc = addLocs(loc, locFrom(bit))
+                    if cIgnoreCount != 0:
+                        continue
+                    loc = addLocs(loc, locFrom(bit))
+                elif tool == 'C':
+                    cIgnoreCount = (cIgnoreCount + 1) % 3
+                    if cIgnoreCount != 0:
+                        continue
+                    if ',' in bit:
+                        loc = locFrom(bit)
+                    elif xCoord == None:
+                        xCoord = float(bit)
+                        # Assume the y coordinate is in the next bit.
+                        continue
+                    else:
+                        yCoord = float(bit)
+                        loc = (xCoord, yCoord)
                 elif tool == 'V':
                     loc = (loc[0], float(bit))
                 elif tool == 'v':
@@ -312,6 +348,8 @@ def ccwBorderDist(borderJunction, corners):
 def makeRegions(junctions, edges, corners):
     """Take the given edges and the four sides of the map, and create the set of cycles that
     represents regions on the map."""
+    global reportedErrors
+    
     for corner in corners:
         if corner not in junctions:
             junctions.append(corner)
@@ -355,7 +393,9 @@ def makeRegions(junctions, edges, corners):
             try:
                 directedEdges.remove((previousJunction, currentJunction))
             except:
-                print('Issue removing directed edge:', (previousJunction, currentJunction), region)
+                if (previousJunction, currentJunction) not in reportedErrors:
+                    print('Issue removing directed edge:', (previousJunction, currentJunction), str(region)[:100] + ('...' if len(str(region)) > 100 else ''))
+                    reportedErrors.add((previousJunction, currentJunction))
                 #raise
         # Don't include the region that contains all four corners
         allFourCorners = True
