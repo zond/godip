@@ -1915,7 +1915,7 @@
       <tspan
          x="624.19202"
          y="1190.7694"
-         id="tspan78">Tyrhennian Sea</tspan>
+         id="tspan78">Tyrrhenian Sea</tspan>
     </text>
     <text
        y="-617.25311"
@@ -2689,8 +2689,12 @@
        style="font-style:italic;font-weight:normal;font-size:16px;font-family:LibreBaskerville-Italic, 'Libre Baskerville';display:inline;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1">
       <tspan
          x="272.83041"
-         y="739.66229"
+         y="733.66229"
          id="tspan251">York</tspan>
+      <tspan
+         x="272.83041"
+         y="747.66229"
+         id="tspan251">shire</tspan>
     </text>
     <text
        y="-12.229447"
