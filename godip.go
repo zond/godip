@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"reflect"
+	"sort"
 	"strings"
 	"time"
 )
@@ -180,6 +181,24 @@ func (n *Nation) String() string {
 }
 
 type Nations []Nation
+
+func (n Nations) Equal(o Nations) bool {
+	if len(n) != len(o) {
+		return false
+	}
+	sortedN := make(Nations, len(n))
+	copy(sortedN, n)
+	sort.Sort(sortedN)
+	sortedO := make(Nations, len(o))
+	copy(sortedO, o)
+	sort.Sort(sortedO)
+	for idx, nNat := range sortedN {
+		if sortedO[idx] != nNat {
+			return false
+		}
+	}
+	return true
+}
 
 func (n Nations) Len() int {
 	return len(n)

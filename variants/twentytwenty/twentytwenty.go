@@ -34,6 +34,68 @@ const (
 )
 
 var Nations = []godip.Nation{Brazil, Canada, Australia, Italy, USA, Kenya, Egypt, Thailand, Turkey, SouthAfrica, India, Russia, Pakistan, China, UK, Japan, Germany, Argentina, Nigeria, Spain}
+var SVGFlags = map[godip.Nation]func() ([]byte, error){
+	Australia: func() ([]byte, error) {
+		return Asset("svg/australia.svg")
+	},
+	Argentina: func() ([]byte, error) {
+		return Asset("svg/argentina.svg")
+	},
+	Brazil: func() ([]byte, error) {
+		return Asset("svg/brazil.svg")
+	},
+	Canada: func() ([]byte, error) {
+		return Asset("svg/canada.svg")
+	},
+	China: func() ([]byte, error) {
+		return Asset("svg/china.svg")
+	},
+	Egypt: func() ([]byte, error) {
+		return Asset("svg/egypt.svg")
+	},
+	Germany: func() ([]byte, error) {
+		return Asset("svg/germany.svg")
+	},
+	India: func() ([]byte, error) {
+		return Asset("svg/india.svg")
+	},
+	Italy: func() ([]byte, error) {
+		return Asset("svg/italy.svg")
+	},
+	Japan: func() ([]byte, error) {
+		return Asset("svg/japan.svg")
+	},
+	Kenya: func() ([]byte, error) {
+		return Asset("svg/kenya.svg")
+	},
+	Nigeria: func() ([]byte, error) {
+		return Asset("svg/nigeria.svg")
+	},
+	Pakistan: func() ([]byte, error) {
+		return Asset("svg/pakistan.svg")
+	},
+	Russia: func() ([]byte, error) {
+		return Asset("svg/russia.svg")
+	},
+	SouthAfrica: func() ([]byte, error) {
+		return Asset("svg/southafrica.svg")
+	},
+	Spain: func() ([]byte, error) {
+		return Asset("svg/spain.svg")
+	},
+	Thailand: func() ([]byte, error) {
+		return Asset("svg/thailand.svg")
+	},
+	Turkey: func() ([]byte, error) {
+		return Asset("svg/turkey.svg")
+	},
+	UK: func() ([]byte, error) {
+		return Asset("svg/uk.svg")
+	},
+	USA: func() ([]byte, error) {
+		return Asset("svg/usa.svg")
+	},
+}
 
 // A function that declares a solo winner if a nation has over 49 SCs, or they lead by at least max(2020-year, 1) SCs.
 func TwentyTwentyWinner(s *state.State) godip.Nation {
@@ -103,15 +165,9 @@ var TwentyTwentyVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/twentytwentymap.svg")
 	},
-	SVGVersion: "7",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "8",
+	SVGUnits:    classical.SVGUnits,
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "TTTPPP",
 	Version:     "1",
 	Description: "Twenty nations compete to conquer the world by the year 2020.",
