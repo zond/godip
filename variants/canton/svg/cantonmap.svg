@@ -13,8 +13,8 @@
    viewBox="0 0 2081 1500"
    version="1.1"
    id="svg664"
-   sodipodi:docname="CantonMap_NoTransform.svg"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="cantonmap.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    inkscape:label="foreground">
   <metadata
      id="metadata668">
@@ -64,23 +64,23 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1121"
+     inkscape:window-width="1853"
+     inkscape:window-height="1016"
      id="namedview666"
      showgrid="false"
-     inkscape:zoom="0.62933334"
-     inkscape:cx="1445.7357"
-     inkscape:cy="576.42192"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:zoom="0.44500587"
+     inkscape:cx="1027.8495"
+     inkscape:cy="709.28992"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="svg664"
      showguides="false" />
   <g
      id="background"
      inkscape:label="background"
-     sodipodi:insensitive="true"
-     style="display:inline">
+     style="display:inline"
+     inkscape:groupmode="layer">
     <rect
        style="display:inline;fill:#d4d0ad;stroke-width:0.98170811"
        height="1500.5601"
@@ -103,7 +103,7 @@
      id="provinces"
      inkscape:label="provinces"
      style="display:none"
-     sodipodi:insensitive="true">
+     inkscape:groupmode="layer">
     <path
        inkscape:label="dam"
        style="fill:#000000;fill-opacity:1;stroke:none"
@@ -687,7 +687,7 @@
      id="supply-centers"
      inkscape:label="supply-centers"
      style="display:inline"
-     sodipodi:insensitive="true">
+     inkscape:groupmode="layer">
     <path
        inkscape:label="sevCenter"
        inkscape:connector-curvature="0"
@@ -872,7 +872,9 @@
   </g>
   <g
      id="province-centers"
-     inkscape:label="province-centers">
+     inkscape:label="province-centers"
+     inkscape:groupmode="layer"
+     style="display:none">
     <path
        inkscape:connector-curvature="0"
        style="display:inline;fill:none;stroke:#9f9f9f;stroke-width:1;stroke-opacity:1;enable-background:new"
@@ -1147,7 +1149,7 @@
   <g
      id="foreground"
      inkscape:label="foreground"
-     sodipodi:insensitive="true">
+     inkscape:groupmode="layer">
     <path
        sodipodi:insensitive="true"
        style="display:inline;fill:none;stroke:#000000"
