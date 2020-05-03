@@ -90,3 +90,16 @@ func TestMogadishu(t *testing.T) {
 	judge.SetUnit("eth", godip.Unit{godip.Army, Italy})
 	tst.AssertOrderValidity(t, judge, orders.Move("eth", "mog"), Italy, nil)
 }
+
+func TestSillyNilPointer(t *testing.T) {
+	judge := YoungstownReduxBlank(classical.NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("mid", godip.Unit{godip.Fleet, Italy})
+	judge.SetUnit("por", godip.Unit{godip.Fleet, Italy})
+	judge.SetUnit("spa/sc", godip.Unit{godip.Fleet, Italy})
+	judge.SetUnit("wms", godip.Unit{godip.Fleet, France})
+	judge.SetOrder("por", orders.Move("por", "mid"))
+	judge.SetOrder("mid", orders.Move("mid", "wms"))
+	judge.SetOrder("spa", orders.SupportMove("spa", "mid", "wms"))
+	judge.Next()
+	tst.AssertUnit(t, judge, "wms", godip.Unit{godip.Fleet, Italy})
+}
