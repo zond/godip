@@ -16,7 +16,11 @@ type resolver struct {
 func (self *resolver) adjudicate(prov godip.Province) (err error) {
 	godip.Logf("Adj(%v)", prov)
 	godip.Indent("  ")
-	err = self.State.orders[prov].Adjudicate(self)
+	order, _, found := self.State.Order(prov)
+	if !found {
+		return fmt.Errorf("No order for %v found", prov)
+	}
+	err = order.(godip.Adjudicator).Adjudicate(self)
 	godip.DeIndent()
 	if err == nil {
 		godip.Logf("%v: Success", prov)

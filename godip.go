@@ -282,7 +282,8 @@ type Phase interface {
 	PreProcess(State) error
 	PostProcess(State) error
 	DefaultOrder(Province) Adjudicator
-	Options(Validator, Nation) (result Options)
+	Options(Validator, Nation) Options
+	Messages(Validator, Nation) []string
 }
 
 type PathFilter func(n Province, edgeFlags, provFlags map[Flag]bool, sc *Nation, trace []Province) bool

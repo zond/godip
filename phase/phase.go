@@ -34,8 +34,31 @@ func (self *Phase) String() string {
 	return fmt.Sprintf("%s %d, %s", self.Se, self.Yr, self.Ty)
 }
 
-func (self *Phase) Options(s godip.Validator, nation godip.Nation) (result godip.Options) {
+func (self *Phase) Options(s godip.Validator, nation godip.Nation) godip.Options {
 	return s.Options(self.Parser.Orders(), nation)
+}
+
+func (self *Phase) Messages(s godip.Validator, nation godip.Nation) []string {
+	if self.Ty == godip.Adjustment {
+		unitCount := 0
+		scCount := 0
+		for _, unit := range s.Units() {
+			if unit.Nation == nation {
+				unitCount += 1
+			}
+		}
+		for _, nat := range s.SupplyCenters() {
+			if nat == nation {
+				scCount += 1
+			}
+		}
+		delta := scCount - unitCount
+		if delta < 0 {
+			return []string{fmt.Sprintf("MustDisband:%v", -delta)}
+		}
+		return []string{fmt.Sprintf("MayBuild:%v", delta)}
+	}
+	return nil
 }
 
 func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (result int, err error) {
