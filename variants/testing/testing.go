@@ -7,10 +7,19 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
 )
+
+func PP(i interface{}) string {
+	b, err := json.MarshalIndent(i, "  ", "  ")
+	if err != nil {
+		return spew.Sdump(i)
+	}
+	return string(b)
+}
 
 func AssertOrderValidity(t *testing.T, validator godip.Validator, order godip.Order, nat godip.Nation, err error) {
 	if gotNat, e := order.Validate(validator); e != err {
@@ -77,25 +86,26 @@ func AssertOptionToMove(t *testing.T, j *state.State, nat godip.Nation, src godi
 	}
 }
 
-func hasOptHelper(opts map[string]interface{}, order []string, originalOpts map[string]interface{}, originalOrder []string) error {
+func hasOptHelper(opts map[string]interface{}, filter string, order []string, originalOpts map[string]interface{}, originalOrder []string) error {
 	if len(order) == 0 {
 		return nil
 	}
-	if _, found := opts[order[0]]; !found {
-		b, err := json.MarshalIndent(originalOpts, "  ", "  ")
-		if err != nil {
-			return err
-		}
-		b2, err := json.MarshalIndent(opts, "  ", "  ")
-		if err != nil {
-			return err
-		}
-		return fmt.Errorf("Got no option for %+v in %s, failed at %+v in %s, wanted it!", originalOrder, b, order, b2)
+	foundInter, found := opts[order[0]]
+	if !found {
+		return fmt.Errorf("Got no option for %+v in %v, failed at %+v in %v, wanted it!", originalOrder, PP(originalOpts), order, PP(opts))
 	}
-	return hasOptHelper(opts[order[0]].(map[string]interface{})["Next"].(map[string]interface{}), order[1:], originalOpts, originalOrder)
+	foundMap := foundInter.(map[string]interface{})
+	if filter != "" && foundMap["Filter"] != filter {
+		return fmt.Errorf("Found %+v in %v, but didn't get the filter we wanted (%q)", originalOrder, PP(originalOpts), filter)
+	}
+	return hasOptHelper(foundMap["Next"].(map[string]interface{}), "", order[1:], originalOpts, originalOrder)
 }
 
 func hasOpt(opts godip.Options, order []string) error {
+	return hasFilteredOpt(opts, "", order)
+}
+
+func hasFilteredOpt(opts godip.Options, filter string, order []string) error {
 	b, err := json.MarshalIndent(opts, "  ", "  ")
 	if err != nil {
 		return err
@@ -104,12 +114,16 @@ func hasOpt(opts godip.Options, order []string) error {
 	if err := json.Unmarshal(b, &converted); err != nil {
 		return err
 	}
-	return hasOptHelper(converted, order, converted, order)
+	return hasOptHelper(converted, filter, order, converted, order)
 }
 
 func AssertOpt(t *testing.T, opts godip.Options, order []string) {
-	t.Run(strings.Join(order, "_"), func(t *testing.T) {
-		err := hasOpt(opts, order)
+	AssertFilteredOpt(t, opts, "", order)
+}
+
+func AssertFilteredOpt(t *testing.T, opts godip.Options, filter string, order []string) {
+	t.Run(strings.Join(order, "_")+"/"+filter, func(t *testing.T) {
+		err := hasFilteredOpt(opts, filter, order)
 		if err != nil {
 			t.Error(err)
 		}

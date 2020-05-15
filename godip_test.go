@@ -1,9 +1,204 @@
 package godip
 
 import (
+	"reflect"
 	"sort"
 	"testing"
 )
+
+func TestOptionsBubbleFilters(t *testing.T) {
+	for _, tc := range []struct {
+		opts    Options
+		bubbled Options
+	}{
+		{
+			opts: Options{
+				Province("spa"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+			bubbled: Options{
+				FilteredOptionValue{
+					Filter: "MAX:Build:1",
+					Value:  Province("spa"),
+				}: Options{
+					OrderType("Build"): Options{
+						UnitType("Army"): Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+		},
+		{
+			opts: Options{
+				Province("lon"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("lon"): Options{},
+						},
+					},
+				},
+				Province("spa"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+			bubbled: Options{
+				FilteredOptionValue{
+					Filter: "MAX:Build:1",
+					Value:  Province("spa"),
+				}: Options{
+					OrderType("Build"): Options{
+						UnitType("Army"): Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+				FilteredOptionValue{
+					Filter: "MAX:Build:1",
+					Value:  Province("lon"),
+				}: Options{
+					OrderType("Build"): Options{
+						UnitType("Army"): Options{
+							SrcProvince("lon"): Options{},
+						},
+					},
+				},
+			},
+		},
+		{
+			opts: Options{
+				Province("spa"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+					OrderType("Disband"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Disband:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+			bubbled: Options{
+				Province("spa"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+					OrderType("Disband"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Disband:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+		},
+		{
+			opts: Options{
+				Province("spa"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Fleet"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+			bubbled: Options{
+				FilteredOptionValue{
+					Filter: "MAX:Build:1",
+					Value:  Province("spa"),
+				}: Options{
+					OrderType("Build"): Options{
+						UnitType("Army"): Options{
+							SrcProvince("spa"): Options{},
+						},
+						UnitType("Fleet"): Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+		},
+		{
+			opts: Options{
+				Province("spa"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+						UnitType("Fleet"): Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+			bubbled: Options{
+				Province("spa"): Options{
+					OrderType("Build"): Options{
+						FilteredOptionValue{
+							Filter: "MAX:Build:1",
+							Value:  UnitType("Army"),
+						}: Options{
+							SrcProvince("spa"): Options{},
+						},
+						UnitType("Fleet"): Options{
+							SrcProvince("spa"): Options{},
+						},
+					},
+				},
+			},
+		},
+	} {
+		bubbled := tc.opts.BubbleFilters()
+		if !reflect.DeepEqual(bubbled, tc.bubbled) {
+			t.Errorf("Got %+v, wanted %+v", bubbled, tc.bubbled)
+		}
+	}
+}
 
 func TestNationSorting(t *testing.T) {
 	nations := Nations{

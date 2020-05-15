@@ -322,18 +322,72 @@ type SrcProvince Province
 
 type OptionValue interface{}
 
+type FilteredOptionValue struct {
+	Filter string
+	Value  OptionValue
+}
+
 /*
 Options defines a tree of valid orders for a given situation
 */
 type Options map[OptionValue]Options
 
+func (self Options) BubbleFilters() Options {
+	_, result := self.bubbleFiltersHelper(false)
+	return result
+}
+
+func (self Options) bubbleFiltersHelper(bubbleSelf bool) (string, Options) {
+	lastFilter := ""
+	filters := map[string]bool{}
+	bubbledChildren := Options{}
+	for k, v := range self {
+		if filtered, ok := k.(FilteredOptionValue); ok {
+			lastFilter = filtered.Filter
+			filters[lastFilter] = true
+			bubbledChildren[k] = v
+		} else {
+			childCommonFilter, newChild := v.bubbleFiltersHelper(true)
+			lastFilter = childCommonFilter
+			filters[lastFilter] = true
+			if childCommonFilter == "" {
+				bubbledChildren[k] = v
+			} else {
+				bubbledChildren[FilteredOptionValue{
+					Filter: childCommonFilter,
+					Value:  k,
+				}] = newChild
+			}
+		}
+	}
+	if !bubbleSelf || lastFilter == "" || len(filters) > 1 {
+		return "", bubbledChildren
+	}
+	bubbledSelf := Options{}
+	for k, v := range bubbledChildren {
+		filtered := k.(FilteredOptionValue)
+		bubbledSelf[filtered.Value] = v
+	}
+	return lastFilter, bubbledSelf
+}
+
 func (self Options) MarshalJSON() ([]byte, error) {
 	repl := map[string]interface{}{}
-	for k, v := range self {
-		repl[fmt.Sprint(k)] = map[string]interface{}{
-			"Type": reflect.ValueOf(k).Type().Name(),
+	for k, v := range self.BubbleFilters() {
+		kVal := reflect.ValueOf(k)
+		filter := ""
+		if kVal.Type() == reflect.TypeOf(FilteredOptionValue{}) {
+			filter = kVal.FieldByName("Filter").String()
+			kVal = kVal.FieldByName("Value")
+		}
+		val := map[string]interface{}{
+			"Type": kVal.Type().Name(),
 			"Next": v,
 		}
+		if filter != "" {
+			val["Filter"] = filter
+		}
+		repl[fmt.Sprint(kVal.Interface())] = val
 	}
 	return json.Marshal(repl)
 }

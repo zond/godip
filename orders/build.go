@@ -148,26 +148,34 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	if _, _, ok = v.Unit(src); ok {
 		return
 	}
+	var wrapperFunc func(godip.OptionValue) godip.FilteredOptionValue
 	if _, _, balance := AdjustmentStatus(v, me); balance < 1 {
 		return
+	} else {
+		wrapperFunc = func(val godip.OptionValue) godip.FilteredOptionValue {
+			return godip.FilteredOptionValue{
+				Filter: fmt.Sprintf("MAX:%v:%v", godip.Build, balance),
+				Value:  val,
+			}
+		}
 	}
 	if v.Graph().Flags(src)[godip.Land] || v.Graph().Flags(src.Super())[godip.Land] {
 		if result == nil {
 			result = godip.Options{}
 		}
-		if result[godip.Army] == nil {
-			result[godip.Army] = godip.Options{}
+		if result[wrapperFunc(godip.Army)] == nil {
+			result[wrapperFunc(godip.Army)] = godip.Options{}
 		}
-		result[godip.Army][godip.SrcProvince(src.Super())] = nil
+		result[wrapperFunc(godip.Army)][godip.SrcProvince(src.Super())] = nil
 	}
 	if v.Graph().Flags(src)[godip.Sea] || v.Graph().Flags(src.Super())[godip.Sea] {
 		if result == nil {
 			result = godip.Options{}
 		}
-		if result[godip.Fleet] == nil {
-			result[godip.Fleet] = godip.Options{}
+		if result[wrapperFunc(godip.Fleet)] == nil {
+			result[wrapperFunc(godip.Fleet)] = godip.Options{}
 		}
-		result[godip.Fleet][godip.SrcProvince(src)] = nil
+		result[wrapperFunc(godip.Fleet)][godip.SrcProvince(src)] = nil
 	}
 	return
 }

@@ -117,7 +117,10 @@ func (self *disband) Options(v godip.Validator, nation godip.Nation, src godip.P
 				if unit.Nation == nation {
 					if _, _, balance := AdjustmentStatus(v, unit.Nation); balance < 0 {
 						result = godip.Options{
-							godip.SrcProvince(actualSrc): nil,
+							godip.FilteredOptionValue{
+								Filter: fmt.Sprintf("MAX:%v:%v", godip.Disband, -balance),
+								Value:  godip.SrcProvince(actualSrc),
+							}: nil,
 						}
 					}
 				}
