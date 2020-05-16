@@ -378,7 +378,7 @@ func (self Options) MarshalJSON() ([]byte, error) {
 		filter := ""
 		if kVal.Type() == reflect.TypeOf(FilteredOptionValue{}) {
 			filter = kVal.FieldByName("Filter").String()
-			kVal = kVal.FieldByName("Value")
+			kVal = reflect.ValueOf(kVal.FieldByName("Value").Interface())
 		}
 		val := map[string]interface{}{
 			"Type": kVal.Type().Name(),

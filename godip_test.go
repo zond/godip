@@ -1,10 +1,55 @@
 package godip
 
 import (
+	"encoding/json"
 	"reflect"
 	"sort"
 	"testing"
 )
+
+func TestOptionsMarshal(t *testing.T) {
+	opts := Options{
+		FilteredOptionValue{
+			Filter: "MAX:Build:1",
+			Value:  Province("spa"),
+		}: Options{
+			OrderType("Build"): Options{
+				UnitType("Army"): Options{
+					SrcProvince("spa"): Options{},
+				},
+			},
+		},
+	}
+	b, err := json.MarshalIndent(opts, "  ", "  ")
+	if err != nil {
+		t.Fatal(err)
+	}
+	wanted := `{
+    "spa": {
+      "Filter": "MAX:Build:1",
+      "Next": {
+        "Build": {
+          "Next": {
+            "Army": {
+              "Next": {
+                "spa": {
+                  "Next": {},
+                  "Type": "SrcProvince"
+                }
+              },
+              "Type": "UnitType"
+            }
+          },
+          "Type": "OrderType"
+        }
+      },
+      "Type": "Province"
+    }
+  }`
+	if string(b) != wanted {
+		t.Errorf("Bad json marshal, got %v, wanted %v", string(b), wanted)
+	}
+}
 
 func TestOptionsBubbleFilters(t *testing.T) {
 	for _, tc := range []struct {
