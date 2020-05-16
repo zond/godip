@@ -400,7 +400,7 @@ func TestSTPBuildOptions(t *testing.T) {
 	judge.Next()
 	opts := judge.Phase().Options(judge, godip.Russia)
 	tst.AssertNoOpt(t, opts, []string{"stp"})
-	filter := "MAX:Build:1"
+	filter := "MAX:Build:0"
 	tst.AssertFilteredOpt(t, opts, filter, []string{"stp/nc", "Build", "Fleet", "stp/nc"})
 	tst.AssertFilteredOpt(t, opts, filter, []string{"stp/sc", "Build", "Fleet", "stp/sc"})
 	tst.AssertNoOpt(t, opts, []string{"stp/sc", "Build", "Fleet", "stp"})
@@ -425,7 +425,7 @@ func TestFilteredOptions(t *testing.T) {
 	judge.SetOrder("mun", orders.Move("mun", "ruh"))
 	judge.Next()
 	opts := judge.Phase().Options(judge, godip.Russia)
-	filter := "MAX:Build:2"
+	filter := "MAX:Build:1"
 	tst.AssertFilteredOpt(t, opts, filter, []string{"stp/nc", "Build", "Fleet", "stp/nc"})
 	tst.AssertFilteredOpt(t, opts, filter, []string{"stp/sc", "Build", "Fleet", "stp/sc"})
 	tst.AssertFilteredOpt(t, opts, filter, []string{"stp/nc", "Build", "Army", "stp"})
@@ -433,7 +433,7 @@ func TestFilteredOptions(t *testing.T) {
 	tst.AssertFilteredOpt(t, opts, filter, []string{"sev", "Build", "Fleet", "sev"})
 	tst.AssertFilteredOpt(t, opts, filter, []string{"sev", "Build", "Army", "sev"})
 	opts = judge.Phase().Options(judge, godip.Germany)
-	filter = "MAX:Disband:1"
+	filter = "MAX:Disband:0"
 	tst.AssertFilteredOpt(t, opts, filter, []string{"kie", "Disband", "kie"})
 	tst.AssertFilteredOpt(t, opts, filter, []string{"ber", "Disband", "ber"})
 	tst.AssertFilteredOpt(t, opts, filter, []string{"ruh", "Disband", "ruh"})

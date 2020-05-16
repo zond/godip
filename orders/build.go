@@ -154,7 +154,7 @@ func (self *build) Options(v godip.Validator, nation godip.Nation, src godip.Pro
 	} else {
 		wrapperFunc = func(val godip.OptionValue) godip.FilteredOptionValue {
 			return godip.FilteredOptionValue{
-				Filter: fmt.Sprintf("MAX:%v:%v", godip.Build, balance),
+				Filter: fmt.Sprintf("MAX:%v:%v", godip.Build, balance-1),
 				Value:  val,
 			}
 		}
