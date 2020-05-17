@@ -30,6 +30,82 @@ type Phase struct {
 	AdjustSCs func(*Phase) bool
 }
 
+func (self *Phase) Corroborate(v godip.Validator, nat godip.Nation) []godip.Inconsistency {
+	rval := []godip.Inconsistency{}
+	switch self.Ty {
+	case godip.Retreat:
+		for prov, unit := range v.Dislodgeds() {
+			if unit.Nation == nat {
+				if _, _, found := v.Order(prov); !found {
+					rval = append(rval, godip.Inconsistency{
+						Province: prov.Super(),
+						Errors:   []error{godip.InconsistencyMissingOrder},
+					})
+				}
+			}
+		}
+	case godip.Adjustment:
+		_, _, balance := orders.AdjustmentStatus(v, nat)
+		foundBuilds := 0
+		foundDisbands := 0
+		for _, ord := range v.Orders() {
+			if ord.Type() == godip.Build {
+				foundBuilds += 1
+			} else if ord.Type() == godip.Disband {
+				foundDisbands += 1
+			}
+		}
+		if balance >= 0 && foundBuilds != balance || foundBuilds != 0 {
+			rval = append(rval, godip.Inconsistency{
+				Errors: []error{godip.InconsistencyOrderTypeCount{
+					OrderType: godip.Build,
+					Found:     foundBuilds,
+					Want:      balance,
+				}},
+			})
+		}
+		if balance <= 0 && foundDisbands != -balance || foundDisbands != 0 {
+			rval = append(rval, godip.Inconsistency{
+				Errors: []error{godip.InconsistencyOrderTypeCount{
+					OrderType: godip.Disband,
+					Found:     foundBuilds,
+					Want:      -balance,
+				}},
+			})
+		}
+	case godip.Movement:
+		for prov, unit := range v.Units() {
+			if unit.Nation == nat {
+				if _, _, found := v.Order(prov); !found {
+					rval = append(rval, godip.Inconsistency{
+						Province: prov.Super(),
+						Errors:   []error{godip.InconsistencyMissingOrder},
+					})
+				}
+			}
+		}
+	}
+	for prov, ord := range v.Orders() {
+		owner, err := ord.Validate(v)
+		if nat == owner {
+			if err != nil {
+				rval = append(rval, godip.Inconsistency{
+					Province: prov.Super(),
+					Errors:   []error{err},
+				})
+			} else {
+				if errs := ord.Corroborate(v); len(errs) > 0 {
+					rval = append(rval, godip.Inconsistency{
+						Province: prov.Super(),
+						Errors:   errs,
+					})
+				}
+			}
+		}
+	}
+	return rval
+}
+
 func (self *Phase) String() string {
 	return fmt.Sprintf("%s %d, %s", self.Se, self.Yr, self.Ty)
 }

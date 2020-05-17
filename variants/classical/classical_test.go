@@ -2,6 +2,7 @@ package classical
 
 import (
 	"os"
+	"strings"
 	"testing"
 	"time"
 
@@ -408,6 +409,126 @@ func TestSTPBuildOptions(t *testing.T) {
 	tst.AssertFilteredOpt(t, opts, filter, []string{"stp/sc", "Build", "Army", "stp"})
 	tst.AssertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/nc"})
 	tst.AssertNoOpt(t, opts, []string{"stp/sc", "Build", "Army", "stp/sc"})
+}
+
+func assertCorroborateErrors(t *testing.T, inconsistencies []godip.Inconsistency, truth map[godip.Province]string) {
+	homelessErrors := []string{}
+	for _, inc := range inconsistencies {
+		foundStrings := []string{}
+		for _, err := range inc.Errors {
+			foundStrings = append(foundStrings, err.Error())
+		}
+		foundString := strings.Join(foundStrings, ",")
+		if inc.Province == "" {
+			homelessErrors = append(homelessErrors, foundString)
+		} else {
+			if trueString, found := truth[inc.Province]; found {
+				delete(truth, inc.Province)
+				if foundString != trueString {
+					t.Errorf("Got %q for %q, wanted %q", foundString, inc.Province, trueString)
+				}
+			} else {
+				t.Errorf("Got %q for %q, wanted nothing", foundString, inc.Province)
+			}
+		}
+	}
+	homelessErrString := strings.Join(homelessErrors, ",")
+	if homelessErrString != truth[""] {
+		t.Errorf("Got homeless errors %v, wanted %v", homelessErrString, truth[""])
+	}
+	delete(truth, "")
+	if len(truth) > 0 {
+		t.Errorf("Missing some corroborate errors: %+v", truth)
+	}
+}
+
+func TestCorroborate(t *testing.T) {
+	judge := startState(t)
+	// Should be mismatched support due to wrong dest.
+	judge.SetOrder("mos", orders.Move("mos", "lvn"))
+	judge.SetOrder("war", orders.SupportMove("war", "mos", "ukr"))
+	// Should be mismatched support due to non moving supportee.
+	judge.SetOrder("bud", orders.SupportMove("bud", "vie", "gal"))
+	// Should be mismatched support due to moving supportee.
+	judge.SetOrder("ven", orders.SupportHold("ven", "rom"))
+	judge.SetOrder("rom", orders.Move("rom", "tus"))
+	// Prepare for next phase testing.
+	judge.SetOrder("bre", orders.Move("bre", "mid"))
+	judge.SetOrder("par", orders.Move("par", "bre"))
+	judge.SetOrder("lvp", orders.Move("lvp", "wal"))
+	judge.SetOrder("lon", orders.Move("lon", "eng"))
+	judge.SetOrder("nap", orders.Move("nap", "tys"))
+	assertCorroborateErrors(t, judge.Corroborate(godip.Russia), map[godip.Province]string{
+		"sev": "InconsistencyMissingOrder",
+		"stp": "InconsistencyMissingOrder",
+		"war": "InconsistencyMismatchedSupporter:mos",
+	})
+	assertCorroborateErrors(t, judge.Corroborate(godip.Italy), map[godip.Province]string{
+		"ven": "InconsistencyMismatchedSupporter:rom",
+	})
+	assertCorroborateErrors(t, judge.Corroborate(godip.Austria), map[godip.Province]string{
+		"bud": "InconsistencyMismatchedSupporter:vie",
+		"vie": "InconsistencyMissingOrder",
+		"tri": "InconsistencyMissingOrder",
+	})
+	judge.Next()
+	judge.Next()
+	// Should not be mismatched because different nations.
+	judge.SetOrder("ven", orders.SupportMove("ven", "tri", "adr"))
+	// Should be mismatched convoy due to wrong dest.
+	judge.SetOrder("mid", orders.Convoy("mid", "bre", "por"))
+	judge.SetOrder("bre", orders.Move("bre", "spa"))
+	// Should be mismatched convoy due to non moving convoyee.
+	judge.SetOrder("eng", orders.Convoy("eng", "wal", "pic"))
+	// Should be mismatched convoy due to missing convoy order.
+	judge.SetOrder("tus", orders.Move("tus", "tun"))
+	// Prepare for next phase.
+	judge.SetOrder("mar", orders.Move("mar", "spa"))
+	assertCorroborateErrors(t, judge.Corroborate(godip.Italy), map[godip.Province]string{
+		"tus": "InconsistencyMismatchedConvoyee:tys",
+		"tys": "InconsistencyMissingOrder",
+	})
+	assertCorroborateErrors(t, judge.Corroborate(godip.France), map[godip.Province]string{
+		"mid": "InconsistencyMismatchedConvoyer:bre",
+		"bre": "InconsistencyMismatchedConvoyee:mid",
+	})
+	assertCorroborateErrors(t, judge.Corroborate(godip.England), map[godip.Province]string{
+		"eng": "InconsistencyMismatchedConvoyer:wal",
+		"wal": "InconsistencyMissingOrder",
+		"edi": "InconsistencyMissingOrder",
+	})
+	judge.Next()
+	judge.Next()
+	assertCorroborateErrors(t, judge.Corroborate(godip.France), map[godip.Province]string{
+		"": "InconsistencyOrderTypeCount:Build:Found:0:Want:1",
+	})
+	judge.Next()
+	// Should not be mismatched because different nations.
+	judge.SetOrder("eng", orders.Convoy("eng", "bre", "bel"))
+	// Should not be mismatched becaues different nations.
+	judge.SetOrder("bre", orders.Move("bre", "wal"))
+	// Prepare for next.
+	judge.SetOrder("vie", orders.Move("vie", "boh"))
+	judge.SetOrder("ven", orders.Move("ven", "tyr"))
+	assertCorroborateErrors(t, judge.Corroborate(godip.England), map[godip.Province]string{
+		"wal": "InconsistencyMissingOrder",
+		"edi": "InconsistencyMissingOrder",
+	})
+	assertCorroborateErrors(t, judge.Corroborate(godip.France), map[godip.Province]string{
+		"mid": "InconsistencyMissingOrder",
+		"spa": "InconsistencyMissingOrder",
+	})
+	judge.Next()
+	judge.Next()
+	// Eject mun.
+	judge.SetOrder("boh", orders.Move("boh", "mun"))
+	judge.SetOrder("tyr", orders.SupportMove("tyr", "boh", "mun"))
+	judge.Next()
+	judge.SetOrder("mun", orders.Move("mun", "ruh"))
+	judge.Next()
+	assertCorroborateErrors(t, judge.Corroborate(godip.Germany), map[godip.Province]string{
+		"": "InconsistencyOrderTypeCount:Disband:Found:0:Want:1",
+	})
 }
 
 func TestFilteredOptions(t *testing.T) {

@@ -25,6 +25,26 @@ type support struct {
 	targets []godip.Province
 }
 
+func (self *support) Corroborate(v godip.Validator) []error {
+	unit, _, _ := v.Unit(self.targets[0])
+	me := unit.Nation
+	supportee, _, _ := v.Unit(self.targets[1])
+	if supportee.Nation == me {
+		potentialInconsistencies := []error{godip.InconsistencyMismatchedSupporter{
+			Supportee: self.targets[1].Super(),
+		}}
+		supporteeOrd, _, found := v.Order(self.targets[1])
+		if found && supporteeOrd.Type() == godip.Move {
+			if len(self.targets) != 3 || supporteeOrd.Targets()[1] != self.targets[2] {
+				return potentialInconsistencies
+			}
+		} else if self.targets[1] != self.targets[2] {
+			return potentialInconsistencies
+		}
+	}
+	return nil
+}
+
 func (self *support) Flags() map[godip.Flag]bool {
 	return nil
 }

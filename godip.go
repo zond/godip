@@ -47,42 +47,79 @@ const (
 	AnyHomeCenter Flag = "H"
 )
 
-var Coast = []Flag{Sea, Land}
-var Archipelago = []Flag{Sea, Land, Convoyable}
+var (
+	Coast       = []Flag{Sea, Land}
+	Archipelago = []Flag{Sea, Land, Convoyable}
 
-// Invalid is not understood
-// Illegal is understood but not allowed
-var ErrInvalidSource = fmt.Errorf("ErrInvalidSource")
-var ErrInvalidDestination = fmt.Errorf("ErrInvalidDestination")
-var ErrInvalidTarget = fmt.Errorf("ErrInvalidTarget")
-var ErrInvalidPhase = fmt.Errorf("ErrInvalidPhase")
-var ErrMissingUnit = fmt.Errorf("ErrMissingUnit")
-var ErrIllegalDestination = fmt.Errorf("ErrIllegalDestination")
-var ErrMissingConvoyPath = fmt.Errorf("ErrMissingConvoyPath")
-var ErrIllegalMove = fmt.Errorf("ErrIllegalMove")
-var ErrConvoyParadox = fmt.Errorf("ErrConvoyParadox")
-var ErrIllegalSupportPosition = fmt.Errorf("ErrIllegalSupportPosition")
-var ErrIllegalSupportDestination = fmt.Errorf("ErrIllegalSupportDestination")
-var ErrIllegalSupportDestinationNation = fmt.Errorf("ErrIllegalSupportDestinationNation")
-var ErrMissingSupportUnit = fmt.Errorf("ErrMissingSupportUnit")
-var ErrIllegalSupportMove = fmt.Errorf("ErrIllegalSupportMove")
-var ErrIllegalConvoyUnit = fmt.Errorf("ErrIllegalConvoyUnit")
-var ErrIllegalConvoyPath = fmt.Errorf("ErrIllegalConvoyPath")
-var ErrIllegalConvoyMove = fmt.Errorf("ErrIllegalConvoyMove")
-var ErrMissingConvoyee = fmt.Errorf("ErrMissingConvoyee")
-var ErrIllegalConvoyer = fmt.Errorf("ErrIllegalConvoyer")
-var ErrIllegalConvoyee = fmt.Errorf("ErrIllegalConvoyee")
-var ErrIllegalBuild = fmt.Errorf("ErrIllegalBuild")
-var ErrIllegalDisband = fmt.Errorf("ErrIllegalDisband")
-var ErrOccupiedSupplyCenter = fmt.Errorf("ErrOccupiedSupplyCenter")
-var ErrMissingSupplyCenter = fmt.Errorf("ErrMissingSupplyCenter")
-var ErrMissingSurplus = fmt.Errorf("ErrMissingSurplus")
-var ErrIllegalUnitType = fmt.Errorf("ErrIllegalUnitType")
-var ErrMissingDeficit = fmt.Errorf("ErrMissingDeficit")
-var ErrOccupiedDestination = fmt.Errorf("ErrOccupiedDestination")
-var ErrIllegalRetreat = fmt.Errorf("ErrIllegalRetreat")
-var ErrForcedDisband = fmt.Errorf("ErrForcedDisband")
-var ErrHostileSupplyCenter = fmt.Errorf("ErrHostileSupplyCenter")
+	// Invalid is not understood
+	// Illegal is understood but not allowed
+	ErrInvalidSource                   = fmt.Errorf("ErrInvalidSource")
+	ErrInvalidDestination              = fmt.Errorf("ErrInvalidDestination")
+	ErrInvalidTarget                   = fmt.Errorf("ErrInvalidTarget")
+	ErrInvalidPhase                    = fmt.Errorf("ErrInvalidPhase")
+	ErrMissingUnit                     = fmt.Errorf("ErrMissingUnit")
+	ErrIllegalDestination              = fmt.Errorf("ErrIllegalDestination")
+	ErrMissingConvoyPath               = fmt.Errorf("ErrMissingConvoyPath")
+	ErrIllegalMove                     = fmt.Errorf("ErrIllegalMove")
+	ErrConvoyParadox                   = fmt.Errorf("ErrConvoyParadox")
+	ErrIllegalSupportPosition          = fmt.Errorf("ErrIllegalSupportPosition")
+	ErrIllegalSupportDestination       = fmt.Errorf("ErrIllegalSupportDestination")
+	ErrIllegalSupportDestinationNation = fmt.Errorf("ErrIllegalSupportDestinationNation")
+	ErrMissingSupportUnit              = fmt.Errorf("ErrMissingSupportUnit")
+	ErrIllegalSupportMove              = fmt.Errorf("ErrIllegalSupportMove")
+	ErrIllegalConvoyUnit               = fmt.Errorf("ErrIllegalConvoyUnit")
+	ErrIllegalConvoyPath               = fmt.Errorf("ErrIllegalConvoyPath")
+	ErrIllegalConvoyMove               = fmt.Errorf("ErrIllegalConvoyMove")
+	ErrMissingConvoyee                 = fmt.Errorf("ErrMissingConvoyee")
+	ErrIllegalConvoyer                 = fmt.Errorf("ErrIllegalConvoyer")
+	ErrIllegalConvoyee                 = fmt.Errorf("ErrIllegalConvoyee")
+	ErrIllegalBuild                    = fmt.Errorf("ErrIllegalBuild")
+	ErrIllegalDisband                  = fmt.Errorf("ErrIllegalDisband")
+	ErrOccupiedSupplyCenter            = fmt.Errorf("ErrOccupiedSupplyCenter")
+	ErrMissingSupplyCenter             = fmt.Errorf("ErrMissingSupplyCenter")
+	ErrMissingSurplus                  = fmt.Errorf("ErrMissingSurplus")
+	ErrIllegalUnitType                 = fmt.Errorf("ErrIllegalUnitType")
+	ErrMissingDeficit                  = fmt.Errorf("ErrMissingDeficit")
+	ErrOccupiedDestination             = fmt.Errorf("ErrOccupiedDestination")
+	ErrIllegalRetreat                  = fmt.Errorf("ErrIllegalRetreat")
+	ErrForcedDisband                   = fmt.Errorf("ErrForcedDisband")
+	ErrHostileSupplyCenter             = fmt.Errorf("ErrHostileSupplyCenter")
+	InconsistencyMissingOrder          = fmt.Errorf("InconsistencyMissingOrder")
+)
+
+type InconsistencyMismatchedSupporter struct {
+	Supportee Province
+}
+
+func (self InconsistencyMismatchedSupporter) Error() string {
+	return fmt.Sprintf("InconsistencyMismatchedSupporter:%v", self.Supportee)
+}
+
+type InconsistencyMismatchedConvoyee struct {
+	Convoyer Province
+}
+
+func (self InconsistencyMismatchedConvoyee) Error() string {
+	return fmt.Sprintf("InconsistencyMismatchedConvoyee:%v", self.Convoyer)
+}
+
+type InconsistencyMismatchedConvoyer struct {
+	Convoyee Province
+}
+
+func (self InconsistencyMismatchedConvoyer) Error() string {
+	return fmt.Sprintf("InconsistencyMismatchedConvoyer:%v", self.Convoyee)
+}
+
+type InconsistencyOrderTypeCount struct {
+	OrderType OrderType
+	Found     int
+	Want      int
+}
+
+func (self InconsistencyOrderTypeCount) Error() string {
+	return fmt.Sprintf("InconsistencyOrderTypeCount:%v:Found:%v:Want:%v", self.OrderType, self.Found, self.Want)
+}
 
 type ErrDoubleBuild struct {
 	Provinces []Province
@@ -284,6 +321,7 @@ type Phase interface {
 	DefaultOrder(Province) Adjudicator
 	Options(Validator, Nation) Options
 	Messages(Validator, Nation) []string
+	Corroborate(Validator, Nation) []Inconsistency
 }
 
 type PathFilter func(n Province, edgeFlags, provFlags map[Flag]bool, sc *Nation, trace []Province) bool
@@ -402,6 +440,7 @@ type Order interface {
 	Options(Validator, Nation, Province) Options
 	At() time.Time
 	Flags() map[Flag]bool
+	Corroborate(Validator) []error
 }
 
 // Adjudicator is what orders turn into when adjudication has started.
@@ -448,6 +487,11 @@ type Resolver interface {
 	Resolve(Province) error
 }
 
+type Inconsistency struct {
+	Province Province
+	Errors   []error
+}
+
 // State is the super-user access to the entire game state.
 type State interface {
 	Resolver
@@ -465,4 +509,6 @@ type State interface {
 
 	ClearDislodgers()
 	ClearBounces()
+
+	Corroborate(Nation) []Inconsistency
 }

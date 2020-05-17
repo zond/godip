@@ -31,6 +31,10 @@ func (self *hold) Type() godip.OrderType {
 	return godip.Hold
 }
 
+func (self *hold) Corroborate(v godip.Validator) []error {
+	return nil
+}
+
 func (self *hold) DisplayType() godip.OrderType {
 	return godip.Hold
 }

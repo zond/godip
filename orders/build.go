@@ -59,6 +59,10 @@ type build struct {
 	flags   map[godip.Flag]bool
 }
 
+func (self *build) Corroborate(v godip.Validator) []error {
+	return nil
+}
+
 func (self *build) Type() godip.OrderType {
 	return godip.Build
 }

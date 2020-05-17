@@ -160,6 +160,10 @@ func (self *State) Find(filter godip.StateFilter) (provinces []godip.Province, o
 	return
 }
 
+func (self *State) Corroborate(nat godip.Nation) []godip.Inconsistency {
+	return self.Phase().Corroborate(self, nat)
+}
+
 func (self *State) Next() (err error) {
 	/*
 	   Sanitize orders.

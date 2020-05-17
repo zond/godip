@@ -55,6 +55,33 @@ func (self *move) Targets() []godip.Province {
 	return self.targets
 }
 
+func (self *move) Corroborate(v godip.Validator) []error {
+	rval := []error{}
+	unit, _, _ := v.Unit(self.targets[0])
+	if unit.Type != godip.Army {
+		return nil
+	}
+	if HasEdge(v, godip.Army, self.targets[0], self.targets[1]) {
+		return nil
+	}
+	me := unit.Nation
+	for prov, unit := range v.Units() {
+		if unit.Nation == me {
+			viaThis := len(ConvoyPathPossibleVia(v, prov, self.targets[0], self.targets[1], false))
+			first := len(FirstConvoyPath(v, self.targets[0], self.targets[1]))
+			if viaThis > 0 && viaThis <= first {
+				unitOrd, _, found := v.Order(prov)
+				if !found || unitOrd.Type() != godip.Convoy || unitOrd.Targets()[1].Super() != self.targets[0].Super() || unitOrd.Targets()[2].Super() != self.targets[1].Super() {
+					rval = append(rval, godip.InconsistencyMismatchedConvoyee{
+						Convoyer: prov.Super(),
+					})
+				}
+			}
+		}
+	}
+	return rval
+}
+
 func (self *move) At() time.Time {
 	return time.Now()
 }

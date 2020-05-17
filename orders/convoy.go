@@ -43,6 +43,28 @@ func (self *convoy) Targets() []godip.Province {
 	return self.targets
 }
 
+func (self *convoy) Corroborate(v godip.Validator) []error {
+	unit, _, _ := v.Unit(self.targets[0])
+	me := unit.Nation
+	targetUnit, _, _ := v.Unit(self.targets[1])
+	if targetUnit.Nation == me {
+		potentialInconsistencies := []error{godip.InconsistencyMismatchedConvoyer{
+			Convoyee: self.targets[1].Super(),
+		}}
+		ord, _, found := v.Order(self.targets[1].Super())
+		if !found {
+			return potentialInconsistencies
+		}
+		if ord.Type() != godip.Move {
+			return potentialInconsistencies
+		}
+		if len(ord.Targets()) != 2 || ord.Targets()[0] != self.targets[1] || ord.Targets()[1] != self.targets[2] {
+			return potentialInconsistencies
+		}
+	}
+	return nil
+}
+
 func (self *convoy) Adjudicate(r godip.Resolver) error {
 	unit, _, _ := r.Unit(self.targets[0])
 	if breaks, _, _ := r.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
@@ -231,6 +253,10 @@ func PossibleConvoyPathFilter(v godip.Validator, src, dst godip.Province, resolv
 		}
 		return false
 	}
+}
+
+func FirstConvoyPath(v godip.Validator, src, dst godip.Province) []godip.Province {
+	return v.Graph().Path(src, dst, false, PossibleConvoyPathFilter(v, src, dst, false, true))
 }
 
 // ConvoyParticipantionPossible returns a path that participant (assumed to be a fleet at a convoyable position)

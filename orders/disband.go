@@ -37,6 +37,10 @@ func (self *disband) Flags() map[godip.Flag]bool {
 	return nil
 }
 
+func (self *disband) Corroborate(v godip.Validator) []error {
+	return nil
+}
+
 func (self *disband) Targets() []godip.Province {
 	return self.targets
 }

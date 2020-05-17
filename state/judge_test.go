@@ -13,6 +13,9 @@ type testOrder int
 func (self testOrder) Options(v godip.Validator, nation godip.Nation, src godip.Province) (result godip.Options) {
 	return nil
 }
+func (self testOrder) Corroborate(v godip.Validator) []error {
+	return nil
+}
 func (self testOrder) DisplayType() godip.OrderType {
 	return ""
 }
