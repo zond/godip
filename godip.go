@@ -492,6 +492,17 @@ type Inconsistency struct {
 	Errors   []error
 }
 
+func (i Inconsistency) MarshalJSON() ([]byte, error) {
+	errStrings := make([]string, len(i.Errors))
+	for idx := range i.Errors {
+		errStrings[idx] = i.Errors[idx].Error()
+	}
+	return json.Marshal(map[string]interface{}{
+		"Province":        i.Province,
+		"Inconsistencies": errStrings,
+	})
+}
+
 // State is the super-user access to the entire game state.
 type State interface {
 	Resolver
