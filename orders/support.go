@@ -38,7 +38,7 @@ func (self *support) Corroborate(v godip.Validator) []error {
 			if len(self.targets) != 3 || supporteeOrd.Targets()[1] != self.targets[2] {
 				return potentialInconsistencies
 			}
-		} else if self.targets[1] != self.targets[2] {
+		} else if len(self.targets) > 2 {
 			return potentialInconsistencies
 		}
 	}
