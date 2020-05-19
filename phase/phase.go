@@ -49,10 +49,13 @@ func (self *Phase) Corroborate(v godip.Validator, nat godip.Nation) []godip.Inco
 		foundBuilds := 0
 		foundDisbands := 0
 		for _, ord := range v.Orders() {
-			if ord.Type() == godip.Build {
-				foundBuilds += 1
-			} else if ord.Type() == godip.Disband {
-				foundDisbands += 1
+			owner, err := ord.Validate(v)
+			if err == nil && owner == nat {
+				if ord.Type() == godip.Build {
+					foundBuilds += 1
+				} else if ord.Type() == godip.Disband {
+					foundDisbands += 1
+				}
 			}
 		}
 		if (balance >= 0 && foundBuilds != balance) || (balance <= 0 && foundBuilds != 0) {
