@@ -55,7 +55,7 @@ func (self *Phase) Corroborate(v godip.Validator, nat godip.Nation) []godip.Inco
 				foundDisbands += 1
 			}
 		}
-		if balance >= 0 && foundBuilds != balance || foundBuilds != 0 {
+		if (balance >= 0 && foundBuilds != balance) || (balance <= 0 && foundBuilds != 0) {
 			rval = append(rval, godip.Inconsistency{
 				Errors: []error{godip.InconsistencyOrderTypeCount{
 					OrderType: godip.Build,
@@ -64,7 +64,7 @@ func (self *Phase) Corroborate(v godip.Validator, nat godip.Nation) []godip.Inco
 				}},
 			})
 		}
-		if balance <= 0 && foundDisbands != -balance || foundDisbands != 0 {
+		if (balance <= 0 && foundDisbands != -balance) || (balance >= 0 && foundDisbands != 0) {
 			rval = append(rval, godip.Inconsistency{
 				Errors: []error{godip.InconsistencyOrderTypeCount{
 					OrderType: godip.Disband,
