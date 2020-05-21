@@ -42,8 +42,9 @@ var PureVariant = common.Variant{
 	SVGFlags:    classical.SVGFlags,
 	CreatedBy:   "Danny Loeb",
 	Version:     "vb10",
-	Description: "A very minimal version of classical Diplomacy where each country is a single province.",
-	Rules:       "Each of the seven nations has a single supply center, and each is adjacent to all of the others. The first player to own four of these centers is the winner.",
+	Description: "A minimal version of Diplomacy where each country is a single province.",
+	Rules:       `First to 4 Supply Centers (SC) is the winner.
+	Each nation has only one SC, and each is adjacent to all others.`,
 }
 
 func PureBlank(phase godip.Phase) *state.State {

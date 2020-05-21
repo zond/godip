@@ -45,14 +45,10 @@ var AncientMediterraneanVariant = common.Variant{
 	CreatedBy:   "Don Hessong",
 	Version:     "",
 	Description: "Five historical nations battle for dominance of the Mediterranean.",
-	Rules: "Rules are as per classical Diplomacy, with a few parts of the map that have noteworthy connectivity. " +
-		"Baleares is an archipelago that can be occupied by armies or fleets. Armies may not move directly from " +
-		"the mainland to Baleares, and a fleet in Baleares is able to form part of a convoy chain. " +
-		"The canal between Athens and Sparta is passable for armies, and means that Athens only has a single " +
-		"coast. Similarly the canal in Byzantium, the Sicilian Straits and the River Nile. There is a four way " +
-		"connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another " +
-		"four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium. The first to 18 supply " +
-		"centers is the winner.",
+	Rules: `First to 18 Supply Centers (SC) is the winner. 
+	Baleares is an archipelago that can be occupied by armies or fleets. Armies can’t move directly from the mainland to Baleares, and a fleet in Baleares can form part of a convoy chain. 
+	The canal between Athens and Sparta is passable for armies (thus Athens has a single coast). The same is true for the canals in Byzantium, the Sicilian Straits and the River Nile. 
+	There is a four-way connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium.`
 }
 
 func AncientMediterraneanBlank(phase godip.Phase) *state.State {

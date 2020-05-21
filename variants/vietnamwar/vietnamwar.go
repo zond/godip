@@ -44,13 +44,10 @@ var VietnamWarVariant = common.Variant{
 	},
 	CreatedBy:   "ThePolice",
 	Version:     "1.12",
-	Description: "Indochina Peninsula at the beginning of Vietnam War in 1955.",
-	Rules: "Rules are the same as classical Diplomacy, but with a different " +
-		"map. The winner is the first to fifteen provinces which is slightly " +
-		"more than half. All provinces connected to Mekong river are coastal; " +
-		"those are: Xuyen, Mekong, Pakxe and Ubon. That means Laos is able to " +
-		"build fleets in Pakxe. Xuyen has two coasts, as does Mekong (south " +
-		"coast and the river).",
+	Description: "The Indochina Peninsula in 1955: the beginning of Vietnam War.",
+	Rules: `First to 15 Supply Centers (SC) wins.
+All provinces connected to the Mekong river are coastal: Xuyen, Mekong, Pakxe and Ubon (e.g. Laos can build fleets in Pakxe). 
+Two provinces have dual coasts: Xuyen and Mekong (South coast and River).`,
 }
 
 func VietnamWarBlank(phase godip.Phase) *state.State {

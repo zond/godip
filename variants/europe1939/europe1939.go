@@ -48,12 +48,10 @@ var Europe1939Variant = common.Variant{
 	CreatedBy:   "Mikalis Kamaritis",
 	Version:     "I",
 	Description: "Eight nations poised for battle at the start of World War II.",
-	Rules: "Standard rules apply with a few additions. There is a sea route around Africa that means " +
-		"the South Atlantic Ocean, the Red Sea and the Persian Gulf are adjacent. There are two " +
-		"bridges connecting Liverpool with Northern Ireland and Napels with Sicily. These can be " +
-		"used by fleets or armies. At the start of the game the neutral nation of Yugoslavia is " +
-		"represented by an army in Serbia. This will disband when dislodged and will not be " +
-		"rebuilt. There are 55 supply centers and the winner is the first to 28.",
+	Rules: `First to 28 Supply Centers (SC) is the winner.
+	The neutral nation of Yugoslavia gets an army in Serbia, which will disband when dislodged.
+	Armies & fleets can move between Liverpool & Northern Ireland and Napels & Sicily.
+	A sea route around Africa means South Atlantic Ocean, Red Sea and Persian Gulf are adjacent.`,
 }
 
 func Europe1939Blank(phase godip.Phase) *state.State {

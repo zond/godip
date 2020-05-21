@@ -53,14 +53,13 @@ var HundredVariant = common.Variant{
 	},
 	CreatedBy:   "Andy Schwarz",
 	Version:     "3",
-	Description: "A three player variant based on the Hundred Years War.",
-	Rules: "A 'build anywhere' variant (players can build in any vacant supply center they own) " +
-		"where three players compete to be the first to 9 centers. The map is fairly standard " +
-		"except London is directly connected to Calais (for all units) and Northumbria and " +
-		"Aragon each have two coasts. France starts with five units but only four centers, so " +
-		"they will have to disband unless they gain a center by the end of 1430. The variant " +
-		"replaces Spring and Fall from the Classical game with years ending in '5' and years " +
-		"ending in '0' - i.e. there is an adjustment phase at the end of years ending in '0'.",
+	Description: "The Hundred Years' War was a series of conflicts from 1337 to 1453, waged between the English House of Plantagenet and the French House of Valois, over the Kingdom of France.",
+	Rules: `First to 9 Supply Centers (SC) is the winner.
+	Units may be built on any owned SC.
+	France starts with 5 units and 4 SC, so needs to disband unless they gain a center before 1430. 
+	Yearly cycles of Spring & Fall are renamed to decade cycles with years ending with 5 and 0 respectively.
+	Armies & fleets can move between London & Calais.
+	Two provinces have dual coasts: Northumbria and Aragon.`,
 }
 
 func HundredBlank(phase godip.Phase) *state.State {
