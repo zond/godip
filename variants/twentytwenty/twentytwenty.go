@@ -170,23 +170,12 @@ var TwentyTwentyVariant = common.Variant{
 	SVGFlags:    SVGFlags,
 	CreatedBy:   "TTTPPP",
 	Version:     "1",
-	Description: "Twenty nations compete to conquer the world by the year 2020.",
-	Rules: "The rules are mostly standard. Nations may build in any captured " +
-		"home centers (note - they may not build in captured neutral supply " +
-		"centers). To win a nation needs to own more supply centers than any " +
-		"opponent. In the first year they need 20 more supply centers than any " +
-		"other player, but this target is reduced by 1 each year. So to win in " +
-		"the year 2015 a player needs at least 6 more supply centers than any " +
-		"other player, and in 2020 and beyond they need a lead of a single " +
-		"supply center. Alternatively, if a player manages to get to 49 centers " +
-		"(i.e. they own over half the map) then they automatically win. The " +
-		"game can only be won in the adjustment phase at the end of a year. There " +
-		"are six bridges connecting regions for armies (and fleets). These are " +
-		"Anchorage-Vladivostok, New Orleans-Cuba, Cuba-Dominican Republic, " +
-		"Ethiopia-Yemen, Korea-Nagisaki and Indonesia-Darwin. Thirteen regions " +
-		"have multiple coasts. These are Whitehorse, Los Angeles, Mexico, " +
-		"Colombia, Bordeaux, Milan, Rome, Finland, Bulgaria, Ankara, Iraq, " +
-		"Mecca and Shanyang.",
+	Description: "Twenty nations race to conquer the world by the year 2020.",
+	Rules: `To win, a nation needs a number of Supply Centers (SC) more than any other nation at the end of a year. This starts with 20, but is reduced by 1 each year (in 2015 a nation needs six SC more, in 2020 only one). 
+Alternatively, first to 49 SC wins.
+Units may be built on any captured home SC (but not previously neutral ones).
+Units & fleets can move between Anchorage & Vladivostok, New Orleans & Cuba, Cuba & Dominican Republic, Ethiopia & Yemen, Korea & Nagasaki, and Indonesia & Darwin.
+Thirteen provinces have dual coasts: Whitehorse, Los Angeles, Mexico, Colombia, Bordeaux, Milan, Rome, Finland, Bulgaria, Ankara, Iraq, Mecca, and Shenyang.`,
 }
 
 var Phase = phase.Generator(BuildAnyHomeCenterParser, classical.AdjustSCs)

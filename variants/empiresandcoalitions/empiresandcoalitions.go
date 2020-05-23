@@ -49,15 +49,12 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 	CreatedBy:   "VaeVictis",
 	Version:     "1",
 	Description: "Major and minor powers battle for control of Europe during the Napoleonic Wars.",
-	Rules: "The four smallest nations are minor powers and start with only two units. They each have " +
-		"an extra center which can be built in once captured. These centers are Sweden (Denmark), " +
-		"Papal States (Sicily), Portugal (Spain) and Egypt (Ottoman Empire). The British fleet from " +
-		"Liverpool starts in Gibraltar, but note that Gibratar is not a supply center. Armies can " +
-		"move between Gibraltar and Andalusia, but may not move direcly between Gibraltar and " +
-		"Morocco. Fleets in Gibraltar are considered to be at sea, and so can take part in convoys. " +
-		"There are three bridges marked on the map, which connect regions (for both armies and " +
-		"fleets). Four regions have dual coasts; these are St. Petersburg, Schleswig, Andalusia and " +
-		"Papal States. The winner is the first nation to own 23 of the 44 centers.",
+	Rules: `First to 23 Supply Centers (SC) is the winner.
+	The British fleet from Liverpool starts in Gibraltar, which is not an SC.
+	The four smallest nations (minor powers) start with only two units but can build on a third SC after they capture it. These are Sweden (Denmark), Papal States (Siciliy), Portugal (Spain) and Egypt (Ottoman Empire).
+	Armies & fleets can move between Palermo & Naples, Ireland & Edinburgh and Copenhagen & Sweden.
+	Armies can move from Gibraltar to Andalusia, but not Morocco. Fleets in Gibraltar can convoy.
+	Four provinces have dual coasts: St. Petersburg, Schleswig, Andalusia and Papal States.`,
 }
 
 func EmpiresAndCoalitionsBlank(phase godip.Phase) *state.State {

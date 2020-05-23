@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480px" height="480px" viewBox="0 0 480 480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>England</title>
+    <g id="England" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="480" height="480"></rect>
+        <path d="M288,0 L288,192 L480,192 L480,288 L288,288 L288,480 L192,480 L192,288 L0,288 L0,192 L192,191.999 L192,0 L288,0 Z" id="Combined-Shape" fill="#D00A1B"></path>
+    </g>
+</svg>

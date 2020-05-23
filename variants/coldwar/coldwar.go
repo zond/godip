@@ -41,15 +41,11 @@ var ColdWarVariant = common.Variant{
 	},
 	CreatedBy:   "Firehawk & Safari",
 	Version:     "2",
-	Description: "NATO and the USSR fight each other to see which will be the dominant superpower.",
-	Rules: "Rules are as per classical Diplomacy, but with a different map. The winner " +
-		"is the first to seventeen supply centers, which is slightly more than half. " +
-		"Indonesia is connected to Australia and the Phillipines by bridges which " +
-		"allow armies and fleets to travel between them. Panama, Egypt and Istanbul " +
-		"contain canals, which allows fleets to enter and exit from either side. " +
-		"Denmark and Sweden are single coast provinces which fleets and armies can " +
-		"move between. Fleets in the North Sea must move to one of these provinces " +
-		"to get to the Baltic. Fleets may only convoy if they are in all-sea provinces.",
+	Description: "NATO and the USSR fight to become the dominant superpower.",
+	Rules: `First to 17 Supply Centers (SC) is the winner. 
+	Armies can move between Australia, Indonesia and the Philippines. 
+	Panama, Egypt and Istanbul have canals (similar to Kiel in Classic). 
+	Armies can move between Denmark and Sweden. These both have one coast, so fleets must pass through either to get from the North Sea to the Baltic Sea.`,
 }
 
 func ColdWarBlank(phase godip.Phase) *state.State {

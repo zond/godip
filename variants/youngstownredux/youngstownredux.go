@@ -49,15 +49,11 @@ var YoungstownReduxVariant = common.Variant{
 	},
 	CreatedBy:   "airborne",
 	Version:     "I",
-	Description: "A ten player variant that adds China, India and Japan to the standard seven nations.",
-	Rules: "Rules are as per classical Diplomacy. There are eight box sea regions which are each connected " +
-		"to the other boxes in the same row and column, and allow fleets to travel 'around the world'. Six provinces " +
-		"have two coasts (Spain, St. Petersburg, Levant, Arabia, Hebei and Thailand), and all other coastal regions have a " +
-		"single coast. Note that the frozen Arctic region is impassible and prevents fleets from reaching Omsk and Siberia. " +
-		"The winner is the first nation to 28 supply centers, or the player with the most in the case of " +
-		"multiple nations reaching 28 in the same turn. If the leading two nations both have the same number of centers " +
-		"then the game will continue for another year. This variant is based on the Youngstown variant by Rod Walker, " +
-		"A. Phillips, Ken Lowe and Jon Monsarret.",
+	Description: "China, India and Japan join the standard seven nations.",
+	Rules: `First to 28 Supply Centers (SC) wins. If two nations have 28 SCs, the one with most wins. If drawn, the game continues an extra year.
+Fleets can move around the world via box sea regions, which are connected to the other ones in the same row and column. 
+Six provinces have dual coasts: Spain, St. Petersburg, Levant, Arabia, Hebei, and Thailand. 
+The Arctic region is impassable (Omsk & Siberia are land regions).`,
 }
 
 func YoungstownReduxBlank(phase godip.Phase) *state.State {

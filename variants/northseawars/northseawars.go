@@ -44,15 +44,10 @@ var NorthSeaWarsVariant = common.Variant{
 	CreatedBy:   "sqrg",
 	Version:     "1",
 	Description: "A battle for trade routes in the North Sea.",
-	Rules: "Standard rules, but with the following exceptions. The Central " +
-		"North Sea is a split region, connected to three trade centers - Wood, " +
-		"Iron and Grain. Players may move from the Central North Sea to claim " +
-		"any of these as if they were regular coastal regions. Units may move " +
-		"freely between these centers, but it is not possible for a unit to " +
-		"pass back in the opposite direction. Sealand is a coastal region with " +
-		"land access to all neighbouring spaces (including Limfjorden) and " +
-		"naval access to the east coast of Jutland, but not Amsivaria. The " +
-		"Irish Sea is inaccessible. The first player to 8 supply centers wins.",
+	Rules: `First to 8 Supply Centers (SC) is the winner.
+	Units can move from Central North Sea to three trade provinces containing SCs – Wood, Iron and Grain. Units in the trade provinces can move freely between them, but can’t return back to Central North Sea.
+	Jutland has a dual coast.
+	Sealand has land access to all neighbouring spaces (including Limfjorden) and naval access to Jutland (East Coast), but not Amsivaria.`,
 }
 
 func NorthSeaWarsBlank(phase godip.Phase) *state.State {
