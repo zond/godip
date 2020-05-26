@@ -65,13 +65,32 @@ func (self *move) Corroborate(v godip.Validator) []error {
 		return nil
 	}
 	me := unit.Nation
-	if len(FirstConvoyPath(v, self.targets[0], self.targets[1], &me, true)) > 1 {
+	if len((ConvoyPathFinder{
+		ConvoyPathFilter: ConvoyPathFilter{
+			Validator:          v,
+			Source:             self.targets[0],
+			Destination:        self.targets[1],
+			OnlyNation:         &me,
+			VerifyConvoyOrders: true,
+		}}).Any()) > 1 {
 		return nil
 	}
 	for prov, unit := range v.Units() {
 		if unit.Nation == me {
-			viaThis := len(ConvoyPathPossibleVia(v, prov, self.targets[0], self.targets[1], false))
-			first := len(FirstConvoyPath(v, self.targets[0], self.targets[1], nil, false))
+			viaThis := len((ConvoyPathFinder{
+				ConvoyPathFilter: ConvoyPathFilter{
+					Validator:   v,
+					Source:      self.targets[0],
+					Destination: self.targets[1],
+				},
+				ViaProvince: &prov,
+			}).Any())
+			first := len((ConvoyPathFinder{
+				ConvoyPathFilter: ConvoyPathFilter{
+					Validator:   v,
+					Source:      self.targets[0],
+					Destination: self.targets[1],
+				}}).Any())
 			if viaThis > 1 && viaThis <= first {
 				unitOrd, _, found := v.Order(prov)
 				if !found || unitOrd.Type() != godip.Convoy || unitOrd.Targets()[1].Super() != self.targets[0].Super() || unitOrd.Targets()[2].Super() != self.targets[1].Super() {
@@ -122,7 +141,14 @@ func (self *move) adjudicateAgainstCompetition(r godip.Resolver, forbiddenSuppor
 		godip.Logf("'%v' vs '%v': %v", self, competingOrder, attackStrength)
 		if as := MoveSupport(r, competingOrder.Targets()[0], competingOrder.Targets()[1], nil) + 1; as >= attackStrength {
 			if MustConvoy(r, competingOrder.Targets()[0]) {
-				if len(AnyConvoyPath(r, competingOrder.Targets()[0], competingOrder.Targets()[1], true, nil)) > 1 {
+				if len((ConvoyPathFinder{
+					ConvoyPathFilter: ConvoyPathFilter{
+						Validator:              r,
+						Source:                 competingOrder.Targets()[0],
+						Destination:            competingOrder.Targets()[1],
+						ResolveConvoys:         true,
+						MinLengthAtDestination: 1,
+					}}).Any()) > 1 {
 					godip.Logf("'%v' vs '%v': %v", competingOrder, self, as)
 					r.AddBounce(self.targets[0], self.targets[1])
 					return godip.ErrBounce{competingOrder.Targets()[0]}
@@ -166,7 +192,14 @@ func (self *move) adjudicateMovementPhase(r godip.Resolver) error {
 
 	convoyed := MustConvoy(r, self.targets[0])
 	if convoyed {
-		if len(AnyConvoyPath(r, self.targets[0], self.targets[1], true, nil)) < 2 {
+		if len((ConvoyPathFinder{
+			ConvoyPathFilter: ConvoyPathFilter{
+				Validator:              r,
+				Source:                 self.targets[0],
+				Destination:            self.targets[1],
+				ResolveConvoys:         true,
+				MinLengthAtDestination: 1,
+			}}).Any()) < 2 {
 			return godip.ErrMissingConvoyPath
 		}
 	}
@@ -346,7 +379,13 @@ func (self *move) Options(v godip.Validator, nation godip.Nation, src godip.Prov
 								}
 								result[godip.SrcProvince(actualSrc)][dst] = nil
 							} else {
-								if cp := AnyConvoyPath(v, src, dst, false, nil); len(cp) > 1 {
+								if cp := (ConvoyPathFinder{
+									ConvoyPathFilter: ConvoyPathFilter{
+										Validator:              v,
+										Source:                 src,
+										Destination:            dst,
+										MinLengthAtDestination: 1,
+									}}).Any(); len(cp) > 1 {
 									if result == nil {
 										result = godip.Options{}
 									}
@@ -512,14 +551,27 @@ func movePossible(v godip.Validator, typ godip.UnitType, src, dst godip.Province
 		}
 		if resolveConvoys {
 			if MustConvoy(v.(godip.Resolver), src) {
-				if len(AnyConvoyPath(v, src, dst, true, nil)) < 2 {
+				if len((ConvoyPathFinder{
+					ConvoyPathFilter: ConvoyPathFilter{
+						Validator:              v,
+						Source:                 src,
+						Destination:            dst,
+						ResolveConvoys:         true,
+						MinLengthAtDestination: 1,
+					}}).Any()) < 2 {
 					return godip.ErrMissingConvoyPath
 				}
 				return nil
 			}
 		}
 		if !HasEdge(v, typ, src, dst) {
-			if cp := AnyConvoyPath(v, src, dst, false, nil); len(cp) < 2 {
+			if cp := (ConvoyPathFinder{
+				ConvoyPathFilter: ConvoyPathFilter{
+					Validator:              v,
+					Source:                 src,
+					Destination:            dst,
+					MinLengthAtDestination: 1,
+				}}).Any(); len(cp) < 2 {
 				return godip.ErrMissingConvoyPath
 			}
 			return nil

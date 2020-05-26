@@ -2,6 +2,7 @@ package orders
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/zond/godip"
@@ -119,7 +120,13 @@ func (self *convoy) Options(v godip.Validator, nation godip.Nation, src godip.Pr
 			if !v.Graph().Flags(endpoint)[godip.Land] {
 				continue
 			}
-			if path := ConvoyParticipationPossible(v, actualSrc, endpoint); path != nil {
+			if path := (ConvoyPathFinder{
+				ConvoyPathFilter: ConvoyPathFilter{
+					Validator:   v,
+					Source:      actualSrc,
+					Destination: endpoint,
+				},
+			}).Path(); path != nil {
 				possibleDestinations = append(possibleDestinations, endpoint)
 				if endpointUnit, _, ok := v.Unit(endpoint); ok && endpointUnit.Type == godip.Army {
 					possibleSources = append(possibleSources, endpoint)
@@ -181,7 +188,13 @@ func (self *convoy) Validate(v godip.Validator) (godip.Nation, error) {
 	} else if convoyee.Type != godip.Army {
 		return "", godip.ErrIllegalConvoyee
 	}
-	if len(AnyConvoyPath(v, self.targets[1], self.targets[2], false, nil)) < 2 {
+	if len((ConvoyPathFinder{
+		ConvoyPathFilter: ConvoyPathFilter{
+			Validator:              v,
+			Source:                 self.targets[1],
+			Destination:            self.targets[2],
+			MinLengthAtDestination: 1,
+		}}).Any()) < 2 {
 		return "", godip.ErrIllegalConvoyMove
 	}
 	return convoyer.Nation, nil
@@ -195,7 +208,6 @@ func (self *convoy) Execute(state godip.State) {
 // startPoint; if it's true then the route will be for a unit moving to startPoint
 // instead. If noConvoy is set then the route cannot pass through it.
 func ConvoyEndPoints(v godip.Validator, startPoint godip.Province, reverse bool, noConvoy *godip.Province) (result []godip.Province) {
-	defer v.Profile("ConvoyEndPoints", time.Now())
 	potentialConvoyCoasts := map[godip.Province]bool{}
 	v.Graph().Path(startPoint, "-", reverse, func(prov godip.Province, edgeFlags, provFlags map[godip.Flag]bool, sc *godip.Nation, trace []godip.Province) (okStep bool) {
 		if !edgeFlags[godip.Sea] {
@@ -228,7 +240,7 @@ func ConvoyEndPoints(v godip.Validator, startPoint godip.Province, reverse bool,
 	return result
 }
 
-type convoyPathFilter struct {
+type ConvoyPathFilter struct {
 	Validator   godip.Validator
 	Source      godip.Province
 	Destination godip.Province
@@ -252,7 +264,7 @@ type convoyPathFilter struct {
 	VerifyConvoyOrders bool
 }
 
-func (p *convoyPathFilter) filter(
+func (p ConvoyPathFilter) PathFilter(
 	name godip.Province,
 	edgeFlags,
 	nodeFlags map[godip.Flag]bool,
@@ -286,101 +298,95 @@ func (p *convoyPathFilter) filter(
 	return false
 }
 
-// FirstConvoyPath returns a path from src to dst, possibly only with a given nation, and possibly while verifying that
-// all participants actually have a convoy order that matches the move.
-func FirstConvoyPath(v godip.Validator, src, dst godip.Province, onlyNation *godip.Nation, verifyConvoyOrders bool) []godip.Province {
-	return v.Graph().Path(src, dst, false, (&convoyPathFilter{
-		Validator:              v,
-		Source:                 src,
-		Destination:            dst,
-		MinLengthAtDestination: 1,
-		OnlyNation:             onlyNation,
-		VerifyConvoyOrders:     verifyConvoyOrders,
-	}).filter)
+type ConvoyPathFinder struct {
+	ConvoyPathFilter
+	ViaNation   *godip.Nation
+	ViaProvince *godip.Province
 }
 
-// ConvoyParticipantionPossible returns a path that participant (assumed to be a fleet at a convoyable position)
-// could send an army to endpoint.
-func ConvoyParticipationPossible(v godip.Validator, participant, endpoint godip.Province) []godip.Province {
-	defer v.Profile("ConvoyParticipationPossible", time.Now())
-	return v.Graph().Path(participant, endpoint, false, (&convoyPathFilter{
-		Validator:   v,
-		Source:      participant,
-		Destination: endpoint,
-	}).filter)
-}
-
-func ConvoyPathPossibleVia(v godip.Validator, via, src, dst godip.Province, resolveConvoys bool) []godip.Province {
-	defer v.Profile("ConvoyPathPossibleVia", time.Now())
-	part1Filter := convoyPathFilter{
-		Validator:             v,
-		Source:                src,
-		Destination:           dst,
-		ResolveConvoys:        resolveConvoys,
-		DestinationMustConvoy: true,
+func (c ConvoyPathFinder) Path() []godip.Province {
+	if c.ViaNation != nil && c.ViaProvince != nil {
+		log.Panicf("Should never call Path with both ViaNation and ViaProvince: %+v", c)
 	}
-	part2Filter := convoyPathFilter{
-		Validator:      v,
-		Source:         src,
-		Destination:    dst,
-		ResolveConvoys: resolveConvoys,
-	}
-	if part1 := v.Graph().Path(src, via, false, part1Filter.filter); part1 != nil {
-		t2 := time.Now()
-		if part2 := v.Graph().Path(via, dst, false, part2Filter.filter); part2 != nil {
-			return append(part1, part2...)
-		}
-		v.Profile("ConvoyPathPossbleVia { [ check second half ] }", t2)
-	}
-	return nil
-}
-
-func convoyPath(v godip.Validator, src, dst godip.Province, resolveConvoys bool, viaNation *godip.Nation) []godip.Province {
-	defer v.Profile("convoyPath", time.Now())
-	if src == dst {
+	if c.Source == c.Destination {
 		return nil
 	}
-	// If we don't care about via a particular nation, just return first match.
-	if viaNation == nil {
-		return v.Graph().Path(src, dst, false, (&convoyPathFilter{
-			Validator:              v,
-			Source:                 src,
-			Destination:            dst,
-			ResolveConvoys:         resolveConvoys,
-			MinLengthAtDestination: 1,
-		}).filter)
-	}
-	// Otherwise, find all fleets that could or will convoy.
-	t := time.Now()
-	waypoints, _, _ := v.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
-		// (not on land                     or is convoyable)                        and exists  and is the viaNation, if provided               and is a fleet           and is not _at_ src or dst.
-		if (!v.Graph().Flags(p)[godip.Land] || v.Graph().Flags(p)[godip.Convoyable]) && u != nil && u.Nation == *viaNation && u.Type == godip.Fleet && p.Super() != src.Super() && p.Super() != dst.Super() {
-			if !resolveConvoys {
-				if o != nil && o.Type() == godip.Convoy && o.Targets()[1].Contains(src) && o.Targets()[2].Contains(dst) {
-					return true
-				}
-				return false
-			}
-			if o != nil && o.Type() == godip.Convoy && o.Targets()[1].Contains(src) && o.Targets()[2].Contains(dst) {
-				if err := v.(godip.Resolver).Resolve(p); err != nil {
+	if c.ViaNation != nil {
+		// Find all fleets that could or will convoy.
+		waypoints, _, _ := c.Validator.Find(func(p godip.Province, o godip.Order, u *godip.Unit) bool {
+			// (not on land or is convoyable)
+			if (!c.Validator.Graph().Flags(p)[godip.Land] || c.Validator.Graph().Flags(p)[godip.Convoyable]) &&
+				// and exists
+				u != nil &&
+				// and is the viaNation
+				u.Nation == *c.ViaNation &&
+				// and is a fleet
+				u.Type == godip.Fleet &&
+				// and is not _at_ src or dst
+				p.Super() != c.Source.Super() &&
+				p.Super() != c.Destination.Super() {
+				if !c.ResolveConvoys {
+					if o != nil && o.Type() == godip.Convoy && o.Targets()[1].Contains(c.Source) && o.Targets()[2].Contains(c.Destination) {
+						return true
+					}
 					return false
 				}
-				return true
+				if o != nil && o.Type() == godip.Convoy && o.Targets()[1].Contains(c.Source) && o.Targets()[2].Contains(c.Destination) {
+					if err := c.Validator.(godip.Resolver).Resolve(p); err != nil {
+						return false
+					}
+					return true
+				}
+			}
+			return false
+		})
+		// Run ViaProvince for each found fleet.
+		c.ViaNation = nil
+		for _, waypoint := range waypoints {
+			c.ViaProvince = &waypoint
+			if path := c.Path(); path != nil {
+				return path
 			}
 		}
-		return false
-	})
-	v.Profile("convoyPath { v.Find([matching fleets]) }", t)
-	for _, waypoint := range waypoints {
-		if path := ConvoyPathPossibleVia(v, waypoint, src, dst, resolveConvoys); path != nil {
-			return path
+		return nil
+	} else if c.ViaProvince != nil {
+		part1Filter := c.ConvoyPathFilter
+		part1Filter.DestinationMustConvoy = true
+		// Find any path from src to via.
+		if part1 := c.Validator.Graph().Path(c.Source, *c.ViaProvince, false, part1Filter.PathFilter); len(part1) > 0 {
+			// Find any path from via to dst.
+			if part2 := c.Validator.Graph().Path(*c.ViaProvince, c.Destination, false, c.ConvoyPathFilter.PathFilter); len(part2) > 0 {
+				return append(part1, part2...)
+			}
+		}
+		return nil
+	}
+	rval := c.Validator.Graph().Path(c.Source, c.Destination, false, c.ConvoyPathFilter.PathFilter)
+	return rval
+}
+
+func (c ConvoyPathFinder) Any() []godip.Province {
+	if !c.Validator.Graph().AllFlags(c.Source)[godip.Sea] || !c.Validator.Graph().AllFlags(c.Destination)[godip.Sea] {
+		return nil
+	}
+	for _, srcCoast := range c.Validator.Graph().Coasts(c.Source) {
+		for _, dstCoast := range c.Validator.Graph().Coasts(c.Destination) {
+			coastToCoast := c
+			coastToCoast.Source = srcCoast
+			coastToCoast.Destination = dstCoast
+			if result := coastToCoast.Path(); len(result) > 1 {
+				return result
+			}
 		}
 	}
 	return nil
 }
 
+// MustConvoy returns whether the unit at src must convoy.
+// Used during adjudication to find mandatory convoy path, i.e. if there is no other option,
+// or there is a convoy option and the move is via convoy, or the owner has told at least one fleet
+// to convoy the unit that way.
 func MustConvoy(r godip.Resolver, src godip.Province) bool {
-	defer r.Profile("MustConvoy", time.Now())
 	unit, _, ok := r.Unit(src)
 	if !ok {
 		return false
@@ -395,25 +401,22 @@ func MustConvoy(r godip.Resolver, src godip.Province) bool {
 	if order.Type() != godip.Move {
 		return false
 	}
-	return (!HasEdge(r, unit.Type, order.Targets()[0], order.Targets()[1]) ||
-		(order.Flags()[godip.ViaConvoy] && len(AnyConvoyPath(r, order.Targets()[0], order.Targets()[1], true, nil)) > 1) ||
-		len(AnyConvoyPath(r, order.Targets()[0], order.Targets()[1], false, &unit.Nation)) > 1)
-}
-
-func AnyConvoyPath(v godip.Validator, src, dst godip.Province, resolveConvoys bool, viaNation *godip.Nation) (result []godip.Province) {
-	defer v.Profile("AnyConvoyPath", time.Now())
-	if !v.Graph().AllFlags(src)[godip.Sea] || !v.Graph().AllFlags(dst)[godip.Sea] {
-		return
-	}
-	if result = convoyPath(v, src, dst, resolveConvoys, viaNation); result != nil {
-		return
-	}
-	for _, srcCoast := range v.Graph().Coasts(src) {
-		for _, dstCoast := range v.Graph().Coasts(dst) {
-			if result = convoyPath(v, srcCoast, dstCoast, resolveConvoys, viaNation); result != nil {
-				return
-			}
-		}
-	}
-	return
+	rval := (!HasEdge(r, unit.Type, order.Targets()[0], order.Targets()[1]) ||
+		(order.Flags()[godip.ViaConvoy] && len((ConvoyPathFinder{
+			ConvoyPathFilter: ConvoyPathFilter{
+				Validator:              r,
+				Source:                 order.Targets()[0],
+				Destination:            order.Targets()[1],
+				ResolveConvoys:         true,
+				MinLengthAtDestination: 1,
+			}}).Any()) > 1) ||
+		len((ConvoyPathFinder{
+			ConvoyPathFilter: ConvoyPathFilter{
+				Validator:   r,
+				Source:      order.Targets()[0],
+				Destination: order.Targets()[1],
+			},
+			ViaNation: &unit.Nation,
+		}).Any()) > 1)
+	return rval
 }
