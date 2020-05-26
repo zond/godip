@@ -65,11 +65,14 @@ func (self *move) Corroborate(v godip.Validator) []error {
 		return nil
 	}
 	me := unit.Nation
+	if len(FirstConvoyPath(v, self.targets[0], self.targets[1], &me, true)) > 1 {
+		return nil
+	}
 	for prov, unit := range v.Units() {
 		if unit.Nation == me {
 			viaThis := len(ConvoyPathPossibleVia(v, prov, self.targets[0], self.targets[1], false))
-			first := len(FirstConvoyPath(v, self.targets[0], self.targets[1]))
-			if viaThis > 0 && viaThis <= first {
+			first := len(FirstConvoyPath(v, self.targets[0], self.targets[1], nil, false))
+			if viaThis > 1 && viaThis <= first {
 				unitOrd, _, found := v.Order(prov)
 				if !found || unitOrd.Type() != godip.Convoy || unitOrd.Targets()[1].Super() != self.targets[0].Super() || unitOrd.Targets()[2].Super() != self.targets[1].Super() {
 					rval = append(rval, godip.InconsistencyMismatchedConvoyee{
@@ -119,7 +122,7 @@ func (self *move) adjudicateAgainstCompetition(r godip.Resolver, forbiddenSuppor
 		godip.Logf("'%v' vs '%v': %v", self, competingOrder, attackStrength)
 		if as := MoveSupport(r, competingOrder.Targets()[0], competingOrder.Targets()[1], nil) + 1; as >= attackStrength {
 			if MustConvoy(r, competingOrder.Targets()[0]) {
-				if AnyConvoyPath(r, competingOrder.Targets()[0], competingOrder.Targets()[1], true, nil) != nil {
+				if len(AnyConvoyPath(r, competingOrder.Targets()[0], competingOrder.Targets()[1], true, nil)) > 1 {
 					godip.Logf("'%v' vs '%v': %v", competingOrder, self, as)
 					r.AddBounce(self.targets[0], self.targets[1])
 					return godip.ErrBounce{competingOrder.Targets()[0]}
@@ -163,7 +166,7 @@ func (self *move) adjudicateMovementPhase(r godip.Resolver) error {
 
 	convoyed := MustConvoy(r, self.targets[0])
 	if convoyed {
-		if AnyConvoyPath(r, self.targets[0], self.targets[1], true, nil) == nil {
+		if len(AnyConvoyPath(r, self.targets[0], self.targets[1], true, nil)) < 2 {
 			return godip.ErrMissingConvoyPath
 		}
 	}
@@ -509,14 +512,14 @@ func movePossible(v godip.Validator, typ godip.UnitType, src, dst godip.Province
 		}
 		if resolveConvoys {
 			if MustConvoy(v.(godip.Resolver), src) {
-				if AnyConvoyPath(v, src, dst, true, nil) == nil {
+				if len(AnyConvoyPath(v, src, dst, true, nil)) < 2 {
 					return godip.ErrMissingConvoyPath
 				}
 				return nil
 			}
 		}
 		if !HasEdge(v, typ, src, dst) {
-			if cp := AnyConvoyPath(v, src, dst, false, nil); cp == nil {
+			if cp := AnyConvoyPath(v, src, dst, false, nil); len(cp) < 2 {
 				return godip.ErrMissingConvoyPath
 			}
 			return nil

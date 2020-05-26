@@ -442,6 +442,19 @@ func assertCorroborateErrors(t *testing.T, inconsistencies []godip.Inconsistency
 	}
 }
 
+func TestConvoyCorroborate(t *testing.T) {
+	judge := Blank(NewPhase(1903, godip.Fall, godip.Movement))
+	judge.SetUnit("edi", godip.Unit{godip.Army, godip.England})
+	judge.SetUnit("nrg", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("nth", godip.Unit{godip.Fleet, godip.England})
+	judge.SetOrder("edi", orders.Move("edi", "nwy"))
+	judge.SetOrder("nth", orders.Convoy("nth", "edi", "nwy"))
+	judge.SetOrder("nrg", orders.Move("nrg", "nat"))
+	if incons := judge.Corroborate(godip.England); len(incons) != 0 {
+		t.Errorf("Got %+v, wanted []", incons)
+	}
+}
+
 func TestCorroborate(t *testing.T) {
 	judge := startState(t)
 	// Should be mismatched support due to wrong dest.
