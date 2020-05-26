@@ -59,7 +59,7 @@ func (self *convoy) Corroborate(v godip.Validator) []error {
 		if ord.Type() != godip.Move {
 			return potentialInconsistencies
 		}
-		if len(ord.Targets()) != 2 || ord.Targets()[0] != self.targets[1] || ord.Targets()[1] != self.targets[2] {
+		if len(ord.Targets()) != 2 || ord.Targets()[0].Super() != self.targets[1].Super() || ord.Targets()[1].Super() != self.targets[2].Super() {
 			return potentialInconsistencies
 		}
 	}

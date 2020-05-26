@@ -35,7 +35,7 @@ func (self *support) Corroborate(v godip.Validator) []error {
 		}}
 		supporteeOrd, _, found := v.Order(self.targets[1])
 		if found && supporteeOrd.Type() == godip.Move {
-			if len(self.targets) != 3 || supporteeOrd.Targets()[1] != self.targets[2] {
+			if len(self.targets) != 3 || supporteeOrd.Targets()[1].Super() != self.targets[2].Super() {
 				return potentialInconsistencies
 			}
 		} else if len(self.targets) > 2 {

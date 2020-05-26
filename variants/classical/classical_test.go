@@ -442,6 +442,17 @@ func assertCorroborateErrors(t *testing.T, inconsistencies []godip.Inconsistency
 	}
 }
 
+func TestSupportCorroborate(t *testing.T) {
+	judge := Blank(NewPhase(1903, godip.Fall, godip.Movement))
+	judge.SetUnit("con", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("ser", godip.Unit{godip.Army, godip.England})
+	judge.SetOrder("con", orders.Move("con", "bul/sc"))
+	judge.SetOrder("ser", orders.SupportMove("ser", "con", "bul"))
+	if incons := judge.Corroborate(godip.England); len(incons) != 0 {
+		t.Errorf("Got %+v, wanted []", incons)
+	}
+}
+
 func TestConvoyCorroborate(t *testing.T) {
 	judge := Blank(NewPhase(1903, godip.Fall, godip.Movement))
 	judge.SetUnit("edi", godip.Unit{godip.Army, godip.England})
