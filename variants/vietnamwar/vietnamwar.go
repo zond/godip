@@ -45,6 +45,7 @@ var VietnamWarVariant = common.Variant{
 	CreatedBy:   "ThePolice",
 	Version:     "1.12",
 	Description: "The Indochina Peninsula in 1955: the beginning of Vietnam War.",
+	SoloSCCount: func(*state.State) int { return 15 },
 	Rules: `First to 15 Supply Centers (SC) wins.
 All provinces connected to the Mekong river are coastal: Xuyen, Mekong, Pakxe and Ubon (e.g. Laos can build fleets in Pakxe). 
 Two provinces have dual coasts: Xuyen and Mekong (South coast and River).`,

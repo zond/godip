@@ -46,6 +46,7 @@ var CantonVariant = common.Variant{
 	},
 	CreatedBy:   "Paul Webb",
 	Version:     "3",
+	SoloSCCount: func(*state.State) int { return 19 },
 	Description: "Asia at the beginning of the 20th century. It's fate is determined by Britain, China, France, Holland, Japan, Russia, and Turkey.",
 	Rules: `First to 19 Supply Centers (SC) is the winner. 
 	Constantinople and Egypt have a canal (similar to Kiel in Classic). 

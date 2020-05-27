@@ -49,6 +49,7 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 	CreatedBy:   "VaeVictis",
 	Version:     "1",
 	Description: "Major and minor powers battle for control of Europe during the Napoleonic Wars.",
+	SoloSCCount: func(*state.State) int { return 23 },
 	Rules: `First to 23 Supply Centers (SC) is the winner.
 	The British fleet from Liverpool starts in Gibraltar, which is not an SC.
 	The four smallest nations (minor powers) start with only two units but can build on a third SC after they capture it. These are Sweden (Denmark), Papal States (Siciliy), Portugal (Spain) and Egypt (Ottoman Empire).

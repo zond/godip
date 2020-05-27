@@ -44,6 +44,7 @@ var NorthSeaWarsVariant = common.Variant{
 	CreatedBy:   "sqrg",
 	Version:     "1",
 	Description: "A battle for trade routes in the North Sea.",
+	SoloSCCount: func(*state.State) int { return 8 },
 	Rules: `First to 8 Supply Centers (SC) is the winner.
 	Units can move from Central North Sea to three trade provinces containing SCs – Wood, Iron and Grain. Units in the trade provinces can move freely between them, but can’t return back to Central North Sea.
 	Jutland has a dual coast.

@@ -41,6 +41,7 @@ var FleetRomeVariant = common.Variant{
 	CreatedBy:   "Richard Sharp",
 	Version:     "",
 	Description: "Classical Diplomacy, but Italy starts with a fleet in Rome.",
-	Rules:       `The first to 18 supply centers is the winner.  
+	SoloSCCount: func(*state.State) int { return 18 },
+	Rules: `The first to 18 supply centers is the winner.  
 	Italy starts with a fleet in Rome rather than an army.`,
 }

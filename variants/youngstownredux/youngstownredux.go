@@ -50,6 +50,7 @@ var YoungstownReduxVariant = common.Variant{
 	CreatedBy:   "airborne",
 	Version:     "I",
 	Description: "China, India and Japan join the standard seven nations.",
+	SoloSCCount: func(*state.State) int { return 28 },
 	Rules: `First to 28 Supply Centers (SC) wins. If two nations have 28 SCs, the one with most wins. If drawn, the game continues an extra year.
 Fleets can move around the world via box sea regions, which are connected to the other ones in the same row and column. 
 Six provinces have dual coasts: Spain, St. Petersburg, Levant, Arabia, Hebei, and Thailand. 

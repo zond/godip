@@ -42,6 +42,7 @@ var ColdWarVariant = common.Variant{
 	CreatedBy:   "Firehawk & Safari",
 	Version:     "2",
 	Description: "NATO and the USSR fight to become the dominant superpower.",
+	SoloSCCount: func(*state.State) int { return 17 },
 	Rules: `First to 17 Supply Centers (SC) is the winner. 
 	Armies can move between Australia, Indonesia and the Philippines. 
 	Panama, Egypt and Istanbul have canals (similar to Kiel in Classic). 

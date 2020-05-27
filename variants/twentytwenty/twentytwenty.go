@@ -171,6 +171,24 @@ var TwentyTwentyVariant = common.Variant{
 	CreatedBy:   "TTTPPP",
 	Version:     "1",
 	Description: "Twenty nations race to conquer the world by the year 2020.",
+	SoloSCCount: func(s *state.State) int {
+		scCountPerNation := map[godip.Nation]int{}
+		for _, nat := range s.SupplyCenters() {
+			scCountPerNation[nat] += 1
+		}
+		maxSCCount := 0
+		for _, count := range scCountPerNation {
+			if count > maxSCCount {
+				maxSCCount = count
+			}
+		}
+		phase := s.Phase()
+		extraSCsNeeded := 20 + phase.Year() - 2001
+		if extraSCsNeeded < 0 {
+			extraSCsNeeded = 0
+		}
+		return maxSCCount + extraSCsNeeded
+	},
 	Rules: `To win, a nation needs a number of Supply Centers (SC) more than any other nation at the end of a year. This starts with 20, but is reduced by 1 each year (in 2015 a nation needs six SC more, in 2020 only one). 
 Alternatively, first to 49 SC wins.
 Units may be built on any captured home SC (but not previously neutral ones).

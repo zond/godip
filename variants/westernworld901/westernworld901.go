@@ -60,6 +60,7 @@ var WesternWorld901Variant = common.Variant{
 	CreatedBy:   "David Cohen",
 	Version:     "4.0",
 	Description: "Nine powers compete for the Western World circa 901.",
+	SoloSCCount: func(*state.State) int { return 33 },
 	Rules: `First to 33 Supply Centers (SC) wins.
 Units may be built in any owned SC.
 Neutral SCs get an army which always holds and disbands when dislodged. This will be rebuilt if the SC is unowned during adjustment.

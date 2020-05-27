@@ -48,6 +48,7 @@ var Europe1939Variant = common.Variant{
 	CreatedBy:   "Mikalis Kamaritis",
 	Version:     "I",
 	Description: "Eight nations poised for battle at the start of World War II.",
+	SoloSCCount: func(*state.State) int { return 28 },
 	Rules: `First to 28 Supply Centers (SC) is the winner.
 	The neutral nation of Yugoslavia gets an army in Serbia, which will disband when dislodged.
 	Armies & fleets can move between Liverpool & Northern Ireland and Napels & Sicily.
