@@ -85,6 +85,12 @@ var ClassicalVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/map.svg")
 	},
+	// TODO(JorenC): Here you can add all the province names you want.
+	// You can also add the same kind of mapping to all other variants if you have the energy.
+	// Then we can render them in the order list and map view.
+	ProvinceLongNames: map[godip.Province]string{
+		"lon": "London",
+	},
 	SVGVersion:  "9",
 	SVGUnits:    SVGUnits,
 	SVGFlags:    SVGFlags,

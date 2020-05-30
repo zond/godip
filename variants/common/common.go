@@ -42,6 +42,8 @@ type Variant struct {
 	SVGUnits map[godip.UnitType]func() ([]byte, error) `json:"-"`
 	// SVG representing the nation flags.
 	SVGFlags map[godip.Nation]func() ([]byte, error) `json:"-"`
+	// Long human readable names for the provinces, if available.
+	ProvinceLongNames map[godip.Province]string
 	// Who the version was created by (or the empty string if no creator information is known).
 	CreatedBy string
 	// Version of the variant (or the empty string if no version information is known).
