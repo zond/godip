@@ -32,7 +32,7 @@ type Variant struct {
 	UnitTypes []godip.UnitType
 	// Function to return a nation with a solo (or the empty string if no such nation exists).
 	SoloWinner func(*state.State) godip.Nation `json:"-"`
-	// Number of SCs necessar for a solo, if possible.
+	// Number of SCs necessary for a solo, if possible.
 	SoloSCCount func(*state.State) int `json:"-"`
 	// SVG representing the variant map graphics.
 	SVGMap func() ([]byte, error) `json:"-"`
