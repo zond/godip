@@ -1,0 +1,34 @@
+# The first year of the game
+START_YEAR: 450
+# The starting units
+START_UNITS:
+  Thessaly:
+    Army: []
+    Fleet: []
+  Aetolia:
+    Army: []
+    Fleet: []
+  Achaea:
+    Army: ['Patrae', 'Pellene']
+    Fleet: ['Aegium']
+  Sparta:
+    Army: ['Sparta', 'Prasiae']
+    Fleet: ['Zarax']
+  Argos:
+    Army: ['Argos','Corinth']
+    Fleet: ['Hermione']
+  Thebes:
+    Army: ['Thebes','Orcho- menos']
+    Fleet: ['Aulis']
+  Athens:
+    Army: ['Megara']
+    Fleet: ['Athens','Marathon']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  xx1: XX1
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+]
