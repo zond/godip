@@ -42,7 +42,7 @@ var HundredVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/hundredmap.svg")
 	},
-	SVGVersion: "4",
+	SVGVersion: "5",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
@@ -132,7 +132,7 @@ func HundredGraph() *graph.Graph {
 		// Friesland
 		Prov("fri").Conn("lux", godip.Land).Conn("thw", godip.Sea).Conn("hol", godip.Coast...).Flag(godip.Coast...).
 		// North Sea
-		Prov("nos").Conn("thp", godip.Sea).Conn("iri", godip.Sea).Conn("sco", godip.Sea).Conn("not", godip.Sea).Conn("not/ec", godip.Sea).Conn("ang", godip.Sea).Conn("thw", godip.Sea).Flag(godip.Sea).
+		Prov("nos").Conn("sco", godip.Sea).Conn("not", godip.Sea).Conn("not/ec", godip.Sea).Conn("ang", godip.Sea).Conn("thw", godip.Sea).Conn("min", godip.Sea).Flag(godip.Sea).
 		// The Wash
 		Prov("thw").Conn("nos", godip.Sea).Conn("ang", godip.Sea).Conn("str", godip.Sea).Conn("hol", godip.Sea).Conn("fri", godip.Sea).Flag(godip.Sea).
 		// Devon
@@ -176,11 +176,11 @@ func HundredGraph() *graph.Graph {
 		// Toulouse
 		Prov("tou").Conn("med", godip.Sea).Conn("pro", godip.Coast...).Conn("lim", godip.Land).Conn("poi", godip.Land).Conn("guy", godip.Land).Conn("ara", godip.Land).Conn("ara/sc", godip.Sea).Flag(godip.Coast...).SC(France).
 		// Irish Sea
-		Prov("iri").Conn("nos", godip.Sea).Conn("thp", godip.Sea).Conn("atl", godip.Sea).Conn("brs", godip.Sea).Conn("wal", godip.Sea).Conn("not", godip.Sea).Conn("not/wc", godip.Sea).Conn("sco", godip.Sea).Flag(godip.Sea).
+		Prov("iri").Conn("thp", godip.Sea).Conn("atl", godip.Sea).Conn("brs", godip.Sea).Conn("wal", godip.Sea).Conn("not", godip.Sea).Conn("not/wc", godip.Sea).Conn("sco", godip.Sea).Conn("min", godip.Sea).Flag(godip.Sea).
 		// Dijon
 		Prov("dij").Conn("lux", godip.Land).Conn("fla", godip.Land).Conn("cal", godip.Land).Conn("par", godip.Land).Conn("cha", godip.Land).Conn("dau", godip.Land).Conn("can", godip.Land).Conn("lor", godip.Land).Flag(godip.Land).SC(Burgundy).
 		// Scotland
-		Prov("sco").Conn("nos", godip.Sea).Conn("iri", godip.Sea).Conn("not", godip.Land).Conn("not/ec", godip.Sea).Conn("not/wc", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("sco").Conn("nos", godip.Sea).Conn("iri", godip.Sea).Conn("not", godip.Land).Conn("not/ec", godip.Sea).Conn("not/wc", godip.Sea).Conn("min", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Brittany
 		Prov("brt").Conn("bis", godip.Sea).Conn("guy", godip.Coast...).Conn("poi", godip.Land).Conn("orl", godip.Land).Conn("anj", godip.Land).Conn("nom", godip.Coast...).Conn("eng", godip.Sea).Conn("brs", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Limousin
@@ -204,8 +204,10 @@ func HundredGraph() *graph.Graph {
 		// Charolais
 		Prov("cha").Conn("dau", godip.Land).Conn("dij", godip.Land).Conn("par", godip.Land).Flag(godip.Land).
 		// The Pale
-		Prov("thp").Conn("atl", godip.Sea).Conn("iri", godip.Sea).Conn("nos", godip.Sea).Flag(godip.Coast...).
+		Prov("thp").Conn("atl", godip.Sea).Conn("iri", godip.Sea).Conn("min", godip.Sea).Flag(godip.Coast...).
 		// Holland
 		Prov("hol").Conn("str", godip.Sea).Conn("fla", godip.Coast...).Conn("lux", godip.Land).Conn("fri", godip.Coast...).Conn("thw", godip.Sea).Flag(godip.Coast...).SC(Burgundy).
+		// Minch
+		Prov("min").Conn("thp", godip.Sea).Conn("iri", godip.Sea).Conn("sco", godip.Sea).Conn("nos", godip.Sea).Flag(godip.Sea).
 		Done()
 }
