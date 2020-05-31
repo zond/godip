@@ -58,18 +58,22 @@ func TestPhaseMessage(t *testing.T) {
 		t.Fatalf("Wanted an adjustment phase, got %v", p.Type())
 	}
 	ver := func(nat godip.Nation, want []string) {
+		wantMap := map[string]bool{}
+		for _, s := range want {
+			wantMap[s] = true
+		}
 		msgs := p.Messages(s, nat)
 		if len(msgs) != len(want) {
 			t.Errorf("Wanted %v messages for %v, got %v", len(want), nat, len(msgs))
 			return
 		}
-		for idx := range want {
-			if msgs[idx] != want[idx] {
-				t.Errorf("Wanted message %v for %v to be %v, was %v", idx, nat, want[idx], msgs[idx])
+		for _, msg := range msgs {
+			if !wantMap[msg] {
+				t.Errorf("Found message %v for %v, didn't find it among %+v", msg, nat, want)
 			}
 		}
 	}
-	ver(godip.Italy, []string{"MustDisband:1"})
-	ver(godip.Austria, []string{"MayBuild:1"})
-	ver(godip.Turkey, []string{"MayBuild:0"})
+	ver(godip.Italy, []string{"MustDisband:1", "OtherMayBuild:Austria:1", "OtherMayBuild:Turkey:0", "OtherMayBuild:England:0", "OtherMayBuild:Russia:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:0"})
+	ver(godip.Austria, []string{"MayBuild:1", "OtherMustDisband:Italy:1", "OtherMayBuild:Turkey:0", "OtherMayBuild:England:0", "OtherMayBuild:Russia:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:0"})
+	ver(godip.Turkey, []string{"MayBuild:0", "OtherMustDisband:Italy:1", "OtherMayBuild:Austria:1", "OtherMayBuild:England:0", "OtherMayBuild:Russia:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:0"})
 }

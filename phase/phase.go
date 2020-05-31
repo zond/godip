@@ -118,26 +118,37 @@ func (self *Phase) Options(s godip.Validator, nation godip.Nation) godip.Options
 }
 
 func (self *Phase) Messages(s godip.Validator, nation godip.Nation) []string {
+	messages := []string{}
 	if self.Ty == godip.Adjustment {
-		unitCount := 0
-		scCount := 0
+		unitsPerNat := map[godip.Nation]int{}
+		scsPerNat := map[godip.Nation]int{}
+		nats := map[godip.Nation]bool{}
 		for _, unit := range s.Units() {
-			if unit.Nation == nation {
-				unitCount += 1
-			}
+			unitsPerNat[unit.Nation] += 1
+			nats[unit.Nation] = true
 		}
 		for _, nat := range s.SupplyCenters() {
+			scsPerNat[nat] += 1
+			nats[nat] = true
+		}
+		for nat := range nats {
+			delta := scsPerNat[nat] - unitsPerNat[nat]
 			if nat == nation {
-				scCount += 1
+				if delta < 0 {
+					messages = append(messages, fmt.Sprintf("MustDisband:%v", -delta))
+				} else {
+					messages = append(messages, fmt.Sprintf("MayBuild:%v", delta))
+				}
+			} else {
+				if delta < 0 {
+					messages = append(messages, fmt.Sprintf("OtherMustDisband:%v:%v", nat, -delta))
+				} else {
+					messages = append(messages, fmt.Sprintf("OtherMayBuild:%v:%v", nat, delta))
+				}
 			}
 		}
-		delta := scCount - unitCount
-		if delta < 0 {
-			return []string{fmt.Sprintf("MustDisband:%v", -delta)}
-		}
-		return []string{fmt.Sprintf("MayBuild:%v", delta)}
 	}
-	return nil
+	return messages
 }
 
 func shortestDistance(s godip.State, src godip.Province, dst []godip.Province) (result int, err error) {
