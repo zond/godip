@@ -465,6 +465,7 @@ type Validator interface {
 	Orders() map[Province]Adjudicator
 	Units() map[Province]Unit
 	Dislodgeds() map[Province]Unit
+	ForceDisbands() map[Province]bool
 	SupplyCenters() map[Province]Nation
 
 	Graph() Graph
@@ -512,6 +513,7 @@ type State interface {
 
 	RemoveDislodged(Province)
 	RemoveUnit(Province)
+	ForceDisband(Province)
 
 	SetResolution(Province, error)
 	SetSC(Province, Nation)

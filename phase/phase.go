@@ -299,6 +299,7 @@ func (self *Phase) PostProcess(s godip.State) (err error) {
 			}
 			if !hasRetreat {
 				s.RemoveDislodged(prov)
+				s.ForceDisband(prov)
 				godip.Logf("Removing %v since it has no retreat", prov)
 			}
 		}

@@ -659,3 +659,21 @@ func TestCantBuildInCapturedHomeCenter(t *testing.T) {
 	// Check that it was not successful.
 	tst.AssertNoUnit(t, judge, "mun")
 }
+
+func TestForceDisbandTracking(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("pie", godip.Unit{godip.Army, godip.Italy})
+	judge.SetUnit("mar", godip.Unit{godip.Army, godip.France})
+	judge.SetUnit("tyr", godip.Unit{godip.Army, godip.France})
+	judge.SetUnit("ven", godip.Unit{godip.Army, godip.France})
+	judge.SetUnit("tus", godip.Unit{godip.Army, godip.France})
+	judge.SetOrder("tyr", orders.Move("tyr", "pie"))
+	judge.SetOrder("ven", orders.SupportMove("ven", "tyr", "pie"))
+	judge.Next()
+	if len(judge.ForceDisbands()) != 1 {
+		t.Errorf("Wanted 1 forced disband, got %v", judge.ForceDisbands())
+	}
+	if !judge.ForceDisbands()["pie"] {
+		t.Errorf("Wanted pie to be force disbanded, but it wasn't?")
+	}
+}

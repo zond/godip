@@ -16,6 +16,7 @@ func New(graph godip.Graph, phase godip.Phase, backupRule godip.BackupRule, neut
 		orders:             make(map[godip.Province]godip.Adjudicator),
 		units:              make(map[godip.Province]godip.Unit),
 		dislodgeds:         make(map[godip.Province]godip.Unit),
+		forceDisbands:      make(map[godip.Province]bool),
 		supplyCenters:      make(map[godip.Province]godip.Nation),
 		dislodgers:         make(map[godip.Province]godip.Province),
 		bounces:            make(map[godip.Province]map[godip.Province]bool),
@@ -73,6 +74,7 @@ type State struct {
 	neutralOrders      func(State) map[godip.Province]godip.Adjudicator
 	resolutions        map[godip.Province]error
 	dislodgers         map[godip.Province]godip.Province
+	forceDisbands      map[godip.Province]bool
 	movements          []*movement
 	bounces            map[godip.Province]map[godip.Province]bool
 	profile            map[string]time.Duration
@@ -394,6 +396,10 @@ func (self *State) RemoveDislodged(prov godip.Province) {
 
 // Bulk getters
 
+func (self *State) ForceDisbands() map[godip.Province]bool {
+	return self.forceDisbands
+}
+
 func (self *State) Resolutions() map[godip.Province]error {
 	return self.resolutions
 }
@@ -531,6 +537,10 @@ func (self *State) Move(src, dst godip.Province, preventRetreat bool) {
 		dst:            dst,
 		preventRetreat: preventRetreat,
 	})
+}
+
+func (self *State) ForceDisband(prov godip.Province) {
+	self.forceDisbands[prov] = true
 }
 
 func (self *State) Retreat(src, dst godip.Province) (err error) {
