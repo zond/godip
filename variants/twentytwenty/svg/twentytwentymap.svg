@@ -14,7 +14,7 @@
    viewBox="0 0 7680 3840"
    width="100%"
    sodipodi:docname="twentytwentymap.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <defs
      id="defs2">
     <pattern
@@ -42,19 +42,19 @@
      showgrid="false"
      showguides="false"
      units="px"
-     inkscape:current-layer="background"
-     inkscape:cx="3400.2845"
-     inkscape:cy="2014.792"
+     inkscape:current-layer="layer9"
+     inkscape:cx="5069.983"
+     inkscape:cy="2232.5003"
      inkscape:document-units="mm"
      inkscape:object-nodes="true"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:window-height="1016"
+     inkscape:window-height="1121"
      inkscape:window-maximized="1"
-     inkscape:window-width="1853"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
-     inkscape:zoom="0.1767767" />
+     inkscape:window-width="1920"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:zoom="0.50000001" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -69,18 +69,45 @@
   </metadata>
   <defs
      id="defs">
-     <pattern
+    <pattern
        id="stripes"
        patternUnits="userSpaceOnUse"
-       x="0" 
-       y="0" 
+       x="0"
+       y="0"
        width="24"
-       height="24"
-       >
-        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="0" y="0" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="12" y="12" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="12" y="0" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="0" y="12" width="6" height="6"></rect>
+       height="24">
+      <rect
+         id="Rectangle"
+         fill="#000000"
+         fill-opacity="0.13"
+         x="0"
+         y="0"
+         width="6"
+         height="6" />
+      <rect
+         id="rect8"
+         fill="#000000"
+         fill-opacity="0.13"
+         x="12"
+         y="12"
+         width="6"
+         height="6" />
+      <rect
+         id="rect10"
+         fill="#FFFFFF"
+         fill-opacity="0.13"
+         x="12"
+         y="0"
+         width="6"
+         height="6" />
+      <rect
+         id="rect12"
+         fill="#FFFFFF"
+         fill-opacity="0.13"
+         x="0"
+         y="12"
+         width="6"
+         height="6" />
     </pattern>
     <pattern
        id="impassableStripes"
@@ -11038,10 +11065,8 @@
          x="682.31195"
          y="5488.1802"
          sodipodi:role="line"><tspan
-           style="font-weight:bold"
-           id="tspan29470">Hyd</tspan><tspan
-           style="font-weight:normal"
-           id="tspan29472">rabad</tspan></tspan></text>
+   style="font-weight:bold"
+   id="tspan29470">Hyd</tspan>erabad</tspan></text>
     <text
        id="text2999"
        style="font-style:normal;font-weight:normal;font-size:32.00004196px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

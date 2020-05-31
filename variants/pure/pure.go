@@ -96,3 +96,14 @@ func PureGraph() *graph.Graph {
 		Prov("mos").Conn("ber", godip.Land).Conn("lon", godip.Land).Conn("par", godip.Land).Conn("rom", godip.Land).Conn("con", godip.Land).Conn("vie", godip.Land).Flag(godip.Land).SC(godip.Russia).
 		Done()
 }
+
+var provinceLongNames = map[godip.Province]string{
+	"lon": "London",
+	"ber": "Berlin",
+	"par": "Paris",
+	"rom": "Rome",
+	"con": "Constantinople",
+	"vie": "Vienna",
+	"mos": "Moscow",
+}
+
