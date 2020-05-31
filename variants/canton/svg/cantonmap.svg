@@ -15,7 +15,7 @@
    version="1.1"
    id="svg717"
    sodipodi:docname="cantonmap.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <metadata
      id="metadata668">
     <rdf:RDF>
@@ -65,17 +65,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1853"
-     inkscape:window-height="1016"
+     inkscape:window-width="1920"
+     inkscape:window-height="1121"
      id="namedview666"
      showgrid="false"
-     inkscape:zoom="0.4450059"
-     inkscape:cx="915.92603"
-     inkscape:cy="685.03068"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
+     inkscape:zoom="1.2586668"
+     inkscape:cx="1504.2753"
+     inkscape:cy="439.6484"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="provinces"
+     inkscape:current-layer="names"
      showguides="false" />
   <defs
      id="defs">
@@ -3045,7 +3045,7 @@
          id="tspan574"
          y="1870.9465"
          x="532.67206"
-         style="fill:#000000;fill-opacity:1;stroke:none">Karimata Straight</tspan>
+         style="fill:#000000;fill-opacity:1;stroke:none">Karimata Strait</tspan>
     </text>
     <text
        y="-33.048088"

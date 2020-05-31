@@ -13,7 +13,7 @@
    viewBox="0 0 1671.9332 1393.9271"
    width="100%"
    sodipodi:docname="empiresandcoalitionsmap.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <defs
      id="defs2">
     <pattern
@@ -44,17 +44,17 @@
      pagecolor="#f4d7b5"
      showgrid="false"
      units="px"
-     inkscape:current-layer="background"
-     inkscape:cx="777.10027"
-     inkscape:cy="700.19122"
+     inkscape:current-layer="layer8"
+     inkscape:cx="1305.4451"
+     inkscape:cy="322.95004"
      inkscape:document-units="mm"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:window-height="1016"
+     inkscape:window-height="1121"
      inkscape:window-maximized="1"
-     inkscape:window-width="1853"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
+     inkscape:window-width="1920"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:zoom="0.49497475" />
   <metadata
      id="metadata5">
@@ -73,15 +73,42 @@
     <pattern
        id="stripes"
        patternUnits="userSpaceOnUse"
-       x="0" 
-       y="0" 
+       x="0"
+       y="0"
        width="24"
-       height="24"
-       >
-        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="0" y="0" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="12" y="12" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="12" y="0" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="0" y="12" width="6" height="6"></rect>
+       height="24">
+      <rect
+         id="Rectangle"
+         fill="#000000"
+         fill-opacity="0.13"
+         x="0"
+         y="0"
+         width="6"
+         height="6" />
+      <rect
+         id="rect8"
+         fill="#000000"
+         fill-opacity="0.13"
+         x="12"
+         y="12"
+         width="6"
+         height="6" />
+      <rect
+         id="rect10"
+         fill="#FFFFFF"
+         fill-opacity="0.13"
+         x="12"
+         y="0"
+         width="6"
+         height="6" />
+      <rect
+         id="rect12"
+         fill="#FFFFFF"
+         fill-opacity="0.13"
+         x="0"
+         y="12"
+         width="6"
+         height="6" />
     </pattern>
     <pattern
        id="impassableStripes"
@@ -4278,7 +4305,7 @@
            style="font-weight:bold;stroke-width:0.26458332px"
            id="tspan23011">e</tspan><tspan
            style="font-weight:normal;stroke-width:0.26458332px"
-           id="tspan23013">a</tspan></tspan></text>
+           id="tspan23013">aric</tspan></tspan></text>
     <text
        id="text5523"
        style="font-style:normal;font-weight:normal;font-size:18.55417061px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -4707,7 +4734,7 @@
    style="font-weight:bold;stroke-width:0.26458329px"
    id="tspan23176">Wa</tspan>ll<tspan
    style="font-weight:bold;stroke-width:0.26458329px"
-   id="tspan23180">a</tspan>cia</tspan></text>
+   id="tspan23180">a</tspan>chia</tspan></text>
     <text
        id="text5644"
        style="font-style:normal;font-weight:normal;font-size:12.36944771px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
