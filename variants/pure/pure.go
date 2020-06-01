@@ -30,6 +30,15 @@ var PureVariant = common.Variant{
 	Seasons:    classical.Seasons,
 	UnitTypes:  []godip.UnitType{godip.Army},
 	SoloWinner: common.SCCountWinner(4),
+	ProvinceLongNames: map[godip.Province]string{
+		"lon": "London",
+		"ber": "Berlin",
+		"par": "Paris",
+		"rom": "Rome",
+		"con": "Constantinople",
+		"vie": "Vienna",
+		"mos": "Moscow",
+	},
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/puremap.svg")
 	},
