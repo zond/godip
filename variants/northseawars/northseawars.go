@@ -18,17 +18,18 @@ const (
 var Nations = []godip.Nation{Britons, Romans, Frysians, Norse}
 
 var NorthSeaWarsVariant = common.Variant{
-	Name:       "North Sea Wars",
-	Graph:      func() godip.Graph { return NorthSeaWarsGraph() },
-	Start:      NorthSeaWarsStart,
-	Blank:      NorthSeaWarsBlank,
-	Phase:      classical.NewPhase,
-	Parser:     classical.Parser,
-	Nations:    Nations,
-	PhaseTypes: classical.PhaseTypes,
-	Seasons:    classical.Seasons,
-	UnitTypes:  classical.UnitTypes,
-	SoloWinner: common.SCCountWinner(8),
+	Name:              "North Sea Wars",
+	Graph:             func() godip.Graph { return NorthSeaWarsGraph() },
+	Start:             NorthSeaWarsStart,
+	Blank:             NorthSeaWarsBlank,
+	Phase:             classical.NewPhase,
+	Parser:            classical.Parser,
+	Nations:           Nations,
+	PhaseTypes:        classical.PhaseTypes,
+	Seasons:           classical.Seasons,
+	UnitTypes:         classical.UnitTypes,
+	SoloWinner:        common.SCCountWinner(8),
+	ProvinceLongNames: provinceLongNames,
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/northseawarsmap.svg")
 	},
@@ -152,4 +153,40 @@ func NorthSeaWarsGraph() *graph.Graph {
 		// Wood
 		Prov("woo").Conn("gra", godip.Coast...).Conn("iro", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		Done()
+}
+
+var provinceLongNames = map[godip.Province]string{
+	"ebe":    "East Belgica",
+	"jut":    "Jutland",
+	"ali":    "Albion",
+	"nbr":    "North Britanny",
+	"ost":    "Ostland",
+	"lns":    "Lower North Sea",
+	"ala":    "Alba",
+	"sor":    "Sorland",
+	"sea":    "Sealand",
+	"sbr":    "South Britanny",
+	"ams":    "Amsivaria",
+	"cha":    "Channel",
+	"cns":    "Central North Sea",
+	"lim":    "Limfjorden",
+	"fri":    "Frisia",
+	"woo":    "Wood (Trade)",
+	"ens":    "East North Sea",
+	"ska":    "Skagerrak",
+	"gra":    "Grain (Trade)",
+	"got":    "Gotaland",
+	"ges":    "Germania Superior",
+	"men":    "Menapia",
+	"iro":    "Iron (Trade)",
+	"wns":    "West North Sea",
+	"mag":    "Magna Germania",
+	"gei":    "Germania Inferior",
+	"cym":    "Cymru",
+	"ves":    "Vestland",
+	"bat":    "Batavia",
+	"uns":    "Upper North Sea",
+	"wbe":    "West Belgica",
+	"jut/ec": "Jutland (EC)",
+	"jut/wc": "Jutland (WC)",
 }
