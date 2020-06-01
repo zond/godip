@@ -49,14 +49,15 @@ var FranceAustriaVariant = common.Variant{
 		})
 		return
 	},
-	Blank:      classical.Blank,
-	Phase:      classical.NewPhase,
-	Parser:     classical.Parser,
-	Nations:    []godip.Nation{godip.Austria, godip.France},
-	PhaseTypes: classical.PhaseTypes,
-	Seasons:    classical.Seasons,
-	UnitTypes:  classical.UnitTypes,
-	SoloWinner: common.SCCountWinner(18),
+	Blank:             classical.Blank,
+	Phase:             classical.NewPhase,
+	Parser:            classical.Parser,
+	Nations:           []godip.Nation{godip.Austria, godip.France},
+	PhaseTypes:        classical.PhaseTypes,
+	Seasons:           classical.Seasons,
+	UnitTypes:         classical.UnitTypes,
+	SoloWinner:        common.SCCountWinner(18),
+	ProvinceLongNames: classical.ClassicalVariant.ProvinceLongNames,
 	SVGMap: func() ([]byte, error) {
 		return classical.Asset("svg/map.svg")
 	},
