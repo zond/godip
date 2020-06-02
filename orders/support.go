@@ -99,6 +99,19 @@ func (self *support) Adjudicate(r godip.Resolver) error {
 		godip.Logf("%v: dislodged by: %v", self, dislodgers)
 		return godip.ErrSupportBroken{dislodgers[0]}
 	}
+
+	order, _, found := r.Order(self.targets[1])
+	if len(self.targets) == 2 {
+		if found && order.Type() == godip.Move {
+			godip.Logf("%v: supported unit not holding still", self)
+			return godip.ErrInvalidSupporteeOrder
+		}
+	} else {
+		if !found || order.Type() != godip.Move || order.Targets()[1].Super() != self.targets[2].Super() {
+			godip.Logf("%v: support unit not moving from %v to %v", self, self.targets[1].Super(), self.targets[2].Super())
+			return godip.ErrInvalidSupporteeOrder
+		}
+	}
 	return nil
 }
 

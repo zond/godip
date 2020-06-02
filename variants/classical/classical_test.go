@@ -677,3 +677,21 @@ func TestForceDisbandTracking(t *testing.T) {
 		t.Errorf("Wanted pie to be force disbanded, but it wasn't?")
 	}
 }
+
+func TestInvalidSupportOrders(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("pic", godip.Unit{godip.Army, godip.France})
+	judge.SetUnit("par", godip.Unit{godip.Army, godip.Italy})
+	judge.SetUnit("bur", godip.Unit{godip.Army, godip.England})
+	judge.SetUnit("bre", godip.Unit{godip.Army, godip.Austria})
+	judge.SetOrder("pic", orders.Move("pic", "bel"))
+	judge.SetOrder("bur", orders.SupportMove("bur", "pic", "par"))
+	judge.SetOrder("par", orders.SupportHold("par", "pic"))
+	judge.Next()
+	if found := judge.Resolutions()["bur"]; found != godip.ErrInvalidSupporteeOrder {
+		t.Errorf("Wanted InvalidSUpporteeOrder, got %v", found)
+	}
+	if found := judge.Resolutions()["par"]; found != godip.ErrInvalidSupporteeOrder {
+		t.Errorf("Wanted InvalidSUpporteeOrder, got %v", found)
+	}
+}
