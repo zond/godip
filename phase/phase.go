@@ -276,7 +276,8 @@ func (self *Phase) PostProcess(s godip.State) (err error) {
 	if self.Ty == godip.Retreat {
 		for prov, _ := range s.Dislodgeds() {
 			s.RemoveDislodged(prov)
-			s.SetResolution(prov, godip.ErrForcedDisband)
+			s.ForceDisband(prov)
+			godip.Logf("Removing %v since it didn't retreat", prov)
 		}
 		s.ClearDislodgers()
 		s.ClearBounces()
@@ -290,9 +291,9 @@ func (self *Phase) PostProcess(s godip.State) (err error) {
 				}
 				su = su[:-balance]
 				for _, prov := range su {
-					godip.Logf("Removing %v due to forced disband", prov)
 					s.RemoveUnit(prov)
-					s.SetResolution(prov, godip.ErrForcedDisband)
+					s.ForceDisband(prov)
+					godip.Logf("Removing %v since it wasn't disbanded by order", prov)
 				}
 			}
 		}

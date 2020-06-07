@@ -678,6 +678,30 @@ func TestForceDisbandTracking(t *testing.T) {
 	}
 }
 
+func TestForceDisbandAdjustment(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Fall, godip.Adjustment))
+	judge.SetUnit("pie", godip.Unit{godip.Army, godip.Italy})
+	judge.Next()
+	if res, found := judge.Resolutions()["pie"]; found {
+		t.Errorf("Wanted no resolution for pie, got %v", res)
+	}
+	if !judge.ForceDisbands()["pie"] {
+		t.Errorf("Wanted pie to be force disbanded, but it wasn't?")
+	}
+}
+
+func TestForceDisbandRetreat(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Fall, godip.Retreat))
+	judge.SetDislodged("pie", godip.Unit{godip.Army, godip.Italy})
+	judge.Next()
+	if res, found := judge.Resolutions()["pie"]; found {
+		t.Errorf("Wanted no resolution for pie, got %v", res)
+	}
+	if !judge.ForceDisbands()["pie"] {
+		t.Errorf("Wanted pie to be force disbanded, but it wasn't?")
+	}
+}
+
 func TestInvalidSupportOrders(t *testing.T) {
 	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
 	judge.SetUnit("pic", godip.Unit{godip.Army, godip.France})

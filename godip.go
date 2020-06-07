@@ -83,7 +83,6 @@ var (
 	ErrMissingDeficit                  = fmt.Errorf("ErrMissingDeficit")
 	ErrOccupiedDestination             = fmt.Errorf("ErrOccupiedDestination")
 	ErrIllegalRetreat                  = fmt.Errorf("ErrIllegalRetreat")
-	ErrForcedDisband                   = fmt.Errorf("ErrForcedDisband")
 	ErrHostileSupplyCenter             = fmt.Errorf("ErrHostileSupplyCenter")
 	InconsistencyMissingOrder          = fmt.Errorf("InconsistencyMissingOrder")
 )
