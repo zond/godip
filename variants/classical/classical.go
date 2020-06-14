@@ -147,8 +147,8 @@ func BackupRule(state godip.State, deps []godip.Province) (err error) {
 var provinceLongNames = map[godip.Province]string{
 	"bul/ec": "Bulgaria (EC)",
 	"bul/sc": "Bulgaria (SC)",
-	"stp/sc": "Sevastopol (SC)",
-	"stp/nc": "Sevastopol (NC)",
+	"stp/sc": "St. Petersburg (SC)",
+	"stp/nc": "St. Petersburg (NC)",
 	"spa/nc": "Spain (NC)",
 	"spa/sc": "Spain (SC)",
 	"con":    "Constantinople",
