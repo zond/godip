@@ -15,7 +15,7 @@
    version="1.1"
    id="svg717"
    sodipodi:docname="cantonmap.svg"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
      id="metadata668">
     <rdf:RDF>
@@ -65,17 +65,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1121"
+     inkscape:window-width="1853"
+     inkscape:window-height="1016"
      id="namedview666"
      showgrid="false"
-     inkscape:zoom="0.44500592"
-     inkscape:cx="574.64301"
-     inkscape:cy="687.53824"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:zoom="3.5600474"
+     inkscape:cx="1818.1781"
+     inkscape:cy="1001.2306"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="provinces"
+     inkscape:current-layer="supply-centers"
      showguides="false" />
   <defs
      id="defs">
@@ -771,7 +771,7 @@
        inkscape:connector-curvature="0"
        style="display:inline;fill:none;stroke:#000000;stroke-width:1;stroke-opacity:0.47058824;enable-background:new"
        id="kyoCenter"
-       d="m 1859.1335,477.48238 c 3.6424,1.8519 1.9293,6.884 -2.3435,6.884 -0.8455,0 -1.6196,-0.3678 -2.4102,-1.1449 -3.2151,-3.1611 0.6489,-7.8261 4.7537,-5.7391 z m -4.9168,-0.4924 c -3.7251,2.8809 -1.78,8.1597 3.0068,8.1597 3.0229,0 4.5572,-1.5166 4.5572,-4.5044 0,-3.9569 -4.4152,-6.0905 -7.564,-3.6553 z m 6.152,-2.4248 c 4.874,2.4447 4.8119,9.7747 -0.1024,12.1137 -6.4847,3.0864 -12.9159,-3.9757 -8.9242,-9.7995 2.0721,-3.023 5.7392,-3.9631 9.0266,-2.3142 z m -6.5558,-1.0027 c -6.1144,2.6833 -5.9312,11.5583 0.2914,14.1146 7.39,3.0357 14.0815,-5.5553 9.2171,-11.8336 -1.985,-2.5621 -6.4354,-3.6296 -9.5085,-2.281 z" />
+       d="m 1865.1335,477.48238 c 3.6424,1.8519 1.9293,6.884 -2.3435,6.884 -0.8455,0 -1.6196,-0.3678 -2.4102,-1.1449 -3.2151,-3.1611 0.6489,-7.8261 4.7537,-5.7391 z m -4.9168,-0.4924 c -3.7251,2.8809 -1.78,8.1597 3.0068,8.1597 3.0229,0 4.5572,-1.5166 4.5572,-4.5044 0,-3.9569 -4.4152,-6.0905 -7.564,-3.6553 z m 6.152,-2.4248 c 4.874,2.4447 4.8119,9.7747 -0.1024,12.1137 -6.4847,3.0864 -12.9159,-3.9757 -8.9242,-9.7995 2.0721,-3.023 5.7392,-3.9631 9.0266,-2.3142 z m -6.5558,-1.0027 c -6.1144,2.6833 -5.9312,11.5583 0.2914,14.1146 7.39,3.0357 14.0815,-5.5553 9.2171,-11.8336 -1.985,-2.5621 -6.4354,-3.6296 -9.5085,-2.281 z" />
     <path
        inkscape:connector-curvature="0"
        style="display:inline;fill:none;stroke:#000000;stroke-width:1;stroke-opacity:0.47058824;enable-background:new"
