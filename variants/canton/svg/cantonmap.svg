@@ -70,7 +70,7 @@
      id="namedview666"
      showgrid="false"
      inkscape:zoom="0.44500592"
-     inkscape:cx="973.51411"
+     inkscape:cx="574.64301"
      inkscape:cy="687.53824"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
@@ -213,7 +213,7 @@
   <g
      id="provinces"
      inkscape:label="provinces"
-     style="display:inline;opacity:1"
+     style="display:none;opacity:1"
      inkscape:groupmode="layer">
     <path
        inkscape:label="dam"
