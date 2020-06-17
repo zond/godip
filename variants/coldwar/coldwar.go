@@ -35,7 +35,7 @@ var ColdWarVariant = common.Variant{
 		return Asset("svg/coldwarmap.svg")
 	},
 	ProvinceLongNames: provinceLongNames,
-	SVGVersion:        "4",
+	SVGVersion:        "5",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
@@ -109,7 +109,7 @@ func ColdWarGraph() *graph.Graph {
 		// London
 		Prov("lon").Conn("nts", godip.Sea).Conn("nws", godip.Sea).Conn("nts", godip.Sea).Conn("eat", godip.Sea).Flag(godip.Coast...).SC(NATO).
 		// Afghanistan
-		Prov("afg").Conn("pak", godip.Land).Conn("sib", godip.Land).Conn("ura", godip.Land).Conn("irn", godip.Land).Flag(godip.Land).
+		Prov("afg").Conn("pak", godip.Land).Conn("ura", godip.Land).Conn("irn", godip.Land).Flag(godip.Land).
 		// Midwest
 		Prov("mid").Conn("nyk", godip.Land).Conn("tor", godip.Land).Conn("wca", godip.Land).Conn("los", godip.Land).Conn("sow", godip.Land).Conn("flo", godip.Land).Flag(godip.Land).
 		// Levant
@@ -145,7 +145,7 @@ func ColdWarGraph() *graph.Graph {
 		// West Atlantic
 		Prov("wat").Conn("eat", godip.Sea).Conn("nws", godip.Sea).Conn("grd", godip.Sea).Conn("arc", godip.Sea).Conn("hud", godip.Sea).Conn("que", godip.Sea).Conn("nyk", godip.Sea).Conn("flo", godip.Sea).Conn("car", godip.Sea).Conn("ven", godip.Sea).Conn("bra", godip.Sea).Flag(godip.Sea).
 		// West China
-		Prov("wch").Conn("mon", godip.Land).Conn("sib", godip.Land).Conn("pak", godip.Land).Conn("ban", godip.Land).Conn("sha", godip.Land).Flag(godip.Land).
+		Prov("wch").Conn("mon", godip.Land).Conn("sib", godip.Land).Conn("ura", godip.Land).Conn("pak", godip.Land).Conn("ban", godip.Land).Conn("sha", godip.Land).Flag(godip.Land).
 		// Havana
 		Prov("hav").Conn("car", godip.Sea).Conn("gom", godip.Sea).Flag(godip.Coast...).SC(USSR).
 		// Arabia
@@ -205,7 +205,7 @@ func ColdWarGraph() *graph.Graph {
 		// North Sea
 		Prov("nts").Conn("swe", godip.Sea).Conn("noy", godip.Sea).Conn("nws", godip.Sea).Conn("lon", godip.Sea).Conn("eat", godip.Sea).Conn("par", godip.Sea).Conn("par/nc", godip.Sea).Conn("wge", godip.Sea).Conn("den", godip.Sea).Flag(godip.Sea).
 		// Urals
-		Prov("ura").Conn("nws", godip.Sea).Conn("len", godip.Land).Conn("len/nc", godip.Sea).Conn("mos", godip.Land).Conn("cau", godip.Land).Conn("irn", godip.Land).Conn("afg", godip.Land).Conn("sib", godip.Coast...).Conn("arc", godip.Sea).Flag(godip.Coast...).
+		Prov("ura").Conn("nws", godip.Sea).Conn("len", godip.Land).Conn("len/nc", godip.Sea).Conn("mos", godip.Land).Conn("cau", godip.Land).Conn("irn", godip.Land).Conn("afg", godip.Land).Conn("sib", godip.Coast...).Conn("arc", godip.Sea).Conn("pak", godip.Land).Conn("wch", godip.Land).Flag(godip.Coast...).
 		// Manchuria
 		Prov("man").Conn("vla", godip.Land).Conn("sib", godip.Land).Conn("mon", godip.Land).Conn("sha", godip.Coast...).Conn("yel", godip.Sea).Conn("nko", godip.Land).Conn("nko/wc", godip.Sea).Flag(godip.Coast...).
 		// East Atlantic
@@ -249,7 +249,7 @@ func ColdWarGraph() *graph.Graph {
 		// Iraq
 		Prov("irq").Conn("arb", godip.Sea).Conn("irn", godip.Coast...).Conn("arm", godip.Land).Conn("lev", godip.Land).Conn("ara", godip.Coast...).Flag(godip.Coast...).
 		// Pakistan
-		Prov("pak").Conn("arb", godip.Sea).Conn("ind", godip.Coast...).Conn("wch", godip.Land).Conn("sib", godip.Land).Conn("afg", godip.Land).Conn("irn", godip.Coast...).Flag(godip.Coast...).
+		Prov("pak").Conn("arb", godip.Sea).Conn("ind", godip.Coast...).Conn("wch", godip.Land).Conn("ura", godip.Land).Conn("afg", godip.Land).Conn("irn", godip.Coast...).Flag(godip.Coast...).
 		// Shanghai
 		Prov("sha").Conn("ban", godip.Land).Conn("nvi", godip.Coast...).Conn("scs", godip.Sea).Conn("yel", godip.Sea).Conn("man", godip.Coast...).Conn("mon", godip.Land).Conn("wch", godip.Land).Conn("sea", godip.Land).Flag(godip.Coast...).SC(USSR).
 		// Mexico
@@ -281,7 +281,7 @@ func ColdWarGraph() *graph.Graph {
 		// Australia
 		Prov("aus").Conn("wpa", godip.Sea).Conn("ins", godip.Coast...).Conn("inc", godip.Sea).Flag(godip.Coast...).SC(NATO).
 		// Siberia
-		Prov("sib").Conn("pak", godip.Land).Conn("wch", godip.Land).Conn("mon", godip.Land).Conn("man", godip.Land).Conn("vla", godip.Land).Conn("kam", godip.Coast...).Conn("arc", godip.Sea).Conn("ura", godip.Coast...).Conn("afg", godip.Land).Flag(godip.Coast...).
+		Prov("sib").Conn("wch", godip.Land).Conn("mon", godip.Land).Conn("man", godip.Land).Conn("vla", godip.Land).Conn("kam", godip.Coast...).Conn("arc", godip.Sea).Conn("ura", godip.Coast...).Flag(godip.Coast...).
 		// Kamchatka
 		Prov("kam").Conn("arc", godip.Sea).Conn("sib", godip.Coast...).Conn("vla", godip.Coast...).Conn("ber", godip.Sea).Flag(godip.Coast...).
 		// Indonesia

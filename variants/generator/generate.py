@@ -15,7 +15,7 @@ from string import Template
 VARIANT = 'Hellas'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
-OVERRIDE_CHECK_MODE = False
+OVERRIDE_CHECK_MODE = True
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = True
 
@@ -1129,7 +1129,7 @@ for province in provinces:
         backgroundRegionNames[province.abbreviation + '_background'] = province.edges
 addLayerWithRegions(root, backgroundRegionNames, edgeToDMap, 'background', LAND_COLOR, True, corners)
 edgeStyle, edgeToNames = getEdgeStyle(edgeToDMap.keys(), provinces)
-addShadowsToBackground(root, edgeStyle, edgeToNames)
+#addShadowsToBackground(root, edgeStyle, edgeToNames)
 passableNames = {}
 for province in provinces:
     if not province.flags.impassable:

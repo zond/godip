@@ -209,6 +209,28 @@ func TestNorwayFinland(t *testing.T) {
 	tst.AssertOrderValidity(t, judge, orders.Move("fin", "noy"), "", godip.ErrIllegalMove)
 }
 
+func TestUralsPakistan(t *testing.T) {
+	judge := startState(t)
+
+	// Test no fleet movement between Urals and Pakistan.
+	judge.SetUnit("ura", godip.Unit{godip.Army, NATO})
+	tst.AssertOrderValidity(t, judge, orders.Move("ura", "pak"), NATO, nil)
+	judge.RemoveUnit("ura")
+	judge.SetUnit("pak", godip.Unit{godip.Army, NATO})
+	tst.AssertOrderValidity(t, judge, orders.Move("pak", "ura"), NATO, nil)
+}
+
+func TestUralsWestChina(t *testing.T) {
+	judge := startState(t)
+
+	// Test no fleet movement between Urals and West China.
+	judge.SetUnit("ura", godip.Unit{godip.Army, NATO})
+	tst.AssertOrderValidity(t, judge, orders.Move("ura", "wch"), NATO, nil)
+	judge.RemoveUnit("ura")
+	judge.SetUnit("wch", godip.Unit{godip.Army, NATO})
+	tst.AssertOrderValidity(t, judge, orders.Move("wch", "ura"), NATO, nil)
+}
+
 func TestNoConvoyOptionWhileOnCoast(t *testing.T) {
 	judge := blankState(t)
 
