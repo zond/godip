@@ -137,7 +137,7 @@ func CantonGraph() *graph.Graph {
 		// Afghanistan
 		Prov("afg").Conn("tur", godip.Land).Conn("per", godip.Land).Conn("bal", godip.Land).Conn("kas", godip.Land).Conn("sin", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// South China Sea
-		Prov("scs").Conn("sar", godip.Sea).Conn("cel", godip.Sea).Conn("phi", godip.Sea).Conn("pse", godip.Sea).Conn("for", godip.Sea).Conn("ecs", godip.Sea).Conn("can", godip.Sea).Conn("can/sc", godip.Sea).Conn("can/ec", godip.Sea).Conn("hko", godip.Sea).Conn("han", godip.Sea).Conn("hue", godip.Sea).Conn("kar", godip.Sea).Conn("sha", godip.Sea).Flag(godip.Sea).
+		Prov("scs").Conn("sar", godip.Sea).Conn("cel", godip.Sea).Conn("phi", godip.Sea).Conn("pse", godip.Sea).Conn("for", godip.Sea).Conn("ecs", godip.Sea).Conn("can", godip.Sea).Conn("can/sc", godip.Sea).Conn("can/ec", godip.Sea).Conn("hko", godip.Sea).Conn("han", godip.Sea).Conn("hue", godip.Sea).Conn("kar", godip.Sea).Flag(godip.Sea).
 		// Yunnan
 		Prov("yun").Conn("han", godip.Land).Conn("can", godip.Land).Conn("chu", godip.Land).Conn("asm", godip.Land).Conn("bur", godip.Land).Conn("lao", godip.Land).Flag(godip.Land).
 		// Korea
@@ -259,7 +259,7 @@ func CantonGraph() *graph.Graph {
 		// Rumania
 		Prov("rum").Conn("bul", godip.Land).Conn("bul/ec", godip.Sea).Conn("bla", godip.Sea).Conn("sev", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Shanghai
-		Prov("sha").Conn("pek", godip.Coast...).Conn("chu", godip.Land).Conn("can", godip.Land).Conn("can/ec", godip.Sea).Conn("ecs", godip.Sea).Conn("yel", godip.Sea).Conn("scs", godip.Sea).Flag(godip.Coast...).SC(China).
+		Prov("sha").Conn("pek", godip.Coast...).Conn("chu", godip.Land).Conn("can", godip.Land).Conn("can/ec", godip.Sea).Conn("ecs", godip.Sea).Conn("yel", godip.Sea).Flag(godip.Coast...).SC(China).
 		// Black Sea
 		Prov("bla").Conn("bul", godip.Sea).Conn("bul/ec", godip.Sea).Conn("con", godip.Sea).Conn("arm", godip.Sea).Conn("sev", godip.Sea).Conn("rum", godip.Sea).Flag(godip.Sea).
 		// Irkutsk
