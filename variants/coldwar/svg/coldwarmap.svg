@@ -120,12 +120,12 @@
      showgrid="false"
      showguides="false"
      inkscape:zoom="0.30956376"
-     inkscape:cx="1748.8555"
-     inkscape:cy="942.19358"
+     inkscape:cx="1737.2343"
+     inkscape:cy="894.92601"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="background" />
+     inkscape:current-layer="names" />
   <title
      id="title2">Cold War</title>
   <g
@@ -135,7 +135,7 @@
      style="display:inline">
     <polygon
        style="fill:#8acaff;fill-rule:evenodd;stroke:none;stroke-width:1.50127888"
-       points="-7.12092e-10,1967 -7.12092e-10,-1.1766379 3579.0489,-1.1766379 3579.0489,1967 "
+       points="3579.0489,-1.1766379 3579.0489,1967 -7.12092e-10,1967 -7.12092e-10,-1.1766379 "
        id="polygon1480" />
     <line
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:25.52174187;stroke-dasharray:3, 6;stroke-opacity:0.1"
@@ -2250,11 +2250,11 @@
        font-weight="normal"
        font-size="12"
        id="FRANCE"
-       x="-1.3321975">
+       x="3.9965923">
       <tspan
          id="tspan490"
          y="918"
-         x="941.02179">FRANCE</tspan>
+         x="946.35065">Paris</tspan>
     </text>
     <text
        style="font-weight:normal;font-size:10px;font-family:cabinregular, Cabin-Regular, Cabin;letter-spacing:0.15000001;fill:#000000"
@@ -2559,7 +2559,7 @@
       <tspan
          id="tspan405"
          y="266"
-         x="1110.182">Kamtchatka</tspan>
+         x="1110.182">Kamchatka</tspan>
     </text>
     <text
        style="font-weight:normal;font-size:16px;font-family:cabinregular, Cabin-Regular, Cabin;letter-spacing:13.71428585;fill:#000000"
@@ -3181,15 +3181,18 @@
          x="1784.432">NORTH</tspan>
     </text>
     <text
-       style="font-weight:normal;font-size:14px;font-family:cabinregular, Cabin-Regular, Cabin;letter-spacing:8;fill:#000000"
+       style="font-weight:normal;font-size:14px;font-family:cabinregular, Cabin-Regular, Cabin;text-align:center;letter-spacing:1.99829625px;text-anchor:middle;fill:#000000;"
        letter-spacing="8"
        font-weight="normal"
        font-size="14"
-       id="BURMA">
+       id="BURMA"
+       x="96.53447"
+       y="2.6309999e-07">
       <tspan
          id="tspan607"
          y="567"
-         x="1753.036">BURMA</tspan>
+         x="1790.3378"
+         style="text-align:center;letter-spacing:1.99829625px;text-anchor:middle;">BANGLADESH</tspan>
     </text>
     <text
        style="font-weight:normal;font-size:14px;font-family:cabinregular, Cabin-Regular, Cabin;letter-spacing:10;fill:#000000"
@@ -3379,11 +3382,14 @@
        font-weight="normal"
        font-style="italic"
        font-size="12"
-       id="MEDITERANEAN-SEA">
+       id="MEDITERANEAN-SEA"
+       x="-1.0758668"
+       y="-2.8821887e-09">
       <tspan
          id="tspan699"
-         y="1023"
-         x="914.05603">MEDITERANEAN SEA</tspan>
+         y="1022.9999"
+         x="912.9801"
+         style="letter-spacing:0.64611578px">MEDITERRANEAN SEA</tspan>
     </text>
     <text
        style="font-style:italic;font-weight:normal;font-size:12px;font-family:cabinitalic, Cabin-Italic, Cabin;letter-spacing:1.5;fill:#000000"
@@ -3395,7 +3401,8 @@
       <tspan
          id="tspan702"
          y="1064"
-         x="1158.494">MEDITERANEAN</tspan>
+         x="1158.494"
+         style="letter-spacing:0.66609875px">MEDITERRANEAN</tspan>
     </text>
     <text
        style="font-style:italic;font-weight:normal;font-size:12px;font-family:cabinitalic, Cabin-Italic, Cabin;letter-spacing:1.5;fill:#000000"
@@ -3407,7 +3414,8 @@
       <tspan
          id="tspan705"
          y="1048"
-         x="1185.142">EAST</tspan>
+         x="1185.142"
+         style="letter-spacing:0.66609875px">EAST</tspan>
     </text>
     <text
        style="font-style:italic;font-weight:normal;font-size:12px;font-family:cabinitalic, Cabin-Italic, Cabin;letter-spacing:1.5;fill:#000000"
@@ -3591,17 +3599,20 @@
        d="m 1007,544.00001 c 19.4334,13.49044 37.6264,13.10016 54.579,1.41973"
        style="display:inline;fill:none;stroke:none;stroke-width:0.90937024" />
     <text
-       style="font-style:italic;font-weight:normal;font-size:12px;font-family:cabinitalic, Cabin-Italic, Cabin;letter-spacing:0.18000001;fill:#000000"
+       style="font-style:italic;font-weight:normal;font-size:12px;font-family:cabinitalic, Cabin-Italic, Cabin;text-align:center;letter-spacing:0.18000001;text-anchor:middle;fill:#000000"
        letter-spacing="0.18"
        font-weight="normal"
        font-style="italic"
        font-size="12"
-       transform="rotate(-25,1220.0774,926.59369)"
-       id="BLACK-SEA">
+       transform="rotate(-25)"
+       id="BLACK-SEA"
+       x="-448.5502"
+       y="431.13916">
       <tspan
          id="tspan769"
-         y="931.09369"
-         x="1192.1234">BLACK SEA</tspan>
+         y="1362.233"
+         x="710.11981"
+         style="text-align:center;text-anchor:middle">BLACK SEA</tspan>
     </text>
     <text
        xml:space="preserve"
