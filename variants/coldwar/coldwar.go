@@ -31,7 +31,7 @@ var ColdWarVariant = common.Variant{
 		return Asset("svg/coldwarmap.svg")
 	},
 	ProvinceLongNames: provinceLongNames,
-	SVGVersion:        "7",
+	SVGVersion:        "8",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")
