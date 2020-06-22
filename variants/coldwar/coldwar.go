@@ -18,8 +18,8 @@ var Nations = []godip.Nation{USSR, NATO}
 var ColdWarVariant = common.Variant{
 	Name: "Cold War",
 	NationColors: map[godip.Nation]string{
-		USSR: "red",
-		NATO: "blue",
+		USSR: "#D73838",
+		NATO: "#197CCB",
 	},
 	Graph:      func() godip.Graph { return ColdWarGraph() },
 	Start:      ColdWarStart,
