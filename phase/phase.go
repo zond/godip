@@ -123,6 +123,7 @@ func (self *Phase) Messages(s godip.Validator, nation godip.Nation) []string {
 		unitsPerNat := map[godip.Nation]int{}
 		scsPerNat := map[godip.Nation]int{}
 		nats := map[godip.Nation]bool{}
+		freeHomeSCsPerNat := map[godip.Nation]int{}
 		for _, unit := range s.Units() {
 			unitsPerNat[unit.Nation] += 1
 			nats[unit.Nation] = true
@@ -131,18 +132,32 @@ func (self *Phase) Messages(s godip.Validator, nation godip.Nation) []string {
 			scsPerNat[nat] += 1
 			nats[nat] = true
 		}
+		for _, nat := range s.Graph().Nations() {
+			for _, sc := range s.Graph().SCs(nat) {
+				if _, _, found := s.Unit(sc); !found {
+					freeHomeSCsPerNat[nat] += 1
+				}
+			}
+			nats[nat] = true
+		}
 		for nat := range nats {
 			delta := scsPerNat[nat] - unitsPerNat[nat]
 			if nat == nation {
 				if delta < 0 {
 					messages = append(messages, fmt.Sprintf("MustDisband:%v", -delta))
 				} else {
+					if delta > freeHomeSCsPerNat[nat] {
+						delta = freeHomeSCsPerNat[nat]
+					}
 					messages = append(messages, fmt.Sprintf("MayBuild:%v", delta))
 				}
 			} else {
 				if delta < 0 {
 					messages = append(messages, fmt.Sprintf("OtherMustDisband:%v:%v", nat, -delta))
 				} else {
+					if delta > freeHomeSCsPerNat[nat] {
+						delta = freeHomeSCsPerNat[nat]
+					}
 					messages = append(messages, fmt.Sprintf("OtherMayBuild:%v:%v", nat, delta))
 				}
 			}
