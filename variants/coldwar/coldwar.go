@@ -14,6 +14,14 @@ const (
 )
 
 var Nations = []godip.Nation{USSR, NATO}
+var SVGFlags = map[godip.Nation]func() ([]byte, error){
+	USSR: func() ([]byte, error) {
+		return Asset("svg/ussr.svg")
+	},
+	NATO: func() ([]byte, error) {
+		return Asset("svg/nato.svg")
+	},
+}
 
 var ColdWarVariant = common.Variant{
 	Name:       "Cold War",
@@ -31,7 +39,7 @@ var ColdWarVariant = common.Variant{
 		return Asset("svg/coldwarmap.svg")
 	},
 	ProvinceLongNames: provinceLongNames,
-	SVGVersion:        "8",
+	SVGVersion:        "9",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")
