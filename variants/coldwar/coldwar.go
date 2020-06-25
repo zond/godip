@@ -388,6 +388,7 @@ var provinceLongNames = map[godip.Province]string{
 	"lib":    "Libya",
 	"afg":    "Afghanistan",
 	"mid":    "Midwest",
+	"noy":    "Norway",
 	"sib":    "Siberia",
 	"grd":    "Greenland",
 	"grc":    "Greece",
