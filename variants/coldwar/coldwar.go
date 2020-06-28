@@ -48,6 +48,7 @@ var ColdWarVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "Firehawk & Safari",
 	Version:     "2",
 	Description: "NATO and the USSR fight to become the dominant superpower.",
