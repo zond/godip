@@ -76,4 +76,16 @@ func TestPhaseMessage(t *testing.T) {
 	ver(godip.Italy, []string{"MustDisband:1", "OtherMayBuild:Austria:1", "OtherMayBuild:Turkey:0", "OtherMayBuild:England:0", "OtherMayBuild:Russia:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:0"})
 	ver(godip.Austria, []string{"MayBuild:1", "OtherMustDisband:Italy:1", "OtherMayBuild:Turkey:0", "OtherMayBuild:England:0", "OtherMayBuild:Russia:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:0"})
 	ver(godip.Turkey, []string{"MayBuild:0", "OtherMustDisband:Italy:1", "OtherMayBuild:Austria:1", "OtherMayBuild:England:0", "OtherMayBuild:Russia:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:0"})
+
+	s = Blank(NewPhase(1903, godip.Fall, godip.Adjustment))
+	s.SetSC("lon", godip.France)
+	s.SetSC("ber", godip.France)
+	s.SetSC("mos", godip.France)
+	s.SetSC("con", godip.France)
+	ver(godip.France, []string{"MayBuild:3", "OtherMayBuild:Austria:0", "OtherMayBuild:England:0", "OtherMayBuild:Germany:0", "OtherMayBuild:Italy:0", "OtherMayBuild:Turkey:0", "OtherMayBuild:Russia:0"})
+	ver(godip.Italy, []string{"MayBuild:0", "OtherMayBuild:Austria:0", "OtherMayBuild:England:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:3", "OtherMayBuild:Turkey:0", "OtherMayBuild:Russia:0"})
+
+	s.SetUnit("par", godip.Unit{godip.Army, godip.France})
+	ver(godip.France, []string{"MayBuild:2", "OtherMayBuild:Austria:0", "OtherMayBuild:England:0", "OtherMayBuild:Germany:0", "OtherMayBuild:Italy:0", "OtherMayBuild:Turkey:0", "OtherMayBuild:Russia:0"})
+	ver(godip.Italy, []string{"MayBuild:0", "OtherMayBuild:Austria:0", "OtherMayBuild:England:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:2", "OtherMayBuild:Turkey:0", "OtherMayBuild:Russia:0"})
 }

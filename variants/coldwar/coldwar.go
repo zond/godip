@@ -14,6 +14,14 @@ const (
 )
 
 var Nations = []godip.Nation{USSR, NATO}
+var SVGFlags = map[godip.Nation]func() ([]byte, error){
+	USSR: func() ([]byte, error) {
+		return Asset("svg/ussr.svg")
+	},
+	NATO: func() ([]byte, error) {
+		return Asset("svg/nato.svg")
+	},
+}
 
 var ColdWarVariant = common.Variant{
 	Name: "Cold War",
@@ -35,15 +43,16 @@ var ColdWarVariant = common.Variant{
 		return Asset("svg/coldwarmap.svg")
 	},
 	ProvinceLongNames: provinceLongNames,
-	SVGVersion:        "5",
+	SVGVersion:        "9",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
+			return Asset("svg/army.svg")
 		},
 		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
+			return Asset("svg/fleet.svg")
 		},
 	},
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "Firehawk & Safari",
 	Version:     "2",
 	Description: "NATO and the USSR fight to become the dominant superpower.",
@@ -384,6 +393,7 @@ var provinceLongNames = map[godip.Province]string{
 	"lib":    "Libya",
 	"afg":    "Afghanistan",
 	"mid":    "Midwest",
+	"noy":    "Norway",
 	"sib":    "Siberia",
 	"grd":    "Greenland",
 	"grc":    "Greece",
