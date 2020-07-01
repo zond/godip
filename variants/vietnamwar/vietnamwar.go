@@ -19,7 +19,14 @@ const (
 var Nations = []godip.Nation{NorthVietnam, Thailand, SouthVietnam, Cambodia, Laos}
 
 var VietnamWarVariant = common.Variant{
-	Name:              "Vietnam War",
+	Name: "Vietnam War",
+	NationColors: map[godip.Nation]string{
+		SouthVietnam: "#F0D211",
+		NorthVietnam: "#FD0000",
+		Laos:         "#03853A",
+		Thailand:     "#006FFF",
+		Cambodia:     "#708D9E",
+	},
 	Graph:             func() godip.Graph { return VietnamWarGraph() },
 	Start:             VietnamWarStart,
 	Blank:             VietnamWarBlank,
@@ -34,7 +41,7 @@ var VietnamWarVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/vietnamwarmap.svg")
 	},
-	SVGVersion: "5",
+	SVGVersion: "4",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
