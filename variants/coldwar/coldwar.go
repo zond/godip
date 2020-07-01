@@ -24,7 +24,11 @@ var SVGFlags = map[godip.Nation]func() ([]byte, error){
 }
 
 var ColdWarVariant = common.Variant{
-	Name:       "Cold War",
+	Name: "Cold War",
+	NationColors: map[godip.Nation]string{
+		USSR: "#D73838",
+		NATO: "#197CCB",
+	},
 	Graph:      func() godip.Graph { return ColdWarGraph() },
 	Start:      ColdWarStart,
 	Blank:      ColdWarBlank,
