@@ -34,7 +34,7 @@ var VietnamWarVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/vietnamwarmap.svg")
 	},
-	SVGVersion: "4",
+	SVGVersion: "5",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
@@ -245,7 +245,7 @@ var provinceLongNames = map[godip.Province]string{
 	"phh":       "Phou Hin",
 	"pak":       "Pakxe",
 	"meo":       "Mekong",
-	"nol":       "North Laos",
+	"nol":       "Dien Bien",
 	"med":       "Mekong Delta",
 	"non":       "North Gulf of Tonkin",
 	"phn":       "Phnum",
@@ -257,7 +257,7 @@ var provinceLongNames = map[godip.Province]string{
 	"noa":       "North Gulf of Thailand",
 	"cev":       "Central Vietnam",
 	"ple":       "Pleiku",
-	"phs":       "Phonsavan",
+	"phs":       "Xiangkhouang",
 	"phr":       "Phrae",
 	"nov":       "North Vietnam",
 	"ubo":       "Ubon",
