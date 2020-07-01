@@ -12,7 +12,7 @@
    viewBox="0 0 1654.473 1655.0673"
    version="1.1"
    id="svg587"
-   sodipodi:docname="vietnamwarnew.svg"
+   sodipodi:docname="vietnamwarmap.svg"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
   <metadata
      id="metadata593">
@@ -28,6 +28,46 @@
   </metadata>
   <defs
      id="defs591">
+    <pattern
+       id="stripes"
+       patternUnits="userSpaceOnUse"
+       x="0"
+       y="0"
+       width="24"
+       height="24">
+      <rect
+         id="Rectangle"
+         fill="#000000"
+         fill-opacity="0.13"
+         x="0"
+         y="0"
+         width="6"
+         height="6" />
+      <rect
+         id="rect10"
+         fill="#000000"
+         fill-opacity="0.13"
+         x="12"
+         y="12"
+         width="6"
+         height="6" />
+      <rect
+         id="rect12"
+         fill="#FFFFFF"
+         fill-opacity="0.13"
+         x="12"
+         y="0"
+         width="6"
+         height="6" />
+      <rect
+         id="rect14"
+         fill="#FFFFFF"
+         fill-opacity="0.13"
+         x="0"
+         y="12"
+         width="6"
+         height="6" />
+    </pattern>
     <pattern
        id="impassableStripes-3"
        patternUnits="userSpaceOnUse"
@@ -62,21 +102,21 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="0.47987692"
-     inkscape:cx="-63.339715"
-     inkscape:cy="795.20914"
+     inkscape:zoom="3.8390154"
+     inkscape:cx="1224.3033"
+     inkscape:cy="1209.6131"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="supply-centers" />
   <title
      id="title2">Artboard</title>
   <g
-     id="background"
+     id="g16"
      inkscape:label="background"
      sodipodi:insensitive="true">
     <rect
-       id="Rectangle"
+       id="rect13"
        x="0.59429544"
        y="0.59427911"
        width="1653.2845"
@@ -383,8 +423,8 @@
      inkscape:groupmode="layer"
      id="supply-centers"
      inkscape:label="supply-centers"
-     sodipodi:insensitive="true"
-     style="display:none">
+     style="display:none"
+     sodipodi:insensitive="true">
     <path
        style="display:inline;opacity:1;fill:none;stroke:#9f9f9f;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
        id="khaCenter"
@@ -418,7 +458,7 @@
     <path
        style="display:inline;opacity:1;fill:none;stroke:#9f9f9f;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
        id="haiCenter"
-       d="m 2485.7693,542.75641 c 5.9956,3.09993 3.1759,11.52322 -3.8573,11.52322 -1.3917,0 -2.6658,-0.61558 -3.967,-1.91662 -5.2922,-5.29123 1.068,-13.09993 7.8243,-9.6066 0,0 0,0 0,0 m -8.0927,-0.82426 c -6.1319,4.82241 -2.93,13.65884 4.9491,13.65884 4.9757,0 7.5012,-2.53882 7.5012,-7.5401 0,-6.62371 -7.2674,-10.19511 -12.4503,-6.11874 0,0 0,0 0,0 m 10.1262,-4.05883 c 8.0224,4.09213 7.9203,16.36196 -0.1692,20.27726 -10.674,5.16635 -21.2599,-6.65501 -14.6893,-16.40355 3.4105,-5.06015 9.4468,-6.63399 14.8579,-3.87371 0,0 6e-4,0 6e-4,0 m -10.791,-1.67851 c -10.0644,4.49157 -9.7629,19.34774 0.4799,23.62664 12.1639,5.08168 23.1781,-9.29904 15.1713,-19.80851 -3.2673,-4.28865 -10.5926,-6.07575 -15.651,-3.81813 0,0 -2e-4,0 -2e-4,0"
+       d="m 1302.4072,426.19535 c 5.9956,3.09993 3.1759,11.52322 -3.8573,11.52322 -1.3917,0 -2.6658,-0.61558 -3.967,-1.91662 -5.2922,-5.29123 1.068,-13.09993 7.8243,-9.6066 0,0 0,0 0,0 m -8.0927,-0.82426 c -6.1319,4.82241 -2.93,13.65884 4.9491,13.65884 4.9757,0 7.5012,-2.53882 7.5012,-7.5401 0,-6.62371 -7.2674,-10.19511 -12.4503,-6.11874 0,0 0,0 0,0 m 10.1262,-4.05883 c 8.0224,4.09213 7.9203,16.36196 -0.1692,20.27726 -10.674,5.16635 -21.2599,-6.65501 -14.6893,-16.40355 3.4105,-5.06015 9.4468,-6.63399 14.8579,-3.87371 0,0 6e-4,0 6e-4,0 m -10.791,-1.67851 c -10.0644,4.49157 -9.7629,19.34774 0.4799,23.62664 12.1639,5.08168 23.1781,-9.29904 15.1713,-19.80851 -3.2673,-4.28865 -10.5926,-6.07575 -15.651,-3.81813 0,0 -2e-4,0 -2e-4,0"
        inkscape:connector-curvature="0" />
     <path
        style="display:inline;opacity:1;fill:none;stroke:#9f9f9f;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
