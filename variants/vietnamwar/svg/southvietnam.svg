@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100%"
+   height="100%"
+   viewBox="0 0 142.78501 142.87499"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="southvietnam.svg">
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath924">
+      <rect
+         style="opacity:1;fill:#5ee16a;fill-opacity:0.97254902;stroke:none;stroke-width:14.3544302;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.23137255"
+         id="rect926"
+         width="600"
+         height="600"
+         x="-1.6364727e-06"
+         y="-1.3638041e-05" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5000">
+      <rect
+         style="opacity:1;fill:#5ee16a;fill-opacity:0.97254902;stroke:none;stroke-width:11.42461586;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.23137255"
+         id="rect5002"
+         width="402.19034"
+         height="400.62997"
+         x="111.40482"
+         y="-3.2405728e-06" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5248">
+      <rect
+         style="opacity:1;fill:#5ee16a;fill-opacity:0.97254902;stroke:none;stroke-width:6.63936186;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.23137255"
+         id="rect5250"
+         width="248.83179"
+         height="250"
+         x="0.58411348"
+         y="1.4469121e-06" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5336">
+      <rect
+         style="opacity:1;fill:#5ee16a;fill-opacity:0.97254902;stroke:none;stroke-width:0.47622049;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.23137255"
+         id="rect5338"
+         width="20.000002"
+         height="20"
+         x="5"
+         y="4.7336366e-07" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5371">
+      <rect
+         style="opacity:1;fill:#5ee16a;fill-opacity:0.97254902;stroke:none;stroke-width:83.47154236;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.23137255"
+         id="rect5373"
+         width="600"
+         height="600"
+         x="6.5472005e-07"
+         y="2.6435846e-05"
+         inkscape:transform-center-x="11.064959"
+         inkscape:transform-center-y="-88.519675" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="297.86232"
+     inkscape:cy="415.35165"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="-0.1"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     scale-x="0.9" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(5.0620533,-36.555515)"
+     style="opacity:0.98000004">
+    <g
+       id="g5367"
+       transform="matrix(0.23812501,0,0,0.23812501,-5.1520535,36.555509)"
+       clip-path="url(#clipPath5371)">
+      <path
+         id="path5353"
+         d="M 0,0 H 900 V 600 H 0"
+         inkscape:connector-curvature="0"
+         style="fill:#ffff00" />
+      <path
+         id="path5355"
+         d="m 0,230 h 900 m 0,70 H 0 m 0,70 h 900"
+         inkscape:connector-curvature="0"
+         style="stroke:#da251d;stroke-width:32" />
+    </g>
+  </g>
+</svg>

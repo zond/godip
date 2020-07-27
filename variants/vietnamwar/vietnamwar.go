@@ -18,6 +18,24 @@ const (
 
 var Nations = []godip.Nation{NorthVietnam, Thailand, SouthVietnam, Cambodia, Laos}
 
+var SVGFlags = map[godip.Nation]func() ([]byte, error){
+	NorthVietnam: func() ([]byte, error) {
+		return Asset("svg/northvietnam.svg")
+	},
+	Thailand: func() ([]byte, error) {
+		return Asset("svg/thailand.svg")
+	},
+	SouthVietnam: func() ([]byte, error) {
+		return Asset("svg/southvietnam.svg")
+	},
+	Cambodia: func() ([]byte, error) {
+		return Asset("svg/cambodia.svg")
+	},
+	Laos: func() ([]byte, error) {
+		return Asset("svg/laos.svg")
+	},
+}
+
 var VietnamWarVariant = common.Variant{
 	Name: "Vietnam War",
 	NationColors: map[godip.Nation]string{
@@ -41,15 +59,9 @@ var VietnamWarVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/vietnamwarmap.svg")
 	},
-	SVGVersion: "5",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "6",
+	SVGUnits:    classical.SVGUnits,
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "ThePolice",
 	Version:     "1.12",
 	Description: "The Indochina Peninsula in 1955: the beginning of Vietnam War.",
