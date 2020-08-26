@@ -12,7 +12,7 @@ In particular the current generator does not cope with:
 * Victory conditions other than 'more than half'.
 * Non-planar maps (the extra edges must be added by hand afterwards).
 
-The generator is written in [Python 2](https://www.python.org/downloads/release/python-2714/), and it is must be installed to run the generator.
+The generator is written in [Python 2](https://www.python.org/downloads/release/python-2714/), and it must be installed to run the generator.
 
 ### General advice
 
