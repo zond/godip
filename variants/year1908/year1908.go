@@ -65,7 +65,7 @@ func Year1908Start() (result *state.State, err error) {
 		"bud": godip.Unit{godip.Army, Austria},
 		"tri": godip.Unit{godip.Army, Austria},
 		"nap": godip.Unit{godip.Fleet, Italy},
-		"rom": godip.Unit{godip.Army, Italy},
+		"rom": godip.Unit{godip.Fleet, Italy},
 		"mil": godip.Unit{godip.Army, Italy},
 		"stp": godip.Unit{godip.Fleet, Russia},
 		"sev": godip.Unit{godip.Fleet, Russia},
