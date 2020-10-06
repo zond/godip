@@ -773,8 +773,17 @@ def calculateCurvePoints(lastLoc, loc, nextLoc):
 
 def addStripesPattern(root):
     """Add the pattern that's used for indicating provinces that can be clicked on by the player."""
-    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
-      <line x1="0" y="0" x2="0" y2="16" stroke="#ff0000" stroke-opacity="0.56" stroke-width="18" id="line13" />
+    '''<pattern
+       id="stripes"
+       patternUnits="userSpaceOnUse"
+       x="0" 
+       y="0" 
+       width="24"
+       height="24">
+        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="0" y="0" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="12" y="12" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="12" y="0" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="0" y="12" width="6" height="6"></rect>
     </pattern>'''
     xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
     stripes = root.find('{0}pattern[@id="stripes"]'.format(SVG))
@@ -782,8 +791,21 @@ def addStripesPattern(root):
 
 def addImpassablePattern(root):
     """Add the pattern that's used for indicating regions are impassable."""
-    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
-      <line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="line13" />
+    '''<pattern
+       id="impassableStripes"
+       patternUnits="userSpaceOnUse"
+       width="16"
+       height="16"
+       patternTransform="rotate(35)">
+      <line
+         x1="0"
+         y="0"
+         x2="0"
+         y2="16"
+         stroke="#000000"
+         stroke-opacity="0.1"
+         stroke-width="18"
+         id="impassableStripesLine" />
     </pattern>'''
     xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'impassableStripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
     impassableStripes = root.find('{0}pattern[@id="impassableStripes"]'.format(SVG))
