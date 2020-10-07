@@ -18,7 +18,7 @@ const (
 	France  godip.Nation = "France"
 )
 
-var Nations = []godip.Nation{Turkey, Austria, Italy, Russia, Germany, Britain, France}
+var Nations = []godip.Nation{Austria, Britain, France, Germany, Italy, Russia, Turkey}
 
 var Year1908Variant = common.Variant{
 	Name:       "Year1908",
