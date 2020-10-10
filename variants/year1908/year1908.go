@@ -18,7 +18,7 @@ const (
 	France  godip.Nation = "France"
 )
 
-var Nations = []godip.Nation{Austria, Britain, France, Germany, Italy, Russia, Turkey}
+var Nations = []godip.Nation{Austria, Britain, France, Germany, Italy, Turkey, Russia}
 
 var Year1908Variant = common.Variant{
 	Name:       "Year1908",
@@ -44,10 +44,10 @@ var Year1908Variant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules: "",
+	CreatedBy:   "Enriador & VaeVictis",
+	Version:     "1.0",
+	Description: "Europe on the verge of a new conflict between the Great Powers.",
+	Rules:       "Movement, support and convoys (only by fleets) are allowed between Mid-Atlantic Ocean and Cairo. Movement and support (by both armies and fleets) are allowed between Casablanca and Spain. Cairo, Constantinople, Denmark, Kiel and Sweden are considered canal provinces (fleets can move through them without regard to coasts). Units can only be built on your own starting supply centers. 18 supply centers are required for victory.",
 }
 
 func Year1908Blank(phase godip.Phase) *state.State {
@@ -167,7 +167,7 @@ func Year1908Graph() *graph.Graph {
 		// Eastern Mediterranean
 		Prov("eas").Conn("cyr", godip.Sea).Conn("cai", godip.Sea).Conn("lev", godip.Sea).Conn("smy", godip.Sea).Conn("aeg", godip.Sea).Conn("ion", godip.Sea).Flag(godip.Sea).
 		// Casablanca
-		Prov("cas").Conn("alg", godip.Coast...).Conn("wes", godip.Sea).Conn("mid", godip.Sea).Flag(godip.Coast...).SC(France).
+		Prov("cas").Conn("alg", godip.Coast...).Conn("wes", godip.Sea).Conn("mid", godip.Sea).Conn("spa", godip.Land).Conn("spa/sc", godip.Sea).Flag(godip.Coast...).SC(France).
 		// Algeria
 		Prov("alg").Conn("trp", godip.Land).Conn("tun", godip.Coast...).Conn("wes", godip.Sea).Conn("cas", godip.Coast...).Flag(godip.Coast...).
 		// Baltic Sea
@@ -223,11 +223,11 @@ func Year1908Graph() *graph.Graph {
 		// Cyrenaica
 		Prov("cyr").Conn("cai", godip.Coast...).Conn("eas", godip.Sea).Conn("ion", godip.Sea).Conn("trp", godip.Coast...).Flag(godip.Coast...).
 		// Spain
-		Prov("spa").Conn("por", godip.Land).Conn("mar", godip.Land).Conn("gas", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("spa").Conn("por", godip.Land).Conn("mar", godip.Land).Conn("gas", godip.Land).Conn("cas", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Spain (North Coast)
 		Prov("spa/nc").Conn("por", godip.Sea).Conn("gas", godip.Sea).Conn("bob", godip.Sea).Flag(godip.Sea).
 		// Spain (South Coast)
-		Prov("spa/sc").Conn("por", godip.Sea).Conn("mid", godip.Sea).Conn("wes", godip.Sea).Conn("gol", godip.Sea).Conn("mar", godip.Sea).Flag(godip.Sea).
+		Prov("spa/sc").Conn("por", godip.Sea).Conn("mid", godip.Sea).Conn("wes", godip.Sea).Conn("gol", godip.Sea).Conn("mar", godip.Sea).Conn("cas", godip.Sea).Flag(godip.Sea).
 		// Warsaw
 		Prov("war").Conn("bye", godip.Land).Conn("lvn", godip.Land).Conn("pru", godip.Land).Conn("sil", godip.Land).Conn("gal", godip.Land).Conn("ukr", godip.Land).Flag(godip.Land).SC(Russia).
 		// Norwegian Sea
