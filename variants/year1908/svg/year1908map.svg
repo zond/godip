@@ -113,9 +113,9 @@
      id="base"
      pagecolor="#ffffff"
      showgrid="false"
-     inkscape:current-layer="province-centers"
-     inkscape:cx="733.05784"
-     inkscape:cy="600.81193"
+     inkscape:current-layer="layer8"
+     inkscape:cx="752.24751"
+     inkscape:cy="602.73734"
      inkscape:document-units="mm"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
@@ -3060,42 +3060,13 @@
        id="path2537"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot2971"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6a6856;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(1.1917364,0,0,1.1917364,-3.0757711,-149.2056)"><flowRegion
-         id="flowRegion2973"
-         style="fill:#6a6856;fill-opacity:1"><rect
-           id="rect2975"
-           width="66"
-           height="63"
-           x="9.5"
-           y="867.77393"
-           style="fill:#6a6856;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara2977"
-         style="font-size:13.33333302px;fill:#6a6856;fill-opacity:1">to Cairo</flowPara></flowRoot>    <path
+    <path
        style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#6a6856;stroke-width:7.55905485;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker2983)"
        d="m 1311,1158.2739 25,25"
        id="path2979"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3165"
-       style="font-style:normal;font-weight:normal;font-size:13.33333302px;line-height:125%;font-family:Sans;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#6a6856;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0.82418176,0,0,0.82418176,223.17366,213.0641)"><flowRegion
-         id="flowRegion3167"
-         style="font-size:13.33333302px;fill:#6a6856;fill-opacity:1"><rect
-           id="rect3169"
-           width="100.5"
-           height="52"
-           x="1234.5"
-           y="1143.7739"
-           style="font-size:13.33333302px;fill:#6a6856;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara3171">to</flowPara><flowPara
-         id="flowPara3175">Mid-Atlantic</flowPara><flowPara
-         id="flowPara3173">Ocean</flowPara></flowRoot>    <path
+    <path
        style="fill:url(#impassableStripes);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.22614169;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 377.99995,901.5239 c -0.58431,-0.099 -1.14098,-0.34977 -1.60869,-0.71372 -0.46771,-0.36395 -0.84633,-0.8397 -1.10549,-1.37266 -0.51831,-1.06593 -0.54033,-2.3454 -0.13225,-3.4582 0.40808,-1.1128 1.22665,-2.05614 2.22987,-2.68733 1.00322,-0.6312 2.18279,-0.95856 3.36656,-1.01808 0.59399,-0.0299 1.20615,0.009 1.75,0.25 0.54687,0.24205 0.99705,0.68174 1.28686,1.20487 0.28981,0.52314 0.42334,1.12598 0.42166,1.72403 -0.003,1.19609 -0.53155,2.33502 -1.20852,3.3211 -0.56895,0.82875 -1.2611,1.58986 -2.11781,2.11577 -0.8567,0.52591 -1.89105,0.80206 -2.88219,0.63422 z"
        id="path1831-3"
@@ -4632,6 +4603,38 @@
          y="1143.1091">(<tspan
    style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'"
    id="tspan1893">impassable</tspan>)</tspan></text>
+    <text
+       id="text7533-9"
+       style="font-style:normal;font-weight:normal;font-size:14.51439953px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#6a6856;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="47.104549"
+       y="926.84961"
+       xml:space="preserve"><tspan
+         id="tspan7531-1"
+         style="fill:#6a6856;fill-opacity:1;stroke-width:0.26458332"
+         x="47.104549"
+         y="926.84961"
+         sodipodi:role="line">to Cairo</tspan></text>
+    <text
+       id="text7533-9-0"
+       style="font-style:normal;font-weight:normal;font-size:11.21664333px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#6a6856;fill-opacity:1;stroke:none;stroke-width:0.20446844"
+       x="1282.1595"
+       y="1164.9846"
+       xml:space="preserve"><tspan
+         id="tspan7531-1-9"
+         style="fill:#6a6856;fill-opacity:1;stroke-width:0.20446844"
+         x="1282.1595"
+         y="1164.9846"
+         sodipodi:role="line">to</tspan><tspan
+         style="fill:#6a6856;fill-opacity:1;stroke-width:0.20446844"
+         x="1282.1595"
+         y="1179.0054"
+         sodipodi:role="line"
+         id="tspan3326">Mid-Atlantic</tspan><tspan
+         style="fill:#6a6856;fill-opacity:1;stroke-width:0.20446844"
+         x="1282.1595"
+         y="1193.0262"
+         sodipodi:role="line"
+         id="tspan3328">Ocean</tspan></text>
   </g>
   <g
      id="units"
