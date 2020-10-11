@@ -12,10 +12,10 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'Hellas'
+VARIANT = 'Year1908'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
-OVERRIDE_CHECK_MODE = True
+OVERRIDE_CHECK_MODE = False
 # Whether to highlight the region abbreviation in bold or not.
 BOLD_ABBREVIATIONS = True
 
@@ -24,7 +24,7 @@ BOLD_ABBREVIATIONS = True
 INK = '{http://www.inkscape.org/namespaces/inkscape}'
 SVG = '{http://www.w3.org/2000/svg}'
 # Any junctions within GUTTER pixels from the edge of the page will be moved to the edge.
-GUTTER = 10
+GUTTER = 6
 # How curvy the edges should be made
 CURVE_WEIGHT = 0.5
 # The background colour of sea regions
@@ -38,7 +38,6 @@ THICK = 2.225
 THIN = 1
 #THIN = 0.5
 
-#CENTER_PATH = 'm {0} c 1.46376,0.75644 0.77536,2.81188 -0.94177,2.81188 -0.33978,0 -0.65086,-0.15021 -0.96854,-0.46769 -1.29208,-1.29116 0.26074,-3.19663 1.91031,-2.34419 z m -1.97586,-0.20114 c -1.49705,1.17676 -0.71534,3.33302 1.20831,3.33302 1.21479,0 1.83143,-0.61952 1.83143,-1.83993 0,-1.61631 -1.77434,-2.4878 -3.03974,-1.49309 z m 2.47228,-0.99043 c 1.95868,0.99856 1.93376,3.99263 -0.0411,4.94804 -2.60602,1.26069 -5.19052,-1.62395 -3.58635,-4.00278 0.83269,-1.23477 2.30641,-1.61882 3.6275,-0.94526 z m -2.63456,-0.40959 c -2.45722,1.09603 -2.38359,4.72122 0.11714,5.76535 2.96981,1.24003 5.65887,-2.26914 3.70406,-4.83365 -0.79774,-1.04651 -2.58617,-1.4826 -3.82116,-0.9317 z'
 IMPASSABLE_PATTERN = '<pattern id="impassable" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)"><line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="impassableLine" /></pattern>'
 IMPASSABLE_STYLE = 'fill:url(#impassable);fill-rule:evenodd;stroke:#000000;stroke-width:1'
 
@@ -774,8 +773,17 @@ def calculateCurvePoints(lastLoc, loc, nextLoc):
 
 def addStripesPattern(root):
     """Add the pattern that's used for indicating provinces that can be clicked on by the player."""
-    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
-      <line x1="0" y="0" x2="0" y2="16" stroke="#ff0000" stroke-opacity="0.56" stroke-width="18" id="line13" />
+    '''<pattern
+       id="stripes"
+       patternUnits="userSpaceOnUse"
+       x="0" 
+       y="0" 
+       width="24"
+       height="24">
+        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="0" y="0" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="12" y="12" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="12" y="0" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="0" y="12" width="6" height="6"></rect>
     </pattern>'''
     xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
     stripes = root.find('{0}pattern[@id="stripes"]'.format(SVG))
@@ -783,8 +791,21 @@ def addStripesPattern(root):
 
 def addImpassablePattern(root):
     """Add the pattern that's used for indicating regions are impassable."""
-    '''<pattern id="stripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
-      <line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="line13" />
+    '''<pattern
+       id="impassableStripes"
+       patternUnits="userSpaceOnUse"
+       width="16"
+       height="16"
+       patternTransform="rotate(35)">
+      <line
+         x1="0"
+         y="0"
+         x2="0"
+         y2="16"
+         stroke="#000000"
+         stroke-opacity="0.1"
+         stroke-width="18"
+         id="impassableStripesLine" />
     </pattern>'''
     xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'impassableStripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
     impassableStripes = root.find('{0}pattern[@id="impassableStripes"]'.format(SVG))
@@ -941,8 +962,9 @@ def addCenterPath(layer, province):
     """Add a supply center marker to a given layer."""
     centerId = '{0}Center'.format(province.abbreviation)
     d = CENTER_PATH.format(strFrom(province.center))
-    centerColor = (colorForName(province.abbreviation) if OVERRIDE_CHECK_MODE else '#9f9f9f')
-    xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': centerId, 'd': d, 'style': 'display:inline;fill:none;stroke:{0};stroke-width:{1};stroke-opacity:1;enable-background:new'.format(centerColor, THIN)})
+    centerColor = (colorForName(province.abbreviation) if OVERRIDE_CHECK_MODE else '#000000')
+    opacity = (1 if OVERRIDE_CHECK_MODE else 0.5)
+    xml.etree.ElementTree.SubElement(layer, '{}path'.format(SVG), {'id': centerId, 'd': d, 'style': 'display:inline;fill:none;stroke:{0};stroke-width:{1};stroke-opacity:{2};enable-background:new'.format(centerColor, THIN, opacity)})
 
 def addCenterLayer(root, layerName, visible, provinces):
     """Add a layer of supply centers for all the given provinces."""
