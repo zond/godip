@@ -15,17 +15,19 @@ $nation_declarations
 $nation_list
 
 var ${variant_camel}Variant = common.Variant{
-	Name:       "$variant",
-	Graph:      func() godip.Graph { return ${variant_camel}Graph() },
-	Start:      ${variant_camel}Start,
-	Blank:      ${variant_camel}Blank,
-	Phase:      classical.NewPhase,
-	Parser:     classical.Parser,
-	Nations:    Nations,
-	PhaseTypes: classical.PhaseTypes,
-	Seasons:    classical.Seasons,
-	UnitTypes:  classical.UnitTypes,
-	SoloWinner: common.SCCountWinner($sc_count),
+	Name:              "$variant",
+	Graph:             func() godip.Graph { return ${variant_camel}Graph() },
+	Start:             ${variant_camel}Start,
+	Blank:             ${variant_camel}Blank,
+	Phase:             classical.NewPhase,
+	Parser:            classical.Parser,
+	Nations:           Nations,
+	PhaseTypes:        classical.PhaseTypes,
+	Seasons:           classical.Seasons,
+	UnitTypes:         classical.UnitTypes,
+	SoloWinner:        common.SCCountWinner($sc_count),
+	SoloSCCount:       func(*state.State) int { return $sc_count },
+	ProvinceLongNames: provinceLongNames,
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/${variant_lower}map.svg")
 	},
@@ -41,7 +43,7 @@ var ${variant_camel}Variant = common.Variant{
 	CreatedBy:   "",
 	Version:     "",
 	Description: "",
-	Rules: "",
+	Rules:       "",
 }
 
 func ${variant_camel}Blank(phase godip.Phase) *state.State {
@@ -66,4 +68,8 @@ func ${variant_camel}Graph() *graph.Graph {
 	return graph.New().
 $graph
 		Done()
+}
+
+var provinceLongNames = map[godip.Province]string{
+$long_names
 }

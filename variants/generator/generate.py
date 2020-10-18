@@ -773,43 +773,28 @@ def calculateCurvePoints(lastLoc, loc, nextLoc):
 
 def addStripesPattern(root):
     """Add the pattern that's used for indicating provinces that can be clicked on by the player."""
-    '''<pattern
-       id="stripes"
-       patternUnits="userSpaceOnUse"
-       x="0" 
-       y="0" 
-       width="24"
-       height="24">
+    # Nb. It's called "stripes" but it's actually squares.
+    '''<pattern id="stripes" patternUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
         <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="0" y="0" width="6" height="6"></rect>
         <rect id="Rectangle" fill="#000000" fill-opacity="0.13" x="12" y="12" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="12" y="0" width="6" height="6"></rect>
-        <rect id="Rectangle" fill="#FFFFFF" fill-opacity="0.13" x="0" y="12" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#ffffff" fill-opacity="0.13" x="12" y="0" width="6" height="6"></rect>
+        <rect id="Rectangle" fill="#ffffff" fill-opacity="0.13" x="0" y="12" width="6" height="6"></rect>
     </pattern>'''
-    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
+    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'stripes', 'patternUnits': 'userSpaceOnUse', 'x': '0', 'y': '0', 'width': '24', 'height': '24'})
     stripes = root.find('{0}pattern[@id="stripes"]'.format(SVG))
-    xml.etree.ElementTree.SubElement(stripes, '{}line'.format(SVG), {'id': 'stripePath', 'x1': '0', 'y':'0', 'x2': '0', 'y2': '16', 'stroke': '#ff0000', 'stroke-opacity': '0.56', 'stroke-width': '18'})
+    xml.etree.ElementTree.SubElement(stripes, '{}rect'.format(SVG), {'id': 'square0', 'fill': '#000000', 'fill-opacity': '0.13', 'x': '0', 'y': '0', 'width': '6', 'height': '6'})
+    xml.etree.ElementTree.SubElement(stripes, '{}rect'.format(SVG), {'id': 'square1', 'fill': '#000000', 'fill-opacity': '0.13', 'x': '12', 'y': '12', 'width': '6', 'height': '6'})
+    xml.etree.ElementTree.SubElement(stripes, '{}rect'.format(SVG), {'id': 'square2', 'fill': '#ffffff', 'fill-opacity': '0.13', 'x': '12', 'y': '0', 'width': '6', 'height': '6'})
+    xml.etree.ElementTree.SubElement(stripes, '{}rect'.format(SVG), {'id': 'square3', 'fill': '#ffffff', 'fill-opacity': '0.13', 'x': '0', 'y': '12', 'width': '6', 'height': '6'})
 
 def addImpassablePattern(root):
     """Add the pattern that's used for indicating regions are impassable."""
-    '''<pattern
-       id="impassableStripes"
-       patternUnits="userSpaceOnUse"
-       width="16"
-       height="16"
-       patternTransform="rotate(35)">
-      <line
-         x1="0"
-         y="0"
-         x2="0"
-         y2="16"
-         stroke="#000000"
-         stroke-opacity="0.1"
-         stroke-width="18"
-         id="impassableStripesLine" />
+    '''<pattern id="impassableStripes" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)">
+        <line id="impassableStripesLine" x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" />
     </pattern>'''
-    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'impassableStripes', 'patternUnits': 'userSpaceOnUse', 'width': '6', 'height': '6', 'patternTransform': 'rotate(35)'})
+    xml.etree.ElementTree.SubElement(root, '{}pattern'.format(SVG), {'id': 'impassableStripes', 'patternUnits': 'userSpaceOnUse', 'width': '16', 'height': '16', 'patternTransform': 'rotate(35)'})
     impassableStripes = root.find('{0}pattern[@id="impassableStripes"]'.format(SVG))
-    xml.etree.ElementTree.SubElement(impassableStripes, '{}line'.format(SVG), {'id': 'impassableStripePath', 'x1': '0', 'y':'0', 'x2': '0', 'y2': '16', 'stroke': '#000000', 'stroke-opacity': '0.1', 'stroke-width': '18'})
+    xml.etree.ElementTree.SubElement(impassableStripes, '{}line'.format(SVG), {'id': 'impassableStripesLine', 'x1': '0', 'y':'0', 'x2': '0', 'y2': '16', 'stroke': '#000000', 'stroke-opacity': '0.1', 'stroke-width': '18'})
 
 def addBlurFilter(root):
     """Add the Gaussian blur filter that's used for the shadow effect along the coast."""
@@ -1019,6 +1004,7 @@ def createGraphFile(fileName, provinces):
     
     graphStrs = []
     flags = {}
+    longNameStrs = []
     for province in provinces:
         if province.flags.impassable:
             continue
@@ -1058,6 +1044,7 @@ def createGraphFile(fileName, provinces):
                         owner = toCamelCase(nation)
             graphStr += u'SC({}).'.format(owner)
         graphStrs.append(graphStr)
+        longNameStrs.append('\t"{}": "{}",'.format(province.abbreviation, ' '.join(province.name)))
     
     parameters = {
             'variant': VARIANT,
@@ -1069,7 +1056,8 @@ def createGraphFile(fileName, provinces):
             'start_year': str(START_YEAR),
             'units': '\n'.join(unitsStrs),
             'supply_centers': '\n'.join(supplyCenterStrs),
-            'graph': '\n'.join(graphStrs)
+            'graph': '\n'.join(graphStrs),
+            'long_names': '\n'.join(longNameStrs)
             }
     
     output = template.substitute(parameters)
