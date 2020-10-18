@@ -44,6 +44,7 @@ var Year1908Variant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
+	SoloSCCount: func(*state.State) int { return 18 },
 	CreatedBy:   "Enriador & VaeVictis",
 	Version:     "1.0",
 	Description: "Europe on the verge of a new conflict between the Great Powers.",
