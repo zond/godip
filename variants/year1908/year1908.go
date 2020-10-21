@@ -244,7 +244,7 @@ func Year1908Graph() *graph.Graph {
 		Prov("wal").Conn("lvp", godip.Coast...).Conn("iri", godip.Sea).Conn("eng", godip.Sea).Conn("lon", godip.Coast...).Conn("yor", godip.Land).Flag(godip.Coast...).
 		// Greece
 		Prov("gre").Conn("mac", godip.Land).Conn("mac/wc", godip.Sea).Conn("mac/ec", godip.Sea).Conn("ion", godip.Sea).Conn("aeg", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
-		// Venice
+		// Venetia
 		Prov("ven").Conn("adr", godip.Sea).Conn("tri", godip.Coast...).Conn("tyr", godip.Land).Conn("mil", godip.Land).Conn("rom", godip.Land).Conn("rom/ec", godip.Sea).Flag(godip.Coast...).
 		// Cairo
 		Prov("cai").Conn("lev", godip.Coast...).Conn("eas", godip.Sea).Conn("cyr", godip.Coast...).Flag(godip.Coast...).SC(Britain).
@@ -372,7 +372,7 @@ var provinceLongNames = map[godip.Province]string{
 	"lev": "Levant",
 	"wal": "Wales",
 	"gre": "Greece",
-	"ven": "Venice",
+	"ven": "Venetia",
 	"cai": "Cairo",
 	"vie": "Vienna",
 	"hel": "Helgoland Bight",
