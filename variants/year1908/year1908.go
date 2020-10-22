@@ -129,7 +129,7 @@ func Year1908Graph() *graph.Graph {
 		// Sevastopol
 		Prov("sev").Conn("mos", godip.Land).Conn("ukr", godip.Land).Conn("rum", godip.Coast...).Conn("bla", godip.Sea).Conn("arm", godip.Coast...).Flag(godip.Coast...).SC(Russia).
 		// Mid-Atlantic Ocean
-		Prov("mid").Conn("cas", godip.Sea).Conn("wes", godip.Sea).Conn("spa", godip.Sea).Conn("spa/sc", godip.Sea).Conn("por", godip.Sea).Conn("bob", godip.Sea).Conn("bob", godip.Sea).Conn("eng", godip.Sea).Conn("iri", godip.Sea).Conn("nat", godip.Sea).Flag(godip.Sea).
+		Prov("mid").Conn("cas", godip.Sea).Conn("wes", godip.Sea).Conn("spa", godip.Sea).Conn("spa/sc", godip.Sea).Conn("por", godip.Sea).Conn("bob", godip.Sea).Conn("bob", godip.Sea).Conn("eng", godip.Sea).Conn("iri", godip.Sea).Conn("nat", godip.Sea).Conn("cai", godip.Sea).Flag(godip.Sea).
 		// St. Petersburg
 		Prov("stp").Conn("nwy", godip.Land).Conn("fin", godip.Land).Conn("lvn", godip.Land).Conn("bye", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).SC(Russia).
 		// St. Petersburg (North Coast)
@@ -247,7 +247,7 @@ func Year1908Graph() *graph.Graph {
 		// Venetia
 		Prov("ven").Conn("adr", godip.Sea).Conn("tri", godip.Coast...).Conn("tyr", godip.Land).Conn("mil", godip.Land).Conn("rom", godip.Land).Conn("rom/ec", godip.Sea).Flag(godip.Coast...).
 		// Cairo
-		Prov("cai").Conn("lev", godip.Coast...).Conn("eas", godip.Sea).Conn("cyr", godip.Coast...).Flag(godip.Coast...).SC(Britain).
+		Prov("cai").Conn("lev", godip.Coast...).Conn("eas", godip.Sea).Conn("cyr", godip.Coast...).Conn("mid", godip.Sea).Flag(godip.Coast...).SC(Britain).
 		// Vienna
 		Prov("vie").Conn("boh", godip.Land).Conn("tyr", godip.Land).Conn("tri", godip.Land).Conn("bud", godip.Land).Flag(godip.Land).SC(Austria).
 		// Helgoland Bight
@@ -283,7 +283,7 @@ func Year1908Graph() *graph.Graph {
 		// Edinburgh
 		Prov("edi").Conn("cly", godip.Coast...).Conn("lvp", godip.Land).Conn("yor", godip.Coast...).Conn("nth", godip.Sea).Conn("nrg", godip.Sea).Flag(godip.Coast...).SC(Britain).
 		// Bay of Biscay
-		Prov("bob").Conn("mid", godip.Sea).Conn("por", godip.Sea).Conn("spa", godip.Sea).Conn("spa/nc", godip.Sea).Conn("gas", godip.Sea).Conn("bre", godip.Sea).Conn("eng", godip.Sea).Conn("mid", godip.Sea).Flag(godip.Sea).
+		Prov("bob").Conn("mid", godip.Sea).Conn("por", godip.Sea).Conn("spa", godip.Sea).Conn("spa/nc", godip.Sea).Conn("gas", godip.Sea).Conn("bre", godip.Sea).Conn("eng", godip.Sea).Flag(godip.Sea).
 		// Gulf of Lyon
 		Prov("gol").Conn("tyn", godip.Sea).Conn("tus", godip.Sea).Conn("pie", godip.Sea).Conn("mar", godip.Sea).Conn("spa", godip.Sea).Conn("spa/sc", godip.Sea).Conn("wes", godip.Sea).Conn("tyn", godip.Sea).Flag(godip.Sea).
 		// Irish Sea
