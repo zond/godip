@@ -19,7 +19,7 @@ const (
 var Nations = []godip.Nation{Connacht, Ulaidh, Midhe, Laighin, Mumhan}
 
 var ardigheVariant = common.Variant{
-	Name:       "ardighe",
+	Name:       "Ard Rí",
 	Graph:      func() godip.Graph { return ardigheGraph() },
 	Start:      ardigheStart,
 	Blank:      ardigheBlank,
@@ -29,7 +29,7 @@ var ardigheVariant = common.Variant{
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
 	UnitTypes:  classical.UnitTypes,
-	SoloWinner: common.SCCountWinner(8),
+	SoloWinner: common.SCCountWinner(15),
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/ardighemap.svg")
 	},
@@ -42,7 +42,7 @@ var ardigheVariant = common.Variant{
 			return classical.Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
+	CreatedBy:   "Stuart John Bernard",
 	Version:     "",
 	Description: "",
 	Rules: "",
