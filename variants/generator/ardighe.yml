@@ -1,0 +1,41 @@
+# The first year of the game
+START_YEAR: 379
+# The starting units
+START_UNITS:
+  Ulaidh:
+    Army: ['Mag Ruth', 'Emain Macha']
+    Fleet: ['Ailech']
+  Midhe:
+    Army: ['Uis- neach', 'Guara']
+    Fleet: ['Temuir']
+  Connacht:
+    Army: ['Tuathal', 'Mona Gha']
+    Fleet: ['Cruachu']
+  Laighin:
+    Army: ['Almu', 'Ail- end']
+    Fleet: ['Naas']
+  Mumhan:
+    Army: ['Eoghan Mor', 'Edghanacata']
+    Fleet: ['Anu']
+
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  'Naas Bay': 'nsb'
+  'Temuir Bay': 'tmb'
+  'Mona Bay': 'mnb'
+  'North Atlantic': 'nat'
+  'North Channel': 'nch'
+  'Conall': 'cnl'
+
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+ ['North Atlantic', 'Tuathal'],
+ ['North Atlantic', 'Cruachu'],
+ ['North Atlantic', 'Taiden']
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+ ['Taiden', 'Cruachu'],
+ ['Tuathal', 'Cruachu'],
+ ['Tuathal', 'North Atlantic']
+]
