@@ -18,7 +18,7 @@ const (
 
 var Nations = []godip.Nation{Connacht, Ulaidh, Midhe, Laighin, Mumhan}
 
-var ardigheVariant = common.Variant{
+var ArdigheVariant = common.Variant{
 	Name:       "Ard Rí",
 	Graph:      func() godip.Graph { return ardigheGraph() },
 	Start:      ardigheStart,
@@ -45,7 +45,7 @@ var ardigheVariant = common.Variant{
 	CreatedBy:   "Stuart John Bernard",
 	Version:     "",
 	Description: "",
-	Rules: "",
+	Rules:       "",
 }
 
 func ardigheBlank(phase godip.Phase) *state.State {
