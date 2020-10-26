@@ -53,24 +53,8 @@ func ardigheBlank(phase godip.Phase) *state.State {
 }
 
 func ardigheStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(379, godip.Spring, godip.Movement)
+	startPhase := classical.NewPhase(379, godip.Fall, godip.Adjustment)
 	result = ardigheBlank(startPhase)
-	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"cru": godip.Unit{godip.Fleet, Connacht},
-		"tua": godip.Unit{godip.Army, Connacht},
-		"mon": godip.Unit{godip.Army, Connacht},
-		"aic": godip.Unit{godip.Fleet, Ulaidh},
-		"mag": godip.Unit{godip.Army, Ulaidh},
-		"ema": godip.Unit{godip.Army, Ulaidh},
-		"tem": godip.Unit{godip.Fleet, Midhe},
-		"uis": godip.Unit{godip.Army, Midhe},
-		"gua": godip.Unit{godip.Army, Midhe},
-		"naa": godip.Unit{godip.Fleet, Laighin},
-		"alm": godip.Unit{godip.Army, Laighin},
-		"aie": godip.Unit{godip.Army, Laighin},
-		"anu": godip.Unit{godip.Fleet, Mumhan},
-		"eog": godip.Unit{godip.Army, Mumhan},
-		"edg": godip.Unit{godip.Army, Mumhan},
 	}); err != nil {
 		return
 	}
