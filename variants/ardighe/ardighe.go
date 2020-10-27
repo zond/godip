@@ -83,7 +83,7 @@ func ardigheGraph() *graph.Graph {
 		Prov("aic").Conn("nia", godip.Land).Conn("ema", godip.Land).Conn("air", godip.Land).Conn("fri", godip.Coast...).Conn("nat", godip.Sea).Conn("cnl", godip.Coast...).Flag(godip.Coast...).SC(Ulaidh).
 		// Cruachu
 		Prov("cru").Conn("gam", godip.Coast...).Conn("tai", godip.Coast...).Conn("nat", godip.Sea).Conn("cor", godip.Coast...).Conn("eir", godip.Land).Conn("tua", godip.Land).Conn("con", godip.Land).Flag(godip.Coast...).SC(Connacht).
-		// Gamain Raige
+		// Gaman Raige
 		Prov("gam").Conn("cru", godip.Coast...).Conn("con", godip.Coast...).Conn("mnb", godip.Sea).Conn("nat", godip.Sea).Conn("tai", godip.Coast...).Flag(godip.Coast...).
 		// Erainn
 		Prov("era").Conn("alm", godip.Coast...).Conn("edg", godip.Land).Conn("cia", godip.Land).Conn("anu", godip.Coast...).Conn("sou", godip.Sea).Conn("eri", godip.Sea).Flag(godip.Coast...).
@@ -135,7 +135,7 @@ func ardigheGraph() *graph.Graph {
 		Prov("ema").Conn("gua", godip.Land).Conn("air", godip.Land).Conn("aic", godip.Land).Conn("nia", godip.Land).Conn("mon", godip.Land).Conn("ere", godip.Land).Conn("asa", godip.Land).Flag(godip.Land).SC(Ulaidh).
 		// Conall
 		Prov("cnl").Conn("nia", godip.Coast...).Conn("aic", godip.Coast...).Conn("nat", godip.Sea).Conn("mnb", godip.Sea).Flag(godip.Coast...).
-		// Cora Baiscin
+		// Corca Baiscin
 		Prov("cor").Conn("eog", godip.Coast...).Conn("eir", godip.Land).Conn("cru", godip.Coast...).Conn("nat", godip.Sea).Conn("sha", godip.Sea).Flag(godip.Coast...).
 		// Temuir
 		Prov("tem").Conn("nsb", godip.Sea).Conn("tmb", godip.Sea).Conn("gua", godip.Coast...).Conn("mid", godip.Land).Conn("lai", godip.Land).Conn("naa", godip.Coast...).Flag(godip.Coast...).SC(Midhe).
