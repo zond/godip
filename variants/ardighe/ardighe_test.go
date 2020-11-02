@@ -44,11 +44,37 @@ func TestBuildFirstPhase(t *testing.T) {
 func TestWinnerNeedsFifteen(t *testing.T) {
 	judge := blankState(t)
 	for _, sc := range ArdigheVariant.Graph().AllSCs() {
-		judge.SetSC(sc, Midhe)
+		judge.SetSC(sc, Mumhan)
 	}
 	tst.WaitForYears(judge, 1)
 	winner := ArdigheVariant.SoloWinner(judge)
-	if winner != Midhe {
-		t.Errorf("Expected Midhe to have won")
+	if winner != Mumhan {
+		t.Errorf("Expected Mumhan to have won")
 	}
+}
+
+// Rule 6a. During Spring orders a fleet in one of the four outermost sea areas may give the Raiding order.
+// 6b. During the resolution of Spring orders move any unit ordered to Raid from the sea area to the border of the map.
+// 6c. During Fall orders a "Raiding Return" order most be written for each fleet that went "Raiding".
+//     This order denotes which of the four outermost sea areas the "Raiding" Fleet will return to.
+// 6d. A fleet following a “Raiding Return” order may not retreat, and thus is removed from the game as the result of a bounce.
+// 6e. During the next adjustment phase the controller of any units that successfully executed the "Raiding Return" order
+//     is considered to have an extra Supply Center for each fleet that successfully returned from the raid.
+func TestBasicRaid(t *testing.T) {
+}
+
+// Check that a raiding fleet has no options except to return.
+func TestRaiderCanOnlyReturn(t *testing.T) {
+}
+
+// Check that both bouncing fleets are removed.
+func TestBounceReturningFromRaid(t *testing.T) {
+}
+
+// Check that a raiding fleet is removed if it is not given a return order.
+func TestNoOrderReturningFromRaid(t *testing.T) {
+}
+
+// Check that builds gained by raiding do not count towards victory.
+func TestRaidingDoesntCountForWin(t *testing.T) {
 }

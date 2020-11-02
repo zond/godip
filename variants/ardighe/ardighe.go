@@ -78,37 +78,49 @@ func ardigheStart() (result *state.State, err error) {
 func ardigheGraph() *graph.Graph {
 	return graph.New().
 		// Taiden
-		Prov("tai").Conn("cru", godip.Coast...).Conn("gam", godip.Coast...).Conn("nat", godip.Sea).Flag(godip.Coast...).
+		Prov("tai").Conn("cru", godip.Coast...).Conn("gam", godip.Coast...).Conn("nat/n", godip.Sea).Flag(godip.Coast...).
 		// Ailech
-		Prov("aic").Conn("nia", godip.Land).Conn("ema", godip.Land).Conn("air", godip.Land).Conn("fri", godip.Coast...).Conn("nat", godip.Sea).Conn("cnl", godip.Coast...).Flag(godip.Coast...).SC(Ulaidh).
+		Prov("aic").Conn("nia", godip.Land).Conn("ema", godip.Land).Conn("air", godip.Land).Conn("fri", godip.Coast...).Conn("nat/n", godip.Sea).Conn("cnl", godip.Coast...).Flag(godip.Coast...).SC(Ulaidh).
 		// Cruachu
-		Prov("cru").Conn("gam", godip.Coast...).Conn("tai", godip.Coast...).Conn("nat", godip.Sea).Conn("cor", godip.Coast...).Conn("eir", godip.Land).Conn("tua", godip.Land).Conn("con", godip.Land).Flag(godip.Coast...).SC(Connacht).
+		Prov("cru").Conn("gam", godip.Coast...).Conn("tai", godip.Coast...).Conn("nat/n", godip.Sea).Conn("cor", godip.Coast...).Conn("eir", godip.Land).Conn("tua", godip.Land).Conn("con", godip.Land).Flag(godip.Coast...).SC(Connacht).
 		// Gaman Raige
-		Prov("gam").Conn("cru", godip.Coast...).Conn("con", godip.Coast...).Conn("mnb", godip.Sea).Conn("nat", godip.Sea).Conn("tai", godip.Coast...).Flag(godip.Coast...).
+		Prov("gam").Conn("cru", godip.Coast...).Conn("con", godip.Coast...).Conn("mnb", godip.Sea).Conn("nat/n", godip.Sea).Conn("tai", godip.Coast...).Flag(godip.Coast...).
 		// Erainn
-		Prov("era").Conn("alm", godip.Coast...).Conn("edg", godip.Land).Conn("cia", godip.Land).Conn("anu", godip.Coast...).Conn("sou", godip.Sea).Conn("eri", godip.Sea).Flag(godip.Coast...).
+		Prov("era").Conn("alm", godip.Coast...).Conn("edg", godip.Land).Conn("cia", godip.Land).Conn("anu", godip.Coast...).Conn("sou/n", godip.Sea).Conn("eri/n", godip.Sea).Flag(godip.Coast...).
 		// Mona Gha
 		Prov("mon").Conn("nia", godip.Coast...).Conn("mnb", godip.Sea).Conn("con", godip.Coast...).Conn("ere", godip.Land).Conn("ema", godip.Land).Flag(godip.Coast...).SC(Connacht).
 		// Midhe
 		Prov("mid").Conn("esc", godip.Land).Conn("lai", godip.Land).Conn("tem", godip.Land).Conn("gua", godip.Land).Conn("asa", godip.Land).Conn("uis", godip.Land).Flag(godip.Land).
-		// North Atlantic
-		Prov("nat").Conn("sou", godip.Sea).Conn("mum", godip.Sea).Conn("sha", godip.Sea).Conn("cor", godip.Sea).Conn("cru", godip.Sea).Conn("tai", godip.Sea).Conn("gam", godip.Sea).Conn("mnb", godip.Sea).Conn("cnl", godip.Sea).Conn("aic", godip.Sea).Conn("fri", godip.Sea).Conn("nch", godip.Sea).Flag(godip.Sea).
-		// North Channel
-		Prov("nch").Conn("nat", godip.Sea).Conn("fri", godip.Sea).Conn("eri", godip.Sea).Flag(godip.Sea).
+		// North Atlantic (Normal Sea)
+		Prov("nat/n").Conn("sou/n", godip.Sea).Conn("mum", godip.Sea).Conn("sha", godip.Sea).Conn("cor", godip.Sea).Conn("cru", godip.Sea).Conn("tai", godip.Sea).Conn("gam", godip.Sea).Conn("mnb", godip.Sea).Conn("cnl", godip.Sea).Conn("aic", godip.Sea).Conn("fri", godip.Sea).Conn("nch/n", godip.Sea).Conn("nar", godip.Sea).Flag(godip.Sea).
+		// North Atlantic (Returning Sea)
+		Prov("nat/r").Flag(godip.Sea).
+		// North Atlantic Raiding
+		Prov("nar").Conn("nat/r", godip.Sea).Conn("nch/r", godip.Sea).Conn("eri/r", godip.Sea).Conn("sou/r", godip.Sea).Flag(godip.Sea).
+		// North Channel (Normal Sea)
+		Prov("nch/n").Conn("nat/n", godip.Sea).Conn("fri", godip.Sea).Conn("eri/n", godip.Sea).Conn("ncr", godip.Sea).Flag(godip.Sea).
+		// North Channel (Returning Sea)
+		Prov("nch/r").Flag(godip.Sea).
+		// North Channel Raiding
+		Prov("ncr").Conn("nat/r", godip.Sea).Conn("nch/r", godip.Sea).Conn("eri/r", godip.Sea).Conn("sou/r", godip.Sea).Flag(godip.Sea).
 		// Muma
-		Prov("mum").Conn("anu", godip.Coast...).Conn("cia", godip.Land).Conn("eog", godip.Coast...).Conn("sha", godip.Sea).Conn("nat", godip.Sea).Conn("sou", godip.Sea).Flag(godip.Coast...).
+		Prov("mum").Conn("anu", godip.Coast...).Conn("cia", godip.Land).Conn("eog", godip.Coast...).Conn("sha", godip.Sea).Conn("nat/n", godip.Sea).Conn("sou/n", godip.Sea).Flag(godip.Coast...).
 		// Uis- neach
 		Prov("uis").Conn("asa", godip.Land).Conn("ere", godip.Land).Conn("tua", godip.Land).Conn("esc", godip.Land).Conn("mid", godip.Land).Flag(godip.Land).SC(Midhe).
 		// Mona Bay
-		Prov("mnb").Conn("nia", godip.Sea).Conn("cnl", godip.Sea).Conn("nat", godip.Sea).Conn("gam", godip.Sea).Conn("con", godip.Sea).Conn("mon", godip.Sea).Flag(godip.Sea).
-		// Erin Sea
-		Prov("eri").Conn("nch", godip.Sea).Conn("fri", godip.Sea).Conn("mag", godip.Sea).Conn("tmb", godip.Sea).Conn("nsb", godip.Sea).Conn("rat", godip.Sea).Conn("alm", godip.Sea).Conn("era", godip.Sea).Conn("sou", godip.Sea).Flag(godip.Sea).
+		Prov("mnb").Conn("nia", godip.Sea).Conn("cnl", godip.Sea).Conn("nat/n", godip.Sea).Conn("gam", godip.Sea).Conn("con", godip.Sea).Conn("mon", godip.Sea).Flag(godip.Sea).
+		// Erin Sea (Normal Sea)
+		Prov("eri/n").Conn("nch/n", godip.Sea).Conn("fri", godip.Sea).Conn("mag", godip.Sea).Conn("tmb", godip.Sea).Conn("nsb", godip.Sea).Conn("rat", godip.Sea).Conn("alm", godip.Sea).Conn("era", godip.Sea).Conn("sou/n", godip.Sea).Conn("esr", godip.Sea).Flag(godip.Sea).
+		// Erin Sea (Returning Sea)
+		Prov("eri/r").Flag(godip.Sea).
+		// Erin Sea Raiding
+		Prov("esr").Conn("nat/r", godip.Sea).Conn("nch/r", godip.Sea).Conn("eri/r", godip.Sea).Conn("sou/r", godip.Sea).Flag(godip.Sea).
 		// Shannon
-		Prov("sha").Conn("cor", godip.Sea).Conn("nat", godip.Sea).Conn("mum", godip.Sea).Conn("eog", godip.Sea).Flag(godip.Sea).
+		Prov("sha").Conn("cor", godip.Sea).Conn("nat/n", godip.Sea).Conn("mum", godip.Sea).Conn("eog", godip.Sea).Flag(godip.Sea).
 		// Frida
-		Prov("fri").Conn("nat", godip.Sea).Conn("aic", godip.Coast...).Conn("mag", godip.Coast...).Conn("eri", godip.Sea).Conn("nch", godip.Sea).Flag(godip.Coast...).
+		Prov("fri").Conn("nat/n", godip.Sea).Conn("aic", godip.Coast...).Conn("mag", godip.Coast...).Conn("eri/n", godip.Sea).Conn("nch/n", godip.Sea).Flag(godip.Coast...).
 		// Almu
-		Prov("alm").Conn("era", godip.Coast...).Conn("eri", godip.Sea).Conn("rat", godip.Coast...).Conn("lai", godip.Land).Conn("aie", godip.Land).Conn("edg", godip.Land).Flag(godip.Coast...).SC(Laighin).
+		Prov("alm").Conn("era", godip.Coast...).Conn("eri/n", godip.Sea).Conn("rat", godip.Coast...).Conn("lai", godip.Land).Conn("aie", godip.Land).Conn("edg", godip.Land).Flag(godip.Coast...).SC(Laighin).
 		// Ciann
 		Prov("cia").Conn("mog", godip.Land).Conn("eir", godip.Land).Conn("eog", godip.Land).Conn("mum", godip.Land).Conn("anu", godip.Land).Conn("era", godip.Land).Conn("edg", godip.Land).Flag(godip.Land).
 		// Eremon
@@ -120,27 +132,27 @@ func ardigheGraph() *graph.Graph {
 		// Niall
 		Prov("nia").Conn("cnl", godip.Coast...).Conn("mnb", godip.Sea).Conn("mon", godip.Coast...).Conn("ema", godip.Land).Conn("aic", godip.Land).Flag(godip.Coast...).
 		// Rath- drum
-		Prov("rat").Conn("alm", godip.Coast...).Conn("eri", godip.Sea).Conn("nsb", godip.Sea).Conn("naa", godip.Coast...).Conn("lai", godip.Land).Flag(godip.Coast...).
+		Prov("rat").Conn("alm", godip.Coast...).Conn("eri/n", godip.Sea).Conn("nsb", godip.Sea).Conn("naa", godip.Coast...).Conn("lai", godip.Land).Flag(godip.Coast...).
 		// Mag Ruth
-		Prov("mag").Conn("eri", godip.Sea).Conn("fri", godip.Coast...).Conn("air", godip.Coast...).Conn("tmb", godip.Sea).Flag(godip.Coast...).SC(Ulaidh).
+		Prov("mag").Conn("eri/n", godip.Sea).Conn("fri", godip.Coast...).Conn("air", godip.Coast...).Conn("tmb", godip.Sea).Flag(godip.Coast...).SC(Ulaidh).
 		// Naas
 		Prov("naa").Conn("tem", godip.Coast...).Conn("lai", godip.Land).Conn("rat", godip.Coast...).Conn("nsb", godip.Sea).Flag(godip.Coast...).SC(Laighin).
 		// Conn
 		Prov("con").Conn("ere", godip.Land).Conn("mon", godip.Coast...).Conn("mnb", godip.Sea).Conn("gam", godip.Coast...).Conn("cru", godip.Land).Conn("tua", godip.Land).Flag(godip.Coast...).
 		// Naas Bay
-		Prov("nsb").Conn("tem", godip.Sea).Conn("naa", godip.Sea).Conn("rat", godip.Sea).Conn("eri", godip.Sea).Conn("tmb", godip.Sea).Flag(godip.Sea).
+		Prov("nsb").Conn("tem", godip.Sea).Conn("naa", godip.Sea).Conn("rat", godip.Sea).Conn("eri/n", godip.Sea).Conn("tmb", godip.Sea).Flag(godip.Sea).
 		// Anu
-		Prov("anu").Conn("mum", godip.Coast...).Conn("sou", godip.Sea).Conn("era", godip.Coast...).Conn("cia", godip.Land).Flag(godip.Coast...).SC(Mumhan).
+		Prov("anu").Conn("mum", godip.Coast...).Conn("sou/n", godip.Sea).Conn("era", godip.Coast...).Conn("cia", godip.Land).Flag(godip.Coast...).SC(Mumhan).
 		// Emain Macha
 		Prov("ema").Conn("gua", godip.Land).Conn("air", godip.Land).Conn("aic", godip.Land).Conn("nia", godip.Land).Conn("mon", godip.Land).Conn("ere", godip.Land).Conn("asa", godip.Land).Flag(godip.Land).SC(Ulaidh).
 		// Conall
-		Prov("cnl").Conn("nia", godip.Coast...).Conn("aic", godip.Coast...).Conn("nat", godip.Sea).Conn("mnb", godip.Sea).Flag(godip.Coast...).
+		Prov("cnl").Conn("nia", godip.Coast...).Conn("aic", godip.Coast...).Conn("nat/n", godip.Sea).Conn("mnb", godip.Sea).Flag(godip.Coast...).
 		// Corca Baiscin
-		Prov("cor").Conn("eog", godip.Coast...).Conn("eir", godip.Land).Conn("cru", godip.Coast...).Conn("nat", godip.Sea).Conn("sha", godip.Sea).Flag(godip.Coast...).
+		Prov("cor").Conn("eog", godip.Coast...).Conn("eir", godip.Land).Conn("cru", godip.Coast...).Conn("nat/n", godip.Sea).Conn("sha", godip.Sea).Flag(godip.Coast...).
 		// Temuir
 		Prov("tem").Conn("nsb", godip.Sea).Conn("tmb", godip.Sea).Conn("gua", godip.Coast...).Conn("mid", godip.Land).Conn("lai", godip.Land).Conn("naa", godip.Coast...).Flag(godip.Coast...).SC(Midhe).
 		// Temuir Bay
-		Prov("tmb").Conn("eri", godip.Sea).Conn("mag", godip.Sea).Conn("air", godip.Sea).Conn("gua", godip.Sea).Conn("tem", godip.Sea).Conn("nsb", godip.Sea).Flag(godip.Sea).
+		Prov("tmb").Conn("eri/n", godip.Sea).Conn("mag", godip.Sea).Conn("air", godip.Sea).Conn("gua", godip.Sea).Conn("tem", godip.Sea).Conn("nsb", godip.Sea).Flag(godip.Sea).
 		// Ail- end
 		Prov("aie").Conn("edg", godip.Land).Conn("alm", godip.Land).Conn("lai", godip.Land).Conn("mog", godip.Land).Flag(godip.Land).SC(Laighin).
 		// Airgyallia
@@ -151,8 +163,12 @@ func ardigheGraph() *graph.Graph {
 		Prov("eir").Conn("tua", godip.Land).Conn("cru", godip.Land).Conn("cor", godip.Land).Conn("eog", godip.Land).Conn("cia", godip.Land).Conn("mog", godip.Land).Conn("esc", godip.Land).Flag(godip.Land).
 		// Mogh
 		Prov("mog").Conn("esc", godip.Land).Conn("eir", godip.Land).Conn("cia", godip.Land).Conn("edg", godip.Land).Conn("aie", godip.Land).Conn("lai", godip.Land).Flag(godip.Land).
-		// South Atlantic
-		Prov("sou").Conn("eri", godip.Sea).Conn("era", godip.Sea).Conn("anu", godip.Sea).Conn("mum", godip.Sea).Conn("nat", godip.Sea).Flag(godip.Sea).
+		// South Atlantic (Normal Sea)
+		Prov("sou/n").Conn("eri/n", godip.Sea).Conn("era", godip.Sea).Conn("anu", godip.Sea).Conn("mum", godip.Sea).Conn("nat/n", godip.Sea).Conn("sar", godip.Sea).Flag(godip.Sea).
+		// South Atlantic (Returning Sea)
+		Prov("sou/r").Flag(godip.Sea).
+		// South Atlantic Raiding
+		Prov("sar").Conn("nat/r", godip.Sea).Conn("nch/r", godip.Sea).Conn("eri/r", godip.Sea).Conn("sou/r", godip.Sea).Flag(godip.Sea).
 		// Asail
 		Prov("asa").Conn("gua", godip.Land).Conn("ema", godip.Land).Conn("ere", godip.Land).Conn("uis", godip.Land).Conn("mid", godip.Land).Flag(godip.Land).
 		// Tuathal
