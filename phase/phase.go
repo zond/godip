@@ -137,15 +137,32 @@ func (self *Phase) Options(s godip.Validator, nation godip.Nation) godip.Options
 	return s.Options(self.Parser.Orders(), nation)
 }
 
+// Determine if the given nation is potentially allowed to build in a particular province.
+func isEligiableForBuild(s godip.Validator, sc godip.Province, nat godip.Nation) bool {
+	if s.Flags()[godip.Anywhere] {
+		// Build anywhere rules.
+		return true
+	}
+	originalOwner := s.Graph().SC(sc)
+	if originalOwner == nil {
+		// Not a home center.
+		return false
+	}
+	if s.Flags()[godip.AnyHomeCenter] {
+		// A home center in a build any-home center game.
+		return true
+	}
+	// Standard rules.
+	return originalOwner != nil && *originalOwner == nat
+}
+
 // Returns number of allowed (after considering free owned SCs where builds are allowed considering the validator
 // flags) builds/needed disbands per nation still in the game.
 func (self *Phase) allowedBuildBalance(s godip.Validator) map[godip.Nation]int {
 	unitsPerNat := map[godip.Nation]int{}
 	scsPerNat := map[godip.Nation]int{}
 	nats := map[godip.Nation]bool{}
-	freeSelfHomePerNat := map[godip.Nation]int{}
-	freeAnyHomePerNat := map[godip.Nation]int{}
-	freeAnywherePerNat := map[godip.Nation]int{}
+	freePerNat := map[godip.Nation]int{}
 
 	for _, unit := range s.Units() {
 		unitsPerNat[unit.Nation] += 1
@@ -155,30 +172,17 @@ func (self *Phase) allowedBuildBalance(s godip.Validator) map[godip.Nation]int {
 		scsPerNat[nat] += 1
 		nats[nat] = true
 		if _, _, found := s.Unit(sc); !found {
-			if originalOwner := s.Graph().SC(sc); originalOwner == nil {
-				freeAnywherePerNat[nat] += 1
-			} else {
-				if *originalOwner == nat {
-					freeSelfHomePerNat[nat] += 1
-				} else {
-					freeAnyHomePerNat[nat] += 1
-				}
+			if isEligiableForBuild(s, sc, nat) {
+				freePerNat[nat] += 1
 			}
 		}
-	}
-
-	relevantFreeSCs := freeSelfHomePerNat
-	if s.Flags()[godip.Anywhere] {
-		relevantFreeSCs = freeAnywherePerNat
-	} else if s.Flags()[godip.AnyHomeCenter] {
-		relevantFreeSCs = freeAnyHomePerNat
 	}
 
 	result := map[godip.Nation]int{}
 	for _, nat := range s.Graph().Nations() {
 		delta := scsPerNat[nat] - unitsPerNat[nat]
-		if delta > relevantFreeSCs[nat] {
-			delta = relevantFreeSCs[nat]
+		if delta > freePerNat[nat] {
+			delta = freePerNat[nat]
 		}
 		result[nat] = delta
 	}
