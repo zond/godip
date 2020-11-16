@@ -719,3 +719,29 @@ func TestInvalidSupportOrders(t *testing.T) {
 		t.Errorf("Wanted InvalidSUpporteeOrder, got %v", found)
 	}
 }
+
+func TestMessages(t *testing.T) {
+	judge := startState(t)
+	tst.WaitForPhases(judge, 4)
+	// Transfer two SCs from England to France.
+	judge.SetSC("lon", godip.France)
+	judge.SetSC("edi", godip.France)
+	// Free up an SC and a HC for France, leaving two units for France and two for England.
+	judge.RemoveUnit("par")
+	judge.RemoveUnit("lon")
+
+	messages := judge.Phase().Messages(judge, godip.France)
+
+	// France can only build one unit because only one HC is free.
+	for _, expected := range []string{"MayBuild:1", "OtherMustDisband:England:1"} {
+		found := false
+		for _, message := range messages {
+			if message == expected {
+				found = true
+			}
+		}
+		if !found {
+			t.Errorf("Expected to find message %v but got %v.", expected, messages)
+		}
+	}
+}
