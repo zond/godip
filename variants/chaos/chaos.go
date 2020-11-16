@@ -255,7 +255,7 @@ func Graph() *graph.Graph {
 }
 
 func Blank(phase godip.Phase) *state.State {
-	return state.New(Graph(), phase, classical.BackupRule, nil)
+	return state.New(Graph(), phase, classical.BackupRule, map[godip.Flag]bool{godip.Anywhere: true}, nil)
 }
 
 func Start() (*state.State, error) {

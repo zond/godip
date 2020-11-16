@@ -57,7 +57,7 @@ var Europe1939Variant = common.Variant{
 }
 
 func Europe1939Blank(phase godip.Phase) *state.State {
-	return state.New(Europe1939Graph(), phase, classical.BackupRule, nil)
+	return state.New(Europe1939Graph(), phase, classical.BackupRule, nil, nil)
 }
 
 func Europe1939Start() (result *state.State, err error) {

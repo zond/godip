@@ -7,7 +7,7 @@ import (
 	"github.com/zond/godip"
 )
 
-func New(graph godip.Graph, phase godip.Phase, backupRule godip.BackupRule, neutralOrders func(State) map[godip.Province]godip.Adjudicator) *State {
+func New(graph godip.Graph, phase godip.Phase, backupRule godip.BackupRule, flags map[godip.Flag]bool, neutralOrders func(State) map[godip.Province]godip.Adjudicator) *State {
 	return &State{
 		graph:              graph,
 		phase:              phase,
@@ -23,6 +23,7 @@ func New(graph godip.Graph, phase godip.Phase, backupRule godip.BackupRule, neut
 		profile:            make(map[string]time.Duration),
 		profileCounts:      make(map[string]int),
 		memoizedProvSlices: make(map[string][]godip.Province),
+		flags:              flags,
 	}
 }
 
@@ -80,6 +81,7 @@ type State struct {
 	profile            map[string]time.Duration
 	profileCounts      map[string]int
 	memoizedProvSlices map[string][]godip.Province
+	flags              map[godip.Flag]bool
 }
 
 func (self *State) Profile(a string, t time.Time) {
@@ -95,6 +97,10 @@ func (self *State) MemoizeProvSlice(key string, f func() []godip.Province) []god
 	neu := f()
 	self.memoizedProvSlices[key] = neu
 	return neu
+}
+
+func (self *State) Flags() map[godip.Flag]bool {
+	return self.flags
 }
 
 func (self *State) GetProfile() (map[string]time.Duration, map[string]int) {

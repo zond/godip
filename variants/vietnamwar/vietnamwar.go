@@ -72,7 +72,7 @@ Two provinces have dual coasts: Xuyen and Mekong (South coast and River).`,
 }
 
 func VietnamWarBlank(phase godip.Phase) *state.State {
-	return state.New(VietnamWarGraph(), phase, classical.BackupRule, nil)
+	return state.New(VietnamWarGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func VietnamWarStart() (result *state.State, err error) {

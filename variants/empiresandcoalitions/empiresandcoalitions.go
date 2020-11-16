@@ -59,7 +59,7 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 }
 
 func EmpiresAndCoalitionsBlank(phase godip.Phase) *state.State {
-	return state.New(EmpiresAndCoalitionsGraph(), phase, classical.BackupRule, nil)
+	return state.New(EmpiresAndCoalitionsGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func EmpiresAndCoalitionsStart() (result *state.State, err error) {

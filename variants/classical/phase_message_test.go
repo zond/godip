@@ -79,9 +79,9 @@ func TestPhaseMessage(t *testing.T) {
 
 	s = Blank(NewPhase(1903, godip.Fall, godip.Adjustment))
 	s.SetSC("lon", godip.France)
-	s.SetSC("ber", godip.France)
-	s.SetSC("mos", godip.France)
-	s.SetSC("con", godip.France)
+	s.SetSC("par", godip.France)
+	s.SetSC("bre", godip.France)
+	s.SetSC("mar", godip.France)
 	ver(godip.France, []string{"MayBuild:3", "OtherMayBuild:Austria:0", "OtherMayBuild:England:0", "OtherMayBuild:Germany:0", "OtherMayBuild:Italy:0", "OtherMayBuild:Turkey:0", "OtherMayBuild:Russia:0"})
 	ver(godip.Italy, []string{"MayBuild:0", "OtherMayBuild:Austria:0", "OtherMayBuild:England:0", "OtherMayBuild:Germany:0", "OtherMayBuild:France:3", "OtherMayBuild:Turkey:0", "OtherMayBuild:Russia:0"})
 

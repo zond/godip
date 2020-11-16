@@ -58,7 +58,7 @@ var PureVariant = common.Variant{
 }
 
 func PureBlank(phase godip.Phase) *state.State {
-	return state.New(PureGraph(), phase, classical.BackupRule, nil)
+	return state.New(PureGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func PureStart() (result *state.State, err error) {
