@@ -57,7 +57,7 @@ var Year1908Variant = common.Variant{
 }
 
 func Year1908Blank(phase godip.Phase) *state.State {
-	return state.New(Year1908Graph(), phase, classical.BackupRule, nil)
+	return state.New(Year1908Graph(), phase, classical.BackupRule, nil, nil)
 }
 
 func Year1908Start() (result *state.State, err error) {

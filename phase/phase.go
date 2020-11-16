@@ -45,7 +45,6 @@ func (self *Phase) Corroborate(v godip.Validator, nat godip.Nation) []godip.Inco
 			}
 		}
 	case godip.Adjustment:
-		_, _, balance := orders.AdjustmentStatus(v, nat)
 		foundBuilds := 0
 		foundDisbands := 0
 		for _, ord := range v.Orders() {
@@ -58,23 +57,44 @@ func (self *Phase) Corroborate(v godip.Validator, nat godip.Nation) []godip.Inco
 				}
 			}
 		}
-		if (balance >= 0 && foundBuilds != balance) || (balance <= 0 && foundBuilds != 0) {
-			rval = append(rval, godip.Inconsistency{
-				Errors: []error{godip.InconsistencyOrderTypeCount{
-					OrderType: godip.Build,
-					Found:     foundBuilds,
-					Want:      balance,
-				}},
-			})
-		}
-		if (balance <= 0 && foundDisbands != -balance) || (balance >= 0 && foundDisbands != 0) {
-			rval = append(rval, godip.Inconsistency{
-				Errors: []error{godip.InconsistencyOrderTypeCount{
-					OrderType: godip.Disband,
-					Found:     foundBuilds,
-					Want:      -balance,
-				}},
-			})
+		if balance := self.allowedBuildBalance(v)[nat]; balance >= 0 {
+			if foundBuilds != balance {
+				rval = append(rval, godip.Inconsistency{
+					Errors: []error{godip.InconsistencyOrderTypeCount{
+						OrderType: godip.Build,
+						Found:     foundBuilds,
+						Want:      balance,
+					}},
+				})
+			}
+			if foundDisbands != 0 {
+				rval = append(rval, godip.Inconsistency{
+					Errors: []error{godip.InconsistencyOrderTypeCount{
+						OrderType: godip.Disband,
+						Found:     foundDisbands,
+						Want:      0,
+					}},
+				})
+			}
+		} else {
+			if foundDisbands != -balance {
+				rval = append(rval, godip.Inconsistency{
+					Errors: []error{godip.InconsistencyOrderTypeCount{
+						OrderType: godip.Disband,
+						Found:     foundDisbands,
+						Want:      -balance,
+					}},
+				})
+			}
+			if foundBuilds != 0 {
+				rval = append(rval, godip.Inconsistency{
+					Errors: []error{godip.InconsistencyOrderTypeCount{
+						OrderType: godip.Build,
+						Found:     foundBuilds,
+						Want:      0,
+					}},
+				})
+			}
 		}
 	case godip.Movement:
 		for prov, unit := range v.Units() {
@@ -117,47 +137,68 @@ func (self *Phase) Options(s godip.Validator, nation godip.Nation) godip.Options
 	return s.Options(self.Parser.Orders(), nation)
 }
 
+// Returns number of allowed (after considering free owned SCs where builds are allowed considering the validator
+// flags) builds/needed disbands per nation still in the game.
+func (self *Phase) allowedBuildBalance(s godip.Validator) map[godip.Nation]int {
+	unitsPerNat := map[godip.Nation]int{}
+	scsPerNat := map[godip.Nation]int{}
+	nats := map[godip.Nation]bool{}
+	freeSelfHomePerNat := map[godip.Nation]int{}
+	freeAnyHomePerNat := map[godip.Nation]int{}
+	freeAnywherePerNat := map[godip.Nation]int{}
+
+	for _, unit := range s.Units() {
+		unitsPerNat[unit.Nation] += 1
+		nats[unit.Nation] = true
+	}
+	for sc, nat := range s.SupplyCenters() {
+		scsPerNat[nat] += 1
+		nats[nat] = true
+		if _, _, found := s.Unit(sc); !found {
+			if originalOwner := s.Graph().SC(sc); originalOwner == nil {
+				freeAnywherePerNat[nat] += 1
+			} else {
+				if *originalOwner == nat {
+					freeSelfHomePerNat[nat] += 1
+				} else {
+					freeAnyHomePerNat[nat] += 1
+				}
+			}
+		}
+	}
+
+	relevantFreeSCs := freeSelfHomePerNat
+	if s.Flags()[godip.Anywhere] {
+		relevantFreeSCs = freeAnywherePerNat
+	} else if s.Flags()[godip.AnyHomeCenter] {
+		relevantFreeSCs = freeAnyHomePerNat
+	}
+
+	result := map[godip.Nation]int{}
+	for _, nat := range s.Graph().Nations() {
+		delta := scsPerNat[nat] - unitsPerNat[nat]
+		if delta > relevantFreeSCs[nat] {
+			delta = relevantFreeSCs[nat]
+		}
+		result[nat] = delta
+	}
+	return result
+}
+
 func (self *Phase) Messages(s godip.Validator, nation godip.Nation) []string {
 	messages := []string{}
 	if self.Ty == godip.Adjustment {
-		unitsPerNat := map[godip.Nation]int{}
-		scsPerNat := map[godip.Nation]int{}
-		nats := map[godip.Nation]bool{}
-		freeHomeSCsPerNat := map[godip.Nation]int{}
-		for _, unit := range s.Units() {
-			unitsPerNat[unit.Nation] += 1
-			nats[unit.Nation] = true
-		}
-		for _, nat := range s.SupplyCenters() {
-			scsPerNat[nat] += 1
-			nats[nat] = true
-		}
-		for _, nat := range s.Graph().Nations() {
-			for _, sc := range s.Graph().SCs(nat) {
-				if _, _, found := s.Unit(sc); !found {
-					freeHomeSCsPerNat[nat] += 1
-				}
-			}
-			nats[nat] = true
-		}
-		for nat := range nats {
-			delta := scsPerNat[nat] - unitsPerNat[nat]
+		for nat, delta := range self.allowedBuildBalance(s) {
 			if nat == nation {
 				if delta < 0 {
 					messages = append(messages, fmt.Sprintf("MustDisband:%v", -delta))
 				} else {
-					if delta > freeHomeSCsPerNat[nat] {
-						delta = freeHomeSCsPerNat[nat]
-					}
 					messages = append(messages, fmt.Sprintf("MayBuild:%v", delta))
 				}
 			} else {
 				if delta < 0 {
 					messages = append(messages, fmt.Sprintf("OtherMustDisband:%v:%v", nat, -delta))
 				} else {
-					if delta > freeHomeSCsPerNat[nat] {
-						delta = freeHomeSCsPerNat[nat]
-					}
 					messages = append(messages, fmt.Sprintf("OtherMayBuild:%v:%v", nat, delta))
 				}
 			}

@@ -42,9 +42,9 @@ const (
 	Support       OrderType = "Support"
 	Disband       OrderType = "Disband"
 
-	ViaConvoy     Flag = "C"
-	Anywhere      Flag = "A"
-	AnyHomeCenter Flag = "H"
+	ViaConvoy     Flag = "ViaConvoy"
+	Anywhere      Flag = "Anywhere"
+	AnyHomeCenter Flag = "AnyHomeCenter"
 )
 
 var (
@@ -478,6 +478,8 @@ type Validator interface {
 	GetProfile() (map[string]time.Duration, map[string]int)
 
 	MemoizeProvSlice(string, func() []Province) []Province
+
+	Flags() map[Flag]bool
 }
 
 // Resolver is what validators turn into when adjudication has started.

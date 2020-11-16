@@ -94,7 +94,7 @@ func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator)
 }
 
 func WesternWorld901Blank(phase godip.Phase) *state.State {
-	return state.New(WesternWorld901Graph(), phase, classical.BackupRule, NeutralOrders)
+	return state.New(WesternWorld901Graph(), phase, classical.BackupRule, map[godip.Flag]bool{godip.Anywhere: true}, NeutralOrders)
 }
 
 func WesternWorld901Start() (result *state.State, err error) {

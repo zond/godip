@@ -59,7 +59,7 @@ The Arctic region is impassable (Omsk & Siberia are land regions).`,
 }
 
 func YoungstownReduxBlank(phase godip.Phase) *state.State {
-	return state.New(YoungstownReduxGraph(), phase, classical.BackupRule, nil)
+	return state.New(YoungstownReduxGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func YoungstownReduxStart() (result *state.State, err error) {

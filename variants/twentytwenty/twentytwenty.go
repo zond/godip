@@ -200,7 +200,7 @@ Thirteen provinces have dual coasts: Whitehorse, Los Angeles, Mexico, Colombia, 
 var Phase = phase.Generator(BuildAnyHomeCenterParser, classical.AdjustSCs)
 
 func TwentyTwentyBlank(phase godip.Phase) *state.State {
-	return state.New(TwentyTwentyGraph(), phase, classical.BackupRule, nil)
+	return state.New(TwentyTwentyGraph(), phase, classical.BackupRule, map[godip.Flag]bool{godip.AnyHomeCenter: true}, nil)
 }
 
 func TwentyTwentyStart() (result *state.State, err error) {

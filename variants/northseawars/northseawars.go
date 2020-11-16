@@ -53,7 +53,7 @@ var NorthSeaWarsVariant = common.Variant{
 }
 
 func NorthSeaWarsBlank(phase godip.Phase) *state.State {
-	return state.New(NorthSeaWarsGraph(), phase, classical.BackupRule, nil)
+	return state.New(NorthSeaWarsGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func NorthSeaWarsStart() (result *state.State, err error) {

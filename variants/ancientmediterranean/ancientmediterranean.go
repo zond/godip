@@ -54,7 +54,7 @@ var AncientMediterraneanVariant = common.Variant{
 }
 
 func AncientMediterraneanBlank(phase godip.Phase) *state.State {
-	return state.New(AncientMediterraneanGraph(), phase, classical.BackupRule, nil)
+	return state.New(AncientMediterraneanGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func AncientMediterraneanStart() (result *state.State, err error) {

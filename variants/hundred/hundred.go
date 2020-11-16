@@ -76,7 +76,7 @@ var HundredVariant = common.Variant{
 }
 
 func HundredBlank(phase godip.Phase) *state.State {
-	return state.New(HundredGraph(), phase, classical.BackupRule, nil)
+	return state.New(HundredGraph(), phase, classical.BackupRule, map[godip.Flag]bool{godip.Anywhere: true}, nil)
 }
 
 func HundredStart() (result *state.State, err error) {

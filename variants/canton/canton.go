@@ -55,7 +55,7 @@ var CantonVariant = common.Variant{
 }
 
 func CantonBlank(phase godip.Phase) *state.State {
-	return state.New(CantonGraph(), phase, classical.BackupRule, nil)
+	return state.New(CantonGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func CantonStart() (result *state.State, err error) {

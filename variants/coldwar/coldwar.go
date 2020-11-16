@@ -64,7 +64,7 @@ var ColdWarVariant = common.Variant{
 }
 
 func ColdWarBlank(phase godip.Phase) *state.State {
-	return state.New(ColdWarGraph(), phase, classical.BackupRule, nil)
+	return state.New(ColdWarGraph(), phase, classical.BackupRule, nil, nil)
 }
 
 func ColdWarStart() (result *state.State, err error) {

@@ -99,7 +99,7 @@ var ClassicalVariant = common.Variant{
 }
 
 func Blank(phase godip.Phase) *state.State {
-	return state.New(start.Graph(), phase, BackupRule, nil)
+	return state.New(start.Graph(), phase, BackupRule, nil, nil)
 }
 
 func Start() (result *state.State, err error) {
