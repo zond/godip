@@ -144,7 +144,7 @@ func isEligiableForBuild(s godip.Validator, sc godip.Province, nat godip.Nation)
 		return true
 	}
 	originalOwner := s.Graph().SC(sc)
-	if originalOwner == nil {
+	if originalOwner == nil || *originalOwner == godip.Neutral {
 		// Not a home center.
 		return false
 	}

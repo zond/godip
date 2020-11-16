@@ -282,3 +282,33 @@ func TestPORConvoyOpts(t *testing.T) {
 	opts = judge.Phase().Options(judge, London)
 	tst.AssertOpt(t, opts, []string{"mid", "Convoy", "mid", "por", "bre"})
 }
+
+func TestMessages(t *testing.T) {
+	judge, _ := Start()
+	tst.WaitForPhases(judge, 5)
+	// Transfer two SCs to Paris.
+	judge.SetSC("lon", "Paris")
+	judge.SetSC("edi", "Paris")
+	// Free up Edinburgh for a build and move Paris' unit to London, London's unit to Wales.
+	judge.RemoveUnit("edi")
+	judge.RemoveUnit("lon")
+	judge.SetUnit("wal", godip.Unit{godip.Army, London})
+	judge.RemoveUnit("par")
+	judge.SetUnit("lon", godip.Unit{godip.Army, Paris})
+
+	messages := judge.Phase().Messages(judge, "Paris")
+
+	// Paris can build in Edinburgh or Paris.
+	// London and Edinburgh are eliminated, but Edinburgh has no units anyway.
+	for _, expected := range []string{"MayBuild:2", "OtherMustDisband:London:1", "OtherMayBuild:Edinburgh:0"} {
+		found := false
+		for _, message := range messages {
+			if message == expected {
+				found = true
+			}
+		}
+		if !found {
+			t.Errorf("Expected to find message %v but got %v.", expected, messages)
+		}
+	}
+}

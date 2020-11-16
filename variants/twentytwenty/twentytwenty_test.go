@@ -255,3 +255,30 @@ func TestStartMovesForRome(t *testing.T) {
 	// Check that it was successful.
 	tst.AssertUnit(t, judge, "ion", godip.Unit{godip.Fleet, Italy})
 }
+
+func TestMessages(t *testing.T) {
+	judge := startState(t)
+	tst.WaitForPhases(judge, 4)
+	// As well as their three HCs Germany is given two UK HCs (London and Edinburgh) and an SC (Paris).
+	judge.SetSC("lon", Germany)
+	judge.SetSC("edi", Germany)
+	judge.SetSC("pai", Germany)
+	// Germany has only two units and can build in Berlin and London.
+	// UK has two units left and only one SC, so must disband one unit.
+	judge.RemoveUnit("ben")
+	judge.RemoveUnit("lon")
+
+	messages := judge.Phase().Messages(judge, Germany)
+
+	for _, expected := range []string{"MayBuild:2", "OtherMustDisband:UK:1"} {
+		found := false
+		for _, message := range messages {
+			if message == expected {
+				found = true
+			}
+		}
+		if !found {
+			t.Errorf("Expected to find message %v but got %v.", expected, messages)
+		}
+	}
+}
