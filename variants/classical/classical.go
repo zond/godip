@@ -184,7 +184,7 @@ var provinceLongNames = map[godip.Province]string{
 	"bur":    "Burgundy",
 	"rum":    "Rumania",
 	"aeg":    "Aegean Sea",
-	"tys":    "Tyrhennian Sea",
+	"tys":    "Tyrrhenian Sea",
 	"mar":    "Marseilles",
 	"ruh":    "Ruhr",
 	"cly":    "Clyde",
