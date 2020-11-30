@@ -115,6 +115,10 @@ The Classical map is based on an [original work by trampolinebears](https://www.
 
 ![Godip Classical Map](variants/classical/svg/map.svg)
 
+### Coloring non-SC provinces
+
+Since godip is just an adjudicator, and coloring non-supply center provinces has nothing to do with rules or adjudication, it doesn't support this feature. However, https://github.com/Wulfheart/godip-influence provides support for this on top of godip.
+
 ### Algorithm
 
 Heavily inspired by [The Math of Adjudication](http://www.diplom.org/Zine/S2009M/Kruijswijk/DipMath_Chp1.htm) by Lucas Kruijswijk.
