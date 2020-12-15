@@ -260,6 +260,9 @@ func (self *State) Next() (err error) {
 	return
 }
 
+// PreviouslyAppliedOrders contains all the orders which were applied during the processing of state.Next().
+// If it is empty there are no previous orders yet as you probably have not run state.Next() or instantiated the state otherwise.
+// Note that the orders specified here do not necessarily succeed. Again: This function only lists the orders which were applied during the processing of state.Next().
 func (self *State) PreviouslyAppliedOrders() map[godip.Province]godip.Adjudicator{
 	return self.previouslyAppliedOrders
 }
