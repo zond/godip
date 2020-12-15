@@ -66,6 +66,7 @@ func (self *movement) execute(s *State) (err error) {
 
 type State struct {
 	orders             map[godip.Province]godip.Adjudicator
+	previouslyAppliedOrders map[godip.Province]godip.Adjudicator
 	units              map[godip.Province]godip.Unit
 	dislodgeds         map[godip.Province]godip.Unit
 	supplyCenters      map[godip.Province]godip.Nation
@@ -202,7 +203,7 @@ func (self *State) Next() (err error) {
 	}
 
 	/*
-		Add hold to units missing orders.
+		Add default orders to units missing orders.
 	*/
 	for prov, _ := range self.units {
 		if _, ok := self.orders[prov]; !ok {
@@ -213,6 +214,8 @@ func (self *State) Next() (err error) {
 			}
 		}
 	}
+
+	self.previouslyAppliedOrders = self.orders
 
 	/*
 	   Adjudicate orders.
@@ -255,6 +258,10 @@ func (self *State) Next() (err error) {
 
 	self.memoizedProvSlices = map[string][]godip.Province{}
 	return
+}
+
+func (self *State) PreviouslyAppliedOrders() map[godip.Province]godip.Adjudicator{
+	return self.previouslyAppliedOrders
 }
 
 func (self *State) Phase() godip.Phase {
