@@ -745,3 +745,78 @@ func TestMessages(t *testing.T) {
 		}
 	}
 }
+
+func TestAdjacentConvoyOtherFleetViaConvoy(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("nap", godip.Unit{godip.Army, godip.Italy})
+	judge.SetUnit("tys", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("wes", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("ion", godip.Unit{godip.Fleet, godip.France})
+	judge.SetOrder("nap", orders.Move("nap", "rom").ViaConvoy())
+	judge.SetOrder("tys", orders.Convoy("tys", "nap", "rom"))
+	judge.SetOrder("wes", orders.Move("wes", "tys"))
+	judge.SetOrder("ion", orders.SupportMove("wes", "wes", "tys"))
+	judge.Next()
+	if found := judge.Resolutions()["nap"]; found != godip.ErrMissingConvoyPath {
+		t.Errorf("Wanted failure for nap, got %v", found)
+	}
+	if found, ok := judge.Resolutions()["tys"].(godip.ErrConvoyDislodged); !ok {
+		t.Errorf("Wanted failure for tys, got %v", found)
+	}
+	if found := judge.Resolutions()["wes"]; found != nil {
+		t.Errorf("Wanted success for wes, got %v", found)
+	}
+	if found := judge.Resolutions()["ion"]; found != nil {
+		t.Errorf("Wanted success for ion, got %v", found)
+	}
+}
+
+func TestAdjacentConvoyOtherFleet(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("nap", godip.Unit{godip.Army, godip.Italy})
+	judge.SetUnit("tys", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("wes", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("ion", godip.Unit{godip.Fleet, godip.France})
+	judge.SetOrder("nap", orders.Move("nap", "rom"))
+	judge.SetOrder("tys", orders.Convoy("tys", "nap", "rom"))
+	judge.SetOrder("wes", orders.Move("wes", "tys"))
+	judge.SetOrder("ion", orders.SupportMove("wes", "wes", "tys"))
+	judge.Next()
+	if found := judge.Resolutions()["nap"]; found != nil {
+		t.Errorf("Wanted failure for nap, got %v", found)
+	}
+	if found, ok := judge.Resolutions()["tys"].(godip.ErrConvoyDislodged); !ok {
+		t.Errorf("Wanted failure for tys, got %v", found)
+	}
+	if found := judge.Resolutions()["wes"]; found != nil {
+		t.Errorf("Wanted success for wes, got %v", found)
+	}
+	if found := judge.Resolutions()["ion"]; found != nil {
+		t.Errorf("Wanted success for ion, got %v", found)
+	}
+}
+
+func TestAdjacentConvoyOwnFleet(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("nap", godip.Unit{godip.Army, godip.Italy})
+	judge.SetUnit("tys", godip.Unit{godip.Fleet, godip.Italy})
+	judge.SetUnit("wes", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("ion", godip.Unit{godip.Fleet, godip.France})
+	judge.SetOrder("nap", orders.Move("nap", "rom"))
+	judge.SetOrder("tys", orders.Convoy("tys", "nap", "rom"))
+	judge.SetOrder("wes", orders.Move("wes", "tys"))
+	judge.SetOrder("ion", orders.SupportMove("wes", "wes", "tys"))
+	judge.Next()
+	if found := judge.Resolutions()["nap"]; found != godip.ErrMissingConvoyPath {
+		t.Errorf("Wanted failure for nap, got %v", found)
+	}
+	if found, ok := judge.Resolutions()["tys"].(godip.ErrConvoyDislodged); !ok {
+		t.Errorf("Wanted failure for tys, got %v", found)
+	}
+	if found := judge.Resolutions()["wes"]; found != nil {
+		t.Errorf("Wanted success for wes, got %v", found)
+	}
+	if found := judge.Resolutions()["ion"]; found != nil {
+		t.Errorf("Wanted success for ion, got %v", found)
+	}
+}
