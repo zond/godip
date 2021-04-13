@@ -820,3 +820,43 @@ func TestAdjacentConvoyOwnFleet(t *testing.T) {
 		t.Errorf("Wanted success for ion, got %v", found)
 	}
 }
+
+func TestAdjacentConvoyOwnFleetUnnecessaryParticipant(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("wal", godip.Unit{godip.Army, godip.England})
+	judge.SetUnit("eng", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("nrg", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("iri", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("nao", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("nth", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("ska", godip.Unit{godip.Fleet, godip.Germany})
+	judge.SetUnit("hel", godip.Unit{godip.Fleet, godip.Germany})
+	judge.SetOrder("wal", orders.Move("wal", "lon"))
+	judge.SetOrder("nrg", orders.Convoy("nrg", "wal", "lon"))
+	judge.SetOrder("ska", orders.Move("ska", "nth"))
+	judge.SetOrder("hel", orders.SupportMove("ska", "ska", "nth"))
+	judge.Next()
+	if found := judge.Resolutions()["wal"]; found != godip.ErrMissingConvoyPath {
+		t.Errorf("Wanted failure for wal, got %v", found)
+	}
+}
+
+func TestAdjacentConvoyOwnFleetUnnecessaryParticipantDislodged(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("wal", godip.Unit{godip.Army, godip.England})
+	judge.SetUnit("eng", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("nrg", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("iri", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("nao", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("nth", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("ska", godip.Unit{godip.Fleet, godip.Germany})
+	judge.SetUnit("hel", godip.Unit{godip.Fleet, godip.Germany})
+	judge.SetOrder("wal", orders.Move("wal", "lon"))
+	judge.SetOrder("nth", orders.Convoy("nrg", "wal", "lon"))
+	judge.SetOrder("ska", orders.Move("ska", "nth"))
+	judge.SetOrder("hel", orders.SupportMove("ska", "ska", "nth"))
+	judge.Next()
+	if found := judge.Resolutions()["wal"]; found != godip.ErrMissingConvoyPath {
+		t.Errorf("Wanted failure for wal, got %v", found)
+	}
+}
