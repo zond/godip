@@ -783,7 +783,7 @@ func TestAdjacentConvoyOtherFleet(t *testing.T) {
 	judge.SetOrder("ion", orders.SupportMove("wes", "wes", "tys"))
 	judge.Next()
 	if found := judge.Resolutions()["nap"]; found != nil {
-		t.Errorf("Wanted failure for nap, got %v", found)
+		t.Errorf("Wanted success for nap, got %v", found)
 	}
 	if found, ok := judge.Resolutions()["tys"].(godip.ErrConvoyDislodged); !ok {
 		t.Errorf("Wanted failure for tys, got %v", found)
