@@ -2799,12 +2799,12 @@ ORDERS
 	Russia: F ska C A swe-nwy	# this creates intent to convoy
 	Russia: F bar S A swe-nwy
 POSTSTATE
-	England: F ska
-	England: F nwy
-	Russia: A swe
+	England: F nth
+	Russia: A nwy
+	Russia: F ska
 	Russia: F bar
 POSTSTATE_DISLODGED
-	Russia: F ska
+	England: F nwy
 END
 
 
@@ -2831,12 +2831,12 @@ ORDERS
 	Russia: F ska C A swe-nwy
 	Russia: F bar S A swe-nwy
 POSTSTATE
-	England: F ska
-	England: F nwy
-	Russia: A swe
+	England: F nth
+	Russia: A nwy
+	Russia: F ska
 	Russia: F bar
 POSTSTATE_DISLODGED
-	Russia: F ska
+	England: F nwy
 END
 
 

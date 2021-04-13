@@ -757,8 +757,8 @@ func TestAdjacentConvoyOtherFleetViaConvoy(t *testing.T) {
 	judge.SetOrder("wes", orders.Move("wes", "tys"))
 	judge.SetOrder("ion", orders.SupportMove("wes", "wes", "tys"))
 	judge.Next()
-	if found := judge.Resolutions()["nap"]; found != godip.ErrMissingConvoyPath {
-		t.Errorf("Wanted failure for nap, got %v", found)
+	if found := judge.Resolutions()["nap"]; found != nil {
+		t.Errorf("Wanted success for nap, got %v", found)
 	}
 	if found, ok := judge.Resolutions()["tys"].(godip.ErrConvoyDislodged); !ok {
 		t.Errorf("Wanted failure for tys, got %v", found)
@@ -807,8 +807,8 @@ func TestAdjacentConvoyOwnFleet(t *testing.T) {
 	judge.SetOrder("wes", orders.Move("wes", "tys"))
 	judge.SetOrder("ion", orders.SupportMove("wes", "wes", "tys"))
 	judge.Next()
-	if found := judge.Resolutions()["nap"]; found != godip.ErrMissingConvoyPath {
-		t.Errorf("Wanted failure for nap, got %v", found)
+	if found := judge.Resolutions()["nap"]; found != nil {
+		t.Errorf("Wanted success for nap, got %v", found)
 	}
 	if found, ok := judge.Resolutions()["tys"].(godip.ErrConvoyDislodged); !ok {
 		t.Errorf("Wanted failure for tys, got %v", found)
@@ -836,8 +836,8 @@ func TestAdjacentConvoyOwnFleetUnnecessaryParticipant(t *testing.T) {
 	judge.SetOrder("ska", orders.Move("ska", "nth"))
 	judge.SetOrder("hel", orders.SupportMove("ska", "ska", "nth"))
 	judge.Next()
-	if found := judge.Resolutions()["wal"]; found != godip.ErrMissingConvoyPath {
-		t.Errorf("Wanted failure for wal, got %v", found)
+	if found := judge.Resolutions()["wal"]; found != nil {
+		t.Errorf("Wanted success for wal, got %v", found)
 	}
 }
 
@@ -856,7 +856,7 @@ func TestAdjacentConvoyOwnFleetUnnecessaryParticipantDislodged(t *testing.T) {
 	judge.SetOrder("ska", orders.Move("ska", "nth"))
 	judge.SetOrder("hel", orders.SupportMove("ska", "ska", "nth"))
 	judge.Next()
-	if found := judge.Resolutions()["wal"]; found != godip.ErrMissingConvoyPath {
-		t.Errorf("Wanted failure for wal, got %v", found)
+	if found := judge.Resolutions()["wal"]; found != nil {
+		t.Errorf("Wanted success for wal, got %v", found)
 	}
 }

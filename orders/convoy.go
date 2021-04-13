@@ -401,22 +401,22 @@ func MustConvoy(r godip.Resolver, src godip.Province) bool {
 	if order.Type() != godip.Move {
 		return false
 	}
+	wantsConvoy := order.Flags()[godip.ViaConvoy] || len((ConvoyPathFinder{
+		ConvoyPathFilter: ConvoyPathFilter{
+			Validator:   r,
+			Source:      order.Targets()[0],
+			Destination: order.Targets()[1],
+		},
+		ViaNation: &unit.Nation,
+	}).Any()) > 1
 	rval := (!HasEdge(r, unit.Type, order.Targets()[0], order.Targets()[1]) ||
-		(order.Flags()[godip.ViaConvoy] && len((ConvoyPathFinder{
+		(wantsConvoy && len((ConvoyPathFinder{
 			ConvoyPathFilter: ConvoyPathFilter{
 				Validator:              r,
 				Source:                 order.Targets()[0],
 				Destination:            order.Targets()[1],
-				VerifyConvoyOrders:     true,
+				ResolveConvoys:         true,
 				MinLengthAtDestination: 1,
-			}}).Any()) > 1) ||
-		len((ConvoyPathFinder{
-			ConvoyPathFilter: ConvoyPathFilter{
-				Validator:   r,
-				Source:      order.Targets()[0],
-				Destination: order.Targets()[1],
-			},
-			ViaNation: &unit.Nation,
-		}).Any()) > 1)
+			}}).Any()) > 1))
 	return rval
 }
