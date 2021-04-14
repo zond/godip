@@ -12,6 +12,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/cheggaaa/pb/v3"
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
@@ -271,25 +272,35 @@ func TestGames(t *testing.T, variant common.Variant) {
 		t.Fatalf("%v", err)
 	}
 	sort.Sort(sort.StringSlice(gamefiles))
+	bar := pb.StartNew(len(gamefiles))
 	for _, name := range gamefiles {
 		if skip := os.Getenv("SKIP"); skip == "" || bytes.Compare([]byte(skip), []byte(name)) < 1 {
 			if gameFileReg.MatchString(name) {
-				fmt.Printf("Testing %v %v\n", variant.Name, name)
-				phases, orders, positions, fails, s := assertGame(t, name, variant.Nations, variant.Start, variant.Blank, variant.Parser.Parse)
-				if os.Getenv("DEBUG") == "true" {
-					fmt.Printf("Checked %v phases, executed %v orders and asserted %v positions in %v, found %v failures.\n", phases, orders, positions, name, fails)
-				}
-				if os.Getenv("BENCHMARK_OPTIONS") == "true" {
-					fmt.Printf("Spent on average %v calculating options, never more than %v.", timeSpentCalculatingOptions/time.Duration(optionsCalculated), worstOptionsCalculation)
-				}
-				if fails > 0 {
-					godip.DumpLog()
-					for prov, err := range s.Resolutions() {
-						t.Errorf("%v: %v", prov, err)
-					}
-					t.Fatalf("%v failed!", name)
-				}
+				func(name string) {
+					t.Run(fmt.Sprintf("%v %v", variant.Name, name), func(t *testing.T) {
+						t.Parallel()
+						phases, orders, positions, fails, s := assertGame(t, name, variant.Nations, variant.Start, variant.Blank, variant.Parser.Parse)
+						if os.Getenv("DEBUG") == "true" {
+							fmt.Printf("Checked %v phases, executed %v orders and asserted %v positions in %v, found %v failures.\n", phases, orders, positions, name, fails)
+						}
+						if os.Getenv("BENCHMARK_OPTIONS") == "true" {
+							fmt.Printf("Spent on average %v calculating options, never more than %v.", timeSpentCalculatingOptions/time.Duration(optionsCalculated), worstOptionsCalculation)
+						}
+						if fails > 0 {
+							godip.DumpLog()
+							for prov, err := range s.Resolutions() {
+								t.Errorf("%v: %v", prov, err)
+							}
+							t.Fatalf("%v failed!", name)
+						}
+						bar.Increment()
+					})
+				}(name)
+			} else {
+				bar.Increment()
 			}
+		} else {
+			bar.Increment()
 		}
 	}
 }

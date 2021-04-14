@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"sort"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -156,34 +157,45 @@ func (self ErrBounce) Error() string {
 var Debug = false
 var LogIndent = []string{}
 var logBuffer = new(bytes.Buffer)
+var logMutex = sync.RWMutex{}
 
 func Indent(s string) {
 	if Debug {
+		logMutex.Lock()
+		defer logMutex.Unlock()
 		LogIndent = append(LogIndent, s)
 	}
 }
 
 func DeIndent() {
 	if Debug {
+		logMutex.Lock()
+		defer logMutex.Unlock()
 		LogIndent = LogIndent[:len(LogIndent)-1]
 	}
 }
 
 func Logf(s string, o ...interface{}) {
 	if Debug {
+		logMutex.Lock()
+		defer logMutex.Unlock()
 		fmt.Fprintf(logBuffer, fmt.Sprintf("%v%v\n", strings.Join(LogIndent, ""), s), o...)
 	}
 }
 
 func ClearLog() {
 	if Debug {
+		logMutex.Lock()
+		defer logMutex.Unlock()
 		logBuffer = new(bytes.Buffer)
 	}
 }
 
 func DumpLog() {
 	if Debug {
+		logMutex.RLock()
 		fmt.Print(string(logBuffer.Bytes()))
+		logMutex.RUnlock()
 		ClearLog()
 	}
 }
