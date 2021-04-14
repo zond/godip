@@ -79,6 +79,26 @@ func (self *support) Adjudicate(r godip.Resolver) error {
 			(len(self.targets) == 2 || o.Targets()[0].Super() != self.targets[2].Super()) && // not from something we support attacking
 			u.Nation != unit.Nation { // not from ourselves
 
+			if _, _, found := r.Unit(self.targets[1]); found { // if we are supporting a unit
+				if supportedOrder, _, found := r.Order(self.targets[1]); found { // that has an order
+					if supportedOrder.Type() == godip.Move && // that is a move
+						len(self.targets) == 3 && // and we support a move
+						supportedOrder.Targets()[1] == self.targets[2] { // to the correct destination
+						if MustConvoy(r, p) && len((ConvoyPathFinder{ // and the potential support breaker must convoy
+							ConvoyPathFilter: ConvoyPathFilter{
+								Validator:      r,
+								Source:         o.Targets()[0],
+								Destination:    o.Targets()[1],
+								ResolveConvoys: true,
+								AvoidProvince:  &self.targets[2],
+							},
+						}).Any()) == 0 { // and has no path other than the one we support attacking
+							return true // then this is not a valid support breaker
+						}
+					}
+				}
+			}
+
 			_, err := AnyMovePossible(r, u.Type, o.Targets()[0], o.Targets()[1], u.Type == godip.Army, true, true) // and legal move counting convoy success
 			return err == nil
 		}
