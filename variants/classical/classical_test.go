@@ -671,8 +671,8 @@ func TestConvoySupportBreaking(t *testing.T) {
 	judge.SetOrder("bel", orders.SupportMove("bel", "nth", "eng"))
 	judge.SetOrder("nth", orders.Move("nth", "eng"))
 	judge.Next()
-	if found := judge.Resolutions()["bel"]; found == nil {
-		t.Errorf("Wanted bel to fail, got %v", found)
+	if found, ok := judge.Resolutions()["eng"].(godip.ErrConvoyDislodged); !ok {
+		t.Errorf("Wanted eng to have ErrConvoyDislodged, got %v", found)
 	}
 }
 

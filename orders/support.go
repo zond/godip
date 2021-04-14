@@ -86,14 +86,14 @@ func (self *support) Adjudicate(r godip.Resolver) error {
 						supportedOrder.Targets()[1] == self.targets[2] { // to the correct destination
 						if MustConvoy(r, p) && len((ConvoyPathFinder{ // and the potential support breaker must convoy
 							ConvoyPathFilter: ConvoyPathFilter{
-								Validator:      r,
-								Source:         o.Targets()[0],
-								Destination:    o.Targets()[1],
-								ResolveConvoys: true,
-								AvoidProvince:  &self.targets[2],
+								Validator:          r,
+								Source:             o.Targets()[0],
+								Destination:        o.Targets()[1],
+								VerifyConvoyOrders: true,
+								AvoidProvince:      &self.targets[2],
 							},
 						}).Any()) == 0 { // and has no path other than the one we support attacking
-							return true // then this is not a valid support breaker
+							return false // then this is not a valid support breaker
 						}
 					}
 				}
