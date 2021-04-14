@@ -415,7 +415,7 @@ func MustConvoy(r godip.Resolver, src godip.Province) bool {
 				Validator:              r,
 				Source:                 order.Targets()[0],
 				Destination:            order.Targets()[1],
-				ResolveConvoys:         true,
+				VerifyConvoyOrders:     true,
 				MinLengthAtDestination: 1,
 			}}).Any()) > 1) ||
 		len((ConvoyPathFinder{
