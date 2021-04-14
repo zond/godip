@@ -262,6 +262,11 @@ type ConvoyPathFilter struct {
 	// If !ResolveConvoys, but VerifyConvoyOrderes, the participating fleets
 	// need to at least give the convoy order to be considered OK.
 	VerifyConvoyOrders bool
+	// If set, this province will not be considered.
+	// Used to find convoy paths not using a fleet attacked by someone supported
+	// by the convoy target province, which is used to check if a support
+	// is cut by the convoyed unit or not.
+	AvoidProvince *godip.Province
 }
 
 func (p ConvoyPathFilter) PathFilter(
@@ -276,6 +281,9 @@ func (p ConvoyPathFilter) PathFilter(
 		return true
 	}
 	if (superFlags[godip.Land] || !superFlags[godip.Sea]) && !superFlags[godip.Convoyable] {
+		return false
+	}
+	if p.AvoidProvince != nil && name.Super() == p.AvoidProvince.Super() {
 		return false
 	}
 	if u, _, ok := p.Validator.Unit(name); ok && u.Type == godip.Fleet && (p.OnlyNation == nil || u.Nation == *p.OnlyNation) {

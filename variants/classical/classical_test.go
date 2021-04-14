@@ -660,6 +660,22 @@ func TestCantBuildInCapturedHomeCenter(t *testing.T) {
 	tst.AssertNoUnit(t, judge, "mun")
 }
 
+func TestConvoySupportBreaking(t *testing.T) {
+	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
+	judge.SetUnit("eng", godip.Unit{godip.Fleet, godip.England})
+	judge.SetUnit("lon", godip.Unit{godip.Army, godip.England})
+	judge.SetUnit("bel", godip.Unit{godip.Fleet, godip.France})
+	judge.SetUnit("nth", godip.Unit{godip.Fleet, godip.France})
+	judge.SetOrder("eng", orders.Convoy("eng", "lon", "bel"))
+	judge.SetOrder("lon", orders.Move("lon", "bel"))
+	judge.SetOrder("bel", orders.SupportMove("bel", "nth", "eng"))
+	judge.SetOrder("nth", orders.Move("nth", "eng"))
+	judge.Next()
+	if found := judge.Resolutions()["bel"]; found == nil {
+		t.Errorf("Wanted bel to fail, got %v", found)
+	}
+}
+
 func TestForceDisbandTracking(t *testing.T) {
 	judge := Blank(NewPhase(1901, godip.Spring, godip.Movement))
 	judge.SetUnit("pie", godip.Unit{godip.Army, godip.Italy})
