@@ -27,6 +27,76 @@ var CantonVariant = common.Variant{
 	Blank:             CantonBlank,
 	Phase:             classical.NewPhase,
 	Parser:            classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"tur": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": godip.Russia,
+				"sev": godip.Russia,
+				"per": godip.Neutral,
+				"afg": godip.Neutral,
+			},
+		},
+		"amu": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"irk": godip.Russia,
+				"kha": godip.Russia,
+				"man": godip.Neutral,
+			},
+		},
+		"mar": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"kha": godip.Russia,
+				"man": godip.Neutral,
+				"kor": godip.Neutral,
+			},
+		},
+		"mon": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pek": godip.China,
+				"irk": godip.Russia,
+				"man": godip.Neutral,
+			},
+		},
+		"sin": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pek": godip.China,
+				"tib": godip.China,
+				"afg": godip.Neutral,
+			},
+		},
+		"yun": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"chu": godip.China,
+				"tib": godip.China,
+				"han": godip.France,
+				"bur": godip.Neutral,
+			},
+		},
+		"can": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sha": godip.China,
+				"chu": godip.China,
+				"hko": godip.Neutral,
+				"han": godip.France,
+			},
+		},
+		"lao": common.DominanceRule{
+			Nation: godip.France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"han": godip.France,
+				"hue": godip.France,
+				"sia": godip.Neutral,
+				"bur": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
