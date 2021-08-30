@@ -6,6 +6,14 @@ import (
 	"github.com/zond/godip/state"
 )
 
+// Dominance rule that assumes that a province is controlled by a nation if a set of dependencies are fulfilled.
+type DominanceRule struct {
+	// Which nation will it assume controlls the province?
+	Nation godip.Nation
+	// Which SC provinces have to be owned by which nations for this rule to be true?
+	Dependencies map[godip.Province]godip.Nation
+}
+
 // Variant defines a dippy variant supported by godip.
 type Variant struct {
 	// Name is the display name and key for this variant.
@@ -22,6 +30,11 @@ type Variant struct {
 	Parser orders.Parser `json:"-"`
 	// Graph is the graph for this variant.
 	Graph func() godip.Graph `json:"-"`
+	// If the graph is used to compute which non-SCs are dominated by which nations based on surrounding SC provinces,
+	// then override that computation with these extra rules.
+	// Example:
+	// {"gas": DominanceRule{Nation: godip.France, Dependencies: map[godip.Province]godip.Nation{"bre": godip.France, "par": godip.France, "mar": godip.France, "spa": godip.Neutral}}}
+	ExtraDominanceRules map[godip.Province]DominanceRule
 	// Nations are the nations playing this variant.
 	Nations []godip.Nation
 	// PhaseTypes are the phase types the phases of this variant have.

@@ -74,8 +74,19 @@ var ClassicalVariant = common.Variant{
 		result = Blank(NewPhase(1900, godip.Fall, godip.Adjustment))
 		return
 	},
-	Parser:     Parser,
-	Graph:      func() godip.Graph { return start.Graph() },
+	Parser: Parser,
+	Graph:  func() godip.Graph { return start.Graph() },
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"gas": common.DominanceRule{
+			Nation: godip.France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bre": godip.France,
+				"par": godip.France,
+				"mar": godip.France,
+				"spa": godip.Neutral,
+			},
+		},
+	},
 	Phase:      NewPhase,
 	Nations:    Nations,
 	PhaseTypes: PhaseTypes,
