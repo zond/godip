@@ -24,6 +24,15 @@ var NorthSeaWarsVariant = common.Variant{
 	Blank:             NorthSeaWarsBlank,
 	Phase:             classical.NewPhase,
 	Parser:            classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"nbr": common.DominanceRule{
+			Nation: godip.Britons,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cym": godip.Britons,
+				"sbr": godip.Britons,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
