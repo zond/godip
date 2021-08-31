@@ -40,6 +40,69 @@ var WesternWorld901Variant = common.Variant{
 	Blank:             WesternWorld901Blank,
 	Phase:             newPhase,
 	Parser:            hundred.BuildAnywhereParser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"fra": common.DominanceRule{
+			Nation: godip.EastFrankishKingdom,
+			Dependencies: map[godip.Province]godip.Nation{
+				"swa": godip.EastFrankishKingdom,
+				"bre": godip.EastFrankishKingdom,
+				"sax": godip.EastFrankishKingdom,
+				"lot": godip.Neutral,
+			},
+		},
+		"abk": common.DominanceRule{
+			Nation: godip.KhaganateofKhazaria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bnj": godip.KhaganateofKhazaria,
+				"tam": godip.KhaganateofKhazaria,
+				"sax": godip.EastFrankishKingdom,
+				"geo": godip.Neutral,
+			},
+		},
+		"buc": common.DominanceRule{
+			Nation: godip.EasternRomanEmpire,
+			Dependencies: map[godip.Province]godip.Nation{
+				"att": godip.EasternRomanEmpire,
+				"con": godip.EasternRomanEmpire,
+				"geo": godip.Neutral,
+			},
+		},
+		"epi": common.DominanceRule{
+			Nation: godip.EasternRomanEmpire,
+			Dependencies: map[godip.Province]godip.Nation{
+				"con": godip.EasternRomanEmpire,
+				"dal": godip.Neutral,
+			},
+		},
+		"mos": common.DominanceRule{
+			Nation: godip.AbbasidCaliphate,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ard": godip.AbbasidCaliphate,
+				"bag": godip.AbbasidCaliphate,
+				"arm": godip.Neutral,
+				"aze": godip.Neutral,
+			},
+		},
+		"tou": common.DominanceRule{
+			Nation: godip.WestFrankishKingdom,
+			Dependencies: map[godip.Province]godip.Nation{
+				"gas": godip.WestFrankishKingdom,
+				"nar": godip.WestFrankishKingdom,
+				"aqt": godip.WestFrankishKingdom,
+				"pam": godip.Neutral,
+			},
+		},
+		"aut": common.DominanceRule{
+			Nation: godip.WestFrankishKingdom,
+			Dependencies: map[godip.Province]godip.Nation{
+				"par": godip.WestFrankishKingdom,
+				"nar": godip.WestFrankishKingdom,
+				"aqt": godip.WestFrankishKingdom,
+				"lot": godip.Neutral,
+				"lbu": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
