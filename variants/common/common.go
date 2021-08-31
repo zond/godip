@@ -8,6 +8,8 @@ import (
 
 // Dominance rule that assumes that a province is controlled by a nation if a set of dependencies are fulfilled.
 type DominanceRule struct {
+	// If multiple rules for the same province exists, the matching one with highest priority is the one to use.
+	Priority int
 	// Which nation will it assume controlls the province?
 	Nation godip.Nation
 	// Which SC provinces have to be owned by which nations for this rule to be true?
@@ -33,7 +35,7 @@ type Variant struct {
 	// If the graph is used to compute which non-SCs are dominated by which nations based on surrounding SC provinces,
 	// then override that computation with these extra rules.
 	// Example:
-	// {"gas": DominanceRule{Nation: godip.France, Dependencies: map[godip.Province]godip.Nation{"bre": godip.France, "par": godip.France, "mar": godip.France, "spa": godip.Neutral}}}
+	// {"gas": DominanceRule{Priority: 0, Nation: godip.France, Dependencies: map[godip.Province]godip.Nation{"bre": godip.France, "par": godip.France, "mar": godip.France, "spa": godip.Neutral}}}
 	ExtraDominanceRules map[godip.Province]DominanceRule
 	// Nations are the nations playing this variant.
 	Nations []godip.Nation
