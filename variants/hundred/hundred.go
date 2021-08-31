@@ -34,6 +34,39 @@ var HundredVariant = common.Variant{
 	Blank:             HundredBlank,
 	Phase:             Phase,
 	Parser:            BuildAnywhereParser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"not": common.DominanceRule{
+			Nation: godip.England,
+			Dependencies: map[godip.Province]godip.Nation{
+				"dev": godip.England,
+				"sco": godip.Neutral,
+			},
+		},
+		"anj": common.DominanceRule{
+			Nation: godip.France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"orl": godip.France,
+				"nom": godip.England,
+				"brt": godip.Neutral,
+			},
+		},
+		"poi": common.DominanceRule{
+			Nation: godip.France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"tou": godip.France,
+				"orl": godip.France,
+				"guy": godip.England,
+			},
+		},
+		"cha": common.DominanceRule{
+			Nation: godip.Burgundy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"dij": godip.Burgundy,
+				"par": godip.France,
+				"dau": godip.France,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           []godip.Season{YearSeason},
