@@ -157,6 +157,81 @@ var TwentyTwentyVariant = common.Variant{
 	Blank:             TwentyTwentyBlank,
 	Phase:             Phase,
 	Parser:            BuildAnyHomeCenterParser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"ney": common.DominanceRule{
+			Nation: godip.USA,
+			Dependencies: map[godip.Province]godip.Nation{
+				"was": godip.USA,
+				"mot": godip.Canada,
+			},
+		},
+		"los": common.DominanceRule{
+			Nation: godip.USA,
+			Dependencies: map[godip.Province]godip.Nation{
+				"was": godip.USA,
+				"mex": godip.Neutral,
+			},
+		},
+		"whi": common.DominanceRule{
+			Nation: godip.Canada,
+			Dependencies: map[godip.Province]godip.Nation{
+				"anc": godip.USA,
+				"van": godip.Canada,
+			},
+		},
+		"stp": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": godip.Russia,
+				"oms": godip.Russia,
+				"fin": godip.Neutral,
+			},
+		},
+		"she": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bei": godip.China,
+				"vla": godip.Russia,
+			},
+		},
+		"lij": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cho": godip.China,
+				"bhu": godip.Neutral,
+			},
+		},
+		"tib": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cho": godip.China,
+				"yum": godip.China,
+				"isl": godip.Pakistan,
+				"bhu": godip.Neutral,
+			},
+		},
+		"uru": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"yum": godip.China,
+				"alm": godip.Neutral,
+			},
+		},
+		"kum": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cho": godip.China,
+				"man": godip.Neutral,
+			},
+		},
+		"kol": common.DominanceRule{
+			Nation: godip.India,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ned": godip.China,
+				"bad": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
