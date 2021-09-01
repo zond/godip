@@ -467,7 +467,9 @@
      style="display:inline"
      inkscape:groupmode="layer"
      id="provinces"
-     inkscape:label="provinces">
+     inkscape:label="provinces"
+     style="display:none">
+>
     <polygon
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
        id="cym"
