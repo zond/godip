@@ -30,6 +30,246 @@ var YoungstownReduxVariant = common.Variant{
 	Blank:             YoungstownReduxBlank,
 	Phase:             classical.NewPhase,
 	Parser:            classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"gas": common.DominanceRule{
+			Nation: godip.France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bre": godip.France,
+				"par": godip.France,
+				"mar": godip.France,
+				"spa": godip.Neutral,
+			},
+		},
+		"bug": common.DominanceRule{
+			Nation: godip.France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mar": godip.France,
+				"par": godip.France,
+				"col": godip.Germany,
+				"swi": godip.Neutral,
+				"bel": godip.Neutral,
+			},
+		},
+		"pic": common.DominanceRule{
+			Nation: godip.France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"par": godip.France,
+				"bre": godip.France,
+				"bel": godip.Neutral,
+			},
+		},
+		"swa": common.DominanceRule{
+			Nation: godip.Germany,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mun": godip.Germany,
+				"col": godip.Germany,
+				"swi": godip.Neutral,
+			},
+		},
+		"sil": common.DominanceRule{
+			Nation: godip.Germany,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ber": godip.Germany,
+				"war": godip.Russia,
+			},
+		},
+		"pru": common.DominanceRule{
+			Nation: godip.Germany,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ber": godip.Germany,
+				"war": godip.Russia,
+			},
+		},
+		"boh": common.DominanceRule{
+			Nation: godip.Austria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mun": godip.Germany,
+				"vnn": godip.Austria,
+			},
+		},
+		"gal": common.DominanceRule{
+			Nation: godip.Austria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"vnn": godip.Austria,
+				"war": godip.Russia,
+				"rum": godip.Neutral,
+			},
+		},
+		"tyo": common.DominanceRule{
+			Nation: godip.Austria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mun": godip.Germany,
+				"vnn": godip.Austria,
+				"tes": godip.Austria,
+				"mil": godip.Italy,
+			},
+		},
+		"ven": common.DominanceRule{
+			Nation: godip.Italy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mil": godip.Italy,
+				"rom": godip.Italy,
+				"tes": godip.Austria,
+			},
+		},
+		"pie": common.DominanceRule{
+			Nation: godip.Italy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mil": godip.Italy,
+				"rom": godip.Italy,
+				"mar": godip.France,
+			},
+		},
+		"ukr": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"war": godip.Russia,
+				"sev": godip.Russia,
+				"mos": godip.Russia,
+				"rum": godip.Neutral,
+			},
+		},
+		"fin": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"stp": godip.Russia,
+				"sev": godip.Russia,
+				"nay": godip.Neutral,
+			},
+		},
+		"awd": common.DominanceRule{
+			Nation: godip.Italy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mog": godip.Italy,
+				"eth": godip.Neutral,
+			},
+		},
+		"cau": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sev": godip.Russia,
+				"mos": godip.Russia,
+				"oms": godip.Russia,
+				"per": godip.Neutral,
+			},
+		},
+		"tur": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"oms": godip.Russia,
+				"per": godip.Neutral,
+				"afg": godip.Neutral,
+				"xin": godip.Neutral,
+			},
+		},
+		"sib": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"oms": godip.Russia,
+				"vla": godip.Russia,
+				"man": godip.Neutral,
+				"mon": godip.Neutral,
+				"xin": godip.Neutral,
+			},
+		},
+		"sak": common.DominanceRule{
+			Nation: godip.Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"vla": godip.Russia,
+				"kar": godip.Neutral,
+			},
+		},
+		"mac": common.DominanceRule{
+			Nation: godip.Turkey,
+			Dependencies: map[godip.Province]godip.Nation{
+				"con": godip.Turkey,
+				"bul": godip.Neutral,
+				"ser": godip.Neutral,
+				"alb": godip.Neutral,
+				"gre": godip.Neutral,
+			},
+		},
+		"arm": common.DominanceRule{
+			Nation: godip.Turkey,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ank": godip.Turkey,
+				"bag": godip.Turkey,
+				"sev": godip.Russia,
+				"per": godip.Neutral,
+			},
+		},
+		"lev": common.DominanceRule{
+			Nation: godip.Turkey,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mec": godip.Turkey,
+				"bag": godip.Turkey,
+				"egy": godip.Neutral,
+			},
+		},
+		"sid": common.DominanceRule{
+			Nation: godip.India,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bom": godip.India,
+				"del": godip.India,
+				"afg": godip.Neutral,
+				"per": godip.Neutral,
+			},
+		},
+		"sid": common.DominanceRule{
+			Nation: godip.India,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bom": godip.India,
+				"del": godip.India,
+				"afg": godip.Neutral,
+				"per": godip.Neutral,
+			},
+		},
+		"kas": common.DominanceRule{
+			Nation: godip.India,
+			Dependencies: map[godip.Province]godip.Nation{
+				"del": godip.India,
+				"afg": godip.Neutral,
+			},
+		},
+		"inn": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pek": godip.China,
+				"mon": godip.Neutral,
+				"xin": godip.Neutral,
+				"man": godip.Neutral,
+			},
+		},
+		"heb": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pek": godip.China,
+				"tsi": godip.Germany,
+				"wuh": godip.China,
+				"sha": godip.China,
+			},
+		},
+		"qin": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pek": godip.China,
+				"wuh": godip.China,
+				"xin": godip.Neutral,
+			},
+		},
+		"yun": common.DominanceRule{
+			Nation: godip.China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"gua": godip.China,
+				"wuh": godip.China,
+				"vit": godip.Neutral,
+				"bum": godip.Neutral,
+			},
+		},
+
+
+
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
