@@ -21,35 +21,35 @@ const (
 var Nations = []godip.Nation{Austria, Britain, France, Germany, Italy, Turkey, Russia}
 
 var Year1908Variant = common.Variant{
-	Name:              "1908: Fall of Europe",
-	Graph:             func() godip.Graph { return Year1908Graph() },
-	Start:             Year1908Start,
-	Blank:             Year1908Blank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Name:   "1908: Fall of Europe",
+	Graph:  func() godip.Graph { return Year1908Graph() },
+	Start:  Year1908Start,
+	Blank:  Year1908Blank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"tyr": common.DominanceRule{
 			Nation: godip.Austria,
 			Dependencies: map[godip.Province]godip.Nation{
 				"vie": godip.Austria,
 				"tri": godip.Austria,
-				"mun": godip.Germany,
-				"mil": godip.Italy,
+				"mun": Germany,
+				"mil": Italy,
 			},
 		},
 		"ven": common.DominanceRule{
-			Nation: godip.Italy,
+			Nation: Italy,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mil": godip.Italy,
+				"mil": Italy,
 				"tri": godip.Austria,
-				"rom": godip.Italy,
+				"rom": Italy,
 			},
 		},
 		"pie": common.DominanceRule{
-			Nation: godip.Italy,
+			Nation: Italy,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mil": godip.Italy,
-				"mar": godip.France,
+				"mil": Italy,
+				"mar": France,
 			},
 		},
 		"boh": common.DominanceRule{
@@ -57,8 +57,8 @@ var Year1908Variant = common.Variant{
 			Dependencies: map[godip.Province]godip.Nation{
 				"vie": godip.Austria,
 				"bud": godip.Austria,
-				"mun": godip.Germany,
-				"ber": godip.Germany,
+				"mun": Germany,
+				"ber": Germany,
 			},
 		},
 		"tra": common.DominanceRule{
@@ -73,45 +73,45 @@ var Year1908Variant = common.Variant{
 			Nation: godip.Austria,
 			Dependencies: map[godip.Province]godip.Nation{
 				"bud": godip.Austria,
-				"war": godip.Russia,
+				"war": Russia,
 			},
 		},
 		"sil": common.DominanceRule{
-			Nation: godip.Germany,
+			Nation: Germany,
 			Dependencies: map[godip.Province]godip.Nation{
-				"ber": godip.Germany,
-				"war": godip.Russia,
+				"ber": Germany,
+				"war": Russia,
 			},
 		},
 		"pru": common.DominanceRule{
-			Nation: godip.Germany,
+			Nation: Germany,
 			Dependencies: map[godip.Province]godip.Nation{
-				"ber": godip.Germany,
-				"war": godip.Russia,
+				"ber": Germany,
+				"war": Russia,
 			},
 		},
 		"ruh": common.DominanceRule{
-			Nation: godip.Germany,
+			Nation: Germany,
 			Dependencies: map[godip.Province]godip.Nation{
-				"kie": godip.Germany,
-				"fra": godip.Germany,
+				"kie": Germany,
+				"fra": Germany,
 				"net": godip.Neutral,
 				"bel": godip.Neutral,
 			},
 		},
 		"swa": common.DominanceRule{
-			Nation: godip.Germany,
+			Nation: Germany,
 			Dependencies: map[godip.Province]godip.Nation{
-				"kie": godip.Germany,
-				"fra": godip.Germany,
+				"kie": Germany,
+				"fra": Germany,
 				"swi": godip.Neutral,
 				"bel": godip.Neutral,
 			},
 		},
 		"mac": common.DominanceRule{
-			Nation: godip.Turkey,
+			Nation: Turkey,
 			Dependencies: map[godip.Province]godip.Nation{
-				"con": godip.Turkey,
+				"con": Turkey,
 				"bul": godip.Neutral,
 				"ser": godip.Neutral,
 				"bos": godip.Neutral,
@@ -119,58 +119,58 @@ var Year1908Variant = common.Variant{
 			},
 		},
 		"lev": common.DominanceRule{
-			Nation: godip.Turkey,
+			Nation: Turkey,
 			Dependencies: map[godip.Province]godip.Nation{
-				"smy": godip.Turkey,
-				"cai": godip.Britain,
+				"smy": Turkey,
+				"cai": Britain,
 			},
 		},
 		"arm": common.DominanceRule{
-			Nation: godip.Turkey,
+			Nation: Turkey,
 			Dependencies: map[godip.Province]godip.Nation{
-				"smy": godip.Turkey,
-				"sev": godip.Russia,
+				"smy": Turkey,
+				"sev": Russia,
 			},
 		},
 		"ukr": common.DominanceRule{
-			Nation: godip.Russia,
+			Nation: Russia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"war": godip.Russia,
-				"sev": godip.Russia,
-				"mos": godip.Russia,
+				"war": Russia,
+				"sev": Russia,
+				"mos": Russia,
 				"rum": godip.Neutral,
 			},
 		},
 		"alg": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"cas": godip.France,
+				"cas": France,
 				"tun": godip.Neutral,
 				"trp": godip.Neutral,
 			},
 		},
 		"gas": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mar": godip.France,
-				"par": godip.France,
-				"ber": godip.France,
+				"mar": France,
+				"par": France,
+				"ber": France,
 				"spa": godip.Neutral,
 			},
 		},
 		"bur": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mar": godip.France,
-				"par": godip.France,
+				"mar": France,
+				"par": France,
 				"swi": godip.Neutral,
 				"bel": godip.Neutral,
 			},
 		},
 		"pic": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"par": godip.France,
+				"par": France,
 				"swi": godip.Neutral,
 				"bel": godip.Neutral,
 			},

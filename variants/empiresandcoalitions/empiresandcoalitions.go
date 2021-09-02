@@ -23,167 +23,151 @@ const (
 var Nations = []godip.Nation{OttomanEmpire, Denmark, Sicily, Prussia, Austria, France, Britain, Russia, Spain}
 
 var EmpiresAndCoalitionsVariant = common.Variant{
-	Name:       "1800: Empires And Coalitions",
-	Graph:      func() godip.Graph { return EmpiresAndCoalitionsGraph() },
-	Start:      EmpiresAndCoalitionsStart,
-	Blank:      EmpiresAndCoalitionsBlank,
-	Phase:      classical.NewPhase,
-	Parser:     classical.Parser,
+	Name:   "1800: Empires And Coalitions",
+	Graph:  func() godip.Graph { return EmpiresAndCoalitionsGraph() },
+	Start:  EmpiresAndCoalitionsStart,
+	Blank:  EmpiresAndCoalitionsBlank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"cat": common.DominanceRule{
-			Nation: godip.Russia,
+			Nation: Russia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mad": godip.Spain,
-				"val": godip.Spain,
-				"mar": godip.France,
+				"mad": Spain,
+				"val": Spain,
+				"mar": France,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"and": common.DominanceRule{
-			Nation: godip.Spain,
+			Nation: Spain,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mad": godip.Spain,
-				"val": godip.Spain,
+				"mad": Spain,
+				"val": Spain,
 				"por": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"bel": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"par": godip.France,
-				"brt": godip.France,
+				"par": France,
+				"brt": France,
 				"bat": godip.Neutral,
 				"wet": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"lor": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"par": godip.France,
-				"lyo": godip.France,
+				"par": France,
+				"lyo": France,
 				"hel": godip.Neutral,
 				"wet": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"sch": common.DominanceRule{
-			Nation: godip.Denmark,
+			Nation: Denmark,
 			Dependencies: map[godip.Province]godip.Nation{
-				"cop": godip.Denmark,
+				"cop": Denmark,
 				"mec": godip.Neutral,
-				"han": godip.Britain,
+				"han": Britain,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"fim": common.DominanceRule{
-			Nation: godip.Denmark,
+			Nation: Denmark,
 			Dependencies: map[godip.Province]godip.Nation{
-				"stp": godip.Russia,
-				"chr": godip.Denmark,
+				"stp": Russia,
+				"chr": Denmark,
 				"swe": godip.Neutral,
 				"fin": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"lio": common.DominanceRule{
-			Nation: godip.Russia,
+			Nation: Russia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"stp": godip.Russia,
-				"mos": godip.Russia,
-				"kie": godip.Russia,
-				"kon": godip.Prussia,
+				"stp": Russia,
+				"mos": Russia,
+				"kie": Russia,
+				"kon": Prussia,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"ukr": common.DominanceRule{
-			Nation: godip.Russia,
+			Nation: Russia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"sev": godip.Russia,
-				"mos": godip.Russia,
-				"kie": godip.Russia,
+				"sev": Russia,
+				"mos": Russia,
+				"kie": Russia,
 				"mol": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"bra": common.DominanceRule{
-			Nation: godip.Prussia,
+			Nation: Prussia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"ber": godip.Prussia,
-				"han": godip.Britain,
+				"ber": Prussia,
+				"han": Britain,
 				"mec": godip.Neutral,
 				"sax": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"pol": common.DominanceRule{
-			Nation: godip.Prussia,
+			Nation: Prussia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"kon": godip.Prussia,
-				"brl": godip.Prussia,
-				"kie": godip.Russia,
+				"kon": Prussia,
+				"brl": Prussia,
+				"kie": Russia,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"gal": common.DominanceRule{
-			Nation: godip.Austria,
+			Nation: Austria,
 			Dependencies: map[godip.Province]godip.Nation{
-				"bud": godip.Austria,
-				"kie": godip.Russia,
+				"bud": Austria,
+				"kie": Russia,
 				"mol": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"boh": common.DominanceRule{
-			Nation: godip.Austria,
+			Nation: Austria,
 			Dependencies: map[godip.Province]godip.Nation{
-				"bud": godip.Austria,
-				"vie": godip.Austria,
+				"bud": Austria,
+				"vie": Austria,
 				"bav": godip.Neutral,
 				"sax": godip.Neutral,
-				"brl": godip.Prussia,
+				"brl": Prussia,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"tra": common.DominanceRule{
-			Nation: godip.Austria,
+			Nation: Austria,
 			Dependencies: map[godip.Province]godip.Nation{
-				"bud": godip.Austria,
+				"bud": Austria,
 				"mol": godip.Neutral,
 				"wch": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"bos": common.DominanceRule{
-			Nation: godip.OttomanEmpire,
+			Nation: OttomanEmpire,
 			Dependencies: map[godip.Province]godip.Nation{
-				"con": godip.OttomanEmpire,
+				"con": OttomanEmpire,
 				"wal": godip.Neutral,
-				"bud": godip.Austria,
+				"bud": Austria,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"arm": common.DominanceRule{
-			Nation: godip.OttomanEmpire,
+			Nation: OttomanEmpire,
 			Dependencies: map[godip.Province]godip.Nation{
-				"ang": godip.OttomanEmpire,
-				"sev": godip.Russia,
+				"ang": OttomanEmpire,
+				"sev": Russia,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"syr": common.DominanceRule{
-			Nation: godip.OttomanEmpire,
+			Nation: OttomanEmpire,
 			Dependencies: map[godip.Province]godip.Nation{
-				"ang": godip.OttomanEmpire,
+				"ang": OttomanEmpire,
 				"egy": godip.Neutral,
 			},
 		},
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"apu": common.DominanceRule{
-			Nation: godip.Sicily,
+			Nation: Sicily,
 			Dependencies: map[godip.Province]godip.Nation{
-				"nap": godip.Sicily,
+				"nap": Sicily,
 				"pap": godip.Neutral,
 			},
 		},

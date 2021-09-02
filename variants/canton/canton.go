@@ -21,77 +21,77 @@ const (
 var Nations = []godip.Nation{Turkey, Britain, China, Holland, Japan, Russia, France}
 
 var CantonVariant = common.Variant{
-	Name:              "Canton",
-	Graph:             func() godip.Graph { return CantonGraph() },
-	Start:             CantonStart,
-	Blank:             CantonBlank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Name:   "Canton",
+	Graph:  func() godip.Graph { return CantonGraph() },
+	Start:  CantonStart,
+	Blank:  CantonBlank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"tur": common.DominanceRule{
-			Nation: godip.Russia,
+			Nation: Russia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mos": godip.Russia,
-				"sev": godip.Russia,
+				"mos": Russia,
+				"sev": Russia,
 				"per": godip.Neutral,
 				"afg": godip.Neutral,
 			},
 		},
 		"amu": common.DominanceRule{
-			Nation: godip.Russia,
+			Nation: Russia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"irk": godip.Russia,
-				"kha": godip.Russia,
+				"irk": Russia,
+				"kha": Russia,
 				"man": godip.Neutral,
 			},
 		},
 		"mar": common.DominanceRule{
-			Nation: godip.Russia,
+			Nation: Russia,
 			Dependencies: map[godip.Province]godip.Nation{
-				"kha": godip.Russia,
+				"kha": Russia,
 				"man": godip.Neutral,
 				"kor": godip.Neutral,
 			},
 		},
 		"mon": common.DominanceRule{
-			Nation: godip.China,
+			Nation: China,
 			Dependencies: map[godip.Province]godip.Nation{
-				"pek": godip.China,
-				"irk": godip.Russia,
+				"pek": China,
+				"irk": Russia,
 				"man": godip.Neutral,
 			},
 		},
 		"sin": common.DominanceRule{
-			Nation: godip.China,
+			Nation: China,
 			Dependencies: map[godip.Province]godip.Nation{
-				"pek": godip.China,
-				"tib": godip.China,
+				"pek": China,
+				"tib": China,
 				"afg": godip.Neutral,
 			},
 		},
 		"yun": common.DominanceRule{
-			Nation: godip.China,
+			Nation: China,
 			Dependencies: map[godip.Province]godip.Nation{
-				"chu": godip.China,
-				"tib": godip.China,
-				"han": godip.France,
+				"chu": China,
+				"tib": China,
+				"han": France,
 				"bur": godip.Neutral,
 			},
 		},
 		"can": common.DominanceRule{
-			Nation: godip.China,
+			Nation: China,
 			Dependencies: map[godip.Province]godip.Nation{
-				"sha": godip.China,
-				"chu": godip.China,
+				"sha": China,
+				"chu": China,
 				"hko": godip.Neutral,
-				"han": godip.France,
+				"han": France,
 			},
 		},
 		"lao": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"han": godip.France,
-				"hue": godip.France,
+				"han": France,
+				"hue": France,
 				"sia": godip.Neutral,
 				"bur": godip.Neutral,
 			},
