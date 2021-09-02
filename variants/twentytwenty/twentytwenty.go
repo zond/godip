@@ -151,12 +151,87 @@ var BuildAnyHomeCenterParser = orders.NewParser([]godip.Order{
 })
 
 var TwentyTwentyVariant = common.Variant{
-	Name:              "Twenty Twenty",
-	Graph:             func() godip.Graph { return TwentyTwentyGraph() },
-	Start:             TwentyTwentyStart,
-	Blank:             TwentyTwentyBlank,
-	Phase:             Phase,
-	Parser:            BuildAnyHomeCenterParser,
+	Name:   "Twenty Twenty",
+	Graph:  func() godip.Graph { return TwentyTwentyGraph() },
+	Start:  TwentyTwentyStart,
+	Blank:  TwentyTwentyBlank,
+	Phase:  Phase,
+	Parser: BuildAnyHomeCenterParser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"ney": common.DominanceRule{
+			Nation: USA,
+			Dependencies: map[godip.Province]godip.Nation{
+				"was": USA,
+				"mot": Canada,
+			},
+		},
+		"los": common.DominanceRule{
+			Nation: USA,
+			Dependencies: map[godip.Province]godip.Nation{
+				"was": USA,
+				"mex": godip.Neutral,
+			},
+		},
+		"whi": common.DominanceRule{
+			Nation: Canada,
+			Dependencies: map[godip.Province]godip.Nation{
+				"anc": USA,
+				"van": Canada,
+			},
+		},
+		"stp": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": Russia,
+				"oms": Russia,
+				"fin": godip.Neutral,
+			},
+		},
+		"she": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bei": China,
+				"vla": Russia,
+			},
+		},
+		"lij": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cho": China,
+				"bhu": godip.Neutral,
+			},
+		},
+		"tib": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cho": China,
+				"yum": China,
+				"isl": Pakistan,
+				"bhu": godip.Neutral,
+			},
+		},
+		"uru": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"yum": China,
+				"alm": godip.Neutral,
+			},
+		},
+		"kum": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cho": China,
+				"man": godip.Neutral,
+			},
+		},
+		"kol": common.DominanceRule{
+			Nation: India,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ned": China,
+				"bad": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,

@@ -23,12 +23,155 @@ const (
 var Nations = []godip.Nation{OttomanEmpire, Denmark, Sicily, Prussia, Austria, France, Britain, Russia, Spain}
 
 var EmpiresAndCoalitionsVariant = common.Variant{
-	Name:       "1800: Empires And Coalitions",
-	Graph:      func() godip.Graph { return EmpiresAndCoalitionsGraph() },
-	Start:      EmpiresAndCoalitionsStart,
-	Blank:      EmpiresAndCoalitionsBlank,
-	Phase:      classical.NewPhase,
-	Parser:     classical.Parser,
+	Name:   "1800: Empires And Coalitions",
+	Graph:  func() godip.Graph { return EmpiresAndCoalitionsGraph() },
+	Start:  EmpiresAndCoalitionsStart,
+	Blank:  EmpiresAndCoalitionsBlank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"cat": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mad": Spain,
+				"val": Spain,
+				"mar": France,
+			},
+		},
+		"and": common.DominanceRule{
+			Nation: Spain,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mad": Spain,
+				"val": Spain,
+				"por": godip.Neutral,
+			},
+		},
+		"bel": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"par": France,
+				"brt": France,
+				"bat": godip.Neutral,
+				"wet": godip.Neutral,
+			},
+		},
+		"lor": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"par": France,
+				"lyo": France,
+				"hel": godip.Neutral,
+				"wet": godip.Neutral,
+			},
+		},
+		"sch": common.DominanceRule{
+			Nation: Denmark,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cop": Denmark,
+				"mec": godip.Neutral,
+				"han": Britain,
+			},
+		},
+		"fim": common.DominanceRule{
+			Nation: Denmark,
+			Dependencies: map[godip.Province]godip.Nation{
+				"stp": Russia,
+				"chr": Denmark,
+				"swe": godip.Neutral,
+				"fin": godip.Neutral,
+			},
+		},
+		"lio": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"stp": Russia,
+				"mos": Russia,
+				"kie": Russia,
+				"kon": Prussia,
+			},
+		},
+		"ukr": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sev": Russia,
+				"mos": Russia,
+				"kie": Russia,
+				"mol": godip.Neutral,
+			},
+		},
+		"bra": common.DominanceRule{
+			Nation: Prussia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ber": Prussia,
+				"han": Britain,
+				"mec": godip.Neutral,
+				"sax": godip.Neutral,
+			},
+		},
+		"pol": common.DominanceRule{
+			Nation: Prussia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"kon": Prussia,
+				"brl": Prussia,
+				"kie": Russia,
+			},
+		},
+		"gal": common.DominanceRule{
+			Nation: Austria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bud": Austria,
+				"kie": Russia,
+				"mol": godip.Neutral,
+			},
+		},
+		"boh": common.DominanceRule{
+			Nation: Austria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bud": Austria,
+				"vie": Austria,
+				"bav": godip.Neutral,
+				"sax": godip.Neutral,
+				"brl": Prussia,
+			},
+		},
+		"tra": common.DominanceRule{
+			Nation: Austria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bud": Austria,
+				"mol": godip.Neutral,
+				"wch": godip.Neutral,
+			},
+		},
+		"bos": common.DominanceRule{
+			Nation: OttomanEmpire,
+			Dependencies: map[godip.Province]godip.Nation{
+				"con": OttomanEmpire,
+				"wal": godip.Neutral,
+				"bud": Austria,
+			},
+		},
+		"arm": common.DominanceRule{
+			Nation: OttomanEmpire,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ang": OttomanEmpire,
+				"sev": Russia,
+			},
+		},
+		"syr": common.DominanceRule{
+			Nation: OttomanEmpire,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ang": OttomanEmpire,
+				"egy": godip.Neutral,
+			},
+		},
+		"apu": common.DominanceRule{
+			Nation: Sicily,
+			Dependencies: map[godip.Province]godip.Nation{
+				"nap": Sicily,
+				"pap": godip.Neutral,
+			},
+		},
+	},
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,
@@ -52,7 +195,7 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 	SoloSCCount: func(*state.State) int { return 23 },
 	Rules: `First to 23 Supply Centers (SC) is the winner.
 	The British fleet from Liverpool starts in Gibraltar, which is not an SC.
-	The four smallest nations (minor powers) start with only two units but can build on a third SC after they capture it. These are Sweden (Denmark), Papal States (Siciliy), Portugal (Spain) and Egypt (Ottoman Empire).
+	The four smallest nations (minor powers) start with only two units but can build on a third SC after they capture it. These are Sweden (Denmark), Papal States (Sicily), Portugal (Spain) and Egypt (Ottoman Empire).
 	Armies & fleets can move between Palermo & Naples, Ireland & Edinburgh and Copenhagen & Sweden.
 	Armies can move from Gibraltar to Andalusia, but not Morocco. Fleets in Gibraltar can convoy.
 	Four provinces have dual coasts: St. Petersburg, Schleswig, Andalusia and Papal States.`,

@@ -78,7 +78,8 @@ var ClassicalVariant = common.Variant{
 	Graph:  func() godip.Graph { return start.Graph() },
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"gas": common.DominanceRule{
-			Nation: godip.France,
+			Priority: 0,
+			Nation:   godip.France,
 			Dependencies: map[godip.Province]godip.Nation{
 				"bre": godip.France,
 				"par": godip.France,

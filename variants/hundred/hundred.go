@@ -28,42 +28,43 @@ var BuildAnywhereParser = orders.NewParser([]godip.Order{
 })
 
 var HundredVariant = common.Variant{
-	Name:              "Hundred",
-	Graph:             func() godip.Graph { return HundredGraph() },
-	Start:             HundredStart,
-	Blank:             HundredBlank,
-	Phase:             Phase,
-	Parser:            BuildAnywhereParser,
+
+	Name:   "Hundred",
+	Graph:  func() godip.Graph { return HundredGraph() },
+	Start:  HundredStart,
+	Blank:  HundredBlank,
+	Phase:  Phase,
+	Parser: BuildAnywhereParser,
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"not": common.DominanceRule{
-			Nation: godip.England,
+			Nation: England,
 			Dependencies: map[godip.Province]godip.Nation{
-				"dev": godip.England,
+				"dev": England,
 				"sco": godip.Neutral,
 			},
 		},
 		"anj": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"orl": godip.France,
-				"nom": godip.England,
+				"orl": France,
+				"nom": England,
 				"brt": godip.Neutral,
 			},
 		},
 		"poi": common.DominanceRule{
-			Nation: godip.France,
+			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
-				"tou": godip.France,
-				"orl": godip.France,
-				"guy": godip.England,
+				"tou": France,
+				"orl": France,
+				"guy": England,
 			},
 		},
 		"cha": common.DominanceRule{
-			Nation: godip.Burgundy,
+			Nation: Burgundy,
 			Dependencies: map[godip.Province]godip.Nation{
-				"dij": godip.Burgundy,
-				"par": godip.France,
-				"dau": godip.France,
+				"dij": Burgundy,
+				"par": France,
+				"dau": France,
 			},
 		},
 	},
