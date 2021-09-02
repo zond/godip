@@ -28,12 +28,45 @@ var BuildAnywhereParser = orders.NewParser([]godip.Order{
 })
 
 var HundredVariant = common.Variant{
-	Name:              "Hundred",
-	Graph:             func() godip.Graph { return HundredGraph() },
-	Start:             HundredStart,
-	Blank:             HundredBlank,
-	Phase:             Phase,
-	Parser:            BuildAnywhereParser,
+	Name:   "Hundred",
+	Graph:  func() godip.Graph { return HundredGraph() },
+	Start:  HundredStart,
+	Blank:  HundredBlank,
+	Phase:  Phase,
+	Parser: BuildAnywhereParser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"not": common.DominanceRule{
+			Nation: England,
+			Dependencies: map[godip.Province]godip.Nation{
+				"dev": England,
+				"sco": godip.Neutral,
+			},
+		},
+		"anj": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"orl": France,
+				"nom": England,
+				"brt": godip.Neutral,
+			},
+		},
+		"poi": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"tou": France,
+				"orl": France,
+				"guy": England,
+			},
+		},
+		"cha": common.DominanceRule{
+			Nation: Burgundy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"dij": Burgundy,
+				"par": France,
+				"dau": France,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           []godip.Season{YearSeason},

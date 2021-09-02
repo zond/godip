@@ -22,12 +22,184 @@ const (
 var Nations = []godip.Nation{Turkey, Italy, Poland, France, Britain, USSR, Germany, Spain}
 
 var Europe1939Variant = common.Variant{
-	Name:              "Europe 1939",
-	Graph:             func() godip.Graph { return Europe1939Graph() },
-	Start:             Europe1939Start,
-	Blank:             Europe1939Blank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Name:   "Europe 1939",
+	Graph:  func() godip.Graph { return Europe1939Graph() },
+	Start:  Europe1939Start,
+	Blank:  Europe1939Blank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"nav": common.DominanceRule{
+			Nation: Spain,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mad": Spain,
+				"bac": Spain,
+				"por": godip.Neutral,
+			},
+		},
+		"mor": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"alg": France,
+				"tan": Spain,
+			},
+		}, //This needs to be prioritized, special rule like '!important?'
+		"cyr": common.DominanceRule{
+			Nation: Italy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cai": France,
+				"tri": Italy,
+			},
+		}, //This needs to be prioritized, special rule like '!important?'
+		"tun": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"alg": France,
+				"tri": Italy,
+			},
+		},
+		"pal": common.DominanceRule{
+			Nation: Britain,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bag": Britain,
+				"cai": Britain,
+				"ara": godip.Neutral,
+			},
+		},
+		"syr": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bag": Britain,
+				"ada": Turkey,
+				"alg": France,
+				"mar": France,
+			},
+		},
+		"arm": common.DominanceRule{
+			Nation: Turkey,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ada": Turkey,
+				"teh": godip.Neutral,
+				"bag": Britain,
+			},
+		},
+		"cau": common.DominanceRule{
+			Nation: USSR,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sta": USSR,
+				"ank": Turkey,
+				"teh": godip.Neutral,
+			},
+		},
+		"tur": common.DominanceRule{
+			Nation: USSR,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sta": USSR,
+				"teh": godip.Neutral,
+			},
+		},
+		"ukr": common.DominanceRule{
+			Nation: USSR,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": USSR,
+				"sea": USSR,
+				"kra": Poland,
+				"rum": godip.Neutral,
+			},
+		},
+		"lub": common.DominanceRule{
+			Nation: Poland,
+			Dependencies: map[godip.Province]godip.Nation{
+				"war": Poland,
+				"kra": Poland,
+				"lit": godip.Neutral,
+			},
+		},
+		"ven": common.DominanceRule{
+			Nation: Italy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"rom": Italy,
+				"mil": Italy,
+				"cro": godip.Neutral,
+			},
+		},
+		"pie": common.DominanceRule{
+			Nation: Italy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"rom": Italy,
+				"mar": France,
+				"swi": godip.Neutral,
+			},
+		},
+		"auv": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"lyo": France,
+				"mar": France,
+				"bac": Spain,
+			},
+		},
+		"pic": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bre": France,
+				"par": France,
+				"bel": godip.Neutral,
+			},
+		},
+		"bur": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"lyo": France,
+				"par": France,
+				"bel": godip.Neutral,
+				"swi": godip.Neutral,
+			},
+		},
+		"als": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"lyo": France,
+				"par": France,
+				"bel": godip.Neutral,
+				"swi": godip.Neutral,
+				"col": Germany,
+				"mun": Germany,
+			},
+		},
+		"pru": common.DominanceRule{
+			Nation: Germany,
+			Dependencies: map[godip.Province]godip.Nation{
+				"dan": Poland,
+				"ber": Germany,
+			},
+		},
+		"sil": common.DominanceRule{
+			Nation: Germany,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ber": Germany,
+				"mun": Germany,
+				"wro": Poland,
+			},
+		},
+		"boh": common.DominanceRule{
+			Nation: Germany,
+			Dependencies: map[godip.Province]godip.Nation{
+				"vie": Germany,
+				"mun": Germany,
+				"wro": Poland,
+			},
+		},
+		"tyo": common.DominanceRule{
+			Nation: Germany,
+			Dependencies: map[godip.Province]godip.Nation{
+				"vie": Germany,
+				"mun": Germany,
+				"mil": Italy,
+				"swi": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,

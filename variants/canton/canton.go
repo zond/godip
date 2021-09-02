@@ -21,12 +21,82 @@ const (
 var Nations = []godip.Nation{Turkey, Britain, China, Holland, Japan, Russia, France}
 
 var CantonVariant = common.Variant{
-	Name:              "Canton",
-	Graph:             func() godip.Graph { return CantonGraph() },
-	Start:             CantonStart,
-	Blank:             CantonBlank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Name:   "Canton",
+	Graph:  func() godip.Graph { return CantonGraph() },
+	Start:  CantonStart,
+	Blank:  CantonBlank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"tur": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": Russia,
+				"sev": Russia,
+				"per": godip.Neutral,
+				"afg": godip.Neutral,
+			},
+		},
+		"amu": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"irk": Russia,
+				"kha": Russia,
+				"man": godip.Neutral,
+			},
+		},
+		"mar": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"kha": Russia,
+				"man": godip.Neutral,
+				"kor": godip.Neutral,
+			},
+		},
+		"mon": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pek": China,
+				"irk": Russia,
+				"man": godip.Neutral,
+			},
+		},
+		"sin": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pek": China,
+				"tib": China,
+				"afg": godip.Neutral,
+			},
+		},
+		"yun": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"chu": China,
+				"tib": China,
+				"han": France,
+				"bur": godip.Neutral,
+			},
+		},
+		"can": common.DominanceRule{
+			Nation: China,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sha": China,
+				"chu": China,
+				"hko": godip.Neutral,
+				"han": France,
+			},
+		},
+		"lao": common.DominanceRule{
+			Nation: France,
+			Dependencies: map[godip.Province]godip.Nation{
+				"han": France,
+				"hue": France,
+				"sia": godip.Neutral,
+				"bur": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,

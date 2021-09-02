@@ -18,12 +18,21 @@ const (
 var Nations = []godip.Nation{Britons, Romans, Frysians, Norse}
 
 var NorthSeaWarsVariant = common.Variant{
-	Name:              "North Sea Wars",
-	Graph:             func() godip.Graph { return NorthSeaWarsGraph() },
-	Start:             NorthSeaWarsStart,
-	Blank:             NorthSeaWarsBlank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Name:   "North Sea Wars",
+	Graph:  func() godip.Graph { return NorthSeaWarsGraph() },
+	Start:  NorthSeaWarsStart,
+	Blank:  NorthSeaWarsBlank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"nbr": common.DominanceRule{
+			Nation: Britons,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cym": Britons,
+				"sbr": Britons,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,

@@ -45,11 +45,141 @@ var VietnamWarVariant = common.Variant{
 		Thailand:     "#006FFF",
 		Cambodia:     "#708D9E",
 	},
-	Graph:             func() godip.Graph { return VietnamWarGraph() },
-	Start:             VietnamWarStart,
-	Blank:             VietnamWarBlank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Graph:  func() godip.Graph { return VietnamWarGraph() },
+	Start:  VietnamWarStart,
+	Blank:  VietnamWarBlank,
+	Phase:  classical.NewPhase,
+	Parser: classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"nov": common.DominanceRule{
+			Nation: NorthVietnam,
+			Dependencies: map[godip.Province]godip.Nation{
+				"thn": NorthVietnam,
+				"nol": godip.Neutral,
+			},
+		},
+		"vin": common.DominanceRule{
+			Nation: NorthVietnam,
+			Dependencies: map[godip.Province]godip.Nation{
+				"thh": NorthVietnam,
+				"hue": godip.Neutral,
+				"nkd": godip.Neutral,
+			},
+		},
+		"lua": common.DominanceRule{
+			Nation: Laos,
+			Dependencies: map[godip.Province]godip.Nation{
+				"nah": Laos,
+				"vie": Laos,
+				"nol": godip.Neutral,
+			},
+		},
+		"xuy": common.DominanceRule{
+			Nation: SouthVietnam,
+			Dependencies: map[godip.Province]godip.Nation{
+				"cam": SouthVietnam,
+				"sag": SouthVietnam,
+				"meo": Cambodia,
+			},
+		},
+		"ton": common.DominanceRule{
+			Nation: Cambodia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ang": Cambodia,
+				"pre": Cambodia,
+				"kul": godip.Neutral,
+				"meo": Cambodia,
+				"pat": Thailand,
+			},
+		},
+		"phn": common.DominanceRule{
+			Nation: Cambodia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pre": Cambodia,
+				"vir": godip.Neutral,
+			},
+		},
+		"ple": common.DominanceRule{
+			Nation: SouthVietnam,
+			Dependencies: map[godip.Province]godip.Nation{
+				"eas": SouthVietnam,
+				"sag": SouthVietnam,
+				"cev": godip.Neutral,
+			},
+		},
+		"tay": common.DominanceRule{
+			Nation: SouthVietnam,
+			Dependencies: map[godip.Province]godip.Nation{
+				"eas": SouthVietnam,
+				"sag": SouthVietnam,
+				"cev": godip.Neutral,
+			},
+		},
+		"pha": common.DominanceRule{
+			Nation: SouthVietnam,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sag": SouthVietnam,
+				"meo": Cambodia,
+			},
+		},
+		"phh": common.DominanceRule{
+			Nation: Laos,
+			Dependencies: map[godip.Province]godip.Nation{
+				"pak": Laos,
+				"nak": godip.Neutral,
+				"nkd": godip.Neutral,
+			},
+		},
+		"udo": common.DominanceRule{
+			Nation: Thailand,
+			Dependencies: map[godip.Province]godip.Nation{
+				"loe": Thailand,
+				"nak": godip.Neutral,
+				"nkd": godip.Neutral,
+				"vie": Laos,
+			},
+		},
+		"bur": common.DominanceRule{
+			Nation: Thailand,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ban": Thailand,
+				"pat": Thailand,
+				"loe": Thailand,
+				"ang": Cambodia,
+			},
+		},
+		"ubo": common.DominanceRule{
+			Nation: Thailand,
+			Dependencies: map[godip.Province]godip.Nation{
+				"loe": Thailand,
+				"nak": godip.Neutral,
+				"pak": Laos,
+			},
+		},
+		"phr": common.DominanceRule{
+			Nation: Thailand,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ban": Thailand,
+				"chi": godip.Neutral,
+				"loe": Thailand,
+			},
+		},
+		"syk": common.DominanceRule{
+			Nation: Thailand,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ban": Thailand,
+				"chi": godip.Neutral,
+				"kha": godip.Neutral,
+			},
+		},
+		"nan": common.DominanceRule{
+			Nation: Thailand,
+			Dependencies: map[godip.Province]godip.Nation{
+				"chi": Thailand,
+				"nah": Laos,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,

@@ -34,12 +34,75 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 }
 
 var WesternWorld901Variant = common.Variant{
-	Name:              "Western World 901",
-	Graph:             func() godip.Graph { return WesternWorld901Graph() },
-	Start:             WesternWorld901Start,
-	Blank:             WesternWorld901Blank,
-	Phase:             newPhase,
-	Parser:            hundred.BuildAnywhereParser,
+	Name:   "Western World 901",
+	Graph:  func() godip.Graph { return WesternWorld901Graph() },
+	Start:  WesternWorld901Start,
+	Blank:  WesternWorld901Blank,
+	Phase:  newPhase,
+	Parser: hundred.BuildAnywhereParser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"fra": common.DominanceRule{
+			Nation: EastFrankishKingdom,
+			Dependencies: map[godip.Province]godip.Nation{
+				"swa": EastFrankishKingdom,
+				"bre": EastFrankishKingdom,
+				"sax": EastFrankishKingdom,
+				"lot": godip.Neutral,
+			},
+		},
+		"abk": common.DominanceRule{
+			Nation: KhaganateofKhazaria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"bnj": KhaganateofKhazaria,
+				"tam": KhaganateofKhazaria,
+				"sax": EastFrankishKingdom,
+				"geo": godip.Neutral,
+			},
+		},
+		"buc": common.DominanceRule{
+			Nation: EasternRomanEmpire,
+			Dependencies: map[godip.Province]godip.Nation{
+				"att": EasternRomanEmpire,
+				"con": EasternRomanEmpire,
+				"geo": godip.Neutral,
+			},
+		},
+		"epi": common.DominanceRule{
+			Nation: EasternRomanEmpire,
+			Dependencies: map[godip.Province]godip.Nation{
+				"con": EasternRomanEmpire,
+				"dal": godip.Neutral,
+			},
+		},
+		"mos": common.DominanceRule{
+			Nation: AbbasidCaliphate,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ard": AbbasidCaliphate,
+				"bag": AbbasidCaliphate,
+				"arm": godip.Neutral,
+				"aze": godip.Neutral,
+			},
+		},
+		"tou": common.DominanceRule{
+			Nation: WestFrankishKingdom,
+			Dependencies: map[godip.Province]godip.Nation{
+				"gas": WestFrankishKingdom,
+				"nar": WestFrankishKingdom,
+				"aqt": WestFrankishKingdom,
+				"pam": godip.Neutral,
+			},
+		},
+		"aut": common.DominanceRule{
+			Nation: WestFrankishKingdom,
+			Dependencies: map[godip.Province]godip.Nation{
+				"par": WestFrankishKingdom,
+				"nar": WestFrankishKingdom,
+				"aqt": WestFrankishKingdom,
+				"lot": godip.Neutral,
+				"lbu": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
