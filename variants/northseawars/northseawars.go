@@ -18,21 +18,12 @@ const (
 var Nations = []godip.Nation{Britons, Romans, Frysians, Norse}
 
 var NorthSeaWarsVariant = common.Variant{
-	Name:   "North Sea Wars",
-	Graph:  func() godip.Graph { return NorthSeaWarsGraph() },
-	Start:  NorthSeaWarsStart,
-	Blank:  NorthSeaWarsBlank,
-	Phase:  classical.NewPhase,
-	Parser: classical.Parser,
-	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
-		"nbr": common.DominanceRule{
-			Nation: Britons,
-			Dependencies: map[godip.Province]godip.Nation{
-				"cym": Britons,
-				"sbr": Britons,
-			},
-		},
-	},
+	Name:              "North Sea Wars",
+	Graph:             func() godip.Graph { return NorthSeaWarsGraph() },
+	Start:             NorthSeaWarsStart,
+	Blank:             NorthSeaWarsBlank,
+	Phase:             classical.NewPhase,
+	Parser:            classical.Parser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -42,7 +33,7 @@ var NorthSeaWarsVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/northseawarsmap.svg")
 	},
-	SVGVersion: "3",
+	SVGVersion: "4",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return classical.Asset("svg/army.svg")
