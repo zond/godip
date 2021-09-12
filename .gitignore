@@ -26,4 +26,3 @@ classical/droidippy/games/*.txt
 test_output_maps
 generator/*.go
 generator/*map.svg
-variants/ancientmediterranean/svg/flags + units.txt
