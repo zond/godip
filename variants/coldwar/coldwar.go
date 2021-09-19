@@ -37,33 +37,33 @@ var ColdWarVariant = common.Variant{
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"mid": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.NATO,
+			Nation:   NATO,
 			Dependencies: map[godip.Province]godip.Nation{
-				"los": godip.NATO,
-				"nyk": godip.NATO,
+				"los": NATO,
+				"nyk": NATO,
 				"tor": godip.Neutral,
 			},
 		},
 		"que": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.NATO,
+			Nation:   NATO,
 			Dependencies: map[godip.Province]godip.Nation{
-				"nyk": godip.NATO,
+				"nyk": NATO,
 				"tor": godip.Neutral,
 			},
 		},
 		"wca": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.NATO,
+			Nation:   NATO,
 			Dependencies: map[godip.Province]godip.Nation{
-				"los": godip.NATO,
+				"los": NATO,
 				"tor": godip.Neutral,
 				"ala": godip.Neutral,
 			},
 		},
 		"grd": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.NATO,
+			Nation:   NATO,
 			Dependencies: map[godip.Province]godip.Nation{
 				"tor": godip.Neutral,
 				"ala": godip.Neutral,
@@ -71,35 +71,35 @@ var ColdWarVariant = common.Variant{
 		},
 		"nvi": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.USSR,
+			Nation:   USSR,
 			Dependencies: map[godip.Province]godip.Nation{
 				"sai": godip.Neutral,
-				"sha": godip.USSR,
+				"sha": USSR,
 			},
 		},
 		"ura": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.USSR,
+			Nation:   USSR,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mos": godip.USSR,
-				"len": godip.USSR,
+				"mos": USSR,
+				"len": USSR,
 				"irn": godip.Neutral,
 			},
 		},
 		"cau": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.USSR,
+			Nation:   USSR,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mos": godip.USSR,
+				"mos": USSR,
 				"irn": godip.Neutral,
 			},
 		},
 		"ukr": common.DominanceRule{
 			Priority: 0,
-			Nation:   godip.USSR,
+			Nation:   USSR,
 			Dependencies: map[godip.Province]godip.Nation{
-				"mos": godip.USSR,
-				"ist": godip.NATO,
+				"mos": USSR,
+				"ist": NATO,
 				"ege": godip.Neutral,
 			},
 		},
