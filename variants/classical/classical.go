@@ -96,6 +96,14 @@ var ClassicalVariant = common.Variant{
 				"bel": godip.Neutral,
 			},
 		},
+		"pie": common.DominanceRule{
+			Nation: godip.Italy,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mar": godip.France,
+				"ven": godip.Italy,
+				"rom": godip.Italy,
+			},
+		},
 		"pic": common.DominanceRule{
 			Nation: godip.France,
 			Dependencies: map[godip.Province]godip.Nation{
