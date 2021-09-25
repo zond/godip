@@ -1,0 +1,34 @@
+# The first year of the game
+START_YEAR: 1570
+# The starting units
+START_UNITS:
+  Oda:
+    Army: ['Owari']
+    Fleet: ['Mikawa']
+  Shimazu:
+    Army: ['Satsuma']
+    Fleet: ['Osumi']
+  Mori:
+    Army: ['Iwami']
+    Fleet: ['Nagato']
+  Uesugi:
+    Army: ['Kozuke']
+    Fleet: ['Echigo']
+  Hojo:
+    Army: ['Sagami']
+    Fleet: ['Izu']
+  Chosokabe:
+    Fleet: ['Iyo', 'Tosa']
+  Takeda:
+    Army: ['South Shinano', 'Kai']
+    Fleet: ['Constantinople']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+   ["XX2", "Bulgaria"],
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+    ["XX2", "Bulgaria"],
+]
