@@ -1,0 +1,20 @@
+# The first year of the game
+START_YEAR: 1968
+# The starting units
+START_UNITS:
+  Colombia:
+    Army: ['Medellin']
+    Fleet: ['Barranquilla']
+  Brazil:
+    Army: ['Costa Rica']
+    Fleet: ['Bogota']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+   ["XX2", "Bulgaria"],
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+    ["XX2", "Bulgaria"],
+]
