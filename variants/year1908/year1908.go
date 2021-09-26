@@ -65,7 +65,7 @@ var Year1908Variant = common.Variant{
 			Nation: godip.Austria,
 			Dependencies: map[godip.Province]godip.Nation{
 				"bud": godip.Austria,
-				"rum": godip.Austria,
+				"rum": godip.Neutral,
 				"ser": godip.Neutral,
 			},
 		},
@@ -154,7 +154,7 @@ var Year1908Variant = common.Variant{
 			Dependencies: map[godip.Province]godip.Nation{
 				"mar": France,
 				"par": France,
-				"ber": France,
+				"bre": France,
 				"spa": godip.Neutral,
 			},
 		},
