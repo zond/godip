@@ -21,7 +21,6 @@ START_UNITS:
     Fleet: ['Iyo', 'Tosa']
   Takeda:
     Army: ['South Shinano', 'Kai']
-    Fleet: ['Constantinople']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
   'South Sea of Japan': 'ssj'
