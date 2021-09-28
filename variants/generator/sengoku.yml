@@ -31,9 +31,8 @@ ABBREVIATIONS:
   "Shima": "shi"
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
-   ["XX2", "Bulgaria"],
+
 ]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 REGION_OVERRIDES: [
-    ["XX2", "Bulgaria"],
 ]
