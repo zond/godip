@@ -102,7 +102,7 @@ func SengokuGraph() *graph.Graph {
 		// Kaga
 		Prov("kag").Conn("etc", godip.Land).Conn("not", godip.Coast...).Conn("wak", godip.Sea).Conn("ecz", godip.Coast...).Conn("hid", godip.Land).Flag(godip.Coast...).
 		// Sanuki
-		Prov("sau").Conn("inl", godip.Sea).Conn("iyo", godip.Coast...).Conn("awa", godip.Coast...).Conn("osa", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("sau").Conn("inl", godip.Sea).Conn("iyo", godip.Coast...).Conn("bit", godip.Coast...).Conn("awa", godip.Coast...).Conn("osa", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Hizen
 		Prov("hiz").Conn("tus", godip.Sea).Conn("eas", godip.Sea).Conn("hig", godip.Coast...).Conn("bug", godip.Land).Conn("chi", godip.Coast...).Conn("kan", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Suruga
@@ -110,7 +110,7 @@ func SengokuGraph() *graph.Graph {
 		// Iwami
 		Prov("iwm").Conn("iwc", godip.Sea).Conn("nag", godip.Coast...).Conn("suo", godip.Land).Conn("aki", godip.Land).Conn("izm", godip.Coast...).Flag(godip.Coast...).SC(Mori).
 		// Kii
-		Prov("kii").Conn("kum", godip.Sea).Conn("tse", godip.Sea).Conn("shi", godip.Coast...).Conn("yat", godip.Land).Conn("kaw", godip.Coast...).Conn("osa", godip.Sea).Conn("kis", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("kii").Conn("kum", godip.Sea).Conn("tse", godip.Sea).Conn("shi", godip.Coast...).Conn("awa", godip.Coast...).Conn("yat", godip.Land).Conn("kaw", godip.Coast...).Conn("osa", godip.Sea).Conn("kis", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Sagami Bay
 		Prov("sab").Conn("saa", godip.Coast...).Conn("sur", godip.Coast...).Conn("izu", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Set
@@ -134,7 +134,7 @@ func SengokuGraph() *graph.Graph {
 		// Hyuga Coast
 		Prov("hyc").Conn("ari", godip.Sea).Conn("spo", godip.Sea).Conn("tob", godip.Sea).Conn("toa", godip.Sea).Conn("bus", godip.Sea).Conn("hyg", godip.Sea).Flag(godip.Sea).
 		// Shima
-		Prov("shi").Conn("kii", godip.Coast...).Conn("tse", godip.Sea).Conn("ise", godip.Coast...).Conn("yat", godip.Land).Flag(godip.Coast...).
+		Prov("shi").Conn("kii", godip.Coast...).Conn("mik", godip.Coast...).Conn("tse", godip.Sea).Conn("ise", godip.Coast...).Conn("yat", godip.Land).Flag(godip.Coast...).
 		// Noto
 		Prov("not").Conn("kag", godip.Coast...).Conn("etc", godip.Coast...).Conn("toj", godip.Sea).Conn("nso", godip.Sea).Conn("sea", godip.Sea).Conn("wak", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Kumano Sea
@@ -176,7 +176,7 @@ func SengokuGraph() *graph.Graph {
 		// Tojama Bay
 		Prov("toj").Conn("etc", godip.Sea).Conn("ecg", godip.Sea).Conn("nso", godip.Sea).Conn("not", godip.Sea).Flag(godip.Sea).
 		// Mikawa
-		Prov("mik").Conn("too", godip.Coast...).Conn("min", godip.Land).Conn("owa", godip.Coast...).Conn("tse", godip.Sea).Flag(godip.Coast...).SC(Oda).
+		Prov("mik").Conn("too", godip.Coast...).Conn("shi", godip.Coast...).Conn("min", godip.Land).Conn("owa", godip.Coast...).Conn("tse", godip.Sea).Flag(godip.Coast...).SC(Oda).
 		// Kanmon Straits
 		Prov("kan").Conn("nag", godip.Sea).Conn("iwc", godip.Sea).Conn("ssj", godip.Sea).Conn("tus", godip.Sea).Conn("hiz", godip.Sea).Conn("chi", godip.Sea).Conn("sus", godip.Sea).Flag(godip.Sea).
 		// South Shinano
@@ -186,11 +186,11 @@ func SengokuGraph() *graph.Graph {
 		// Suo Sea
 		Prov("sus").Conn("bus", godip.Sea).Conn("iyo", godip.Sea).Conn("inl", godip.Sea).Conn("suo", godip.Sea).Conn("nag", godip.Sea).Conn("kan", godip.Sea).Conn("chi", godip.Sea).Conn("bug", godip.Sea).Flag(godip.Sea).
 		// Suo
-		Prov("suo").Conn("inl", godip.Sea).Conn("aki", godip.Coast...).Conn("iwm", godip.Land).Conn("nag", godip.Coast...).Conn("sus", godip.Sea).Flag(godip.Coast...).
+		Prov("suo").Conn("inl", godip.Sea).Conn("aki", godip.Coast...).Conn("iyo", godip.Coast...).Conn("iwm", godip.Land).Conn("nag", godip.Coast...).Conn("sus", godip.Sea).Flag(godip.Coast...).
 		// Bitchu
-		Prov("bit").Conn("bin", godip.Coast...).Conn("inl", godip.Sea).Conn("osa", godip.Sea).Conn("biz", godip.Coast...).Conn("hok", godip.Land).Flag(godip.Coast...).
+		Prov("bit").Conn("bin", godip.Coast...).Conn("sau", godip.Coast...).Conn("inl", godip.Sea).Conn("osa", godip.Sea).Conn("biz", godip.Coast...).Conn("hok", godip.Land).Flag(godip.Coast...).
 		// Awa
-		Prov("awa").Conn("toa", godip.Coast...).Conn("kis", godip.Sea).Conn("osa", godip.Sea).Conn("sau", godip.Coast...).Conn("iyo", godip.Land).Flag(godip.Coast...).
+		Prov("awa").Conn("toa", godip.Coast...).Conn("kii", godip.Coast...).Conn("kis", godip.Sea).Conn("osa", godip.Sea).Conn("sau", godip.Coast...).Conn("iyo", godip.Land).Flag(godip.Coast...).
 		// Tushima Strait
 		Prov("tus").Conn("eas", godip.Sea).Conn("hiz", godip.Sea).Conn("kan", godip.Sea).Conn("ssj", godip.Sea).Flag(godip.Sea).
 		// Hida
@@ -224,7 +224,7 @@ func SengokuGraph() *graph.Graph {
 		// Kozuke
 		Prov("koz").Conn("mus", godip.Land).Conn("sht", godip.Land).Conn("dew", godip.Land).Conn("ecg", godip.Land).Flag(godip.Land).SC(Uesugi).
 		// Iyo
-		Prov("iyo").Conn("bus", godip.Sea).Conn("toa", godip.Coast...).Conn("bug", godip.Coast...).Conn("awa", godip.Land).Conn("sau", godip.Coast...).Conn("inl", godip.Sea).Conn("sus", godip.Sea).Flag(godip.Coast...).SC(Chosokabe).
+		Prov("iyo").Conn("bus", godip.Sea).Conn("toa", godip.Coast...).Conn("suo", godip.Coast...).Conn("bug", godip.Coast...).Conn("awa", godip.Land).Conn("sau", godip.Coast...).Conn("inl", godip.Sea).Conn("sus", godip.Sea).Flag(godip.Coast...).SC(Chosokabe).
 		// Higo
 		Prov("hig").Conn("hyg", godip.Land).Conn("bug", godip.Land).Conn("hiz", godip.Coast...).Conn("eas", godip.Sea).Conn("sat", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// North Shinano
