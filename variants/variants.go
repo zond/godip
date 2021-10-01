@@ -19,7 +19,7 @@ import (
 	"github.com/zond/godip/variants/westernworld901"
 	"github.com/zond/godip/variants/year1908"
 	"github.com/zond/godip/variants/youngstownredux"
-	"./variants/sengoku"
+	"github.com/zond/godip/variants/sengoku"
 )
 
 func init() {
