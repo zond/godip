@@ -58,9 +58,9 @@ var ColdWarVariant = common.Variant{
 	Description: "NATO and the USSR fight to become the dominant superpower.",
 	SoloSCCount: func(*state.State) int { return 17 },
 	Rules: `First to 17 Supply Centers (SC) is the winner. 
-	Armies can move between Australia, Indonesia and the Philippines. 
-	Panama, Egypt and Istanbul have canals (similar to Kiel in Classic). 
-	Armies can move between Denmark and Sweden. These both have one coast, so fleets must pass through either to get from the North Sea to the Baltic Sea.`,
+Armies can move between Australia, Indonesia and the Philippines. 
+Panama, Egypt and Istanbul have canals (similar to Kiel in Classic). 
+Armies can move between Denmark and Sweden. These both have one coast, so fleets must pass through either to get from the North Sea to the Baltic Sea.`,
 }
 
 func ColdWarBlank(phase godip.Phase) *state.State {

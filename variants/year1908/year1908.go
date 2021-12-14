@@ -199,10 +199,10 @@ var Year1908Variant = common.Variant{
 	Version:     "1.0",
 	Description: "Europe on the verge of a new conflict between the Great Powers.",
 	Rules: `Movement, support and convoys (only by fleets) are allowed between Mid-Atlantic Ocean and Cairo.
-	Movement and support (by both armies and fleets) are allowed between Casablanca and Spain.
-	Cairo, Constantinople, Denmark, Kiel and Sweden are considered canal provinces (fleets can move through them without regard to coasts).
-	Units can only be built on your own starting supply centers.
-	18 of 40 supply centers are required for victory. If the two leading players are tied then the game will continue for another year.`,
+Movement and support (by both armies and fleets) are allowed between Casablanca and Spain.
+Cairo, Constantinople, Denmark, Kiel and Sweden are considered canal provinces (fleets can move through them without regard to coasts).
+Units can only be built on your own starting supply centers.
+18 of 40 supply centers are required for victory. If the two leading players are tied then the game will continue for another year.`,
 }
 
 func Year1908Blank(phase godip.Phase) *state.State {

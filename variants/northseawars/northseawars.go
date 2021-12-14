@@ -56,9 +56,9 @@ var NorthSeaWarsVariant = common.Variant{
 	Description: "A battle for trade routes in the North Sea.",
 	SoloSCCount: func(*state.State) int { return 8 },
 	Rules: `First to 8 Supply Centers (SC) is the winner.
-	Units can move from Central North Sea to three trade provinces containing SCs – Wood, Iron and Grain. Units in the trade provinces can move freely between them, but can’t return back to Central North Sea.
-	Jutland has a dual coast.
-	Sealand has land access to all neighbouring spaces (including Limfjorden) and naval access to Jutland (East Coast), but not Amsivaria.`,
+Units can move from Central North Sea to three trade provinces containing SCs – Wood, Iron and Grain. Units in the trade provinces can move freely between them, but can’t return back to Central North Sea.
+Jutland has a dual coast.
+Sealand has land access to all neighbouring spaces (including Limfjorden) and naval access to Jutland (East Coast), but not Amsivaria.`,
 }
 
 func NorthSeaWarsBlank(phase godip.Phase) *state.State {

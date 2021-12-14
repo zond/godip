@@ -68,5 +68,5 @@ var FranceAustriaVariant = common.Variant{
 	Description: "A two player variant on the classical map.",
 	SoloSCCount: func(*state.State) int { return 18 },
 	Rules: `The first to 18 supply centers is the winner. 
-	The game only has two nations: France and Austria.`,
+The game only has two nations: France and Austria.`,
 }

@@ -101,11 +101,11 @@ var HundredVariant = common.Variant{
 	Description: "The Hundred Years' War was a series of conflicts from 1337 to 1453, waged between the English House of Plantagenet and the French House of Valois, over the Kingdom of France.",
 	SoloSCCount: func(*state.State) int { return 9 },
 	Rules: `First to 9 Supply Centers (SC) is the winner.
-	Units may be built on any owned SC.
-	France starts with 5 units and 4 SC, so needs to disband unless they gain a center before 1430. 
-	Yearly cycles of Spring & Fall are renamed to decade cycles with years ending with 5 and 0 respectively.
-	Armies & fleets can move between London & Calais.
-	Two provinces have dual coasts: Northumbria and Aragon.`,
+Units may be built on any owned SC.
+France starts with 5 units and 4 SC, so needs to disband unless they gain a center before 1430. 
+Yearly cycles of Spring & Fall are renamed to decade cycles with years ending with 5 and 0 respectively.
+Armies & fleets can move between London & Calais.
+Two provinces have dual coasts: Northumbria and Aragon.`,
 }
 
 func HundredBlank(phase godip.Phase) *state.State {
