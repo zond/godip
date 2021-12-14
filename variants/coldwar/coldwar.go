@@ -34,6 +34,77 @@ var ColdWarVariant = common.Variant{
 	Blank:      ColdWarBlank,
 	Phase:      classical.NewPhase,
 	Parser:     classical.Parser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"mid": common.DominanceRule{
+			Priority: 0,
+			Nation:   NATO,
+			Dependencies: map[godip.Province]godip.Nation{
+				"los": NATO,
+				"nyk": NATO,
+				"tor": godip.Neutral,
+			},
+		},
+		"que": common.DominanceRule{
+			Priority: 0,
+			Nation:   NATO,
+			Dependencies: map[godip.Province]godip.Nation{
+				"nyk": NATO,
+				"tor": godip.Neutral,
+			},
+		},
+		"wca": common.DominanceRule{
+			Priority: 0,
+			Nation:   NATO,
+			Dependencies: map[godip.Province]godip.Nation{
+				"los": NATO,
+				"tor": godip.Neutral,
+				"ala": godip.Neutral,
+			},
+		},
+		"grd": common.DominanceRule{
+			Priority: 0,
+			Nation:   NATO,
+			Dependencies: map[godip.Province]godip.Nation{
+				"tor": godip.Neutral,
+				"ala": godip.Neutral,
+			},
+		},
+		"nvi": common.DominanceRule{
+			Priority: 0,
+			Nation:   USSR,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sai": godip.Neutral,
+				"sha": USSR,
+			},
+		},
+		"ura": common.DominanceRule{
+			Priority: 0,
+			Nation:   USSR,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": USSR,
+				"len": USSR,
+				"irn": godip.Neutral,
+			},
+		},
+		"cau": common.DominanceRule{
+			Priority: 0,
+			Nation:   USSR,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": USSR,
+				"irn": godip.Neutral,
+			},
+		},
+		"ukr": common.DominanceRule{
+			Priority: 0,
+			Nation:   USSR,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mos": USSR,
+				"ist": NATO,
+				"ege": godip.Neutral,
+			},
+		},
+
+	},
 	Nations:    Nations,
 	PhaseTypes: classical.PhaseTypes,
 	Seasons:    classical.Seasons,

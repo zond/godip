@@ -31,7 +31,7 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 	Parser: classical.Parser,
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"cat": common.DominanceRule{
-			Nation: Russia,
+			Nation: Spain,
 			Dependencies: map[godip.Province]godip.Nation{
 				"mad": Spain,
 				"val": Spain,
