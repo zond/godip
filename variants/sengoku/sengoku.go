@@ -43,7 +43,7 @@ var SengokuVariant = common.Variant{
 			return classical.Asset("svg/army.svg")
 		},
 		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
+			return Asset("svg/fleet.svg")
 		},
 	},
 	CreatedBy:   "",
@@ -85,6 +85,7 @@ func SengokuStart() (result *state.State, err error) {
 		"iyo": Chosokabe,
 		"toa": Chosokabe,
 		"saa": Hojo,
+		"izu": Hojo,
 		"mik": Oda,
 		"owa": Oda,
 		"osu": Shimazu,
@@ -112,11 +113,11 @@ func SengokuGraph() *graph.Graph {
 		// Kii
 		Prov("kii").Conn("kum", godip.Sea).Conn("tse", godip.Sea).Conn("shi", godip.Coast...).Conn("awa", godip.Coast...).Conn("yat", godip.Land).Conn("kaw", godip.Coast...).Conn("osa", godip.Sea).Conn("kis", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Sagami Bay
-		Prov("sab").Conn("saa", godip.Coast...).Conn("sur", godip.Coast...).Conn("izu", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("sab").Conn("saa", godip.Coast...).Conn("sur", godip.Coast...).Conn("izu", godip.Sea).Flag(godip.Coast...).
 		// Set
 		Prov("set").Conn("kaw", godip.Coast...).Conn("yas", godip.Land).Conn("har", godip.Coast...).Conn("osa", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Izu
-		Prov("izu").Conn("kum", godip.Sea).Conn("pac", godip.Sea).Conn("kaz", godip.Sea).Conn("saa", godip.Sea).Conn("sab", godip.Sea).Conn("sur", godip.Sea).Conn("too", godip.Sea).Conn("tse", godip.Sea).Flag(godip.Sea).
+		Prov("izu").Conn("kum", godip.Sea).Conn("pac", godip.Sea).Conn("kaz", godip.Sea).Conn("saa", godip.Sea).Conn("sab", godip.Sea).Conn("sur", godip.Sea).Conn("too", godip.Sea).Conn("tse", godip.Sea).Flag(godip.Sea).SC(Hojo).
 		// Totomi Sea
 		Prov("tse").Conn("izu", godip.Sea).Conn("too", godip.Sea).Conn("mik", godip.Sea).Conn("owa", godip.Sea).Conn("ise", godip.Sea).Conn("shi", godip.Sea).Conn("kii", godip.Sea).Conn("kum", godip.Sea).Flag(godip.Sea).
 		// Tosa
@@ -172,7 +173,7 @@ func SengokuGraph() *graph.Graph {
 		// North Pacific Ocean
 		Prov("npo").Conn("tsu", godip.Sea).Conn("mut", godip.Sea).Conn("hit", godip.Sea).Conn("shs", godip.Sea).Conn("kaz", godip.Sea).Conn("pac", godip.Sea).Flag(godip.Sea).
 		// Nagato
-		Prov("nag").Conn("iwc", godip.Sea).Conn("kan", godip.Sea).Conn("sus", godip.Sea).Conn("suo", godip.Coast...).Conn("iwm", godip.Coast...).Flag(godip.Coast...).SC(Mori).
+		Prov("nag").Conn("iwc", godip.Sea).Conn("chi", godip.Coast...).Conn("kan", godip.Sea).Conn("sus", godip.Sea).Conn("suo", godip.Coast...).Conn("iwm", godip.Coast...).Flag(godip.Coast...).SC(Mori).
 		// Tojama Bay
 		Prov("toj").Conn("etc", godip.Sea).Conn("ecg", godip.Sea).Conn("nso", godip.Sea).Conn("not", godip.Sea).Flag(godip.Sea).
 		// Mikawa
@@ -256,7 +257,7 @@ func SengokuGraph() *graph.Graph {
 		// Shuri Straits
 		Prov("shu").Conn("spo", godip.Sea).Conn("ari", godip.Sea).Conn("eas", godip.Sea).Flag(godip.Sea).
 		// Chikuzen
-		Prov("chi").Conn("bug", godip.Coast...).Conn("sus", godip.Sea).Conn("kan", godip.Sea).Conn("hiz", godip.Coast...).Flag(godip.Coast...).
+		Prov("chi").Conn("bug", godip.Coast...).Conn("nag", godip.Coast...).Conn("sus", godip.Sea).Conn("kan", godip.Sea).Conn("hiz", godip.Coast...).Flag(godip.Coast...).
 		// Sagami
 		Prov("saa").Conn("kai", godip.Land).Conn("sab", godip.Coast...).Conn("izu", godip.Sea).Conn("kaz", godip.Coast...).Conn("shs", godip.Land).Conn("mus", godip.Land).Flag(godip.Coast...).SC(Hojo).
 		Done()
