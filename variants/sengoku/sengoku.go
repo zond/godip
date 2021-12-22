@@ -97,6 +97,13 @@ func SengokuStart() (result *state.State, err error) {
 		"sat": godip.Unit{godip.Army, Shimazu},
 		"ecg": godip.Unit{godip.Fleet, Uesugi},
 		"koz": godip.Unit{godip.Army, Uesugi},
+		"hiz": godip.Unit{godip.Army, godip.Neutral},
+		"bug": godip.Unit{godip.Army, godip.Neutral},
+		"izm": godip.Unit{godip.Army, godip.Neutral},
+		"biz": godip.Unit{godip.Army, godip.Neutral},
+		"yas": godip.Unit{godip.Army, godip.Neutral},
+		"min": godip.Unit{godip.Army, godip.Neutral},
+		"mus": godip.Unit{godip.Army, godip.Neutral},
 	}); err != nil {
 		return
 	}
@@ -115,6 +122,13 @@ func SengokuStart() (result *state.State, err error) {
 		"sat": Shimazu,
 		"ecg": Uesugi,
 		"koz": Uesugi,
+		"hiz": godip.Neutral,
+		"bug": godip.Neutral,
+		"izm": godip.Neutral,
+		"biz": godip.Neutral,
+		"yas": godip.Neutral,
+		"min": godip.Neutral,
+		"mus": godip.Neutral,
 	})
 	return
 }
