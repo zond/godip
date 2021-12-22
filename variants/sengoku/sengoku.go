@@ -19,6 +19,29 @@ const (
 )
 
 var Nations = []godip.Nation{Takeda, Mori, Chosokabe, Hojo, Oda, Shimazu, Uesugi}
+var SVGFlags = map[godip.Nation]func() ([]byte, error){
+	Takeda: func() ([]byte, error) {
+		return Asset("svg/takeda.svg")
+	},
+	Mori: func() ([]byte, error) {
+		return Asset("svg/mori.svg")
+	},
+	Chosokabe: func() ([]byte, error) {
+		return Asset("svg/chosokabe.svg")
+	},
+	Hojo: func() ([]byte, error) {
+		return Asset("svg/hojo.svg")
+	},
+	Oda: func() ([]byte, error) {
+		return Asset("svg/oda.svg")
+	},
+	Shimazu: func() ([]byte, error) {
+		return Asset("svg/shimazu.svg")
+	},
+	Uesugi: func() ([]byte, error) {
+		return Asset("svg/uesugi.svg")
+	},
+}
 
 var SengokuVariant = common.Variant{
 	Name:              "Sengoku",
