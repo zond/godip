@@ -31,8 +31,8 @@ var SengokuVariant = common.Variant{
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
 	UnitTypes:         classical.UnitTypes,
-	SoloWinner:        common.SCCountWinner(19),
-	SoloSCCount:       func(*state.State) int { return 19 },
+	SoloWinner:        common.SCCountWinner(25),
+	SoloSCCount:       func(*state.State) int { return 25 },
 	ProvinceLongNames: provinceLongNames,
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/sengokumap.svg")
