@@ -81,7 +81,7 @@ var SengokuVariant = common.Variant{
 	Start:             SengokuStart,
 	Blank:             SengokuBlank,
 	Phase:             NewPhase,
-	Parser:            classical.Parser,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
