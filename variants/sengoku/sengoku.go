@@ -6,6 +6,8 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
+
 )
 
 const (
@@ -49,7 +51,7 @@ var SengokuVariant = common.Variant{
 	Start:             SengokuStart,
 	Blank:             SengokuBlank,
 	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
