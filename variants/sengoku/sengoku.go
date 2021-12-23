@@ -4,8 +4,11 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
+	"github.com/zond/godip/variants/westernworld901"
 )
 
 const (
@@ -43,12 +46,41 @@ var SVGFlags = map[godip.Nation]func() ([]byte, error){
 	},
 }
 
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
+
+func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator) {
+	ret = map[godip.Province]godip.Adjudicator{}
+	switch state.Phase().Type() {
+	case godip.Movement:
+		// Strictly this is unnecessary - because hold is the default order.
+		for prov, unit := range state.Units() {
+			if unit.Nation == godip.Neutral {
+				ret[prov] = orders.Hold(prov)
+			}
+		}
+	case godip.Adjustment:
+		// Rebuild any missing units.
+		for _, prov := range state.Graph().AllSCs() {
+			if n, _, ok := state.SupplyCenter(prov); ok && n == godip.Neutral {
+				if _, _, ok := state.Unit(prov); !ok {
+					ret[prov] = orders.BuildAnywhere(prov, godip.Army, time.Now())
+				}
+			}
+		}
+	}
+	return
+}
+
 var SengokuVariant = common.Variant{
 	Name:              "Sengoku",
 	Graph:             func() godip.Graph { return SengokuGraph() },
 	Start:             SengokuStart,
 	Blank:             SengokuBlank,
-	Phase:             classical.NewPhase,
+	Phase:             NewPhase,
 	Parser:            classical.Parser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
@@ -76,11 +108,12 @@ var SengokuVariant = common.Variant{
 }
 
 func SengokuBlank(phase godip.Phase) *state.State {
-	return state.New(SengokuGraph(), phase, classical.BackupRule, nil, nil)
+	return state.New(SengokuGraph(), phase, classical.BackupRule, map[godip.Flag]bool{godip.Anywhere: true}, NeutralOrders)
 }
 
+
 func SengokuStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(1570, godip.Spring, godip.Movement)
+	startPhase := Phase(1570, godip.Spring, godip.Movement)
 	result = SengokuBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"sos": godip.Unit{godip.Army, Takeda},
