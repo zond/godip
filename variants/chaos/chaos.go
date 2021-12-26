@@ -328,6 +328,6 @@ var ChaosVariant = common.Variant{
 	Description:       "Standard map. 34 players. 1 unit each. Chaos.",
 	SoloSCCount:       func(*state.State) int { return 18 },
 	Rules: `First to 18 Supply Centers (SC) is the winner. 
-	Units may be built at any owned SC. 
-	The game starts with an adjustment phase where it is decided what unit to build. In this phase, all SC without orders build an army (to mitigate absent players).`,
+Units may be built at any owned SC. 
+The game starts with an adjustment phase where it is decided what unit to build. In this phase, all SC without orders build an army (to mitigate absent players).`,
 }

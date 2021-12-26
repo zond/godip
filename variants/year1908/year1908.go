@@ -65,7 +65,7 @@ var Year1908Variant = common.Variant{
 			Nation: godip.Austria,
 			Dependencies: map[godip.Province]godip.Nation{
 				"bud": godip.Austria,
-				"rum": godip.Austria,
+				"rum": godip.Neutral,
 				"ser": godip.Neutral,
 			},
 		},
@@ -141,6 +141,14 @@ var Year1908Variant = common.Variant{
 				"rum": godip.Neutral,
 			},
 		},
+		"fin": common.DominanceRule{
+			Nation: Russia,
+			Dependencies: map[godip.Province]godip.Nation{
+				"stp": Russia,
+				"swe": godip.Neutral,
+				"nwy": godip.Neutral,
+			},
+		},
 		"alg": common.DominanceRule{
 			Nation: France,
 			Dependencies: map[godip.Province]godip.Nation{
@@ -154,7 +162,7 @@ var Year1908Variant = common.Variant{
 			Dependencies: map[godip.Province]godip.Nation{
 				"mar": France,
 				"par": France,
-				"ber": France,
+				"bre": France,
 				"spa": godip.Neutral,
 			},
 		},
@@ -199,10 +207,10 @@ var Year1908Variant = common.Variant{
 	Version:     "1.0",
 	Description: "Europe on the verge of a new conflict between the Great Powers.",
 	Rules: `Movement, support and convoys (only by fleets) are allowed between Mid-Atlantic Ocean and Cairo.
-	Movement and support (by both armies and fleets) are allowed between Casablanca and Spain.
-	Cairo, Constantinople, Denmark, Kiel and Sweden are considered canal provinces (fleets can move through them without regard to coasts).
-	Units can only be built on your own starting supply centers.
-	18 of 40 supply centers are required for victory. If the two leading players are tied then the game will continue for another year.`,
+Movement and support (by both armies and fleets) are allowed between Casablanca and Spain.
+Cairo, Constantinople, Denmark, Kiel and Sweden are considered canal provinces (fleets can move through them without regard to coasts).
+Units can only be built on your own starting supply centers.
+18 of 40 supply centers are required for victory. If the two leading players are tied then the game will continue for another year.`,
 }
 
 func Year1908Blank(phase godip.Phase) *state.State {

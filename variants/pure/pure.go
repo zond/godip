@@ -54,7 +54,7 @@ var PureVariant = common.Variant{
 	Description: "A minimal version of Diplomacy where each country is a single province.",
 	SoloSCCount: func(*state.State) int { return 4 },
 	Rules: `First to 4 Supply Centers (SC) is the winner.
-	Each nation has only one SC, and each is adjacent to all others.`,
+Each nation has only one SC, and each is adjacent to all others.`,
 }
 
 func PureBlank(phase godip.Phase) *state.State {
