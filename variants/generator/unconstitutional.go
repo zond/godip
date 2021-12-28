@@ -69,35 +69,47 @@ func UnconstitutionalStart() (result *state.State, err error) {
 
 func UnconstitutionalGraph() *graph.Graph {
 	return graph.New().
-		// Caddo
-		Prov("cad").Conn("gul", godip.Land).Conn("qua", godip.Land).Flag(godip.Land).
+		// Windward Passage
+		Prov("win").Conn("atl", godip.Sea).Conn("gul", godip.Sea).Flag(godip.Sea).
 		// Choctaw
-		Prov("cho").Conn("gul", godip.Land).Conn("atl", godip.Land).Conn("sai", godip.Land).Conn("qua", godip.Land).Flag(godip.Land).SC(Pennsylvania).
+		Prov("cho").Conn("qua", godip.Land).Conn("wes", godip.Land).Conn("cad", godip.Land).Conn("atl", godip.Land).Conn("sai", godip.Land).Flag(godip.Land).SC(Pennsylvania).
+		// Caddo
+		Prov("cad").Conn("atl", godip.Coast...).Conn("cho", godip.Land).Conn("wes", godip.Coast...).Conn("flo", godip.Sea).Flag(godip.Coast...).
 		// Missouri
 		Prov("mis").Conn("osa", godip.Land).Conn("sai", godip.Land).Conn("ill", godip.Land).Conn("atl", godip.Land).Flag(godip.Land).
 		// Osage
 		Prov("osa").Conn("qua", godip.Land).Conn("sai", godip.Land).Conn("mis", godip.Land).Flag(godip.Land).
 		// Illiniwek
-		Prov("ill").Conn("sai", godip.Land).Conn("atl", godip.Land).Conn("mis", godip.Land).Flag(godip.Land).
+		Prov("ill").Conn("atl", godip.Land).Conn("mis", godip.Land).Conn("sai", godip.Land).Flag(godip.Land).
 		// Saint Louis
-		Prov("sai").Conn("atl", godip.Land).Conn("ill", godip.Land).Conn("mis", godip.Land).Conn("osa", godip.Land).Conn("qua", godip.Land).Conn("cho", godip.Land).Flag(godip.Land).SC(SouthCarolina).
-		// Gulf of Mexico
-		Prov("gul").Conn("atl", godip.Land).Conn("cho", godip.Land).Conn("qua", godip.Land).Conn("cad", godip.Land).Flag(godip.Land).
+		Prov("sai").Conn("qua", godip.Land).Conn("cho", godip.Land).Conn("atl", godip.Land).Conn("ill", godip.Land).Conn("mis", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).SC(SouthCarolina).
+		// New Orleans
+		Prov("new").Conn("gul", godip.Sea).Conn("wes", godip.Coast...).Conn("qua", godip.Land).Flag(godip.Coast...).
+		// Florida Bight
+		Prov("flo").Conn("wes", godip.Sea).Conn("gul", godip.Sea).Conn("atl", godip.Sea).Conn("cad", godip.Sea).Flag(godip.Sea).
 		// Quapow
-		Prov("qua").Conn("cad", godip.Land).Conn("gul", godip.Land).Conn("cho", godip.Land).Conn("sai", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).
+		Prov("qua").Conn("new", godip.Land).Conn("wes", godip.Land).Conn("cho", godip.Land).Conn("sai", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).
 		// Atlantic Ocean
-		Prov("atl").Conn("mis", godip.Land).Conn("ill", godip.Land).Conn("sai", godip.Land).Conn("cho", godip.Land).Conn("gul", godip.Land).Flag(godip.Land).
+		Prov("atl").Conn("mis", godip.Land).Conn("ill", godip.Land).Conn("sai", godip.Land).Conn("cho", godip.Land).Conn("cad", godip.Coast...).Conn("flo", godip.Sea).Conn("gul", godip.Sea).Conn("win", godip.Sea).Flag(godip.Coast...).
+		// West Florida
+		Prov("wes").Conn("flo", godip.Sea).Conn("cad", godip.Coast...).Conn("cho", godip.Land).Conn("qua", godip.Land).Conn("new", godip.Coast...).Conn("gul", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		// Gulf of Mexico
+		Prov("gul").Conn("win", godip.Sea).Conn("atl", godip.Sea).Conn("flo", godip.Sea).Conn("wes", godip.Sea).Conn("new", godip.Sea).Flag(godip.Sea).
 		Done()
 }
 
 var provinceLongNames = map[godip.Province]string{
-	"cad": "Caddo",
+	"win": "Windward Passage",
 	"cho": "Choctaw",
+	"cad": "Caddo",
 	"mis": "Missouri",
 	"osa": "Osage",
 	"ill": "Illiniwek",
 	"sai": "Saint Louis",
-	"gul": "Gulf of Mexico",
+	"new": "New Orleans",
+	"flo": "Florida Bight",
 	"qua": "Quapow",
 	"atl": "Atlantic Ocean",
+	"wes": "West Florida",
+	"gul": "Gulf of Mexico",
 }
