@@ -3,11 +3,12 @@ START_YEAR: 1805
 # The starting units
 START_UNITS:
   Pennsylvania:
-    Army: ['Calcutta']
+    Army: ['Choctaw']
   SouthCarolina:
-    Army: ['Shanghai']
+    Army: ['Saint Louis']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
+    'Caddo': 'cad'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
 ]
