@@ -8,7 +8,7 @@ START_UNITS:
     Army: ['Saint Louis']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
-    'Caddo': 'cad'
+    'Gulf of Gonave': 'gof'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
 ]

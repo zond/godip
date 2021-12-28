@@ -26,8 +26,8 @@ var UnconstitutionalVariant = common.Variant{
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
 	UnitTypes:         classical.UnitTypes,
-	SoloWinner:        common.SCCountWinner(2),
-	SoloSCCount:       func(*state.State) int { return 2 },
+	SoloWinner:        common.SCCountWinner(4),
+	SoloSCCount:       func(*state.State) int { return 4 },
 	ProvinceLongNames: provinceLongNames,
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/unconstitutionalmap.svg")
@@ -56,60 +56,93 @@ func UnconstitutionalStart() (result *state.State, err error) {
 	result = UnconstitutionalBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"cho": godip.Unit{godip.Army, Pennsylvania},
-		"sai": godip.Unit{godip.Army, SouthCarolina},
+		"sal": godip.Unit{godip.Army, SouthCarolina},
 	}); err != nil {
 		return
 	}
 	result.SetSupplyCenters(map[godip.Province]godip.Nation{
 		"cho": Pennsylvania,
-		"sai": SouthCarolina,
+		"sal": SouthCarolina,
 	})
 	return
 }
 
 func UnconstitutionalGraph() *graph.Graph {
 	return graph.New().
-		// Windward Passage
-		Prov("win").Conn("atl", godip.Sea).Conn("gul", godip.Sea).Flag(godip.Sea).
-		// Choctaw
-		Prov("cho").Conn("qua", godip.Land).Conn("wes", godip.Land).Conn("cad", godip.Land).Conn("atl", godip.Land).Conn("sai", godip.Land).Flag(godip.Land).SC(Pennsylvania).
-		// Caddo
-		Prov("cad").Conn("atl", godip.Coast...).Conn("cho", godip.Land).Conn("wes", godip.Coast...).Conn("flo", godip.Sea).Flag(godip.Coast...).
-		// Missouri
-		Prov("mis").Conn("osa", godip.Land).Conn("sai", godip.Land).Conn("ill", godip.Land).Conn("atl", godip.Land).Flag(godip.Land).
-		// Osage
-		Prov("osa").Conn("qua", godip.Land).Conn("sai", godip.Land).Conn("mis", godip.Land).Flag(godip.Land).
-		// Illiniwek
-		Prov("ill").Conn("atl", godip.Land).Conn("mis", godip.Land).Conn("sai", godip.Land).Flag(godip.Land).
-		// Saint Louis
-		Prov("sai").Conn("qua", godip.Land).Conn("cho", godip.Land).Conn("atl", godip.Land).Conn("ill", godip.Land).Conn("mis", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).SC(SouthCarolina).
+		// Artibonite
+		Prov("art").Conn("azu", godip.Land).Conn("cib", godip.Coast...).Conn("old", godip.Sea).Conn("win", godip.Sea).Conn("por", godip.Coast...).Flag(godip.Coast...).
 		// New Orleans
-		Prov("new").Conn("gul", godip.Sea).Conn("wes", godip.Coast...).Conn("qua", godip.Land).Flag(godip.Coast...).
-		// Florida Bight
-		Prov("flo").Conn("wes", godip.Sea).Conn("gul", godip.Sea).Conn("atl", godip.Sea).Conn("cad", godip.Sea).Flag(godip.Sea).
+		Prov("new").Conn("gue", godip.Sea).Conn("wes", godip.Coast...).Conn("qua", godip.Land).Flag(godip.Coast...).
 		// Quapow
-		Prov("qua").Conn("new", godip.Land).Conn("wes", godip.Land).Conn("cho", godip.Land).Conn("sai", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).
-		// Atlantic Ocean
-		Prov("atl").Conn("mis", godip.Land).Conn("ill", godip.Land).Conn("sai", godip.Land).Conn("cho", godip.Land).Conn("cad", godip.Coast...).Conn("flo", godip.Sea).Conn("gul", godip.Sea).Conn("win", godip.Sea).Flag(godip.Coast...).
+		Prov("qua").Conn("new", godip.Land).Conn("wes", godip.Land).Conn("cho", godip.Land).Conn("sal", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).
+		// Windward Passage
+		Prov("win").Conn("por", godip.Sea).Conn("art", godip.Sea).Conn("old", godip.Sea).Conn("gof", godip.Sea).Flag(godip.Sea).
+		// Choctaw
+		Prov("cho").Conn("cad", godip.Coast...).Conn("gua", godip.Sea).Conn("sal", godip.Coast...).Conn("qua", godip.Land).Conn("wes", godip.Land).Flag(godip.Coast...).SC(Pennsylvania).
+		// Illiniwek
+		Prov("ill").Conn("gua", godip.Sea).Conn("mis", godip.Coast...).Conn("sal", godip.Coast...).Flag(godip.Coast...).
+		// Gulf of Maine
+		Prov("gua").Conn("mis", godip.Sea).Conn("ill", godip.Sea).Conn("sal", godip.Sea).Conn("cho", godip.Sea).Conn("cad", godip.Sea).Conn("flo", godip.Sea).Conn("bah", godip.Sea).Conn("sar", godip.Sea).Conn("atl", godip.Sea).Flag(godip.Sea).
+		// Cibao
+		Prov("cib").Conn("sar", godip.Sea).Conn("old", godip.Sea).Conn("art", godip.Coast...).Conn("azu", godip.Land).Conn("sad", godip.Coast...).Flag(godip.Coast...).
+		// Port au Prince
+		Prov("por").Conn("gof", godip.Sea).Conn("azu", godip.Coast...).Conn("art", godip.Coast...).Conn("win", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		// Saint Domingue
+		Prov("sad").Conn("gof", godip.Sea).Conn("atl", godip.Sea).Conn("sar", godip.Sea).Conn("cib", godip.Coast...).Conn("azu", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		// Turks and Caicos
+		Prov("tur").Conn("old", godip.Sea).Conn("sar", godip.Sea).Conn("bah", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// West Florida
-		Prov("wes").Conn("flo", godip.Sea).Conn("cad", godip.Coast...).Conn("cho", godip.Land).Conn("qua", godip.Land).Conn("new", godip.Coast...).Conn("gul", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("wes").Conn("new", godip.Coast...).Conn("gue", godip.Sea).Conn("flo", godip.Sea).Conn("cad", godip.Coast...).Conn("cho", godip.Land).Conn("qua", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
+		// Caddo
+		Prov("cad").Conn("cho", godip.Coast...).Conn("wes", godip.Coast...).Conn("flo", godip.Sea).Conn("gua", godip.Sea).Flag(godip.Coast...).
+		// Gulf of Gonave
+		Prov("gof").Conn("atl", godip.Sea).Conn("sad", godip.Sea).Conn("azu", godip.Sea).Conn("por", godip.Sea).Conn("win", godip.Sea).Conn("old", godip.Sea).Conn("gue", godip.Sea).Flag(godip.Sea).
+		// Missouri
+		Prov("mis").Conn("osa", godip.Land).Conn("sal", godip.Coast...).Conn("ill", godip.Coast...).Conn("gua", godip.Sea).Flag(godip.Coast...).
+		// Osage
+		Prov("osa").Conn("qua", godip.Land).Conn("sal", godip.Land).Conn("mis", godip.Land).Flag(godip.Land).
+		// Florida Bight
+		Prov("flo").Conn("wes", godip.Sea).Conn("gue", godip.Sea).Conn("old", godip.Sea).Conn("bah", godip.Sea).Conn("gua", godip.Sea).Conn("cad", godip.Sea).Flag(godip.Sea).
+		// Azua
+		Prov("azu").Conn("gof", godip.Sea).Conn("sad", godip.Coast...).Conn("cib", godip.Land).Conn("art", godip.Land).Conn("por", godip.Coast...).Flag(godip.Coast...).
+		// Bahama Banks
+		Prov("bah").Conn("tur", godip.Sea).Conn("sar", godip.Sea).Conn("gua", godip.Sea).Conn("flo", godip.Sea).Conn("old", godip.Sea).Flag(godip.Sea).
+		// Saint Louis
+		Prov("sal").Conn("qua", godip.Land).Conn("cho", godip.Coast...).Conn("gua", godip.Sea).Conn("ill", godip.Coast...).Conn("mis", godip.Coast...).Conn("osa", godip.Land).Flag(godip.Coast...).SC(SouthCarolina).
 		// Gulf of Mexico
-		Prov("gul").Conn("win", godip.Sea).Conn("atl", godip.Sea).Conn("flo", godip.Sea).Conn("wes", godip.Sea).Conn("new", godip.Sea).Flag(godip.Sea).
+		Prov("gue").Conn("gof", godip.Sea).Conn("old", godip.Sea).Conn("flo", godip.Sea).Conn("wes", godip.Sea).Conn("new", godip.Sea).Flag(godip.Sea).
+		// Old Bahama Channel
+		Prov("old").Conn("tur", godip.Sea).Conn("bah", godip.Sea).Conn("flo", godip.Sea).Conn("gue", godip.Sea).Conn("gof", godip.Sea).Conn("win", godip.Sea).Conn("art", godip.Sea).Conn("cib", godip.Sea).Conn("sar", godip.Sea).Flag(godip.Sea).
+		// Atlantic Ocean
+		Prov("atl").Conn("gua", godip.Sea).Conn("sar", godip.Sea).Conn("sad", godip.Sea).Conn("gof", godip.Sea).Flag(godip.Sea).
+		// Sargasso Sea
+		Prov("sar").Conn("tur", godip.Sea).Conn("old", godip.Sea).Conn("cib", godip.Sea).Conn("sad", godip.Sea).Conn("atl", godip.Sea).Conn("gua", godip.Sea).Conn("bah", godip.Sea).Flag(godip.Sea).
 		Done()
 }
 
 var provinceLongNames = map[godip.Province]string{
+	"art": "Artibonite",
+	"new": "New Orleans",
+	"qua": "Quapow",
 	"win": "Windward Passage",
 	"cho": "Choctaw",
+	"ill": "Illiniwek",
+	"gua": "Gulf of Maine",
+	"cib": "Cibao",
+	"por": "Port au Prince",
+	"sad": "Saint Domingue",
+	"tur": "Turks and Caicos",
+	"wes": "West Florida",
 	"cad": "Caddo",
+	"gof": "Gulf of Gonave",
 	"mis": "Missouri",
 	"osa": "Osage",
-	"ill": "Illiniwek",
-	"sai": "Saint Louis",
-	"new": "New Orleans",
 	"flo": "Florida Bight",
-	"qua": "Quapow",
+	"azu": "Azua",
+	"bah": "Bahama Banks",
+	"sal": "Saint Louis",
+	"gue": "Gulf of Mexico",
+	"old": "Old Bahama Channel",
 	"atl": "Atlantic Ocean",
-	"wes": "West Florida",
-	"gul": "Gulf of Mexico",
+	"sar": "Sargasso Sea",
 }
