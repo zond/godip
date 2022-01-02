@@ -20,6 +20,8 @@ import (
 	"github.com/zond/godip/variants/year1908"
 	"github.com/zond/godip/variants/youngstownredux"
 	"github.com/zond/godip/variants/sengoku"
+	"github.com/zond/godip/variants/unconstitutional"
+
 )
 
 func init() {
@@ -33,7 +35,6 @@ var Variants = map[string]common.Variant{}
 var OrderedVariants = []common.Variant{
 	ancientmediterranean.AncientMediterraneanVariant,
 	canton.CantonVariant,
-	sengoku.SengokuVariant,
 	chaos.ChaosVariant,
 	classical.ClassicalVariant,
 	coldwar.ColdWarVariant,
@@ -44,7 +45,9 @@ var OrderedVariants = []common.Variant{
 	hundred.HundredVariant,
 	northseawars.NorthSeaWarsVariant,
 	pure.PureVariant,
+	sengoku.SengokuVariant,
 	twentytwenty.TwentyTwentyVariant,
+	unconstitutional.UnconstitutionalVariant,
 	vietnamwar.VietnamWarVariant,
 	westernworld901.WesternWorld901Variant,
 	year1908.Year1908Variant,

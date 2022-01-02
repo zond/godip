@@ -2,10 +2,23 @@
 START_YEAR: 1805
 # The starting units
 START_UNITS:
+  Muskogee Confederacy:
+    Army: ['Tukabatchee','Cusseta']
+    Fleet: ['Miccosukee']
+  New York:
+    Army: ['Albany']
+    Fleet: ['New York City','Long Island']
   Pennsylvania:
-    Army: ['Choctaw']
-  SouthCarolina:
-    Army: ['Saint Louis']
+    Army: ['Pittsburgh','Harrisburg','York']
+    Fleet: ['Philadelphia']
+  South Carolina:
+    Army: ['Columbia','Beaufort']
+    Fleet: ['Charleston']
+  Virginia:
+    Army: ['Alexandria','Charlottesville','Richmond']
+    Fleet: ['Williamsburg']
+  Western Confederacy:
+    Army: ['Prophetstown','Kekionga','Wapakoneta']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
     'Gulf of Gonave': 'gul'
