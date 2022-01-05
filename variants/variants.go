@@ -20,6 +20,7 @@ import (
 	"github.com/zond/godip/variants/year1908"
 	"github.com/zond/godip/variants/youngstownredux"
 	"github.com/zond/godip/variants/sengoku"
+	"github.com/zond/godip/variants/southamerica"
 )
 
 func init() {
@@ -33,6 +34,7 @@ var Variants = map[string]common.Variant{}
 var OrderedVariants = []common.Variant{
 	ancientmediterranean.AncientMediterraneanVariant,
 	canton.CantonVariant,
+	southamerica.SouthAmericaVariant,
 	sengoku.SengokuVariant,
 	chaos.ChaosVariant,
 	classical.ClassicalVariant,
