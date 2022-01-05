@@ -3,9 +3,11 @@ START_YEAR: 1901
 # The starting units
 START_UNITS:
   Brazil:
-    Army: ['Belem']
+    Army: ['Manaus','Rio de Janeiro']
+    Fleet: ['Belem']
   Columbia:
-    Fleet: ['Guyana']
+    Army: ['Medellin','Bogota']
+    Fleet: ['Barranquilla']
 
 
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).

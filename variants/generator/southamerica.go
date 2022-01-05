@@ -26,8 +26,8 @@ var SouthAmericaVariant = common.Variant{
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
 	UnitTypes:         classical.UnitTypes,
-	SoloWinner:        common.SCCountWinner(4),
-	SoloSCCount:       func(*state.State) int { return 4 },
+	SoloWinner:        common.SCCountWinner(5),
+	SoloSCCount:       func(*state.State) int { return 5 },
 	ProvinceLongNames: provinceLongNames,
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/southamericamap.svg")
@@ -55,13 +55,21 @@ func SouthAmericaStart() (result *state.State, err error) {
 	startPhase := classical.NewPhase(1901, godip.Spring, godip.Movement)
 	result = SouthAmericaBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
-		"bel": godip.Unit{godip.Army, Brazil},
-		"guy": godip.Unit{godip.Fleet, Columbia},
+		"bel": godip.Unit{godip.Fleet, Brazil},
+		"man": godip.Unit{godip.Army, Brazil},
+		"rdj": godip.Unit{godip.Army, Brazil},
+		"bar": godip.Unit{godip.Fleet, Columbia},
+		"med": godip.Unit{godip.Army, Columbia},
+		"bog": godip.Unit{godip.Army, Columbia},
 	}); err != nil {
 		return
 	}
 	result.SetSupplyCenters(map[godip.Province]godip.Nation{
-		"guy": Columbia,
+		"bel": Brazil,
+		"rdj": Brazil,
+		"bar": Columbia,
+		"med": Columbia,
+		"bog": Columbia,
 	})
 	return
 }
@@ -69,55 +77,79 @@ func SouthAmericaStart() (result *state.State, err error) {
 func SouthAmericaGraph() *graph.Graph {
 	return graph.New().
 		// Belem
-		Prov("bel").Conn("mid", godip.Sea).Conn("sou", godip.Sea).Conn("bra", godip.Sea).Flag(godip.Sea).
+		Prov("bel").Conn("ror", godip.Land).Conn("acr", godip.Land).Conn("goi", godip.Land).Conn("rdj", godip.Coast...).Conn("sou", godip.Sea).Conn("bra", godip.Sea).Conn("guy", godip.Coast...).Flag(godip.Coast...).SC(Brazil).
+		// Cordillera Oriental
+		Prov("cor").Conn("val", godip.Coast...).Conn("mid", godip.Sea).Conn("ama", godip.Coast...).Conn("bog", godip.Land).Flag(godip.Coast...).
+		// Roraima
+		Prov("ror").Conn("bel", godip.Land).Conn("guy", godip.Land).Conn("caa", godip.Land).Conn("ori", godip.Land).Conn("man", godip.Land).Conn("acr", godip.Land).Flag(godip.Land).
+		// Rio de Janeiro
+		Prov("rdj").Conn("bel", godip.Coast...).Conn("goi", godip.Land).Conn("rgd", godip.Coast...).Conn("sou", godip.Sea).Flag(godip.Coast...).SC(Brazil).
+		// Costa Rica
+		Prov("cos").Conn("mid", godip.Sea).Conn("pan", godip.Coast...).Conn("cas", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		// Mid Atlantic Ocean
+		Prov("mid").Conn("bra", godip.Sea).Conn("sou", godip.Sea).Conn("rgd", godip.Sea).Conn("goi", godip.Sea).Conn("mat", godip.Sea).Conn("man", godip.Sea).Conn("ama", godip.Sea).Conn("cor", godip.Sea).Conn("val", godip.Sea).Conn("med", godip.Sea).Conn("pan", godip.Sea).Conn("cos", godip.Sea).Flag(godip.Sea).
+		// Mato Grosso
+		Prov("mat").Conn("man", godip.Coast...).Conn("mid", godip.Sea).Conn("goi", godip.Coast...).Conn("acr", godip.Land).Flag(godip.Coast...).
+		// Bogota
+		Prov("bog").Conn("ori", godip.Land).Conn("tru", godip.Land).Conn("bar", godip.Land).Conn("med", godip.Land).Conn("val", godip.Land).Conn("cor", godip.Land).Conn("ama", godip.Land).Flag(godip.Land).SC(Columbia).
+		// Amazon Basin
+		Prov("ama").Conn("cor", godip.Coast...).Conn("mid", godip.Sea).Conn("man", godip.Coast...).Conn("ori", godip.Land).Conn("bog", godip.Land).Flag(godip.Coast...).
+		// Goias
+		Prov("goi").Conn("acr", godip.Land).Conn("mat", godip.Coast...).Conn("mid", godip.Sea).Conn("rgd", godip.Coast...).Conn("rdj", godip.Land).Conn("bel", godip.Land).Flag(godip.Coast...).
+		// Caracas
+		Prov("caa").Conn("ror", godip.Land).Conn("guy", godip.Coast...).Conn("bra", godip.Sea).Conn("cas", godip.Sea).Conn("tru", godip.Coast...).Conn("ori", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
+		// Manaus
+		Prov("man").Conn("mat", godip.Coast...).Conn("acr", godip.Land).Conn("ror", godip.Land).Conn("ori", godip.Land).Conn("ama", godip.Coast...).Conn("mid", godip.Sea).Flag(godip.Coast...).
 		// Caribbean Sea
 		Prov("cas").Conn("cos", godip.Sea).Conn("pan", godip.Sea).Conn("bar", godip.Sea).Conn("tru", godip.Sea).Conn("caa", godip.Sea).Conn("bra", godip.Sea).Flag(godip.Sea).
-		// Mid Atlantic Ocean
-		Prov("mid").Conn("sou", godip.Sea).Conn("bel", godip.Sea).Conn("bra", godip.Sea).Conn("guy", godip.Coast...).Conn("sou", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		// Medellin
+		Prov("med").Conn("pan", godip.Coast...).Conn("mid", godip.Sea).Conn("val", godip.Coast...).Conn("bog", godip.Land).Conn("bar", godip.Land).Flag(godip.Coast...).SC(Columbia).
 		// Trujillo
 		Prov("tru").Conn("bar", godip.Coast...).Conn("bog", godip.Land).Conn("ori", godip.Land).Conn("caa", godip.Coast...).Conn("cas", godip.Sea).Flag(godip.Coast...).
-		// Barranquilla
-		Prov("bar").Conn("tru", godip.Coast...).Conn("cas", godip.Sea).Conn("pan", godip.Coast...).Conn("med", godip.Land).Conn("bog", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
-		// Cordillera Oriental
-		Prov("cor").Conn("bog", godip.Coast...).Conn("val", godip.Coast...).Conn("sou", godip.Sea).Flag(godip.Coast...).
-		// Brazilian Sea
-		Prov("bra").Conn("cas", godip.Sea).Conn("caa", godip.Sea).Conn("guy", godip.Sea).Conn("mid", godip.Sea).Conn("bel", godip.Sea).Conn("sou", godip.Sea).Flag(godip.Sea).
-		// Bogota
-		Prov("bog").Conn("ori", godip.Coast...).Conn("tru", godip.Land).Conn("bar", godip.Land).Conn("med", godip.Coast...).Conn("val", godip.Coast...).Conn("cor", godip.Coast...).Conn("sou", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
-		// Southwest Atlantic
-		Prov("sou").Conn("bra", godip.Sea).Conn("bel", godip.Sea).Conn("mid", godip.Sea).Conn("mid", godip.Sea).Conn("guy", godip.Sea).Conn("caa", godip.Sea).Conn("ori", godip.Sea).Conn("ori", godip.Sea).Conn("bog", godip.Sea).Conn("cor", godip.Sea).Conn("val", godip.Sea).Conn("med", godip.Sea).Conn("pan", godip.Sea).Conn("cos", godip.Sea).Flag(godip.Sea).
-		// Panama
-		Prov("pan").Conn("med", godip.Coast...).Conn("bar", godip.Coast...).Conn("cas", godip.Sea).Conn("cos", godip.Coast...).Conn("sou", godip.Sea).Flag(godip.Coast...).
-		// Caracas
-		Prov("caa").Conn("sou", godip.Sea).Conn("guy", godip.Coast...).Conn("bra", godip.Sea).Conn("cas", godip.Sea).Conn("tru", godip.Coast...).Conn("ori", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Guyana
-		Prov("guy").Conn("sou", godip.Sea).Conn("mid", godip.Coast...).Conn("bra", godip.Sea).Conn("caa", godip.Coast...).Flag(godip.Coast...).SC(Columbia).
-		// Medellin
-		Prov("med").Conn("pan", godip.Coast...).Conn("sou", godip.Sea).Conn("val", godip.Coast...).Conn("bog", godip.Coast...).Conn("bar", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("guy").Conn("caa", godip.Coast...).Conn("ror", godip.Land).Conn("bel", godip.Coast...).Conn("bra", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		// Panama
+		Prov("pan").Conn("med", godip.Coast...).Conn("bar", godip.Coast...).Conn("cas", godip.Sea).Conn("cos", godip.Coast...).Conn("mid", godip.Sea).Flag(godip.Coast...).
 		// Valle Magdalena
-		Prov("val").Conn("sou", godip.Sea).Conn("cor", godip.Coast...).Conn("bog", godip.Coast...).Conn("med", godip.Coast...).Flag(godip.Coast...).
+		Prov("val").Conn("mid", godip.Sea).Conn("cor", godip.Coast...).Conn("bog", godip.Land).Conn("med", godip.Coast...).Flag(godip.Coast...).
+		// Southwest Atlantic
+		Prov("sou").Conn("mid", godip.Sea).Conn("bra", godip.Sea).Conn("bel", godip.Sea).Conn("rdj", godip.Sea).Conn("rgd", godip.Sea).Flag(godip.Sea).
+		// Acre
+		Prov("acr").Conn("goi", godip.Land).Conn("bel", godip.Land).Conn("ror", godip.Land).Conn("man", godip.Land).Conn("mat", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		// Rio Grande do Sul
+		Prov("rgd").Conn("mid", godip.Sea).Conn("sou", godip.Sea).Conn("rdj", godip.Coast...).Conn("goi", godip.Coast...).Flag(godip.Coast...).
+		// Barranquilla
+		Prov("bar").Conn("tru", godip.Coast...).Conn("cas", godip.Sea).Conn("pan", godip.Coast...).Conn("med", godip.Land).Conn("bog", godip.Land).Flag(godip.Coast...).SC(Columbia).
+		// Brazilian Sea
+		Prov("bra").Conn("cas", godip.Sea).Conn("caa", godip.Sea).Conn("guy", godip.Sea).Conn("bel", godip.Sea).Conn("sou", godip.Sea).Conn("mid", godip.Sea).Flag(godip.Sea).
 		// Orinoco Springs
-		Prov("ori").Conn("sou", godip.Sea).Conn("caa", godip.Coast...).Conn("tru", godip.Land).Conn("bog", godip.Coast...).Conn("sou", godip.Sea).Flag(godip.Coast...).
-		// Costa Rica
-		Prov("cos").Conn("sou", godip.Sea).Conn("pan", godip.Coast...).Conn("cas", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("ori").Conn("bog", godip.Land).Conn("ama", godip.Land).Conn("man", godip.Land).Conn("ror", godip.Land).Conn("caa", godip.Land).Conn("tru", godip.Land).Flag(godip.Land).
 		Done()
 }
 
 var provinceLongNames = map[godip.Province]string{
 	"bel": "Belem",
-	"cas": "Caribbean Sea",
-	"mid": "Mid Atlantic Ocean",
-	"tru": "Trujillo",
-	"bar": "Barranquilla",
 	"cor": "Cordillera Oriental",
-	"bra": "Brazilian Sea",
-	"bog": "Bogota",
-	"sou": "Southwest Atlantic",
-	"pan": "Panama",
-	"caa": "Caracas",
-	"guy": "Guyana",
-	"med": "Medellin",
-	"val": "Valle Magdalena",
-	"ori": "Orinoco Springs",
+	"ror": "Roraima",
+	"rdj": "Rio de Janeiro",
 	"cos": "Costa Rica",
+	"mid": "Mid Atlantic Ocean",
+	"mat": "Mato Grosso",
+	"bog": "Bogota",
+	"ama": "Amazon Basin",
+	"goi": "Goias",
+	"caa": "Caracas",
+	"man": "Manaus",
+	"cas": "Caribbean Sea",
+	"med": "Medellin",
+	"tru": "Trujillo",
+	"guy": "Guyana",
+	"pan": "Panama",
+	"val": "Valle Magdalena",
+	"sou": "Southwest Atlantic",
+	"acr": "Acre",
+	"rgd": "Rio Grande do Sul",
+	"bar": "Barranquilla",
+	"bra": "Brazilian Sea",
+	"ori": "Orinoco Springs",
 }
