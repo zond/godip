@@ -2,9 +2,11 @@
 START_YEAR: 1901
 # The starting units
 START_UNITS:
-  Britain:
-    Army: ['Calcutta', 'Delhi']
-    Fleet: ['Madras']
+  Brazil:
+    Army: ['Belem']
+  Columbia:
+    Fleet: ['Guyana']
+
 
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
