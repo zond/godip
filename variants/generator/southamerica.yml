@@ -2,6 +2,9 @@
 START_YEAR: 1901
 # The starting units
 START_UNITS:
+  Argentina:
+    Army: ['Santa Fe','Mar del Plata']
+    Fleet: ['Buenos Aires']
   Brazil:
     Army: ['Manaus','Rio de Janeiro']
     Fleet: ['Belem']

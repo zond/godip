@@ -9,13 +9,14 @@ import (
 )
 
 const (
-	Brazil   godip.Nation = "Brazil"
-	Columbia godip.Nation = "Columbia"
-	Chile    godip.Nation = "Chile"
-	Peru     godip.Nation = "Peru"
+	Brazil    godip.Nation = "Brazil"
+	Argentina godip.Nation = "Argentina"
+	Columbia  godip.Nation = "Columbia"
+	Chile     godip.Nation = "Chile"
+	Peru      godip.Nation = "Peru"
 )
 
-var Nations = []godip.Nation{Brazil, Columbia, Chile, Peru}
+var Nations = []godip.Nation{Brazil, Argentina, Columbia, Chile, Peru}
 
 var SouthAmericaVariant = common.Variant{
 	Name:              "South America",
@@ -60,6 +61,9 @@ func SouthAmericaStart() (result *state.State, err error) {
 		"bel": godip.Unit{godip.Fleet, Brazil},
 		"man": godip.Unit{godip.Army, Brazil},
 		"rdj": godip.Unit{godip.Army, Brazil},
+		"bue": godip.Unit{godip.Fleet, Argentina},
+		"saf": godip.Unit{godip.Army, Argentina},
+		"mar": godip.Unit{godip.Army, Argentina},
 		"bar": godip.Unit{godip.Fleet, Columbia},
 		"med": godip.Unit{godip.Army, Columbia},
 		"bog": godip.Unit{godip.Army, Columbia},
@@ -75,6 +79,9 @@ func SouthAmericaStart() (result *state.State, err error) {
 	result.SetSupplyCenters(map[godip.Province]godip.Nation{
 		"bel": Brazil,
 		"rdj": Brazil,
+		"bue": Argentina,
+		"saf": Argentina,
+		"mar": Argentina,
 		"bar": Columbia,
 		"med": Columbia,
 		"bog": Columbia,
@@ -146,7 +153,7 @@ func SouthAmericaGraph() *graph.Graph {
 		// Galapagos Sea
 		Prov("gal").Conn("chi", godip.Sea).Conn("ecu", godip.Sea).Conn("gol", godip.Sea).Conn("pan", godip.Sea).Conn("cos", godip.Sea).Conn("sop", godip.Sea).Conn("bda", godip.Sea).Conn("lim", godip.Sea).Flag(godip.Sea).
 		// Santa Fe
-		Prov("saf").Conn("bue", godip.Land).Conn("uru", godip.Land).Conn("rgd", godip.Land).Conn("mes", godip.Land).Conn("gra", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("saf").Conn("bue", godip.Land).Conn("uru", godip.Land).Conn("rgd", godip.Land).Conn("mes", godip.Land).Conn("gra", godip.Land).Flag(godip.Land).SC(Argentina).
 		// Caribbean Sea
 		Prov("cas").Conn("cos", godip.Sea).Conn("pan", godip.Sea).Conn("bar", godip.Sea).Conn("tru", godip.Sea).Conn("caa", godip.Sea).Conn("bra", godip.Sea).Flag(godip.Sea).
 		// Lima
@@ -174,7 +181,7 @@ func SouthAmericaGraph() *graph.Graph {
 		// Bahia da Arica
 		Prov("bda").Conn("ant", godip.Sea).Conn("des", godip.Sea).Conn("are", godip.Sea).Conn("lim", godip.Sea).Conn("gal", godip.Sea).Conn("sop", godip.Sea).Conn("isl", godip.Sea).Conn("bdc", godip.Sea).Flag(godip.Sea).
 		// Buenos Aires
-		Prov("bue").Conn("saf", godip.Land).Conn("gra", godip.Land).Conn("pam", godip.Land).Conn("mar", godip.Coast...).Conn("coa", godip.Sea).Conn("uru", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("bue").Conn("saf", godip.Land).Conn("gra", godip.Land).Conn("pam", godip.Land).Conn("mar", godip.Coast...).Conn("coa", godip.Sea).Conn("uru", godip.Coast...).Flag(godip.Coast...).SC(Argentina).
 		// Golfo da Panama
 		Prov("gol").Conn("med", godip.Sea).Conn("pan", godip.Sea).Conn("gal", godip.Sea).Conn("ecu", godip.Sea).Conn("val", godip.Sea).Flag(godip.Sea).
 		// Mesopotamia
@@ -186,7 +193,7 @@ func SouthAmericaGraph() *graph.Graph {
 		// Scotia Sea
 		Prov("sco").Conn("soa", godip.Sea).Conn("tie", godip.Sea).Conn("pat", godip.Sea).Conn("bdc", godip.Sea).Conn("isl", godip.Sea).Conn("sop", godip.Sea).Flag(godip.Sea).
 		// Mar del Plata
-		Prov("mar").Conn("coa", godip.Sea).Conn("bue", godip.Coast...).Conn("pam", godip.Land).Conn("con", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("mar").Conn("coa", godip.Sea).Conn("bue", godip.Coast...).Conn("pam", godip.Land).Conn("con", godip.Coast...).Flag(godip.Coast...).SC(Argentina).
 		// Brazilian Sea
 		Prov("bra").Conn("cas", godip.Sea).Conn("caa", godip.Sea).Conn("guy", godip.Sea).Conn("bel", godip.Sea).Conn("mid", godip.Sea).Conn("soa", godip.Sea).Flag(godip.Sea).
 		// Antofagasta
