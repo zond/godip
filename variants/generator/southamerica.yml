@@ -8,7 +8,9 @@ START_UNITS:
   Columbia:
     Army: ['Medellin','Bogota']
     Fleet: ['Barranquilla']
-
+  Peru:
+    Army: ['Chiclayo','Arequipa']
+    Fleet: ['Lima']
 
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
