@@ -53,6 +53,15 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 
 var SengokuVariant = common.Variant{
 	Name:              "Sengoku",
+	NationColors: map[godip.Nation]string{
+		Takeda:       "#9A0000",
+		Mori:         "#F6685B",
+		Chosokabe:    "#6A9B4E",
+		Hojo:         "#2E6085",
+		Oda:          "#E6C83C",
+		Shimazu:      "#404040",
+		Uesugi:       "#C67931",
+	},
 	Graph:             func() godip.Graph { return SengokuGraph() },
 	Start:             SengokuStart,
 	Blank:             SengokuBlank,
