@@ -90,7 +90,7 @@ var SengokuVariant = common.Variant{
 	CreatedBy:   "Benjamin Hester",
 	Version:     "1.0",
 	Description: "Battle it out during the Sengoku (warring states) period of 16th Century Japan which collapsed the feudal system under the Ashikaga Shogunate. Select one of seven clans to become the new Shogun.",
-	Rules:       "The first to 25 Supply Centers (SC) is the winner. Units may be built at any owned SC. There are 6 bridges connecting provinces (dashed lines) across the water.",
+	Rules:       "The first to 25 Supply Centers (SC) is the winner. Units may be built at any owned SC. There are 6 bridges connecting provinces (dashed lines) across the water. These represent a direct connection between the two provinces separated by water and can be used by both armies and fleets.",
 }
 
 func SengokuBlank(phase godip.Phase) *state.State {
