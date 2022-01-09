@@ -69,7 +69,7 @@ var SengokuVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/sengokumap.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")
