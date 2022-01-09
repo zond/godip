@@ -79,10 +79,10 @@ var HundredVariant = common.Variant{
 	SVGVersion: "6",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
+			return Asset("svg/army.svg")
 		},
 		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
+			return Asset("svg/fleet.svg")
 		},
 	},
 	SVGFlags: map[godip.Nation]func() ([]byte, error){
