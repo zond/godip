@@ -78,6 +78,7 @@ var SengokuVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "Benjamin Hester",
 	Version:     "1.0",
 	Description: "Battle it out during the Sengoku (warring states) period of 16th Century Japan which collapsed the feudal system under the Ashikaga Shogunate. Select one of seven clans to become the new Shogun.",
