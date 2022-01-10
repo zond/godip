@@ -184,10 +184,11 @@ func TestSuggestedMoveBaleares(t *testing.T) {
 
 }
 
-func TestIsauriaToAegean(t *testing.T) {
+func TestIsauriaToAegeanAndMinoan(t *testing.T) {
 	judge := startState(t)
 
-	// Test can't sail from Isauria to the Aegean Sea.
+	// Test can't sail from Isauria to the Aegean or Minoan Seas.
 	judge.SetUnit("isa", godip.Unit{godip.Fleet, Rome})
 	tst.AssertOrderValidity(t, judge, orders.Move("isa", "aeg"), "", godip.ErrIllegalMove)
+	tst.AssertOrderValidity(t, judge, orders.Move("isa", "min"), "", godip.ErrIllegalMove)
 }
