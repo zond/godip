@@ -3,11 +3,12 @@ package sengoku
 import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
-	"github.com/zond/godip/state"
 	"github.com/zond/godip/phase"
+	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
 	"github.com/zond/godip/variants/hundred"
+	"github.com/zond/godip/variants/westernworld901"
 )
 
 const (
@@ -52,15 +53,15 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 }
 
 var SengokuVariant = common.Variant{
-	Name:              "Sengoku",
+	Name: "Sengoku",
 	NationColors: map[godip.Nation]string{
-		Takeda:       "#9A0000",
-		Mori:         "#F6685B",
-		Chosokabe:    "#6A9B4E",
-		Hojo:         "#2E6085",
-		Oda:          "#E6C83C",
-		Shimazu:      "#404040",
-		Uesugi:       "#C67931",
+		Takeda:    "#9A0000",
+		Mori:      "#F6685B",
+		Chosokabe: "#6A9B4E",
+		Hojo:      "#2E6085",
+		Oda:       "#E6C83C",
+		Shimazu:   "#404040",
+		Uesugi:    "#C67931",
 	},
 	Graph:             func() godip.Graph { return SengokuGraph() },
 	Start:             SengokuStart,
@@ -77,7 +78,7 @@ var SengokuVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/sengokumap.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")
@@ -90,13 +91,16 @@ var SengokuVariant = common.Variant{
 	CreatedBy:   "Benjamin Hester",
 	Version:     "1.0",
 	Description: "Battle it out during the Sengoku (warring states) period of 16th Century Japan which collapsed the feudal system under the Ashikaga Shogunate. Select one of seven clans to become the new Shogun.",
-	Rules:       "The first to 25 Supply Centers (SC) is the winner. Units may be built at any owned SC. There are 6 bridges connecting provinces (dashed lines) across the water. These represent a direct connection between the two provinces separated by water and can be used by both armies and fleets.",
+	Rules: `The first to 25 Supply Centers (SC) is the winner. 
+Units may be built at any owned SC. 
+There are 6 bridges connecting provinces (dashed lines) across the water. 
+These represent a direct connection between the two provinces separated by water and can be used by both armies and fleets. 
+There is a neutral army which will only ever issue orders to hold, disband or rebuild armies.`,
 }
 
 func SengokuBlank(phase godip.Phase) *state.State {
-	return state.New(SengokuGraph(), phase, classical.BackupRule, map[godip.Flag]bool{godip.Anywhere: true}, nil)
+	return state.New(SengokuGraph(), phase, classical.BackupRule, map[godip.Flag]bool{godip.Anywhere: true}, westernworld901.NeutralOrders)
 }
-
 
 func SengokuStart() (result *state.State, err error) {
 	startPhase := Phase(1570, godip.Spring, godip.Movement)

@@ -14,12 +14,12 @@ import (
 	"github.com/zond/godip/variants/hundred"
 	"github.com/zond/godip/variants/northseawars"
 	"github.com/zond/godip/variants/pure"
+	"github.com/zond/godip/variants/sengoku"
 	"github.com/zond/godip/variants/twentytwenty"
 	"github.com/zond/godip/variants/vietnamwar"
 	"github.com/zond/godip/variants/westernworld901"
 	"github.com/zond/godip/variants/year1908"
 	"github.com/zond/godip/variants/youngstownredux"
-	"github.com/zond/godip/variants/sengoku"
 )
 
 func init() {

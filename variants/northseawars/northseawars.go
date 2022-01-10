@@ -6,6 +6,7 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
 )
 
 const (
@@ -42,23 +43,16 @@ var NorthSeaWarsVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/northseawarsmap.svg")
 	},
-	SVGVersion: "6",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "8",
+	SVGUnits:    hundred.SVGUnits,
 	CreatedBy:   "sqrg",
 	Version:     "1",
 	Description: "A battle for trade routes in the North Sea.",
 	SoloSCCount: func(*state.State) int { return 8 },
 	Rules: `First to 8 Supply Centers (SC) is the winner.
-	Units can move from Central North Sea to three trade provinces containing SCs – Wood, Iron and Grain. Units in the trade provinces can move freely between them, but can’t return back to Central North Sea.
-	Jutland has a dual coast.
-	Sealand has land access to all neighbouring spaces (including Limfjorden) and naval access to Jutland (East Coast), but not Amsivaria.`,
+Units can move from Central North Sea to three trade provinces containing SCs – Wood, Iron and Grain. Units in the trade provinces can move freely between them, but can’t return back to Central North Sea.
+Jutland has a dual coast.
+Sealand has land access to all neighbouring spaces (including Limfjorden) and naval access to Jutland (East Coast), but not Amsivaria.`,
 }
 
 func NorthSeaWarsBlank(phase godip.Phase) *state.State {
