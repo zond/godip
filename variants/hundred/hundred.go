@@ -27,6 +27,15 @@ var BuildAnywhereParser = orders.NewParser([]godip.Order{
 	orders.ConvoyOrder,
 })
 
+var SVGUnits = map[godip.UnitType]func() ([]byte, error){
+	godip.Army: func() ([]byte, error) {
+		return Asset("svg/army.svg")
+	},
+	godip.Fleet: func() ([]byte, error) {
+		return Asset("svg/fleet.svg")
+	},
+}
+
 var HundredVariant = common.Variant{
 	Name:   "Hundred",
 	Graph:  func() godip.Graph { return HundredGraph() },
@@ -77,14 +86,7 @@ var HundredVariant = common.Variant{
 		return Asset("svg/hundredmap.svg")
 	},
 	SVGVersion: "6",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return Asset("svg/fleet.svg")
-		},
-	},
+	SVGUnits:   SVGUnits,
 	SVGFlags: map[godip.Nation]func() ([]byte, error){
 		England: func() ([]byte, error) {
 			return Asset("svg/England.svg")

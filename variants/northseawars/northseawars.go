@@ -6,6 +6,7 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
 )
 
 const (
@@ -42,15 +43,8 @@ var NorthSeaWarsVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/northseawarsmap.svg")
 	},
-	SVGVersion: "7",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "8",
+	SVGUnits:    hundred.SVGUnits,
 	CreatedBy:   "sqrg",
 	Version:     "1",
 	Description: "A battle for trade routes in the North Sea.",
