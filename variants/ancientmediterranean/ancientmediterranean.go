@@ -33,14 +33,14 @@ var AncientMediterraneanVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/ancientmediterraneanmap.svg")
 	},
-	SVGVersion:        "5",
+	SVGVersion:        "6",
 	ProvinceLongNames: provinceLongNames,
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
+			return Asset("svg/army.svg")
 		},
 		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
+			return Asset("svg/fleet.svg")
 		},
 	},
 	CreatedBy:   "Don Hessong",
@@ -48,9 +48,9 @@ var AncientMediterraneanVariant = common.Variant{
 	Description: "Five historical nations battle for dominance of the Mediterranean.",
 	SoloSCCount: func(*state.State) int { return 18 },
 	Rules: `First to 18 Supply Centers (SC) is the winner. 
-Baleares is an archipelago that can be occupied by armies or fleets. Armies can’t move directly from the mainland to Baleares, and a fleet in Baleares can form part of a convoy chain. 
-The canal between Athens and Sparta is passable for armies (thus Athens has a single coast). The same is true for the canals in Byzantium, the Sicilian Straits and the River Nile. 
-There is a four-way connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium.`,
+	Baleares is an archipelago that can be occupied by armies or fleets. Armies can’t move directly from the mainland to Baleares, and a fleet in Baleares can form part of a convoy chain. 
+	The canal between Athens and Sparta is passable for armies (thus Athens has a single coast). The same is true for the canals in Byzantium, the Sicilian Straits and the River Nile. 
+	There is a four-way connection between the Ausonian Sea, Messenian Sea, Gulf of Tacape and Libyan Sea. There is another four-way connection between Alexandria, Sinai, Thebes and the Gulf of Pelusium.`,
 }
 
 func AncientMediterraneanBlank(phase godip.Phase) *state.State {
