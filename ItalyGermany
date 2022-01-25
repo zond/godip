@@ -52,7 +52,7 @@ var ItalyGermanyVariant = common.Variant{
 	Blank:             classical.Blank,
 	Phase:             classical.NewPhase,
 	Parser:            classical.Parser,
-	Nations:           []godip.Nation{godip.Austria, godip.France},
+	Nations:           []godip.Nation{godip.Germany, godip.Italy},
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
 	UnitTypes:         classical.UnitTypes,
