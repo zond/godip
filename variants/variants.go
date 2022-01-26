@@ -12,6 +12,7 @@ import (
 	"github.com/zond/godip/variants/fleetrome"
 	"github.com/zond/godip/variants/franceaustria"
 	"github.com/zond/godip/variants/hundred"
+	"github.com/zond/godip/variants/italygermany"
 	"github.com/zond/godip/variants/northseawars"
 	"github.com/zond/godip/variants/pure"
 	"github.com/zond/godip/variants/sengoku"
@@ -42,6 +43,7 @@ var OrderedVariants = []common.Variant{
 	fleetrome.FleetRomeVariant,
 	franceaustria.FranceAustriaVariant,
 	hundred.HundredVariant,
+	italygermany.ItalyGermanyVariant,
 	northseawars.NorthSeaWarsVariant,
 	pure.PureVariant,
 	twentytwenty.TwentyTwentyVariant,
