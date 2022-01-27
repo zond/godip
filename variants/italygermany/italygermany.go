@@ -12,7 +12,7 @@ var ItalyGermanyVariant = common.Variant{
 	Name: "Italy vs Germany",
 	Graph: func() godip.Graph {
 		okNations := map[godip.Nation]bool{
-			godip.Italy:  true,
+			godip.Italy:   true,
 			godip.Germany: true,
 			godip.Neutral: true,
 		}
@@ -49,10 +49,14 @@ var ItalyGermanyVariant = common.Variant{
 		})
 		return
 	},
-	Blank:             classical.Blank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
-	Nations:           []godip.Nation{godip.Germany, godip.Italy},
+	Blank:   classical.Blank,
+	Phase:   classical.NewPhase,
+	Parser:  classical.Parser,
+	Nations: []godip.Nation{godip.Germany, godip.Italy},
+	NationColors: map[godip.Nation]string{
+		godip.Italy:   "#4CAF50",
+		godip.Germany: "#212121",
+	},
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
 	UnitTypes:         classical.UnitTypes,
