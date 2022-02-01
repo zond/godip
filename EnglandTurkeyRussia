@@ -1,0 +1,86 @@
+package EnglandTurkeyRussia
+
+import (
+	"github.com/zond/godip"
+	"github.com/zond/godip/state"
+	"github.com/zond/godip/variants/classical"
+	"github.com/zond/godip/variants/classical/start"
+	"github.com/zond/godip/variants/common"
+)
+
+var EnglandTurkeyRussiaVariant = common.Variant{
+	Name: "England vs Turkey vs Russia",
+	Graph: func() godip.Graph {
+		okNations := map[godip.Nation]bool{
+			godip.Enland:   true,
+			godip.Turkey: true,
+      godip.Russia:  true,
+			godip.Neutral: true,
+		}
+		neutral := godip.Neutral
+		result := start.Graph()
+		for _, node := range result.Nodes {
+			if node.SC != nil && !okNations[*node.SC] {
+				node.SC = &neutral
+			}
+		}
+		return result
+	},
+	Start: func() (result *state.State, err error) {
+		if result, err = classical.Start(); err != nil {
+			return
+		}
+		if err = result.SetUnits(map[godip.Province]godip.Unit{
+			"lon": godip.Unit{godip.Fleet, godip.England},
+			"lvp": godip.Unit{godip.Army, godip.England},
+			"edi": godip.Unit{godip.Fleet, godip.England},
+			"ank": godip.Unit{godip.Fleet, godip.Turkey},
+			"con": godip.Unit{godip.Army, godip.Turkey},
+			"smy": godip.Unit{godip.Army, godip.Turkey},
+      "stp": godip.Unit{godip.Fleet, godip.Russia},
+      "mos": godip.Unit{godip.Army, godip.Russia},
+      "war": godip.Unit{godip.Army, godip.Russia},
+      "sev": godip.Unit{godip.Fleet, godip.Russia},
+		}); err != nil {
+			return
+		}
+		result.SetSupplyCenters(map[godip.Province]godip.Nation{
+			"lon": godip.England,
+      "lvp": godip.England,
+			"edi": godip.England,
+      "ank": godip.Turkey,
+			"con": godip.Turkey,
+			"smy": godip.Turkey,
+      "stp": godip.Russia,
+      "mos": godip.Russia,
+      "war": godip.Russia,
+      "sev": godip.Russia,
+		})
+		return
+	},
+	Blank:   classical.Blank,
+	Phase:   classical.NewPhase,
+	Parser:  classical.Parser,
+	Nations: []godip.Nation{godip.Russia, godip.Turkey, godip.England},
+	NationColors: map[godip.Nation]string{
+		godip.England: "#2196F3",
+		godip.Turkey: "#FFC107",
+    godip.Russia:  "#F5F5F5",
+	},
+	PhaseTypes:        classical.PhaseTypes,
+	Seasons:           classical.Seasons,
+	UnitTypes:         classical.UnitTypes,
+	SoloWinner:        common.SCCountWinner(18),
+	ProvinceLongNames: classical.ClassicalVariant.ProvinceLongNames,
+	SVGMap: func() ([]byte, error) {
+		return classical.Asset("svg/map.svg")
+	},
+	SVGVersion:  "1",
+	SVGUnits:    classical.SVGUnits,
+	CreatedBy:   "",
+	Version:     "",
+	Description: "A three player variant on the classical map.",
+	SoloSCCount: func(*state.State) int { return 18 },
+	Rules: `The first to 18 supply centers is the winner. 
+The game only has three nations: England and Turkey and Russia.`,
+}
