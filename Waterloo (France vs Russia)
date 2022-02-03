@@ -1,4 +1,4 @@
-package waterloofrancerussia
+package francerussia
 import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/state"
@@ -7,8 +7,8 @@ import (
 	"github.com/zond/godip/variants/common"
 )
 
-var ItalyGermanyVariant = common.Variant{
-	Name: "Waterloo France vs Russia",
+var FranceRussiaVariant = common.Variant{
+	Name: "Waterloo (France vs Russia)",
 	Graph: func() godip.Graph {
 		okNations := map[godip.Nation]bool{
 			godip.France:   true,
@@ -29,32 +29,34 @@ var ItalyGermanyVariant = common.Variant{
 			return
 		}
 		if err = result.SetUnits(map[godip.Province]godip.Unit{
-			"nap": godip.Unit{godip.Fleet, godip.Italy},
-			"rom": godip.Unit{godip.Army, godip.Italy},
-			"ven": godip.Unit{godip.Army, godip.Italy},
-			"kie": godip.Unit{godip.Fleet, godip.Germany},
-			"ber": godip.Unit{godip.Army, godip.Germany},
-			"mun": godip.Unit{godip.Army, godip.Germany},
-		}); err != nil {
+			"bre": godip.Unit{godip.Fleet, godip.France},
+			"par": godip.Unit{godip.Army, godip.France},
+			"mar": godip.Unit{godip.Army, godip.France},
+			"stp": godip.Unit{godip.Fleet, godip.Russia},
+			"mos": godip.Unit{godip.Army, godip.Russia},
+			"war": godip.Unit{godip.Army, godip.Russia},
+			"sev": godip.Unit{godip.Fleet, godip.Russia},	
+			}); err != nil {
 			return
 		}
 		result.SetSupplyCenters(map[godip.Province]godip.Nation{
-			"nap": godip.Italy,
-			"rom": godip.Italy,
-			"ven": godip.Italy,
-      "kie": godip.Germany,
-			"ber": godip.Germany,
-			"mun": godip.Germany,
+			"bre": godip.France,
+			"par": godip.France,
+			"mar": godip.France,
+                        "stp": godip.Russia,
+			"mos": godip.Russia,
+			"war": godip.Russia,
+			"sev": godip.Russia,
 		})
 		return
 	},
 	Blank:   classical.Blank,
 	Phase:   classical.NewPhase,
 	Parser:  classical.Parser,
-	Nations: []godip.Nation{godip.Germany, godip.Italy},
+	Nations: []godip.Nation{godip.Russia, godip.France},
 	NationColors: map[godip.Nation]string{
-		godip.Italy:   "#4CAF50",
-		godip.Germany: "#212121",
+		godip.France:   "#80DEEA",
+		godip.Russia: "#F5F5F5",
 	},
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -71,6 +73,6 @@ var ItalyGermanyVariant = common.Variant{
 	Description: "A two player variant on the classical map.",
 	SoloSCCount: func(*state.State) int { return 18 },
 	Rules: `The first to 18 supply centers is the winner. 
-The game only has two nations: Italy and Germany.`,
+The game only has two nations: France and Russia.`,
 }
     
