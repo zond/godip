@@ -283,7 +283,8 @@ var YoungstownReduxVariant = common.Variant{
 	Rules: `First to 28 Supply Centers (SC) wins. If two nations have 28 SCs, the one with most wins. If drawn, the game continues an extra year.
 Fleets can move around the world via box sea regions, which are connected to the other ones in the same row and column. 
 Six provinces have dual coasts: Spain, St. Petersburg, Levant, Arabia, Hebei, and Thailand. 
-The Arctic region is impassable (Omsk & Siberia are land regions).`,
+The Arctic region is impassable (Omsk & Siberia are land regions).
+This variant is based on the Youngstown variant by Rod Walker, A. Phillips, Ken Lowe and Jon Monsarret.`,
 }
 
 func YoungstownReduxBlank(phase godip.Phase) *state.State {

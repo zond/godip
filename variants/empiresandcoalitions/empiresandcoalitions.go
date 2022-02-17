@@ -194,9 +194,9 @@ var EmpiresAndCoalitionsVariant = common.Variant{
 	Description: "Major and minor powers battle for control of Europe during the Napoleonic Wars.",
 	SoloSCCount: func(*state.State) int { return 23 },
 	Rules: `First to 23 Supply Centers (SC) is the winner.
-The British fleet from Liverpool starts in Gibraltar, which is not an SC.
 The four smallest nations (minor powers) start with only two units but can build on a third SC after they capture it. These are Sweden (Denmark), Papal States (Sicily), Portugal (Spain) and Egypt (Ottoman Empire).
 Armies & fleets can move between Palermo & Naples, Ireland & Edinburgh and Copenhagen & Sweden.
+The British fleet from Liverpool starts in Gibraltar, but this not an SC and Britain cannot build here.
 Armies can move from Gibraltar to Andalusia, but not Morocco. Fleets in Gibraltar can convoy.
 Four provinces have dual coasts: St. Petersburg, Schleswig, Andalusia and Papal States.`,
 }

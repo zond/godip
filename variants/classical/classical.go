@@ -205,7 +205,7 @@ var ClassicalVariant = common.Variant{
 	Description:       "The original Diplomacy.",
 	SoloSCCount:       func(*state.State) int { return 18 },
 	Rules: `The first to 18 Supply Centers (SC) is the winner. 
-Kiel and Constantinople have a canal, fleets can move through it. 
+Kiel and Constantinople have a canal, so fleets can exit on either side. 
 Armies can move from Denmark to Kiel.`,
 }
 

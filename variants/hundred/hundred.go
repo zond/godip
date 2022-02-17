@@ -104,7 +104,7 @@ var HundredVariant = common.Variant{
 	SoloSCCount: func(*state.State) int { return 9 },
 	Rules: `First to 9 Supply Centers (SC) is the winner.
 Units may be built on any owned SC.
-France starts with 5 units and 4 SC, so needs to disband unless they gain a center before 1430. 
+France starts with 5 units and 4 SCs, so needs to disband unless they gain a center before 1430.
 Yearly cycles of Spring & Fall are renamed to decade cycles with years ending with 5 and 0 respectively.
 Armies & fleets can move between London & Calais.
 Two provinces have dual coasts: Northumbria and Aragon.`,
