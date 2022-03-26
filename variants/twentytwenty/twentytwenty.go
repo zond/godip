@@ -265,7 +265,8 @@ var TwentyTwentyVariant = common.Variant{
 		}
 		return maxSCCount + extraSCsNeeded
 	},
-	Rules: `To win, a nation needs a number of Supply Centers (SC) more than any other nation at the end of a year. This starts with 20, but is reduced by 1 each year (in 2015 a nation needs six SC more, in 2020 only one). 
+	Rules: `To win, a nation needs a number of Supply Centers (SC) more than any other nation at the end of a year.
+In the first year they need a lead of 20 SCs, but this is reduced by 1 SC each year (in 2015 a nation needs a lead of six SCs, in 2020 and beyond only one SC).
 Alternatively, first to 49 SC wins.
 Units may be built on any captured home SC (but not previously neutral ones).
 Units & fleets can move between Anchorage & Vladivostok, New Orleans & Cuba, Cuba & Dominican Republic, Ethiopia & Yemen, Korea & Nagasaki, and Indonesia & Darwin.
