@@ -134,17 +134,17 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Prophetstown
 		Prov("pro").Conn("pen", godip.Land).Conn("wap", godip.Land).Conn("kek", godip.Land).Conn("pot", godip.Land).Conn("hoc", godip.Land).Conn("ill", godip.Land).Conn("sal", godip.Land).Conn("chi", godip.Land).Flag(godip.Land).SC(WesternConfederacy).
 		// Azua
-		Prov("azu").Conn("cib", godip.Land).Conn("art", godip.Land).Conn("por", godip.Coast...).Conn("gul", godip.Sea).Conn("sad", godip.Coast...).Flag(godip.Coast...).
+		Prov("azu").Conn("cib", godip.Land).Conn("art", godip.Land).Conn("por", godip.Coast...).Conn("win", godip.Sea).Conn("sad", godip.Coast...).Flag(godip.Coast...).
 		// Tidewater
 		Prov("tid").Conn("ric", godip.Land).Conn("noc", godip.Coast...).Conn("out", godip.Sea).Conn("chb", godip.Sea).Conn("wil", godip.Coast...).Flag(godip.Coast...).
 		// Gulf of Mexico
-		Prov("guc").Conn("gul", godip.Sea).Conn("old", godip.Sea).Conn("flo", godip.Sea).Conn("wef", godip.Sea).Conn("neo", godip.Sea).Flag(godip.Sea).
+		Prov("guc").Conn("win", godip.Sea).Conn("old", godip.Sea).Conn("flo", godip.Sea).Conn("cad", godip.Sea).Conn("neo", godip.Sea).Flag(godip.Sea).
 		// Connecticut
 		Prov("con").Conn("alb", godip.Land).Conn("nyc", godip.Coast...).Conn("lis", godip.Sea).Conn("mas", godip.Coast...).Flag(godip.Coast...).
 		// Tennessee
 		Prov("ten").Conn("chk", godip.Land).Conn("fra", godip.Land).Conn("pen", godip.Land).Conn("chi", godip.Land).Conn("nic", godip.Land).Flag(godip.Land).
 		// Alabama
-		Prov("ala").Conn("tuk", godip.Land).Conn("nic", godip.Land).Conn("chi", godip.Land).Conn("cho", godip.Land).Conn("cad", godip.Land).Flag(godip.Land).
+		Prov("ala").Conn("tuk", godip.Land).Conn("nic", godip.Land).Conn("chi", godip.Land).Conn("cho", godip.Land).Conn("wef", godip.Land).Flag(godip.Land).
 		// Georgia Bight
 		Prov("geb").Conn("eas", godip.Sea).Conn("bah", godip.Sea).Conn("sar", godip.Sea).Conn("out", godip.Sea).Conn("noc", godip.Sea).Conn("chn", godip.Sea).Conn("bea", godip.Sea).Conn("ger", godip.Sea).Flag(godip.Sea).
 		// Outer Banks
@@ -152,27 +152,29 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Lycoming
 		Prov("lyc").Conn("all", godip.Land).Conn("har", godip.Land).Conn("phi", godip.Land).Conn("nej", godip.Land).Conn("cat", godip.Land).Conn("wer", godip.Land).Flag(godip.Land).
 		// Sargasso Sea
-		Prov("sar").Conn("cib", godip.Sea).Conn("sad", godip.Sea).Conn("atl", godip.Sea).Conn("mai", godip.Sea).Conn("nyb", godip.Sea).Conn("chb", godip.Sea).Conn("out", godip.Sea).Conn("geb", godip.Sea).Conn("bah", godip.Sea).Conn("tur", godip.Sea).Conn("old", godip.Sea).Flag(godip.Sea).
-		// New Orleans
-		Prov("neo").Conn("guc", godip.Sea).Conn("wef", godip.Coast...).Conn("qua", godip.Land).Flag(godip.Coast...).
+		Prov("sar").Conn("cib", godip.Sea).Conn("sad", godip.Sea).Conn("atl", godip.Sea).Conn("gua", godip.Sea).Conn("nyb", godip.Sea).Conn("chb", godip.Sea).Conn("out", godip.Sea).Conn("geb", godip.Sea).Conn("bah", godip.Sea).Conn("tur", godip.Sea).Conn("old", godip.Sea).Flag(godip.Sea).
+		// Caddo
+		Prov("cad").Conn("guc", godip.Sea).Conn("neo", godip.Coast...).Conn("qua", godip.Land).Flag(godip.Coast...).
 		// Harrisburg
 		Prov("har").Conn("yor", godip.Land).Conn("phi", godip.Land).Conn("lyc", godip.Land).Conn("all", godip.Land).Flag(godip.Land).SC(Pennsylvania).
 		// Quapow
-		Prov("qua").Conn("neo", godip.Land).Conn("wef", godip.Land).Conn("cho", godip.Land).Conn("sal", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).
+		Prov("qua").Conn("neo", godip.Land).Conn("cad", godip.Land).Conn("cho", godip.Land).Conn("sal", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).
 		// Charleston
 		Prov("chn").Conn("mid", godip.Land).Conn("col", godip.Land).Conn("bea", godip.Coast...).Conn("geb", godip.Sea).Conn("noc", godip.Coast...).Flag(godip.Coast...).SC(SouthCarolina).
 		// Albany
 		Prov("alb").Conn("iro", godip.Land).Conn("cat", godip.Land).Conn("nyc", godip.Land).Conn("con", godip.Land).Conn("mas", godip.Land).Conn("ver", godip.Land).Flag(godip.Land).SC(NewYork).
 		// Vermont
 		Prov("ver").Conn("iro", godip.Land).Conn("alb", godip.Land).Conn("mas", godip.Land).Conn("neh", godip.Land).Flag(godip.Land).
-		// Windward Passage
-		Prov("win").Conn("art", godip.Sea).Conn("old", godip.Sea).Conn("gul", godip.Sea).Conn("por", godip.Sea).Flag(godip.Sea).
+		// Gulf of Gonave
+		Prov("gul").Conn("art", godip.Sea).Conn("old", godip.Sea).Conn("win", godip.Sea).Conn("por", godip.Sea).Flag(godip.Sea).
 		// Delaware Bay
 		Prov("deb").Conn("chb", godip.Sea).Conn("nyb", godip.Sea).Conn("nej", godip.Sea).Conn("der", godip.Sea).Conn("mar", godip.Sea).Flag(godip.Sea).
+		// Windward Passage
+		Prov("win").Conn("atl", godip.Sea).Conn("sad", godip.Sea).Conn("azu", godip.Sea).Conn("por", godip.Sea).Conn("gul", godip.Sea).Conn("old", godip.Sea).Conn("guc", godip.Sea).Flag(godip.Sea).
 		// Midlands
 		Prov("mid").Conn("chn", godip.Land).Conn("noc", godip.Land).Conn("nop", godip.Land).Conn("fra", godip.Land).Conn("col", godip.Land).Flag(godip.Land).
-		// West Florida
-		Prov("wef").Conn("guc", godip.Sea).Conn("flo", godip.Sea).Conn("cad", godip.Coast...).Conn("cho", godip.Land).Conn("qua", godip.Land).Conn("neo", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		// New Orleans
+		Prov("neo").Conn("guc", godip.Sea).Conn("flo", godip.Sea).Conn("cad", godip.Coast...).Conn("cho", godip.Land).Conn("qua", godip.Land).Conn("wef", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Shenandoah
 		Prov("she").Conn("wet", godip.Land).Conn("ken", godip.Land).Conn("ric", godip.Land).Conn("chv", godip.Land).Conn("ale", godip.Land).Conn("upp", godip.Land).Flag(godip.Land).
 		// Osage
@@ -180,9 +182,9 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Beaufort
 		Prov("bea").Conn("geb", godip.Sea).Conn("chn", godip.Coast...).Conn("col", godip.Land).Conn("ger", godip.Coast...).Flag(godip.Coast...).SC(SouthCarolina).
 		// New Hampshire
-		Prov("neh").Conn("gua", godip.Coast...).Conn("ver", godip.Land).Conn("mas", godip.Coast...).Conn("mai", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("neh").Conn("mai", godip.Coast...).Conn("ver", godip.Land).Conn("mas", godip.Coast...).Conn("gua", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Atlantic Ocean
-		Prov("atl").Conn("mai", godip.Sea).Conn("sar", godip.Sea).Conn("sad", godip.Sea).Conn("gul", godip.Sea).Flag(godip.Sea).
+		Prov("atl").Conn("gua", godip.Sea).Conn("sar", godip.Sea).Conn("sad", godip.Sea).Conn("win", godip.Sea).Flag(godip.Sea).
 		// New Jersey
 		Prov("nej").Conn("nyb", godip.Sea).Conn("nyc", godip.Coast...).Conn("cat", godip.Land).Conn("lyc", godip.Land).Conn("phi", godip.Land).Conn("der", godip.Coast...).Conn("deb", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Wapakoneta
@@ -192,9 +194,9 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Catskill
 		Prov("cat").Conn("nej", godip.Land).Conn("nyc", godip.Land).Conn("alb", godip.Land).Conn("iro", godip.Land).Conn("wer", godip.Land).Conn("lyc", godip.Land).Flag(godip.Land).
 		// New York Bight
-		Prov("nyb").Conn("nej", godip.Sea).Conn("deb", godip.Sea).Conn("chb", godip.Sea).Conn("sar", godip.Sea).Conn("mai", godip.Sea).Conn("lis", godip.Sea).Conn("loi", godip.Sea).Conn("nyc", godip.Sea).Flag(godip.Sea).
+		Prov("nyb").Conn("nej", godip.Sea).Conn("deb", godip.Sea).Conn("chb", godip.Sea).Conn("sar", godip.Sea).Conn("gua", godip.Sea).Conn("lis", godip.Sea).Conn("loi", godip.Sea).Conn("nyc", godip.Sea).Flag(godip.Sea).
 		// Artibonite
-		Prov("art").Conn("azu", godip.Land).Conn("cib", godip.Coast...).Conn("old", godip.Sea).Conn("win", godip.Sea).Conn("por", godip.Coast...).Flag(godip.Coast...).
+		Prov("art").Conn("azu", godip.Land).Conn("cib", godip.Coast...).Conn("old", godip.Sea).Conn("gul", godip.Sea).Conn("por", godip.Coast...).Flag(godip.Coast...).
 		// Columbia
 		Prov("col").Conn("chn", godip.Land).Conn("mid", godip.Land).Conn("fra", godip.Land).Conn("chk", godip.Land).Conn("sou", godip.Land).Conn("ger", godip.Land).Conn("bea", godip.Land).Flag(godip.Land).SC(SouthCarolina).
 		// Chesapeake Bay
@@ -205,24 +207,22 @@ func UnconstitutionalGraph() *graph.Graph {
 		Prov("yor").Conn("upp", godip.Land).Conn("mar", godip.Land).Conn("der", godip.Land).Conn("phi", godip.Land).Conn("har", godip.Land).Conn("all", godip.Land).Flag(godip.Land).SC(Pennsylvania).
 		// Iroquois
 		Prov("iro").Conn("alb", godip.Land).Conn("ver", godip.Land).Conn("wer", godip.Land).Conn("cat", godip.Land).Flag(godip.Land).
-		// Gulf of Maine
-		Prov("gua").Conn("neh", godip.Coast...).Conn("mai", godip.Sea).Flag(godip.Coast...).
 		// East Florida
 		Prov("eas").Conn("geb", godip.Sea).Conn("ger", godip.Coast...).Conn("sem", godip.Coast...).Conn("flo", godip.Sea).Conn("bah", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Tukabatchee
-		Prov("tuk").Conn("ala", godip.Land).Conn("cad", godip.Land).Conn("mic", godip.Land).Conn("cus", godip.Land).Conn("nic", godip.Land).Flag(godip.Land).SC(MuskogeeConfederacy).
+		Prov("tuk").Conn("ala", godip.Land).Conn("wef", godip.Land).Conn("mic", godip.Land).Conn("cus", godip.Land).Conn("nic", godip.Land).Flag(godip.Land).SC(MuskogeeConfederacy).
 		// Richmond
 		Prov("ric").Conn("tid", godip.Land).Conn("wil", godip.Land).Conn("rap", godip.Land).Conn("chv", godip.Land).Conn("she", godip.Land).Conn("ken", godip.Land).Conn("fra", godip.Land).Conn("nop", godip.Land).Conn("noc", godip.Land).Flag(godip.Land).SC(Virginia).
 		// Saint Domingue
-		Prov("sad").Conn("azu", godip.Coast...).Conn("gul", godip.Sea).Conn("atl", godip.Sea).Conn("sar", godip.Sea).Conn("cib", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("sad").Conn("azu", godip.Coast...).Conn("win", godip.Sea).Conn("atl", godip.Sea).Conn("sar", godip.Sea).Conn("cib", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// North Carolina
 		Prov("noc").Conn("out", godip.Sea).Conn("tid", godip.Coast...).Conn("ric", godip.Land).Conn("nop", godip.Land).Conn("mid", godip.Land).Conn("chn", godip.Coast...).Conn("geb", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Potawatomi
 		Prov("pot").Conn("kek", godip.Land).Conn("det", godip.Land).Conn("hoc", godip.Land).Conn("pro", godip.Land).Flag(godip.Land).
-		// Caddo
-		Prov("cad").Conn("cho", godip.Land).Conn("wef", godip.Coast...).Conn("flo", godip.Sea).Conn("mic", godip.Coast...).Conn("tuk", godip.Land).Conn("ala", godip.Land).Flag(godip.Coast...).
-		// Gulf of Gonave
-		Prov("gul").Conn("atl", godip.Sea).Conn("sad", godip.Sea).Conn("azu", godip.Sea).Conn("por", godip.Sea).Conn("win", godip.Sea).Conn("old", godip.Sea).Conn("guc", godip.Sea).Flag(godip.Sea).
+		// West Florida
+		Prov("wef").Conn("cho", godip.Land).Conn("neo", godip.Coast...).Conn("flo", godip.Sea).Conn("mic", godip.Coast...).Conn("tuk", godip.Land).Conn("ala", godip.Land).Flag(godip.Coast...).
+		// Gulf of Maine
+		Prov("gua").Conn("mai", godip.Sea).Conn("neh", godip.Sea).Conn("mas", godip.Sea).Conn("lis", godip.Sea).Conn("nyb", godip.Sea).Conn("sar", godip.Sea).Conn("atl", godip.Sea).Flag(godip.Sea).
 		// Seminole
 		Prov("sem").Conn("cus", godip.Land).Conn("mic", godip.Coast...).Conn("flo", godip.Sea).Conn("eas", godip.Coast...).Conn("ger", godip.Land).Conn("sou", godip.Land).Flag(godip.Coast...).
 		// Missouri
@@ -250,13 +250,13 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Illiniwek
 		Prov("ill").Conn("pro", godip.Land).Conn("hoc", godip.Land).Conn("mis", godip.Land).Conn("sal", godip.Land).Flag(godip.Land).
 		// Miccosukee
-		Prov("mic").Conn("tuk", godip.Land).Conn("cad", godip.Coast...).Conn("flo", godip.Sea).Conn("sem", godip.Coast...).Conn("cus", godip.Land).Flag(godip.Coast...).SC(MuskogeeConfederacy).
+		Prov("mic").Conn("tuk", godip.Land).Conn("wef", godip.Coast...).Conn("flo", godip.Sea).Conn("sem", godip.Coast...).Conn("cus", godip.Land).Flag(godip.Coast...).SC(MuskogeeConfederacy).
 		// Kentucky
 		Prov("ken").Conn("she", godip.Land).Conn("wet", godip.Land).Conn("ohi", godip.Land).Conn("wap", godip.Land).Conn("pen", godip.Land).Conn("fra", godip.Land).Conn("ric", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Choctaw
-		Prov("cho").Conn("cad", godip.Land).Conn("ala", godip.Land).Conn("chi", godip.Land).Conn("sal", godip.Land).Conn("qua", godip.Land).Conn("wef", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("cho").Conn("wef", godip.Land).Conn("ala", godip.Land).Conn("chi", godip.Land).Conn("sal", godip.Land).Conn("qua", godip.Land).Conn("neo", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Long Island Sound
-		Prov("lis").Conn("loi", godip.Sea).Conn("nyb", godip.Sea).Conn("mai", godip.Sea).Conn("mas", godip.Sea).Conn("con", godip.Sea).Conn("nyc", godip.Sea).Flag(godip.Sea).
+		Prov("lis").Conn("loi", godip.Sea).Conn("nyb", godip.Sea).Conn("gua", godip.Sea).Conn("mas", godip.Sea).Conn("con", godip.Sea).Conn("nyc", godip.Sea).Flag(godip.Sea).
 		// Ho Chunk
 		Prov("hoc").Conn("mis", godip.Land).Conn("ill", godip.Land).Conn("pro", godip.Land).Conn("pot", godip.Land).Flag(godip.Land).
 		// Chickasaw
@@ -266,11 +266,11 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Charlottesville
 		Prov("chv").Conn("she", godip.Land).Conn("ric", godip.Land).Conn("rap", godip.Land).Conn("ale", godip.Land).Flag(godip.Land).SC(Virginia).
 		// Maine
-		Prov("mai").Conn("gua", godip.Sea).Conn("neh", godip.Sea).Conn("mas", godip.Sea).Conn("lis", godip.Sea).Conn("nyb", godip.Sea).Conn("sar", godip.Sea).Conn("atl", godip.Sea).Flag(godip.Sea).
+		Prov("mai").Conn("neh", godip.Coast...).Conn("gua", godip.Sea).Flag(godip.Coast...).
 		// Upper Pontomac
 		Prov("upp").Conn("yor", godip.Land).Conn("all", godip.Land).Conn("wet", godip.Land).Conn("she", godip.Land).Conn("ale", godip.Land).Conn("mar", godip.Land).Flag(godip.Land).
 		// Florida Bight
-		Prov("flo").Conn("bah", godip.Sea).Conn("eas", godip.Sea).Conn("sem", godip.Sea).Conn("mic", godip.Sea).Conn("cad", godip.Sea).Conn("wef", godip.Sea).Conn("guc", godip.Sea).Conn("old", godip.Sea).Flag(godip.Sea).
+		Prov("flo").Conn("bah", godip.Sea).Conn("eas", godip.Sea).Conn("sem", godip.Sea).Conn("mic", godip.Sea).Conn("neo", godip.Sea).Conn("wef", godip.Sea).Conn("guc", godip.Sea).Conn("old", godip.Sea).Flag(godip.Sea).
 		// Bahama Banks
 		Prov("bah").Conn("flo", godip.Sea).Conn("old", godip.Sea).Conn("tur", godip.Sea).Conn("sar", godip.Sea).Conn("geb", godip.Sea).Conn("eas", godip.Sea).Flag(godip.Sea).
 		// Old Bahama Channel
@@ -282,7 +282,7 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Cusseta
 		Prov("cus").Conn("nic", godip.Land).Conn("tuk", godip.Land).Conn("mic", godip.Land).Conn("sem", godip.Land).Conn("sou", godip.Land).Conn("chk", godip.Land).Flag(godip.Land).SC(MuskogeeConfederacy).
 		// Massachuesetts
-		Prov("mas").Conn("lis", godip.Sea).Conn("mai", godip.Sea).Conn("neh", godip.Coast...).Conn("ver", godip.Land).Conn("alb", godip.Land).Conn("con", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("mas").Conn("lis", godip.Sea).Conn("gua", godip.Sea).Conn("neh", godip.Coast...).Conn("ver", godip.Land).Conn("alb", godip.Land).Conn("con", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		Done()
 }
 

@@ -7,7 +7,6 @@ import (
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/coldwar"
 	"github.com/zond/godip/variants/common"
-	"github.com/zond/godip/variants/empiresandcoalitions"
 	"github.com/zond/godip/variants/europe1939"
 	"github.com/zond/godip/variants/fleetrome"
 	"github.com/zond/godip/variants/franceaustria"
@@ -38,7 +37,6 @@ var OrderedVariants = []common.Variant{
 	chaos.ChaosVariant,
 	classical.ClassicalVariant,
 	coldwar.ColdWarVariant,
-	empiresandcoalitions.EmpiresAndCoalitionsVariant,
 	europe1939.Europe1939Variant,
 	fleetrome.FleetRomeVariant,
 	franceaustria.FranceAustriaVariant,
