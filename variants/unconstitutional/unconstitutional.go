@@ -1,11 +1,15 @@
 package unconstitutional
 
 import (
+	"time"
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/orders"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
+
 )
 
 const (
@@ -19,13 +23,14 @@ const (
 
 var Nations = []godip.Nation{SouthCarolina, NewYork, WesternConfederacy, Pennsylvania, MuskogeeConfederacy, Virginia}
 
+
 var UnconstitutionalVariant = common.Variant{
 	Name:              "Unconstitutional",
 	Graph:             func() godip.Graph { return UnconstitutionalGraph() },
 	Start:             UnconstitutionalStart,
 	Blank:             UnconstitutionalBlank,
 	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -45,10 +50,34 @@ var UnconstitutionalVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules:       "",
+	CreatedBy:   "David E. Cohen",
+	Version:     "1.0",
+	Description: "Alternative history variant where the US constitution was not ratified (which nearly happened). Operating under the weak Articles of Confederation, States keep their conflicting land claims and border disputes turn into armed conflict. Former slaves control Haiti, and inhabitants of New Orleans, Saint Louis and the Turks and Cacois oppose annexation by the US. Federal government ceases to function, many States have seceded and two groups of Native American tribes, the Western and Muskogee Confederacy, are warning the Americans.",
+	Rules:       "First to 18 Supply Centers (SC) wins. Units may be built in any owned SC. Neutral SCs get an army which always holds and disbands when dislodged. This will be rebuilt if the SC is unowned during adjustment. There are four rivers where fleets can navigate to any adjacent province",
+}
+
+
+func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator) {
+	ret = map[godip.Province]godip.Adjudicator{}
+	switch state.Phase().Type() {
+	case godip.Movement:
+		// Strictly this is unnecessary - because hold is the default order.
+		for prov, unit := range state.Units() {
+			if unit.Nation == godip.Neutral {
+				ret[prov] = orders.Hold(prov)
+			}
+		}
+	case godip.Adjustment:
+		// Rebuild any missing units.
+		for _, prov := range state.Graph().AllSCs() {
+			if n, _, ok := state.SupplyCenter(prov); ok && n == godip.Neutral {
+				if _, _, ok := state.Unit(prov); !ok {
+					ret[prov] = orders.BuildAnywhere(prov, godip.Army, time.Now())
+				}
+			}
+		}
+	}
+	return
 }
 
 func UnconstitutionalBlank(phase godip.Phase) *state.State {
@@ -103,6 +132,21 @@ func UnconstitutionalStart() (result *state.State, err error) {
 		"ale": Virginia,
 		"chv": Virginia,
 		"ric": Virginia,
+		"cho": godip.Neutral,
+		"neo": godip.Neutral,
+		"sal": godip.Neutral,
+		"eas": godip.Neutral,
+		"tur": godip.Neutral,
+		"por": godip.Neutral,
+		"sad": godip.Neutral,
+		"chk": godip.Neutral,
+		"noc": godip.Neutral,
+		"ken": godip.Neutral,
+		"wer": godip.Neutral,
+		"mar": godip.Neutral,
+		"nej": godip.Neutral,
+		"mas": godip.Neutral,
+		"neh": godip.Neutral,
 	})
 	return
 }
