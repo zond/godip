@@ -5,7 +5,6 @@ import (
 	"github.com/zond/godip/variants/canton"
 	"github.com/zond/godip/variants/chaos"
 	"github.com/zond/godip/variants/classical"
-	"github.com/zond/godip/variants/coldwar"
 	"github.com/zond/godip/variants/common"
 	"github.com/zond/godip/variants/europe1939"
 	"github.com/zond/godip/variants/fleetrome"
@@ -36,7 +35,6 @@ var OrderedVariants = []common.Variant{
 	canton.CantonVariant,
 	chaos.ChaosVariant,
 	classical.ClassicalVariant,
-	coldwar.ColdWarVariant,
 	europe1939.Europe1939Variant,
 	fleetrome.FleetRomeVariant,
 	franceaustria.FranceAustriaVariant,
