@@ -23,6 +23,26 @@ const (
 
 var Nations = []godip.Nation{SouthCarolina, NewYork, WesternConfederacy, Pennsylvania, MuskogeeConfederacy, Virginia}
 
+var SVGFlags = map[godip.Nation]func() ([]byte, error){
+	SouthCarolina: func() ([]byte, error) {
+		return Asset("svg/southcarolina.svg")
+	},
+	NewYork: func() ([]byte, error) {
+		return Asset("svg/newyork.svg")
+	},
+	WesternConfederacy: func() ([]byte, error) {
+		return Asset("svg/westernconfederacy.svg")
+	},
+	Pennsylvania: func() ([]byte, error) {
+		return Asset("svg/pennsylvania.svg")
+	},
+	MuskogeeConfederacy: func() ([]byte, error) {
+		return Asset("svg/muskogee.svg")
+	},
+	Virginia: func() ([]byte, error) {
+		return Asset("svg/virginia.svg")
+	},
+}
 
 var UnconstitutionalVariant = common.Variant{
 	Name:              "Unconstitutional",
