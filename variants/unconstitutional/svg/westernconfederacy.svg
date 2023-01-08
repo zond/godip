@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="972"
+   height="972"
+   version="1.1"
+   id="svg22"
+   sodipodi:docname="westernconfederacy.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs26" />
+  <sodipodi:namedview
+     id="namedview24"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.36282579"
+     inkscape:cx="665.6087"
+     inkscape:cy="582.92439"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg22" />
+  <rect
+     fill="#cf142b"
+     width="972"
+     height="972"
+     id="rect2"
+     x="0"
+     y="0"
+     style="stroke-width:0.816497" />
+  <rect
+     fill="#002b68"
+     width="525"
+     height="525"
+     id="rect4"
+     x="0"
+     y="0" />
+  <g
+     fill="#ffffff"
+     id="g14">
+    <path
+       d="m 0,0 h 53 l 472,472 v 53 H 472 L 0,53"
+       id="path6" />
+    <path
+       d="M 525,0 H 472 L 0,472 v 53 H 53 L 525,53"
+       id="path8" />
+    <rect
+       y="192.5"
+       width="525"
+       height="140"
+       id="rect10"
+       x="0" />
+    <rect
+       x="192.5"
+       width="140"
+       height="525"
+       id="rect12"
+       y="0" />
+  </g>
+  <g
+     fill="#cf142b"
+     id="g20">
+    <rect
+       y="227.5"
+       width="528"
+       height="70"
+       id="rect16"
+       x="0" />
+    <rect
+       x="227.5"
+       width="70"
+       height="528"
+       id="rect18"
+       y="0" />
+  </g>
+</svg>
