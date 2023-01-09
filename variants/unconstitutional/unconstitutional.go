@@ -168,6 +168,14 @@ func UnconstitutionalStart() (result *state.State, err error) {
 		"mas": godip.Neutral,
 		"neh": godip.Neutral,
 	})
+	for _, sc := range UnconstitutionalGraph().SCs(godip.Neutral) {
+		if err = result.SetUnit(godip.Province(sc), godip.Unit{
+			Type:   godip.Army,
+			Nation: godip.Neutral,
+		}); err != nil {
+			return
+		}
+	}
 	return
 }
 
