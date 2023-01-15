@@ -23,6 +23,13 @@ func TestBuildAnywhere(t *testing.T) {
 	// Remove the fleet from Turks and Caicos.
 	j.RemoveUnit("tur")
 	tst.AssertNoUnit(t, j, "tur")
+
+	tst.WaitForPhases(j, 5)
+
+	// Test that New York has the option to build in Turks and Caicos.
+	tst.AssertOpt(t, j.Phase().Options(j, NewYork), []string{"tur", "Build", "Fleet", "tur"})
+	tst.AssertOrderValidity(t, j, orders.BuildAnywhere("tur", godip.Fleet, time.Now()), NewYork, nil)
+
 	// Test that build anywhere works.
 	j.SetOrders(map[godip.Province]godip.Adjudicator{
 		"nyc": orders.BuildAnywhere("tur", godip.Fleet, time.Now()),

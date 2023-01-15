@@ -2,23 +2,24 @@ package unconstitutional
 
 import (
 	"time"
+
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
-	"github.com/zond/godip/state"
 	"github.com/zond/godip/orders"
+	"github.com/zond/godip/phase"
+	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
 	"github.com/zond/godip/variants/hundred"
-
 )
 
 const (
-	SouthCarolina        godip.Nation = "South Carolina"
-	NewYork              godip.Nation = "New York"
-	WesternConfederacy   godip.Nation = "Western Confederacy"
-	Pennsylvania         godip.Nation = "Pennsylvania"
-	MuskogeeConfederacy  godip.Nation = "Muskogee Confederacy"
-	Virginia             godip.Nation = "Virginia"
+	SouthCarolina       godip.Nation = "South Carolina"
+	NewYork             godip.Nation = "New York"
+	WesternConfederacy  godip.Nation = "Western Confederacy"
+	Pennsylvania        godip.Nation = "Pennsylvania"
+	MuskogeeConfederacy godip.Nation = "Muskogee Confederacy"
+	Virginia            godip.Nation = "Virginia"
 )
 
 var Nations = []godip.Nation{SouthCarolina, NewYork, WesternConfederacy, Pennsylvania, MuskogeeConfederacy, Virginia}
@@ -44,12 +45,18 @@ var SVGFlags = map[godip.Nation]func() ([]byte, error){
 	},
 }
 
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
+
 var UnconstitutionalVariant = common.Variant{
 	Name:              "Unconstitutional",
 	Graph:             func() godip.Graph { return UnconstitutionalGraph() },
 	Start:             UnconstitutionalStart,
 	Blank:             UnconstitutionalBlank,
-	Phase:             classical.NewPhase,
+	Phase:             Phase,
 	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
@@ -75,7 +82,6 @@ var UnconstitutionalVariant = common.Variant{
 	Description: "Alternative history variant where the US constitution was not ratified (which nearly happened). Operating under the weak Articles of Confederation, States keep their conflicting land claims and border disputes turn into armed conflict. Former slaves control Haiti, and inhabitants of New Orleans, Saint Louis and the Turks and Cacois oppose annexation by the US. Federal government ceases to function, many States have seceded and two groups of Native American tribes, the Western and Muskogee Confederacy, are warning the Americans.",
 	Rules:       "First to 18 Supply Centers (SC) wins. Units may be built in any owned SC. Neutral SCs get an army which always holds and disbands when dislodged. This will be rebuilt if the SC is unowned during adjustment. There are four rivers where fleets can navigate to any adjacent province",
 }
-
 
 func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator) {
 	ret = map[godip.Province]godip.Adjudicator{}
@@ -105,7 +111,7 @@ func UnconstitutionalBlank(phase godip.Phase) *state.State {
 }
 
 func UnconstitutionalStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(1805, godip.Spring, godip.Movement)
+	startPhase := Phase(1805, godip.Spring, godip.Movement)
 	result = UnconstitutionalBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"chn": godip.Unit{godip.Fleet, SouthCarolina},
