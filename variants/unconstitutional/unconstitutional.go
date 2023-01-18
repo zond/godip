@@ -59,6 +59,168 @@ var UnconstitutionalVariant = common.Variant{
 	Blank:             UnconstitutionalBlank,
 	Phase:             classical.NewPhase,
 	Parser:            hundred.BuildAnywhereParser,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"ten": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"chk": godip.Neutral,
+			},
+		},
+		"cad": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"neo": godip.Neutral,
+			},
+		},
+		"qua": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"neo": godip.Neutral,
+				"cho": godip.Neutral,
+				"sal": godip.Neutral,
+			},
+		},
+		"osa": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sal": godip.Neutral,
+			},
+		},
+		"mis": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sal": godip.Neutral,
+			},
+		},
+		"ill": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sal": godip.Neutral,
+				"pro": WesternConfederacy,
+			},
+		},
+		"hoc": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sal": godip.Neutral,
+				"kek": WesternConfederacy,
+				"pro": WesternConfederacy,
+			},
+		},
+		"pot": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"wer": godip.Neutral,
+				"kek": WesternConfederacy,
+				"pro": WesternConfederacy,
+			},
+		},
+		"det": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"wer": godip.Neutral,
+				"kek": WesternConfederacy,
+				"pro": WesternConfederacy,
+			},
+		},
+		"ger": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"eas": godip.Neutral,
+				"col": SouthCarolina,
+				"bea": SouthCarolina,
+			},
+		},
+		"mid": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"noc": godip.Neutral,
+				"col": SouthCarolina,
+				"bea": SouthCarolina,
+			},
+		},
+		"sem": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"eas": godip.Neutral,
+				"cus": MuskogeeConfederacy,
+				"mic": MuskogeeConfederacy,
+			},
+		},
+		"cat": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"wer": godip.Neutral,
+				"alb": NewYork,
+				"nyc": NewYork,
+			},
+		},
+		"iro": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"wer": godip.Neutral,
+				"alb": NewYork,
+			},
+		},
+		"ver": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"neh": godip.Neutral,
+				"mas": godip.Neutral,
+				"alb": NewYork,
+			},
+		},
+		"mai": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"neh": godip.Neutral,
+			},
+		},
+		"con": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"mas": godip.Neutral,
+				"nyc": NewYork,
+				"alb": NewYork,
+			},
+		},
+		"lyc": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"wer": godip.Neutral,
+				"har": Pennsylvania,
+				"phi": Pennsylvania,
+			},
+		},
+		"she": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"ken": godip.Neutral,
+				"ale": Virginia,
+				"chv": Virginia,
+				"ric": Virginia,
+			},
+		},
+		"art": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"por": godip.Neutral,
+			},
+		},
+		"cib": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sad": godip.Neutral,
+			},
+		},
+		"azu": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sad": godip.Neutral,
+				"por": godip.Neutral,
+			},
+		},
+	},
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
