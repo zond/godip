@@ -46,6 +46,14 @@ var SVGFlags = map[godip.Nation]func() ([]byte, error){
 
 var UnconstitutionalVariant = common.Variant{
 	Name:              "Unconstitutional",
+	NationColors: map[godip.Nation]string{
+		SouthCarolina:              "#486596",
+		NewYork:                    "#644896",
+		WesternConfederacy:         "#91AA93",
+		Pennsylvania:               "#E6D572",
+		MuskogeeConfederacy:        "#EF9F4B",
+		Virginia:                   "#B04C58",
+	},
 	Graph:             func() godip.Graph { return UnconstitutionalGraph() },
 	Start:             UnconstitutionalStart,
 	Blank:             UnconstitutionalBlank,
@@ -292,7 +300,7 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Potawatomi
 		Prov("pot").Conn("kek", godip.Land).Conn("det", godip.Land).Conn("hoc", godip.Land).Conn("pro", godip.Land).Flag(godip.Land).
 		// West Florida
-		Prov("wef").Conn("cho", godip.Coast...).Conn("neo", godip.Coast...).Conn("flo", godip.Sea).Conn("mic", godip.Coast...).Conn("tuk", godip.Coast...).Conn("ala", godip.Land).Flag(godip.Coast...).
+		Prov("wef").Conn("cho", godip.Land).Conn("neo", godip.Coast...).Conn("flo", godip.Sea).Conn("mic", godip.Coast...).Conn("tuk", godip.Coast...).Conn("ala", godip.Land).Flag(godip.Coast...).
 		// Gulf of Maine
 		Prov("gua").Conn("mai", godip.Sea).Conn("neh", godip.Sea).Conn("mas", godip.Sea).Conn("lis", godip.Sea).Conn("nyb", godip.Sea).Conn("sar", godip.Sea).Conn("atl", godip.Sea).Flag(godip.Sea).
 		// Seminole
@@ -326,7 +334,7 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Kentucky
 		Prov("ken").Conn("she", godip.Land).Conn("wet", godip.Land).Conn("ohi", godip.Land).Conn("wap", godip.Land).Conn("pen", godip.Land).Conn("fra", godip.Land).Conn("ric", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Choctaw
-		Prov("cho").Conn("wef", godip.Coast...).Conn("ala", godip.Land).Conn("chi", godip.Coast...).Conn("sal", godip.Coast...).Conn("qua", godip.Coast...).Conn("neo", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("cho").Conn("wef", godip.Land).Conn("ala", godip.Land).Conn("chi", godip.Coast...).Conn("sal", godip.Coast...).Conn("qua", godip.Coast...).Conn("neo", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Long Island Sound
 		Prov("lis").Conn("loi", godip.Sea).Conn("nyb", godip.Sea).Conn("gua", godip.Sea).Conn("mas", godip.Sea).Conn("con", godip.Sea).Conn("nyc", godip.Sea).Flag(godip.Sea).
 		// Ho Chunk
@@ -339,7 +347,7 @@ func UnconstitutionalGraph() *graph.Graph {
 		Prov("chv").Conn("she", godip.Land).Conn("ric", godip.Land).Conn("rap", godip.Land).Conn("ale", godip.Land).Flag(godip.Land).SC(Virginia).
 		// Maine
 		Prov("mai").Conn("neh", godip.Coast...).Conn("gua", godip.Sea).Flag(godip.Coast...).
-		// Upper Pontomac
+		// Upper Potomac
 		Prov("upp").Conn("yor", godip.Land).Conn("all", godip.Land).Conn("wet", godip.Land).Conn("she", godip.Land).Conn("ale", godip.Land).Conn("mar", godip.Land).Flag(godip.Land).
 		// Florida Bight
 		Prov("flo").Conn("bah", godip.Sea).Conn("eas", godip.Sea).Conn("sem", godip.Sea).Conn("mic", godip.Sea).Conn("neo", godip.Sea).Conn("wef", godip.Sea).Conn("guc", godip.Sea).Conn("old", godip.Sea).Flag(godip.Sea).
@@ -438,7 +446,7 @@ var provinceLongNames = map[godip.Province]string{
 	"fra": "Franklin",
 	"chv": "Charlottesville",
 	"mai": "Maine",
-	"upp": "Upper Pontomac",
+	"upp": "Upper Potomac",
 	"flo": "Florida Bight",
 	"bah": "Bahama Banks",
 	"old": "Old Bahama Channel",
