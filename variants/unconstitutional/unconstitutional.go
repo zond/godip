@@ -254,7 +254,7 @@ func UnconstitutionalGraph() *graph.Graph {
 		// Midlands
 		Prov("mid").Conn("chn", godip.Land).Conn("noc", godip.Land).Conn("nop", godip.Land).Conn("fra", godip.Land).Conn("col", godip.Land).Flag(godip.Land).
 		// New Orleans
-		Prov("neo").Conn("guc", godip.Sea).Conn("flo", godip.Sea).Conn("cad", godip.Coast...).Conn("cho", godip.Land).Conn("qua", godip.Coast...).Conn("wef", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("neo").Conn("guc", godip.Sea).Conn("flo", godip.Sea).Conn("cad", godip.Coast...).Conn("cho", godip.Coast...).Conn("qua", godip.Coast...).Conn("wef", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Shenandoah
 		Prov("she").Conn("wet", godip.Land).Conn("ken", godip.Land).Conn("ric", godip.Land).Conn("chv", godip.Land).Conn("ale", godip.Land).Conn("upp", godip.Land).Flag(godip.Land).
 		// Osage
