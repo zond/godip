@@ -52,14 +52,14 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 }
 
 var UnconstitutionalVariant = common.Variant{
-	Name:              "Unconstitutional",
+	Name: "Unconstitutional",
 	NationColors: map[godip.Nation]string{
-		SouthCarolina:              "#486596",
-		NewYork:                    "#644896",
-		WesternConfederacy:         "#91AA93",
-		Pennsylvania:               "#E6D572",
-		MuskogeeConfederacy:        "#EF9F4B",
-		Virginia:                   "#B04C58",
+		SouthCarolina:       "#486596",
+		NewYork:             "#644896",
+		WesternConfederacy:  "#91AA93",
+		Pennsylvania:        "#E6D572",
+		MuskogeeConfederacy: "#EF9F4B",
+		Virginia:            "#B04C58",
 	},
 	Graph:             func() godip.Graph { return UnconstitutionalGraph() },
 	Start:             UnconstitutionalStart,
@@ -85,6 +85,7 @@ var UnconstitutionalVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "David E. Cohen",
 	Version:     "1.0",
 	Description: "Alternative history variant where the US constitution was not ratified (which nearly happened). Operating under the weak Articles of Confederation, States keep their conflicting land claims and border disputes turn into armed conflict. Former slaves control Haiti, and inhabitants of New Orleans, Saint Louis and the Turks and Cacois oppose annexation by the US. Federal government ceases to function, many States have seceded and two groups of Native American tribes, the Western and Muskogee Confederacy, are warning the Americans.",
