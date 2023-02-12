@@ -70,6 +70,20 @@
          stdDeviation="5.7648684"
          inkscape:collect="always" />
     </filter>
+    <marker id="markerTriangle"
+         viewBox="0 0 9 9" refX="0" refY="4.5" 
+         markerUnits="strokeWidth"
+         markerWidth="2" markerHeight="2"
+         orient="auto">
+         <path d="M 0 0 L 9 4.5 L 0 9 z" />
+      </marker>
+      <marker id="markerTriangleSmall"
+         viewBox="0 0 9 9" refX="0" refY="4.5" 
+         markerUnits="strokeWidth"
+         markerWidth="3.5" markerrHeight="3.5"
+         orient="auto">
+         <path d="M 0 0 L 9 4.5 L 0 9 z"  fill="#80DEEA"/>
+      </marker>
     <pattern
        patternUnits="userSpaceOnUse"
        y="628.307919"
