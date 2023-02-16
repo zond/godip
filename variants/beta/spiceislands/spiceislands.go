@@ -9,13 +9,13 @@ import (
 )
 
 const (
-	Brunei    godip.Nation = "Brunei"
-	DaiViet   godip.Nation = "Dai Viet"
-	Malacca   godip.Nation = "Malacca"
-	Ternate   godip.Nation = "Ternate"
-	Tondo     godip.Nation = "Tondo"
-	Ayutthaya godip.Nation = "Ayutthaya"
-	Majapahit godip.Nation = "Majapahit"
+	Brunei    godip.Nation = "Sultanate of Brunei"
+	DaiViet   godip.Nation = "Kingdom of Dai Viet"
+	Malacca   godip.Nation = "Sultanate of Malacca"
+	Ternate   godip.Nation = "Sultanate of Ternate"
+	Tondo     godip.Nation = "Kingdom of Tondo"
+	Ayutthaya godip.Nation = "Kingdom of Ayutthaya"
+	Majapahit godip.Nation = "Kingdom of Majapahit"
 )
 
 var Nations = []godip.Nation{Brunei, DaiViet, Malacca, Ternate, Tondo, Ayutthaya, Majapahit}
