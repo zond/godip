@@ -5,10 +5,10 @@ START_UNITS:
   Brunei:
     Army: ['Lumajang']
   Majapahit:
-    Fleet: ['Javadvipa']
+    Fleet: ['Wehali']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
-  Lumajang: LMJ
+  Southern Ocean: sto
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
 
