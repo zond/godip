@@ -35,8 +35,9 @@ func init() {
 var Variants = map[string]common.Variant{}
 
 var OrderedVariants = []common.Variant{
-	ancientmediterranean.AncientMediterraneanVariant,
+	threekingdoms.ThreeKingdomsVariant,
 	spiceislands.SpiceIslandsVariant,
+	ancientmediterranean.AncientMediterraneanVariant,
 	canton.CantonVariant,
 	chaos.ChaosVariant,
 	classical.ClassicalVariant,
@@ -50,7 +51,6 @@ var OrderedVariants = []common.Variant{
 	northseawars.NorthSeaWarsVariant,
 	pure.PureVariant,
 	sengoku.SengokuVariant,
-	threekingdoms.ThreeKingdomsVariant,
 	twentytwenty.TwentyTwentyVariant,
 	unconstitutional.UnconstitutionalVariant,
 	vietnamwar.VietnamWarVariant,
