@@ -3,6 +3,7 @@ package variants
 import (
 	"github.com/zond/godip/variants/beta/threekingdoms"
 	"github.com/zond/godip/variants/beta/spiceislands"
+	"github.com/zond/godip/variants/beta/southamerica"
 	"github.com/zond/godip/variants/ancientmediterranean"
 	"github.com/zond/godip/variants/canton"
 	"github.com/zond/godip/variants/chaos"
@@ -35,8 +36,10 @@ func init() {
 var Variants = map[string]common.Variant{}
 
 var OrderedVariants = []common.Variant{
-	ancientmediterranean.AncientMediterraneanVariant,
 	spiceislands.SpiceIslandsVariant,
+	threekingdoms.ThreeKingdomsVariant,
+	southamerica.SouthAmericaVariant,
+	ancientmediterranean.AncientMediterraneanVariant,
 	canton.CantonVariant,
 	chaos.ChaosVariant,
 	classical.ClassicalVariant,
@@ -50,7 +53,6 @@ var OrderedVariants = []common.Variant{
 	northseawars.NorthSeaWarsVariant,
 	pure.PureVariant,
 	sengoku.SengokuVariant,
-	threekingdoms.ThreeKingdomsVariant,
 	twentytwenty.TwentyTwentyVariant,
 	unconstitutional.UnconstitutionalVariant,
 	vietnamwar.VietnamWarVariant,

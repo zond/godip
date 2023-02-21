@@ -33,15 +33,8 @@ var ThreeKingdomsVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/threekingdomsmap.svg")
 	},
-	SVGVersion: "1",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGVersion:  "1",
+	SVGUnits: 	 sengoku.SengokuVariant.SVGUnits,
 	CreatedBy:   "Kuthador",
 	Version:     "0.9",
 	Description: "THIS IS A BETA MAP. IT MIGHT BE UPDATED AND CHANGED DURING YOUR GAME, WITHOUT WARNING. IT IS ONLY ACCESSIBLE OR VISIBLE FROM THE DIPLICITY BETA VERSION. The Three Kingdoms from 220 to 280 AD was the tripartite division of China among the dynastic states of Cao Wei, Shu Han, and Eastern Wu. The period is one of the bloodiest in Chinese history. The term 'Three Kingdoms' is something of a misnomer, since each state was eventually headed not by a king, but by an emperor who claimed suzerainty over all China. Fight for suzerainty with your two adversaries!",
