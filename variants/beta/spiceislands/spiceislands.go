@@ -46,14 +46,7 @@ var SpiceIslandsVariant = common.Variant{
 		return Asset("svg/spiceislandsmap.svg")
 	},
 	SVGVersion: "1",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGUnits:    hundred.SVGUnits,
 	CreatedBy:   "David E. Cohen",
 	Version:     "2.0",
 	Description: "THIS IS A BETA MAP. IT MIGHT BE UPDATED AND CHANGED DURING YOUR GAME, WITHOUT WARNING. IT WILL BE ONLY ACCESSIBLE OR VISIBLE FROM THE BETA VERSION OF DIPLICITY. PROCEED ON YOUR OWN RISK. This map is a standalone version of a part of the larger East Indies Variant, but playable on a stand alone basis.",
