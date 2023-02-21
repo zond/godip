@@ -56,7 +56,7 @@ var SpiceIslandsVariant = common.Variant{
 	},
 	CreatedBy:   "David E. Cohen",
 	Version:     "2.0",
-	Description: "THIS IS A BETA MAP. IT MIGHT BE UPDATED AND CHANGED DURING YOUR GAME, WITHOUT WARNING. IT WILL BE ONLY ACCESSIBLE OR VISIBLE FROM THE BETA VERSION OF DIPLICITY. PROCEED ON YOUR OWN RISK. This map is a standalone version of a part of the larger East Indies Variant, but playable on a stand alone basis.",
+	Description: "THIS IS A BETA MAP. IT MIGHT BE UPDATED AND CHANGED DURING YOUR GAME, WITHOUT WARNING. IT IS ONLY ACCESSIBLE OR VISIBLE FROM THE DIPLICITY BETA VERSION. This map is a standalone version of a part of the larger East Indies Variant, but playable on a stand alone basis.",
 	Rules:       "The first to 18 Supply Centers (SC) is the winner. Units may be built at any owned SC. ",
 }
 

@@ -1,9 +1,10 @@
 package variants
 
 import (
+	"github.com/zond/godip/variants/beta/threekingdoms"
+	"github.com/zond/godip/variants/beta/spiceislands"
 	"github.com/zond/godip/variants/ancientmediterranean"
 	"github.com/zond/godip/variants/canton"
-	"github.com/zond/godip/variants/beta/spiceislands"
 	"github.com/zond/godip/variants/chaos"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/coldwar"
@@ -23,7 +24,6 @@ import (
 	"github.com/zond/godip/variants/year1908"
 	"github.com/zond/godip/variants/youngstownredux"
 	"github.com/zond/godip/variants/empiresandcoalitions"
-
 )
 
 func init() {
@@ -50,6 +50,7 @@ var OrderedVariants = []common.Variant{
 	northseawars.NorthSeaWarsVariant,
 	pure.PureVariant,
 	sengoku.SengokuVariant,
+	threekingdoms.ThreeKingdomsVariant,
 	twentytwenty.TwentyTwentyVariant,
 	unconstitutional.UnconstitutionalVariant,
 	vietnamwar.VietnamWarVariant,
