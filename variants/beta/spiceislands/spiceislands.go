@@ -21,7 +21,7 @@ const (
 var Nations = []godip.Nation{Brunei, DaiViet, Malacca, Ternate, Tondo, Ayutthaya, Majapahit}
 
 var SpiceIslandsVariant = common.Variant{
-	Name:              "SpiceIslands",
+	Name:              "Spice Islands",
 	Graph:             func() godip.Graph { return SpiceIslandsGraph() },
 	Start:             SpiceIslandsStart,
 	Blank:             SpiceIslandsBlank,
