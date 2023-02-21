@@ -155,7 +155,7 @@ func ThreeKingdomsGraph() *graph.Graph {
 		// Jiaozhi
 		Prov("jio").Conn("yon", godip.Land).Conn("sou", godip.Sea).Conn("pea", godip.Coast...).Conn("zan", godip.Land).Flag(godip.Coast...).
 		// Donglai
-		Prov("don").Conn("gua", godip.Coast...).Conn("yes", godip.Sea).Conn("lan", godip.Coast...).Flag(godip.Coast...).
+		Prov("don").Conn("gua", godip.Coast...).Conn("yes", godip.Sea).Conn("lan", godip.Coast...).Flag(godip.Coast...).SC(Wei).
 		// Hedong
 		Prov("hed").Conn("jig", godip.Coast...).Conn("and", godip.Land).Conn("tai", godip.Land).Conn("zho", godip.Coast...).Conn("yer", godip.Sea).Flag(godip.Coast...).
 		// Yellow river
