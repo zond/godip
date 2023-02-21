@@ -66,6 +66,7 @@ func ThreeKingdomsStart() (result *state.State, err error) {
 		return
 	}
 	result.SetSupplyCenters(map[godip.Province]godip.Nation{
+		"don": Wei,
 		"qio": Wei,
 		"luo": Wei,
 		"tai": Wei,
