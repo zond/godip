@@ -8,7 +8,6 @@ import (
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/coldwar"
 	"github.com/zond/godip/variants/common"
-	"github.com/zond/godip/variants/empiresandcoalitions"
 	"github.com/zond/godip/variants/europe1939"
 	"github.com/zond/godip/variants/fleetrome"
 	"github.com/zond/godip/variants/franceaustria"
@@ -23,6 +22,8 @@ import (
 	"github.com/zond/godip/variants/westernworld901"
 	"github.com/zond/godip/variants/year1908"
 	"github.com/zond/godip/variants/youngstownredux"
+	"github.com/zond/godip/variants/empiresandcoalitions"
+
 )
 
 func init() {

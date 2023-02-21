@@ -29,7 +29,7 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 }
 
 var SpiceIslandsVariant = common.Variant{
-	Name:              "SpiceIslands",
+	Name:              "Spice Islands",
 	Graph:             func() godip.Graph { return SpiceIslandsGraph() },
 	Start:             SpiceIslandsStart,
 	Blank:             SpiceIslandsBlank,
