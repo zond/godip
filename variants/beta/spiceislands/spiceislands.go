@@ -8,6 +8,7 @@ import (
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
 	"github.com/zond/godip/variants/hundred"
+	"github.com/zond/godip/variants/sengoku"
 )
 
 const (
@@ -46,7 +47,7 @@ var SpiceIslandsVariant = common.Variant{
 		return Asset("svg/spiceislandsmap.svg")
 	},
 	SVGVersion: "1",
-	SVGUnits:    hundred.SVGUnits,
+	SVGUnits:    sengoku.SVGUnits,
 	CreatedBy:   "David E. Cohen",
 	Version:     "2.0",
 	Description: "THIS IS A BETA MAP. IT MIGHT BE UPDATED AND CHANGED DURING YOUR GAME, WITHOUT WARNING. IT IS ONLY ACCESSIBLE OR VISIBLE FROM THE DIPLICITY BETA VERSION. This map is a standalone version of a part of the larger East Indies Variant, but playable on a stand alone basis.",
