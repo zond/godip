@@ -90,6 +90,7 @@ func SpiceIslandsStart() (result *state.State, err error) {
 		"tun": Brunei,
 		"bru": Brunei,
 		"pla": Brunei,
+		"fai": DaiViet,
 		"han": DaiViet,
 		"hai": DaiViet,
 		"ria": Malacca,
@@ -192,7 +193,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Lumajang
 		Prov("lum").Conn("jva", godip.Coast...).Conn("soo", godip.Sea).Conn("mas", godip.Sea).Conn("tro", godip.Coast...).Flag(godip.Coast...).
 		// Faifo
-		Prov("fai").Conn("han", godip.Land).Conn("lan", godip.Land).Conn("wia", godip.Land).Conn("khm", godip.Land).Conn("chk", godip.Land).Flag(godip.Land).
+		Prov("fai").Conn("han", godip.Land).Conn("lan", godip.Land).Conn("wia", godip.Land).Conn("khm", godip.Land).Conn("chk", godip.Land).Flag(godip.Land).SC(DaiViet).
 		// Sulawesi Sea
 		Prov("sui").Conn("tun", godip.Sea).Conn("kut", godip.Sea).Conn("mas", godip.Sea).Conn("mih", godip.Sea).Conn("got", godip.Sea).Conn("eao", godip.Sea).Conn("mid", godip.Sea).Conn("zam", godip.Sea).Conn("suu", godip.Sea).Flag(godip.Sea).
 		// Champa Sea
@@ -208,7 +209,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Western Ocean
 		Prov("wes").Conn("ace", godip.Coast...).Conn("mig", godip.Sea).Conn("pae", godip.Coast...).Conn("jam", godip.Land).Conn("ria", godip.Land).Conn("ped", godip.Land).Flag(godip.Coast...).
 		// Champassak
-		Prov("chk").Conn("han", godip.Land).Conn("fai", godip.Land).Conn("khm", godip.Land).Conn("cmp", godip.Coast...).Conn("scs", godip.Sea).Conn("god", godip.Sea).Conn("hai", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("chk").Conn("han", godip.Land).Conn("fai", godip.Land).Conn("khm", godip.Land).Conn("cmp", godip.Coast...).Conn("scs", godip.Sea).Conn("god", godip.Sea).Conn("hai", godip.Coast...).Flag(godip.Coast...).
 		// Sunda
 		Prov("sun").Conn("jva", godip.Coast...).Conn("paj", godip.Coast...).Conn("mig", godip.Sea).Flag(godip.Coast...).
 		// Buru
