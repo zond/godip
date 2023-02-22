@@ -34,7 +34,7 @@ var SpiceIslandsVariant = common.Variant{
 	Graph:             func() godip.Graph { return SpiceIslandsGraph() },
 	Start:             SpiceIslandsStart,
 	Blank:             SpiceIslandsBlank,
-	Phase:             classical.NewPhase,
+	Phase:             Phase,
 	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
@@ -59,7 +59,7 @@ func SpiceIslandsBlank(phase godip.Phase) *state.State {
 }
 
 func SpiceIslandsStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(1491, godip.Spring, godip.Movement)
+	startPhase := NewPhase(1491, godip.Spring, godip.Movement)
 	result = SpiceIslandsBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"tun": godip.Unit{godip.Fleet, Brunei},
@@ -118,7 +118,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Namayan
 		Prov("nam").Conn("bik", godip.Coast...).Conn("lse", godip.Sea).Conn("kas", godip.Coast...).Conn("ton", godip.Coast...).Conn("sib", godip.Sea).Conn("vis", godip.Sea).Flag(godip.Coast...).SC(Tondo).
 		// Chaiya
-		Prov("chy").Conn("gos", godip.Sea).Conn("daw", godip.Coast...).Conn("sea", godip.Sea).Conn("som", godip.Sea).Conn("mal", godip.Coast...).Conn("kel", godip.Coast...).Flag(godip.Coast...).
+		Prov("chy").Conn("gos", godip.Sea).Conn("daw", godip.Land).Conn("daw/ec", godip.Sea).Conn("daw/wc", godip.Sea).Conn("sea", godip.Sea).Conn("som", godip.Sea).Conn("mal", godip.Coast...).Conn("kel", godip.Coast...).Flag(godip.Coast...).
 		// Lan Xang
 		Prov("lan").Conn("han", godip.Land).Conn("sha", godip.Land).Conn("chn", godip.Land).Conn("roi", godip.Land).Conn("wia", godip.Land).Conn("fai", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Wehali
@@ -160,7 +160,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Shan
 		Prov("sha").Conn("ava", godip.Land).Conn("peg", godip.Land).Conn("chn", godip.Land).Conn("lan", godip.Land).Conn("han", godip.Land).Flag(godip.Land).
 		// Ayutthaya
-		Prov("ayu").Conn("peg", godip.Land).Conn("daw", godip.Coast...).Conn("gos", godip.Sea).Conn("oce", godip.Coast...).Conn("roi", godip.Land).Flag(godip.Coast...).SC(Ayutthaya).
+		Prov("ayu").Conn("peg", godip.Land).Conn("daw", godip.Land).Conn("daw/ec", godip.Sea).Conn("gos", godip.Sea).Conn("oce", godip.Coast...).Conn("roi", godip.Land).Flag(godip.Coast...).SC(Ayutthaya).
 		// Gulf of Tomini
 		Prov("got").Conn("luw", godip.Sea).Conn("ban", godip.Sea).Conn("mol", godip.Sea).Conn("hal", godip.Sea).Conn("eao", godip.Sea).Conn("sui", godip.Sea).Conn("mih", godip.Sea).Flag(godip.Sea).
 		// Kelantan
@@ -222,13 +222,11 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Javadvipa
 		Prov("jva").Conn("lum", godip.Coast...).Conn("tro", godip.Coast...).Conn("jas", godip.Sea).Conn("paj", godip.Coast...).Conn("sun", godip.Coast...).Conn("mig", godip.Sea).Conn("soo", godip.Sea).Flag(godip.Coast...).SC(Majapahit).
 		// Sea of India
-		Prov("sea").Conn("mig", godip.Sea).Conn("ace", godip.Sea).Conn("som", godip.Sea).Conn("chy", godip.Sea).Conn("daw", godip.Sea).Conn("peg", godip.Sea).Conn("ava", godip.Sea).Flag(godip.Sea).
+		Prov("sea").Conn("mig", godip.Sea).Conn("ace", godip.Sea).Conn("som", godip.Sea).Conn("chy", godip.Sea).Conn("daw", godip.Sea).Conn("daw/wc", godip.Sea).Conn("peg", godip.Sea).Conn("ava", godip.Sea).Flag(godip.Sea).
 		// Pajajaran
 		Prov("paj").Conn("mig", godip.Sea).Conn("sun", godip.Coast...).Conn("jva", godip.Coast...).Conn("jas", godip.Sea).Flag(godip.Coast...).SC(Majapahit).
 		// Haiphong
 		Prov("hai").Conn("chk", godip.Coast...).Conn("god", godip.Sea).Conn("han", godip.Land).Flag(godip.Coast...).SC(DaiViet).
-		// Dawei
-		Prov("daw").Conn("peg", godip.Coast...).Conn("sea", godip.Sea).Conn("chy", godip.Coast...).Conn("gos", godip.Sea).Conn("ayu", godip.Coast...).Flag(godip.Coast...).SC(Ayutthaya).
 		// Banda Sea
 		Prov("ban").Conn("luw", godip.Sea).Conn("buo", godip.Sea).Conn("mar", godip.Sea).Conn("mas", godip.Sea).Conn("weh", godip.Sea).Conn("tim", godip.Sea).Conn("bur", godip.Sea).Conn("mol", godip.Sea).Conn("got", godip.Sea).Flag(godip.Sea).
 		// Karimata Sea
@@ -242,7 +240,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Buton
 		Prov("buo").Conn("luw", godip.Coast...).Conn("mar", godip.Coast...).Conn("ban", godip.Sea).Flag(godip.Coast...).
 		// Gulf of Siam
-		Prov("gos").Conn("ayu", godip.Sea).Conn("daw", godip.Sea).Conn("chy", godip.Sea).Conn("kel", godip.Sea).Conn("kar", godip.Sea).Conn("khm", godip.Sea).Conn("oce", godip.Sea).Flag(godip.Sea).
+		Prov("gos").Conn("ayu", godip.Sea).Conn("daw/ec", godip.Sea).Conn("daw", godip.Sea).Conn("chy", godip.Sea).Conn("kel", godip.Sea).Conn("kar", godip.Sea).Conn("khm", godip.Sea).Conn("oce", godip.Sea).Flag(godip.Sea).
 		// South China Sea
 		Prov("scs").Conn("luo", godip.Sea).Conn("ecs", godip.Sea).Conn("tai", godip.Sea).Conn("sot", godip.Sea).Conn("god", godip.Sea).Conn("chk", godip.Sea).Conn("cmp", godip.Sea).Conn("chs", godip.Sea).Conn("mai", godip.Sea).Flag(godip.Sea).
 		// Eastern Ocean
@@ -272,11 +270,27 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Sampit
 		Prov("sap").Conn("jas", godip.Sea).Conn("mas", godip.Sea).Conn("kut", godip.Coast...).Conn("neg", godip.Land).Conn("suk", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Pegu
-		Prov("peg").Conn("ayu", godip.Land).Conn("roi", godip.Land).Conn("chn", godip.Land).Conn("sha", godip.Land).Conn("ava", godip.Coast...).Conn("sea", godip.Sea).Conn("daw", godip.Coast...).Flag(godip.Coast...).
+		Prov("peg").Conn("ayu", godip.Land).Conn("roi", godip.Land).Conn("chn", godip.Land).Conn("sha", godip.Land).Conn("ava", godip.Coast...).Conn("sea", godip.Sea).Conn("daw", godip.Land).Conn("daw/wc", godip.Sea).Flag(godip.Coast...).
+		// Dawei
+		Prov("daw").Conn("peg", godip.Land).Conn("chy", godip.Land).Conn("ayu", godip.Land).Flag(godip.Land).SC(Ayutthaya).
+		// Dawei (WC)
+		Prov("daw/wc").Conn("peg", godip.Sea).Conn("sea", godip.Sea).Conn("chy", godip.Sea).Flag(godip.Sea).
+		// Dawei (EC)
+		Prov("daw/ec").Conn("peg", godip.Sea).Conn("chy", godip.Sea).Conn("gos", godip.Sea).Conn("ayu", godip.Sea).Flag(godip.Sea).
 		Done()
 }
 
 var provinceLongNames = map[godip.Province]string{
+	"daw/ec": "Dawei (EC)",
+	"daw/wc": "Dawei (WC)",
+	"chy/ec": "Chaiya (EC)",
+	"chy/wc": "Chaiya (WC)",
+	"nam/ec": "Namayan (NC)",
+	"nam/wc": "Namayan (SC)",
+	"jva/ec": "Javadvipa (NC)",
+	"jva/wc": "Javadvipa (SC)",
+	"jva/ec": "Sukadana (NC)",
+	"jva/wc": "Sukadana (SC)",
 	"tai": "Taiwan",
 	"nam": "Namayan",
 	"chy": "Chaiya",
