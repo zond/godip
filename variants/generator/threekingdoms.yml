@@ -16,6 +16,7 @@ ABBREVIATIONS:
   'Nan': 'nan'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
+  ['Impassable South East Asia', 'Changsha'],
   ['Impassable South East Asia', 'Central Yangtze'],
   ['Pearl River', 'Cangwu'],
   ['East Yangtze', 'Jianye'],

@@ -3,14 +3,20 @@ START_YEAR: 220
 # The starting units
 START_UNITS:
   Shu:
-    Army: ['Zangke']
+    Army: ['Chengdu','Hanzhong','Zangke']
+    Fleet: ['Qianwei']
+  Wu:
+    Army: ['Lingling','Yuzhang','Jianye']
+    Fleet: ['Nanhai']
   Wei:
-    Army: ['Qianwei']
+    Army: ['Luoyang','Qiao','Taiyuan']
+    Fleet: ['Donglai']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
   'Nan': 'nan'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
+  ['Impassable South East Asia', 'Changsha'],
   ['Impassable South East Asia', 'Central Yangtze'],
   ['Pearl River', 'Cangwu'],
   ['East Yangtze', 'Jianye'],
