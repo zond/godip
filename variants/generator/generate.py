@@ -26,7 +26,7 @@ SVG = '{http://www.w3.org/2000/svg}'
 # Any junctions within GUTTER pixels from the edge of the page will be moved to the edge.
 GUTTER = 6
 # How curvy the edges should be made
-CURVE_WEIGHT = 0.5
+CURVE_WEIGHT = 0.001
 # The background colour of sea regions
 SEA_COLOR = '#d4d0ad'
 # The background colour of the land
