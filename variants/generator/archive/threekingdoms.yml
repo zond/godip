@@ -3,14 +3,9 @@ START_YEAR: 220
 # The starting units
 START_UNITS:
   Shu:
-    Army: ['Chengdu','Hanzhong','Zangke']
-    Fleet: ['Qianwei']
-  Wu:
-    Army: ['Lingling','Yuzhang','Jianye']
-    Fleet: ['Nanhai']
+    Army: ['Zangke']
   Wei:
-    Army: ['Luoyang','Qiao','Taiyuan']
-    Fleet: ['Donglai']
+    Army: ['Qianwei']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
   'Nan': 'nan'
