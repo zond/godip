@@ -3,14 +3,17 @@ START_YEAR: 220
 # The starting units
 START_UNITS:
   Shu:
-    Army: ['Yongchang']
+    Army: ['Zangke']
   Wei:
-    Army: ['Jiaozhi']
+    Army: ['Qianwei']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
-  'Jiaozhi': 'jzh'
+  'Nan': 'nan'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
+  ['Impassable South East Asia', 'Yongchang'],
+  ['Pearl River', 'Cangwu'],
+  ['East Yangtze', 'Jianye'],
 ]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 REGION_OVERRIDES: [
