@@ -17,7 +17,7 @@ const (
 var Nations = []godip.Nation{Wu, Shu, Wei}
 
 var ThreeKingdomsVariant = common.Variant{
-	Name:              "ThreeKingdoms",
+	Name:              "Three Kingdoms",
 	Graph:             func() godip.Graph { return ThreeKingdomsGraph() },
 	Start:             ThreeKingdomsStart,
 	Blank:             ThreeKingdomsBlank,
@@ -95,11 +95,11 @@ func ThreeKingdomsGraph() *graph.Graph {
 		// Cangwu
 		Prov("can").Conn("hep", godip.Sea).Conn("zan", godip.Sea).Conn("pea", godip.Sea).Conn("sou", godip.Sea).Conn("nah", godip.Sea).Flag(godip.Sea).
 		// Taiyuan
-		Prov("tay").Conn("zho", godip.Land).Conn("boh", godip.Land).Conn("cen", godip.Land).Conn("and", godip.Land).Conn("hed", godip.Land).Flag(godip.Land).SC(Wei).
+		Prov("tay").Conn("zho", godip.Land).Conn("boh", godip.Land).Conn("and", godip.Land).Conn("hed", godip.Land).Flag(godip.Land).SC(Wei).
 		// Runan
-		Prov("run").Conn("luj", godip.Land).Conn("gua", godip.Land).Conn("qio", godip.Land).Conn("luo", godip.Land).Flag(godip.Land).
+		Prov("run").Conn("luj", godip.Land).Conn("gua", godip.Land).Conn("qio", godip.Land).Conn("luo", godip.Land).Conn("nan", godip.Land).Flag(godip.Land).
 		// Guangling
-		Prov("gua").Conn("don", godip.Coast...).Conn("qio", godip.Land).Conn("run", godip.Land).Conn("luj", godip.Coast...).Conn("eay", godip.Sea).Conn("ecs", godip.Sea).Conn("yes", godip.Sea).Conn("lan", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("gua").Conn("don", godip.Land).Conn("qio", godip.Land).Conn("run", godip.Land).Conn("luj", godip.Coast...).Conn("eay", godip.Sea).Conn("ecs", godip.Sea).Conn("yes", godip.Sea).Conn("lan", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Hepu
 		Prov("hep").Conn("can", godip.Sea).Conn("nah", godip.Coast...).Conn("lin", godip.Land).Conn("wul", godip.Land).Conn("zan", godip.Coast...).Flag(godip.Coast...).
 		// Hanzhong
@@ -111,17 +111,17 @@ func ThreeKingdomsGraph() *graph.Graph {
 		// Pearl River
 		Prov("pea").Conn("can", godip.Sea).Conn("zan", godip.Coast...).Conn("jio", godip.Coast...).Conn("sou", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Yuzhang
-		Prov("yuz").Conn("kua", godip.Land).Conn("jiy", godip.Coast...).Conn("eay", godip.Sea).Conn("luj", godip.Coast...).Conn("nan", godip.Sea).Conn("cha", godip.Coast...).Conn("lin", godip.Land).Conn("nah", godip.Land).Flag(godip.Coast...).SC(Wu).
+		Prov("yuz").Conn("kua", godip.Land).Conn("jiy", godip.Coast...).Conn("eay", godip.Sea).Conn("luj", godip.Coast...).Conn("cen", godip.Sea).Conn("cha", godip.Coast...).Conn("lin", godip.Land).Conn("nah", godip.Land).Flag(godip.Coast...).SC(Wu).
 		// Xiangyang
-		Prov("xia").Conn("luo", godip.Land).Conn("sha", godip.Coast...).Conn("wes", godip.Sea).Conn("bad", godip.Coast...).Conn("nan", godip.Sea).Flag(godip.Coast...).
+		Prov("xia").Conn("luo", godip.Land).Conn("sha", godip.Coast...).Conn("wes", godip.Sea).Conn("bad", godip.Coast...).Conn("cen", godip.Sea).Conn("nan", godip.Coast...).Flag(godip.Coast...).
 		// Kuaiji
 		Prov("kua").Conn("ecs", godip.Sea).Conn("jiy", godip.Coast...).Conn("yuz", godip.Land).Conn("nah", godip.Coast...).Flag(godip.Coast...).
 		// Anding
-		Prov("and").Conn("jic", godip.Land).Conn("jig", godip.Land).Conn("hed", godip.Land).Conn("tay", godip.Land).Conn("cen", godip.Land).Flag(godip.Land).
+		Prov("and").Conn("jic", godip.Land).Conn("jig", godip.Land).Conn("hed", godip.Land).Conn("tay", godip.Land).Flag(godip.Land).
 		// Jincheng
-		Prov("jic").Conn("han", godip.Land).Conn("jig", godip.Land).Conn("and", godip.Land).Conn("cen", godip.Land).Conn("che", godip.Land).Flag(godip.Land).
+		Prov("jic").Conn("han", godip.Land).Conn("jig", godip.Land).Conn("and", godip.Land).Conn("che", godip.Land).Flag(godip.Land).
 		// Lujiang
-		Prov("luj").Conn("run", godip.Land).Conn("nan", godip.Sea).Conn("yuz", godip.Coast...).Conn("eay", godip.Sea).Conn("gua", godip.Coast...).Flag(godip.Coast...).
+		Prov("luj").Conn("run", godip.Land).Conn("nan", godip.Coast...).Conn("cen", godip.Sea).Conn("yuz", godip.Coast...).Conn("eay", godip.Sea).Conn("gua", godip.Coast...).Flag(godip.Coast...).
 		// Langya
 		Prov("lan").Conn("yes", godip.Sea).Conn("don", godip.Coast...).Conn("gua", godip.Coast...).Flag(godip.Coast...).
 		// Fuling
@@ -129,7 +129,7 @@ func ThreeKingdomsGraph() *graph.Graph {
 		// Jingzhao
 		Prov("jig").Conn("jic", godip.Land).Conn("han", godip.Land).Conn("sha", godip.Land).Conn("luo", godip.Coast...).Conn("yer", godip.Sea).Conn("hed", godip.Coast...).Conn("and", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Badong
-		Prov("bad").Conn("ful", godip.Coast...).Conn("wul", godip.Land).Conn("cha", godip.Coast...).Conn("nan", godip.Sea).Conn("xia", godip.Coast...).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("bad").Conn("ful", godip.Coast...).Conn("wul", godip.Land).Conn("cha", godip.Coast...).Conn("cen", godip.Sea).Conn("xia", godip.Coast...).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Zangke
 		Prov("zan").Conn("qin", godip.Land).Conn("yon", godip.Land).Conn("jio", godip.Land).Conn("pea", godip.Coast...).Conn("can", godip.Sea).Conn("hep", godip.Coast...).Conn("wul", godip.Land).Conn("ful", godip.Land).Flag(godip.Coast...).SC(Shu).
 		// Lingling
@@ -139,7 +139,7 @@ func ThreeKingdomsGraph() *graph.Graph {
 		// Nanhai
 		Prov("nah").Conn("lin", godip.Land).Conn("hep", godip.Coast...).Conn("can", godip.Sea).Conn("sou", godip.Sea).Conn("ecs", godip.Sea).Conn("kua", godip.Coast...).Conn("yuz", godip.Land).Flag(godip.Coast...).SC(Wu).
 		// Bohai
-		Prov("boh").Conn("cen", godip.Coast...).Conn("tay", godip.Land).Conn("zho", godip.Coast...).Conn("yer", godip.Sea).Conn("yes", godip.Sea).Flag(godip.Coast...).
+		Prov("boh").Conn("tay", godip.Land).Conn("zho", godip.Coast...).Conn("yer", godip.Sea).Conn("yes", godip.Sea).Flag(godip.Coast...).
 		// Yellow River
 		Prov("yer").Conn("yes", godip.Sea).Conn("boh", godip.Sea).Conn("zho", godip.Sea).Conn("hed", godip.Sea).Conn("jig", godip.Sea).Conn("luo", godip.Sea).Conn("qio", godip.Sea).Conn("don", godip.Sea).Flag(godip.Sea).
 		// Shangyong
@@ -147,33 +147,33 @@ func ThreeKingdomsGraph() *graph.Graph {
 		// Qiao
 		Prov("qio").Conn("don", godip.Coast...).Conn("yer", godip.Sea).Conn("luo", godip.Coast...).Conn("run", godip.Land).Conn("gua", godip.Land).Flag(godip.Coast...).SC(Wei).
 		// Nan
-		Prov("nan").Conn("xia", godip.Sea).Conn("bad", godip.Sea).Conn("cha", godip.Sea).Conn("yuz", godip.Sea).Conn("luj", godip.Sea).Flag(godip.Sea).
+		Prov("nan").Conn("cen", godip.Sea).Conn("luj", godip.Coast...).Conn("run", godip.Land).Conn("luo", godip.Land).Conn("xia", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// West Yangtze
-		Prov("wes").Conn("qin", godip.Sea).Conn("ful", godip.Sea).Conn("bad", godip.Sea).Conn("xia", godip.Sea).Conn("sha", godip.Sea).Flag(godip.Sea).
+		Prov("wes").Conn("cen", godip.Sea).Conn("qin", godip.Sea).Conn("ful", godip.Sea).Conn("bad", godip.Sea).Conn("xia", godip.Sea).Conn("sha", godip.Sea).Flag(godip.Sea).
 		// Luoyang
-		Prov("luo").Conn("xia", godip.Land).Conn("run", godip.Land).Conn("qio", godip.Coast...).Conn("yer", godip.Sea).Conn("jig", godip.Coast...).Conn("sha", godip.Land).Flag(godip.Coast...).SC(Wei).
+		Prov("luo").Conn("xia", godip.Land).Conn("nan", godip.Land).Conn("run", godip.Land).Conn("qio", godip.Coast...).Conn("yer", godip.Sea).Conn("jig", godip.Coast...).Conn("sha", godip.Land).Flag(godip.Coast...).SC(Wei).
 		// Changsha
-		Prov("cha").Conn("bad", godip.Coast...).Conn("wul", godip.Land).Conn("lin", godip.Land).Conn("yuz", godip.Coast...).Conn("nan", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("cha").Conn("bad", godip.Coast...).Conn("wul", godip.Land).Conn("lin", godip.Land).Conn("yuz", godip.Coast...).Conn("cen", godip.Sea).Flag(godip.Coast...).
 		// Yongchang
-		Prov("yon").Conn("qin", godip.Land).Conn("cen", godip.Land).Conn("jio", godip.Land).Conn("zan", godip.Land).Flag(godip.Land).
+		Prov("yon").Conn("qin", godip.Land).Conn("jio", godip.Land).Conn("zan", godip.Land).Flag(godip.Land).
 		// SOUTH CHINA SEA
-		Prov("sou").Conn("ecs", godip.Sea).Conn("ecs", godip.Sea).Conn("nah", godip.Sea).Conn("can", godip.Sea).Conn("pea", godip.Sea).Conn("jio", godip.Sea).Conn("cen", godip.Sea).Flag(godip.Sea).
+		Prov("sou").Conn("ecs", godip.Sea).Conn("ecs", godip.Sea).Conn("nah", godip.Sea).Conn("can", godip.Sea).Conn("pea", godip.Sea).Conn("jio", godip.Sea).Flag(godip.Sea).
 		// EAST CHINA SEA
-		Prov("ecs").Conn("cen", godip.Sea).Conn("yes", godip.Sea).Conn("gua", godip.Sea).Conn("eay", godip.Sea).Conn("jiy", godip.Sea).Conn("kua", godip.Sea).Conn("nah", godip.Sea).Conn("sou", godip.Sea).Conn("sou", godip.Sea).Flag(godip.Sea).
+		Prov("ecs").Conn("yes", godip.Sea).Conn("gua", godip.Sea).Conn("eay", godip.Sea).Conn("jiy", godip.Sea).Conn("kua", godip.Sea).Conn("nah", godip.Sea).Conn("sou", godip.Sea).Conn("sou", godip.Sea).Flag(godip.Sea).
 		// Jiaozhi
-		Prov("jio").Conn("zan", godip.Land).Conn("yon", godip.Land).Conn("cen", godip.Coast...).Conn("sou", godip.Sea).Conn("pea", godip.Coast...).Flag(godip.Coast...).
+		Prov("jio").Conn("zan", godip.Land).Conn("yon", godip.Land).Conn("sou", godip.Sea).Conn("pea", godip.Coast...).Flag(godip.Coast...).
 		// East Yangtze
-		Prov("eay").Conn("gua", godip.Sea).Conn("luj", godip.Sea).Conn("yuz", godip.Sea).Conn("jiy", godip.Sea).Conn("ecs", godip.Sea).Flag(godip.Sea).
+		Prov("eay").Conn("cen", godip.Sea).Conn("gua", godip.Sea).Conn("luj", godip.Sea).Conn("yuz", godip.Sea).Conn("jiy", godip.Sea).Conn("ecs", godip.Sea).Flag(godip.Sea).
 		// Donglai
-		Prov("don").Conn("gua", godip.Coast...).Conn("lan", godip.Coast...).Conn("yes", godip.Sea).Conn("yer", godip.Sea).Conn("qio", godip.Coast...).Flag(godip.Coast...).SC(Wei).
+		Prov("don").Conn("gua", godip.Land).Conn("lan", godip.Coast...).Conn("yes", godip.Sea).Conn("yer", godip.Sea).Conn("qio", godip.Coast...).Flag(godip.Coast...).SC(Wei).
 		// Chengdu
-		Prov("che").Conn("han", godip.Land).Conn("jic", godip.Land).Conn("cen", godip.Land).Conn("qin", godip.Land).Conn("sha", godip.Land).Flag(godip.Land).SC(Shu).
+		Prov("che").Conn("han", godip.Land).Conn("jic", godip.Land).Conn("qin", godip.Land).Conn("sha", godip.Land).Flag(godip.Land).SC(Shu).
 		// Central Yangtze
-		Prov("cen").Conn("sou", godip.Sea).Conn("jio", godip.Coast...).Conn("yon", godip.Land).Conn("qin", godip.Land).Conn("che", godip.Land).Conn("jic", godip.Land).Conn("and", godip.Land).Conn("tay", godip.Land).Conn("boh", godip.Coast...).Conn("yes", godip.Sea).Conn("ecs", godip.Sea).Flag(godip.Coast...).
+		Prov("cen").Conn("eay", godip.Sea).Conn("wes", godip.Sea).Conn("nan", godip.Sea).Conn("xia", godip.Sea).Conn("bad", godip.Sea).Conn("cha", godip.Sea).Conn("yuz", godip.Sea).Conn("luj", godip.Sea).Flag(godip.Sea).
 		// Qianwei
-		Prov("qin").Conn("zan", godip.Land).Conn("ful", godip.Coast...).Conn("wes", godip.Sea).Conn("sha", godip.Coast...).Conn("che", godip.Land).Conn("cen", godip.Land).Conn("yon", godip.Land).Flag(godip.Coast...).SC(Shu).
+		Prov("qin").Conn("zan", godip.Land).Conn("ful", godip.Coast...).Conn("wes", godip.Sea).Conn("sha", godip.Coast...).Conn("che", godip.Land).Conn("yon", godip.Land).Flag(godip.Coast...).SC(Shu).
 		// YELLOW SEA
-		Prov("yes").Conn("lan", godip.Sea).Conn("gua", godip.Sea).Conn("ecs", godip.Sea).Conn("cen", godip.Sea).Conn("boh", godip.Sea).Conn("yer", godip.Sea).Conn("don", godip.Sea).Flag(godip.Sea).
+		Prov("yes").Conn("lan", godip.Sea).Conn("gua", godip.Sea).Conn("ecs", godip.Sea).Conn("boh", godip.Sea).Conn("yer", godip.Sea).Conn("don", godip.Sea).Flag(godip.Sea).
 		Done()
 }
 
@@ -211,13 +211,13 @@ var provinceLongNames = map[godip.Province]string{
 	"luo": "Luoyang",
 	"cha": "Changsha",
 	"yon": "Yongchang",
-	"sou": "SOUTH CHINA SEA",
-	"ecs": "EAST CHINA SEA",
+	"sou": "South China Sea",
+	"ecs": "East China Sea",
 	"jio": "Jiaozhi",
 	"eay": "East Yangtze",
 	"don": "Donglai",
 	"che": "Chengdu",
 	"cen": "Central Yangtze",
 	"qin": "Qianwei",
-	"yes": "YELLOW SEA",
+	"yes": "Yellow Sea",
 }
