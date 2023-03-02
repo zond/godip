@@ -23,7 +23,7 @@ const (
 var Nations = []godip.Nation{OttomanEmpire, Denmark, Sicily, Prussia, Austria, France, Britain, Russia, Spain}
 
 var EmpiresAndCoalitionsVariant = common.Variant{
-	Name:   "1800: Empires And Coalitions",
+	Name:   "Empires And Coalitions",
 	Graph:  func() godip.Graph { return EmpiresAndCoalitionsGraph() },
 	Start:  EmpiresAndCoalitionsStart,
 	Blank:  EmpiresAndCoalitionsBlank,

@@ -4,8 +4,10 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
 )
 
 const (
@@ -27,6 +29,12 @@ var SVGFlags = map[godip.Nation]func() ([]byte, error){
 	},
 }
 
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
+
 var ThreeKingdomsVariant = common.Variant{
 	Name:              "Three Kingdoms",
 	NationColors: map[godip.Nation]string{
@@ -38,7 +46,7 @@ var ThreeKingdomsVariant = common.Variant{
 	Start:             ThreeKingdomsStart,
 	Blank:             ThreeKingdomsBlank,
 	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
