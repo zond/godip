@@ -15,9 +15,25 @@ const (
 )
 
 var Nations = []godip.Nation{Wu, Shu, Wei}
+var SVGFlags = map[godip.Nation]func() ([]byte, error){
+	Wu: func() ([]byte, error) {
+		return Asset("svg/wu.svg")
+	},
+	Shu: func() ([]byte, error) {
+		return Asset("svg/shu.svg")
+	},
+	Wei: func() ([]byte, error) {
+		return Asset("svg/wei.svg")
+	},
+}
 
 var ThreeKingdomsVariant = common.Variant{
 	Name:              "Three Kingdoms",
+	NationColors: map[godip.Nation]string{
+		Wu:       "#7F5E13",
+		Shu:      "#126176",
+		Wei:      "#7D1C12",
+	},
 	Graph:             func() godip.Graph { return ThreeKingdomsGraph() },
 	Start:             ThreeKingdomsStart,
 	Blank:             ThreeKingdomsBlank,
@@ -36,12 +52,13 @@ var ThreeKingdomsVariant = common.Variant{
 	SVGVersion: "1",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
+			return Asset("svg/army.svg")
 		},
 		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
+			return Asset("svg/fleet.svg")
 		},
 	},
+	SVGFlags:    SVGFlags,
 	CreatedBy:   "",
 	Version:     "",
 	Description: "",
