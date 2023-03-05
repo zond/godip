@@ -117,7 +117,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Namayan
 		Prov("nam").Conn("vis", godip.Sea).Conn("bik", godip.Coast...).Conn("lse", godip.Sea).Conn("kas", godip.Coast...).Conn("ton", godip.Coast...).Conn("sib", godip.Sea).Flag(godip.Coast...).SC(Tondo).
 		// Chaiya
-		Prov("chy").Conn("kel", godip.Coast...).Conn("gos", godip.Sea).Conn("daw", godip.Coast...).Conn("sea", godip.Sea).Conn("som", godip.Sea).Conn("mal", godip.Coast...).Flag(godip.Coast...).
+		Prov("chy").Conn("kel", godip.Coast...).Conn("gos", godip.Sea).Conn("daw", godip.Land).Conn("daw/ec", godip.Sea).Conn("daw/wc", godip.Sea).Conn("sea", godip.Sea).Conn("som", godip.Sea).Conn("mal", godip.Coast...).Flag(godip.Coast...).
 		// Lan Xang
 		Prov("lan").Conn("sha", godip.Land).Conn("chn", godip.Land).Conn("roi", godip.Land).Conn("wia", godip.Land).Conn("fai", godip.Land).Conn("han", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Wehali
@@ -159,7 +159,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Shan
 		Prov("sha").Conn("ava", godip.Land).Conn("peg", godip.Land).Conn("chn", godip.Land).Conn("lan", godip.Land).Conn("han", godip.Land).Flag(godip.Land).
 		// Ayutthaya
-		Prov("ayu").Conn("gos", godip.Sea).Conn("oce", godip.Coast...).Conn("roi", godip.Land).Conn("peg", godip.Land).Conn("daw", godip.Coast...).Flag(godip.Coast...).SC(Ayutthaya).
+		Prov("ayu").Conn("gos", godip.Sea).Conn("oce", godip.Coast...).Conn("roi", godip.Land).Conn("peg", godip.Land).Conn("daw", godip.Land).Conn("daw/ec", godip.Sea).Flag(godip.Coast...).SC(Ayutthaya).
 		// Gulf of Tomini
 		Prov("got").Conn("eao", godip.Sea).Conn("sui", godip.Sea).Conn("mih", godip.Sea).Conn("luw", godip.Sea).Conn("ban", godip.Sea).Conn("mol", godip.Sea).Conn("hal", godip.Sea).Flag(godip.Sea).
 		// Kelantan
@@ -221,13 +221,11 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Javadvipa
 		Prov("jva").Conn("tro", godip.Coast...).Conn("jas", godip.Sea).Conn("paj", godip.Coast...).Conn("sun", godip.Coast...).Conn("mig", godip.Sea).Conn("soo", godip.Sea).Conn("lum", godip.Coast...).Flag(godip.Coast...).SC(Majapahit).
 		// Sea of India
-		Prov("sea").Conn("mig", godip.Sea).Conn("ace", godip.Sea).Conn("som", godip.Sea).Conn("chy", godip.Sea).Conn("daw", godip.Sea).Conn("peg", godip.Sea).Conn("ava", godip.Sea).Flag(godip.Sea).
+		Prov("sea").Conn("mig", godip.Sea).Conn("ace", godip.Sea).Conn("som", godip.Sea).Conn("chy", godip.Sea).Conn("daw", godip.Sea).Conn("daw/wc", godip.Sea).Conn("peg", godip.Sea).Conn("ava", godip.Sea).Flag(godip.Sea).
 		// Pajajaran
 		Prov("paj").Conn("jas", godip.Sea).Conn("mig", godip.Sea).Conn("sun", godip.Coast...).Conn("jva", godip.Coast...).Flag(godip.Coast...).SC(Majapahit).
 		// Haiphong
 		Prov("hai").Conn("god", godip.Sea).Conn("han", godip.Land).Conn("chk", godip.Coast...).Flag(godip.Coast...).SC(DaiViet).
-		// Dawei
-		Prov("daw").Conn("ayu", godip.Coast...).Conn("peg", godip.Coast...).Conn("sea", godip.Sea).Conn("chy", godip.Coast...).Conn("gos", godip.Sea).Flag(godip.Coast...).SC(Ayutthaya).
 		// Banda Sea
 		Prov("ban").Conn("mol", godip.Sea).Conn("got", godip.Sea).Conn("luw", godip.Sea).Conn("buo", godip.Sea).Conn("mar", godip.Sea).Conn("mas", godip.Sea).Conn("weh", godip.Sea).Conn("tim", godip.Sea).Conn("bur", godip.Sea).Flag(godip.Sea).
 		// Karimata Sea
@@ -241,7 +239,7 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Buton
 		Prov("buo").Conn("mar", godip.Coast...).Conn("ban", godip.Sea).Conn("luw", godip.Coast...).Flag(godip.Coast...).
 		// Gulf of Siam
-		Prov("gos").Conn("ayu", godip.Sea).Conn("daw", godip.Sea).Conn("chy", godip.Sea).Conn("kel", godip.Sea).Conn("kar", godip.Sea).Conn("khm", godip.Sea).Conn("oce", godip.Sea).Flag(godip.Sea).
+		Prov("gos").Conn("ayu", godip.Sea).Conn("daw", godip.Sea).Conn("daw/ec", godip.Sea).Conn("chy", godip.Sea).Conn("kel", godip.Sea).Conn("kar", godip.Sea).Conn("khm", godip.Sea).Conn("oce", godip.Sea).Flag(godip.Sea).
 		// South China Sea
 		Prov("scs").Conn("god", godip.Sea).Conn("chk", godip.Sea).Conn("cmp", godip.Sea).Conn("chs", godip.Sea).Conn("mai", godip.Sea).Conn("luo", godip.Sea).Conn("ecs", godip.Sea).Conn("tai", godip.Sea).Conn("sot", godip.Sea).Flag(godip.Sea).
 		// Eastern Ocean
@@ -271,14 +269,36 @@ func SpiceIslandsGraph() *graph.Graph {
 		// Sampit
 		Prov("sap").Conn("kut", godip.Coast...).Conn("neg", godip.Land).Conn("suk", godip.Coast...).Conn("jas", godip.Sea).Conn("mas", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Pegu
-		Prov("peg").Conn("sea", godip.Sea).Conn("daw", godip.Coast...).Conn("ayu", godip.Land).Conn("roi", godip.Land).Conn("chn", godip.Land).Conn("sha", godip.Land).Conn("ava", godip.Coast...).Flag(godip.Coast...).
+		Prov("peg").Conn("sea", godip.Sea).Conn("daw", godip.Land).Conn("daw/wc", godip.Sea).Conn("ayu", godip.Land).Conn("roi", godip.Land).Conn("chn", godip.Land).Conn("sha", godip.Land).Conn("ava", godip.Coast...).Flag(godip.Coast...).
+
+		// Dawei
+		Prov("daw").Conn("ayu", godip.Land).Conn("peg", godip.Land).Conn("chy", godip.Land).Flag(godip.Land).SC(Ayutthaya).
+		// Dawei (EC)
+		Prov("daw/ec").Conn("ayu", godip.Sea).Conn("chy", godip.Sea).Conn("gos", godip.Sea).Flag(godip.Sea).
+		// Dawei (WC)
+		Prov("daw/wc").Conn("peg", godip.Sea).Conn("sea", godip.Sea).Conn("chy", godip.Sea).Flag(godip.Sea).
+
+
 		Done()
 }
 
 var provinceLongNames = map[godip.Province]string{
+	"daw": "Dawei",
+	"daw/ec": "Dawei (EC)",
+	"daw/wc": "Dawei (WC)",
+	"chy": "Chaiya",	
+	"chy/ec": "Chaiya (EC)",
+	"chy/wc": "Chaiya (WC)",
+	"nam": "Namayan",	
+	"nam/ec": "Namayan (NC)",
+	"nam/wc": "Namayan (SC)",
+	"jva": "Javadvipa",
+	"jva/nc": "Javadvipa (NC)",
+	"jva/sc": "Javadvipa (SC)",
+	"suk": "Sukadana",
+	"suk/nc": "Sukadana (NC)",
+	"suk/sc": "Sukadana (SC)",
 	"tai": "Taiwan",
-	"nam": "Namayan",
-	"chy": "Chaiya",
 	"lan": "Lan Xang",
 	"weh": "Wehali",
 	"ecs": "East China Sea",
@@ -293,7 +313,6 @@ var provinceLongNames = map[godip.Province]string{
 	"sab": "Sambas",
 	"mai": "Mait Sea",
 	"mid": "Mindanao",
-	"suk": "Sukadana",
 	"tro": "Trowulan",
 	"jam": "Jambi",
 	"oce": "Oc Eo",
@@ -329,11 +348,9 @@ var provinceLongNames = map[godip.Province]string{
 	"buu": "Butuan",
 	"luo": "Luson",
 	"mol": "Moluccan Sea",
-	"jva": "Javadvipa",
 	"sea": "Sea of India",
 	"paj": "Pajajaran",
 	"hai": "Haiphong",
-	"daw": "Dawei",
 	"ban": "Banda Sea",
 	"kar": "Karimata Sea",
 	"hal": "Halmahera",
