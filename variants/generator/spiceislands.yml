@@ -1,0 +1,31 @@
+# The first year of the game
+START_YEAR: 1491
+# The starting units
+START_UNITS:
+  Brunei:
+    Fleet: ['Tunku', 'Brunei', 'Palawan']
+  Majapahit:
+    Fleet: ['Pajajaran', 'Javadvipa', 'Trowulan']
+  Tondo: 
+    Fleet: ['Tondo', 'Namayan', 'Kasiguran']
+  Malacca: 
+    Fleet: ['Riau', 'Malacca', 'Pahang']
+  Ayutthaya: 
+    Army: ['Ayutthaya','Roi Et']
+    Fleet: ['Dawei']
+  Ternate: 
+    Fleet: ['Halmahera', 'Buru', 'Seram']
+  Dai Viet: 
+    Army: ['Hanoi', 'Haiphong']
+    Fleet: ['Faifo']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  Champa: cmp
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+
+]

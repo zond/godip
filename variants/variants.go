@@ -1,6 +1,7 @@
 package variants
 
 import (
+	"github.com/zond/godip/variants/beta/spiceislands"
 	"github.com/zond/godip/variants/ancientmediterranean"
 	"github.com/zond/godip/variants/canton"
 	"github.com/zond/godip/variants/chaos"
@@ -33,6 +34,7 @@ func init() {
 var Variants = map[string]common.Variant{}
 
 var OrderedVariants = []common.Variant{
+	spiceislands.SpiceIslandsVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
 	canton.CantonVariant,
 	chaos.ChaosVariant,
