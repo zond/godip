@@ -70,7 +70,9 @@ var ThreeKingdomsVariant = common.Variant{
 	CreatedBy:   "Kuthador",
 	Version:     "0.9",
 	Description: "THIS IS A BETA MAP; IT IS NOT FINAL. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME. PROCEED WITH CAUTION. The Three Kingdoms from 220 to 280 AD was the tripartite division of China among the dynastic states of Cao Wei, Shu Han, and Eastern Wu. The period is one of the bloodiest in Chinese history. The term 'Three Kingdoms' is something of a misnomer, since each state was eventually headed not by a king, but by an emperor who claimed suzerainty over all China. Fight for suzerainty with your two adversaries!",
-	Rules:       "The upper, middle and lower Yangtze count as adjacent; fleets can move and convoy between them directly",
+	Rules:       `First to 9 Supply Centers (SC) is the winner. 
+Powers may build on any vacant supply center they own.
+The Upper, Middle and Lower Yangtze count as adjacent; fleets can move and convoy between them directly.`,
 }
 
 func ThreeKingdomsBlank(phase godip.Phase) *state.State {
