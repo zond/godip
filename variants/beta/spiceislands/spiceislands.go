@@ -4,29 +4,37 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
 )
 
 const (
-	Brunei    godip.Nation = "Brunei"
-	DaiViet   godip.Nation = "Dai Viet"
-	Malacca   godip.Nation = "Malacca"
-	Ternate   godip.Nation = "Ternate"
-	Tondo     godip.Nation = "Tondo"
-	Ayutthaya godip.Nation = "Ayutthaya"
-	Majapahit godip.Nation = "Majapahit"
+	Brunei    godip.Nation = "Sultanate of Brunei"
+	DaiViet   godip.Nation = "Kingdom of Dai Viet"
+	Malacca   godip.Nation = "Sultanate of Malacca"
+	Ternate   godip.Nation = "Sultanate of Ternate"
+	Tondo     godip.Nation = "Kingdom of Tondo"
+	Ayutthaya godip.Nation = "Kingdom of Ayutthaya"
+	Majapahit godip.Nation = "Majapahit Empire"
 )
 
 var Nations = []godip.Nation{Brunei, DaiViet, Malacca, Ternate, Tondo, Ayutthaya, Majapahit}
 
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
+
 var SpiceIslandsVariant = common.Variant{
-	Name:              "SpiceIslands",
+	Name:              "Spice Islands",
 	Graph:             func() godip.Graph { return SpiceIslandsGraph() },
 	Start:             SpiceIslandsStart,
 	Blank:             SpiceIslandsBlank,
 	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -46,9 +54,9 @@ var SpiceIslandsVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
+	CreatedBy:   "David E. Cohen",
+	Version:     "0.9",
+	Description: "THIS IS A BETA MAP; IT IS NOT FINAL. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME. PROCEED WITH CAUTION.",
 	Rules:       "",
 }
 
