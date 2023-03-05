@@ -55,9 +55,11 @@ var SpiceIslandsVariant = common.Variant{
 		},
 	},
 	CreatedBy:   "David E. Cohen",
-	Version:     "0.9",
-	Description: "THIS IS A BETA MAP; IT IS NOT FINAL. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME. PROCEED WITH CAUTION.",
-	Rules:       "",
+	Version:     "2.0",
+	Description: "THIS IS A BETA MAP. IT CAN ONLY BE PLAYED FROM THE BETA CLIENT. This variant is part of a series, together with Maharajah Diplomacy and very fleet focused.",
+	Rules:       `First to 18 Supply Centers (SC) is the winner. 
+Powers may build on any vacant supply center they own.
+Five provinces have dual coasts: Dawei, Chaiya, Namayan, Javadvipa & Sukadana.`,
 }
 
 func SpiceIslandsBlank(phase godip.Phase) *state.State {
