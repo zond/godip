@@ -4,8 +4,10 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"	
 )
 
 const (
@@ -20,13 +22,19 @@ const (
 
 var Nations = []godip.Nation{Gondwana, Mughalistan, Persia, Rajputana, Delhi, Vijayanagar, Bahmana}
 
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
+
 var MaharajahVariant = common.Variant{
 	Name:              "Maharajah",
 	Graph:             func() godip.Graph { return MaharajahGraph() },
 	Start:             MaharajahStart,
 	Blank:             MaharajahBlank,
 	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -46,10 +54,12 @@ var MaharajahVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules:       "",
+	CreatedBy:   "David E. Cohen",
+	Version:     "2.0",
+	Description: "THIS IS A BETA MAP. IT WILL ONLY BE VISIBLE TO PEOPLE USING BETA.DIPLICITY.COM OR THE BETA ANDROID APP. This map is, together with the Spice Islands map, part of the larger East Indies Diplomacy variant. Fight for dominance of the Indus region.",
+	Rules:       `The first to 25 Supply Centers (SC) is the winner. 
+Units may be built at any owned SC.
+Provinces adjacent to a river are coastal and can be occupied by fleets. These can move to other provinces connected by the same river.`,
 }
 
 func MaharajahBlank(phase godip.Phase) *state.State {
