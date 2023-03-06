@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'Sengoku'
+VARIANT = 'Maharajah'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -32,11 +32,11 @@ SEA_COLOR = '#d4d0ad'
 # The background colour of the land
 LAND_COLOR = '#f4d7b5'
 # The thickness of thick lines
-THICK = 2.225
-#THICK = 1.1125
+#THICK = 2.225
+THICK = 1.1125
 # The thickness of thin lines
-THIN = 1
-#THIN = 0.5
+#THIN = 1
+THIN = 0.5
 
 IMPASSABLE_PATTERN = '<pattern id="impassable" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)"><line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="impassableLine" /></pattern>'
 IMPASSABLE_STYLE = 'fill:url(#impassable);fill-rule:evenodd;stroke:#000000;stroke-width:1'

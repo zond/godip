@@ -1,0 +1,32 @@
+# The first year of the game
+START_YEAR: 1501
+# The starting units
+START_UNITS:
+  Bahmana:
+    Army: ['Ahmadnagar','Bijapur']
+    Fleet: ['Goa']
+  Delhi:
+    Army: ['Awadh','Agra','Muzaffarpur']
+  Gondwana:
+    Army: ['Jabalpur','Raipur']
+    Fleet: ['Sambalpur']
+  Mughalistan:
+    Army: ['Kabul','Badakhshan','Balkh']
+  Persia:
+    Army: ['Meshed','Isfahan']
+    Fleet: ['Hormuz']
+  Rajputana:
+    Army: ['Multan','Jodhpur']
+    Fleet: ['Jaisalmer']
+  Vijayanagar:
+    Army: ['Bangalore','Calicut']
+    Fleet: ['Pulicat']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  "NICOBAR SEA": "nic"
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+]
