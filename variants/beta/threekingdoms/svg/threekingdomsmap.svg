@@ -6,7 +6,7 @@
    viewBox="0 0 1582.3133 1186.7348"
    width="1582.3123"
    sodipodi:docname="threekingdomsmap.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,19 +24,19 @@
      showgrid="false"
      units="px"
      viewbox-height="600.75"
-     inkscape:current-layer="background"
-     inkscape:cx="437.89329"
-     inkscape:cy="388.28447"
+     inkscape:current-layer="names"
+     inkscape:cx="638.59439"
+     inkscape:cy="551.30194"
      inkscape:document-units="mm"
      inkscape:pagecheckerboard="0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:window-height="1017"
+     inkscape:window-height="1016"
      inkscape:window-maximized="1"
-     inkscape:window-width="1920"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:zoom="0.52410028" />
+     inkscape:window-width="1846"
+     inkscape:window-x="74"
+     inkscape:window-y="27"
+     inkscape:zoom="4.1928022" />
   <defs
      id="defs1477" />
   <pattern
@@ -2312,24 +2312,24 @@
            id="tspan556">rl River</tspan></tspan></text>
     <text
        id="text759-9-9-4-0-7-1-6-4-7-4-6-9-4"
-       style="font-style:normal;font-weight:normal;font-size:35.4414px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;opacity:0.99;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.64527"
-       transform="rotate(42.502088)"
-       x="906.09167"
-       y="436.04507"
+       style="font-style:normal;font-weight:normal;font-size:12.6739px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;opacity:0.99;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.64526"
+       transform="rotate(42.502089)"
+       x="886.93445"
+       y="410.6799"
        inkscape:label="text"
        xml:space="preserve"><tspan
          id="tspan5857-0-6-2"
-         style="stroke-width:6.64527"
-         x="906.09167"
-         y="436.04507"
+         style="stroke-width:6.64526"
+         x="886.93445"
+         y="410.6799"
          sodipodi:role="line"><tspan
-           style="font-weight:bold"
+           style="font-weight:bold;stroke-width:6.64526"
            id="tspan560">Ji</tspan><tspan
-           style="font-weight:normal"
+           style="font-weight:normal;stroke-width:6.64526"
            id="tspan562">a</tspan><tspan
-           style="font-weight:bold"
+           style="font-weight:bold;stroke-width:6.64526"
            id="tspan564">o</tspan><tspan
-           style="font-weight:normal"
+           style="font-weight:normal;stroke-width:6.64526"
            id="tspan566">zhi</tspan></tspan></text>
   </g>
   <g

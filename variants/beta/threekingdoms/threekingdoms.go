@@ -45,7 +45,7 @@ var ThreeKingdomsVariant = common.Variant{
 	Graph:             func() godip.Graph { return ThreeKingdomsGraph() },
 	Start:             ThreeKingdomsStart,
 	Blank:             ThreeKingdomsBlank,
-	Phase:             classical.NewPhase,
+	Phase:             Phase,
 	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
@@ -72,7 +72,7 @@ var ThreeKingdomsVariant = common.Variant{
 	Description: "THIS IS A BETA MAP; IT IS NOT FINAL. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME. PROCEED WITH CAUTION. The Three Kingdoms from 220 to 280 AD was the tripartite division of China among the dynastic states of Cao Wei, Shu Han, and Eastern Wu. The period is one of the bloodiest in Chinese history. The term 'Three Kingdoms' is something of a misnomer, since each state was eventually headed not by a king, but by an emperor who claimed suzerainty over all China. Fight for suzerainty with your two adversaries!",
 	Rules:       `First to 9 Supply Centers (SC) is the winner. 
 Powers may build on any vacant supply center they own.
-The Upper, Middle and Lower Yangtze count as adjacent; fleets can move and convoy between them directly.`,
+The West and Central, and Central and East Yangtze are adjacent; fleets can move and convoy between them directly.`,
 }
 
 func ThreeKingdomsBlank(phase godip.Phase) *state.State {
@@ -80,7 +80,7 @@ func ThreeKingdomsBlank(phase godip.Phase) *state.State {
 }
 
 func ThreeKingdomsStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(220, godip.Spring, godip.Movement)
+	startPhase := Phase(220, godip.Spring, godip.Movement)
 	result = ThreeKingdomsBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"nah": godip.Unit{godip.Fleet, Wu},
