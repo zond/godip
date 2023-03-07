@@ -33,7 +33,7 @@ var MaharajahVariant = common.Variant{
 	Graph:             func() godip.Graph { return MaharajahGraph() },
 	Start:             MaharajahStart,
 	Blank:             MaharajahBlank,
-	Phase:             classical.NewPhase,
+	Phase:             Phase,
 	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
@@ -67,7 +67,7 @@ func MaharajahBlank(phase godip.Phase) *state.State {
 }
 
 func MaharajahStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(1501, godip.Spring, godip.Movement)
+	startPhase := Phase(1501, godip.Spring, godip.Movement)
 	result = MaharajahBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"sab": godip.Unit{godip.Fleet, Gondwana},
