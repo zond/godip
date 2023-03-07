@@ -191,8 +191,9 @@ func addArrow(encoder *xml.Encoder, startProvince godip.Province, endProvince go
 func TestDrawMaps(t *testing.T) {
 
 
-//	if os.Getenv("DRAW_MAPS") != "true" {
-	if "true" != "true" {
+// Switch below on/off (if "true" for maps, if os. Getenv for no maps to work in Windows)
+	if os.Getenv("DRAW_MAPS") != "true" {
+//	if "true" != "true" {
 		fmt.Println("Skipping test to draw debug maps. Please use the environment variable DRAW_MAPS=true to enable.")
 		return
 	}
