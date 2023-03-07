@@ -30,6 +30,15 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 
 var SpiceIslandsVariant = common.Variant{
 	Name:              "Spice Islands",
+	NationColors: map[godip.Nation]string{
+		Brunei:        "#b8a787", //606040 if 0% transparent
+		DaiViet:       "#f8e76d", //ffff00 if 0% transparent
+		Malacca:       "#92b487", //008040 if 0% transparent
+		Ternate:       "#c581a0", //800080 if 0% transparent
+		Tondo:         "#e8b670", //e0a040 if 0% transparent
+		Ayutthaya:     "#f8816d", //ff0000 if 0% transparent
+		Majapahit:     "#9f8eba", //1f1fbf if 0% transparent
+	},
 	Graph:             func() godip.Graph { return SpiceIslandsGraph() },
 	Start:             SpiceIslandsStart,
 	Blank:             SpiceIslandsBlank,
