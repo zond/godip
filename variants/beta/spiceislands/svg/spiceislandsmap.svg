@@ -35,9 +35,6 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:zoom="0.65778826" />
-  <defs
-     id="defs2">
-
  <style
      id="embeddingfonts"
      type="text/css">
@@ -49,9 +46,8 @@
 
 }
   </style>
-
-
-
+  <defs
+     id="defs2">
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
