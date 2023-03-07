@@ -30,6 +30,15 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 
 var MaharajahVariant = common.Variant{
 	Name:              "Maharajah",
+	NationColors: map[godip.Nation]string{
+		Gondwana:       "#9f8eba", //1f1fbf if 0% transparent
+		Mughalistan:    "#b8a787", //606040 if 0% transparent
+		Persia:         "#92b487", //008040 if 0% transparent
+		Rajputana:      "#f8e76d", //ffff00 if 0% transparent
+		Delhi:          "#f8816d", //ff0000 if 0% transparent
+		Vijayanagar:    "#e8b670", //e0a040 if 0% transparent
+		Bahmana:        "#c581a0", //800080 if 0% transparent
+	},
 	Graph:             func() godip.Graph { return MaharajahGraph() },
 	Start:             MaharajahStart,
 	Blank:             MaharajahBlank,
