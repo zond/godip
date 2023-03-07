@@ -33,7 +33,7 @@ var SpiceIslandsVariant = common.Variant{
 	Graph:             func() godip.Graph { return SpiceIslandsGraph() },
 	Start:             SpiceIslandsStart,
 	Blank:             SpiceIslandsBlank,
-	Phase:             classical.NewPhase,
+	Phase:             Phase,
 	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
@@ -67,7 +67,7 @@ func SpiceIslandsBlank(phase godip.Phase) *state.State {
 }
 
 func SpiceIslandsStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(1491, godip.Spring, godip.Movement)
+	startPhase := Phase(1491, godip.Spring, godip.Movement)
 	result = SpiceIslandsBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"tun": godip.Unit{godip.Fleet, Brunei},
