@@ -3,9 +3,11 @@ package southofsahara
 import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/hundred"
 )
 
 const (
@@ -18,13 +20,19 @@ const (
 
 var Nations = []godip.Nation{Bonoman, Benin, Jolof, Mali, Bornu}
 
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
+
 var SouthofSaharaVariant = common.Variant{
 	Name:              "SouthofSahara",
 	Graph:             func() godip.Graph { return SouthofSaharaGraph() },
 	Start:             SouthofSaharaStart,
 	Blank:             SouthofSaharaBlank,
-	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Phase:             Phase,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -55,7 +63,7 @@ func SouthofSaharaBlank(phase godip.Phase) *state.State {
 }
 
 func SouthofSaharaStart() (result *state.State, err error) {
-	startPhase := classical.NewPhase(1401, godip.Spring, godip.Movement)
+	startPhase := Phase(1401, godip.Spring, godip.Movement)
 	result = SouthofSaharaBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
 		"bon": godip.Unit{godip.Army, Bonoman},
