@@ -27,7 +27,7 @@ func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
 }
 
 var SouthofSaharaVariant = common.Variant{
-	Name:              "SouthofSahara",
+	Name:              "South of Sahara",
 	Graph:             func() godip.Graph { return SouthofSaharaGraph() },
 	Start:             SouthofSaharaStart,
 	Blank:             SouthofSaharaBlank,
