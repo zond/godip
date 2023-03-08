@@ -52,10 +52,12 @@ var SouthofSaharaVariant = common.Variant{
 			return Asset("svg/fleet.svg")
 		},
 	},
-	CreatedBy:   "",
-	Version:     "",
-	Description: "",
-	Rules:       "",
+	CreatedBy:   "David E. Cohen",
+	Version:     "0.5",
+	Description: "THIS IS A BETA MAP; IT IS STILL IN DEVELOPMENT. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME. PROCEED WITH CAUTION. With the Sahara desert and high seas surrounding West Africa South of the Sahara, this is a tense conflict in ancient Africa.",
+	Rules:       `First to 13 Supply Centers (SC) is the winner. 
+Powers may build on any vacant supply center they own.
+The Oasis and High Sea provinces represent the larger ocean and desert; each can be occupied like any other province, but they are all adjacent to all other provinces of it's type, and all provinces the larger desert or ocean is adjacent to.`,
 }
 
 func SouthofSaharaBlank(phase godip.Phase) *state.State {
