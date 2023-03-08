@@ -103,17 +103,17 @@ func SouthofSaharaGraph() *graph.Graph {
 		// Mossi
 		Prov("mos").Conn("gwa", godip.Land).Conn("gwa", godip.Land).Conn("aog", godip.Land).Conn("aog", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Wouri
-		Prov("wou").Conn("bou", godip.Land).Conn("zaz", godip.Land).Conn("owo", godip.Coast...).Conn("big", godip.Sea).Conn("lun", godip.Coast...).Conn("kon", godip.Land).Flag(godip.Coast...).
+		Prov("wou").Conn("lun", godip.Coast...).Conn("kon", godip.Land).Conn("bou", godip.Land).Conn("zaz", godip.Land).Conn("owo", godip.Coast...).Conn("big", godip.Sea).Flag(godip.Coast...).
 		// Bure
 		Prov("bur").Conn("beg", godip.Coast...).Conn("aog", godip.Land).Conn("jen", godip.Land).Conn("nia", godip.Land).Conn("bam", godip.Land).Conn("wan", godip.Coast...).Conn("sob", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Sine
-		Prov("sin").Conn("sao", godip.Land).Conn("bao", godip.Land).Conn("kay", godip.Coast...).Conn("sow", godip.Sea).Conn("wan", godip.Coast...).Flag(godip.Coast...).
+		Prov("sin").Conn("wan", godip.Coast...).Conn("sao", godip.Land).Conn("bao", godip.Land).Conn("kay", godip.Coast...).Conn("sow", godip.Sea).Flag(godip.Coast...).
 		// Bight of Biafra
 		Prov("big").Conn("lun", godip.Sea).Conn("wou", godip.Sea).Conn("owo", godip.Sea).Conn("edo", godip.Sea).Conn("ije", godip.Sea).Conn("aka", godip.Sea).Conn("etu", godip.Sea).Conn("etu", godip.Sea).Flag(godip.Sea).
 		// Jolof Sea
-		Prov("jol").Conn("waa", godip.Sea).Conn("sow", godip.Sea).Conn("kay", godip.Sea).Flag(godip.Sea).
+		Prov("jol").Conn("kay", godip.Sea).Conn("waa", godip.Sea).Conn("sow", godip.Sea).Flag(godip.Sea).
 		// Bambuk
-		Prov("bam").Conn("nia", godip.Land).Conn("kum", godip.Land).Conn("awd", godip.Land).Conn("sao", godip.Land).Conn("wan", godip.Land).Conn("bur", godip.Land).Flag(godip.Land).
+		Prov("bam").Conn("bur", godip.Land).Conn("nia", godip.Land).Conn("kum", godip.Land).Conn("awd", godip.Land).Conn("sao", godip.Land).Conn("wan", godip.Land).Flag(godip.Land).
 		// Tibesti
 		Prov("tib").Conn("mur", godip.Land).Conn("bil", godip.Land).Conn("abe", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Ijebu
@@ -123,11 +123,11 @@ func SouthofSaharaGraph() *graph.Graph {
 		// Ubangi
 		Prov("uba").Conn("abe", godip.Land).Conn("bou", godip.Land).Conn("kon", godip.Land).Conn("lun", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Gwandu
-		Prov("gwa").Conn("mos", godip.Land).Conn("aog", godip.Land).Conn("saa", godip.Land).Conn("oyo", godip.Land).Conn("tak", godip.Land).Conn("gao", godip.Land).Conn("jen", godip.Land).Conn("aog", godip.Land).Conn("mos", godip.Land).Flag(godip.Land).
+		Prov("gwa").Conn("aog", godip.Land).Conn("mos", godip.Land).Conn("mos", godip.Land).Conn("aog", godip.Land).Conn("saa", godip.Land).Conn("oyo", godip.Land).Conn("tak", godip.Land).Conn("gao", godip.Land).Conn("jen", godip.Land).Flag(godip.Land).
 		// Ghat
-		Prov("gha").Conn("aga", godip.Land).Conn("bil", godip.Land).Conn("mur", godip.Land).Conn("tav", godip.Land).Conn("gao", godip.Land).Conn("tad", godip.Land).Conn("tak", godip.Land).Flag(godip.Land).
+		Prov("gha").Conn("mur", godip.Land).Conn("tav", godip.Land).Conn("gao", godip.Land).Conn("tad", godip.Land).Conn("tak", godip.Land).Conn("aga", godip.Land).Conn("bil", godip.Land).Flag(godip.Land).
 		// Masseniya
-		Prov("mas").Conn("nji", godip.Land).Conn("zaz", godip.Land).Conn("bou", godip.Land).Conn("abe", godip.Land).Conn("bil", godip.Land).Flag(godip.Land).SC(Bornu).
+		Prov("mas").Conn("zaz", godip.Land).Conn("bou", godip.Land).Conn("abe", godip.Land).Conn("bil", godip.Land).Conn("nji", godip.Land).Flag(godip.Land).SC(Bornu).
 		// Sahara Oasis 1
 		Prov("so1").Flag(godip.Land).SC(godip.Neutral).
 		// Etula Eri
@@ -137,87 +137,87 @@ func SouthofSaharaGraph() *graph.Graph {
 		// Sahara Oasis 5
 		Prov("so5").Flag(godip.Land).SC(godip.Neutral).
 		// Murzuk
-		Prov("mur").Conn("tib", godip.Land).Conn("gha", godip.Land).Conn("bil", godip.Land).Flag(godip.Land).
+		Prov("mur").Conn("gha", godip.Land).Conn("bil", godip.Land).Conn("tib", godip.Land).Flag(godip.Land).
 		// Takedda
-		Prov("tak").Conn("aga", godip.Land).Conn("gha", godip.Land).Conn("tad", godip.Land).Conn("gao", godip.Land).Conn("gwa", godip.Land).Conn("oyo", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("tak").Conn("gao", godip.Land).Conn("gwa", godip.Land).Conn("oyo", godip.Land).Conn("aga", godip.Land).Conn("gha", godip.Land).Conn("tad", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Gao
-		Prov("gao").Conn("gwa", godip.Land).Conn("tak", godip.Land).Conn("tad", godip.Land).Conn("tad", godip.Land).Conn("gha", godip.Land).Conn("tav", godip.Land).Conn("tim", godip.Land).Conn("jen", godip.Land).Flag(godip.Land).
+		Prov("gao").Conn("tad", godip.Land).Conn("gha", godip.Land).Conn("tav", godip.Land).Conn("tim", godip.Land).Conn("jen", godip.Land).Conn("gwa", godip.Land).Conn("tak", godip.Land).Conn("tad", godip.Land).Flag(godip.Land).
 		// Oyo
-		Prov("oyo").Conn("aga", godip.Land).Conn("tak", godip.Land).Conn("gwa", godip.Land).Conn("saa", godip.Land).Conn("ije", godip.Land).Conn("ife", godip.Land).Conn("nuf", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("oyo").Conn("ife", godip.Land).Conn("nuf", godip.Land).Conn("aga", godip.Land).Conn("tak", godip.Land).Conn("gwa", godip.Land).Conn("saa", godip.Land).Conn("ije", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Tadmekka
 		Prov("tad").Conn("gao", godip.Land).Conn("gao", godip.Land).Conn("tak", godip.Land).Conn("gha", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Ife
-		Prov("ife").Conn("zaz", godip.Land).Conn("nuf", godip.Land).Conn("oyo", godip.Land).Conn("ije", godip.Land).Conn("edo", godip.Land).Conn("owo", godip.Land).Flag(godip.Land).SC(Benin).
+		Prov("ife").Conn("oyo", godip.Land).Conn("ije", godip.Land).Conn("edo", godip.Land).Conn("owo", godip.Land).Conn("zaz", godip.Land).Conn("nuf", godip.Land).Flag(godip.Land).SC(Benin).
 		// Owo
-		Prov("owo").Conn("ife", godip.Land).Conn("edo", godip.Coast...).Conn("big", godip.Sea).Conn("wou", godip.Coast...).Conn("zaz", godip.Land).Flag(godip.Coast...).SC(Benin).
+		Prov("owo").Conn("big", godip.Sea).Conn("wou", godip.Coast...).Conn("zaz", godip.Land).Conn("ife", godip.Land).Conn("edo", godip.Coast...).Flag(godip.Coast...).SC(Benin).
 		// Agadez
-		Prov("aga").Conn("oyo", godip.Land).Conn("nuf", godip.Land).Conn("zaz", godip.Land).Conn("nji", godip.Land).Conn("bil", godip.Land).Conn("gha", godip.Land).Conn("tak", godip.Land).Flag(godip.Land).
+		Prov("aga").Conn("nuf", godip.Land).Conn("zaz", godip.Land).Conn("nji", godip.Land).Conn("bil", godip.Land).Conn("gha", godip.Land).Conn("tak", godip.Land).Conn("oyo", godip.Land).Flag(godip.Land).
 		// Sea of Wangara
-		Prov("sow").Conn("sob", godip.Sea).Conn("wan", godip.Sea).Conn("sin", godip.Sea).Conn("kay", godip.Sea).Conn("jol", godip.Sea).Flag(godip.Sea).
+		Prov("sow").Conn("jol", godip.Sea).Conn("sob", godip.Sea).Conn("wan", godip.Sea).Conn("sin", godip.Sea).Conn("kay", godip.Sea).Flag(godip.Sea).
 		// Jenne
-		Prov("jen").Conn("wal", godip.Land).Conn("nia", godip.Land).Conn("bur", godip.Land).Conn("aog", godip.Land).Conn("gwa", godip.Land).Conn("gao", godip.Land).Conn("tim", godip.Land).Flag(godip.Land).SC(Mali).
+		Prov("jen").Conn("aog", godip.Land).Conn("gwa", godip.Land).Conn("gao", godip.Land).Conn("tim", godip.Land).Conn("wal", godip.Land).Conn("nia", godip.Land).Conn("bur", godip.Land).Flag(godip.Land).SC(Mali).
 		// Tavdeni
-		Prov("tav").Conn("tic", godip.Land).Conn("kum", godip.Land).Conn("wal", godip.Land).Conn("tim", godip.Land).Conn("gao", godip.Land).Conn("gha", godip.Land).Flag(godip.Land).
+		Prov("tav").Conn("wal", godip.Land).Conn("tim", godip.Land).Conn("gao", godip.Land).Conn("gha", godip.Land).Conn("tic", godip.Land).Conn("kum", godip.Land).Flag(godip.Land).
 		// Wangara
-		Prov("wan").Conn("bam", godip.Land).Conn("sao", godip.Land).Conn("sin", godip.Coast...).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("bur", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("wan").Conn("sao", godip.Land).Conn("sin", godip.Coast...).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("bur", godip.Coast...).Conn("bam", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Aogadougou
-		Prov("aog").Conn("gwa", godip.Land).Conn("mos", godip.Land).Conn("mos", godip.Land).Conn("gwa", godip.Land).Conn("jen", godip.Land).Conn("bur", godip.Land).Conn("beg", godip.Land).Conn("saa", godip.Land).Flag(godip.Land).
+		Prov("aog").Conn("jen", godip.Land).Conn("bur", godip.Land).Conn("beg", godip.Land).Conn("saa", godip.Land).Conn("gwa", godip.Land).Conn("mos", godip.Land).Conn("mos", godip.Land).Conn("gwa", godip.Land).Flag(godip.Land).
 		// Kayor
-		Prov("kay").Conn("tic", godip.Land).Conn("waa", godip.Coast...).Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sin", godip.Coast...).Conn("bao", godip.Land).Conn("sao", godip.Land).Conn("awd", godip.Land).Flag(godip.Coast...).SC(Jolof).
+		Prov("kay").Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sin", godip.Coast...).Conn("bao", godip.Land).Conn("sao", godip.Land).Conn("awd", godip.Land).Conn("tic", godip.Land).Conn("waa", godip.Coast...).Flag(godip.Coast...).SC(Jolof).
 		// Bouar
-		Prov("bou").Conn("wou", godip.Land).Conn("kon", godip.Land).Conn("uba", godip.Land).Conn("abe", godip.Land).Conn("mas", godip.Land).Conn("zaz", godip.Land).Flag(godip.Land).
+		Prov("bou").Conn("kon", godip.Land).Conn("uba", godip.Land).Conn("abe", godip.Land).Conn("mas", godip.Land).Conn("zaz", godip.Land).Conn("wou", godip.Land).Flag(godip.Land).
 		// Awdagost
-		Prov("awd").Conn("kum", godip.Land).Conn("tic", godip.Land).Conn("kay", godip.Land).Conn("sao", godip.Land).Conn("bam", godip.Land).Flag(godip.Land).
+		Prov("awd").Conn("tic", godip.Land).Conn("kay", godip.Land).Conn("sao", godip.Land).Conn("bam", godip.Land).Conn("kum", godip.Land).Flag(godip.Land).
 		// Walata
-		Prov("wal").Conn("jen", godip.Land).Conn("tim", godip.Land).Conn("tav", godip.Land).Conn("kum", godip.Land).Conn("nia", godip.Land).Flag(godip.Land).SC(Mali).
+		Prov("wal").Conn("tav", godip.Land).Conn("kum", godip.Land).Conn("nia", godip.Land).Conn("jen", godip.Land).Conn("tim", godip.Land).Flag(godip.Land).SC(Mali).
 		// Lunda
 		Prov("lun").Conn("uba", godip.Land).Conn("kon", godip.Land).Conn("wou", godip.Coast...).Conn("big", godip.Sea).Flag(godip.Coast...).
 		// Begho
-		Prov("beg").Conn("bon", godip.Coast...).Conn("saa", godip.Land).Conn("aog", godip.Land).Conn("bur", godip.Coast...).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Flag(godip.Coast...).SC(Bonoman).
+		Prov("beg").Conn("bur", godip.Coast...).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Conn("bon", godip.Coast...).Conn("saa", godip.Land).Conn("aog", godip.Land).Flag(godip.Coast...).SC(Bonoman).
 		// Sahara Oasis 2
 		Prov("so2").Flag(godip.Land).SC(godip.Neutral).
 		// High Sea 1
 		Prov("hs1").Flag(godip.Sea).
 		// Timbuktu
-		Prov("tim").Conn("jen", godip.Land).Conn("gao", godip.Land).Conn("tav", godip.Land).Conn("wal", godip.Land).Flag(godip.Land).SC(Mali).
+		Prov("tim").Conn("wal", godip.Land).Conn("jen", godip.Land).Conn("gao", godip.Land).Conn("tav", godip.Land).Flag(godip.Land).SC(Mali).
 		// Sea of Bure
-		Prov("sob").Conn("beg", godip.Sea).Conn("bur", godip.Sea).Conn("wan", godip.Sea).Conn("sow", godip.Sea).Conn("aka", godip.Sea).Flag(godip.Sea).
+		Prov("sob").Conn("bur", godip.Sea).Conn("wan", godip.Sea).Conn("sow", godip.Sea).Conn("aka", godip.Sea).Conn("beg", godip.Sea).Flag(godip.Sea).
 		// Kumbi Saleh
-		Prov("kum").Conn("awd", godip.Land).Conn("bam", godip.Land).Conn("nia", godip.Land).Conn("wal", godip.Land).Conn("tav", godip.Land).Conn("tic", godip.Land).Flag(godip.Land).SC(Mali).
+		Prov("kum").Conn("tav", godip.Land).Conn("tic", godip.Land).Conn("awd", godip.Land).Conn("bam", godip.Land).Conn("nia", godip.Land).Conn("wal", godip.Land).Flag(godip.Land).SC(Mali).
 		// Sahara Oasis 3
 		Prov("so3").Flag(godip.Land).SC(godip.Neutral).
 		// High Sea 2
 		Prov("hs2").Flag(godip.Sea).
 		// Baol
-		Prov("bao").Conn("sao", godip.Land).Conn("kay", godip.Land).Conn("sin", godip.Land).Flag(godip.Land).SC(Jolof).
+		Prov("bao").Conn("kay", godip.Land).Conn("sin", godip.Land).Conn("sao", godip.Land).Flag(godip.Land).SC(Jolof).
 		// Salaga
-		Prov("saa").Conn("beg", godip.Land).Conn("bon", godip.Land).Conn("ije", godip.Land).Conn("oyo", godip.Land).Conn("gwa", godip.Land).Conn("aog", godip.Land).Flag(godip.Land).SC(Bonoman).
+		Prov("saa").Conn("aog", godip.Land).Conn("beg", godip.Land).Conn("bon", godip.Land).Conn("ije", godip.Land).Conn("oyo", godip.Land).Conn("gwa", godip.Land).Flag(godip.Land).SC(Bonoman).
 		// Akan Sea
-		Prov("aka").Conn("ije", godip.Sea).Conn("bon", godip.Sea).Conn("beg", godip.Sea).Conn("sob", godip.Sea).Conn("big", godip.Sea).Flag(godip.Sea).
+		Prov("aka").Conn("big", godip.Sea).Conn("ije", godip.Sea).Conn("bon", godip.Sea).Conn("beg", godip.Sea).Conn("sob", godip.Sea).Flag(godip.Sea).
 		// High Sea 3
 		Prov("hs3").Flag(godip.Sea).
 		// Bilma
-		Prov("bil").Conn("nji", godip.Land).Conn("mas", godip.Land).Conn("abe", godip.Land).Conn("tib", godip.Land).Conn("mur", godip.Land).Conn("gha", godip.Land).Conn("aga", godip.Land).Flag(godip.Land).SC(Bornu).
+		Prov("bil").Conn("aga", godip.Land).Conn("nji", godip.Land).Conn("mas", godip.Land).Conn("abe", godip.Land).Conn("tib", godip.Land).Conn("mur", godip.Land).Conn("gha", godip.Land).Flag(godip.Land).SC(Bornu).
 		// Tichitt
-		Prov("tic").Conn("kum", godip.Land).Conn("tav", godip.Land).Conn("waa", godip.Land).Conn("kay", godip.Land).Conn("awd", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("tic").Conn("awd", godip.Land).Conn("kum", godip.Land).Conn("tav", godip.Land).Conn("waa", godip.Land).Conn("kay", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Abesehr
 		Prov("abe").Conn("tib", godip.Land).Conn("bil", godip.Land).Conn("mas", godip.Land).Conn("bou", godip.Land).Conn("uba", godip.Land).Flag(godip.Land).
 		// Bono Manso
-		Prov("bon").Conn("beg", godip.Coast...).Conn("aka", godip.Sea).Conn("ije", godip.Coast...).Conn("saa", godip.Land).Flag(godip.Coast...).SC(Bonoman).
+		Prov("bon").Conn("saa", godip.Land).Conn("beg", godip.Coast...).Conn("aka", godip.Sea).Conn("ije", godip.Coast...).Flag(godip.Coast...).SC(Bonoman).
 		// Njimi
-		Prov("nji").Conn("bil", godip.Land).Conn("aga", godip.Land).Conn("zaz", godip.Land).Conn("mas", godip.Land).Flag(godip.Land).SC(Bornu).
+		Prov("nji").Conn("mas", godip.Land).Conn("bil", godip.Land).Conn("aga", godip.Land).Conn("zaz", godip.Land).Flag(godip.Land).SC(Bornu).
 		// Saloum
-		Prov("sao").Conn("bao", godip.Land).Conn("sin", godip.Land).Conn("wan", godip.Land).Conn("bam", godip.Land).Conn("awd", godip.Land).Conn("kay", godip.Land).Flag(godip.Land).SC(Jolof).
+		Prov("sao").Conn("wan", godip.Land).Conn("bam", godip.Land).Conn("awd", godip.Land).Conn("kay", godip.Land).Conn("bao", godip.Land).Conn("sin", godip.Land).Flag(godip.Land).SC(Jolof).
 		// Nufe
 		Prov("nuf").Conn("aga", godip.Land).Conn("oyo", godip.Land).Conn("ife", godip.Land).Conn("zaz", godip.Land).Flag(godip.Land).
 		// Kongo
-		Prov("kon").Conn("lun", godip.Land).Conn("uba", godip.Land).Conn("bou", godip.Land).Conn("wou", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("kon").Conn("bou", godip.Land).Conn("wou", godip.Land).Conn("lun", godip.Land).Conn("uba", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Zazzau
-		Prov("zaz").Conn("ife", godip.Land).Conn("owo", godip.Land).Conn("wou", godip.Land).Conn("bou", godip.Land).Conn("mas", godip.Land).Conn("nji", godip.Land).Conn("aga", godip.Land).Conn("nuf", godip.Land).Flag(godip.Land).
+		Prov("zaz").Conn("mas", godip.Land).Conn("nji", godip.Land).Conn("aga", godip.Land).Conn("nuf", godip.Land).Conn("ife", godip.Land).Conn("owo", godip.Land).Conn("wou", godip.Land).Conn("bou", godip.Land).Flag(godip.Land).
 		// Edo
 		Prov("edo").Conn("ije", godip.Coast...).Conn("big", godip.Sea).Conn("owo", godip.Coast...).Conn("ife", godip.Land).Flag(godip.Coast...).SC(Benin).
 		// Niani
-		Prov("nia").Conn("bam", godip.Land).Conn("bur", godip.Land).Conn("jen", godip.Land).Conn("wal", godip.Land).Conn("kum", godip.Land).Flag(godip.Land).
+		Prov("nia").Conn("bur", godip.Land).Conn("jen", godip.Land).Conn("wal", godip.Land).Conn("kum", godip.Land).Conn("bam", godip.Land).Flag(godip.Land).
 		Done()
 }
 
