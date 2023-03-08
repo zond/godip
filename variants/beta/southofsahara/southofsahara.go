@@ -121,7 +121,7 @@ func SouthofSaharaGraph() *graph.Graph {
 		// Bight of Biafra
 		Prov("big").Conn("lun", godip.Sea).Conn("wou", godip.Sea).Conn("owo", godip.Sea).Conn("edo", godip.Sea).Conn("ije", godip.Sea).Conn("aka", godip.Sea).Conn("etu", godip.Sea).Conn("etu", godip.Sea).Conn("hs1", godip.Sea).Conn("hs2", godip.Sea).Conn("hs3", godip.Sea).Flag(godip.Sea).
 		// Jolof Sea
-		Prov("jol").Conn("kay", godip.Sea).Conn("waa", godip.Sea).Conn("sow", godip.Sea).Conn("so1", godip.Sea).Conn("so2", godip.Sea).Conn("so3", godip.Sea).Conn("so4", godip.Sea).Conn("so5", godip.Sea).Conn("hs1", godip.Sea).Conn("hs2", godip.Sea).Conn("hs3", godip.Sea).Flag(godip.Sea).
+		Prov("jol").Conn("kay", godip.Sea).Conn("waa", godip.Sea).Conn("sow", godip.Sea).Conn("so1", godip.Coast...).Conn("so2", godip.Coast...).Conn("so3", godip.Coast...).Conn("so4", godip.Coast...).Conn("so5", godip.Coast...).Conn("hs1", godip.Sea).Conn("hs2", godip.Sea).Conn("hs3", godip.Sea).Flag(godip.Sea).
 		// Bambuk
 		Prov("bam").Conn("bur", godip.Land).Conn("nia", godip.Land).Conn("kum", godip.Land).Conn("awd", godip.Land).Conn("sao", godip.Land).Conn("wan", godip.Land).Flag(godip.Land).
 		// Tibesti
@@ -187,7 +187,7 @@ func SouthofSaharaGraph() *graph.Graph {
 		// Sahara Oasis 2
 		Prov("so2").Conn("so5", godip.Land).Conn("so3", godip.Land).Conn("so4", godip.Land).Conn("so1", godip.Land).Conn("tib", godip.Land).Conn("mur", godip.Land).Conn("gha", godip.Land).Conn("tav", godip.Land).Conn("tic", godip.Land).Conn("waa", godip.Land).Conn("jol", godip.Sea).Conn("hs1", godip.Sea).Conn("hs2", godip.Sea).Conn("hs3", godip.Sea).Flag(godip.Land).
 		// High Sea 1
-		Prov("hs1").Conn("so1", godip.Sea).Conn("so2", godip.Sea).Conn("so3", godip.Sea).Conn("so4", godip.Sea).Conn("so5", godip.Sea).Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Conn("big", godip.Sea).Conn("etu", godip.Sea).Flag(godip.Sea).
+		Prov("hs1").Conn("so1", godip.Coast...).Conn("so2", godip.Coast...).Conn("so3", godip.Coast...).Conn("so4", godip.Coast...).Conn("so5", godip.Coast...).Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Conn("big", godip.Sea).Conn("etu", godip.Sea).Flag(godip.Sea).
 		// Timbuktu
 		Prov("tim").Conn("wal", godip.Land).Conn("jen", godip.Land).Conn("gao", godip.Land).Conn("tav", godip.Land).Flag(godip.Land).SC(Mali).
 		// Sea of Bure
@@ -197,7 +197,7 @@ func SouthofSaharaGraph() *graph.Graph {
 		// Sahara Oasis 3
 		Prov("so3").Conn("so2", godip.Land).Conn("so5", godip.Land).Conn("so4", godip.Land).Conn("so1", godip.Land).Conn("tib", godip.Land).Conn("mur", godip.Land).Conn("gha", godip.Land).Conn("tav", godip.Land).Conn("tic", godip.Land).Conn("waa", godip.Land).Conn("jol", godip.Sea).Conn("hs1", godip.Sea).Conn("hs2", godip.Sea).Conn("hs3", godip.Sea).Flag(godip.Land).
 		// High Sea 2
-		Prov("hs2").Conn("so1", godip.Sea).Conn("so2", godip.Sea).Conn("so3", godip.Sea).Conn("so4", godip.Sea).Conn("so5", godip.Sea).Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Conn("big", godip.Sea).Conn("etu", godip.Sea).Flag(godip.Sea).
+		Prov("hs2").Conn("so1", godip.Coast...).Conn("so2", godip.Coast...).Conn("so3", godip.Coast...).Conn("so4", godip.Coast...).Conn("so5", godip.Coast...).Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Conn("big", godip.Sea).Conn("etu", godip.Sea).Flag(godip.Sea).
 		// Baol
 		Prov("bao").Conn("kay", godip.Land).Conn("sin", godip.Land).Conn("sao", godip.Land).Flag(godip.Land).SC(Jolof).
 		// Salaga
@@ -205,7 +205,7 @@ func SouthofSaharaGraph() *graph.Graph {
 		// Akan Sea
 		Prov("aka").Conn("big", godip.Sea).Conn("ije", godip.Sea).Conn("bon", godip.Sea).Conn("beg", godip.Sea).Conn("sob", godip.Sea).Conn("hs1", godip.Sea).Conn("hs2", godip.Sea).Conn("hs3", godip.Sea).Flag(godip.Sea).
 		// High Sea 3
-		Prov("hs3").Conn("so1", godip.Sea).Conn("so2", godip.Sea).Conn("so3", godip.Sea).Conn("so4", godip.Sea).Conn("so5", godip.Sea).Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Conn("big", godip.Sea).Conn("etu", godip.Sea).Flag(godip.Sea).
+		Prov("hs3").Conn("so1", godip.Coast...).Conn("so2", godip.Coast...).Conn("so3", godip.Coast...).Conn("so4", godip.Coast...).Conn("so5", godip.Coast...).Conn("jol", godip.Sea).Conn("sow", godip.Sea).Conn("sob", godip.Sea).Conn("aka", godip.Sea).Conn("big", godip.Sea).Conn("etu", godip.Sea).Flag(godip.Sea).
 		// Bilma
 		Prov("bil").Conn("aga", godip.Land).Conn("nji", godip.Land).Conn("mas", godip.Land).Conn("abe", godip.Land).Conn("tib", godip.Land).Conn("mur", godip.Land).Conn("gha", godip.Land).Flag(godip.Land).SC(Bornu).
 		// Tichitt
