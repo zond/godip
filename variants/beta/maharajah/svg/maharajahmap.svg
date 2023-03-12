@@ -23,7 +23,7 @@
      pagecolor="#ffffff"
      showgrid="false"
      units="px"
-     inkscape:current-layer="provinces"
+     inkscape:current-layer="colorSCs"
      inkscape:cx="395.5"
      inkscape:cy="905.5"
      inkscape:document-units="mm"
@@ -806,7 +806,7 @@
        r="11.768496" />
     <circle
        style="opacity:0.997967;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0883404"
-       id="circle2099"
+       id="jasSC"
        cx="738.21948"
        cy="702.1571"
        r="11.768496" />
