@@ -1,0 +1,24 @@
+# The first year of the game
+START_YEAR: 1401
+# The starting units
+START_UNITS:
+  Benin:
+    Army: ['Edo','Ife','Owo']
+  Bonoman:
+    Army: ['Bono Manso','Begho','Salaga']
+  Bornu:
+    Army: ['Njimi','Masseniya','Bilma']
+  Jolof:
+    Army: ['Kayor','Baol','Saloum']
+  Mali:
+    Army: ['Kumbi Saleh','Walata','Timbuktu','Jenne']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  'Ubangi': 'uba'
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+]

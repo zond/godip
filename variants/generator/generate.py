@@ -12,7 +12,9 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'ThreeKingdoms'
+
+VARIANT = 'SouthofSahara'
+
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -33,7 +35,7 @@ SEA_COLOR = '#d4d0ad'
 LAND_COLOR = '#f4d7b5'
 # The thickness of thick lines
 #THICK = 2.225
-THICK = 1.1125
+THICK = 1.0
 # The thickness of thin lines
 #THIN = 1
 THIN = 0.5
