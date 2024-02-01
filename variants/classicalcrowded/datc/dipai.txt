@@ -1,0 +1,685 @@
+#############################################################
+#
+#	DipAI test harness
+#
+#	For speed comparisions between jDip and the 
+#	DipAI adjudicator written in C
+#
+#	Moves are from harness.c
+#	4 movement turns, 3 retreat turns, and 2 build turns
+#	Ending-state should be the same as the starting state
+#	[results of F1902B is the same as S1901M]
+#
+#
+#############################################################
+
+#############################################################
+#	
+# Set the Variant for all cases.
+#
+#############################################################
+VARIANT_ALL Standard
+
+#############################################################
+#	PASSED: Spring 1901 M	
+#############################################################
+CASE DipAI:S01M
+PRESTATE_SETPHASE Spring 1901, Movement
+PRESTATE
+	Austria: A bud
+	Austria: F tri
+	Austria: A vie
+	England: F lon
+	England: A lvp
+	England: F edi
+	France: F bre
+	France: A mar
+	France: A par
+	Germany: A ber
+	Germany: F kie
+	Germany: A mun
+	Italy: F nap
+	Italy: A rom
+	Italy: A ven
+	Russia: A mos
+	Russia: F sev
+	Russia: F stp/sc
+	Russia: A war
+	Turkey: F ank
+	Turkey: A con
+	Turkey: A smy
+ORDERS
+	Austria: A bud-gal
+	Austria: F tri-ven
+	Austria: A vie-tyr
+	England: F lon-eng
+	England: A lvp-wal
+	England: F edi-yor
+	France: F bre-pic
+	France: A mar-pie
+	France: A par-gas
+	Germany: A ber-pru
+	Germany: F kie-hel
+	Germany: A mun-bur
+	Italy: F nap-apu
+	Italy: A rom-tus
+	Italy: A ven-rom
+	Russia: A mos-sev
+	Russia: F sev-bla
+	Russia: F stp/sc-bot
+	Russia: A war HOLD
+	Turkey: F ank-arm
+	Turkey: A con-ank
+	Turkey: A smy-con
+POSTSTATE
+	Austria: A gal
+	Austria: F ven 
+	Austria: A tyr
+	England: F eng
+	England: A wal
+	England: F yor
+	France: F pic 
+	France: A pie 
+	France: A gas
+	Germany: A pru
+	Germany: F hel
+	Germany: A bur
+	Italy: F apu
+	Italy: A tus
+	Italy: A rom
+	Russia: A sev
+	Russia: F bla
+	Russia: F bot
+	Russia: A war
+	Turkey: F arm
+	Turkey: A ank
+	Turkey: A con
+END
+
+
+#############################################################
+#	Passed: Fall 1901, Movement
+#############################################################
+CASE DipAI:F01M
+PRESTATE_SETPHASE Fall 1901, Movement
+PRESTATE
+	Austria: A gal
+	Austria: F ven 
+	Austria: A tyr
+	England: F eng
+	England: A wal
+	England: F yor
+	France: F pic 
+	France: A pie 
+	France: A gas
+	Germany: A pru
+	Germany: F hel
+	Germany: A bur
+	Italy: F apu
+	Italy: A tus
+	Italy: A rom
+	Russia: A sev
+	Russia: F bla
+	Russia: F bot
+	Russia: A war
+	Turkey: F arm
+	Turkey: A ank
+	Turkey: A con
+ORDERS
+	Austria: A gal-war
+	Austria: F ven HOLD
+	Austria: A tyr S tus-pie
+	England: F eng C A wal-pic
+	England: A wal-pic
+	England: F yor-lon
+	France: F pic HOLD
+	France: A pie HOLD
+	France: A gas-mar
+	Germany: A pru S gal-war
+	Germany: F hel-nth
+	Germany: A bur S wal-pic
+	Italy: F apu-ven
+	Italy: A tus-pie
+	Italy: A rom S apu-ven
+	Russia: A sev S bla-arm
+	Russia: F bla-arm
+	Russia: F bot-stp/sc
+	Russia: A war HOLD
+	Turkey: F arm HOLD
+	Turkey: A ank-smy
+	Turkey: A con HOLD
+POSTSTATE
+	Austria: A war
+	Austria: A tyr
+	England: F eng
+	England: A pic
+	England: F lon
+	France: A mar
+	Germany: A pru
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Italy: A pie
+	Italy: A rom
+	Russia: A sev
+	Russia: F arm
+	Russia: F stp/sc
+	Turkey: A smy
+	Turkey: A con
+POSTSTATE_DISLODGED
+	Austria: F ven
+	France: F pic
+#	France: F pie		# This is destroyed; no need to put here.
+	Russia: A war
+	Turkey: F arm
+END
+
+
+#############################################################
+#	Passed: Fall 1901, Retreat
+#############################################################
+CASE DipAI:F01R
+PRESTATE_SETPHASE  Fall 1901, Retreat
+PRESTATE
+	Austria: A war
+	Austria: A tyr
+	England: F eng
+	England: A pic
+	England: F lon
+	France: A mar
+	Germany: A pru
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Italy: A pie
+	Italy: A rom
+	Russia: A sev
+	Russia: F arm
+	Russia: F stp/sc
+	Turkey: A smy
+	Turkey: A con
+PRESTATE_DISLODGED
+	Austria: F ven
+	France: F pic
+	France: F pie
+	Russia: A war
+	Turkey: F arm
+PRESTATE_RESULTS
+	SUCCESS: Austria: A gal-war
+	FAILURE: Austria: F ven HOLD			# fails
+	SUCCESS: Austria: A tyr S tus-pie
+	SUCCESS: England: F eng C A wal-pic
+	SUCCESS: England: A wal-pic
+	SUCCESS: England: F yor-lon
+	FAILURE: France: F pic HOLD			# fails
+	FAILURE: France: A pie HOLD			# fails
+	SUCCESS: France: A gas-mar
+	SUCCESS: Germany: A pru S gal-war
+	SUCCESS: Germany: F hel-nth
+	SUCCESS: Germany: A bur S wal-pic
+	SUCCESS: Italy: F apu-ven
+	SUCCESS: Italy: A tus-pie
+	SUCCESS: Italy: A rom S apu-ven
+	SUCCESS: Russia: A sev S bla-arm
+	SUCCESS: Russia: F bla-arm
+	SUCCESS: Russia: F bot-stp/sc
+	FAILURE: Russia: A war HOLD			# fails
+	FAILURE: Turkey: F arm HOLD			# fails
+	SUCCESS: Turkey: A ank-smy	
+	SUCCESS: Turkey: A con HOLD			# DOES NOT fail
+ORDERS
+	Austria: F ven DISBAND
+	France: F pic DISBAND
+	France: F pie DISBAND
+	Russia: A war-mos
+	Turkey: F arm DISBAND
+POSTSTATE
+	Austria: A war
+	Austria: A tyr
+	England: F eng
+	England: A pic
+	England: F lon
+	France: A mar
+	Germany: A pru
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Italy: A pie
+	Italy: A rom
+	Russia: A sev
+	Russia: F arm
+	Russia: F stp/sc
+	Russia: A mos					# russia retreats to moscow
+	Turkey: A smy
+	Turkey: A con
+END
+
+
+#############################################################
+#	Passed: Fall 1901, Adjustment
+#############################################################
+CASE DipAI:F01B
+PRESTATE_SETPHASE Fall 1901, Adjustment
+PRESTATE
+	Austria: A war
+	Austria: A tyr
+	England: F eng
+	England: A pic
+	England: F lon
+	France: A mar
+	Germany: A pru
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Italy: A pie
+	Italy: A rom
+	Russia: A sev
+	Russia: F arm
+	Russia: F stp/sc
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+PRESTATE_SUPPLYCENTER_OWNERS
+	# note that even though there is a unit specified in the owner
+	# orders here, it is ignored; it just makes parsing easier. This
+	# may be remedied in a future version of TestSuite
+	France: A bre
+	France: A mar
+	France: A par
+	Austria: A bud
+	Austria: A tri
+	Austria: A vie
+	Austria: A war
+	Turkey: A ank
+	Turkey: A con
+	Turkey: A smy
+	Russia: A mos
+	Russia: A sev
+	Russia: A stp
+	England: A edi
+	England: A lvp
+	England: A lon
+	Germany: A ber
+	Germany: A kie
+	Germany: A mun
+	Italy: A nap
+	Italy: A rom
+	Italy: A ven
+ORDERS
+	Austria: Build F tri
+	Austria: Build A bud
+	France: Build F bre
+	France: Build A par
+	Russia: Remove F stp/sc
+	Turkey: Build F ank
+POSTSTATE
+	Austria: A war
+	Austria: A tyr
+	England: F eng
+	England: A pic
+	England: F lon
+	France: A mar
+	Germany: A pru
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Italy: A pie
+	Italy: A rom
+	Russia: A sev
+	Russia: F arm
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+	#
+	# these are the builds
+	#
+	Austria: F tri
+	Austria: A bud
+	France:  F bre
+	France:  A par
+	Turkey:  F ank
+END
+
+
+
+#############################################################
+#	Passed: Spring 1902, Movement
+#############################################################
+CASE DipAI:S02M
+PRESTATE_SETPHASE Spring 1902, Movement
+PRESTATE
+	Austria: A war
+	Austria: A tyr
+	Austria: F tri
+	Austria: A bud
+	England: F eng
+	England: A pic
+	England: F lon
+	France: A mar
+	France: F bre
+	France: A par
+	Germany: A pru
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Italy: A pie
+	Italy: A rom
+	Russia: A sev
+	Russia: F arm
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+	Turkey: F ank
+ORDERS
+	Austria: A war HOLD
+	Austria: A tyr-ven
+	Austria: F tri S tyr-ven
+	Austria: A bud HOLD
+	England: F eng-nth
+	England: A pic-bre
+	England: F lon S F eng-nth
+	France: A mar-bur
+	France: F bre-gas
+	France: A par S mar-bur
+	Germany: A pru-war
+	Germany: F nth HOLD
+	Germany: A bur HOLD
+	Italy: F ven HOLD
+	Italy: A pie HOLD
+	Italy: A rom HOLD
+	Russia: A sev-ukr
+	Russia: F arm HOLD
+	Russia: A mos S pru-war
+	Turkey: A smy S ank-arm
+	Turkey: A con HOLD
+	Turkey: F ank-arm
+POSTSTATE
+	Austria: A ven		
+	Austria: F tri
+	Austria: A bud
+	England: F nth
+	England: A bre
+	England: F lon
+	France:  A bur
+	France:  F gas
+	France:  A par
+	Germany: A war
+	Italy:   A pie
+	Italy:   A rom
+	Russia:  A ukr
+	Russia:  A mos
+	Turkey:  A smy
+	Turkey:  A con
+	Turkey:  F arm
+POSTSTATE_DISLODGED
+	Austria: A war
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Russia: F arm
+END
+
+
+#############################################################
+#	Passed: Spring 1902, Retreat
+#############################################################
+CASE DipAI:S02R
+PRESTATE_SETPHASE  Spring 1902, Retreat
+PRESTATE
+	Austria: A ven		
+	Austria: F tri
+	Austria: A bud
+	England: F nth
+	England: A bre
+	England: F lon
+	France:  A bur
+	France:  F gas
+	France:  A par
+	Germany: A war
+	Italy:   A pie
+	Italy:   A rom
+	Russia:  A ukr
+	Russia:  A mos
+	Turkey:  A smy
+	Turkey:  A con
+	Turkey:  F arm
+PRESTATE_DISLODGED
+	Austria: A war
+	Germany: F nth
+	Germany: A bur
+	Italy: F ven
+	Russia: F arm
+ORDERS
+	Austria: A war DISBAND
+	Germany: F nth DISBAND
+	Germany: A bur DISBAND
+	Italy: F ven DISBAND
+	Russia: F arm DISBAND
+POSTSTATE
+	Austria: A ven		
+	Austria: F tri
+	Austria: A bud
+	England: F nth
+	England: A bre
+	England: F lon
+	France:  A bur
+	France:  F gas
+	France:  A par
+	Germany: A war
+	Italy:   A pie
+	Italy:   A rom
+	Russia:  A ukr
+	Russia:  A mos
+	Turkey:  A smy
+	Turkey:  A con
+	Turkey:  F arm
+END
+
+
+#############################################################
+#	Passed: Fall 1902, Movement
+#############################################################
+CASE DipAI:F02M
+PRESTATE_SETPHASE  Fall 1902, Movement
+PRESTATE
+	Austria: A ven
+	Austria: F tri
+	Austria: A bud
+	England: F nth
+	England: A bre
+	England: F lon
+	France: A bur
+	France: F gas
+	France: A par
+	Germany: A war
+	Italy: A pie
+	Italy: A rom
+	Russia: A ukr
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+	Turkey: F arm
+ORDERS
+	Austria: A ven HOLD		# dislodged
+	Austria: F tri HOLD
+	Austria: A bud HOLD
+	England: F nth-edi
+	England: A bre-gas		# dislodged
+	England: F lon HOLD
+	France: A bur-mar
+	France: F gas-bre
+	France: A par S gas-bre
+	Germany: A war-mos		# dislodged
+	Italy: A pie-ven
+	Italy: A rom S pie-ven
+	Russia: A ukr-war
+	Russia: A mos S ukr-war
+	Turkey: A smy HOLD
+	Turkey: A con HOLD
+	Turkey: F arm-ank
+POSTSTATE
+	Austria: F tri
+	Austria: A bud
+	England: F edi
+	England: F lon
+	France: A mar
+	France: F bre
+	France: A par
+	Italy: A ven
+	Italy: A rom
+	Russia: A war
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+	Turkey: F ank
+POSTSTATE_DISLODGED
+	Austria: A ven
+	England: A bre
+	Germany: A war
+END
+
+
+#############################################################
+#	Passed: Fall 1902, Retreat
+#############################################################
+CASE DipAI:F02R
+PRESTATE_SETPHASE  Fall 1902, Retreat
+PRESTATE
+	Austria: F tri
+	Austria: A bud
+	England: F edi
+	England: F lon
+	France: A mar
+	France: F bre
+	France: A par
+	Italy: A ven
+	Italy: A rom
+	Russia: A war
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+	Turkey: F ank
+PRESTATE_DISLODGED
+	Austria: A ven
+	England: A bre
+	Germany: A war
+PRESTATE_RESULTS
+	FAILURE: Austria: A ven HOLD		# dislodged
+	SUCCESS: Austria: F tri HOLD
+	SUCCESS: Austria: A bud HOLD
+	SUCCESS: England: F nth-edi
+	FAILURE: England: A bre-gas		# dislodged
+	SUCCESS: England: F lon HOLD
+	SUCCESS: France: A bur-mar
+	SUCCESS: France: F gas-bre
+	SUCCESS: France: A par S gas-bre
+	FAILURE: Germany: A war-mos		# dislodged
+	SUCCESS: Italy: A pie-ven
+	SUCCESS: Italy: A rom S pie-ven
+	SUCCESS: Russia: A ukr-war
+	SUCCESS: Russia: A mos S ukr-war
+	SUCCESS: Turkey: A smy HOLD
+	SUCCESS: Turkey: A con HOLD
+	SUCCESS: Turkey: F arm-ank
+ORDERS
+	Austria: A ven DISBAND
+	England: A bre DISBAND
+	Germany: A war DISBAND
+POSTSTATE
+	Austria: F tri
+	Austria: A bud
+	England: F edi
+	England: F lon
+	France: A mar
+	France: F bre
+	France: A par
+	Italy: A ven
+	Italy: A rom
+	Russia: A war
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+	Turkey: F ank
+END
+
+
+#############################################################
+#	Passed: Fall 1902, Adjustment
+#############################################################
+CASE DipAI:F02B
+PRESTATE_SETPHASE  Fall 1902, Adjustment
+PRESTATE
+	Austria: F tri
+	Austria: A bud
+	England: F edi
+	England: F lon
+	France: A mar
+	France: F bre
+	France: A par
+	Italy: A ven
+	Italy: A rom
+	Russia: A war
+	Russia: A mos
+	Turkey: A smy
+	Turkey: A con
+	Turkey: F ank
+PRESTATE_SUPPLYCENTER_OWNERS
+	# note that even though there is a unit specified in the owner
+	# orders here, it is ignored; it just makes parsing easier. This
+	# may be remedied in a future version of TestSuite
+	France: A bre
+	France: A mar
+	France: A par
+	Austria: A bud
+	Austria: A tri
+	Austria: A vie
+	Turkey: A ank
+	Turkey: A con
+	Turkey: A smy
+	Russia: A mos
+	Russia: A sev
+	Russia: A stp
+	Russia: A war
+	England: A edi
+	England: A lvp
+	England: A lon
+	Germany: A ber
+	Germany: A kie
+	Germany: A mun
+	Italy: A nap
+	Italy: A rom
+	Italy: A ven
+ORDERS
+	Austria: BUILD A vie
+	England: BUILD A lvp
+	Germany: BUILD F kie
+	Germany: BUILD A ber
+	Germany: BUILD A mun
+	Italy:   BUILD F nap
+	Russia:  BUILD F stp/sc
+	Russia:  BUILD F sev
+POSTSTATE
+	Austria: A bud
+	Austria: F tri
+	Austria: A vie
+	England: F lon
+	England: A lvp
+	England: F edi
+	France: F bre
+	France: A mar
+	France: A par
+	Germany: A ber
+	Germany: F kie
+	Germany: A mun
+	Italy: F nap
+	Italy: A rom
+	Italy: A ven
+	Russia: A mos
+	Russia: F sev
+	Russia: F stp/sc
+	Russia: A war
+	Turkey: F ank
+	Turkey: A con
+	Turkey: A smy
+END
+
