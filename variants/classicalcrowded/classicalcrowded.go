@@ -1,4 +1,4 @@
-package classical
+package classicalcrowded
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/phase"
 	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/classical/start"
+	"github.com/zond/godip/variants/classicalcrowded/start"
 	"github.com/zond/godip/variants/common"
 )
 

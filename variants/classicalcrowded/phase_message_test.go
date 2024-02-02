@@ -1,4 +1,4 @@
-package classical
+package classicalcrowded
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 )
 
 func TestPhaseMessage(t *testing.T) {
-	s, err := ClassicalVariant.Start()
+	s, err := ClassicalCrowdedVariant.Start()
 	if err != nil {
 		t.Fatal(err)
 	}

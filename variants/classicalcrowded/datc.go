@@ -1,4 +1,4 @@
-package classical
+package classicalcrowded
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 
 	"github.com/zond/godip"
 	"github.com/zond/godip/orders"
-	"github.com/zond/godip/variants/classical/start"
+	"github.com/zond/godip/variants/classicalcrowded/start"
 )
 
 func init() {

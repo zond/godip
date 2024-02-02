@@ -3,7 +3,7 @@ package droidippy
 import (
 	"testing"
 
-	"github.com/zond/godip/variants/classical"
+	"github.com/zond/godip/variants/classicalcrowded"
 
 	dip "github.com/zond/godip"
 	tst "github.com/zond/godip/variants/testing"
@@ -14,5 +14,5 @@ func init() {
 }
 
 func TestDroidippyGames(t *testing.T) {
-	tst.TestGames(t, classical.ClassicalVariant)
+	tst.TestGames(t, classicalcrowded.ClassicalCrowdedVariant)
 }

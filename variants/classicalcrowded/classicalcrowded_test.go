@@ -1,4 +1,4 @@
-package classical
+package classicalcrowded
 
 import (
 	"os"
@@ -10,7 +10,7 @@ import (
 	"github.com/zond/godip/datc"
 	"github.com/zond/godip/orders"
 	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/classical/start"
+	"github.com/zond/godip/variants/classicalcrowded/start"
 
 	tst "github.com/zond/godip/variants/testing"
 )
