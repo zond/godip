@@ -211,9 +211,9 @@ var ClassicalCrowdedVariant = common.Variant{
 	SVGVersion:        "9",
 	SVGUnits:          SVGUnits,
 	SVGFlags:          SVGFlags,
-	CreatedBy:         "Allan B. Calhamer",
+	CreatedBy:         "Timothy J. Brooks",
 	Version:           "",
-	Description:       "The original Diplomacy.",
+	Description:       "An expanded version of the original Diplomacy.",
 	SoloSCCount:       func(*state.State) int { return 18 },
 	Rules: `The first to 18 Supply Centers (SC) is the winner. 
 Kiel and Constantinople have a canal, so fleets can exit on either side. 
