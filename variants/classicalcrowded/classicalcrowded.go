@@ -21,14 +21,8 @@ var (
 	PhaseTypes = []godip.PhaseType{godip.Movement, godip.Retreat, godip.Adjustment}
 	Seasons    = []godip.Season{godip.Spring, godip.Fall}
 	UnitTypes  = []godip.UnitType{godip.Army, godip.Fleet}
-	SVGUnits   = map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return Asset("svg/fleet.svg")
-		},
-	}
+	SVGUnits   = classical.SVGUnits
+	SVGFlags   = classical.SVGFlags
 	Parser = classical.Parser
 )
 
