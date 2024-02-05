@@ -1,7 +1,7 @@
 package variants
 
 import (
-	"github.com/zond/godip/variants/beta/classicalcrowded"
+	"github.com/zond/godip/variants/classicalcrowded"
 	"github.com/zond/godip/variants/beta/threekingdoms"
 	"github.com/zond/godip/variants/ancientmediterranean"
 	"github.com/zond/godip/variants/canton"
