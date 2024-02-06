@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0449705"
-     inkscape:cx="247.85388"
-     inkscape:cy="406.23155"
+     inkscape:cx="111.96488"
+     inkscape:cy="354.55546"
      inkscape:window-width="2560"
      inkscape:window-height="1369"
      inkscape:window-x="-8"
@@ -46,14 +46,14 @@
        x="0"
        y="0" />
     <rect
-       style="fill:#c8102e;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
+       style="fill:#006aa7;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
        id="rect2-0"
        width="360"
        height="360"
        x="360"
        y="0" />
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
+       style="fill:#c8102e;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
        id="rect2-0-4"
        width="360"
        height="360"
@@ -66,21 +66,6 @@
        height="360"
        x="0"
        y="360" />
-    <rect
-       style="fill:#002f6c;fill-opacity:1;stroke-width:0.413928;stroke-linejoin:bevel"
-       id="rect4-9"
-       width="720"
-       height="196.3636"
-       x="0"
-       y="-458.18179"
-       transform="rotate(90)" />
-    <rect
-       style="fill:#002f6c;fill-opacity:1;stroke-width:0.413928;stroke-linejoin:bevel"
-       id="rect4"
-       width="720"
-       height="196.3636"
-       x="0"
-       y="261.81821" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke-width:0.633671;stroke-linejoin:bevel"
        id="rect3-3-7"
