@@ -22,7 +22,14 @@ var (
 	Seasons    = []godip.Season{godip.Spring, godip.Fall}
 	UnitTypes  = []godip.UnitType{godip.Army, godip.Fleet}
 	SVGUnits   = classical.SVGUnits
-	SVGFlags   = classical.SVGFlags
+	SVGFlags = map[godip.Nation]func() ([]byte, error){
+		Balkans: func() ([]byte, error) {
+			return Asset("svg/balkans.svg")
+		},
+		Benelux: func() ([]byte, error) {
+			return Asset("svg/benelux.svg")
+		}
+	}
 	Parser = classical.Parser
 )
 
@@ -172,7 +179,7 @@ var ClassicalCrowdedVariant = common.Variant{
 	ProvinceLongNames: provinceLongNames,
 	SVGVersion:        "9",
 	SVGUnits:          classical.SVGUnits,
-	SVGFlags:          classical.SVGFlags,
+	SVGFlags:          SVGFlags,
 	CreatedBy:         "Unknown",
 	Version:           "",
 	Description:       "An expanded version of the original Diplomacy containing new nations of the Balkans, Benelux, Iberia, and Scandinavia",
