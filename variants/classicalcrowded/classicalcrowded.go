@@ -28,14 +28,6 @@ var (
 		},
 		Benelux: func() ([]byte, error) {
 			return Asset("svg/benelux.svg")
-		}
-	}
-	SVGFlags = map[godip.Nation]func() ([]byte, error){
-		Balkans: func() ([]byte, error) {
-			return Asset("svg/balkans.svg")
-		},
-		Benelux: func() ([]byte, error) {
-			return Asset("svg/benelux.svg")
 		},
 		Iberia: func() ([]byte, error) {
 			return Asset("svg/iberia.svg")
