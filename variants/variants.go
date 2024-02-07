@@ -35,7 +35,7 @@ func init() {
 var Variants = map[string]common.Variant{}
 
 var OrderedVariants = []common.Variant{
-	gatewaytothewest.GatewayToTheWest
+	gatewaytothewest.GatewayToTheWestVariant,
 	threekingdoms.ThreeKingdomsVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
 	canton.CantonVariant,
