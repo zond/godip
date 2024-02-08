@@ -32,6 +32,27 @@ var (
 		Scandinavia: func() ([]byte, error) {
 			return Asset("svg/scandinavia.svg")
 		},
+		godip.Austria: func() ([]byte, error) {
+			return Asset("../classical/svg/austria.svg")
+		},
+		godip.England: func() ([]byte, error) {
+			return Asset("../classical/svg/england.svg")
+		},
+		godip.France: func() ([]byte, error) {
+			return Asset("../classical/svg/france.svg")
+		},
+		godip.Germany: func() ([]byte, error) {
+			return Asset("../classical/svg/germany.svg")
+		},
+		godip.Italy: func() ([]byte, error) {
+			return Asset("../classical/svg/italy.svg")
+		},
+		godip.Russia: func() ([]byte, error) {
+			return Asset("../classical/svg/russia.svg")
+		},
+		godip.Turkey: func() ([]byte, error) {
+			return Asset("../classical/svg/turkey.svg")
+		},
 	}
 	Parser = classical.Parser
 )
@@ -60,14 +81,7 @@ var ClassicalCrowdedVariant = common.Variant{
 		return Asset("svg/classicalcrowdedmap.svg")
 	},
 	SVGVersion: "1",
-	SVGUnits: map[godip.UnitType]func() ([]byte, error){
-		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
-		},
-		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
-		},
-	},
+	SVGUnits:    classical.SVGUnits,
 	SVGFlags:    SVGFlags,
 	CreatedBy:   "Unknown",
 	Version:     "1",
