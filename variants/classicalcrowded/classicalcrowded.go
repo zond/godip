@@ -16,12 +16,9 @@ const (
 	Scandinavia   godip.Nation = "Scandinavia"
 )
 
+
 var (
 	Nations    = []godip.Nation{godip.Austria, Balkans, Benelux, godip.England, godip.France, godip.Germany, Iberia, godip.Italy, godip.Turkey, godip.Russia, Scandinavia}
-	PhaseTypes = []godip.PhaseType{godip.Movement, godip.Retreat, godip.Adjustment}
-	Seasons    = []godip.Season{godip.Spring, godip.Fall}
-	UnitTypes  = []godip.UnitType{godip.Army, godip.Fleet}
-	SVGUnits   = classical.SVGUnits
 	SVGFlags = map[godip.Nation]func() ([]byte, error){
 		Balkans: func() ([]byte, error) {
 			return Asset("svg/balkans.svg")
@@ -39,30 +36,45 @@ var (
 	Parser = classical.Parser
 )
 
-func AdjustSCs(phase *phase.Phase) bool {
-	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
-}
-
-func NewPhase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
-	return phase.Generator(Parser, AdjustSCs)(year, season, typ)
-}
-
 var ClassicalCrowdedVariant = common.Variant{
-	Name:  "Classical - Crowded",
-	NationColors: map[godip.Nation]string{
+	Name:              "Classical - Crowded",
+	Graph:             func() godip.Graph { return ClassicalCrowdedGraph() },
+	Start:             ClassicalCrowdedStart,
+	Blank:             ClassicalCrowdedBlank,
+	Phase:             classical.NewPhase,
+	Parser:            Parser,
+	Nations:           Nations,
+	NationColors:      map[godip.Nation]string{
 		Balkans:       "#CD926A",
 		Benelux:       "#F79D10",
 		Iberia:        "#A6517B",
 		Scandinavia:   "#436186",
 	},
-	Start: ClassicalCrowdedStart,
-	Blank: ClassicalCrowdedBlank,
-	BlankStart: func() (result *state.State, err error) {
-		result = ClassicalCrowdedBlank(NewPhase(1900, godip.Fall, godip.Adjustment))
-		return
+	PhaseTypes:        classical.PhaseTypes,
+	Seasons:           classical.Seasons,
+	UnitTypes:         classical.UnitTypes,
+	SoloWinner:        common.SCCountWinner(18),
+	SoloSCCount:       func(*state.State) int { return 18 },
+	ProvinceLongNames: provinceLongNames,
+	SVGMap: func() ([]byte, error) {
+		return Asset("svg/classicalcrowdedmap.svg")
 	},
-	Parser: Parser,
-	Graph:  func() godip.Graph { return ClassicalCrowdedGraph() },
+	SVGVersion: "1",
+	SVGUnits: map[godip.UnitType]func() ([]byte, error){
+		godip.Army: func() ([]byte, error) {
+			return classical.Asset("svg/army.svg")
+		},
+		godip.Fleet: func() ([]byte, error) {
+			return classical.Asset("svg/fleet.svg")
+		},
+	},
+	SVGFlags:    SVGFlags,
+	CreatedBy:   "Unknown",
+	Version:     "1",
+	Description: "An expanded version of the original Diplomacy containing new nations of the Balkans, Benelux, Iberia, and Scandinavia. The standard map is used with the exception of having a supply center in Ruhr.",
+	Rules:       `The first to 18 Supply Centers (SC) is the winner. 
+Kiel and Constantinople have a canal, so fleets can exit on either side. 
+Armies can move from Denmark to Kiel.`,
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"gas": common.DominanceRule{
 			Priority: 0,
@@ -173,30 +185,107 @@ var ClassicalCrowdedVariant = common.Variant{
 			},
 		},
 	},
-	Phase:      NewPhase,
-	Nations:    Nations,
-	PhaseTypes: PhaseTypes,
-	Seasons:    Seasons,
-	UnitTypes:  UnitTypes,
-	SoloWinner: common.SCCountWinner(18),
-	SVGMap: func() ([]byte, error) {
-		return Asset("svg/map.svg")
-	},
-	ProvinceLongNames: provinceLongNames,
-	SVGVersion:        "9",
-	SVGUnits:          classical.SVGUnits,
-	SVGFlags:          SVGFlags,
-	CreatedBy:         "Unknown",
-	Version:           "",
-	Description:       "An expanded version of the original Diplomacy containing new nations of the Balkans, Benelux, Iberia, and Scandinavia",
-	SoloSCCount:       func(*state.State) int { return 18 },
-	Rules: `The first to 18 Supply Centers (SC) is the winner. 
-Kiel and Constantinople have a canal, so fleets can exit on either side. 
-Armies can move from Denmark to Kiel.`,
 }
 
 func ClassicalCrowdedBlank(phase godip.Phase) *state.State {
 	return state.New(ClassicalCrowdedGraph(), phase, classical.BackupRule, nil, nil)
+}
+
+func AdjustSCs(phase *phase.Phase) bool {
+	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
+}
+
+func NewPhase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return phase.Generator(Parser, AdjustSCs)(year, season, typ)
+}
+
+func ClassicalCrowdedStart() (result *state.State, err error) {
+	result = ClassicalCrowdedBlank(NewPhase(1901, godip.Spring, godip.Movement))
+	if err = result.SetUnits(ClassicalCrowdedUnits()); err != nil {
+		return
+	}
+	result.SetSupplyCenters(ClassicalCrowdedSupplyCenters())
+	return
+}
+
+func ClassicalCrowdedUnits() map[godip.Province]godip.Unit {
+	return map[godip.Province]godip.Unit{
+		"edi":    godip.Unit{godip.Fleet, godip.England},
+		"lvp":    godip.Unit{godip.Army, godip.England},
+		"lon":    godip.Unit{godip.Fleet, godip.England},
+		"bre":    godip.Unit{godip.Fleet, godip.France},
+		"par":    godip.Unit{godip.Army, godip.France},
+		"mar":    godip.Unit{godip.Army, godip.France},
+		"kie":    godip.Unit{godip.Fleet, godip.Germany},
+		"ber":    godip.Unit{godip.Army, godip.Germany},
+		"mun":    godip.Unit{godip.Army, godip.Germany},
+		"ven":    godip.Unit{godip.Army, godip.Italy},
+		"rom":    godip.Unit{godip.Army, godip.Italy},
+		"nap":    godip.Unit{godip.Fleet, godip.Italy},
+		"tri":    godip.Unit{godip.Fleet, godip.Austria},
+		"vie":    godip.Unit{godip.Army, godip.Austria},
+		"bud":    godip.Unit{godip.Army, godip.Austria},
+		"stp/sc": godip.Unit{godip.Fleet, godip.Russia},
+		"mos":    godip.Unit{godip.Army, godip.Russia},
+		"war":    godip.Unit{godip.Army, godip.Russia},
+		"sev":    godip.Unit{godip.Fleet, godip.Russia},
+		"con":    godip.Unit{godip.Army, godip.Turkey},
+		"smy":    godip.Unit{godip.Army, godip.Turkey},
+		"ank":    godip.Unit{godip.Fleet, godip.Turkey},
+		"nwy":    godip.Unit{godip.Fleet, Scandinavia},
+		"swe":    godip.Unit{godip.Army, Scandinavia},
+		"den":    godip.Unit{godip.Fleet, Scandinavia},
+		"hol":    godip.Unit{godip.Army, Benelux},
+		"bel":    godip.Unit{godip.Fleet, Benelux},
+		"ruh":    godip.Unit{godip.Army, Benelux},
+		"spa":    godip.Unit{godip.Army, Iberia},
+		"por":    godip.Unit{godip.Fleet, Iberia},
+		"tun":    godip.Unit{godip.Fleet, Iberia},
+		"rum":    godip.Unit{godip.Fleet, Balkans},
+		"ser":    godip.Unit{godip.Army, Balkans},
+		"bul":    godip.Unit{godip.Army, Balkans},
+		"gre":    godip.Unit{godip.Fleet, Balkans},
+	}
+}
+
+func ClassicalCrowdedSupplyCenters() map[godip.Province]godip.Nation {
+	return map[godip.Province]godip.Nation{
+		"edi": godip.England,
+		"lvp": godip.England,
+		"lon": godip.England,
+		"bre": godip.France,
+		"par": godip.France,
+		"mar": godip.France,
+		"kie": godip.Germany,
+		"ber": godip.Germany,
+		"mun": godip.Germany,
+		"ven": godip.Italy,
+		"rom": godip.Italy,
+		"nap": godip.Italy,
+		"tri": godip.Austria,
+		"vie": godip.Austria,
+		"bud": godip.Austria,
+		"con": godip.Turkey,
+		"ank": godip.Turkey,
+		"smy": godip.Turkey,
+		"sev": godip.Russia,
+		"mos": godip.Russia,
+		"stp": godip.Russia,
+		"war": godip.Russia,
+		"nwy": Scandinavia,
+		"swe": Scandinavia,
+		"den": Scandinavia,
+		"hol": Benelux,
+		"bel": Benelux,
+		"ruh": Benelux,
+		"spa": Iberia,
+		"por": Iberia,
+		"tun": Iberia,
+		"rum": Balkans,
+		"ser": Balkans,
+		"bul": Balkans,
+		"gre": Balkans,
+	}
 }
 
 func ClassicalCrowdedGraph() *graph.Graph {
@@ -364,95 +453,6 @@ func ClassicalCrowdedGraph() *graph.Graph {
 		// kie
 		Prov("kie").Conn("hol", godip.Coast...).Conn("hel", godip.Sea).Conn("den", godip.Coast...).Conn("bal", godip.Sea).Conn("ber", godip.Coast...).Conn("mun", godip.Land).Conn("ruh", godip.Land).Flag(godip.Coast...).SC(godip.Germany).
 		Done()
-}
-
-func ClassicalCrowdedStart() (result *state.State, err error) {
-	result = ClassicalCrowdedBlank(NewPhase(1901, godip.Spring, godip.Movement))
-	if err = result.SetUnits(ClassicalCrowdedUnits()); err != nil {
-		return
-	}
-	result.SetSupplyCenters(ClassicalCrowdedSupplyCenters())
-	return
-}
-
-func ClassicalCrowdedUnits() map[godip.Province]godip.Unit {
-	return map[godip.Province]godip.Unit{
-		"edi":    godip.Unit{godip.Fleet, godip.England},
-		"lvp":    godip.Unit{godip.Army, godip.England},
-		"lon":    godip.Unit{godip.Fleet, godip.England},
-		"bre":    godip.Unit{godip.Fleet, godip.France},
-		"par":    godip.Unit{godip.Army, godip.France},
-		"mar":    godip.Unit{godip.Army, godip.France},
-		"kie":    godip.Unit{godip.Fleet, godip.Germany},
-		"ber":    godip.Unit{godip.Army, godip.Germany},
-		"mun":    godip.Unit{godip.Army, godip.Germany},
-		"ven":    godip.Unit{godip.Army, godip.Italy},
-		"rom":    godip.Unit{godip.Army, godip.Italy},
-		"nap":    godip.Unit{godip.Fleet, godip.Italy},
-		"tri":    godip.Unit{godip.Fleet, godip.Austria},
-		"vie":    godip.Unit{godip.Army, godip.Austria},
-		"bud":    godip.Unit{godip.Army, godip.Austria},
-		"stp/sc": godip.Unit{godip.Fleet, godip.Russia},
-		"mos":    godip.Unit{godip.Army, godip.Russia},
-		"war":    godip.Unit{godip.Army, godip.Russia},
-		"sev":    godip.Unit{godip.Fleet, godip.Russia},
-		"con":    godip.Unit{godip.Army, godip.Turkey},
-		"smy":    godip.Unit{godip.Army, godip.Turkey},
-		"ank":    godip.Unit{godip.Fleet, godip.Turkey},
-		"nwy":    godip.Unit{godip.Fleet, Scandinavia},
-		"swe":    godip.Unit{godip.Army, Scandinavia},
-		"den":    godip.Unit{godip.Fleet, Scandinavia},
-		"hol":    godip.Unit{godip.Army, Benelux},
-		"bel":    godip.Unit{godip.Fleet, Benelux},
-		"ruh":    godip.Unit{godip.Army, Benelux},
-		"spa":    godip.Unit{godip.Army, Iberia},
-		"por":    godip.Unit{godip.Fleet, Iberia},
-		"tun":    godip.Unit{godip.Fleet, Iberia},
-		"rum":    godip.Unit{godip.Fleet, Balkans},
-		"ser":    godip.Unit{godip.Army, Balkans},
-		"bul":    godip.Unit{godip.Army, Balkans},
-		"gre":    godip.Unit{godip.Fleet, Balkans},
-	}
-}
-
-func ClassicalCrowdedSupplyCenters() map[godip.Province]godip.Nation {
-	return map[godip.Province]godip.Nation{
-		"edi": godip.England,
-		"lvp": godip.England,
-		"lon": godip.England,
-		"bre": godip.France,
-		"par": godip.France,
-		"mar": godip.France,
-		"kie": godip.Germany,
-		"ber": godip.Germany,
-		"mun": godip.Germany,
-		"ven": godip.Italy,
-		"rom": godip.Italy,
-		"nap": godip.Italy,
-		"tri": godip.Austria,
-		"vie": godip.Austria,
-		"bud": godip.Austria,
-		"con": godip.Turkey,
-		"ank": godip.Turkey,
-		"smy": godip.Turkey,
-		"sev": godip.Russia,
-		"mos": godip.Russia,
-		"stp": godip.Russia,
-		"war": godip.Russia,
-		"nwy": Scandinavia,
-		"swe": Scandinavia,
-		"den": Scandinavia,
-		"hol": Benelux,
-		"bel": Benelux,
-		"ruh": Benelux,
-		"spa": Iberia,
-		"por": Iberia,
-		"tun": Iberia,
-		"rum": Balkans,
-		"ser": Balkans,
-		"bul": Balkans,
-		"gre": Balkans,
-	}
 }
 
 var provinceLongNames = map[godip.Province]string{
