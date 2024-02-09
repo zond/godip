@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100%"
+   height="100%"
+   viewBox="0 0 720 720"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="scandinavia.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0449705"
+     inkscape:cx="111.96488"
+     inkscape:cy="354.55546"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#006aa7;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
+       id="rect2"
+       width="360"
+       height="360"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:#006aa7;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
+       id="rect2-0"
+       width="360"
+       height="360"
+       x="360"
+       y="0" />
+    <rect
+       style="fill:#c8102e;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
+       id="rect2-0-4"
+       width="360"
+       height="360"
+       x="360"
+       y="360" />
+    <rect
+       style="fill:#ba0c2f;fill-opacity:1;stroke-width:0.287412;stroke-linejoin:bevel"
+       id="rect2-9"
+       width="360"
+       height="360"
+       x="0"
+       y="360" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.633671;stroke-linejoin:bevel"
+       id="rect3-3-7"
+       width="720"
+       height="180"
+       x="0"
+       y="-450"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.633671;stroke-linejoin:bevel"
+       id="rect3-3-7-9"
+       width="720"
+       height="180"
+       x="-720"
+       y="-450"
+       transform="scale(-1)" />
+    <rect
+       style="fill:#fecc00;fill-opacity:1;stroke-width:0.412625;stroke-linejoin:bevel"
+       id="rect1"
+       width="720"
+       height="144"
+       x="0"
+       y="288" />
+    <rect
+       style="fill:#fecc00;fill-opacity:1;stroke-width:0.412625;stroke-linejoin:bevel"
+       id="rect1-5"
+       width="720"
+       height="144"
+       x="0"
+       y="-432"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.47901;stroke-linejoin:bevel"
+       id="rect3-3-7-3-0"
+       width="720"
+       height="102.8571"
+       x="-720"
+       y="-411.42856"
+       transform="scale(-1)"
+       inkscape:transform-center-x="-202.8765"
+       inkscape:transform-center-y="352.16304" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.47901;stroke-linejoin:bevel"
+       id="rect3-3-7-3"
+       width="720"
+       height="102.8571"
+       x="0"
+       y="-411.42856"
+       transform="rotate(90)" />
+    <rect
+       style="fill:#00205b;fill-opacity:1;stroke-width:0.448073;stroke-linejoin:bevel"
+       id="rect3"
+       width="720"
+       height="90"
+       x="0"
+       y="315" />
+    <rect
+       style="fill:#00205b;fill-opacity:1;stroke-width:0.448073;stroke-linejoin:bevel"
+       id="rect3-3"
+       width="720"
+       height="90"
+       x="0"
+       y="-405"
+       transform="rotate(90)" />
+  </g>
+</svg>
