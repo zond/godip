@@ -66,6 +66,13 @@ var ClassicalCrowdedVariant = common.Variant{
 	Parser:            Parser,
 	Nations:           Nations,
 	NationColors:      map[godip.Nation]string{
+		godip.Austria: "#F44336",
+		godip.England: "#2196F3",
+		godip.France:  "#80DEEA",
+		godip.Germany: "#212121",
+		godip.Italy:   "#4CAF50",
+		godip.Russia:  "#F5F5F5",
+		godip.Turkey:  "#FFC107",
 		Balkans:       "#CD926A",
 		Benelux:       "#F79D10",
 		Iberia:        "#A6517B",
@@ -86,8 +93,8 @@ var ClassicalCrowdedVariant = common.Variant{
 	CreatedBy:   "Unknown",
 	Version:     "1",
 	Description: "An expanded version of the original Diplomacy containing new nations of the Balkans, Benelux, Iberia, and Scandinavia. The standard map is used with the exception of having a supply center in Ruhr.",
-	Rules:       `The first to 18 Supply Centers (SC) is the winner. 
-Kiel and Constantinople have a canal, so fleets can exit on either side. 
+	Rules:       `The first to 18 Supply Centers (SC) is the winner.
+Kiel and Constantinople have a canal, so fleets can exit on either side.
 Armies can move from Denmark to Kiel.`,
 	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
 		"gas": common.DominanceRule{
