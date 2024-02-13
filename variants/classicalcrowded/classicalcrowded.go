@@ -76,7 +76,7 @@ var ClassicalCrowdedVariant = common.Variant{
 		Balkans:       "#CD926A",
 		Benelux:       "#F79D10",
 		Iberia:        "#A6517B",
-		Scandinavia:   "#436186",
+		Scandinavia:   "#416285",
 	},
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -198,7 +198,7 @@ Armies can move from Denmark to Kiel.`,
 			},
 		},
 		"alb": common.DominanceRule{
-			Nation: godip.Turkey,
+			Nation: Balkans,
 			Dependencies: map[godip.Province]godip.Nation{
 				"ser": Balkans,
 				"gre": Balkans,
