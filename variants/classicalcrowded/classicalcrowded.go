@@ -66,13 +66,6 @@ var ClassicalCrowdedVariant = common.Variant{
 	Parser:            Parser,
 	Nations:           Nations,
 	NationColors:      map[godip.Nation]string{
-		godip.Austria: "#F44336",
-		godip.England: "#2196F3",
-		godip.France:  "#80DEEA",
-		godip.Germany: "#212121",
-		godip.Italy:   "#4CAF50",
-		godip.Russia:  "#F5F5F5",
-		godip.Turkey:  "#FFC107",
 		Balkans:       "#CD926A",
 		Benelux:       "#F79D10",
 		Iberia:        "#A6517B",
