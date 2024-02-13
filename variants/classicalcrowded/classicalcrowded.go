@@ -191,7 +191,7 @@ Armies can move from Denmark to Kiel.`,
 			},
 		},
 		"alb": common.DominanceRule{
-			Nation: godip.Turkey,
+			Nation: godip.Balkans,
 			Dependencies: map[godip.Province]godip.Nation{
 				"ser": Balkans,
 				"gre": Balkans,
