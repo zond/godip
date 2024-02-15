@@ -4,21 +4,20 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
-	"github.com/zond/godip/phase"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
 )
 
 const (
-	Balkans       godip.Nation = "Balkans"
-	Benelux       godip.Nation = "Benelux"
-	Iberia        godip.Nation = "Iberia"
-	Scandinavia   godip.Nation = "Scandinavia"
+	Balkans     godip.Nation = "Balkans"
+	Benelux     godip.Nation = "Benelux"
+	Iberia      godip.Nation = "Iberia"
+	Scandinavia godip.Nation = "Scandinavia"
 )
 
 
 var (
-	Nations    = []godip.Nation{godip.Austria, Balkans, Benelux, godip.England, godip.France, godip.Germany, Iberia, godip.Italy, godip.Turkey, godip.Russia, Scandinavia}
+	Nations  = []godip.Nation{godip.Austria, Balkans, Benelux, godip.England, godip.France, godip.Germany, Iberia, godip.Italy, godip.Turkey, godip.Russia, Scandinavia}
 	SVGFlags = map[godip.Nation]func() ([]byte, error){
 		Balkans: func() ([]byte, error) {
 			return Asset("svg/balkans.svg")
@@ -32,29 +31,14 @@ var (
 		Scandinavia: func() ([]byte, error) {
 			return Asset("svg/scandinavia.svg")
 		},
-		godip.Austria: func() ([]byte, error) {
-			return Asset("../classical/svg/austria.svg")
-		},
-		godip.England: func() ([]byte, error) {
-			return Asset("../classical/svg/england.svg")
-		},
-		godip.France: func() ([]byte, error) {
-			return Asset("../classical/svg/france.svg")
-		},
-		godip.Germany: func() ([]byte, error) {
-			return Asset("../classical/svg/germany.svg")
-		},
-		godip.Italy: func() ([]byte, error) {
-			return Asset("../classical/svg/italy.svg")
-		},
-		godip.Russia: func() ([]byte, error) {
-			return Asset("../classical/svg/russia.svg")
-		},
-		godip.Turkey: func() ([]byte, error) {
-			return Asset("../classical/svg/turkey.svg")
-		},
+		godip.Austria: classical.SVGFlags[godip.Austria],
+		godip.England: classical.SVGFlags[godip.England],
+		godip.France:  classical.SVGFlags[godip.France],
+		godip.Germany: classical.SVGFlags[godip.Germany],
+		godip.Italy:   classical.SVGFlags[godip.Italy],
+		godip.Russia:  classical.SVGFlags[godip.Russia],
+		godip.Turkey:  classical.SVGFlags[godip.Turkey],
 	}
-	Parser = classical.Parser
 )
 
 var ClassicalCrowdedVariant = common.Variant{
@@ -63,7 +47,7 @@ var ClassicalCrowdedVariant = common.Variant{
 	Start:             ClassicalCrowdedStart,
 	Blank:             ClassicalCrowdedBlank,
 	Phase:             classical.NewPhase,
-	Parser:            Parser,
+	Parser:            classical.Parser,
 	Nations:           Nations,
 	NationColors:      map[godip.Nation]string{
 		godip.Austria: "#F44336",
@@ -87,7 +71,7 @@ var ClassicalCrowdedVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/classicalcrowdedmap.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion:  "1",
 	SVGUnits:    classical.SVGUnits,
 	SVGFlags:    SVGFlags,
 	CreatedBy:   "Unknown",
@@ -212,16 +196,8 @@ func ClassicalCrowdedBlank(phase godip.Phase) *state.State {
 	return state.New(ClassicalCrowdedGraph(), phase, classical.BackupRule, nil, nil)
 }
 
-func AdjustSCs(phase *phase.Phase) bool {
-	return phase.Ty == godip.Retreat && phase.Se == godip.Fall
-}
-
-func NewPhase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
-	return phase.Generator(Parser, AdjustSCs)(year, season, typ)
-}
-
 func ClassicalCrowdedStart() (result *state.State, err error) {
-	result = ClassicalCrowdedBlank(NewPhase(1901, godip.Spring, godip.Movement))
+	result = ClassicalCrowdedBlank(classical.NewPhase(1901, godip.Spring, godip.Movement))
 	if err = result.SetUnits(ClassicalCrowdedUnits()); err != nil {
 		return
 	}
