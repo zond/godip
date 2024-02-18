@@ -3,23 +3,22 @@ START_YEAR: 2024
 # The starting units
 START_UNITS:
   Oto:
-    Army: ['Platte', 'Clay', 'Clinton']
+     Army: ['Platte', 'Nishnabotna', 'Nodaway']
   Missouria:
-    Army: ['Jackson', 'Cass', 'Lafayette']
+     Army: ['Jackson', 'Lafayette', 'Saline']
   Chickasaw:
-    Army: ['Mississippi', 'New Madrid', 'Pemiscot', 'Cape Girardeau']
+     Army: ['Scott', 'New Madrid', 'Saint Francis']
   Quapaw:
-    Army: ['Wayne', 'Butler', 'Ripley']
+     Army: ['Wayne', 'Butler', 'Black']
   Osage:
-    Army: ['Osage', 'Cole',]
+     Army: ['Osage', 'Cole', 'Ozark']
   Illini:
-    Army: ['St. Charles', 'St. Louis', 'St. Louis City']
+     Army: ['St. Charles', 'St. Louis', 'Lincoln']
   Ioway:
-    Army: ['Mercer', 'Putman', 'Adair']
+     Army: ['Grand', 'N. Grand', 'Clinton']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
-  'St. Clair': 'scr'
-  'St. Louis': 'stl'
+  'Booneville': 'bnv'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
 
