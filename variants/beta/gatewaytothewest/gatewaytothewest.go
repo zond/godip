@@ -60,23 +60,23 @@ func GatewayToTheWestStart() (result *state.State, err error) {
 	startPhase := classical.NewPhase(2024, godip.Spring, godip.Movement)
 	result = GatewayToTheWestBlank(startPhase)
 	if err = result.SetUnits(map[godip.Province]godip.Unit{
+		"new": godip.Unit{godip.Fleet, Chickasaw},
 		"sco": godip.Unit{godip.Army, Chickasaw},
-		"new": godip.Unit{godip.Army, Chickasaw},
-		"sai": godip.Unit{godip.Army, Chickasaw},
+		"stf": godip.Unit{godip.Army, Chickasaw},
 		"osa": godip.Unit{godip.Army, Osage},
-		"col": godip.Unit{godip.Army, Osage},
 		"oza": godip.Unit{godip.Army, Osage},
+		"col": godip.Unit{godip.Army, Osage},
+		"sal": godip.Unit{godip.Fleet, Missouria},
+		"laf": godip.Unit{godip.Fleet, Missouria},
 		"jac": godip.Unit{godip.Army, Missouria},
-		"laf": godip.Unit{godip.Army, Missouria},
-		"sal": godip.Unit{godip.Army, Missouria},
-		"stc": godip.Unit{godip.Army, Illini},
+		"stc": godip.Unit{godip.Fleet, Illini},
 		"stl": godip.Unit{godip.Army, Illini},
 		"lin": godip.Unit{godip.Army, Illini},
+		"cly": godip.Unit{godip.Fleet, Oto},
 		"pla": godip.Unit{godip.Army, Oto},
 		"nis": godip.Unit{godip.Army, Oto},
-		"nod": godip.Unit{godip.Army, Oto},
 		"gra": godip.Unit{godip.Army, Ioway},
-		"ngr": godip.Unit{godip.Army, Ioway},
+		"nog": godip.Unit{godip.Army, Ioway},
 		"cli": godip.Unit{godip.Army, Ioway},
 		"way": godip.Unit{godip.Army, Quapaw},
 		"but": godip.Unit{godip.Army, Quapaw},
@@ -85,23 +85,23 @@ func GatewayToTheWestStart() (result *state.State, err error) {
 		return
 	}
 	result.SetSupplyCenters(map[godip.Province]godip.Nation{
-		"sco": Chickasaw,
 		"new": Chickasaw,
-		"sai": Chickasaw,
+		"sco": Chickasaw,
+		"stf": Chickasaw,
 		"osa": Osage,
-		"col": Osage,
 		"oza": Osage,
-		"jac": Missouria,
-		"laf": Missouria,
+		"col": Osage,
 		"sal": Missouria,
+		"laf": Missouria,
+		"jac": Missouria,
 		"stc": Illini,
 		"stl": Illini,
 		"lin": Illini,
+		"cly": Oto,
 		"pla": Oto,
 		"nis": Oto,
-		"nod": Oto,
 		"gra": Ioway,
-		"ngr": Ioway,
+		"nog": Ioway,
 		"cli": Ioway,
 		"way": Quapaw,
 		"but": Quapaw,
@@ -112,202 +112,202 @@ func GatewayToTheWestStart() (result *state.State, err error) {
 
 func GatewayToTheWestGraph() *graph.Graph {
 	return graph.New().
-		// Table Rock
-		Prov("tab").Conn("whi", godip.Land).Conn("sto", godip.Land).Conn("neo", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// North Central Mississippi River
-		Prov("ncm").Conn("cen", godip.Sea).Conn("nmr", godip.Sea).Conn("mar", godip.Sea).Conn("pik", godip.Sea).Conn("lin", godip.Sea).Flag(godip.Sea).
+		Prov("npp").Conn("nmr", godip.Sea).Conn("mar", godip.Sea).Conn("pik", godip.Sea).Conn("lin", godip.Sea).Conn("cpp", godip.Sea).Flag(godip.Sea).
 		// Boone
-		Prov("boo").Conn("how", godip.Coast...).Conn("bnv", godip.Sea).Conn("cal", godip.Coast...).Conn("mor", godip.Land).Conn("ran", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("boo").Conn("cal", godip.Coast...).Conn("mro", godip.Land).Conn("ran", godip.Land).Conn("how", godip.Coast...).Conn("ceo", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Randolph
-		Prov("ran").Conn("gla", godip.Sea).Conn("how", godip.Coast...).Conn("boo", godip.Land).Conn("mor", godip.Land).Conn("cui", godip.Land).Conn("cha", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("ran").Conn("mro", godip.Land).Conn("cui", godip.Land).Conn("cha", godip.Coast...).Conn("noo", godip.Sea).Conn("how", godip.Coast...).Conn("boo", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
 		// Grand
-		Prov("gra").Conn("ngr", godip.Land).Conn("cli", godip.Land).Conn("ray", godip.Land).Conn("tes", godip.Land).Conn("car", godip.Land).Conn("mus", godip.Land).Flag(godip.Land).SC(Ioway).
+		Prov("gra").Conn("nog", godip.Land).Conn("cli", godip.Land).Conn("ray", godip.Land).Conn("ric", godip.Land).Conn("car", godip.Land).Conn("mus", godip.Land).Flag(godip.Land).SC(Ioway).
 		// South Grand
-		Prov("sog").Conn("joh", godip.Land).Conn("laf", godip.Land).Conn("jac", godip.Land).Conn("ver", godip.Land).Conn("hen", godip.Land).Flag(godip.Land).
-		// Herman
-		Prov("her").Conn("fra", godip.Sea).Conn("eas", godip.Sea).Conn("stc", godip.Sea).Conn("mot", godip.Sea).Conn("cal", godip.Sea).Conn("jec", godip.Sea).Conn("gas", godip.Sea).Flag(godip.Sea).
-		// Miami
-		Prov("mia").Conn("car", godip.Sea).Conn("tes", godip.Sea).Conn("wes", godip.Sea).Conn("laf", godip.Sea).Conn("sal", godip.Sea).Conn("gla", godip.Sea).Conn("cha", godip.Sea).Flag(godip.Sea).
+		Prov("sog").Conn("jac", godip.Land).Conn("ver", godip.Land).Conn("hen", godip.Land).Conn("joh", godip.Land).Conn("laf", godip.Land).Flag(godip.Land).
+		// Audrain
+		Prov("aud").Conn("cui", godip.Land).Conn("mro", godip.Land).Conn("cal", godip.Land).Conn("mot", godip.Land).Conn("lin", godip.Land).Conn("pik", godip.Land).Conn("mar", godip.Land).Flag(godip.Land).
 		// East Missouri River
-		Prov("eas").Conn("stl", godip.Sea).Conn("scm", godip.Sea).Conn("cen", godip.Sea).Conn("stc", godip.Sea).Conn("her", godip.Sea).Conn("fra", godip.Sea).Conn("bou", godip.Sea).Flag(godip.Sea).
+		Prov("emr").Conn("ecm", godip.Sea).Conn("gas", godip.Sea).Conn("fra", godip.Sea).Conn("sem", godip.Sea).Conn("mot", godip.Sea).Conn("cal", godip.Sea).Flag(godip.Sea).
 		// Monroe
-		Prov("mor").Conn("aud", godip.Land).Conn("cui", godip.Land).Conn("ran", godip.Land).Conn("boo", godip.Land).Conn("cal", godip.Land).Flag(godip.Land).
+		Prov("mro").Conn("aud", godip.Land).Conn("cui", godip.Land).Conn("ran", godip.Land).Conn("boo", godip.Land).Conn("cal", godip.Land).Flag(godip.Land).
 		// Black
-		Prov("bla").Conn("way", godip.Land).Conn("bou", godip.Land).Conn("mer", godip.Land).Conn("big", godip.Land).Conn("whi", godip.Land).Conn("but", godip.Land).Flag(godip.Land).SC(Quapaw).
+		Prov("bla").Conn("bou", godip.Land).Conn("mer", godip.Land).Conn("big", godip.Land).Conn("whi", godip.Land).Conn("but", godip.Land).Conn("way", godip.Land).Flag(godip.Land).SC(Quapaw).
 		// Stockton
-		Prov("sto").Conn("oza", godip.Land).Conn("ver", godip.Land).Conn("neo", godip.Land).Conn("tab", godip.Land).Conn("whi", godip.Land).Flag(godip.Land).
-		// N. Grand
-		Prov("ngr").Conn("gra", godip.Land).Conn("cli", godip.Land).Flag(godip.Land).SC(Ioway).
+		Prov("sto").Conn("ver", godip.Land).Conn("neo", godip.Land).Conn("tab", godip.Land).Conn("whi", godip.Land).Conn("oza", godip.Land).Flag(godip.Land).
 		// South Mississippi River
-		Prov("smr").Conn("scm", godip.Sea).Conn("ste", godip.Sea).Conn("per", godip.Sea).Conn("cap", godip.Sea).Conn("sco", godip.Sea).Conn("sai", godip.Sea).Flag(godip.Sea).
+		Prov("smr").Conn("scp", godip.Sea).Conn("ste", godip.Sea).Conn("per", godip.Sea).Conn("cap", godip.Sea).Conn("new", godip.Sea).Conn("stf", godip.Sea).Flag(godip.Sea).
 		// Bourbeuse
-		Prov("bou").Conn("bla", godip.Land).Conn("way", godip.Land).Conn("mad", godip.Land).Conn("ste", godip.Land).Conn("jee", godip.Land).Conn("stl", godip.Coast...).Conn("eas", godip.Sea).Conn("fra", godip.Coast...).Conn("mer", godip.Land).Flag(godip.Coast...).
+		Prov("bou").Conn("bla", godip.Land).Conn("way", godip.Land).Conn("mad", godip.Land).Conn("ste", godip.Land).Conn("jef", godip.Land).Conn("stl", godip.Coast...).Conn("sem", godip.Sea).Conn("fra", godip.Coast...).Conn("mer", godip.Land).Flag(godip.Coast...).
 		// Vernon
 		Prov("ver").Conn("neo", godip.Land).Conn("sto", godip.Land).Conn("oza", godip.Land).Conn("hen", godip.Land).Conn("sog", godip.Land).Flag(godip.Land).
-		// Marion
-		Prov("mar").Conn("lew", godip.Coast...).Conn("cui", godip.Land).Conn("aud", godip.Land).Conn("pik", godip.Coast...).Conn("ncm", godip.Sea).Conn("nmr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Cole
-		Prov("col").Conn("bnv", godip.Sea).Conn("pet", godip.Coast...).Conn("oza", godip.Land).Conn("osa", godip.Coast...).Conn("jec", godip.Sea).Flag(godip.Coast...).SC(Osage).
+		Prov("col").Conn("pet", godip.Coast...).Conn("oza", godip.Land).Conn("osa", godip.Coast...).Conn("ecm", godip.Sea).Conn("ceo", godip.Sea).Flag(godip.Coast...).SC(Osage).
 		// Greenville
-		Prov("gre").Conn("cap", godip.Land).Conn("mad", godip.Land).Conn("way", godip.Land).Conn("but", godip.Land).Conn("new", godip.Land).Flag(godip.Land).
-		// Test
-		Prov("tes").Conn("ray", godip.Coast...).Conn("wes", godip.Sea).Conn("mia", godip.Sea).Conn("car", godip.Coast...).Conn("gra", godip.Land).Flag(godip.Coast...).
-		// New Madrid
-		Prov("new").Conn("sai", godip.Land).Conn("sco", godip.Land).Conn("cap", godip.Land).Conn("gre", godip.Land).Conn("but", godip.Land).Flag(godip.Land).SC(Chickasaw).
-		// Scott
-		Prov("sco").Conn("cap", godip.Coast...).Conn("new", godip.Land).Conn("sai", godip.Coast...).Conn("smr", godip.Sea).Flag(godip.Coast...).SC(Chickasaw).
-		// Montgomery
-		Prov("mot").Conn("cal", godip.Coast...).Conn("her", godip.Sea).Conn("stc", godip.Coast...).Conn("lin", godip.Land).Conn("aud", godip.Land).Flag(godip.Coast...).
-		// White
-		Prov("whi").Conn("oza", godip.Land).Conn("sto", godip.Land).Conn("tab", godip.Land).Conn("bla", godip.Land).Conn("big", godip.Land).Flag(godip.Land).
-		// Butler
-		Prov("but").Conn("new", godip.Land).Conn("gre", godip.Land).Conn("way", godip.Land).Conn("bla", godip.Land).Flag(godip.Land).SC(Quapaw).
-		// South Central Mississippi River
-		Prov("scm").Conn("cen", godip.Sea).Conn("eas", godip.Sea).Conn("stl", godip.Sea).Conn("jee", godip.Sea).Conn("jee", godip.Sea).Conn("ste", godip.Sea).Conn("smr", godip.Sea).Flag(godip.Sea).
-		// Gasconade
-		Prov("gas").Conn("jec", godip.Sea).Conn("osa", godip.Coast...).Conn("big", godip.Land).Conn("mer", godip.Land).Conn("fra", godip.Coast...).Conn("her", godip.Sea).Flag(godip.Coast...).
-		// Pettis
-		Prov("pet").Conn("oza", godip.Land).Conn("col", godip.Coast...).Conn("bnv", godip.Sea).Conn("sal", godip.Coast...).Conn("laf", godip.Land).Conn("joh", godip.Land).Conn("hen", godip.Land).Flag(godip.Coast...).
-		// Lincoln
-		Prov("lin").Conn("aud", godip.Land).Conn("mot", godip.Land).Conn("stc", godip.Coast...).Conn("cen", godip.Sea).Conn("ncm", godip.Sea).Conn("pik", godip.Coast...).Flag(godip.Coast...).SC(Illini).
-		// West Missouri River
-		Prov("wes").Conn("cly", godip.Sea).Conn("nwm", godip.Sea).Conn("jac", godip.Sea).Conn("laf", godip.Sea).Conn("mia", godip.Sea).Conn("tes", godip.Sea).Conn("ray", godip.Sea).Flag(godip.Sea).
-		// Saint Francis
-		Prov("sai").Conn("smr", godip.Sea).Conn("sco", godip.Coast...).Conn("new", godip.Land).Flag(godip.Coast...).SC(Chickasaw).
-		// Perry
-		Prov("per").Conn("cap", godip.Coast...).Conn("smr", godip.Sea).Conn("ste", godip.Coast...).Conn("mad", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
-		// Audrain
-		Prov("aud").Conn("pik", godip.Land).Conn("mar", godip.Land).Conn("cui", godip.Land).Conn("mor", godip.Land).Conn("cal", godip.Land).Conn("mot", godip.Land).Conn("lin", godip.Land).Flag(godip.Land).
-		// Cuivre
-		Prov("cui").Conn("clr", godip.Land).Conn("mus", godip.Land).Conn("cha", godip.Land).Conn("ran", godip.Land).Conn("mor", godip.Land).Conn("aud", godip.Land).Conn("mar", godip.Land).Conn("lew", godip.Land).Flag(godip.Land).
-		// Johnson
-		Prov("joh").Conn("sog", godip.Land).Conn("hen", godip.Land).Conn("pet", godip.Land).Conn("laf", godip.Land).Flag(godip.Land).
-		// Carroll
-		Prov("car").Conn("mia", godip.Sea).Conn("cha", godip.Coast...).Conn("mus", godip.Land).Conn("gra", godip.Land).Conn("tes", godip.Coast...).Flag(godip.Coast...).
-		// Howard
-		Prov("how").Conn("boo", godip.Coast...).Conn("ran", godip.Coast...).Conn("gla", godip.Sea).Conn("bnv", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("gre").Conn("but", godip.Land).Conn("sco", godip.Land).Conn("cap", godip.Land).Conn("mad", godip.Land).Conn("way", godip.Land).Flag(godip.Land).
 		// Nishnabotna
-		Prov("nis").Conn("nod", godip.Land).Conn("nwm", godip.Sea).Conn("pla", godip.Coast...).Flag(godip.Coast...).SC(Oto).
+		Prov("nis").Conn("nwm", godip.Sea).Conn("pla", godip.Coast...).Conn("nod", godip.Land).Flag(godip.Coast...).SC(Oto).
+		// New Madrid
+		Prov("new").Conn("smr", godip.Sea).Conn("cap", godip.Coast...).Conn("sco", godip.Land).Conn("stf", godip.Coast...).Flag(godip.Coast...).SC(Chickasaw).
+		// Scott
+		Prov("sco").Conn("stf", godip.Land).Conn("new", godip.Land).Conn("cap", godip.Land).Conn("gre", godip.Land).Conn("but", godip.Land).Flag(godip.Land).SC(Chickasaw).
+		// Montgomery
+		Prov("mot").Conn("sem", godip.Sea).Conn("stc", godip.Coast...).Conn("lin", godip.Land).Conn("aud", godip.Land).Conn("cal", godip.Coast...).Conn("emr", godip.Sea).Flag(godip.Coast...).
+		// White
+		Prov("whi").Conn("sto", godip.Land).Conn("tab", godip.Land).Conn("bla", godip.Land).Conn("big", godip.Land).Conn("oza", godip.Land).Flag(godip.Land).
+		// Butler
+		Prov("but").Conn("gre", godip.Land).Conn("way", godip.Land).Conn("bla", godip.Land).Conn("sco", godip.Land).Flag(godip.Land).SC(Quapaw).
+		// South Central Mississippi River
+		Prov("scp").Conn("sem", godip.Sea).Conn("stl", godip.Sea).Conn("jef", godip.Sea).Conn("jef", godip.Sea).Conn("ste", godip.Sea).Conn("smr", godip.Sea).Conn("cpp", godip.Sea).Flag(godip.Sea).
+		// Gasconade
+		Prov("gas").Conn("mer", godip.Land).Conn("fra", godip.Coast...).Conn("emr", godip.Sea).Conn("ecm", godip.Sea).Conn("osa", godip.Coast...).Conn("big", godip.Land).Flag(godip.Coast...).
+		// Pettis
+		Prov("pet").Conn("hen", godip.Land).Conn("oza", godip.Land).Conn("col", godip.Coast...).Conn("ceo", godip.Sea).Conn("sal", godip.Coast...).Conn("laf", godip.Land).Conn("joh", godip.Land).Flag(godip.Coast...).
+		// Lincoln
+		Prov("lin").Conn("npp", godip.Sea).Conn("pik", godip.Coast...).Conn("aud", godip.Land).Conn("mot", godip.Land).Conn("stc", godip.Coast...).Conn("cpp", godip.Sea).Flag(godip.Coast...).SC(Illini).
+		// East Central Missouri River
+		Prov("ecm").Conn("emr", godip.Sea).Conn("cal", godip.Sea).Conn("ceo", godip.Sea).Conn("col", godip.Sea).Conn("osa", godip.Sea).Conn("gas", godip.Sea).Flag(godip.Sea).
+		// Perry
+		Prov("per").Conn("smr", godip.Sea).Conn("ste", godip.Coast...).Conn("mad", godip.Land).Conn("cap", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		// Clay
+		Prov("cly").Conn("nwm", godip.Sea).Conn("wes", godip.Sea).Conn("ray", godip.Coast...).Conn("cli", godip.Land).Conn("pla", godip.Coast...).Flag(godip.Coast...).SC(Oto).
+		// Richmond
+		Prov("ric").Conn("wes", godip.Sea).Conn("nwc", godip.Sea).Conn("car", godip.Coast...).Conn("gra", godip.Land).Conn("ray", godip.Coast...).Flag(godip.Coast...).
+		// North West Central Missouri River
+		Prov("nwc").Conn("wes", godip.Sea).Conn("laf", godip.Sea).Conn("sal", godip.Sea).Conn("noo", godip.Sea).Conn("cha", godip.Sea).Conn("car", godip.Sea).Conn("ric", godip.Sea).Flag(godip.Sea).
+		// Johnson
+		Prov("joh").Conn("hen", godip.Land).Conn("pet", godip.Land).Conn("laf", godip.Land).Conn("sog", godip.Land).Flag(godip.Land).
+		// South East Missouri River
+		Prov("sem").Conn("scp", godip.Sea).Conn("cpp", godip.Sea).Conn("stc", godip.Sea).Conn("stc", godip.Sea).Conn("mot", godip.Sea).Conn("emr", godip.Sea).Conn("fra", godip.Sea).Conn("fra", godip.Sea).Conn("bou", godip.Sea).Conn("stl", godip.Sea).Flag(godip.Sea).
+		// Carroll
+		Prov("car").Conn("ric", godip.Coast...).Conn("nwc", godip.Sea).Conn("cha", godip.Coast...).Conn("mus", godip.Land).Conn("gra", godip.Land).Flag(godip.Coast...).
+		// Howard
+		Prov("how").Conn("noo", godip.Sea).Conn("ceo", godip.Sea).Conn("boo", godip.Coast...).Conn("ran", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		// Marion
+		Prov("mar").Conn("npp", godip.Sea).Conn("nmr", godip.Sea).Conn("lew", godip.Coast...).Conn("cui", godip.Land).Conn("aud", godip.Land).Conn("pik", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		// Table Rock
+		Prov("tab").Conn("neo", godip.Land).Conn("whi", godip.Land).Conn("sto", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// Ste. Genevieve
-		Prov("ste").Conn("mad", godip.Land).Conn("per", godip.Coast...).Conn("smr", godip.Sea).Conn("scm", godip.Sea).Conn("jee", godip.Coast...).Conn("bou", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("ste").Conn("bou", godip.Land).Conn("mad", godip.Land).Conn("per", godip.Coast...).Conn("smr", godip.Sea).Conn("scp", godip.Sea).Conn("jef", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
+		// North Central Missouri River
+		Prov("noo").Conn("ceo", godip.Sea).Conn("how", godip.Sea).Conn("ran", godip.Sea).Conn("cha", godip.Sea).Conn("nwc", godip.Sea).Conn("sal", godip.Sea).Flag(godip.Sea).
 		// Central Mississippi River
-		Prov("cen").Conn("stc", godip.Sea).Conn("stc", godip.Sea).Conn("eas", godip.Sea).Conn("scm", godip.Sea).Conn("ncm", godip.Sea).Conn("lin", godip.Sea).Flag(godip.Sea).
+		Prov("cpp").Conn("stc", godip.Sea).Conn("stc", godip.Sea).Conn("sem", godip.Sea).Conn("scp", godip.Sea).Conn("npp", godip.Sea).Conn("lin", godip.Sea).Flag(godip.Sea).
 		// Platte
-		Prov("pla").Conn("nwm", godip.Sea).Conn("nwm", godip.Sea).Conn("cly", godip.Coast...).Conn("cli", godip.Land).Conn("nod", godip.Land).Conn("nis", godip.Coast...).Flag(godip.Coast...).SC(Oto).
+		Prov("pla").Conn("nis", godip.Coast...).Conn("nwm", godip.Sea).Conn("nwm", godip.Sea).Conn("cly", godip.Coast...).Conn("cli", godip.Land).Conn("nod", godip.Land).Flag(godip.Coast...).SC(Oto).
 		// Henry
 		Prov("hen").Conn("pet", godip.Land).Conn("joh", godip.Land).Conn("sog", godip.Land).Conn("ver", godip.Land).Conn("oza", godip.Land).Flag(godip.Land).
 		// Osage
-		Prov("osa").Conn("oza", godip.Land).Conn("big", godip.Land).Conn("gas", godip.Coast...).Conn("jec", godip.Sea).Conn("col", godip.Coast...).Flag(godip.Coast...).SC(Osage).
+		Prov("osa").Conn("gas", godip.Coast...).Conn("ecm", godip.Sea).Conn("col", godip.Coast...).Conn("oza", godip.Land).Conn("big", godip.Land).Flag(godip.Coast...).SC(Osage).
 		// Chariton
-		Prov("cha").Conn("mus", godip.Land).Conn("car", godip.Coast...).Conn("mia", godip.Sea).Conn("gla", godip.Sea).Conn("ran", godip.Coast...).Conn("cui", godip.Land).Flag(godip.Coast...).
+		Prov("cha").Conn("mus", godip.Land).Conn("car", godip.Coast...).Conn("nwc", godip.Sea).Conn("noo", godip.Sea).Conn("ran", godip.Coast...).Conn("cui", godip.Land).Flag(godip.Coast...).
 		// Clinton
-		Prov("cli").Conn("nod", godip.Land).Conn("pla", godip.Land).Conn("cly", godip.Land).Conn("ray", godip.Land).Conn("gra", godip.Land).Conn("ngr", godip.Land).Flag(godip.Land).SC(Ioway).
+		Prov("cli").Conn("nod", godip.Land).Conn("pla", godip.Land).Conn("cly", godip.Land).Conn("ray", godip.Land).Conn("gra", godip.Land).Conn("nog", godip.Land).Flag(godip.Land).SC(Ioway).
 		// Ray
-		Prov("ray").Conn("cly", godip.Coast...).Conn("wes", godip.Sea).Conn("tes", godip.Coast...).Conn("gra", godip.Land).Conn("cli", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
-		// Booneville
-		Prov("bnv").Conn("sal", godip.Sea).Conn("pet", godip.Sea).Conn("col", godip.Sea).Conn("jec", godip.Sea).Conn("cal", godip.Sea).Conn("boo", godip.Sea).Conn("how", godip.Sea).Conn("gla", godip.Sea).Flag(godip.Sea).
+		Prov("ray").Conn("ric", godip.Coast...).Conn("gra", godip.Land).Conn("cli", godip.Land).Conn("cly", godip.Coast...).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		// North Grand
+		Prov("nog").Conn("cli", godip.Land).Conn("gra", godip.Land).Flag(godip.Land).SC(Ioway).
+		// St. Francis
+		Prov("stf").Conn("smr", godip.Sea).Conn("new", godip.Coast...).Conn("sco", godip.Land).Flag(godip.Coast...).SC(Chickasaw).
 		// Clark
-		Prov("clr").Conn("cui", godip.Land).Conn("lew", godip.Coast...).Conn("nmr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("lar").Conn("cui", godip.Land).Conn("lew", godip.Coast...).Conn("nmr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Neosho
 		Prov("neo").Conn("ver", godip.Land).Conn("tab", godip.Land).Conn("sto", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// North Mississippi River
-		Prov("nmr").Conn("clr", godip.Sea).Conn("lew", godip.Sea).Conn("mar", godip.Sea).Conn("ncm", godip.Sea).Flag(godip.Sea).
+		Prov("nmr").Conn("lar", godip.Sea).Conn("lew", godip.Sea).Conn("mar", godip.Sea).Conn("npp", godip.Sea).Flag(godip.Sea).
 		// Madison
-		Prov("mad").Conn("cap", godip.Land).Conn("per", godip.Land).Conn("ste", godip.Land).Conn("bou", godip.Land).Conn("way", godip.Land).Conn("gre", godip.Land).Flag(godip.Land).
+		Prov("mad").Conn("way", godip.Land).Conn("gre", godip.Land).Conn("cap", godip.Land).Conn("per", godip.Land).Conn("ste", godip.Land).Conn("bou", godip.Land).Flag(godip.Land).
 		// Ozark
-		Prov("oza").Conn("whi", godip.Land).Conn("big", godip.Land).Conn("osa", godip.Land).Conn("col", godip.Land).Conn("pet", godip.Land).Conn("hen", godip.Land).Conn("ver", godip.Land).Conn("sto", godip.Land).Flag(godip.Land).SC(Osage).
+		Prov("oza").Conn("osa", godip.Land).Conn("col", godip.Land).Conn("pet", godip.Land).Conn("hen", godip.Land).Conn("ver", godip.Land).Conn("sto", godip.Land).Conn("whi", godip.Land).Conn("big", godip.Land).Flag(godip.Land).SC(Osage).
 		// Saline
-		Prov("sal").Conn("bnv", godip.Sea).Conn("gla", godip.Sea).Conn("mia", godip.Sea).Conn("laf", godip.Coast...).Conn("pet", godip.Coast...).Flag(godip.Coast...).SC(Missouria).
+		Prov("sal").Conn("laf", godip.Coast...).Conn("pet", godip.Coast...).Conn("ceo", godip.Sea).Conn("noo", godip.Sea).Conn("nwc", godip.Sea).Flag(godip.Coast...).SC(Missouria).
 		// St. Charles
-		Prov("stc").Conn("cen", godip.Sea).Conn("lin", godip.Coast...).Conn("mot", godip.Coast...).Conn("her", godip.Sea).Conn("eas", godip.Sea).Conn("cen", godip.Sea).Flag(godip.Coast...).SC(Illini).
+		Prov("stc").Conn("cpp", godip.Sea).Conn("lin", godip.Coast...).Conn("mot", godip.Coast...).Conn("sem", godip.Sea).Conn("sem", godip.Sea).Conn("cpp", godip.Sea).Flag(godip.Coast...).SC(Illini).
 		// Callaway
-		Prov("cal").Conn("her", godip.Sea).Conn("mot", godip.Coast...).Conn("aud", godip.Land).Conn("mor", godip.Land).Conn("boo", godip.Coast...).Conn("bnv", godip.Sea).Conn("jec", godip.Sea).Flag(godip.Coast...).
+		Prov("cal").Conn("aud", godip.Land).Conn("mro", godip.Land).Conn("boo", godip.Coast...).Conn("ceo", godip.Sea).Conn("ecm", godip.Sea).Conn("emr", godip.Sea).Conn("mot", godip.Coast...).Flag(godip.Coast...).
 		// Pike
-		Prov("pik").Conn("aud", godip.Land).Conn("lin", godip.Coast...).Conn("ncm", godip.Sea).Conn("mar", godip.Coast...).Flag(godip.Coast...).
-		// Jefferson City
-		Prov("jec").Conn("gas", godip.Sea).Conn("her", godip.Sea).Conn("cal", godip.Sea).Conn("bnv", godip.Sea).Conn("col", godip.Sea).Conn("osa", godip.Sea).Flag(godip.Sea).
+		Prov("pik").Conn("lin", godip.Coast...).Conn("npp", godip.Sea).Conn("mar", godip.Coast...).Conn("aud", godip.Land).Flag(godip.Coast...).
 		// Jefferson
-		Prov("jee").Conn("scm", godip.Sea).Conn("scm", godip.Sea).Conn("stl", godip.Coast...).Conn("bou", godip.Land).Conn("ste", godip.Coast...).Flag(godip.Coast...).
-		// Glasgow
-		Prov("gla").Conn("mia", godip.Sea).Conn("sal", godip.Sea).Conn("bnv", godip.Sea).Conn("how", godip.Sea).Conn("ran", godip.Sea).Conn("cha", godip.Sea).Flag(godip.Sea).
+		Prov("jef").Conn("scp", godip.Sea).Conn("stl", godip.Coast...).Conn("bou", godip.Land).Conn("ste", godip.Coast...).Conn("scp", godip.Sea).Flag(godip.Coast...).
 		// Big Pinay
-		Prov("big").Conn("oza", godip.Land).Conn("whi", godip.Land).Conn("bla", godip.Land).Conn("mer", godip.Land).Conn("gas", godip.Land).Conn("osa", godip.Land).Flag(godip.Land).
+		Prov("big").Conn("bla", godip.Land).Conn("mer", godip.Land).Conn("gas", godip.Land).Conn("osa", godip.Land).Conn("oza", godip.Land).Conn("whi", godip.Land).Flag(godip.Land).
 		// Meramec
-		Prov("mer").Conn("fra", godip.Land).Conn("gas", godip.Land).Conn("big", godip.Land).Conn("bla", godip.Land).Conn("bou", godip.Land).Flag(godip.Land).
+		Prov("mer").Conn("gas", godip.Land).Conn("big", godip.Land).Conn("bla", godip.Land).Conn("bou", godip.Land).Conn("fra", godip.Land).Flag(godip.Land).
 		// Lewis
-		Prov("lew").Conn("mar", godip.Coast...).Conn("nmr", godip.Sea).Conn("clr", godip.Coast...).Conn("cui", godip.Land).Flag(godip.Coast...).
+		Prov("lew").Conn("nmr", godip.Sea).Conn("lar", godip.Coast...).Conn("cui", godip.Land).Conn("mar", godip.Coast...).Flag(godip.Coast...).
 		// Jackson
 		Prov("jac").Conn("sog", godip.Land).Conn("laf", godip.Coast...).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(Missouria).
 		// Franklin
-		Prov("fra").Conn("mer", godip.Land).Conn("bou", godip.Coast...).Conn("eas", godip.Sea).Conn("her", godip.Sea).Conn("gas", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
-		// Clay
-		Prov("cly").Conn("ray", godip.Coast...).Conn("cli", godip.Land).Conn("pla", godip.Coast...).Conn("nwm", godip.Sea).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("fra").Conn("bou", godip.Coast...).Conn("sem", godip.Sea).Conn("sem", godip.Sea).Conn("emr", godip.Sea).Conn("gas", godip.Coast...).Conn("mer", godip.Land).Flag(godip.Coast...).SC(godip.Neutral).
+		// Central Missouri River
+		Prov("ceo").Conn("noo", godip.Sea).Conn("sal", godip.Sea).Conn("pet", godip.Sea).Conn("col", godip.Sea).Conn("ecm", godip.Sea).Conn("cal", godip.Sea).Conn("boo", godip.Sea).Conn("how", godip.Sea).Flag(godip.Sea).
 		// Cape Girardeau
-		Prov("cap").Conn("mad", godip.Land).Conn("gre", godip.Land).Conn("new", godip.Land).Conn("sco", godip.Coast...).Conn("smr", godip.Sea).Conn("per", godip.Coast...).Flag(godip.Coast...).
+		Prov("cap").Conn("sco", godip.Land).Conn("new", godip.Coast...).Conn("smr", godip.Sea).Conn("per", godip.Coast...).Conn("mad", godip.Land).Conn("gre", godip.Land).Flag(godip.Coast...).
+		// Cuivre
+		Prov("cui").Conn("mus", godip.Land).Conn("cha", godip.Land).Conn("ran", godip.Land).Conn("mro", godip.Land).Conn("aud", godip.Land).Conn("mar", godip.Land).Conn("lew", godip.Land).Conn("lar", godip.Land).Flag(godip.Land).
 		// Nodaway
-		Prov("nod").Conn("nis", godip.Land).Conn("pla", godip.Land).Conn("cli", godip.Land).Flag(godip.Land).SC(Oto).
+		Prov("nod").Conn("nis", godip.Land).Conn("pla", godip.Land).Conn("cli", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// North West Missouri River
-		Prov("nwm").Conn("pla", godip.Sea).Conn("nis", godip.Sea).Conn("wes", godip.Sea).Conn("cly", godip.Sea).Conn("pla", godip.Sea).Flag(godip.Sea).
+		Prov("nwm").Conn("wes", godip.Sea).Conn("cly", godip.Sea).Conn("pla", godip.Sea).Conn("pla", godip.Sea).Conn("nis", godip.Sea).Flag(godip.Sea).
 		// Lafayette
-		Prov("laf").Conn("mia", godip.Sea).Conn("wes", godip.Sea).Conn("jac", godip.Coast...).Conn("sog", godip.Land).Conn("joh", godip.Land).Conn("pet", godip.Land).Conn("sal", godip.Coast...).Flag(godip.Coast...).SC(Missouria).
+		Prov("laf").Conn("jac", godip.Coast...).Conn("sog", godip.Land).Conn("joh", godip.Land).Conn("pet", godip.Land).Conn("sal", godip.Coast...).Conn("nwc", godip.Sea).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(Missouria).
 		// Wayne
-		Prov("way").Conn("bla", godip.Land).Conn("but", godip.Land).Conn("gre", godip.Land).Conn("mad", godip.Land).Conn("bou", godip.Land).Flag(godip.Land).SC(Quapaw).
+		Prov("way").Conn("mad", godip.Land).Conn("bou", godip.Land).Conn("bla", godip.Land).Conn("but", godip.Land).Conn("gre", godip.Land).Flag(godip.Land).SC(Quapaw).
+		// West Missouri River
+		Prov("wes").Conn("nwm", godip.Sea).Conn("jac", godip.Sea).Conn("laf", godip.Sea).Conn("nwc", godip.Sea).Conn("ric", godip.Sea).Conn("ray", godip.Sea).Conn("cly", godip.Sea).Flag(godip.Sea).
 		// St. Louis
-		Prov("stl").Conn("eas", godip.Sea).Conn("bou", godip.Coast...).Conn("jee", godip.Coast...).Conn("scm", godip.Sea).Flag(godip.Coast...).SC(Illini).
+		Prov("stl").Conn("scp", godip.Sea).Conn("sem", godip.Sea).Conn("bou", godip.Coast...).Conn("jef", godip.Coast...).Flag(godip.Coast...).SC(Illini).
 		// Musse
-		Prov("mus").Conn("cha", godip.Land).Conn("cui", godip.Land).Conn("gra", godip.Land).Conn("car", godip.Land).Flag(godip.Land).
+		Prov("mus").Conn("gra", godip.Land).Conn("car", godip.Land).Conn("cha", godip.Land).Conn("cui", godip.Land).Flag(godip.Land).
 		Done()
 }
 
 var provinceLongNames = map[godip.Province]string{
-	"tab": "Table Rock",
-	"ncm": "North Central Mississippi River",
+	"npp": "North Central Mississippi River",
 	"boo": "Boone",
 	"ran": "Randolph",
 	"gra": "Grand",
 	"sog": "South Grand",
-	"her": "Herman",
-	"mia": "Miami",
-	"eas": "East Missouri River",
-	"mor": "Monroe",
+	"aud": "Audrain",
+	"emr": "East Missouri River",
+	"mro": "Monroe",
 	"bla": "Black",
 	"sto": "Stockton",
-	"ngr": "N. Grand",
 	"smr": "South Mississippi River",
 	"bou": "Bourbeuse",
 	"ver": "Vernon",
-	"mar": "Marion",
 	"col": "Cole",
 	"gre": "Greenville",
-	"tes": "Test",
+	"nis": "Nishnabotna",
 	"new": "New Madrid",
 	"sco": "Scott",
 	"mot": "Montgomery",
 	"whi": "White",
 	"but": "Butler",
-	"scm": "South Central Mississippi River",
+	"scp": "South Central Mississippi River",
 	"gas": "Gasconade",
 	"pet": "Pettis",
 	"lin": "Lincoln",
-	"wes": "West Missouri River",
-	"sai": "Saint Francis",
+	"ecm": "East Central Missouri River",
 	"per": "Perry",
-	"aud": "Audrain",
-	"cui": "Cuivre",
+	"cly": "Clay",
+	"ric": "Richmond",
+	"nwc": "North West Central Missouri River",
 	"joh": "Johnson",
+	"sem": "South East Missouri River",
 	"car": "Carroll",
 	"how": "Howard",
-	"nis": "Nishnabotna",
+	"mar": "Marion",
+	"tab": "Table Rock",
 	"ste": "Ste. Genevieve",
-	"cen": "Central Mississippi River",
+	"noo": "North Central Missouri River",
+	"cpp": "Central Mississippi River",
 	"pla": "Platte",
 	"hen": "Henry",
 	"osa": "Osage",
 	"cha": "Chariton",
 	"cli": "Clinton",
 	"ray": "Ray",
-	"bnv": "Booneville",
-	"clr": "Clark",
+	"nog": "North Grand",
+	"stf": "St. Francis",
+	"lar": "Clark",
 	"neo": "Neosho",
 	"nmr": "North Mississippi River",
 	"mad": "Madison",
@@ -316,20 +316,20 @@ var provinceLongNames = map[godip.Province]string{
 	"stc": "St. Charles",
 	"cal": "Callaway",
 	"pik": "Pike",
-	"jec": "Jefferson City",
-	"jee": "Jefferson",
-	"gla": "Glasgow",
+	"jef": "Jefferson",
 	"big": "Big Pinay",
 	"mer": "Meramec",
 	"lew": "Lewis",
 	"jac": "Jackson",
 	"fra": "Franklin",
-	"cly": "Clay",
+	"ceo": "Central Missouri River",
 	"cap": "Cape Girardeau",
+	"cui": "Cuivre",
 	"nod": "Nodaway",
 	"nwm": "North West Missouri River",
 	"laf": "Lafayette",
 	"way": "Wayne",
+	"wes": "West Missouri River",
 	"stl": "St. Louis",
 	"mus": "Musse",
 }

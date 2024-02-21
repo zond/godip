@@ -3,26 +3,36 @@ START_YEAR: 2024
 # The starting units
 START_UNITS:
   Oto:
-     Army: ['Platte', 'Nishnabotna', 'Nodaway']
+     Army: ['Platte', 'Nishnabotna']
+     Fleet: ['Clay']
   Missouria:
-     Army: ['Jackson', 'Lafayette', 'Saline']
+     Army: ['Jackson']
+     Fleet: ['Saline', 'Lafayette']
   Chickasaw:
-     Army: ['Scott', 'New Madrid', 'Saint Francis']
+     Army: ['Scott', 'St. Francis']
+     Fleet: ['New Madrid']
   Quapaw:
      Army: ['Wayne', 'Butler', 'Black']
   Osage:
-     Army: ['Osage', 'Cole', 'Ozark']
+     Army: ['Osage', 'Ozark', 'Cole']
   Illini:
-     Army: ['St. Charles', 'St. Louis', 'Lincoln']
+     Army: ['St. Louis', 'Lincoln']
+     Fleet: ['St. Charles']
   Ioway:
-     Army: ['Grand', 'N. Grand', 'Clinton']
+     Army: ['Grand', 'North Grand', 'Clinton']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
-  'Booneville': 'bnv'
+  'South Central Mississippi River': 'scp'
 # Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
 CENTER_OVERRIDES: [
-
+  ["South Mississippi River", "Scott"],
+  ["New Madrid", "St. Francis"],
 ]
 # Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
 REGION_OVERRIDES: [
+  ["New Madrid", "St. Francis"],
+  ["New Madrid", "Scott"],
+  ["New Madrid", "South Mississippi River"],
+  ["Illinois", "South East Missouri River"],
+  ["Illinois", "St. Louis"],
 ]
