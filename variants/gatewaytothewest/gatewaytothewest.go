@@ -13,12 +13,12 @@ const (
 	Osage     godip.Nation = "Osage"
 	Missouria godip.Nation = "Missouria"
 	Illini    godip.Nation = "Illini"
-	Oto       godip.Nation = "Oto"
+	Otoe       godip.Nation = "Otoe"
 	Ioway     godip.Nation = "Ioway"
 	Quapaw    godip.Nation = "Quapaw"
 )
 
-var Nations = []godip.Nation{Chickasaw, Osage, Missouria, Illini, Oto, Ioway, Quapaw}
+var Nations = []godip.Nation{Chickasaw, Osage, Missouria, Illini, Otoe, Ioway, Quapaw}
 
 var GatewayToTheWestVariant = common.Variant{
 	Name:              "Gateway To The West",
@@ -75,9 +75,9 @@ func GatewayToTheWestStart() (result *state.State, err error) {
 		"stc": godip.Unit{godip.Fleet, Illini},
 		"stl": godip.Unit{godip.Army, Illini},
 		"lin": godip.Unit{godip.Army, Illini},
-		"cly": godip.Unit{godip.Fleet, Oto},
-		"pla": godip.Unit{godip.Army, Oto},
-		"nis": godip.Unit{godip.Army, Oto},
+		"cly": godip.Unit{godip.Fleet, Otoe},
+		"pla": godip.Unit{godip.Army, Otoe},
+		"nis": godip.Unit{godip.Army, Otoe},
 		"gra": godip.Unit{godip.Army, Ioway},
 		"nog": godip.Unit{godip.Army, Ioway},
 		"cli": godip.Unit{godip.Army, Ioway},
@@ -100,9 +100,9 @@ func GatewayToTheWestStart() (result *state.State, err error) {
 		"stc": Illini,
 		"stl": Illini,
 		"lin": Illini,
-		"cly": Oto,
-		"pla": Oto,
-		"nis": Oto,
+		"cly": Otoe,
+		"pla": Otoe,
+		"nis": Otoe,
 		"gra": Ioway,
 		"nog": Ioway,
 		"cli": Ioway,
@@ -146,7 +146,7 @@ func GatewayToTheWestGraph() *graph.Graph {
 		// Greenville
 		Prov("gre").Conn("but", godip.Land).Conn("stf", godip.Land).Conn("cap", godip.Land).Conn("mad", godip.Land).Conn("way", godip.Land).Flag(godip.Land).
 		// Nishnabotna
-		Prov("nis").Conn("nwm", godip.Sea).Conn("pla", godip.Coast...).Conn("nod", godip.Land).Flag(godip.Coast...).SC(Oto).
+		Prov("nis").Conn("nwm", godip.Sea).Conn("pla", godip.Coast...).Conn("nod", godip.Land).Flag(godip.Coast...).SC(Otoe).
 		// New Madrid
 		Prov("new").Conn("smr", godip.Sea).Conn("sco", godip.Coast...).Conn("stf", godip.Land).Flag(godip.Coast...).SC(Chickasaw).
 		// Scott
@@ -170,7 +170,7 @@ func GatewayToTheWestGraph() *graph.Graph {
 		// Perry
 		Prov("per").Conn("smr", godip.Sea).Conn("ste", godip.Coast...).Conn("mad", godip.Land).Conn("cap", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Clay
-		Prov("cly").Conn("nwm", godip.Sea).Conn("wes", godip.Sea).Conn("ray", godip.Coast...).Conn("jac", godip.Land).Conn("cli", godip.Land).Conn("pla", godip.Coast...).Flag(godip.Coast...).SC(Oto).
+		Prov("cly").Conn("nwm", godip.Sea).Conn("wes", godip.Sea).Conn("ray", godip.Coast...).Conn("jac", godip.Land).Conn("cli", godip.Land).Conn("pla", godip.Coast...).Flag(godip.Coast...).SC(Otoe).
 		// Richmond
 		Prov("ric").Conn("wes", godip.Sea).Conn("nwc", godip.Sea).Conn("car", godip.Coast...).Conn("gra", godip.Land).Conn("ray", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// North West Central Missouri River
@@ -194,7 +194,7 @@ func GatewayToTheWestGraph() *graph.Graph {
 		// Central Mississippi River
 		Prov("cpp").Conn("stc", godip.Sea).Conn("stc", godip.Sea).Conn("sem", godip.Sea).Conn("scp", godip.Sea).Conn("npp", godip.Sea).Conn("lin", godip.Sea).Flag(godip.Sea).
 		// Platte
-		Prov("pla").Conn("nis", godip.Coast...).Conn("nwm", godip.Sea).Conn("nwm", godip.Sea).Conn("cly", godip.Coast...).Conn("cli", godip.Land).Conn("nod", godip.Land).Flag(godip.Coast...).SC(Oto).
+		Prov("pla").Conn("nis", godip.Coast...).Conn("nwm", godip.Sea).Conn("nwm", godip.Sea).Conn("cly", godip.Coast...).Conn("cli", godip.Land).Conn("nod", godip.Land).Flag(godip.Coast...).SC(Otoe).
 		// Henry
 		Prov("hen").Conn("pet", godip.Land).Conn("joh", godip.Land).Conn("sog", godip.Land).Conn("ver", godip.Land).Conn("oza", godip.Land).Flag(godip.Land).
 		// Osage
