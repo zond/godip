@@ -35,14 +35,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="2560"
-     inkscape:window-height="1369"
+     inkscape:window-height="1361"
      id="namedview3485"
      showgrid="false"
      inkscape:zoom="0.088388348"
-     inkscape:cx="1335.0176"
+     inkscape:cx="1346.3313"
      inkscape:cy="3331.8871"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg3483"
      inkscape:showpageshadow="2"
@@ -6834,6 +6834,13 @@
          id="stop2897" />
     </linearGradient>
   </defs>
+  <rect
+     style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.794752"
+     id="rect1"
+     width="5000"
+     height="5000"
+     x="0"
+     y="0" />
   <g
      transform="matrix(40.010127,0,0,40.010127,1183.5668,560.56911)"
      id="g2">
