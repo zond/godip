@@ -86,6 +86,108 @@ var GatewayWestVariant = common.Variant{
 	indigenous tribes continue to inhabit these lands, and they aspire 
 	to organize and reclaim the territories they once freely roamed.`,
 	Rules:       `The first to 18 Supply Centers (SC) is the winner.`,
+	ExtraDominanceRules: map[godip.Province]common.DominanceRule{
+		"sog": common.DominanceRule{
+			Priority: 0,
+			Nation:   Missouria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"jac": Missouria,
+				"laf": Missouria,
+			},
+		},
+		"joh": common.DominanceRule{
+			Nation: Missouria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sal": Missouria,
+				"laf": Missouria,
+			},
+		},
+		"pet": common.DominanceRule{
+			Nation: Missouria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sal": Missouria,
+				"laf": Missouria,
+				"col": Osage,
+				"oza": Osage,
+			},
+		},
+		"whi": common.DominanceRule{
+			Nation: Osage,
+			Dependencies: map[godip.Province]godip.Nation{
+				"oza": Osage,
+				"bla": Quapaw,
+			},
+		},
+		"big": common.DominanceRule{
+			Nation: Osage,
+			Dependencies: map[godip.Province]godip.Nation{
+				"oza": Osage,
+				"osa": Osage,
+				"bla": Quapaw,
+			},
+		},
+		"gas": common.DominanceRule{
+			Nation: Osage,
+			Dependencies: map[godip.Province]godip.Nation{
+				"osa": Osage,
+				"fra": godip.Neutral,
+			},
+		},
+		"gre": common.DominanceRule{
+			Nation: Quapaw,
+			Dependencies: map[godip.Province]godip.Nation{
+				"way": Quapaw,
+				"but": Quapaw,
+				"stf": Chickasaw,
+			},
+		},
+		"mad": common.DominanceRule{
+			Nation: Quapaw,
+			Dependencies: map[godip.Province]godip.Nation{
+				"way": Quapaw,
+				"but": Quapaw,
+				"ste": godip.Neutral,
+				"per": godip.Neutral,
+			},
+		},
+		"cap": common.DominanceRule{
+			Nation: Chickasaw,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sco": Chickasaw,
+				"stf": Chickasaw,
+				"per": godip.Neutral,
+			},
+		},
+		"mus": common.DominanceRule{
+			Nation: Ioway,
+			Dependencies: map[godip.Province]godip.Nation{
+				"gra": Ioway,
+			},
+		},
+		"pik": common.DominanceRule{
+			Nation: Illini,
+			Dependencies: map[godip.Province]godip.Nation{
+				"lin": Illini,
+				"stc": Illini,
+			},
+		},
+		"aud": common.DominanceRule{
+			Nation: Missouria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"lin": Illini,
+				"stc": Illini,
+				"cal": godip.Neutral,
+			},
+		},
+		"mot": common.DominanceRule{
+			Nation: Missouria,
+			Dependencies: map[godip.Province]godip.Nation{
+				"lin": Illini,
+				"stc": Illini,
+				"cal": godip.Neutral,
+			},
+		},
+	},
 }
 
 func GatewayWestBlank(phase godip.Phase) *state.State {
