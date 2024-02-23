@@ -2,6 +2,7 @@ package variants
 
 import (
 	"github.com/zond/godip/variants/gatewaywest"
+	"github.com/zond/godip/variants/classicalcrowded"
 	"github.com/zond/godip/variants/beta/threekingdoms"
 	"github.com/zond/godip/variants/ancientmediterranean"
 	"github.com/zond/godip/variants/canton"
@@ -36,6 +37,7 @@ var Variants = map[string]common.Variant{}
 
 var OrderedVariants = []common.Variant{
 	gatewaywest.GatewayWestVariant,
+	classicalcrowded.ClassicalCrowdedVariant,
 	threekingdoms.ThreeKingdomsVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
 	canton.CantonVariant,
