@@ -22,6 +22,15 @@ var Nations = []godip.Nation{Chickasaw, Osage, Missouria, Illini, Otoe, Ioway, Q
 
 var GatewayWestVariant = common.Variant{
 	Name:              "Gateway West",
+	NationColors: map[godip.Nation]string{
+		Chickasaw: "#1B316D",
+		Osage:     "#97CBFF",
+		Missouria: "#8D5117",
+		Illini:    "#FF5F05",
+		Otoe:      "#850405",
+		Ioway:     "#009396",
+		Quapaw:    "#F2CC00",
+	},
 	Graph:             func() godip.Graph { return GatewayWestGraph() },
 	Start:             GatewayWestStart,
 	Blank:             GatewayWestBlank,
