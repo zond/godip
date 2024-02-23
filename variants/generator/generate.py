@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'GatewayToTheWest'
+VARIANT = 'GatewayWest'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
