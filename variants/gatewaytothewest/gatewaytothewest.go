@@ -13,7 +13,7 @@ const (
 	Osage     godip.Nation = "Osage"
 	Missouria godip.Nation = "Missouria"
 	Illini    godip.Nation = "Illini"
-	Otoe       godip.Nation = "Otoe"
+	Otoe      godip.Nation = "Otoe"
 	Ioway     godip.Nation = "Ioway"
 	Quapaw    godip.Nation = "Quapaw"
 )
@@ -44,6 +44,29 @@ var GatewayToTheWestVariant = common.Variant{
 		},
 		godip.Fleet: func() ([]byte, error) {
 			return Asset("svg/fleet.svg")
+		},
+	},
+	SVGFlags: map[godip.Nation]func() ([]byte, error){
+		Chickasaw: func() ([]byte, error) {
+			return Asset("svg/Chickasaw.svg")
+		},
+		Osage: func() ([]byte, error) {
+			return Asset("svg/Osage.svg")
+		},
+		Illini: func() ([]byte, error) {
+			return Asset("svg/Illini.svg")
+		},
+		Missouria: func() ([]byte, error) {
+			return Asset("svg/Missouria.svg")
+		},
+		Otoe: func() ([]byte, error) {
+			return Asset("svg/Otoe.svg")
+		},
+		Ioway: func() ([]byte, error) {
+			return Asset("svg/Ioway.svg")
+		},
+		Quapaw: func() ([]byte, error) {
+			return Asset("svg/Quapaw.svg")
 		},
 	},
 	CreatedBy:   "TJ Brooks",

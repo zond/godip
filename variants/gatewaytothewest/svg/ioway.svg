@@ -5,7 +5,7 @@
    version="1.0"
    viewBox="0 0 5000 5000"
    id="svg3483"
-   sodipodi:docname="oto.svg"
+   sodipodi:docname="ioway.svg"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -39,8 +39,8 @@
      id="namedview3485"
      showgrid="false"
      inkscape:zoom="0.088388348"
-     inkscape:cx="1323.7039"
-     inkscape:cy="3331.8872"
+     inkscape:cx="1335.0176"
+     inkscape:cy="3331.8871"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -6834,4 +6834,24 @@
          id="stop2897" />
     </linearGradient>
   </defs>
+  <g
+     id="Layer 1"
+     transform="scale(5,8.3333333)">
+  <rect
+   fill="#00923f"
+   x="0"
+   y="0"
+   width="1000"
+   height="600"
+   id="rect1" />
+
+  <rect
+   fill="#da251d"
+   x="0"
+   y="300"
+   width="1000"
+   height="300"
+   id="rect2" />
+
+ </g>
 </svg>
