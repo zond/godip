@@ -162,6 +162,7 @@ var GatewayWestVariant = common.Variant{
 			Nation: Ioway,
 			Dependencies: map[godip.Province]godip.Nation{
 				"gra": Ioway,
+				"nog": Ioway,
 			},
 		},
 		"pik": common.DominanceRule{
@@ -172,7 +173,7 @@ var GatewayWestVariant = common.Variant{
 			},
 		},
 		"aud": common.DominanceRule{
-			Nation: Missouria,
+			Nation: Illini,
 			Dependencies: map[godip.Province]godip.Nation{
 				"lin": Illini,
 				"stc": Illini,
@@ -180,7 +181,7 @@ var GatewayWestVariant = common.Variant{
 			},
 		},
 		"mot": common.DominanceRule{
-			Nation: Missouria,
+			Nation: Illini,
 			Dependencies: map[godip.Province]godip.Nation{
 				"lin": Illini,
 				"stc": Illini,
