@@ -80,7 +80,8 @@ var GatewayWestVariant = common.Variant{
 	},
 	CreatedBy:   "TJ Brooks",
 	Version:     "1",
-	Description: `Alternative history variant. Missouri has recently 
+	Description: `THIS IS A BETA MAP; IT IS STILL IN DEVELOPMENT. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME.
+	PROCEED WITH CAUTION. Alternative history variant. Missouri has recently 
 	achieved statehood, and the exploration of the western territories 
 	is gaining momentum as settlers seek new opportunities. However, 
 	indigenous tribes continue to inhabit these lands, and they aspire 
