@@ -79,7 +79,7 @@ var GatewayWestVariant = common.Variant{
 		},
 	},
 	CreatedBy:   "TJ Brooks",
-	Version:     "1",
+	Version:     "0.1",
 	Description: `THIS IS A BETA MAP; IT IS STILL IN DEVELOPMENT. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME.
 	PROCEED WITH CAUTION. Alternative history variant. Missouri has recently 
 	achieved statehood, and the exploration of the western territories 
