@@ -159,13 +159,6 @@ var GatewayWestVariant = common.Variant{
 				"per": godip.Neutral,
 			},
 		},
-		"mus": common.DominanceRule{
-			Nation: Ioway,
-			Dependencies: map[godip.Province]godip.Nation{
-				"gra": Ioway,
-				"nog": Ioway,
-			},
-		},
 		"pik": common.DominanceRule{
 			Nation: Illini,
 			Dependencies: map[godip.Province]godip.Nation{
@@ -217,7 +210,7 @@ func GatewayWestStart() (result *state.State, err error) {
 		"nis": godip.Unit{godip.Army, Otoe},
 		"gra": godip.Unit{godip.Army, Ioway},
 		"nog": godip.Unit{godip.Army, Ioway},
-		"cli": godip.Unit{godip.Army, Ioway},
+		"mus": godip.Unit{godip.Army, Ioway},
 		"way": godip.Unit{godip.Army, Quapaw},
 		"but": godip.Unit{godip.Army, Quapaw},
 		"bla": godip.Unit{godip.Army, Quapaw},
@@ -339,7 +332,7 @@ func GatewayWestGraph() *graph.Graph {
 		// Chariton
 		Prov("cha").Conn("mus", godip.Land).Conn("car", godip.Coast...).Conn("nwc", godip.Sea).Conn("noo", godip.Sea).Conn("ran", godip.Coast...).Conn("cui", godip.Land).Flag(godip.Coast...).
 		// Clinton
-		Prov("cli").Conn("nod", godip.Land).Conn("pla", godip.Land).Conn("cly", godip.Land).Conn("ray", godip.Land).Conn("gra", godip.Land).Conn("nog", godip.Land).Flag(godip.Land).SC(Ioway).
+		Prov("cli").Conn("nod", godip.Land).Conn("pla", godip.Land).Conn("cly", godip.Land).Conn("ray", godip.Land).Conn("gra", godip.Land).Conn("nog", godip.Land).Flag(godip.Land).
 		// Ray
 		Prov("ray").Conn("ric", godip.Coast...).Conn("gra", godip.Land).Conn("cli", godip.Land).Conn("cly", godip.Coast...).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// North Grand
@@ -395,7 +388,7 @@ func GatewayWestGraph() *graph.Graph {
 		// St. Louis
 		Prov("stl").Conn("scp", godip.Sea).Conn("stc", godip.Land).Conn("sem", godip.Sea).Conn("bou", godip.Coast...).Conn("jef", godip.Coast...).Flag(godip.Coast...).SC(Illini).
 		// Musse
-		Prov("mus").Conn("gra", godip.Land).Conn("car", godip.Land).Conn("cha", godip.Land).Conn("cui", godip.Land).Flag(godip.Land).
+		Prov("mus").Conn("gra", godip.Land).Conn("car", godip.Land).Conn("cha", godip.Land).Conn("cui", godip.Land).Flag(godip.Land).SC(Ioway).
 		Done()
 }
 

@@ -19,7 +19,7 @@ START_UNITS:
      Army: ['St. Louis', 'Lincoln']
      Fleet: ['St. Charles']
   Ioway:
-     Army: ['Grand', 'North Grand', 'Clinton']
+     Army: ['Grand', 'North Grand', 'Musse']
 # Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
 ABBREVIATIONS:
   'South Central Mississippi River': 'scp'
