@@ -235,7 +235,7 @@ func GatewayWestStart() (result *state.State, err error) {
 		"nis": Otoe,
 		"gra": Ioway,
 		"nog": Ioway,
-		"cli": Ioway,
+		"mus": Ioway,
 		"way": Quapaw,
 		"but": Quapaw,
 		"bla": Quapaw,
