@@ -1,0 +1,35 @@
+# The first year of the game
+START_YEAR: 1826
+# The starting units
+START_UNITS:
+  Oto:
+     Army: ['Platte', 'Nishnabotna']
+     Fleet: ['Clay']
+  Missouria:
+     Army: ['Jackson']
+     Fleet: ['Saline', 'Lafayette']
+  Chickasaw:
+     Army: ['Scott', 'St. Francis']
+     Fleet: ['New Madrid']
+  Quapaw:
+     Army: ['Wayne', 'Butler', 'Black']
+  Osage:
+     Army: ['Osage', 'Ozark', 'Cole']
+  Illini:
+     Army: ['St. Louis', 'Lincoln']
+     Fleet: ['St. Charles']
+  Ioway:
+     Army: ['Grand', 'North Grand', 'Musse']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  'South Central Mississippi River': 'scp'
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+  ["South Mississippi River", "Scott"],
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+  ["Scott", "South Mississippi River"],
+  ["Illinois", "South East Missouri River"],
+  ["Illinois", "St. Louis"],
+]
