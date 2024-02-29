@@ -102,7 +102,6 @@ var GatewayWestVariant = common.Variant{
 				"sal": Missouria,
 				"laf": Missouria,
 				"jac": Missouria,
-				"neo": godip.Neutral,
 			},
 		},
 		"joh": common.DominanceRule{
