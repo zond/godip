@@ -57,25 +57,25 @@ var GatewayWestVariant = common.Variant{
 	},
 	SVGFlags: map[godip.Nation]func() ([]byte, error){
 		Chickasaw: func() ([]byte, error) {
-			return Asset("svg/Chickasaw.svg")
+			return Asset("svg/chickasaw.svg")
 		},
 		Osage: func() ([]byte, error) {
-			return Asset("svg/Osage.svg")
+			return Asset("svg/osage.svg")
 		},
 		Illini: func() ([]byte, error) {
-			return Asset("svg/Illini.svg")
+			return Asset("svg/illini.svg")
 		},
 		Missouria: func() ([]byte, error) {
-			return Asset("svg/Missouria.svg")
+			return Asset("svg/missouria.svg")
 		},
 		Otoe: func() ([]byte, error) {
-			return Asset("svg/Otoe.svg")
+			return Asset("svg/otoe.svg")
 		},
 		Ioway: func() ([]byte, error) {
-			return Asset("svg/Ioway.svg")
+			return Asset("svg/ioway.svg")
 		},
 		Quapaw: func() ([]byte, error) {
-			return Asset("svg/Quapaw.svg")
+			return Asset("svg/quapaw.svg")
 		},
 	},
 	CreatedBy:   "TJ Brooks",
