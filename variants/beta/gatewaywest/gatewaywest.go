@@ -105,6 +105,7 @@ var GatewayWestVariant = common.Variant{
 				"col": Osage,
 				"oza": Osage,
 				"osa": Osage,
+				"neo": godip.Neutral,
 			},
 		},
 		"joh": common.DominanceRule{
