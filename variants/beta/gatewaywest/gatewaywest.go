@@ -96,6 +96,14 @@ var GatewayWestVariant = common.Variant{
 				"laf": Missouria,
 			},
 		},
+		"hen": common.DominanceRule{
+			Nation: godip.Neutral,
+			Dependencies: map[godip.Province]godip.Nation{
+				"sal": Missouria,
+				"laf": Missouria,
+				"jac": Missouria,
+			},
+		},
 		"joh": common.DominanceRule{
 			Nation: Missouria,
 			Dependencies: map[godip.Province]godip.Nation{
