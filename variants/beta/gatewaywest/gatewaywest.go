@@ -270,7 +270,7 @@ func GatewayWestGraph() *graph.Graph {
 		// Grand
 		Prov("gra").Conn("nog", godip.Land).Conn("cli", godip.Land).Conn("ray", godip.Land).Conn("ric", godip.Land).Conn("car", godip.Land).Conn("mus", godip.Land).Flag(godip.Land).SC(Ioway).
 		// South Grand
-		Prov("sog").Conn("jac", godip.Land).Conn("ver", godip.Land).Conn("hen", godip.Land).Conn("joh", godip.Land).Conn("laf", godip.Land).Flag(godip.Land).
+		Prov("sog").Conn("hen", godip.Land).Conn("joh", godip.Land).Conn("laf", godip.Land).Conn("jac", godip.Land).Conn("neo", godip.Land).Conn("sto", godip.Land).Flag(godip.Land).
 		// Audrain
 		Prov("aud").Conn("cui", godip.Land).Conn("mro", godip.Land).Conn("cal", godip.Land).Conn("mot", godip.Land).Conn("lin", godip.Land).Conn("pik", godip.Land).Conn("mar", godip.Land).Flag(godip.Land).
 		// East Missouri River
@@ -280,13 +280,11 @@ func GatewayWestGraph() *graph.Graph {
 		// Black
 		Prov("bla").Conn("bou", godip.Land).Conn("mer", godip.Land).Conn("big", godip.Land).Conn("whi", godip.Land).Conn("but", godip.Land).Conn("way", godip.Land).Flag(godip.Land).SC(Quapaw).
 		// Stockton
-		Prov("sto").Conn("ver", godip.Land).Conn("neo", godip.Land).Conn("tab", godip.Land).Conn("whi", godip.Land).Conn("oza", godip.Land).Flag(godip.Land).
+		Prov("sto").Conn("neo", godip.Land).Conn("tab", godip.Land).Conn("whi", godip.Land).Conn("oza", godip.Land).Conn("hen", godip.Land).Conn("sog", godip.Land).Flag(godip.Land).
 		// South Mississippi River
 		Prov("smr").Conn("scp", godip.Sea).Conn("ste", godip.Sea).Conn("per", godip.Sea).Conn("cap", godip.Sea).Conn("sco", godip.Sea).Conn("new", godip.Sea).Flag(godip.Sea).
 		// Bourbeuse
 		Prov("bou").Conn("bla", godip.Land).Conn("way", godip.Land).Conn("mad", godip.Land).Conn("ste", godip.Land).Conn("jef", godip.Land).Conn("stl", godip.Coast...).Conn("sem", godip.Sea).Conn("fra", godip.Coast...).Conn("mer", godip.Land).Flag(godip.Coast...).
-		// Vernon
-		Prov("ver").Conn("neo", godip.Land).Conn("sto", godip.Land).Conn("oza", godip.Land).Conn("hen", godip.Land).Conn("sog", godip.Land).Flag(godip.Land).
 		// Cole
 		Prov("col").Conn("pet", godip.Coast...).Conn("oza", godip.Land).Conn("boo", godip.Land).Conn("osa", godip.Coast...).Conn("ecm", godip.Sea).Conn("ceo", godip.Sea).Flag(godip.Coast...).SC(Osage).
 		// Greenville
@@ -342,7 +340,7 @@ func GatewayWestGraph() *graph.Graph {
 		// Platte
 		Prov("pla").Conn("nis", godip.Coast...).Conn("nwm", godip.Sea).Conn("nwm", godip.Sea).Conn("cly", godip.Coast...).Conn("cli", godip.Land).Conn("nod", godip.Land).Flag(godip.Coast...).SC(Otoe).
 		// Henry
-		Prov("hen").Conn("pet", godip.Land).Conn("joh", godip.Land).Conn("sog", godip.Land).Conn("ver", godip.Land).Conn("oza", godip.Land).Flag(godip.Land).
+		Prov("hen").Conn("sog", godip.Land).Conn("sto", godip.Land).Conn("oza", godip.Land).Conn("oza", godip.Land).Conn("pet", godip.Land).Conn("joh", godip.Land).Flag(godip.Land).
 		// Osage
 		Prov("osa").Conn("gas", godip.Coast...).Conn("ecm", godip.Sea).Conn("col", godip.Coast...).Conn("oza", godip.Land).Conn("big", godip.Land).Flag(godip.Coast...).SC(Osage).
 		// Chariton
@@ -356,15 +354,15 @@ func GatewayWestGraph() *graph.Graph {
 		// St. Francis
 		Prov("stf").Conn("new", godip.Land).Conn("sco", godip.Land).Conn("cap", godip.Land).Conn("gre", godip.Land).Conn("but", godip.Land).Flag(godip.Land).SC(Chickasaw).
 		// Clark
-		Prov("lar").Conn("cui", godip.Land).Conn("lew", godip.Coast...).Conn("nmr", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
+		Prov("lar").Conn("cui", godip.Land).Conn("lew", godip.Coast...).Conn("nmr", godip.Sea).Flag(godip.Coast...).
 		// Neosho
-		Prov("neo").Conn("ver", godip.Land).Conn("tab", godip.Land).Conn("sto", godip.Land).Flag(godip.Land).SC(godip.Neutral).
+		Prov("neo").Conn("tab", godip.Land).Conn("sto", godip.Land).Conn("sog", godip.Land).Flag(godip.Land).SC(godip.Neutral).
 		// North Mississippi River
 		Prov("nmr").Conn("lar", godip.Sea).Conn("lew", godip.Sea).Conn("mar", godip.Sea).Conn("npp", godip.Sea).Flag(godip.Sea).
 		// Madison
 		Prov("mad").Conn("way", godip.Land).Conn("gre", godip.Land).Conn("cap", godip.Land).Conn("per", godip.Land).Conn("ste", godip.Land).Conn("bou", godip.Land).Flag(godip.Land).
 		// Ozark
-		Prov("oza").Conn("osa", godip.Land).Conn("col", godip.Land).Conn("pet", godip.Land).Conn("hen", godip.Land).Conn("ver", godip.Land).Conn("sto", godip.Land).Conn("whi", godip.Land).Conn("big", godip.Land).Flag(godip.Land).SC(Osage).
+		Prov("oza").Conn("whi", godip.Land).Conn("big", godip.Land).Conn("osa", godip.Land).Conn("col", godip.Land).Conn("pet", godip.Land).Conn("hen", godip.Land).Conn("hen", godip.Land).Conn("sto", godip.Land).Flag(godip.Land).SC(Osage).
 		// Saline
 		Prov("sal").Conn("laf", godip.Coast...).Conn("pet", godip.Coast...).Conn("ceo", godip.Sea).Conn("noo", godip.Sea).Conn("nwc", godip.Sea).Flag(godip.Coast...).SC(Missouria).
 		// St. Charles
@@ -380,7 +378,7 @@ func GatewayWestGraph() *graph.Graph {
 		// Meramec
 		Prov("mer").Conn("gas", godip.Land).Conn("big", godip.Land).Conn("bla", godip.Land).Conn("bou", godip.Land).Conn("fra", godip.Land).Flag(godip.Land).
 		// Lewis
-		Prov("lew").Conn("nmr", godip.Sea).Conn("lar", godip.Coast...).Conn("cui", godip.Land).Conn("mar", godip.Coast...).Flag(godip.Coast...).
+		Prov("lew").Conn("nmr", godip.Sea).Conn("lar", godip.Coast...).Conn("cui", godip.Land).Conn("mar", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Jackson
 		Prov("jac").Conn("sog", godip.Land).Conn("cly", godip.Land).Conn("laf", godip.Coast...).Conn("wes", godip.Sea).Flag(godip.Coast...).SC(Missouria).
 		// Franklin
@@ -421,7 +419,6 @@ var provinceLongNames = map[godip.Province]string{
 	"sto": "Stockton",
 	"smr": "South Mississippi River",
 	"bou": "Bourbeuse",
-	"ver": "Vernon",
 	"col": "Cole",
 	"gre": "Greenville",
 	"nis": "Nishnabotna",
