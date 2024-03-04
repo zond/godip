@@ -4,7 +4,9 @@ import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/graph"
 	"github.com/zond/godip/state"
+	"github.com/zond/godip/phase"
 	"github.com/zond/godip/variants/classical"
+	"github.com/zond/godip/variants/hundred"
 	"github.com/zond/godip/variants/common"
 )
 
@@ -19,6 +21,12 @@ const (
 )
 
 var Nations = []godip.Nation{Chickasaw, Osage, Missouria, Illini, Otoe, Ioway, Quapaw}
+
+var newPhase = phase.Generator(hundred.BuildAnywhereParser, classical.AdjustSCs)
+
+func Phase(year int, season godip.Season, typ godip.PhaseType) godip.Phase {
+	return newPhase(year, season, typ)
+}
 
 var GatewayWestVariant = common.Variant{
 	Name:              "Gateway West",
@@ -35,7 +43,7 @@ var GatewayWestVariant = common.Variant{
 	Start:             GatewayWestStart,
 	Blank:             GatewayWestBlank,
 	Phase:             classical.NewPhase,
-	Parser:            classical.Parser,
+	Parser:            hundred.BuildAnywhereParser,
 	Nations:           Nations,
 	PhaseTypes:        classical.PhaseTypes,
 	Seasons:           classical.Seasons,
@@ -46,7 +54,7 @@ var GatewayWestVariant = common.Variant{
 	SVGMap: func() ([]byte, error) {
 		return Asset("svg/gatewaywestmap.svg")
 	},
-	SVGVersion: "1",
+	SVGVersion: "3",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
 			return Asset("svg/army.svg")
@@ -79,7 +87,7 @@ var GatewayWestVariant = common.Variant{
 		},
 	},
 	CreatedBy:   "TJ Brooks",
-	Version:     "0.1",
+	Version:     "0.3",
 	Description: `THIS IS A BETA MAP; IT IS STILL IN DEVELOPMENT. THIS MEANS THE MAP CAN BE UPDATED WITHOUT WARNING DURING YOUR GAME.
 	PROCEED WITH CAUTION. Alternative history variant. Missouri has recently 
 	achieved statehood, and the exploration of the western territories 
