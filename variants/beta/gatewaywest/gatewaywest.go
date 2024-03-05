@@ -283,8 +283,8 @@ func GatewayWestGraph() *graph.Graph {
 		Prov("sto").Conn("neo", godip.Land).Conn("tab", godip.Land).Conn("whi", godip.Land).Conn("oza", godip.Land).Conn("hen", godip.Land).Conn("sog", godip.Land).Flag(godip.Land).
 		// South Mississippi River
 		Prov("smr").Conn("scp", godip.Sea).Conn("ste", godip.Sea).Conn("per", godip.Sea).Conn("cap", godip.Sea).Conn("sco", godip.Sea).Conn("new", godip.Sea).Flag(godip.Sea).
-		// Bourbeuse
-		Prov("bou").Conn("bla", godip.Land).Conn("way", godip.Land).Conn("mad", godip.Land).Conn("ste", godip.Land).Conn("jef", godip.Land).Conn("stl", godip.Coast...).Conn("sem", godip.Sea).Conn("fra", godip.Coast...).Conn("mer", godip.Land).Flag(godip.Coast...).
+		// Meramec
+		Prov("mer").Conn("bla", godip.Land).Conn("way", godip.Land).Conn("mad", godip.Land).Conn("ste", godip.Land).Conn("jef", godip.Land).Conn("stl", godip.Coast...).Conn("sem", godip.Sea).Conn("fra", godip.Coast...).Conn("mer", godip.Land).Flag(godip.Coast...).
 		// Cole
 		Prov("col").Conn("pet", godip.Coast...).Conn("oza", godip.Land).Conn("boo", godip.Land).Conn("osa", godip.Coast...).Conn("ecm", godip.Sea).Conn("ceo", godip.Sea).Flag(godip.Coast...).SC(Osage).
 		// Greenville
@@ -375,8 +375,8 @@ func GatewayWestGraph() *graph.Graph {
 		Prov("jef").Conn("scp", godip.Sea).Conn("stl", godip.Coast...).Conn("bou", godip.Land).Conn("ste", godip.Coast...).Conn("scp", godip.Sea).Flag(godip.Coast...).
 		// Big Pinay
 		Prov("big").Conn("bla", godip.Land).Conn("mer", godip.Land).Conn("gas", godip.Land).Conn("osa", godip.Land).Conn("oza", godip.Land).Conn("whi", godip.Land).Flag(godip.Land).
-		// Meramec
-		Prov("mer").Conn("gas", godip.Land).Conn("big", godip.Land).Conn("bla", godip.Land).Conn("bou", godip.Land).Conn("fra", godip.Land).Flag(godip.Land).
+		// Bourbeuse
+		Prov("bou").Conn("gas", godip.Land).Conn("big", godip.Land).Conn("bla", godip.Land).Conn("bou", godip.Land).Conn("fra", godip.Land).Flag(godip.Land).
 		// Lewis
 		Prov("lew").Conn("nmr", godip.Sea).Conn("lar", godip.Coast...).Conn("cui", godip.Land).Conn("mar", godip.Coast...).Flag(godip.Coast...).SC(godip.Neutral).
 		// Jackson
