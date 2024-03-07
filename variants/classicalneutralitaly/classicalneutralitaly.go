@@ -16,11 +16,11 @@ var ClassicalNeutralItalyVariant = common.Variant{
 	Graph: func() godip.Graph {
 		okNations := map[godip.Nation]bool{
 			godip.Austria: true,
-			godip.England:  true,
-			godip.France: true,
+			godip.England: true,
+			godip.France:  true,
 			godip.Germany: true,
-			godip.Turkey: true,
-			godip.Russia: true,
+			godip.Turkey:  true,
+			godip.Russia:  true,
 			godip.Neutral: true,
 		}
 		neutral := godip.Neutral
@@ -125,9 +125,14 @@ func NeutralOrders(state state.State) (ret map[godip.Province]godip.Adjudicator)
 	case godip.Adjustment:
 		// Rebuild any missing units.
 		for _, prov := range state.Graph().AllSCs() {
-			if n, _, ok := state.SupplyCenter(prov); ok && n == godip.Neutral {
+			if _, p, ok := state.SupplyCenter(prov); ok && (p == "Rome" || p == "Venice") {
 				if _, _, ok := state.Unit(prov); !ok {
 					ret[prov] = orders.Build(prov, godip.Army, time.Now())
+				}
+			}
+			if _, p, ok := state.SupplyCenter(prov); ok && p == "Naples" {
+				if _, _, ok := state.Unit(prov); !ok {
+					ret[prov] = orders.Build(prov, godip.Fleet, time.Now())
 				}
 			}
 		}
