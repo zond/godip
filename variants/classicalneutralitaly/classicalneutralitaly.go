@@ -102,8 +102,8 @@ var ClassicalNeutralItalyVariant = common.Variant{
 	},
 	SVGVersion:  "1",
 	SVGUnits:    classical.SVGUnits,
-	CreatedBy:   "",
-	Version:     "",
+	CreatedBy:   "Unknown",
+	Version:     "1",
 	Description: "A two player variant on the classical map.",
 	SoloSCCount: func(*state.State) int { return 18 },
 	Rules: `The first to 18 Supply Centers (SC) is the winner. 
