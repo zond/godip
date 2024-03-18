@@ -1,4 +1,8 @@
-runtime: go111
+runtime: go120
+app_engine_apis: true
+automatic_scaling:
+    max_idle_instances: 1
+    max_concurrent_requests: 100
 
 handlers:
 - url: /.*
