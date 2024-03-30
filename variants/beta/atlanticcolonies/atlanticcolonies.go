@@ -6,6 +6,7 @@ import (
 	"github.com/zond/godip/state"
 	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
+	"github.com/zond/godip/variants/empiresandcoalitions"
 )
 
 const (
@@ -37,10 +38,10 @@ var AtlanticColoniesVariant = common.Variant{
 	SVGVersion: "1",
 	SVGUnits: map[godip.UnitType]func() ([]byte, error){
 		godip.Army: func() ([]byte, error) {
-			return classical.Asset("svg/army.svg")
+			return empiresandcoalitions.Asset("svg/army.svg")
 		},
 		godip.Fleet: func() ([]byte, error) {
-			return classical.Asset("svg/fleet.svg")
+			return empiresandcoalitions.Asset("svg/fleet.svg")
 		},
 	},
 	CreatedBy: "Safari",
