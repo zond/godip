@@ -299,7 +299,7 @@ func AtlanticColoniesGraph() *graph.Graph {
 		// Soyo
 		Prov("soy").Conn("ang", godip.Coast...).Conn("kon", godip.Coast...).Conn("sea", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// Falkland Islands
-		Prov("fal").Conn("soo", godip.Sea).Conn("dra", godip.Sea).Flag(godip.Coast...).
+		Prov("fal").Conn("soo", godip.Sea).Conn("dra", godip.Sea).Flag(godip.Coast...).SC(godip.Neutral).
 		// South Morocco
 		Prov("som").Conn("wsa", godip.Coast...).Conn("mis", godip.Land).Conn("nom", godip.Land).Conn("maz", godip.Coast...).Conn("eur", godip.Sea).Conn("cai", godip.Coast...).Flag(godip.Coast...).
 		// Hispaniola
