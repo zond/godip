@@ -1,13 +1,14 @@
 package variants
 
 import (
-	"github.com/zond/godip/variants/beta/gatewaywest"
-	"github.com/zond/godip/variants/classicalcrowded"
-	"github.com/zond/godip/variants/beta/threekingdoms"
 	"github.com/zond/godip/variants/ancientmediterranean"
+	"github.com/zond/godip/variants/beta/atlanticcolonies"
+	"github.com/zond/godip/variants/beta/gatewaywest"
+	"github.com/zond/godip/variants/beta/threekingdoms"
 	"github.com/zond/godip/variants/canton"
 	"github.com/zond/godip/variants/chaos"
 	"github.com/zond/godip/variants/classical"
+	"github.com/zond/godip/variants/classicalcrowded"
 	"github.com/zond/godip/variants/coldwar"
 	"github.com/zond/godip/variants/common"
 	"github.com/zond/godip/variants/empiresandcoalitions"
@@ -36,6 +37,7 @@ func init() {
 var Variants = map[string]common.Variant{}
 
 var OrderedVariants = []common.Variant{
+	atlanticcolonies.AtlanticColoniesVariant,
 	gatewaywest.GatewayWestVariant,
 	classicalcrowded.ClassicalCrowdedVariant,
 	threekingdoms.ThreeKingdomsVariant,
