@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  godip-development:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: godip-development
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    volumes:
+      - .:/go/src/app
+    tty: true
