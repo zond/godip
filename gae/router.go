@@ -24,11 +24,6 @@ func preflight(w http.ResponseWriter, r *http.Request) {
 func resolve(w http.ResponseWriter, r *http.Request) {
 	corsHeaders(w)
 
-	if _, ok := r.URL.Query()["options"]; ok {
-		http.Error(w, "Query parameter 'options' is not allowed", 400)
-		return
-	}
-
 	variantName := mux.Vars(r)["variant"]
 	variant, found := variants.Variants[variantName]
 	if !found {
