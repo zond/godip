@@ -5,6 +5,7 @@ import (
 	"github.com/zond/godip/variants/classicalcrowded"
 	"github.com/zond/godip/variants/beta/threekingdoms"
 	"github.com/zond/godip/variants/ancientmediterranean"
+	"github.com/zond/godip/variants/beta/threekingdoms"
 	"github.com/zond/godip/variants/canton"
 	"github.com/zond/godip/variants/chaos"
 	"github.com/zond/godip/variants/classical"
@@ -40,6 +41,7 @@ var OrderedVariants = []common.Variant{
 	classicalcrowded.ClassicalCrowdedVariant,
 	threekingdoms.ThreeKingdomsVariant,
 	ancientmediterranean.AncientMediterraneanVariant,
+	threekingdoms.ThreeKingdomsVariant,
 	canton.CantonVariant,
 	chaos.ChaosVariant,
 	classical.ClassicalVariant,
