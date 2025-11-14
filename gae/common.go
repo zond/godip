@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/zond/godip"
 	"github.com/zond/godip/state"
-	"github.com/zond/godip/variants/classical"
 	"github.com/zond/godip/variants/common"
 )
 
@@ -42,11 +41,11 @@ func NewPhase(state *state.State) *Phase {
 }
 
 func (self *Phase) State(variant common.Variant) (*state.State, error) {
-	parsedOrders, err := classical.Parser.ParseAll(self.Orders)
+	parsedOrders, err := variant.Parser.ParseAll(self.Orders)
 	if err != nil {
 		return nil, err
 	}
-	return classical.Blank(variant.Phase(
+	return variant.Blank(variant.Phase(
 		self.Year,
 		self.Season,
 		self.Type,
