@@ -63,6 +63,36 @@ $ curl -X POST --data '{"Season":"Spring","Year":1901,"Type":"Movement","Units":
 
 See https://github.com/zond/godip/tree/master/gae for exact implementation details.
 
+### Deploying to production
+
+The production service runs on Google App Engine. To deploy changes manually:
+
+#### Prerequisites
+
+- Google Cloud SDK (`gcloud` CLI) installed
+- Authentication with appropriate permissions to the `godip-adjudication` project
+
+#### Deployment steps
+
+```bash
+# Navigate to the GAE directory
+cd gae
+
+# Authenticate with Google Cloud (if not already logged in)
+gcloud auth login
+
+# Set the correct project
+gcloud config set project godip-adjudication
+
+# Deploy to production
+gcloud app deploy app.yaml
+
+# Verify deployment
+gcloud app logs read --limit 50
+```
+
+Note: There is no automated deployment from CI/CD. GitHub Actions only runs tests on push/PR.
+
 ### Variant support
 
 Currently only a few variants are supported.
