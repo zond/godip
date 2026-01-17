@@ -12,7 +12,7 @@ import yaml
 from string import Template
 
 # The name of the variant
-VARIANT = 'GatewayWest'
+VARIANT = 'Atlantic Colonies'
 
 # Set to true to create an output map where it's easier to check the regions and centers have the right ids.
 OVERRIDE_CHECK_MODE = False
@@ -35,8 +35,8 @@ LAND_COLOR = '#f4d7b5'
 #THICK = 2.225
 THICK = 1.1125
 # The thickness of thin lines
-#THIN = 1
-THIN = 0.5
+THIN = 1
+#THIN = 0.5
 
 IMPASSABLE_PATTERN = '<pattern id="impassable" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(35)"><line x1="0" y="0" x2="0" y2="16" stroke="#000000" stroke-opacity="0.1" stroke-width="18" id="impassableLine" /></pattern>'
 IMPASSABLE_STYLE = 'fill:url(#impassable);fill-rule:evenodd;stroke:#000000;stroke-width:1'
@@ -221,7 +221,7 @@ def getEdges(root):
                 toolStart = loc
                 # Needed in case the x and y coordinates are space separated.
                 xCoord = None
-                if tool == 'c':
+                if tool in ['c', 'C']:
                     # Coordinates for the c tool come in threes
                     cIgnoreCount = 0
                 elif tool in ['z', 'Z']:

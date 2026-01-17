@@ -1,0 +1,31 @@
+# The first year of the game
+START_YEAR: 1673
+# The starting units
+START_UNITS:
+  Portugal:
+    Army: ['Mazagan', 'Maranhao']
+    Fleet: ['Sao Salvador', 'Azores Islands', 'Rio de Janeiro', 'Angola', 'Portugal']
+  Spain:
+    Army: ['Lima', 'Mexico City', 'Santiago', 'Canary Islands']
+    Fleet: ['Merida', 'Gibraltar', 'Valencia']
+  England:
+    Army: ['Moose Fort', 'Georgia']
+    Fleet: ['London', 'Bristol', 'New England', 'Jamaica', 'Cape of Good Hope']
+  France:
+    Army: ['St. Louis', 'Montreal', 'Cayenne']
+    Fleet: ['Brest', 'Marseilles', 'Windward Islands', 'Goree']
+# Abbreviations that should be used (rather than letting the script try to guess an abbreviation).
+ABBREVIATIONS:
+  'Southwestern Atlantic': 'swa'
+# Overrides to swap centers. This only needs to contain something if the greedy algorithm fails.
+CENTER_OVERRIDES: [
+  ["North Morocco", "Strait of Gibraltar"],
+  ["Iroquois Territory", "New England"],
+  ["Mexico City", "Sierra Madre"],
+]
+# Overrides to swap region names. This only needs to contain something if the greedy algorithm fails.
+REGION_OVERRIDES: [
+  ["Bahamas", "Bermuda Triangle"],
+  ["Hudson Bay", "East Rupert's Land"],
+  ["Mexico City", "Sierra Madre"],
+]
